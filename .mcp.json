@@ -5,6 +5,12 @@
       "command": "C:\\Users\\pgr40\\.local\\bin\\blender-mcp.exe",
       "args": [],
       "env": {}
+    },
+    "unreal": {
+      "type": "stdio",
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": ["C:\\Users\\pgr40\\AppData\\Roaming\\npm\\node_modules\\@runreal\\unreal-mcp\\dist\\bin.js"],
+      "env": {}
     }
   }
 }
