@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "blender": {
+      "type": "stdio",
+      "command": "C:\\Users\\pgr40\\.local\\bin\\blender-mcp.exe",
+      "args": [],
+      "env": {}
+    }
+  }
+}
