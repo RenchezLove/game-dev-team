@@ -5,6 +5,8 @@ logs/*
 renders/*.png
 # локальные настройки и секреты
 .claude/settings.local.json
+# маркер QA-гейта — локальный, создаётся game-lead вручную, не коммитится
+.claude/QA_OK
 *.key
 *.keys.json
 .env

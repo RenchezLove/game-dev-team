@@ -1,1 +1,47 @@
-{"env":{"CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS":"1"},"permissions":{"defaultMode":"acceptEdits","allow":["Bash(git:*)","Bash(mkdir:*)","Bash(ls:*)","Bash(cp:*)","Bash(mv:*)","mcp__blender__*"],"ask":["Bash(git push:*)"],"deny":["Bash(git push --force:*)","Bash(git push -f:*)","Bash(git reset --hard:*)","Bash(git checkout .:*)","Bash(git clean:*)","Bash(rm -rf:*)","Bash(rm -fr:*)","Bash(curl:*)","Bash(wget:*)","Read(./.env)","Read(./.env.*)","Read(./secrets/**)"],"disableBypassPermissionsMode":"disable"}}
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(git:*)",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "mcp__blender__*"
+    ],
+    "ask": [
+      "Bash(git push:*)"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git checkout .:*)",
+      "Bash(git clean:*)",
+      "Bash(rm -rf:*)",
+      "Bash(rm -fr:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ],
+    "disableBypassPermissionsMode": "disable"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude/hooks/qa-gate.ps1"
+          }
+        ]
+      }
+    ]
+  }
+}
