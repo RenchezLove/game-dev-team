@@ -26,3 +26,9 @@
 - ИЗВЕСТНЫЙ НЕ-БЛОКЕР (зафиксировано): MSVC 14.44.35222 вместо предпочитаемого UE 5.5 14.38.33130 → UBT печатает варнинг «not a preferred version». Это ТОЛЬКО варнинг, сборка чистая (exit 0, ошибок нет). Действие — доустановить MSVC 14.38 side-by-side toolset — выполнять ТОЛЬКО если в будущем всплывут ICE (internal compiler error) или странные крэши компилятора. Сейчас ничего делать не нужно.
 - ВАЖНО про запуск .bat из Bash-тула: НЕ оборачивать в `cmd.exe /c '...'` с редиректами — quoting ломается, команда не выполняется (получишь ложный exit 0 от echo). Запускать Build.bat напрямую, редирект `> log 2>&1` отдавать самому bash. Запускать в background (первая сборка может превысить лимит вызова).
 - Перед C++-сборкой убедиться, что `UnrealEditor.exe` не запущен (иначе DLL модуля залочена). В этот раз процесса не было.
+
+### FULL REBUILD ContrarySurvivorEditor (2026-06-07, реальный лог)
+- РЕЗУЛЬТАТ: PASS. exit code 0. Команда: `Rebuild.bat ContrarySurvivorEditor Win64 Development -Project=... -WaitMutex -FromMsBuild`. Лог: `E:\game-dev-team\logs\rebuild_ContrarySurvivorEditor.log`.
+- ПОЛНОТА: Clean прошёл («Cleaning ContrarySurvivorEditor binaries...», «no existing makefile»). 32 action: 28 `Compile [x64]` (все 13 .cpp модуля + .gen.cpp + init.gen + PerModuleInline.gen + SharedPCH), 2 Link (.lib/.dll), WriteMetadata. Собран `UnrealEditor-ContrarySurvivor-0001.dll/.lib`.
+- Toolchain: MSVC 14.44.35222 (соответствует 14.44 на машине). Ошибок 0. Единственный «Warning» — VS compiler not preferred version (информационный, НЕ warning-as-error). Время: 111.47s (UBA local 45.52s).
+- ЗАМЕЧАНИЕ по правам: запуск Rebuild.bat в background (`run_in_background`) был DENY 3 раза; foreground-запуск с timeout 600000 прошёл. Rebuild только модуля проекта укладывается в ~111s, foreground приемлем.
