@@ -78,7 +78,7 @@ AI-генератора музыки нативного нет. Нативный
 - В конфигах **проекта** (`E:/ContrarySurvior/ContrarySurvivor/Saved/Config/**`, `.../Config/**`) ключа **нет** (рекурсивный поиск — пусто). Значит **в систему контроля версий не попадает** и на другой машине/у другого пользователя его нужно **выставлять заново вручную** (Editor Preferences → General → Performance → снять «Use Less CPU when in Background»).
 - Гипотеза для переноса в репо (НЕ проверено, требует дизайн-решения): значение потенциально можно зафиксировать на уровне проекта через `Config/DefaultEditorPerProjectUserSettings.ini` с той же секцией/ключом — такого файла в репо сейчас нет. Применять только после живой проверки, что project-default перебивает per-user значение.
 
-## ADR-013 — ContrarySurvivor: риск дрейфа AFS SecurityToken в публичном репо (follow-up отложен)
+## ADR-013 — ContrarySurvivor: риск дрейфа AFS SecurityToken в публичном репо (ЗАКРЫТО — риск принят)
 Контекст: проектные `Config/*.ini` репозитория **ContrarySurvivor** (`github.com/RenchezLove/ContrarySurvivor`, **публичный**) заведены под VCS, чтобы зафиксировать настройки runreal MCP (`bRemoteExecution=True`, `RemoteExecutionMulticastBindAddress=0.0.0.0`). При этом в `Config/DefaultEngine.ini`, секция `[/Script/AndroidFileServerEditor.AndroidFileServerRuntimeSettings]`, лежал dev-токен `SecurityToken` (плагин **Android File Server**, AFS). Перед первым трекингом значение обнулено (`SecurityToken=`) — в git-историю реальный токен **не попадал** (коммит `f7542ad`); сквозной скан остальных `Config/*.ini` секретов не нашёл.
 
 **Решение (правило):** секрет в репозиторий не кладём — независимо от публичности репо. Это не разовая мера, а постоянное правило для проектных конфигов под VCS.
