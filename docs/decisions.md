@@ -56,3 +56,24 @@ AI-генератора музыки нативного нет. Нативный
 Эксплуатационные правила для сервера blender-mcp из [ADR-002](#adr-002--modeler-3d-blender-через-официальный-сервер-blender-mcp-cli-уровень):
 - **Один клиент на сокет 9876.** Desktop-коннектор Blender держать **выключенным**: к аддону Blender Lab подключается один клиент. CLI-сервер `blender` и Desktop-коннектор одновременно на `localhost:9876` конфликтуют — оставляем только CLI-проводку.
 - **`render_viewport_to_path` игнорирует `output_path`.** Инструмент пишет PNG в свой серверный temp (вида `…\AppData\Local\Temp\blender_*\blender_mcp\…`) и возвращает фактический путь в `filepath`; переданный `output_path` на место записи не влияет. **После рендера копировать из возвращённого `filepath` в целевую папку проекта** и подтверждать наличие файла там (протокол B). Проверено: рендер сцены `Scene` 1920×1080 → temp, скопирован в `E:\game-dev-team\logs\blender_viewport.png` (1 151 657 байт).
+
+## ADR-012 — unreal-operator: автономный скриншот без фокуса окна (take_high_res_screenshot)
+Рабочий рецепт **автономного** снимка редактора UE 5.5 **без вывода окна в фокус и без кликов** — для отдаваемых артефактов. Уточняет/дополняет квирк «Скриншоты» из [ADR-003](#adr-003--unreal-operator-mcp-сервер-runrealunreal-mcp-ue-pythonremote-execution-под-капотом): рецепт с `HighResShot`+фокус остаётся валидным для ручного снимка, ниже — автономная альтернатива.
+
+**Рецепт (проверен живыми вызовами 2026-06-07):**
+1. Через `editor_run_python` вызвать `unreal.AutomationLibrary.take_high_res_screenshot(W, H, out)`, где `out` — **постоянный** путь (напр. `<ProjectSavedDir>/Screenshots/WindowsEditor/auto_shot.png`, папку создать `os.makedirs(..., exist_ok=True)`).
+2. Готовность проверять **по факту записи файла**: `os.path.exists(p)` + `os.path.getsize(p)` через `editor_run_python`. Файл пишется отложенно (по завершении кадра), обычно ~3–5 с; при NOT_YET — подождать и перепроверить.
+3. **НЕ использовать `editor_take_screenshot`** — рендерит в эфемерный tmp, который harness удаляет до следующего вызова (для отдаваемого артефакта непригоден).
+4. **НЕ использовать `HighResShot`** для автономного режима — high-res пайплайн требует фокуса окна, без фокуса не тикает и `is_task_done()` висит.
+
+**Обязательное предусловие (иначе файл не запишется):**
+- Настройка редактора **"Use Less CPU when in Background" = OFF** (троттлинг CPU в фоне выключен).
+- Окно редактора **открыто и НЕ свёрнуто** (свёрнутое/троттлящее окно не тикает кадры → `take_high_res_screenshot` ставит запрос в очередь, но PNG не пишется).
+
+**Доказательство (протокол B):** 1-й прогон 2026-06-07 при включённом троттлинге → `NOT_YET` (файл не появился за ~6 с). После OFF + развёрнутого окна — повтор тех же шагов → `OK`, `E:/ContrarySurvior/ContrarySurvivor/Saved/Screenshots/WindowsEditor/auto_shot.png`, **1 594 187 байт** (подтверждён `os.path.getsize`).
+
+**Ограничение: предусловие машинное, не проектное — в репо не попадает.**
+- "Use Less CPU when in Background" — это ключ `bThrottleCPUWhenNotForeground` в секции `[/Script/UnrealEd.EditorPerformanceSettings]` (класс `UEditorPerformanceSettings`, модуль `UnrealEd`).
+- Хранится в **per-user/машинном** файле `%LOCALAPPDATA%\UnrealEngine\5.5\Saved\Config\WindowsEditor\EditorSettings.ini` (фактически найдено: `C:\Users\pgr40\AppData\Local\UnrealEngine\5.5\Saved\Config\WindowsEditor\EditorSettings.ini`, строка `bThrottleCPUWhenNotForeground=False`).
+- В конфигах **проекта** (`E:/ContrarySurvior/ContrarySurvivor/Saved/Config/**`, `.../Config/**`) ключа **нет** (рекурсивный поиск — пусто). Значит **в систему контроля версий не попадает** и на другой машине/у другого пользователя его нужно **выставлять заново вручную** (Editor Preferences → General → Performance → снять «Use Less CPU when in Background»).
+- Гипотеза для переноса в репо (НЕ проверено, требует дизайн-решения): значение потенциально можно зафиксировать на уровне проекта через `Config/DefaultEditorPerProjectUserSettings.ini` с той же секцией/ключом — такого файла в репо сейчас нет. Применять только после живой проверки, что project-default перебивает per-user значение.
