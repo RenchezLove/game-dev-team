@@ -18,3 +18,11 @@
 - Проект ContrarySurvivor: `E:\ContrarySurvior\ContrarySurvivor\ContrarySurvivor.uproject` (EngineAssociation "5.5"). C++ проект: модуль `ContrarySurvivor` (Runtime), есть `ContrarySurvivor.Build.cs`, `ContrarySurvivor.Target.cs`, `ContrarySurvivorEditor.Target.cs`. Папки Characters/Controllers/Public/Private с .h/.cpp. Plugin: ModelingToolsEditorMode (Editor).
 - Вывод: машина к сборке UE C++ готова. Сборку НЕ запускал (задача — только инвентаризация).
 - pwsh (PowerShell 7) отсутствует; Windows-команды гнать через `powershell.exe -NoProfile`. Bash-тул = git-bash, `&`/`${env:..}` синтаксис там не работает напрямую.
+
+### Ш6 — контрольная сборка (2026-06-07, реальный лог)
+- РЕЗУЛЬТАТ: PASS. UBT exit code 0. Таргет `ContrarySurvivorEditor`, Development Win64.
+- Лог: `E:\game-dev-team\logs\build_ContrarySurvivorEditor.log`. Собраны `UnrealEditor-ContrarySurvivor-0079.dll`/`.lib` в `Binaries\Win64`. Время: 27.21s (UBA local 5.94s). Скомпилирован `ContrarySurvivorPlayerController.cpp` (adaptive non-unity по git working set).
+- Editor target name подтверждён чтением: класс `ContrarySurvivorEditorTarget`, `Type=TargetType.Editor`, `ExtraModuleNames=ContrarySurvivor`.
+- ИЗВЕСТНЫЙ НЕ-БЛОКЕР (зафиксировано): MSVC 14.44.35222 вместо предпочитаемого UE 5.5 14.38.33130 → UBT печатает варнинг «not a preferred version». Это ТОЛЬКО варнинг, сборка чистая (exit 0, ошибок нет). Действие — доустановить MSVC 14.38 side-by-side toolset — выполнять ТОЛЬКО если в будущем всплывут ICE (internal compiler error) или странные крэши компилятора. Сейчас ничего делать не нужно.
+- ВАЖНО про запуск .bat из Bash-тула: НЕ оборачивать в `cmd.exe /c '...'` с редиректами — quoting ломается, команда не выполняется (получишь ложный exit 0 от echo). Запускать Build.bat напрямую, редирект `> log 2>&1` отдавать самому bash. Запускать в background (первая сборка может превысить лимит вызова).
+- Перед C++-сборкой убедиться, что `UnrealEditor.exe` не запущен (иначе DLL модуля залочена). В этот раз процесса не было.
