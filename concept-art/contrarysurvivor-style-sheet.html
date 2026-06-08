@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>ContrarySurvivor — Style Sheet</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1600px; height: 1000px;
+    background: #14110D;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #C9C3B2;
+    overflow: hidden;
+  }
+  .sheet {
+    width: 1600px; height: 1000px;
+    padding: 28px 36px;
+    display: flex; flex-direction: column;
+    /* грязный виньет-фон */
+    background:
+      radial-gradient(120% 90% at 50% 0%, #2A271D 0%, #14110D 70%),
+      repeating-linear-gradient(45deg, rgba(0,0,0,0.10) 0 2px, transparent 2px 5px);
+  }
+  /* ===== HEADER ===== */
+  .head { display: flex; align-items: baseline; gap: 18px; border-bottom: 2px solid #3B3A2E; padding-bottom: 14px; }
+  .head h1 { font-size: 30px; letter-spacing: 0.5px; color: #D6CFBC; font-weight: 700; }
+  .head h1 .acc { color: #C6CE3A; }
+  .badge {
+    font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: #14110D; background: #C6CE3A; padding: 3px 10px; border-radius: 3px;
+  }
+  .badge.warn { background: #A2381F; color: #EDE6D4; }
+  .sub { margin-left: auto; font-size: 13px; color: #8A857A; }
+
+  .section-title {
+    font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+    color: #8A857A; margin: 22px 0 10px; font-weight: 700;
+  }
+  .section-title span { color: #6B5836; }
+
+  /* ===== PALETTE ===== */
+  .palette { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; }
+  .swatch { border: 1px solid #2A271D; border-radius: 4px; overflow: hidden; }
+  .chip { height: 96px; }
+  .meta { padding: 8px 9px; background: #1B1812; }
+  .meta .role { font-size: 12px; font-weight: 700; color: #C9C3B2; line-height: 1.25; }
+  .meta .hex { font-size: 12px; color: #8A857A; font-family: Consolas, monospace; margin-top: 3px; }
+
+  /* ===== MOODBOARD ===== */
+  .mood { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .tile { height: 168px; border-radius: 5px; border: 1px solid #2A271D; position: relative; overflow: hidden; }
+  .tile .label {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 8px 11px; font-size: 14px; font-weight: 700; letter-spacing: 0.3px;
+    color: #EDE6D4; background: linear-gradient(transparent, rgba(0,0,0,0.78));
+  }
+  .tile .label small { display: block; font-weight: 400; font-size: 11px; color: #C9C3B2; opacity: 0.85; margin-top: 2px; }
+  .t-rust {
+    background:
+      radial-gradient(60% 80% at 30% 25%, #7A3A18 0%, transparent 60%),
+      radial-gradient(50% 70% at 75% 70%, #5A2A12 0%, transparent 55%),
+      repeating-linear-gradient(115deg, #4A2A14 0 6px, #6B3A1C 6px 11px);
+  }
+  .t-concrete {
+    background:
+      radial-gradient(70% 90% at 40% 30%, #9A958A 0%, #6B675E 70%),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.06) 0 3px, transparent 3px 9px);
+  }
+  .t-foliage {
+    background:
+      radial-gradient(60% 80% at 65% 35%, #6E7A4C 0%, transparent 60%),
+      linear-gradient(160deg, #3E4630 0%, #5E6B52 55%, #2E3322 100%);
+  }
+  .t-fog {
+    background:
+      linear-gradient(180deg, #8F9388 0%, #5E6358 60%, #3A3E36 100%),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 8px, transparent 8px 20px);
+  }
+
+  /* ===== SILHOUETTES ===== */
+  .silos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .silo {
+    height: 240px; border-radius: 5px; border: 1px solid #2A271D;
+    background: linear-gradient(180deg, #20201A 0%, #15140F 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .silo svg { display: block; }
+  .silo .cap {
+    position: absolute; bottom: 10px; font-size: 13px; color: #8A857A; letter-spacing: 0.5px;
+  }
+  .foot { margin-top: auto; padding-top: 14px; font-size: 12px; color: #5C584E; border-top: 1px solid #20201A; }
+  .foot b { color: #8A857A; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="head">
+    <h1>Contrary<span class="acc">Survivor</span> — Style Sheet</h1>
+    <span class="badge">проба / на отбор</span>
+    <span class="badge warn">черновик</span>
+    <span class="sub">top-down survival shooter &middot; настроение STALKER / Last Day on Earth</span>
+  </div>
+
+  <!-- PALETTE -->
+  <div class="section-title">Палитра <span>// предложение на отбор, не утверждённый канон</span></div>
+  <div class="palette">
+    <div class="swatch"><div class="chip" style="background:#14110D"></div><div class="meta"><div class="role">Тени / уголь</div><div class="hex">#14110D</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#3B3A2E"></div><div class="meta"><div class="role">База / земля-хаки</div><div class="hex">#3B3A2E</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#6B5836"></div><div class="meta"><div class="role">Грязь / бурая охра</div><div class="hex">#6B5836</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#5E6B52"></div><div class="meta"><div class="role">Листва / болото</div><div class="hex">#5E6B52</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#8A857A"></div><div class="meta"><div class="role">Бетон / выцветший</div><div class="hex">#8A857A</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#707479"></div><div class="meta"><div class="role">Металл / сталь</div><div class="hex">#707479</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#C6CE3A"></div><div class="meta"><div class="role">Акцент: радиация</div><div class="hex">#C6CE3A</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#A2381F"></div><div class="meta"><div class="role">Акцент: опасность / кровь</div><div class="hex">#A2381F</div></div></div>
+  </div>
+
+  <!-- MOODBOARD -->
+  <div class="section-title">Мини-мудборд <span>// фактуры настроения</span></div>
+  <div class="mood">
+    <div class="tile t-rust"><div class="label">Ржавчина / распад<small>металл, потёки, окисел — главный «возраст» мира</small></div></div>
+    <div class="tile t-concrete"><div class="label">Бетон / руины<small>выцветшие стены, сколы, пыль, индустрия</small></div></div>
+    <div class="tile t-foliage"><div class="label">Листва-хаки<small>заросшая природа отвоёвывает руины</small></div></div>
+    <div class="tile t-fog"><div class="label">Туман / морок<small>низкая видимость, угроза, приглушённость</small></div></div>
+  </div>
+
+  <!-- SILHOUETTES -->
+  <div class="section-title">Силуэты <span>// ключевые формы, грубая заливка</span></div>
+  <div class="silos">
+
+    <div class="silo">
+      <svg width="120" height="180" viewBox="0 0 120 180">
+        <!-- выживший: голова, капюшон, рюкзак, ноги -->
+        <g fill="#C9C3B2">
+          <ellipse cx="58" cy="26" rx="17" ry="19"/>
+          <path d="M40 24 Q58 2 76 24 L72 30 Q58 16 44 30 Z"/>
+          <path d="M44 44 L74 44 L80 110 L72 116 L70 70 L66 116 L52 116 L48 70 L46 116 L38 110 Z"/>
+          <rect x="74" y="50" width="20" height="40" rx="6" fill="#6B5836"/>
+          <path d="M52 116 L60 116 L58 172 L48 172 Z"/>
+          <path d="M62 116 L70 116 L74 172 L64 172 Z"/>
+        </g>
+      </svg>
+      <div class="cap">Выживший (с рюкзаком)</div>
+    </div>
+
+    <div class="silo">
+      <svg width="120" height="180" viewBox="0 0 120 180">
+        <!-- бочка / контейнер с радиац. полосой -->
+        <g>
+          <path d="M34 40 Q60 32 86 40 L86 150 Q60 158 34 150 Z" fill="#707479"/>
+          <ellipse cx="60" cy="40" rx="26" ry="8" fill="#8A857A"/>
+          <rect x="34" y="70" width="52" height="14" fill="#C6CE3A"/>
+          <rect x="34" y="112" width="52" height="6" fill="#3B3A2E"/>
+          <ellipse cx="60" cy="93" rx="14" ry="14" fill="#A2381F"/>
+          <ellipse cx="60" cy="93" rx="5" ry="5" fill="#14110D"/>
+        </g>
+      </svg>
+      <div class="cap">Бочка / контейнер</div>
+    </div>
+
+    <div class="silo">
+      <svg width="120" height="180" viewBox="0 0 120 180">
+        <!-- сухое дерево -->
+        <g fill="#2E2A1E" stroke="#2E2A1E">
+          <path d="M55 172 L55 80 L65 80 L65 172 Z"/>
+          <path d="M60 96 L30 60 M60 96 L40 78" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M60 84 L92 52 M60 84 L80 70" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M60 70 L44 34 M60 64 L74 30 M60 60 L60 24" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M44 34 L34 18 M74 30 L86 16 M60 24 L52 8" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <div class="cap">Сухое дерево</div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <b>ContrarySurvivor</b> &middot; concept-artist &middot; статус: ЧЕРНОВИК на отбор &middot;
+    диздок не подключён — палитра и фактуры предложены художником, требуют утверждения game-lead / Рината.
+  </div>
+
+</div>
+</body>
+</html>
