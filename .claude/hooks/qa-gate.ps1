@@ -36,8 +36,10 @@ if ([string]::IsNullOrWhiteSpace($cmd)) { exit 0 }
 $branch = ''
 try { $branch = (& git rev-parse --abbrev-ref HEAD 2>$null).Trim() } catch { $branch = '' }
 
-# режем на отдельные выражения по разделителям оболочки
-$segments = [regex]::Split($cmd, '\r?\n|&&|\|\||;|\||&')
+# режем на отдельные выражения по разделителям оболочки.
+# Включаем скобки подоболочек ( ) и редиректы < > — иначе трейлинг-метасимвол
+# приклеивается к токену рефспека: `(git push origin master)` -> 'master)' != 'master'.
+$segments = [regex]::Split($cmd, '\r?\n|&&|\|\||;|\||&|\(|\)|<|>')
 
 $blocked = $false
 $reason  = ''
@@ -77,6 +79,8 @@ foreach ($seg in $segments) {
             foreach ($rs in $refspecs) {
                 # цель = часть после ':' (src:dst), иначе сам реф
                 if ($rs -match ':') { $dst = ($rs -split ':', 2)[1] } else { $dst = $rs }
+                # подчищаем налипшие шелл-метасимволы по краям (защита от сегментации)
+                $dst = $dst -replace '^[\s\(\{]+', '' -replace '[\s\)\}<>&|;]+$', ''
                 $dst = $dst -replace '^refs/heads/', ''
                 if ($dst -eq 'HEAD') { $dst = $branch }   # HEAD → текущая ветка
                 if ($dst -eq 'master') { $pushesMaster = $true; break }
