@@ -36,8 +36,10 @@ if ([string]::IsNullOrWhiteSpace($cmd)) { exit 0 }
 $branch = ''
 try { $branch = (& git rev-parse --abbrev-ref HEAD 2>$null).Trim() } catch { $branch = '' }
 
-# режем на отдельные выражения по разделителям оболочки
-$segments = [regex]::Split($cmd, '\r?\n|&&|\|\||;|\||&')
+# режем на отдельные выражения по разделителям оболочки.
+# Включаем скобки подоболочек ( ) и редиректы < > — иначе трейлинг-метасимвол
+# приклеивается к токену рефспека: `(git push origin master)` -> 'master)' != 'master'.
+$segments = [regex]::Split($cmd, '\r?\n|&&|\|\||;|\||&|\(|\)|<|>')
 
 $blocked = $false
 $reason  = ''
@@ -46,12 +48,44 @@ foreach ($seg in $segments) {
     # срезаем ведущие скобки/пробелы подоболочек: ( { пробелы
     $s = ($seg -replace '^[\s\(\{]+', '').Trim()
 
-    # --- git push в master/origin master ---
+    # --- git push, обновляющий origin/master ---
+    # Блокируем ТОЛЬКО реальное обновление ветки master на remote. Разбираем
+    # рефспеки и смотрим на ЦЕЛЬ пуша, а не на наличие подстроки 'master':
+    #   - bare push / 'git push origin' / 'git push -u origin'  → текущая ветка
+    #   - 'git push origin master' / 'HEAD:master' / ':master'  → цель master
+    #   - 'git push origin --delete feature/x'                  → удаление чужой
+    #     ветки на remote, master НЕ трогает → НЕ блокируем (это и был баг Ш8).
     if ($s -match '^git\s+push\b') {
-        # явный master в рефспеке (origin master, HEAD:master, origin/master)
-        $pushesMaster = $s -match '\bmaster\b'
-        # bare push / push origin / push -u origin HEAD, когда мы стоим на master
-        if (-not $pushesMaster -and $branch -eq 'master') { $pushesMaster = $true }
+        $tok = @([regex]::Split($s, '\s+') | Where-Object { $_ -ne '' })
+        $rest = @()
+        if ($tok.Count -gt 2) { $rest = @($tok[2..($tok.Count - 1)]) }
+
+        $isDelete   = $false
+        $positional = @()
+        foreach ($t in $rest) {
+            if ($t -eq '--delete' -or $t -eq '-d') { $isDelete = $true; continue }
+            if ($t -like '-*') { continue }   # прочие опции/флаги пропускаем
+            $positional += $t
+        }
+        # первый позиционный аргумент — repository (remote); остальные — рефспеки
+        $refspecs = @()
+        if ($positional.Count -gt 1) { $refspecs = @($positional[1..($positional.Count - 1)]) }
+
+        $pushesMaster = $false
+        if ($refspecs.Count -eq 0) {
+            # нет рефспека: push текущей ветки (delete без рефспека невалиден — не блокируем)
+            if (-not $isDelete -and $branch -eq 'master') { $pushesMaster = $true }
+        } else {
+            foreach ($rs in $refspecs) {
+                # цель = часть после ':' (src:dst), иначе сам реф
+                if ($rs -match ':') { $dst = ($rs -split ':', 2)[1] } else { $dst = $rs }
+                # подчищаем налипшие шелл-метасимволы по краям (защита от сегментации)
+                $dst = $dst -replace '^[\s\(\{]+', '' -replace '[\s\)\}<>&|;]+$', ''
+                $dst = $dst -replace '^refs/heads/', ''
+                if ($dst -eq 'HEAD') { $dst = $branch }   # HEAD → текущая ветка
+                if ($dst -eq 'master') { $pushesMaster = $true; break }
+            }
+        }
         if ($pushesMaster) { $blocked = $true; $reason = 'git push в master/origin master'; break }
     }
 
