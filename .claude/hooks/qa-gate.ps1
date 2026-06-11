@@ -41,6 +41,34 @@ try { $branch = (& git rev-parse --abbrev-ref HEAD 2>$null).Trim() } catch { $br
 # приклеивается к токену рефспека: `(git push origin master)` -> 'master)' != 'master'.
 $segments = [regex]::Split($cmd, '\r?\n|&&|\|\||;|\||&|\(|\)|<|>')
 
+# T7b (defense-in-depth): the hook computes $branch at PreToolUse time, i.e.
+# BEFORE the command runs. A bundled `git checkout master && git merge X` would
+# evade the branch check (HEAD still on the feature branch when the hook fires).
+# Pre-scan: if the command itself switches TO master (git checkout/switch master),
+# treat the effective branch as master for the merge/bare-push checks below.
+# (Authority remains git-native; this is the early filter.)
+$switchToMaster = $false
+foreach ($seg in $segments) {
+    $s2 = ($seg -replace '^[\s\(\{]+', '').Trim()
+    if ($s2 -match '^git\s+(checkout|switch)\b') {
+        $tok2 = @([regex]::Split($s2, '\s+') | Where-Object { $_ -ne '' })
+        $args2 = @()
+        if ($tok2.Count -gt 2) { $args2 = @($tok2[2..($tok2.Count - 1)]) }
+        $skipNext = $false
+        foreach ($a in $args2) {
+            if ($skipNext) { $skipNext = $false; continue }
+            # -b/-B/-c/-C NAME CREATE a branch -> NAME is not a switch target
+            if ($a -match '^-[bBcC]$') { $skipNext = $true; continue }
+            if ($a -like '-*') { continue }
+            $name = ($a -replace '^refs/heads/','') -replace '[\s\)\}<>&|;]+$',''
+            if ($name -eq 'master') { $switchToMaster = $true; break }
+        }
+    }
+    if ($switchToMaster) { break }
+}
+# effective "are we (going to be) on master" for this command
+$onMaster = ($branch -eq 'master') -or $switchToMaster
+
 $blocked = $false
 $reason  = ''
 
@@ -74,7 +102,7 @@ foreach ($seg in $segments) {
         $pushesMaster = $false
         if ($refspecs.Count -eq 0) {
             # нет рефспека: push текущей ветки (delete без рефспека невалиден — не блокируем)
-            if (-not $isDelete -and $branch -eq 'master') { $pushesMaster = $true }
+            if (-not $isDelete -and $onMaster) { $pushesMaster = $true }
         } else {
             foreach ($rs in $refspecs) {
                 # цель = часть после ':' (src:dst), иначе сам реф
@@ -82,7 +110,7 @@ foreach ($seg in $segments) {
                 # подчищаем налипшие шелл-метасимволы по краям (защита от сегментации)
                 $dst = $dst -replace '^[\s\(\{]+', '' -replace '[\s\)\}<>&|;]+$', ''
                 $dst = $dst -replace '^refs/heads/', ''
-                if ($dst -eq 'HEAD') { $dst = $branch }   # HEAD → текущая ветка
+                if ($dst -eq 'HEAD') { $dst = if ($switchToMaster) { 'master' } else { $branch } }   # HEAD → ветка
                 if ($dst -eq 'master') { $pushesMaster = $true; break }
             }
         }
@@ -90,7 +118,7 @@ foreach ($seg in $segments) {
     }
 
     # --- git merge в master (мерж идёт в текущую ветку) ---
-    if (($s -match '^git\s+merge\b') -and $branch -eq 'master') {
+    if (($s -match '^git\s+merge\b') -and $onMaster) {
         $blocked = $true; $reason = 'git merge в master'; break
     }
 }

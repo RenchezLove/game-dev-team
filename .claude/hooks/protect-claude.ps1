@@ -50,6 +50,12 @@ function Test-ProtectedPath([string]$p) {
     # carve-out: the QA_OK marker as an EXACT final segment only
     # (so .claude/QA_OK_evil.txt is NOT carved out).
     if ($n -match '(^|/)\.claude/qa_ok$') { return $false }
+    # T7c carve-out: native git worktrees (.claude/worktrees/<id>/) are a
+    # teammate's OWN working copy -> allow writes there. Traversal guard: never
+    # carve out if the path contains '..' (so .claude/worktrees/../hooks/x stays
+    # protected). The LIVE rails (.claude/hooks|settings|agents, .githooks) are
+    # never under .claude/worktrees/, so this does not weaken them.
+    if (($n -match '(^|/)\.claude/worktrees/') -and ($n -notmatch '\.\.')) { return $false }
     return (($n -match '\.claude/') -or ($n -match '\.githooks/'))
 }
 
@@ -76,6 +82,13 @@ elseif ($isCmdTool) {
         # more filename chars OR a path separator) -> .claude/QA_OK_evil.txt and
         # the traversal .claude/QA_OK/../hooks/... stay protected.
         $normNoQaOk = $norm -replace '\.claude/qa_ok(?![\w./\-])',''
+        # T7c: strip safe worktree-sandbox path tokens (teammate's own copy) so a
+        # command writing into its own .claude/worktrees/<id>/ is not blocked.
+        # Only when the command has NO '..' (traversal guard) -> a traversal like
+        # .claude/worktrees/../hooks/x keeps the '.claude/' match and stays blocked.
+        if ($normNoQaOk -notmatch '\.\.') {
+            $normNoQaOk = $normNoQaOk -replace '\.claude/worktrees/[^\s"'';|&<>]*',''
+        }
         $refsProtected = ($normNoQaOk -match '\.claude/') -or ($normNoQaOk -match '\.githooks/')
         if ($refsProtected) {
             # (a) a redirect ( > or >> ) whose target token is a protected path
