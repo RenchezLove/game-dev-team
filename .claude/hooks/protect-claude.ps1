@@ -47,8 +47,10 @@ $tool = [string]$data.tool_name
 function Test-ProtectedPath([string]$p) {
     if ([string]::IsNullOrWhiteSpace($p)) { return $false }
     $n = ($p -replace '\\','/').ToLower()
-    $nNoQaOk = $n -replace '\.claude/qa_ok',''
-    return (($nNoQaOk -match '\.claude/') -or ($nNoQaOk -match '\.githooks/'))
+    # carve-out: the QA_OK marker as an EXACT final segment only
+    # (so .claude/QA_OK_evil.txt is NOT carved out).
+    if ($n -match '(^|/)\.claude/qa_ok$') { return $false }
+    return (($n -match '\.claude/') -or ($n -match '\.githooks/'))
 }
 
 $isWriteTool = ($tool -eq 'Write' -or $tool -eq 'Edit' -or $tool -eq 'MultiEdit' -or $tool -eq 'NotebookEdit')
@@ -70,7 +72,9 @@ elseif ($isCmdTool) {
     if ($data.tool_input) { $cmd = [string]$data.tool_input.command }
     if (-not [string]::IsNullOrWhiteSpace($cmd)) {
         $norm       = ($cmd -replace '\\','/').ToLower()
-        $normNoQaOk = $norm -replace '\.claude/qa_ok',''
+        # strip the QA_OK marker only when it is a whole token (not followed by
+        # more filename chars) -> .claude/QA_OK_evil.txt stays protected.
+        $normNoQaOk = $norm -replace '\.claude/qa_ok(?![\w.\-])',''
         $refsProtected = ($normNoQaOk -match '\.claude/') -or ($normNoQaOk -match '\.githooks/')
         if ($refsProtected) {
             # (a) a redirect ( > or >> ) whose target token is a protected path
