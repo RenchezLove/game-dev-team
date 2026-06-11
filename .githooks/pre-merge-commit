@@ -1,0 +1,3 @@
+#!/bin/sh
+# Wrapper: git invokes this via its bundled sh; delegate to PowerShell logic.
+exec powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(dirname "$0")/pre-merge-commit.ps1"
