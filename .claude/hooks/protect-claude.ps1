@@ -80,8 +80,12 @@ elseif ($isCmdTool) {
         if ($refsProtected) {
             # (a) a redirect ( > or >> ) whose target token is a protected path
             $redirToProtected = $normNoQaOk -match '>>?\s*["'']?[^\s|&;<>]*(\.claude/|\.githooks/)'
-            # (b) an explicit write command/cmdlet anywhere (protected ref already present)
-            $writeCmd = $normNoQaOk -match '(set-content|add-content|clear-content|out-file|tee-object|new-item|remove-item|move-item|copy-item|sed\s+-i|sed\s+--in-place|\bcp\b|\bmv\b|\brm\b|\bdel\b|\bni\b)'
+            # (b) an explicit write command/cmdlet/API anywhere (protected ref already present).
+            # NOTE: this is a denylist and is NOT exhaustive (e.g. python/node/perl
+            # `open(...,'w')` inline writes are not caught here without false-positives
+            # on legit reads). Treated as best-effort defense-in-depth; master integrity
+            # is independently held by the git-native hooks + QA_OK marker.
+            $writeCmd = $normNoQaOk -match '(set-content|add-content|clear-content|out-file|tee-object|new-item|remove-item|move-item|copy-item|rename-item|set-itemproperty|sed\s+-i|sed\s+--in-place|\bcp\b|\bmv\b|\brm\b|\bdel\b|\bni\b|writealltext|appendalltext|writealllines|appendalllines|writeallbytes|appendallbytes|streamwriter|filestream|::create|::openwrite|\btee\b|\bdd\b|\btruncate\b|\binstall\b)'
             if ($redirToProtected -or $writeCmd) {
                 $blocked = $true; $detail = "$tool cmd writes to protected path"
             }
