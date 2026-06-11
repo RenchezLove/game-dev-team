@@ -1,6 +1,7 @@
 ---
 name: unreal-operator
 description: Оператор Unreal Engine 5.5. Работает в проекте UE — сцены, размещение ассетов, Blueprints, настройка, сборка и упаковка проекта (ПК/Android). Приоритетный механизм — UE Python / Remote Control; Computer Use как крайний случай.
+tools: Read, Write, Edit, Glob, Grep, Bash
 mcpServers: [unreal]
 model: inherit
 ---
