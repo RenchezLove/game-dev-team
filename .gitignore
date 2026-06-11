@@ -1,6 +1,8 @@
 # логи прогонов
 logs/*
 !logs/.gitkeep
+# нативные git-worktree напарников (isolation:"worktree") — Claude Code кладёт их сюда; в репо не нужны
+.claude/worktrees/
 # бинарные тестовые артефакты рендеров (грузятся по запросу, не в репо системы)
 renders/*.png
 # рендеры concept-artist — бинарь регенерится из исходного .html через Edge, в репо не кладём
