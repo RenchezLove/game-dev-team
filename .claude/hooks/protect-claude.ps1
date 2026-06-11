@@ -73,8 +73,9 @@ elseif ($isCmdTool) {
     if (-not [string]::IsNullOrWhiteSpace($cmd)) {
         $norm       = ($cmd -replace '\\','/').ToLower()
         # strip the QA_OK marker only when it is a whole token (not followed by
-        # more filename chars) -> .claude/QA_OK_evil.txt stays protected.
-        $normNoQaOk = $norm -replace '\.claude/qa_ok(?![\w.\-])',''
+        # more filename chars OR a path separator) -> .claude/QA_OK_evil.txt and
+        # the traversal .claude/QA_OK/../hooks/... stay protected.
+        $normNoQaOk = $norm -replace '\.claude/qa_ok(?![\w./\-])',''
         $refsProtected = ($normNoQaOk -match '\.claude/') -or ($normNoQaOk -match '\.githooks/')
         if ($refsProtected) {
             # (a) a redirect ( > or >> ) whose target token is a protected path
