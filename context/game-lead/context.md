@@ -40,6 +40,17 @@
 - **Артефакты волны A (НЕ удалять):** `context/game-lead/tmp/gitnative-test.ps1`+`gitnative-matrix.log` (6/6), `claudelayer-oracle.ps1`+`claudelayer-oracle.log` (7/7).
 - **НУЖЕН РЕСТАРТ** сессии game-lead: активировать `tools:` из T3 + сбросить кеш прав для теста режима (часть 2 файла 004).
 
+### Ш9 T5 — изоляция напарников через git-worktree (ПРОЦЕДУРА)
+- **Механизм = НАТИВНЫЙ.** Инструмент `Agent` с параметром `isolation:"worktree"` даёт напарнику СВОЙ git-worktree + СВОЮ ветку `worktree-agent-<id>`, его cwd = этот worktree. Подтверждено живьём (2026-06-11): отдельный каталог, отдельная ветка, запись без промптов, `git worktree list` показывает все активные worktree (locked) одновременно.
+- **Где лежат:** Claude Code кладёт worktree в `E:/game-dev-team/.claude/worktrees/agent-<id>/` (ВНУТРИ репо, под `.claude/`). Добавлено в `.gitignore` (`.claude/worktrees/`), чтобы не засорять статус.
+- **Параллель:** двух+ напарников можно спавнить ОДНОВРЕМЕННО, каждый в своём worktree/ветке — НЕ конфликтуют (доказано: wt-A `f1ac07e` + wt-B `6ad5c10`, разные деревья, оба коммитят независимо). Потолок ≤3. **Blender — ОДИН клиент: не спавнить двух `modeler-3d` разом даже в разных worktree** (сокет `localhost:9876` держит одного).
+- **master недосягаем из worktree:** `git push origin HEAD:master` / merge из worktree режется гейтом (qa-gate.ps1 + git-native pre-push/merge + маркер QA_OK). Подтверждено живьём. Напарник коммитит только в свою ветку (без push).
+- **Имена напарников — по роли** (`modeler`, `cpp`, `unreal`, `concept`, `qa`; суффикс-номер для нескольких: `modeler-2`). Ветка авто-именуется `worktree-agent-<id>`.
+- **Уборка:** worktree «auto-cleaned if unchanged» НЕ срабатывает, если напарник оставил файлы/коммиты. game-lead убирает вручную: `git worktree remove --force .claude/worktrees/agent-<id>` + `git branch -D worktree-agent-<id>` (+ при нужде `git worktree prune`). Подтверждено.
+- **Проход в master:** ветку напарника game-lead отдаёт qa → ATTEST с артефактом → `.claude/QA_OK` → `git merge --no-ff <ветка>` → снять QA_OK. Гейт сериализует (один маркер) — ветки заходят ПО ОЧЕРЕДИ.
+- **ИЗВЕСТНОЕ ОГРАНИЧЕНИЕ (эскалировано Ринату):** т.к. worktree лежит под `.claude/`, хук `protect-claude.ps1` ложно блокирует запись напарника по АБСОЛЮТНОМУ пути в его же worktree (относительные пути работают — это штатный режим). Подтверждено живьём (Write и redirect по абс-пути → BLOCKED). Фикс = карвут `.claude/worktrees/**` в protect-claude (traversal-safe) — это правка security-рейла, требует решения Рината + ре-аттестации qa. До решения: напарники работают ОТНОСИТЕЛЬНЫМИ путями (cwd уже = worktree).
+- **НАХОДКА:** `logs/` целиком в `.gitignore` → коммит файла из `logs/` требует `git add -f`.
+
 ### Ш7 — concept-artist: ЗАКРЫТ (нативный code-render)
 - canvas-design ОТКЛОНЁН (навыка нет в установке + вне скоупа роли). Инструмент роли = HTML/CSS+SVG → PNG/PDF через headless Edge. ADR-004 пересмотрен. Скоуп сужен (ADR-004 доп.). Обе ветки (`feat/concept-artist-native-render`, `feat/concept-artist-scope-narrow`) СМЕРЖЕНЫ в master.
 - **Хвост 2 (этой сессией): concept-artist рендерит САМ — ПОДТВЕРЖДЕНО.** После рестарта сессии `Bash` у concept доступен (прошлый `No such tool: Bash` не воспроизводится). Спавн concept сам: HTML → `msedge --headless=new --screenshot` → PNG `context/concept-artist/tmp/mini-palette.png` (16330 B), подтверждено `ls -l`. Палитра — тестовый семпл, НЕ из диздока, не утверждена.
