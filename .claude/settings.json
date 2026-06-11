@@ -8,6 +8,8 @@
       "E:/ContrarySurvior/ContrarySurvivor"
     ],
     "allow": [
+      "Bash",
+      "PowerShell",
       "Bash(git:*)",
       "Bash(mkdir:*)",
       "Bash(ls:*)",
@@ -17,9 +19,6 @@
       "Read(//e/ContrarySurvior/ContrarySurvivor/**)",
       "Write(//e/ContrarySurvior/ContrarySurvivor/**)",
       "Edit(//e/ContrarySurvior/ContrarySurvivor/**)"
-    ],
-    "ask": [
-      "Bash(git push:*)"
     ],
     "deny": [
       "Bash(git push --force:*)",
@@ -45,6 +44,15 @@
           {
             "type": "command",
             "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude/hooks/qa-gate.ps1"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude/hooks/protect-claude.ps1"
           }
         ]
       }
