@@ -48,8 +48,18 @@
 - **Имена напарников — по роли** (`modeler`, `cpp`, `unreal`, `concept`, `qa`; суффикс-номер для нескольких: `modeler-2`). Ветка авто-именуется `worktree-agent-<id>`.
 - **Уборка:** worktree «auto-cleaned if unchanged» НЕ срабатывает, если напарник оставил файлы/коммиты. game-lead убирает вручную: `git worktree remove --force .claude/worktrees/agent-<id>` + `git branch -D worktree-agent-<id>` (+ при нужде `git worktree prune`). Подтверждено.
 - **Проход в master:** ветку напарника game-lead отдаёт qa → ATTEST с артефактом → `.claude/QA_OK` → `git merge --no-ff <ветка>` → снять QA_OK. Гейт сериализует (один маркер) — ветки заходят ПО ОЧЕРЕДИ.
-- **ИЗВЕСТНОЕ ОГРАНИЧЕНИЕ (эскалировано Ринату):** т.к. worktree лежит под `.claude/`, хук `protect-claude.ps1` ложно блокирует запись напарника по АБСОЛЮТНОМУ пути в его же worktree (относительные пути работают — это штатный режим). Подтверждено живьём (Write и redirect по абс-пути → BLOCKED). Фикс = карвут `.claude/worktrees/**` в protect-claude (traversal-safe) — это правка security-рейла, требует решения Рината + ре-аттестации qa. До решения: напарники работают ОТНОСИТЕЛЬНЫМИ путями (cwd уже = worktree).
+- **(T7c, РЕШЕНО)** карвут `.claude/worktrees/**` в protect-claude добавлен (см. ниже Ш9 T7) — напарник теперь пишет в свой worktree и абсолютными путями.
 - **НАХОДКА:** `logs/` целиком в `.gitignore` → коммит файла из `logs/` требует `git add -f`.
+
+### Ш9 T7 — укрепление гейта после инцидента T5 (СМЁРЖЕНО, master `c5032fa`, 2026-06-11)
+- **КОРЕНЬ слёта гейта (подтверждено живьём):** `isolation:"worktree"` Claude Code пишет `core.hooksPath=<repo>/.git/hooks` в ОБЩИЙ `.git/config` при КАЖДОМ спавне worktree → git-native гейт (`.githooks`) гаснет на весь репо до ре-ассерта. Это и был корень инцидента T5 (непрошеный merge без QA_OK).
+- **T7a самохил:** `.claude/hooks/ensure-hookspath.ps1` форсит `core.hooksPath` в АБСОЛЮТНЫЙ `E:\game-dev-team\.githooks`. Зарегистрирован в `settings.json` на `SessionStart`(startup+resume) И `PreToolUse(Bash|PowerShell)` ПЕРВЫМ хуком (чинит и мид-сессийный слёт). Идемпотентен, лог `logs/gate-selfheal.log`. **АКТИВируется ПОСЛЕ РЕСТАРТА** (settings кешируется на старте).
+- **T7b:** `qa-gate.ps1` теперь ловит склейку `git checkout master && git merge/push` (пред-скан `switchToMaster`). Регрессии целы (feature push/merge, Ш8 `--delete`, `checkout -b master2`). ЖИВОЕ (хук читается заново).
+- **T7c:** `protect-claude.ps1` — карвут `.claude/worktrees/**` (своя копия напарника) с traversal-guard (нет `..`). Главные рельсы вне worktrees → не ослаблены. ЖИВОЕ.
+- **qa РЕ-ATTEST PASS:** T7b 8/8, T7c 10/10, heal-лог+идемпотентность. Ветка `fix/gate-hardening` → QA_OK → merge `c5032fa` → маркер снят.
+- **ВАЖНО — РЕСТАРТ:** до рестарта самохил-регистрация НЕ активна → game-lead ВРУЧНУЮ `git config core.hooksPath .githooks` после спавна worktree и ПЕРЕД любым merge. После рестарта — авто.
+- **ОПЕРАЦИОННАЯ ПАМЯТКА (живой хук на master):** находясь на master, НЕ помещать в Bash-команду (включая echo-обёртки и коммит-сообщения) текст, начинающий сегмент с `git merge`/`git push`/`git checkout master` — живой qa-gate режет (branch=master). Для коммитов использовать `git commit -F -` с телом без триггер-фраз.
+- **Классификатор:** правки security-рельсов (`settings.json`, хуки) auto-mode-классификатор пропускает ТОЛЬКО при ПРЯМОЙ авторизации Рината в его сообщении (не из файла-задания). Создание НОВОГО файла-хука и git-коммиты — проходят.
 
 ### Ш7 — concept-artist: ЗАКРЫТ (нативный code-render)
 - canvas-design ОТКЛОНЁН (навыка нет в установке + вне скоупа роли). Инструмент роли = HTML/CSS+SVG → PNG/PDF через headless Edge. ADR-004 пересмотрен. Скоуп сужен (ADR-004 доп.). Обе ветки (`feat/concept-artist-native-render`, `feat/concept-artist-scope-narrow`) СМЕРЖЕНЫ в master.
