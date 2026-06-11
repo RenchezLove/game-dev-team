@@ -4,13 +4,19 @@
   },
   "permissions": {
     "defaultMode": "acceptEdits",
+    "additionalDirectories": [
+      "E:/ContrarySurvior/ContrarySurvivor"
+    ],
     "allow": [
       "Bash(git:*)",
       "Bash(mkdir:*)",
       "Bash(ls:*)",
       "Bash(cp:*)",
       "Bash(mv:*)",
-      "mcp__blender__*"
+      "mcp__blender__*",
+      "Read(//e/ContrarySurvior/ContrarySurvivor/**)",
+      "Write(//e/ContrarySurvior/ContrarySurvivor/**)",
+      "Edit(//e/ContrarySurvior/ContrarySurvivor/**)"
     ],
     "ask": [
       "Bash(git push:*)"
