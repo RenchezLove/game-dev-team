@@ -1,0 +1,5 @@
+# Git hook scripts (Sh9 T1): MUST keep LF endings — git's sh chokes on CRLF
+# shebangs, and PS 5.1 is happy with LF. Never let autocrlf rewrite these.
+/.githooks/pre-push          text eol=lf
+/.githooks/pre-merge-commit  text eol=lf
+/.githooks/*.ps1             text eol=lf

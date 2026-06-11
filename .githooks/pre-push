@@ -1,0 +1,4 @@
+#!/bin/sh
+# Wrapper: git invokes this via its bundled sh; delegate to PowerShell logic.
+# stdin (ref lines) is inherited by exec; "$@" forwards remote name + url.
+exec powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(dirname "$0")/pre-push.ps1" "$@"
