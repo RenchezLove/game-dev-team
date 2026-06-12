@@ -21,3 +21,6 @@ concept-art/*.png
 *.docx
 *.pdf
 *.xlsx
+
+# local asset backups (orphans etc.) — not for VCS
+backups/
