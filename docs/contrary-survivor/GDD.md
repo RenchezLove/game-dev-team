@@ -100,6 +100,8 @@ Camera-relative движение (WASD), изометрическая камер
 ### 7.4 Инвентарь и снаряжение
 - **Инвентарь `[ЕСТЬ — данные]`:** `UInventoryComponent` (Add/Remove). Ограниченное число слотов (диздок). UI-экран — `[ДЫРА]` (см. Часть 8).
 - **Модульная броня `[РЕШЕНО]`:** меш персонажа **модульный** (Head/Torso/Legs отдельными скелетными мешами на общем скелете) — **специально под смену брони по слотам** (разные штаны/головняки/куртки). Классы `AHeadArmor/ATorsoArmor/APantsArmor` ↔ слоты Head/Torso/Legs; экипировка меняет/накладывает меш слота (`ArmorMesh_Equipped`).
+  - **База + сменные модули `[РЕШЕНО, уточнение 2026-06-12]`:** у героя есть **базовый облик** — дефолтные Head/Torso/Legs. Смена снаряжения = **подмена всего меша слота целиком** (модель LDoE), а НЕ накладка поверх. В частности **Head — сменный модуль целиком**: «голый» базовый Head, Head-с-капюшоном, Head-в-шлеме и т.п. — это **разные варианты одного слота**. Поэтому **капюшон с key-art — лишь один из вариантов Head**, а не каноничная внешность героя.
+  - **Арт = ориентир СТИЛЯ, не спецификация меша.** Концепты (Прил. E) задают силуэт/пропорции/цветовую логику/фактуру лоуполи, но не диктуют конкретный набор одежды. Спек-листы для `modeler-3d` делаются отдельно: **нейтральная базовая голова/тело/ноги** + перечень сменных вариантов слотов.
   - **Тех-задача:** убедиться, что части шарят анимацию через **Master Pose / Leader Pose Component** (синхронная анимация модульных частей).
   - **Тех-долг:** экипировка брони и её влияние на урон/защиту сейчас не подключены.
 - **Слот оружия** + paper-doll брони — в UI инвентаря (Часть 8).
@@ -208,6 +210,8 @@ AActor → AMasterInventoryItem ┬→ AMasterWeapon → ARangedWeapon → APist
 > **Статус (2026-06-12):** Ринат генерит арты по этим промптам (Bing Image Creator / Google ImageFX / Leonardo.ai). Готовые арты вставляются в этот документ позже — **на первый вертикальный срез (Фаза 1) они не блокер**. Промпта на волка нет (волк — не key-art MVP; для модели волку достаточно текстового спек-листа от modeler-3d). При необходимости — добавить 5-й промпт.
 
 **1. Главный герой — выживший (key art)**
+> Примечание: арт — **ориентир стиля**, не спецификация меша. Герой модульный (Head/Torso/Legs — сменные меши целиком, ч.7.4). **Капюшон/головняк — лишь один из вариантов Head-слота, не обязателен** для базового облика. Если генерации с накинутым капюшоном смущают — заменить `worn jacket over hoodie` на `worn jacket over plain shirt` и добавить `bare head, short hair, no hood, no hat` (нейтральная базовая голова).
+
 ```
 Low-poly survivor character, rural post-apocalypse year 2039, key art turnaround pose, three-quarter front view. Practical modular layered outfit: worn jacket over hoodie, utility vest with pouches, sturdy boots, fingerless gloves, small backpack — modular and swappable. Monochrome flat character textures: one muted dominant tone (dark olive / faded brown) plus darker shade for folds, no busy detail. Faceted low-poly geometry, large clean bevels, readable strong silhouette, baked soft ambient occlusion, no normal-map detail. Color palette: muted moss green, dry earth brown, cold steel grey, small amber accent. Mood: slightly grim but hopeful, cartoonish-stylized, isometric-friendly proportions (clear top-readable shoulders and head). Soft directional lighting, neutral background, game asset concept. Negative: photorealism, realistic skin, hyperdetailed PBR fabric, gore, blood, brutal violence, neon saturation, cluttered colorful outfit, anime, busy textures.
 ```
