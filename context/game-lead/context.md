@@ -305,3 +305,9 @@
 - **🔴 ОСТАЛОСЬ НА СУПЕРВАЙЗ С РИНАТОМ (Play/редактор/графы):** (1) волк: SK_Wolf + **AnimBP**(Idle/Run/Bite) → AWolfCharacter (AnimBP = editor, не headless); (2) меш ножа → AMeleeWeapon; (3) дресс пропсов на уровне; (4) Play боя + решение по балансу; (5) merge Фазы 3 в master.
 - **НАХОДКА ADR-021:** headless UE `UnrealEditor-Cmd "<uproject>" -ExecutePythonScript="<abs.py>" -unattended -nopause -nosplash` — ассет-операции БЕЗ редактора и БЕЗ `/mcp`. stdout пуст на Windows → лог в `Saved/Logs/*.log`. Не делает AnimBP/BP-графы/Play. (Аналог headless-Blender у modeler.) ADR-021 в decisions.md.
 - **ТЕКУЩИЕ ID:** watcher INBOX — последний активный фоновый; при срабатывании перезапускать с новым baseline. Редактор ЗАКРЫТ.
+
+## ПРАВИЛО КОММУНИКАЦИИ (Ринат, 2026-06-13) + решения по Фазе 3
+- **ДУБЛЬ-ПОСТ:** всё, что пишу Ринату в чат — ДУБЛИРОВАТЬ в `reports/Agents/STATUS.md` на GitHub (он часто отходит от компа, читает/отвечает с телефона через INBOX.md).
+- **qa до Рината:** qa делает компиляцию + headless-проверку целостности ассетов; Play-приёмку НЕ заменяет (нет интерактива/Computer Use). Автотесты UE (Automation) — будущая опция.
+- **Решения Рината по Фазе 3 (2026-06-13, вернулся):** (1) баланс брони = ПРОЦЕНТНОЕ снижение (не flat); (2) привязка волка/ножа + анимации = C++ путь (без editor-AnimBP); (3) пропсы расставляю сам (headless). Числа — UPROPERTY EditAnywhere (тюнинг в редакторе без кода; опция на будущее — DataTable).
+- **В работе (cpp):** броня→процент (draft Head0.10/Torso0.25/Pants0.15, cap0.75), привязка SK_Wolf→AWolfCharacter + SM_Knife→AMeleeWeapon (FObjectFinder), C++ анимации волка (без AnimBP). Потом: я headless-расставлю пропсы → qa (компиляция+целостность) → Play-ready сборку Ринату → его Play → merge Фазы 3.
