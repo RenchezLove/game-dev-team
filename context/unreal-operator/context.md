@@ -43,6 +43,33 @@
 ## Текущее состояние
 MCP-проводка завершена и провалидирована. Сцена `L_MainLevel`: 5 актёров (BP_PlayerCharacter, DirectionalLight, PlayerStart, 2× StaticMeshActor — пол + куб). Следующие задачи по сценам/ассетам/сборке — по постановке от `game-lead`.
 
+## Headless переимпорт волка (2026-06-13, Фаза 3) — коммит 5c6eb14 (feature/phase3-combat)
+- Путь: `UnrealEditor-Cmd.exe <uproject> -ExecutePythonScript=<abs.py> -unattended -nopause -nosplash` (ADR-021), редактор закрыт, stdout пуст → пруфы из `Saved/Logs/ContrarySurvivor.log` по префиксу-маркеру.
+- Движок: `E:/UnrealEngine/UE_5.5/Engine/Binaries/Win64/UnrealEditor-Cmd.exe`. Проект-репо = **отдельный git** в `E:/ContrarySurvior/ContrarySurvivor` (НЕ game-dev-team), uasset под git-LFS.
+- Переимпорт overwrite: `AssetImportTask(replace_existing=True, automated, save)`; skeletal — `skeleton=existing SK_Wolf_Skeleton` + `skeletal_mesh_import_data.update_skeleton_reference_pose=True` (обновляет ref-позу из FBX, скелет НЕ плодится). Пруфы: `SkeletalMesh.has_vertex_colors()` (метод, НЕ property — property `has_vertex_colors` отсутствует на SkeletalMesh в 5.5), anim `skeleton` path, `number_of_sampled_frames`.
+- **Квирк материала skeletal:** assign-back `mats[0].set_editor_property('material_interface',m); sk.set_editor_property('materials',mats)` для SkeletalMesh НЕ персистится (re-fetch показал WorldGridMaterial). Рабочий путь: собрать НОВЫЙ `unreal.SkeletalMaterial()` (с сохранением `material_slot_name`), `sk.set_editor_property('materials',[new_slot,...])`, save, проверять по `unreal.load_asset` заново. Слот волка зовётся `M_Wolf` → slot0 = `/Game/Materials/M_VColor`.
+- Скрипты: `E:/game-dev-team/logs/phase3-py/reimport_wolf.py`, `.../fix_wolf_material.py`.
+
+## Повторный переимпорт волка (2026-06-13 13:37, Фаза 3) — коммит 1a9aba1 (feature/phase3-combat)
+- Обновлённые FBX (modeler перезаписал 13:33: фикс скиннинга + откат вредного 180°). Единый скрипт `.../reimport_wolf_v2.py` (reimport SK+3 anim + материал рабочим паттерном SkeletalMaterial + re-load verify), лог `.../reimport_wolf_v2.log` (через `-abslog`).
+- Пруфы (лог, маркер `WOLFREIMPORT2:`): `has_vertex_colors()`=True (метод); anim Idle/Run/Bite → SK_Wolf_Skeleton, frames 47/15/19; RELOAD slot0 name=M_Wolf material_interface=/Game/Materials/M_VColor. 0 `Error:`, FBX-ошибок нет.
+- На этот раз slot0 «before» уже был M_VColor (import_materials=False сохранил), но переназначение/верификация выполнены штатно. Обновился и `SK_Wolf_Skeleton.uasset` (из-за update_skeleton_reference_pose=True) — это ожидаемо, закоммичен вместе с остальными 4.
+- Квирк лога: в unattended source-control (Plastic) кидает диалоги «Unable to Check Out From Revision Control» — авто-закрываются (Ok), на сохранение в .uasset не влияют.
+
+## Headless импорт брони (2026-06-13, Фаза 4) — коммит d83bfd3 (feature/phase4-inventory)
+- 5 SK брони (`SK_Armor_Head_01/02`, `SK_Armor_Torso_01/02`, `SK_Armor_Legs_01`) из `E:/ForGameLead(Materials)/phase4-assets/` → `/Game/Characters/Armor/`. Скрипт `E:/game-dev-team/logs/phase4-py/import_armor.py`, лог `import_armor.log`, маркер `ARMORIMPORT:`.
+- **ОБЩИЙ скелет** — НЕ задавал по памяти: скрипт грузит `SK_Bandit_Head`, берёт его `skeleton` и импортит против него. Оказался `/Game/TestContentAndCode/PreProduction/HeadAndSkeletonfbx_Head_Skeleton` (27 костей). Новый скелет НЕ создан — VERIFY SAME_AS_SHARED=True у всех 5.
+- Опции: REPLACE vertex color, create_physics_asset=False, import_materials=False, `update_skeleton_reference_pose=False` (броня НЕ должна менять ref-позу общего скелета — отличие от волка). has_vertex_colors()=True у всех. 0 `Error:`, 0 skeleton-mismatch warnings.
+- Материал slot0: рабочий паттерн SkeletalMaterial (rebuild, keep slot_name). slot0 «before» назывался `M_Armor_Flat`, после → `/Game/Materials/M_VColor`, подтверждено RELOAD.
+- merge/push НЕ делал.
+
+## Переимпорт переделанной брони (2026-06-13 ~16:0x, Фаза 4) — коммит 87eacc0 (feature/phase4-inventory)
+- modeler перезаписал FBX 15:58: меши = тело ГГ + броня объединённые (раньше броня-only → парила). Переимпорт overwrite ТОЛЬКО `_01` (`SK_Armor_Head_01/Torso_01/Legs_01`). Head_02/Torso_02 НЕ трогал.
+- Скрипт `E:/game-dev-team/logs/phase4-py/reimport_armor_body.py`, лог `reimport_armor_body.log`, маркер `ARMORREIMPORT:`. Тот же паттерн что import_armor.py: общий скелет берётся из `SK_Bandit_Head.skeleton` (НЕ по памяти), `replace_existing=True`, VColor REPLACE, create_physics_asset=False, `update_skeleton_reference_pose=False`, материал slot0 рабочим паттерном rebuild SkeletalMaterial.
+- Пруфы (лог): все 3 SAME_AS_SHARED=True (`/Game/TestContentAndCode/PreProduction/HeadAndSkeletonfbx_Head_Skeleton`, 27 костей, новый скелет НЕ создан), has_vertex_colors()=True, slot0=/Game/Materials/M_VColor (before=M_Armor_Flat). 0 `Error:`, 0 mismatch.
+- **Квирк:** `EditorAssetLibrary.save_directory(only_if_is_dirty=False, recursive=True)` ре-сериализует ВСЕ ассеты папки → Head_02/Torso_02 пометились modified хотя их не импортил. Откатил их `git checkout -- ...` перед коммитом, чтобы «не трогать». На будущее: для точечного коммита либо save только нужных ассетов, либо ревертить лишние.
+- Закоммичены 3 `_01.uasset` (LFS pointers обновлены: Head oid 77a1542d, Legs b707f512, Torso baeab9ab). merge/push НЕ делал.
+
 ## БЛОКЕР сессии 2026-06-12 (Фаза 1, раунд правок бандита)
 - **Симптом:** `mcp__unreal__*` тулы НЕ инжектятся в эту спавн-сессию (`mcp__unreal__editor_run_python` и `..._project_info` → "No such tool available"). При этом `claude mcp list` → `unreal: ✔ Connected`, агент-дефиниция содержит `mcpServers: [unreal]`. Редактор жив: `UnrealEditor.exe` PID 6804, ~1.6 ГБ, лог пишется (22:18), PythonScriptPlugin смонтирован, UDP multicast bridge `0.0.0.0→230.0.0.1:6666` поднят. → Это **дыра инжекта тулов в сессию**, не мёртвый редактор. Python на машине нет (только Store-заглушка) → сырой Remote-Exec клиент в обход MCP не написать без изобретения обхода.
 - **Следствие:** live-интроспекция BP (SkeletalMesh/AnimClass/leader_pose/трансформы), импорт vertex-color, ориентация ассета, создание/назначение материала, автоскрин — НЕ выполнимы в этой сессии. Вернул `game-lead`: перезапустить `claude`/сессию `unreal-operator` так, чтобы тулы `mcp__unreal__*` подхватились.
