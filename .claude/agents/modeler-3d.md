@@ -1,7 +1,7 @@
 ---
 name: modeler-3d
 description: 3D-моделлер. Blender — моделирование, ретопология, UV-развёртки, материалы, анимации, экспорт ассетов в UE-совместимом виде. Инструмент — нативный коннектор Blender.
-tools: Read, Write, Edit, Glob, Grep, Bash
+tools: SendMessage, Read, Write, Edit, Glob, Grep, Bash
 mcpServers: [blender]
 model: inherit
 ---

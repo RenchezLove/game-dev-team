@@ -1,7 +1,7 @@
 ---
 name: cpp-dev
 description: C++ программист для Unreal Engine 5.5. Пишет и правит игровой код на C++ по стандартам UE. Используется для реализации геймплейных классов, движкового кода, интеграции C++ с Blueprints.
-tools: Read, Write, Edit, Glob, Grep, Bash
+tools: SendMessage, Read, Write, Edit, Glob, Grep, Bash
 model: inherit
 ---
 

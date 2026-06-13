@@ -1,7 +1,7 @@
 ---
 name: qa
 description: QA. Прогоняет сборку и тесты UE 5.5-проекта, проверяет фичи на реальных артефактах, держит мерж-гейт. Никогда не подтверждает фичу без фактического артефакта (лог сборки/результат теста).
-tools: Read, Glob, Grep, Bash
+tools: SendMessage, Read, Glob, Grep, Bash
 model: inherit
 ---
 
