@@ -1,0 +1,6 @@
+QA_TESTING in progress
+Started: 2026-06-15 00:01 MSK (2026-06-14 21:01 UTC)
+By: Сборщик (QA-пилот, scheduled run)
+Target: 🟢 ФИКС ДВИЖЕНИЯ HEAD 5426944 (DLL 23:56) — персонаж снова ходит; + ре-проверка погони 224fbc9
+Branch: feature/phase5-quests
+Note: предыдущий lock протух (mtime 10:02 UTC, ~11ч) — перезаписан.
