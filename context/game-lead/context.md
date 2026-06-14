@@ -506,3 +506,36 @@ F1 debug-камера, F2 GiveTestItems, F3/F4 броня вкл/выкл, F6 us
 
 ## ⚠️ НОВАЯ СЕССИЯ: фоновые задачи (будильники/поллинг/cpp) этой сессии НЕ переносятся — перевзвести (будильники до 10:00, поллинг QA_SIGNAL каждые ~7мин, пульс на git). Все cpp-коммиты этой ночи уже в origin (b1c3fcd) — проверить git log.
 ## #3 хвосты: оружие стартует с полным резервом (ctor 30) — баланс-вопрос; save не сохраняет StackCount/ItemName (пре-существующее).
+
+---
+# === SAVE 2026-06-15 ~01:20 (НОЧНОЙ РЕЖИМ, продолжение; Ринат спит, полная автономия) ===
+
+## 🔑 ГЛАВНОЕ — ОБХОД CU НАЙДЕН (headless commandlet, БЕЗ редактора/CU):
+- **Навмеш-бейк headless** (unreal-operator, РАБОТАЕТ): `UnrealEditor-Cmd "<uproject>" -run=ResavePackages -MAPSONLY -PACKAGE=L_MainLevel -BuildNavigationData -unattended -nopause -nosplash -stdout -abslog="<log>"`. Верный ключ 5.5 = **`-BuildNavigationData`** (НЕ `-buildnavigation` — тот резолвится, но НЕ пёк). ОБЯЗАТЕЛЬНО `-MAPSONLY -PACKAGE=L_MainLevel` (иначе resave идёт по ВСЕМУ движку!). Пруф: L_MainLevel.umap 246080→272642 (+26КБ nav), лог `logs/navmesh-bake-0111.log` «RecastNavMesh … Success 0 errors», без краша. Консольный in-editor BuildPaths по-прежнему КРАШИТ — не использовать.
+- **Это и есть «game-lead сам гоняет unreal по-другому» (со слов Рината).** Сборщик подтвердил: Build Paths = авторинг ассета уровня = ВНЕ его QA-мандата (он не авторит то, что сам тестит). Бейк/правки уровня — на game-lead через unreal-operator headless; Сборщик только тестит готовый билд по CU.
+- **КОММ-ФИКС со Сборщиком:** он читает GL_SIGNAL из **git@HEAD**, диск у него стейл (видел обрезанный 233б). → каждый 🟢 КОММИТИТЬ+ПУШИТЬ в git (ветка docs/phase0-gdd), не только писать на диск. Сделано (HEAD team-репо origin = 90c241f).
+
+## СОСТОЯНИЕ гейм-репо (feature/phase5-quests, origin = 21f0128):
+- HEAD 21f0128 (docs) ← 5252c12 **HUD #18 читаемость торговца+инвентаря** (жирный/подложки/обводка, DrawShadowedText/DrawLabelWithPlate/DrawRectOutline, всё UPROPERTY HUD|Readability) ← b1c3fcd (навмеш STATIC). Сборка PASS (DLL 00:51). Запушено origin.
+- **L_MainLevel.umap пересохранён с запечённым навмешем** (на диске, gitignored/LFS — НЕ закоммичен; бейк воспроизводим командой выше + не критично бэкапить).
+
+## ⏳ В РАБОТЕ (фоновые агенты, продолжать по результатам):
+1. **unreal-operator (agentId aa462b5a5ecb07f61): headless-проверка ПОКРЫТИЯ навмеша.** Билд занял 0.04с — подозрение, что покрылась только деревня, не Логово/база. Проверяет: координаты зон (WolfSpawnSubsystem/BanditSpawnSubsystem) внутри NavMeshBoundsVolume? Если нет → расширить volume + пере-запечь. ← КЛЮЧ к закрытию погони.
+2. **modeler-3d (agentId a393506c71e182ce7): P2 полировка.** P1 ПРИНЯТ визуально (я смотрел рендеры): сарай (magenta убран, дерево читаемо, крыша ровная), кепка бандита (закрытая тулья+козырёк), броня Head_02/Torso_02 (вернул базовое тело — был баг skin_faces=0 → при экипе пропадали голова/руки). P2 = пропорции бандита (бумажно-плоский в профиль→глубина торса/ног, шея, обувь) + трава SM_GrassTuft (гуще, крест-накрест, градиент). Перерендерит в _qc_renders/, я принимаю визуально.
+
+## ✅ ГОТОВЫЕ АССЕТЫ этой ночи:
+- Броня **SK_Armor_Legs_02.fbx** (комплект 2×3 полный: Head_01/02, Torso_01/02, Legs_01/02) — `E:/ForGameLead(Materials)/phase4-assets/`. Round-trip ок, скелет идентичен, 360 трисов.
+- **15 HUD-иконок** (статы/слоты/предметы, флэт по утв.палитре) — `E:/game-dev-team/context/concept-artist/tmp/hud-icons/` + contact-sheet. ЧЕРНОВИК: slot-head/torso/legs, wolf-hide, armor-generic. Импорт в UE как текстуры — позже.
+- **QC-рендер-конвейер** (modeler): `E:/ForGameLead(Materials)/_qc_renders/_qc_render.py`+`_qc_batch.py` — корректный vertex-color материал (Attribute Col→BaseColor) + 3-точечный свет без контрового. game-lead принимает модели по этим PNG (вижу картинки через Read).
+
+## 🆕 РАБОЧИЙ ПРИЁМ (записать в привычку): game-lead ПРИНИМАЕТ КАЧЕСТВО МОДЕЛЕЙ ВИЗУАЛЬНО — modeler рендерит в _qc_renders/, game-lead смотрит PNG и даёт правки. Аналогично можно скриншоты из UE. Это снимает «модельки страшные вслепую».
+
+## NEXT (старт отсюда):
+1. Дождаться unreal coverage → если зоны вне volume, расширить+пере-запечь навмеш (headless) → ТОГДА 🟢 Сборщику на рантайм-тест погони (V/Z) когда будет CU-окно.
+2. Принять P2 моделей визуально (Bandit_Full + GrassTuft рендеры), при дефектах — докрутить.
+3. qa-ревью батча (HUD #18 + навмеш + ассеты) перед merge в master гейм-репо (вручную, гейта в гейм-репо нет). Решение Рината по версионированию /Content (LFS vs диск) — всё ещё ПРЕРЕКВИЗИТ перед merge.
+4. Импорт в UE (headless/unreal-operator): HUD-иконки как текстуры → подцепить в HUD; брони Head_02/Torso_02/Legs_02 пере-импорт; новые меши бандита (кепка/пропорции).
+5. UE-автотесты боевого кора (headless functional, CU-free) — план в TEST_REPORT [00:10] драфт Сборщика; снимет ночную зависимость от CU.
+
+## DEBUG-КЛАВИШИ (без изменений): см. секцию SAVE 00:25 выше.
+## ⚠️ Фоновые задачи новой сессии перевзводить (watcher QA_SIGNAL ~7мин, пульс git ~10мин). Активные agentId: modeler=a393506c71e182ce7, unreal=aa462b5a5ecb07f61, cpp=a1b8dd576adde3e22, concept=abe321159f53d407b (SendMessage для продолжения с контекстом).
