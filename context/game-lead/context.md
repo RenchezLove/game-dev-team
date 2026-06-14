@@ -539,3 +539,24 @@ F1 debug-камера, F2 GiveTestItems, F3/F4 броня вкл/выкл, F6 us
 
 ## DEBUG-КЛАВИШИ (без изменений): см. секцию SAVE 00:25 выше.
 ## ⚠️ Фоновые задачи новой сессии перевзводить (watcher QA_SIGNAL ~7мин, пульс git ~10мин). Активные agentId: modeler=a393506c71e182ce7, unreal=aa462b5a5ecb07f61, cpp=a1b8dd576adde3e22, concept=abe321159f53d407b (SendMessage для продолжения с контекстом).
+
+---
+# === SAVE 2026-06-15 ~02:05 (продолжение ночи; навмеш-итог + автотест) ===
+
+## 🔴 НАВМЕШ — ИТОГ НОЧИ (headless исчерпан, юг ждёт интерактивный Build Paths):
+- **ЛОГОВО (волки, север Y=2200): ЗАПЕЧЁН headless, ПОКРЫТ** (5/5 спавнов на навмеше). Погоня волков готова — ждёт live-PIE теста (морнинг-CU).
+- **БАЗА (бандиты, юг Y=-1500): «мёртвая зона», headless НЕ закрывается.** Диагноз (unreal-operator, 3 эксперимента, все опровергнуты как чистый фикс): расширение volume — база уже внутри; tile_size 4000 — юг не заполнился; отдельный nav-volume на юге — дал 2/3 со смещением полосы. КОРЕНЬ: **каждый NavMeshBoundsVolume генерит лишь ~ПОЛОВИНУ себя** → между северным и южным volume устойчивая дыра Y[-1700,-700], центр базы в ней. Это недо-флаш тайлов Recast за ОДИН headless-проход (`ProcessTileTasks` зовётся 1 раз, 0.02-0.08с). НЕ bounds/пол/конфиг/пул (всё проверено протоколом D).
+- **ФИКС = ИНТЕРАКТИВНЫЙ Build Paths** (в редакторе строит все тайлы многими проходами) → морнинг с Ринатом+CU. Альтернатива: перенос BanditBaseLocation (`BanditSpawnSubsystem.h:55`) в зону Y≥+400 (дизайн-решение Рината).
+- **Уроки коммандлетов (записать):** верный ключ бейка `-BuildNavigationData -MAPSONLY -PACKAGE=L_MainLevel`. `unreal.CubeBuilder` в Python API НЕТ. `duplicate_actor` на volume в commandlet КРАШИТ (access violation) — добавлять volume через `spawn_actor_from_class` + `set_actor_scale3d`. Текущий .umap на диске = 272642 (один volume, север запечён) — рабочее состояние для морнинг-теста волков.
+
+## 🧪 АВТОТЕСТ ПОГОНИ (cpp 963438e, в origin):
+- Консольная команда **`cs.TestWolfChase`** (`Source/ContrarySurvivor/Debug/QAChaseTest.cpp` + оркестрация в PlayerController + аксессоры в EnemyAIController/WolfSpawnSubsystem). Телепорт игрока к Логову → спавн волков → 15с сэмплит dist → печатает `QA-TEST: WOLF-CHASE PASS/FAIL` (пороги из кода: AttackRange 70, eff 132, монотонность ≥70%).
+- **Headless `-game` НЕ грузит статик-навмеш игрового мира** (волки freefall, AI direct-Failed) → headless-верификация погони на этой карте НЕ годится. Тест работает только в LIVE-PIE (даёт авто-вердикт вместо камеры). Путь к настоящему headless = cooked-билд (cook включает навмеш) — отложено.
+- Сборка PASS, DLL базовый 01:53. Логи: logs/wolfchase-cpp-build.log, wolfchase-test-0159.log.
+
+## ⏳ ОЧЕРЕДЬ (CU-free, можно ночью):
+- **Пере-импорт обновлённых FBX в UE** (после визуального QC): SM_Shed + SM_GrassTuft (СТАТИК, низкий риск — делаю сейчас) → потом аккуратно скелетные SK_Bandit_* (кепка+пропорции) + SK_Armor_Head_02/Torso_02/Legs_02 (риск скиннинга/материалов — supervised/морнинг с бэкапами).
+- Импорт 15 HUD-иконок как текстур + подцепить в DrawHUD (unreal + cpp).
+- QA-ревью батча (HUD #18 + автотест + ассеты) → merge в master гейм-репо (вручную; решение Рината по версионированию /Content — пререквизит).
+
+## АКТИВНЫЕ agentId (SendMessage для продолжения): unreal=aa462b5a5ecb07f61, cpp=ac95a9c3529deb823 (новый chase-test), concept=abe321159f53d407b. modeler-прошлый очищен (P1+P2 приняты).
