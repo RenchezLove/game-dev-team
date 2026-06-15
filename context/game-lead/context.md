@@ -630,3 +630,9 @@ F1 debug-камера, F2 GiveTestItems, F3/F4 броня вкл/выкл, F6 us
 ## РЕПО
 - Гейм-репо `feature/phase5-quests`: HEAD `f929da5` (камера-фикс) + незакоммиченная правка cpp (диагностика/фикс freeze — cpp коммитит на закрытии сессии). Нужен push после коммита cpp. DLL слинкован 23:51 (камера-фикс), но vel=0 ещё не решён.
 - Команд-репо `docs/phase0-gdd`: почищен (heartbeat/junk удалён). context'ы дистиллированы.
+
+## ОБНОВЛЕНИЕ (00:10) — WASD vel=0 КОРЕНЬ НАЙДЕН, фикс готов (тест завтра)
+- cpp: греп показал `SetIgnoreMoveInput` в C++ НЕ зовётся → залипший игнор ставит BP/движковый debug-режим (вероятно F1 ToggleDebugCamera) без сброса. Механизм: `IsMoveInputIgnored()=true` → `AddMovementInput` копит 0 → vel=0 (ровно наводка Рината про debug-тулинг).
+- ФИКС (гейм-репо `feature/phase5-quests` HEAD `8f194dc`, коммиты 82f3a9b+8f194dc, компиляция PASS): в `Move()` перед AddMovementInput — если `IsMoveInputIgnored()` → `ResetIgnoreMoveInput()`. Модалки гейтятся ранним return по флагам, move-lock демке не нужен.
+- ⏭️ ЗАВТРА ПЕРВЫМ ДЕЛОМ: редактор закрыт → релинк (`Build.bat ... -NoHotReload`) → Ринат жмёт W → ждём `vel2D>0` и `ignoreMove=1` в логе (подтвердит, что корень был залипший игнор). Если поедет — Этап 1 ЗАКРЫТ, дальше Этап 2 (бой+погоня). Если `ignoreMove=0, vel=0` — копать гашение скорости.
+- Диаг QA: MOVE теперь с полями ignoreMove/ctrlInput/vel — TEMP, убрать после подтверждения.
