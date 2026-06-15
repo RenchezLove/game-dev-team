@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 cd /e/game-dev-team || exit 1
 f=reports/Agents/TEST_REPORT.md
-old=$(md5sum "$f" 2>/dev/null | cut -d' ' -f1)
+# триггер только на значимые маркеры, не на лёгкие пульсы
+cnt() { grep -cE '🟡 ВЗЯЛ|🔵.*(PASS|FAIL|Этап)|ИТОГ:.*(PASS|FAIL)' "$f" 2>/dev/null; }
+old=$(cnt)
 while true; do
   sleep 60
-  new=$(md5sum "$f" 2>/dev/null | cut -d' ' -f1)
-  if [ "$new" != "$old" ]; then
-    echo "СБОРЩИК ОБНОВИЛ TEST_REPORT.md (был $old, стал $new) — прочитать и среагировать"
-    exit 0
-  fi
+  new=$(cnt)
+  if [ "$new" != "$old" ]; then echo "СБОРЩИК: значимый отчёт в TEST_REPORT (взял/PASS/FAIL) — прочитать"; exit 0; fi
 done
