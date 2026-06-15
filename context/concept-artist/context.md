@@ -29,3 +29,10 @@
 - HEX базовые: Moss Field #3F5A31, Sun Grass #5C7A3E, Pine Shade #2B3A2C, Dry Earth #7D6A4E, Timber #8A5A32, Concrete #6E6A60, Cold Steel #5A6470, Faded Sage #9AA08C; акценты: Rust Alarm #C64B2C (враг/опасность), Amber Loot #E0A32E (лут), Toxic Lime #7E9B3A (мутант), Muted Blood #8A2F2A; UI: Panel #1B2018, Bone Ink #E7E4D8, HP Green #4E8C46, XP Gold #CAA54E.
 - Также отдано 4 EN-промпта для image-gen (герой / бандит / деревня / keyframe) — это арт-дирекшн+промпты, не рисунок (мой скоуп).
 - **Подтверждено:** Bash В ЭТОЙ сессии доступен, рендер запускаю сам. Edge-путь рабочий.
+
+## HUD/inventory icons (полировка #18) — 2026-06-15
+- 15 флэт-иконок 128×128 PNG (прозрачный фон, RGBA) + contact-sheet. Папка: `context/concept-artist/tmp/hud-icons/`.
+- Генератор: `gen.js` (Node) — палитра-locked SVG → standalone HTML в `html/`, рендер msedge `--headless=new --default-background-color=00000000 --window-size=128,128 --screenshot`. Прозрачность даёт именно флаг `--default-background-color=00000000`.
+- Стиль: плоская заливка + обводка Panel Dark #1b2018 width 5, round joins. 1-2 цвета из cs-palette на иконку.
+- Набор: health(heart+cross HP Green), hunger(drumstick), thirst(drop steel), money(₽ coin gold); slot-head/torso/legs (sage placeholders — ЧЕРНОВИК); pistol, knife, ammo-box, wolf-hide(splayed pelt — draft-ish), notebook(rust ribbon=quest), food(can), medkit(rust cross), armor-generic(vest).
+- Импорт в UE как текстуры — позже (game-lead/Сборщик).

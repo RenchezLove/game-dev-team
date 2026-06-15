@@ -24,3 +24,12 @@ concept-art/*.png
 
 # local asset backups (orphans etc.) — not for VCS
 backups/
+
+# game-lead служебные watcher-скрипты и временные (не в git)
+reports/Agents/_gl_*.sh
+reports/Agents/*.tmp
+reports/Agents/*.bak
+reports/Agents/*.bak.*
+reports/Agents/HEARTBEAT.md
+reports/Agents/STATUS_PULSE.txt
+reports/Agents/gl_heartbeat_status.txt
