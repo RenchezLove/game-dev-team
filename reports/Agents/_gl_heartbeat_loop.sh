@@ -5,6 +5,7 @@ while true; do
   ts=$(date '+%Y-%m-%d %H:%M:%S')
   status=$(cat reports/Agents/gl_heartbeat_status.txt 2>/dev/null)
   { echo "## [$ts] game-lead heartbeat 💓"; echo "$status"; echo ""; echo "---"; echo ""; } >> reports/Agents/HEARTBEAT.md
+  echo "[$ts] game-lead pulse → Сборщик: жив, работаю. См. свежее задание/🟢 выше." >> reports/Agents/STATUS_PULSE.txt
   git add reports/Agents/ 2>/dev/null
   git commit -q -m "heartbeat $ts" 2>/dev/null
   git push -q origin docs/phase0-gdd 2>/dev/null
