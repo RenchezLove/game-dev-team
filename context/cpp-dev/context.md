@@ -3,14 +3,21 @@
 > Лёгкая рабочая память `cpp-dev` (правило H + Гигиена памяти из CLAUDE.md: стоп >150 строк, СЕЙЧАС вырезает прошлый). Закрытая история — в [archive.md](archive.md) (read-on-demand, НЕ для грунтовки). Build-логи — `logs/`, история — git.
 
 ## 🧭 СЕЙЧАС
-WASD vel=0 — КОРЕНЬ+ФИКС f10835c (feature/phase5-quests). Капсула утоплена в пол ~34см
-(floorDist=-34, floorPen=1) → свип CMC упирается в depenetration → Velocity=0 при accel=2048.
-Корень — спавн-Z/размещение, НЕ код движения. Нижние слои отметены (в архиве):
-MaxWalkSpeed/NavWalking/камера-yaw/IsMoveInputIgnored/root motion/friction.
-ФИКС: relocate в PlayerCharacter::BeginPlay — floor-trace TraceFloorZ, центр капсулы на
-floorImpact+halfHeight+10 если игрок под картой ИЛИ утоплен. СОБРАН (релинк PASS), ждёт PIE+W.
-После подтверждения СНЯТЬ TEMP-диаги MOVE/VELKILL/PIPELINE/BLOCK (PlayerController.{cpp,h})
-+ BeginPlay-диаг (PlayerCharacter.cpp:~206).
+WASD-баг ЗАКРЫТ: корень был в ДАННЫХ уровня (не в коде) — персонаж ходит в чистом L_World.
+Ветка **feature/clean-village** (от phase5-quests). Этап 2 «чистка» СОБРАН (база DLL, 50s, OK), коммит acaba92:
+- Камера: ApplyCameraSettings убран из BeginPlay → применяется 1 раз в OnConstruction (knob Camera-категории
+  живой, без рантайм-перетирания); CameraArmLength деф. 3000. Дизайнер крутит Camera Arm Length в Class Defaults BP.
+- Репликация OFF (одиночная): bReplicates=false, SetReplicateMovement(false), NetworkSmoothingMode=Disabled —
+  митигация «резинового» отката; КОРЕНЬ не подтверждён PIE (нужен прогон).
+- Удалены UTraderSpawnSubsystem/UElderSpawnSubsystem (авто-спавн NPC). Классы ATraderNPC/AElderNPC живы (оператор ставит актёрами).
+- Этап 1 (коллизия надетого оружия Equip/Unequip + диаг floorActor/OVERLAPLIST в BLOCK) вошёл в этот же коммит.
+ОТКРЫТО: двойной экип пистолета (C_0→Unequip→C_1) — НЕ C++ (EquipDefaultWeapon спавнит 1 раз, лог-док в отчёте),
+дубль в EventGraph BP_PlayerCharacter (BeginPlay-ноды спавн+экип) → правка за unreal-operator.
+ДЁРГАНЬЕ РЕШЕНО (коммит 9ef9261): причина = per-0.5s диаг-спам в Move() (overlap-проба+рефлексия+bScreen)
+давал фрейм-хитч в ритм дёрганья. ВСЕ TEMP-диаги BugReport12 сняты (Move-блок целиком; BeginPlay-логи;
+осиротевшие члены LastMoveDiag* + 5 инклудов). Функциональное оставлено: базис/AddMovementInput,
+ResetIgnoreMoveInput, спавн-relocate, NavWalking->Walking. Собрано (8.4s, OK). Репликация OFF из прошлого
+коммита к дёрганью, видимо, не относилась — оставил (для одиночной корректно), но причиной была не она.
 
 ## LIVE-КОНВЕНЦИИ (как работаю в этом проекте)
 - **Include внутри модуля**: префикс `ContrarySurvivor/<Subdir>/Header.h`. Относительный `Components/Header.h` из другой подпапки НЕ резолвится (C1083).
