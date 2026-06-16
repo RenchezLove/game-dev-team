@@ -14,6 +14,8 @@ concept-art/*.png
 .claude/settings.local.json
 # маркер QA-гейта — локальный, создаётся game-lead вручную, не коммитится
 .claude/QA_OK
+# рантайм-лог хука инъекции маяка — растёт каждый ход, не коммитится
+.claude/hooks/gate-inject.log
 *.key
 *.keys.json
 .env

@@ -37,6 +37,17 @@
     "disableBypassPermissionsMode": "disable"
   },
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"${CLAUDE_PROJECT_DIR}/.claude/hooks/inject-gate.ps1\""
+          }
+        ]
+      }
+    ],
     "SessionStart": [
       {
         "matcher": "startup",
