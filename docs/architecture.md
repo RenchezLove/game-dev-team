@@ -35,8 +35,8 @@ game-dev-team/
 
 ## Фазы сборки
 - **Ф0. Подготовка** ✓ — Claude Code на ноуте (v2.1.158), Git 2.52, реестр коннекторов проверен, возможности субагентов сверены по доке.
-- **Ф1. Скелет команды** ← текущая — game-lead + 5 базовых агентов, context/, _shared.md. Холостой прогон.
-- **Ф2. Инструменты и автономия** — проводка инструментов (Blender-коннектор, UE-путь, canvas-design), навыки, git-workflow (worktree, qa-гейт), permissionMode.
+- **Ф1. Скелет команды** ✓ — game-lead + 5 базовых агентов, context/, _shared.md. *(Статус устарел: Фазы 0–5 пройдены, команда в активной разработке игры — см. `docs/contrary-survivor/roadmap.md`.)*
+- **Ф2. Инструменты и автономия** — проводка инструментов (Blender-коннектор, UE-путь, code-render), навыки, git-workflow (worktree, qa-гейт), permissionMode.
 - **Ф3. Расширение состава** — game-designer, tech-artist, sound, level-designer, ui-ux-designer.
 - **Ф4. Подключение проекта** — ContrarySurvivor как загружаемый контекст; сквозной прогон на мелкой реальной задаче.
 - **Ф5. Надёжность и наблюдаемость** — code-review/tdd/qa-гейт, логи (`ctrl+o`, `Ctrl+T`, `logs/`).

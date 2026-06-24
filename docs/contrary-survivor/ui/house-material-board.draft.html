@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1040px; height:600px; overflow:hidden; }
+  body { font-family:"Segoe UI",Arial,sans-serif; background:#15171c; padding:28px 32px; color:#E7E4D8; }
+  h1 { font-size:20px; font-weight:700; letter-spacing:.3px; }
+  .sub { color:#7d8794; font-size:12.5px; margin-top:3px; margin-bottom:18px; }
+  .cols { display:flex; gap:22px; }
+  .card { flex:1; background:#1B2018; border:1px solid rgba(231,228,216,.12); border-radius:11px; padding:18px 18px 16px; }
+  .card.warm { border-left:5px solid #8A5A32; }
+  .card.cool { border-left:5px solid #6E6A60; }
+  .card h2 { font-size:15px; font-weight:700; letter-spacing:.3px; }
+  .card .tag { color:#9AA08C; font-size:11.5px; margin-top:2px; margin-bottom:13px; }
+  .chip { display:flex; align-items:center; gap:11px; margin:9px 0; }
+  .sw { width:54px; height:34px; border-radius:6px; flex:none; box-shadow:inset 0 0 0 1px rgba(0,0,0,.4); }
+  .cn { font-size:12.5px; font-weight:600; }
+  .cx { font-size:11px; color:#9aa3ad; font-family:Consolas,monospace; }
+  .cr { font-size:10.5px; color:#7d8794; }
+  .var { display:inline-block; font-size:9px; color:#E0A32E; border:1px solid #E0A32E; border-radius:4px; padding:0 4px; margin-left:5px; vertical-align:middle; letter-spacing:.3px; }
+  .notes { margin-top:18px; background:#14160f; border:1px solid rgba(231,228,216,.10); border-radius:10px; padding:14px 18px; }
+  .notes div { font-size:12px; color:#cdd3c2; line-height:1.55; margin:4px 0; }
+  .notes b { color:#E7E4D8; }
+  .k { color:#9AA08C; }
+</style>
+</head>
+<body>
+  <h1>Дом — материал «выветренное дерево» (черновик-направление)</h1>
+  <div class="sub">Планка вида = концепт art/village.png. Цвета из утв. палитры GDD. 1 материал, mobile-friendly. Не финал, на отбор Рината.</div>
+
+  <div class="cols">
+    <!-- СТЕНЫ -->
+    <div class="card warm">
+      <h2>Стены (тёплые)</h2>
+      <div class="tag">Горизонтальные доски/брус, фаски</div>
+      <div class="chip"><div class="sw" style="background:#8A5A32"></div><div><div class="cn">Timber</div><div class="cx">#8A5A32</div><div class="cr">доминант доски</div></div></div>
+      <div class="chip"><div class="sw" style="background:#7D6A4E"></div><div><div class="cn">Dry Earth</div><div class="cx">#7D6A4E</div><div class="cr">выгоревшая доска (светлее)</div></div></div>
+      <div class="chip"><div class="sw" style="background:#2B3A2C"></div><div><div class="cn">Pine Shade</div><div class="cx">#2B3A2C</div><div class="cr">паз/тень между досок</div></div></div>
+    </div>
+
+    <!-- КРЫША -->
+    <div class="card cool">
+      <h2>Крыша (холодная, светлее стен)</h2>
+      <div class="tag">Целая, без дыр (C1) · отделяется от земли сверху</div>
+      <div class="chip"><div class="sw" style="background:#9AA08C"></div><div><div class="cn">Faded Sage <span class="var">ВАРИАНТ</span></div><div class="cx">#9AA08C</div><div class="cr">выгоревший верх (дрифтвуд)</div></div></div>
+      <div class="chip"><div class="sw" style="background:#6E6A60"></div><div><div class="cn">Concrete</div><div class="cx">#6E6A60</div><div class="cr">доска в тени</div></div></div>
+      <div class="chip"><div class="sw" style="background:#5A6470"></div><div><div class="cn">Cold Steel</div><div class="cx">#5A6470</div><div class="cr">глубокая тень / конёк</div></div></div>
+    </div>
+
+    <!-- ЦОКОЛЬ / ТРУБА -->
+    <div class="card cool">
+      <h2>Цоколь / труба</h2>
+      <div class="tag">Камень/бетон у земли</div>
+      <div class="chip"><div class="sw" style="background:#6E6A60"></div><div><div class="cn">Concrete</div><div class="cx">#6E6A60</div><div class="cr">основа цоколя</div></div></div>
+      <div class="chip"><div class="sw" style="background:#5A6470"></div><div><div class="cn">Cold Steel</div><div class="cx">#5A6470</div><div class="cr">тень/кладка трубы</div></div></div>
+      <div class="chip"><div class="sw" style="background:#2B3A2C"></div><div><div class="cn">Pine Shade</div><div class="cx">#2B3A2C</div><div class="cr">контакт-тень с землёй</div></div></div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <div><b>Top-down (главное):</b> сверху виден прежде всего скат крыши + кромка стен. Крыша <b>холоднее и светлее</b> тёплой коричневой стены и тёплой земли-дороги (<span class="k">Dry Earth-тан</span>) &rarr; чётко отделяется от грунта и травы. Если крыша уйдёт в тёплый тан — сольётся с дорогой сверху (этого избегаем). Тёплая стена выглядывает у карнизов = читается «дом из брёвен».</div>
+    <div><b>Выветренность:</b> умеренная — выгоревший светлый верх досок + тёмный паз, лёгкая потоновая разнобойность досок (baked AO в пазах). <b>Без</b> грязи/мха/пятен/мелкого шума и без чернухи (GDD «избегаем текстурный шум»). Не гнильё, а старое сухое дерево.</div>
+    <div><b>Mobile (1 материал):</b> базовый цвет через vertex-paint (тёплые грани = стена, холодные = крыша) ИЛИ крошечный палитра-атлас + один baked AO. <b>Без</b> normal/parallax/тяжёлых нод, без зависимости от Lumen. Mobile/Forward-рендер, запечённый свет (mobile-optimization.md).</div>
+    <div><b>Акцент:</b> на самом доме акцент-цветов НЕТ. Тёплый янтарь (<span class="k">#E0A32E</span>) — только опц. свет окна/костёр рядом, не материал стен.</div>
+  </div>
+</body>
+</html>

@@ -15,16 +15,16 @@
 | game-lead | Claude Code (Agent, файлы, git) | активен |
 | cpp-dev | Claude Code (файлы, bash, git, сборка) | активен |
 | qa | Claude Code (bash: сборка/тесты) | активен |
-| modeler-3d | нативный коннектор Blender | проводка на Фазе инструментов |
-| unreal-operator | UE Python / Remote Control (приоритет) либо Computer Use | проводка на Фазе инструментов |
-| concept-artist | навык canvas-design (png/pdf) | проводка на Фазе инструментов |
+| modeler-3d | нативный коннектор Blender | активен |
+| unreal-operator | UE Python / Remote Control (приоритет) либо Computer Use | активен |
+| concept-artist | нативный code-render (HTML/CSS+SVG→PNG/PDF) | активен |
 | sound (позже) | коннектор Splice | Фаза расширения |
 
 > Примечание: нативные коннекторы и навыки claude.ai не обязательно доступны в Claude Code CLI «из коробки» — их проводка в Claude Code проверяется и настраивается на Фазе инструментов (по первоисточнику, без допущений).
 
 ## Конвенции git (детально — на Фазе автономии)
 - Ветка на агента/фичу; изоляция через git worktree (`isolation: worktree`).
-- Мерж в `main` — через `game-lead` после прохождения qa-гейта (сборка + тесты зелёные). Гейт процессный, а не ручное подтверждение Рината.
+- Мерж в `master` — через `game-lead` после прохождения qa-гейта (сборка + тесты зелёные). Гейт процессный, а не ручное подтверждение Рината.
 - Коммиты атомарные, сообщение — суть изменения. Identity: `pgr40@yandex.ru`, GitHub user `RenchezLove`.
 
 ## Поток работы

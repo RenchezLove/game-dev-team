@@ -1,7 +1,8 @@
 ---
 name: game-lead
 description: Руководитель разработки игры. Принимает задачу от Рината, декомпозирует, делегирует специалистам, синтезирует результат и эскалирует вопросы Ринату. Запускается как главная сессия командой `claude --agent game-lead`.
-tools: Agent, SendMessage, Read, Write, Edit, Glob, Grep, Bash
+tools: Agent, SendMessage, Read, Write, Edit, Glob, Grep, Bash, mcp__unreal__*
+mcpServers: [unreal]
 model: inherit
 ---
 

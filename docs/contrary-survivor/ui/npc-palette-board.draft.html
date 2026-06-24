@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1120px; height:640px; overflow:hidden; }
+  body { font-family:"Segoe UI",Arial,sans-serif; background:#15171c; padding:30px 34px; color:#E7E4D8; }
+  h1 { font-size:21px; font-weight:700; letter-spacing:.3px; }
+  .sub { color:#7d8794; font-size:12.5px; margin-top:3px; margin-bottom:20px; }
+  .cols { display:flex; gap:26px; }
+  .card { flex:1; background:#1B2018; border:1px solid rgba(231,228,216,.12); border-radius:12px; padding:20px 22px; }
+  .card h2 { font-size:17px; font-weight:700; letter-spacing:.3px; }
+  .card .role { color:#9AA08C; font-size:12.5px; margin-top:2px; margin-bottom:16px; }
+  .lbl { font-size:11px; color:#7d8794; text-transform:uppercase; letter-spacing:.7px; margin:14px 0 8px; }
+  .chips { display:flex; gap:10px; }
+  .chip { flex:1; }
+  .sw { height:52px; border-radius:7px; box-shadow:inset 0 0 0 1px rgba(0,0,0,.35); }
+  .sw.sm { height:36px; }
+  .cn { font-size:11.5px; font-weight:600; margin-top:6px; }
+  .cx { font-size:10.5px; color:#9aa3ad; font-family:Consolas,monospace; }
+  .cr { font-size:10px; color:#6f7884; }
+  .accentwrap { display:flex; gap:10px; align-items:flex-start; }
+  .accentwrap .chip { flex:0 0 88px; }
+  .note { font-size:12px; color:#aeb4a3; line-height:1.5; flex:1; padding-top:2px; }
+  .base { margin-top:18px; background:#14160f; border:1px solid rgba(231,228,216,.10); border-radius:10px; padding:14px 18px; }
+  .base .lbl { margin-top:0; }
+  .baserow { display:flex; gap:10px; flex-wrap:wrap; }
+  .pill { font-size:11.5px; background:#23271d; border:1px solid rgba(231,228,216,.10); border-radius:6px; padding:6px 10px; color:#cdd3c2; font-family:Consolas,monospace; }
+  .foot { margin-top:14px; font-size:11px; color:#6f7884; }
+</style>
+</head>
+<body>
+  <h1>ContrarySurvivor — NPC: палитра + назначение слотов (черновик)</h1>
+  <div class="sub">Цвета — из утв. палитры GDD. Принцип читаемости сверху: СТАРОСТА = тёплый земляной · ТОРГОВЕЦ = холодный серый + малый янтарный акцент. Не финал, на отбор Рината.</div>
+
+  <div class="cols">
+    <!-- СТАРОСТА -->
+    <div class="card">
+      <h2>Староста</h2>
+      <div class="role">Выдаёт квесты · оседлый, возрастной · тёплый доминант</div>
+      <div class="lbl">Доминант + тень (торс/ноги)</div>
+      <div class="chips">
+        <div class="chip"><div class="sw" style="background:#7D6A4E"></div><div class="cn">Dry Earth</div><div class="cx">#7D6A4E</div><div class="cr">доминант (вар.)</div></div>
+        <div class="chip"><div class="sw" style="background:#8A5A32"></div><div class="cn">Timber</div><div class="cx">#8A5A32</div><div class="cr">доминант (вар.)</div></div>
+        <div class="chip"><div class="sw" style="background:#2B3A2C"></div><div class="cn">Pine Shade</div><div class="cx">#2B3A2C</div><div class="cr">тени/складки</div></div>
+      </div>
+      <div class="lbl">Голова / «седина»</div>
+      <div class="accentwrap">
+        <div class="chip"><div class="sw sm" style="background:#9AA08C"></div><div class="cn">Faded Sage</div><div class="cx">#9AA08C</div></div>
+        <div class="note">Силуэт: длинный верх (куртка/накидка ниже пояса) + узнаваемый убор/борода. Акцент НЕ обязателен.</div>
+      </div>
+    </div>
+
+    <!-- ТОРГОВЕЦ -->
+    <div class="card">
+      <h2>Торговец</h2>
+      <div class="role">Открывает магазин · «к кому идти за покупками» · холодный доминант</div>
+      <div class="lbl">Доминант + тень (торс/ноги)</div>
+      <div class="chips">
+        <div class="chip"><div class="sw" style="background:#5A6470"></div><div class="cn">Cold Steel</div><div class="cx">#5A6470</div><div class="cr">доминант (вар.)</div></div>
+        <div class="chip"><div class="sw" style="background:#6E6A60"></div><div class="cn">Concrete</div><div class="cx">#6E6A60</div><div class="cr">доминант (вар.)</div></div>
+        <div class="chip"><div class="sw" style="background:#1B2018"></div><div class="cn">Panel Dark</div><div class="cx">#1B2018</div><div class="cr">тени/складки</div></div>
+      </div>
+      <div class="lbl">Акцент «торговля» (малое пятно)</div>
+      <div class="accentwrap">
+        <div class="chip"><div class="sw sm" style="background:#E0A32E"></div><div class="cn">Amber Loot</div><div class="cx">#E0A32E</div></div>
+        <div class="note">Силуэт: жилет с подсумками / фартук («у него товар») + кепка иного силуэта, чем у старосты. Янтарь — маркер магазина, виден сверху.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ОБЩАЯ БАЗА -->
+  <div class="base">
+    <div class="lbl">Общая база (реюз, не лепить заново) — Content/Characters/Shared/</div>
+    <div class="baserow">
+      <span class="pill">скелет: Humanoid/...Head_Skeleton</span>
+      <span class="pill">анимация: ABP_HumanoidCharacter</span>
+      <span class="pill">материал: M_Clothes_Flat (recolor)</span>
+      <span class="pill">слоты-гардероб: Clothing/SK_Cloth_L1 · L2 (Head/Torso/Legs)</span>
+      <span class="pill">3 слота: Head · Torso · Legs (ADR-018)</span>
+    </div>
+  </div>
+  <div class="foot">Бюджет: ~1.5–2.5k трисов/NPC (GDD ч.2: 1.5–4k) · 1 материал · общий скелет ~≤50–70 костей · флэт-монохром + baked AO. Конкретная одежда/цвета — ВАРИАНТЫ на утв. Рината.</div>
+</body>
+</html>

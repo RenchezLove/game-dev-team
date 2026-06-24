@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>ContrarySurvivor — План доведения до вменяемой демки</title>
+<style>
+  /* ===== Печать A4 ===== */
+  @page { size: A4; margin: 15mm 14mm 16mm 14mm; }
+
+  :root{
+    --paper:      #F4F1E7;
+    --ink:        #1E2119;
+    --ink-soft:   #3A4030;
+    --moss:       #3F5A31;
+    --moss-deep:  #2B3A2C;
+    --earth:      #7D6A4E;
+    --timber:     #8A5A32;
+    --bone:       #F0EDE2;
+    --panel:      #FBFAF4;
+    --line:       #B7AE96;
+    --line-dark:  #6E6452;
+    --zebra:      #ECE7D7;
+    --rust:       #B5371C;
+    --rust-bg:    #F7E2DA;
+    --amber:      #9A6A09;
+    --amber-bg:   #F6E7C4;
+    --done:       #2F6B33;
+    --done-bg:    #DFEBD6;
+    --code-bg:    #ECE7D7;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+
+  body{
+    background:#D9D3C2;
+    color:var(--ink);
+    font-family:"Segoe UI","Noto Sans",Tahoma,Arial,sans-serif;
+    font-size:12.5pt;
+    line-height:1.55;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  .doc{
+    max-width:188mm;
+    margin:0 auto;
+    background:var(--paper);
+    padding:14mm 13mm 16mm 13mm;
+    border:1px solid var(--line-dark);
+  }
+
+  /* ===== Титул ===== */
+  .title-block{
+    border:2.5px solid var(--moss-deep);
+    border-left:9px solid var(--moss);
+    background:var(--panel);
+    padding:14px 18px 16px;
+    margin-bottom:18px;
+    border-radius:3px;
+  }
+  h1{ font-size:23pt; line-height:1.2; margin:0 0 10px; color:var(--moss-deep); letter-spacing:.2px; }
+  .meta{ font-size:11pt; color:var(--ink-soft); margin:3px 0; }
+  .meta strong{ color:var(--ink); }
+  .meta code{ font-size:10.5pt; }
+
+  /* ===== Заголовки секций ===== */
+  h2{
+    font-size:15.5pt; color:var(--bone); background:var(--moss);
+    border:2px solid var(--moss-deep); border-left:9px solid var(--moss-deep);
+    padding:8px 14px; margin:30px 0 14px; border-radius:3px; letter-spacing:.2px;
+  }
+  h3{
+    font-size:13pt; color:var(--ink); background:#E4DDC8;
+    border:1.5px solid var(--line-dark); border-left:7px solid var(--timber);
+    padding:7px 12px; margin:20px 0 10px; border-radius:3px;
+    display:flex; flex-wrap:wrap; align-items:center; gap:8px;
+  }
+  h3 .stage-name{ font-weight:700; }
+  h4{
+    font-size:12pt; color:var(--moss-deep); margin:16px 0 6px;
+    border-bottom:1.5px solid var(--line); padding-bottom:3px;
+  }
+
+  section{
+    background:var(--panel); border:1.5px solid var(--line);
+    border-radius:4px; padding:6px 18px 12px; margin-bottom:18px;
+  }
+
+  p{ margin:9px 0; }
+  ul,ol{ margin:8px 0; padding-left:26px; }
+  li{ margin:5px 0; }
+  ul ul{ margin:3px 0; }
+  strong{ color:var(--ink); }
+
+  code{
+    font-family:"Cascadia Mono","Consolas","Courier New",monospace;
+    font-size:11pt; background:var(--code-bg); border:1px solid var(--line);
+    border-radius:3px; padding:.5px 5px; color:#34301f; white-space:nowrap;
+  }
+
+  /* ===== Маркеры ===== */
+  .warn{
+    color:var(--rust); background:var(--rust-bg); border:1.2px solid var(--rust);
+    border-radius:3px; padding:.4px 6px; font-weight:700; font-size:10pt;
+    letter-spacing:.3px; white-space:nowrap;
+  }
+  .done{
+    color:var(--done); background:var(--done-bg); border:1.2px solid var(--done);
+    border-radius:3px; padding:.4px 6px; font-weight:700; font-size:10pt;
+    letter-spacing:.3px; white-space:nowrap;
+  }
+  .role-badge{
+    display:inline-block; background:var(--moss-deep); color:var(--bone);
+    border:1.5px solid #1c2718; border-radius:12px; padding:2px 11px;
+    font-size:9.8pt; font-weight:600; letter-spacing:.3px; white-space:nowrap;
+    font-family:"Cascadia Mono","Consolas",monospace;
+  }
+
+  .proof{
+    background:#E7E6DA; border:1.3px solid var(--line-dark);
+    border-left:6px solid var(--moss); border-radius:3px;
+    padding:6px 12px; margin:10px 0 4px; font-size:11.5pt;
+  }
+  .proof strong{ color:var(--moss-deep); }
+
+  .callout{
+    background:var(--amber-bg); border:1.5px solid #C9961E;
+    border-left:7px solid var(--amber); border-radius:3px;
+    padding:10px 14px; margin:14px 0 4px; font-size:11.8pt;
+  }
+  .callout-done{
+    background:var(--done-bg); border:1.5px solid var(--done);
+    border-left:7px solid var(--done); border-radius:3px;
+    padding:10px 14px; margin:12px 0 4px; font-size:11.8pt;
+  }
+
+  table{
+    border-collapse:collapse; width:100%; margin:12px 0 6px;
+    font-size:11.5pt; border:2px solid var(--line-dark);
+  }
+  thead th{
+    background:var(--moss); color:var(--bone); text-align:left;
+    padding:8px 12px; border:1px solid var(--moss-deep); font-size:12pt;
+  }
+  tbody td{ padding:7px 12px; border:1px solid var(--line-dark); vertical-align:top; }
+  tbody tr:nth-child(even){ background:var(--zebra); }
+  tbody tr:nth-child(odd){ background:var(--panel); }
+
+  pre.ascii{
+    background:#23281C; color:#E9E6D4; border:2px solid var(--moss-deep);
+    border-radius:4px; padding:12px; font-family:"Cascadia Mono","Consolas","Courier New",monospace;
+    font-size:8pt; line-height:1.5; overflow-x:auto; margin:12px 0;
+  }
+
+  hr{ display:none; }
+  section, table, pre.ascii, .title-block{ break-inside:avoid; }
+  h2, h3{ break-after:avoid; }
+
+  @media print{
+    body{ background:#fff; }
+    .doc{ max-width:none; margin:0; padding:0; border:none; }
+  }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <div class="title-block">
+    <h1>ContrarySurvivor — План доведения до вменяемой демки</h1>
+    <p class="meta"><strong>Дата:</strong> 2026-06-19 (актуализирован 2026-06-24) &middot; <strong>Автор:</strong> game-lead &middot; <strong>Статус:</strong> В РАБОТЕ. Ядро петли (2 квеста, оружие пистолет/нож, сейв/смерть/респаун, магазин торговца) <strong>ПОДТВЕРЖДЕНО Ринатом в живом PIE 06-23</strong> &rarr; Этап 0 пройден. Реализовано «чисто на C++» &rarr; текущий фокус = <strong>Этап A</strong> (перевод рабочего функционала на принятую архитектуру: <code>IShopVendor</code>, NPC &rarr; <code>AMasterHumanoidCharacter</code>, сабсистемы спавна &rarr; <code>AMasterEnemyBase</code>, BP-наследники C++). Отдельного «Этапа 0 на болванках/старых сабсистемах» больше НЕТ.</p>
+    <p class="meta"><strong>Репозиторий:</strong> <code>E:/ContrarySurvior/ContrarySurvivor</code> &middot; ветка <code>feature/clean-village</code> (HEAD <code>678e703</code>, на origin) &rarr; merge в <code>master</code> через QA-гейт.</p>
+    <div class="callout-done"><span class="done">РЕОРГ /Content ЗАВЕРШЁН</span> (06-24, <code>678e703</code>): редиректоры/дубли/мусор убраны, путь бандита на feature-first, бандиты спавнятся (PIE-подтв.). Детали — §9.</div>
+    <div class="callout-done"><span class="done">РЕШЕНИЯ РИНАТА 06-24 ПРИНЯТЫ</span> (см. §10): штраф смерти &minus;40% денег игрока + дроп расходников мешком; реорг сделан ДО фазы A; debug-телепорты V/Z — выпилить. Осталось 2 мелочи (текст попапа; тех-долг сейва) — не блокируют старт A.</div>
+  </div>
+
+  <!-- 0 -->
+  <h2>0. Цель и принципы</h2>
+  <section>
+    <p><strong>Цель.</strong> Играбельный вертикальный срез (демо): ГГ приходит в деревню &rarr; проходит 2 квеста (волки, бандиты) &rarr; получает награду &rarr; тратит у торговца. Внешний вид — на уровне концепта <code>village.png</code>. Оптимизировано под Android.</p>
+    <p><strong>Принципы работы.</strong></p>
+    <ul>
+      <li>Нативное первым (инструменты UE/Blender, без самоделок где есть штатное).</li>
+      <li>Логика в C++, на уровень ставятся <strong>Blueprint-наследники</strong> C++-классов (ADR-024: быстро + тюнинг без перекомпиляции).</li>
+      <li>Mobile-first: бюджеты по <code>docs/contrary-survivor/mobile-optimization.md</code> (Android; iOS — если дёшево).</li>
+      <li>Каждый шаг подтверждается артефактом (лог сборки / PIE / git). Без пруфа «готово» не считается.</li>
+      <li>Перед merge в <code>master</code> — ревью <code>qa</code> + маркер <code>QA_OK</code>.</li>
+    </ul>
+  </section>
+
+  <!-- 1 -->
+  <h2>1. Демо-петля (нарратив — утверждён Ринатом)</h2>
+  <section>
+    <ol>
+      <li>ГГ приходит в деревню (потеря памяти), ищет кров и убежище.</li>
+      <li><strong>Староста</strong>: чтобы заслужить доверие — избавь деревню от угрозы волков. Выдаёт квест: перебей стаю у логова на севере, принеси <strong>3 шкуры</strong> как доказательство.</li>
+      <li>ГГ идёт в <strong>логово волков (север)</strong>, уничтожает стаю (<strong>4 волка</strong>), собирает <strong>3 шкуры</strong>, возвращается к старосте &rarr; <strong>награда 150 монет</strong>.</li>
+      <li>Затем староста предлагает квест на <strong>базу бандитов (юг)</strong>. Сюжетная зацепка: за ГГ кто-то гонится (бандиты/наёмники); староста просит принести с базы <strong>ноутбук бандитов</strong> — покопавшись в нём, поможет ГГ узнать, кто и зачем за ним охотится.</li>
+      <li>ГГ зачищает базу: убивает <strong>3 бандитов</strong>, забирает <strong>ноутбук (1 шт.)</strong>, несёт старосте &rarr; <strong>награда 250 монет</strong>.</li>
+      <li>Деньги ГГ тратит у <strong>торговца</strong>: снаряжение, патроны, медикаменты, еда и пр.</li>
+    </ol>
+  </section>
+
+  <!-- 2 -->
+  <h2>2. Текущее состояние (проверенные факты — разведка cpp 06-23, пруфы файл:строка)</h2>
+  <section>
+    <ul>
+      <li><strong>Петля РАБОТАЕТ в живом PIE (Ринат, 06-23):</strong> 2 квеста (волки &rarr; бандиты), оружие (пистолет/нож), сейв/смерть/респаун, магазин торговца. Это слово Рината по живому PIE — авторитетный источник. Числа стоят: шкур 3, волков 4, бандитов 3 (цель убить 3), награды 150/250, ноут 1.</li>
+      <li><strong>Реализация «чисто на C++»</strong> (без принятой архитектуры) &rarr; задача демки = ПЕРЕВОД на архитектуру (Этап A), а НЕ переписывание/доделка механик.</li>
+      <li><strong>Квесты</strong> заданы в коде (<code>ElderNPC.cpp</code>, конструктор cpp:89-112): Q1 «Шкуры волков» (Collect, 3 шкуры, 150); Q2 «Зачистить базу бандитов» (Deliver, убить 3 Bandit + 1 Ноутбук, 250). Каркас <code>UQuestComponent</code> (Kill/Collect/Deliver) есть.</li>
+      <li><strong>Числа (хардкод, DataTable нет):</strong> реально расходятся с целью только в 2 местах — шкуры <strong>5&rarr;3</strong> (<code>ElderNPC.cpp:96</code>), волки в стае <strong>5&rarr;4</strong> (<code>WolfSpawnSubsystem.h:68</code>). Бандиты (3) и награды (150/250) уже верны.</li>
+      <li><strong>Спавн врагов — по подходу игрока (факт кода):</strong> <code>WolfSpawnSubsystem</code> и <code>BanditSpawnSubsystem</code> спавнят волков/бандитов, когда игрок входит в радиус активации логова/базы (враги НЕ стоят на уровне постоянно). Сабсистемы РАБОТАЮТ, но это <code>UWorldSubsystem</code> — не акторы: не размещаются/не видны в редакторе, локация базы берётся из C++-дефолта. &rarr; <strong>РЕШЕНО (ADR-024):</strong> в Этапе A заменяются размещаемым актором <code>AMasterEnemyBase</code> (<code>BP_WolfDen</code>/<code>BP_BanditBase</code>), сабсистемы удаляются. <span class="warn">⚠</span> Debug-хуки контроллера (<code>PC.cpp:465/505/565</code> — V/Z-телепорты, <code>cs.TestWolfChase</code>) завязаны на сабсистемы &rarr; при удалении сломают сборку, переписать/выпилить.</li>
+      <li><strong>Торговец:</strong> магазин ОТКРЫВАЕТСЯ и работает в PIE, но рабочий торговец на уровне — старый <code>ATraderNPC</code> (placed). Поиск/открытие жёстко завязаны на класс: <code>Cast&lt;ATraderNPC&gt;</code> &rarr; <code>OpenShop</code> (<code>PlayerController.cpp:1343</code>), <code>HUD::SetShopOpen(ATraderNPC*)</code>. <code>AMasterTrader</code> уже создан и собран (<code>AMasterTrader : AMasterHumanoidCharacter</code>), но его overlap НЕ регистрируется (<code>MasterTrader.cpp:120</code>) &rarr; <code>BP_Trader</code> магазин открыть пока не может. Задача A2 — перевести на интерфейс <code>IShopVendor</code>.</li>
+      <li><strong>NPC староста</strong> — <code>AElderNPC : AActor</code> (<code>ElderNPC.h:32</code>), не гуманоид (цилиндр-болванка). Квест-данные в конструкторе портируемы. Задача A3 — рефактор на <code>AMasterHumanoidCharacter</code>.</li>
+      <li><strong>Сломанные хардкод-пути (факт):</strong> 2 ABP-finder — <code>TraderNPC.cpp:52</code> и <code>ElderNPC.cpp:44</code> указывают на <code>/Game/TestContentAndCode/PreProduction/ABP_HumanoidCharacter</code>, а ассет переехал в <code>Characters/Shared/Humanoid/</code> (реорг ADR-023) &rarr; пути СЛОМАНЫ, закроются фазой A (A2/A3, классы переписываются).</li>
+      <li><strong>Уровень <code>L_World</code></strong> — блокаут: 6 домов, дорога-полоса, плоская земля, трава, PlayerStart, 1 свет. Коммит <code>a69dc68</code> заявляет удаление бандитов-заглушек — <span class="warn">⚠</span> подтвердить в редакторе, что статичных <code>BP_EnemyBandit</code> на <code>L_World</code> не осталось. <strong>НЕТ:</strong> логова/базы как локаций/построек, неба/атмосферы (для вида сверху скайбокс не нужен — см. C3).</li>
+      <li><strong>Дом</strong> — материал <code>M_House</code> светло-серый (не «дом»); крыша имеет дефект (2 лишние/вывернутые грани у торцов — подтвердит wireframe в Blender). Меш 748 трис, 1 LOD.</li>
+      <li><strong>Оружие</strong> — классы есть (<code>ARangedWeapon</code>/<code>APistol</code>, <code>AMeleeWeapon</code>/нож). РАБОТАЕТ в PIE (Ринат, 06-23). Механику не трогаем — только визуал (Этап D).</li>
+      <li><strong>Сейв/смерть/респаун</strong> — РАБОТАЕТ в PIE. НО текущий штраф &ne; финальный: сейчас удаляется 25% Consumable/Resource (<code>PlayerCharacter.cpp:1129</code>), без &minus;40% денег, без дроп-мешком, без UI-попапа. Квест-предметы УЖЕ защищены (категория Quest; шкура+ноутбук = <code>AQuestItem</code>). Привести к финалу в A4 (ждёт решений Рината).
+        <ul><li><span class="warn">⚠ Тех-долг сейва</span> (разведка cpp): Save/Load НЕ сохраняет <code>ItemName</code>/<code>StackCount</code> (только class path) &rarr; после reload теряются имена предметов, прогресс item-целей квестов и стак патронов. Пре-существующий, save-систему не трогали. Решить в A4: чинить сейчас или отложить (см. §10).</li></ul>
+      </li>
+      <li><strong>Растительность</strong> (<code>GrassField</code>, HISM) — выглядит плохо/неоптимально &rarr; переделать (Этап C5).</li>
+    </ul>
+    <div class="callout">Функционал петли <strong>ПОДТВЕРЖДЁН в PIE 06-23</strong>. Задача демки = перевод на принятую архитектуру (Этап A), НЕ переписывание механик на старых сабсистемах.</div>
+  </section>
+
+  <!-- 3 -->
+  <h2>3. Этапы работ</h2>
+  <section>
+    <h3><span class="stage-name">Этап 0 — Функциональный срез</span> <span class="done">ПРОЙДЕН</span> <span class="role-badge">подтверждено Ринатом, PIE 06-23</span></h3>
+    <p>Ядро петли РАБОТАЕТ в живом PIE: 2 квеста (волки &rarr; бандиты), оружие (пистолет/нож), сейв/смерть/респаун, магазин торговца.</p>
+    <p><strong>Решение Рината 06-23:</strong> функционал реализован «чисто на C++». Доделывать его на старых C++-сабсистемах НЕ нужно — <strong>сразу переводим на принятую архитектуру</strong> (Этап A). Остаточные хвосты (подтвердить отсутствие статичных <code>BP_EnemyBandit</code> на уровне; проверить, что ошибка <code>Failed to spawn player controller</code> со скрина 06-23 00:18 не воспроизводится) — закрываются ВНУТРИ Этапа A, не отдельным «нулевым» проходом.</p>
+
+    <h3><span class="stage-name">Этап A — Перевод на архитектуру</span> <span class="role-badge">cpp-dev + unreal-operator &rarr; PIE Рината</span></h3>
+    <p><strong>Суть:</strong> механику НЕ переписываем (работает) — переносим рабочий функционал с «голого C++» на принятую архитектуру (ADR-018/023/024). Подробная декомпозиция, порядок, риски и пруфы — в <strong>§А-DETAIL</strong> ниже. Кратко:</p>
+    <ul>
+      <li><strong>A1. Числа квестов</strong> — ровно 2 правки в коде: шкуры <code>5&rarr;3</code> (<code>ElderNPC.cpp:96</code>), волки в стае <code>5&rarr;4</code> (<code>WolfSpawnSubsystem.h:68</code>). Бандиты/награды уже верны. DataTable пока НЕ заводим (это Этап E). Числа <strong>вшиваются внутрь A3/A5</strong> (там эти файлы и так переписываются), не отдельным проходом.</li>
+      <li><strong>A2. Торговец &rarr; <code>IShopVendor</code></strong> (старт фазы). Вынести <code>FShopEntry</code>/<code>EShopEntryKind</code> из <code>TraderNPC.h</code> в нейтральный заголовок (3 потребителя) &rarr; создать интерфейс <code>IShopVendor</code> &rarr; ретипизировать PlayerController + HUD на интерфейс &rarr; <code>AMasterTrader</code> реализует интерфейс и регистрирует overlap &rarr; удалить <code>ATraderNPC</code>. Editor: поставить <code>BP_Trader</code>, снять старый placed <code>ATraderNPC</code>.</li>
+      <li><strong>A3. Староста &rarr; гуманоид.</strong> <code>AElderNPC : AActor</code> &rarr; <code>AMasterHumanoidCharacter</code> (образец — <code>AMasterTrader</code>); квест-логика/overlap сохраняются; убрать сломанный C++ ABP-finder.</li>
+      <li><strong>A4. Сейв/смерть/респаун — финальная модель.</strong> Сейв у костра в деревне (есть); штраф &minus;40% денег + дроп расходников/неэкип. мешком + UI-попап (НЕТ — ждёт 3 решений Рината, §10). Квест-предметы целы (есть).</li>
+      <li><strong>A5. Спавн-рефактор (ADR-024).</strong> <code>WolfSpawnSubsystem</code>/<code>BanditSpawnSubsystem</code> &rarr; один <code>AMasterEnemyBase</code> (размещаемый актор: триггер-радиус, что/сколько спавнить по подходу, опц. квест-предмет) + BP-наследники <code>BP_WolfDen</code>/<code>BP_BanditBase</code>; создать <code>BP_Wolf : AWolfCharacter</code>; обе сабсистемы удалить; <span class="warn">⚠</span> переписать/выпилить debug-хуки V/Z/<code>cs.TestWolfChase</code>.</li>
+      <li><strong>Порядок:</strong> A2 &rarr; A3 &rarr; A5 (A1 вшит в A3/A5; A4 параллелит, ждёт решений). C++-правка = headless-сборка с логом (cpp); BP/расстановка = unreal-operator; финал каждого этапа = PIE Рината.</li>
+    </ul>
+    <p class="proof"><strong>Пруф:</strong> сборка PASS (лог <code>Build.bat … Development</code>), смоук-тест механик в PIE.</p>
+
+    <h3><span class="stage-name">Этап B — Контент уровня под квесты</span> <span class="role-badge">unreal-operator + modeler-3d</span></h3>
+    <p>Идёт ПОСЛЕ A5 &rarr; базы врагов на уровне = размещённые <code>BP_WolfDen</code>/<code>BP_BanditBase</code> (не сабсистемы).</p>
+    <ul>
+      <li>B1. <strong>Логово волков (север):</strong> разместить <code>BP_WolfDen</code> + геометрия логова (<code>SM_WolfDenCave</code>) как локация-место; настроить экземпляр (4 волка, радиус). Здесь только layout/постройка места, НЕ статичные враги.</li>
+      <li>B2. <strong>База бандитов (юг):</strong> разместить <code>BP_BanditBase</code> (3 бандита + ноутбук по подходу) + постройки: сарай (переделать, C6), костёр, ящики (layout/props).</li>
+      <li>B3. <strong>NPC на местах:</strong> <code>BP_Elder</code>, <code>BP_Trader</code> поставлены, взаимодействие работает; убрать старые цилиндры/placed-болванки.</li>
+      <li>B4. <strong>Костёр-сейвпоинт</strong> в деревне.</li>
+    </ul>
+    <p class="proof"><strong>Пруф:</strong> полный проход обоих квестов в PIE (qa) с логом.</p>
+
+    <h3><span class="stage-name">Этап C — Внешний вид</span> <span class="role-badge">modeler-3d + unreal-operator; арт-дирекшн concept-artist</span></h3>
+    <p>Планка — концепт <code>village.png</code> (низкополи, выветренное дерево). Бюджеты — <code>mobile-optimization.md</code>.</p>
+    <ul>
+      <li>C1. <strong>Дом:</strong> фикс крыши (wireframe-инспекция в Blender &rarr; правка <code>_qc_house.blend</code>/FBX &rarr; реимпорт); материал «выветренное дерево» (стены/крыша). Крыша <strong>целая</strong> (побитость не нужна).</li>
+      <li>C2. <strong>Земля/дорога:</strong> материал вместо плоской заливки (мягкая текстура, mobile-friendly), растушёвка края дороги.</li>
+      <li>C3. <strong>Освещение (без скайбокса — вид сверху):</strong> directional + <strong>SkyLight (ambient-заливка)</strong>, чтобы тени не были чёрными (причина «почти чёрных» домов); мягкие длинные тени (как концепт); при необходимости простой фон/туман по краям кадра. SkyAtmosphere/скайбокс НЕ нужен (горизонт сверху не виден).</li>
+      <li>C4. <strong>NPC-облик:</strong> староста + торговец — модульные гуманоиды (Head/Torso/Legs, ADR-018); волки/бандиты — уже есть.</li>
+      <li>C5. <strong>Растительность:</strong> убрать текущий <code>GrassField</code>; подготовить <strong>Foliage-кисти</strong> (трава/кусты); деревья/камни/бочки — расстановка.</li>
+      <li>C6. <strong>Сарай:</strong> новый низкополи-меш (мини-база бандитов, вид по концепту).</li>
+    </ul>
+    <p class="proof"><strong>Пруф:</strong> топ-даун + перспектива <strong>после полной загрузки</strong> (НЕ wireframe-headless); game-lead лично смотрит PNG.</p>
+
+    <h3><span class="stage-name">Этап D — Визуал оружия</span> <span class="role-badge">cpp-dev/unreal-operator + modeler-3d</span></h3>
+    <p>Механику не переписываем (работает; пруф — Этап 0). Делаем визуал:</p>
+    <ul>
+      <li>D1. Пистолет: VFX выстрела (мазл-флэш/трассер), анимация; звук уже есть.</li>
+      <li>D2. Нож: анимация удара, VFX.</li>
+      <li>D3. Доделка моделей <code>SM_Pistol</code>/<code>SM_Knife</code> при необходимости.</li>
+    </ul>
+
+    <h3><span class="stage-name">Этап E — Инструменты (JIT, ADR-020)</span> <span class="role-badge">cpp-dev / unreal-operator</span></h3>
+    <ul>
+      <li>E1. <code>AMasterTrader</code> — «инструмент создания торговцев» (делается в A2).</li>
+      <li>E2. <strong>DT_Quests / DT_Items</strong> — рефактор определений квестов/предметов в DataTable (после стабилизации механик; к концу демки — обязательно). Староста читает квест по <code>RowName</code>. <span class="warn">⚠</span> Увязать с тех-долгом сейва (ItemName/StackCount, см. §2).</li>
+      <li>E3. Foliage-кисти — нативные (в C5).</li>
+      <li><strong>Отложено</strong> (решение Рината): abandoned car generator; spline-конструктор заборов (забор — руками).</li>
+    </ul>
+
+    <h3><span class="stage-name">Этап F — QA-гейт и интеграция</span> <span class="role-badge">qa + game-lead</span></h3>
+    <ul>
+      <li>F1. Полный прогон демо-петли в PIE (с пруфами).</li>
+      <li>F2. Сборка Development; проверка под Android-конфиг.</li>
+      <li>F3. Merge <code>feature/clean-village</code> &rarr; <code>master</code> через маркер <code>QA_OK</code> (создаёт game-lead после «добро» qa, снимает сразу после merge).</li>
+    </ul>
+  </section>
+
+  <!-- А-DETAIL -->
+  <h2>А-DETAIL — Этап A подробно</h2>
+  <section>
+    <p><em>Источник фактов: разведка <code>cpp</code> 06-23 (read-only, кода не трогал; пруфы файл:строка). Решения: ADR-018 (модульность всех персонажей), ADR-023 (feature-first /Content), ADR-024 (BP-наследники + <code>AMasterEnemyBase</code>). Механику НЕ переписываем — переносим на архитектуру.</em></p>
+
+    <h4>Принцип этапа</h4>
+    <p>Функционал петли уже работает, но «голым C++»: магазин жёстко кастует <code>ATraderNPC</code>, NPC — <code>AActor</code>-болванки, спавн — два сабсистема-дубля, debug-телепорты завязаны на сабсистемы, числа захардкожены. Этап A приводит это к принятой архитектуре, НЕ меняя поведение в PIE. Каждый под-этап: C++ правит <code>cpp</code> (headless-сборка с логом) &rarr; BP/расстановку правит <code>unreal-operator</code> &rarr; приёмка = PIE Рината.</p>
+
+    <h4>Порядок и почему такой</h4>
+    <p><strong>A2 &rarr; A3 &rarr; A5</strong>, A1 вшит в A3/A5, A4 параллелит (ждёт решений Рината).</p>
+    <ul>
+      <li><strong>A2 первым</strong> — изолированная и ценная правка (интерфейс магазина), не зависит от спавна/NPC-базы; даёт шаблон «рабочий placed-актор &rarr; архитектурный класс».</li>
+      <li><strong>A3 вторым</strong> — рефактор базы старосты по уже отработанному в A2 образцу <code>AMasterTrader</code>; сюда же вшивается A1-правка шкур (<code>ElderNPC.cpp:96</code>).</li>
+      <li><strong>A5 третьим</strong> — самый рискованный (сносит 2 сабсистема + debug-хуки, заводит новые акторы/BP); сюда вшивается A1-правка волков (<code>WolfSpawnSubsystem.h</code> всё равно удаляется).</li>
+      <li><strong>A4 параллельно</strong> — не зависит от A2/A3/A5, но заблокирован 3 решениями Рината (§10).</li>
+      <li><strong>Одна переменная за раз</strong> (№0.3): не смешивать с механическим реоргом /Content (порядок реорг&harr;A — решение Рината, §10).</li>
+    </ul>
+
+    <h4>A1 — Числа квестов (вшивается в A3/A5)</h4>
+    <ul>
+      <li><strong>Что:</strong> ровно 2 правки. Шкуры <code>5&rarr;3</code> (<code>ElderNPC.cpp:96</code>); волки в стае <code>5&rarr;4</code> (<code>WolfSpawnSubsystem.h:68</code>).</li>
+      <li><strong>Что НЕ трогаем:</strong> бандиты (3) и награды (150/250) уже верны — проверено разведкой.</li>
+      <li><strong>DataTable НЕ заводим</strong> здесь (это Этап E). Сейчас — точечная правка хардкода.</li>
+      <li><strong>Почему не отдельным проходом:</strong> <code>ElderNPC.cpp</code> переписывается в A3, <code>WolfSpawnSubsystem</code> удаляется в A5 — числа меняются заодно, чтобы не плодить лишние коммиты/сборки.</li>
+      <li><strong>Пруф:</strong> значения видны в логе квеста / в PIE (3 шкуры закрывают Q1, в стае 4 волка).</li>
+    </ul>
+
+    <h4>A2 — Торговец &rarr; интерфейс <code>IShopVendor</code> (СТАРТ фазы)</h4>
+    <p><strong>Проблема (факт):</strong> магазин открывает placed <code>ATraderNPC</code>; контроллер/HUD жёстко типизированы под него (<code>Cast&lt;ATraderNPC&gt;</code>&rarr;<code>OpenShop</code>, <code>PC.cpp:1343</code>; <code>HUD::SetShopOpen(ATraderNPC*)</code>). <code>AMasterTrader</code> готов, но его overlap не регистрируется (<code>MasterTrader.cpp:120</code>) &rarr; <code>BP_Trader</code> магазин не открывает.</p>
+    <p><strong>План (последовательность важна — причинный порядок):</strong></p>
+    <ol>
+      <li><strong>Вынести <code>FShopEntry</code>/<code>EShopEntryKind</code></strong> из <code>TraderNPC.h:20-62</code> в нейтральный заголовок (напр. <code>ShopTypes.h</code>). <span class="warn">⚠</span> У структуры <strong>3 потребителя</strong>: <code>MasterTrader.h:8</code>, <code>PlayerCharacter.cpp:28</code>, <code>HUD.cpp:21</code> — все переключить на новый заголовок (иначе при удалении <code>ATraderNPC</code> сломается include).</li>
+      <li><strong>Создать интерфейс <code>IShopVendor</code></strong> (<code>UINTERFACE</code>): минимум <code>GetCatalog()</code>, <code>GetSellValue()</code>, <code>GetAmmoSellPerRound()</code> (точный контракт — по фактическим вызовам в PC/HUD, сверить при реализации).</li>
+      <li><strong>Ретипизировать PlayerController + HUD</strong> на <code>IShopVendor*</code> вместо <code>ATraderNPC*</code> (поиск/открытие/продажа через интерфейс, не через класс).</li>
+      <li><strong><code>AMasterTrader</code> реализует <code>IShopVendor</code></strong> и <strong>регистрирует overlap</strong> (починить <code>MasterTrader.cpp:120</code>, чтобы <code>BP_Trader</code> ловил игрока и открывал магазин).</li>
+      <li><strong>Удалить <code>ATraderNPC</code></strong> (класс + placed-актор на уровне). Сломанный ABP-finder <code>TraderNPC.cpp:52</code> уходит вместе с классом.</li>
+    </ol>
+    <ul>
+      <li><strong>Editor (<code>unreal-operator</code>):</strong> поставить <code>BP_Trader</code> на место старого торговца, снять placed <code>ATraderNPC</code>.</li>
+      <li><strong>Риск/нюанс:</strong> <code>AMasterTrader</code> неуязвим (override <code>TakeDamage</code> без <code>Super</code>, без <code>UStatsComponent</code>, не блокирует <code>ECC_Visibility</code>) — для демки приемлемо (торговца не убить). НЕ лезть в боевой код ради HP торговца (урок 06-16).</li>
+    </ul>
+    <p class="proof"><strong>Пруф:</strong> сборка PASS (лог); в PIE <code>BP_Trader</code> открывает магазин, покупка/продажа работают; старый <code>ATraderNPC</code> отсутствует.</p>
+
+    <h4>A3 — Староста &rarr; модульный гуманоид</h4>
+    <p><strong>Проблема (факт):</strong> <code>AElderNPC : AActor</code> (<code>ElderNPC.h:32</code>) — болванка; ABP-finder <code>ElderNPC.cpp:44</code> указывает на несуществующий путь (сломан реоргом).</p>
+    <p><strong>План:</strong></p>
+    <ol>
+      <li>Сменить базу <code>AElderNPC : AActor</code> &rarr; <strong><code>AMasterHumanoidCharacter</code></strong> по образцу <code>AMasterTrader</code> (<code>MasterTrader.cpp:23-66</code>).</li>
+      <li>Перенести квест-данные (конструктор <code>cpp:89-112</code>) и overlap-взаимодействие как есть; интерфейс взаимодействия (<code>IInteractableNPCInterface</code>) сохранить.</li>
+      <li>Убрать C++ ABP-finder (<code>cpp:44</code>) — модульный гуманоид тянет ABP штатно через ассет/BP, не хардкодом.</li>
+      <li>Вшить A1: шкуры <code>5&rarr;3</code> (<code>ElderNPC.cpp:96</code>).</li>
+    </ol>
+    <p><span class="warn">⚠ Риски (проверить в PIE):</span></p>
+    <ul>
+      <li>Капсула гуманоида станет <strong>ТВЁРДОЙ</strong> (collision) — староста может загородить проход/упереться. Проверить проход игрока; при нужде сузить капсулу.</li>
+      <li>У <code>Character</code> авто-<code>AIController</code> &rarr; задать <strong><code>AutoPossessAI = Disabled</code></strong> (старосте ИИ не нужен), иначе варнинги/лишнее поведение.</li>
+      <li>НЕ блокировать <code>ECC_Visibility</code> без нужды; без <code>UStatsComponent</code> (старосту не убивают).</li>
+    </ul>
+    <p><strong>Editor:</strong> <code>BP_Elder</code> на месте, взаимодействие/выдача-сдача квестов работают.</p>
+    <p class="proof"><strong>Пруф:</strong> сборка PASS (лог); в PIE староста выдаёт Q1/Q2, принимает 3 шкуры и ноутбук, начисляет 150/250; проход не заблокирован.</p>
+
+    <h4>A4 — Сейв/смерть/респаун — финальная модель <span class="warn">ЖДЁТ 3 решения Рината — §10</span></h4>
+    <p><strong>Текущее (факт):</strong> сейв у костра работает; квест-предметы защищены (категория Quest; шкура+ноутбук = <code>AQuestItem</code>). Штраф сейчас = удаление 25% Consumable/Resource (<code>PlayerCharacter.cpp:1129</code>) — НЕ финал.</p>
+    <p><strong>Финал (по утверждённому, детали ждут Рината):</strong> штраф <strong>&minus;40% денег</strong> + <strong>дроп</strong> расходников/неэкипированного <strong>мешком</strong> (не удаление) + <strong>UI-попап</strong> с объяснением (несколько секунд, при выходе из деревни). Квест-предметы целы.</p>
+    <p><strong>Открыто (см. §10):</strong> (1) &minus;40% от каких денег и какие категории неэкип.; (2) «дроп» = ронять мешком vs удалять; (3) текст попапа. <strong>+ тех-долг сейва:</strong> Save/Load не пишет <code>ItemName</code>/<code>StackCount</code> &rarr; после reload теряются имена/прогресс item-целей/стак патронов — решить, чинить в A4 или отложить (увязать с DataTable E2).</p>
+    <ul>
+      <li><span class="warn">⚠ Урок 06-16:</span> сейв/штраф/инвентарь трогать ИЗОЛИРОВАННО, не лезть в боевой код.</li>
+      <li><strong>Пруф:</strong> в PIE смерть вне деревни &rarr; респаун у костра, деньги &minus;40%, расходники выпали мешком, квест-предметы на месте, попап показан.</li>
+    </ul>
+
+    <h4>A5 — Спавн-рефактор: сабсистемы &rarr; <code>AMasterEnemyBase</code> (ADR-024)</h4>
+    <p><strong>Проблема (факт):</strong> <code>WolfSpawnSubsystem</code> + <code>BanditSpawnSubsystem</code> (бандитский — «зеркало» волчьего, дублирование) — <code>UWorldSubsystem</code>, не акторы: не разместить/не увидеть в уровне, локация базы из C++-дефолта; волк спавнится голым <code>AWolfCharacter</code> без BP.</p>
+    <p><strong>План:</strong></p>
+    <ol>
+      <li><strong>Создать <code>AMasterEnemyBase</code></strong> (размещаемый <code>AActor</code>): триггер-радиус активации, набор «что/сколько спавнить» по подходу, опц. квест-предмет на спавн. Перенести из сабсистем: навмеш-проекцию точки спавна, floor-trace, <code>SpawnDelay</code>, спавн ноутбука.</li>
+      <li><strong>BP-наследники</strong> <code>BP_WolfDen</code> (4 волка, локация — север) и <code>BP_BanditBase</code> (3 бандита + 1 ноутбук, локация — юг).</li>
+      <li><strong>Создать <code>BP_Wolf : AWolfCharacter</code></strong> (закрыть пробел «волк без BP», ADR-024).</li>
+      <li>Вшить A1: волки в стае <code>5&rarr;4</code>.</li>
+      <li><strong>Удалить обе сабсистемы</strong> после переноса логики.</li>
+    </ol>
+    <ul>
+      <li><span class="warn">⚠ Блокер сборки (факт):</span> debug-хуки контроллера завязаны на сабсистемы — V/Z-телепорты к логову/базе и <code>cs.TestWolfChase</code> (<code>PC.cpp:465/505/565</code>). При удалении сабсистем сборка СЛОМАЕТСЯ &rarr; их надо переписать на новый путь ИЛИ выпилить. <strong>Судьба V/Z — решение Рината (§10).</strong></li>
+      <li><span class="warn">⚠ Навмеш (тех-долг cpp):</span> invoker-навмеш требует <code>RecastNavMesh RuntimeGeneration=Dynamic</code> в уровне — если оператор поставит <code>Static</code>, погоня врагов сломается. Сохранить Dynamic.</li>
+      <li><strong>Editor:</strong> <code>BP_WolfDen</code> на севере, <code>BP_BanditBase</code> на юге; убедиться, что статичных <code>BP_EnemyBandit</code> на <code>L_World</code> нет.</li>
+    </ul>
+    <p class="proof"><strong>Пруф:</strong> сборка PASS (лог); в PIE при подходе к северу спавнятся 4 волка (дроп 3 шкуры), к югу — 3 бандита + ноутбук; погоня работает; оба квеста проходятся.</p>
+
+    <h4>Выход из Этапа A</h4>
+    <p>Петля проходится в PIE на принятой архитектуре (BP-наследники C++, <code>IShopVendor</code>, гуманоид-NPC, <code>AMasterEnemyBase</code>), сборка зелёная, debug-хуки не ломают билд. После этого — Этап B (контент баз) на размещённых <code>BP_WolfDen</code>/<code>BP_BanditBase</code>.</p>
+  </section>
+
+  <!-- 4 -->
+  <h2>4. Инструменты — анализ для демки</h2>
+  <section>
+    <table>
+      <thead><tr><th>Инструмент</th><th>Решение</th></tr></thead>
+      <tbody>
+        <tr><td>Master-классы оружия (<code>AMasterWeapon</code> и наследники)</td><td>Уже есть — новый тул не нужен, только визуал (D).</td></tr>
+        <tr><td><code>AMasterTrader</code> (инструмент торговцев)</td><td>Достраиваем в A2 — он и есть тул.</td></tr>
+        <tr><td><code>AMasterEnemyBase</code> (инструмент баз врагов)</td><td>Создаём в A5 — параметризуемый размещаемый актор (ADR-024).</td></tr>
+        <tr><td>DT_Quests / DT_Items</td><td>Делаем по ходу; к концу демки обязательно (E2).</td></tr>
+        <tr><td>Растительность</td><td>Нативный <strong>Foliage tool</strong> (без PCG) — C5.</td></tr>
+        <tr><td>Abandoned car generator</td><td><strong>Отложен</strong> до конца демки (по необходимости).</td></tr>
+        <tr><td>Spline-забор</td><td><strong>Отложен</strong>; забор расставляем руками.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 5 -->
+  <h2>5. Документы и решения (ADR)</h2>
+  <section>
+    <ul>
+      <li>Обновить <strong>GDD §7.7</strong> — 2 квеста (волки Collect / бандиты Deliver) + сюжетная завязка (амнезия ГГ, ноут как зацепка). Узаконить как канон демки.</li>
+      <li>Приняты и зафиксированы: <code>UStatsComponent</code> без GAS (ADR-015); World Partition отложен (ADR-016); абстракция ввода/наведения (ADR-017); модульность всех персонажей + runtime mesh merge (ADR-018); /Content через Git LFS (ADR-019); финал-модели в конце проекта + тулинг JIT (ADR-020); структура /Content feature-first (ADR-023); базы врагов <code>AMasterEnemyBase</code> + «на уровень — BP-наследники C++» (ADR-024).</li>
+      <li><strong>К фиксации в ADR при реализации A:</strong> интерфейс <code>IShopVendor</code>; рефактор NPC &rarr; <code>AMasterHumanoidCharacter</code>; финальная модель сейв/смерть/респаун со штрафом (после решений Рината).</li>
+    </ul>
+  </section>
+
+  <!-- 6 -->
+  <h2>6. Риски и неизвестное (честно, актуализировано 06-24)</h2>
+  <section>
+    <ul>
+      <li><strong>A2:</strong> контракт <code>IShopVendor</code> — вывести по фактическим вызовам PC/HUD (не выдумывать сигнатуры); 3 потребителя <code>FShopEntry</code> переключить все (иначе сломается include).</li>
+      <li><strong>A3:</strong> капсула гуманоида-старосты станет твёрдой &rarr; возможна блокировка прохода (проверить в PIE); авто-AIController отключить.</li>
+      <li><strong>A5:</strong> удаление сабсистем ломает debug-хуки V/Z/<code>cs.TestWolfChase</code> (<code>PC.cpp:465/505/565</code>) &rarr; переписать/выпилить, иначе билд красный; навмеш держать <code>RuntimeGeneration=Dynamic</code>.</li>
+      <li><strong>A4:</strong> тех-долг сейва — <code>ItemName</code>/<code>StackCount</code> не сохраняются (теряются имена/прогресс/стак патронов после reload); решить тайминг фикса.</li>
+      <li><strong>Реорг &harr; A:</strong> дубли ассетов (knife/pistol/bandit-BP) и сломанные ABP-пути пересекаются с фазой A — порядок согласовать с Ринатом (§10), не смешивать в одном проходе.</li>
+      <li>Топология дефекта крыши — подтвердит <code>modeler-3d</code> в Blender (headless wireframe невозможен).</li>
+      <li>Android-производительность — бюджеты по <code>mobile-optimization.md</code>, фактический замер — позже.</li>
+    </ul>
+  </section>
+
+  <!-- 7 -->
+  <h2>7. Параметры тюнинга</h2>
+  <section>
+    <ul>
+      <li><strong>Респаун-штраф:</strong> &minus;40% денег + дроп расходников/неэкипированного (квест-предметы целы) — подтверждено Ринатом; точные детали (% от каких денег, дроп vs удаление, текст попапа) — §10.</li>
+      <li><strong>Вид сарая</strong> — на усмотрение по концепту (низкополи, мини-база бандитов).</li>
+      <li><strong>Числа демки (утв.):</strong> шкур 3, волков 4, бандитов 3 (цель убить 3), награды 150/250, ноут 1.</li>
+    </ul>
+  </section>
+
+  <!-- 8 -->
+  <h2>8. Порядок и зависимости</h2>
+  <section>
+<pre class="ascii">Этап 0 (функц. срез) &#10003; ПРОЙДЕН — петля подтверждена Ринатом в PIE 06-23
+   &darr;
+Этап A (перевод на архитектуру: A2 IShopVendor &rarr; A3 староста-гуманоид &rarr; A5 AMasterEnemyBase; A1 вшит; A4 параллель)
+   &updownarrow;  (порядок реорг&harr;A — решение Рината)
+дочистка реорга /Content (ADR-023, хвосты — см. §9)
+   &darr;
+Этап B (layout баз на BP_WolfDen/BP_BanditBase: геометрия, постройки, NPC на местах) &#9472;&#9472;&#9488;
+   &darr;                                                                                  &#9474; ассеты
+Этап C (вид: дом, земля, свет, NPC-облик, трава, сарай) &#9668;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496; (modeler)
+   &darr;
+Этап D (визуал оружия)
+   &darr;
+Этап E (инструменты: DT_Quests/Items)
+   &darr;
+Этап G (гигиена Content — &#10003; СДЕЛАН 06-24 678e703, §9)
+   &darr;
+Этап F (QA-гейт &rarr; merge в master)</pre>
+    <p>Логика порядка: Этап 0 (функц. срез) пройден &rarr; <strong>Этап A</strong> переводит рабочий функционал на архитектуру, иначе контент ляжет на «голый C++», который потом всё равно рефакторить; layout баз B и вид C — с опорой на ассеты modeler-3d, ПОСЛЕ того как A5 создал размещаемые базы; визуал оружия D и инструменты E — после играбельного ядра; гигиена Content G — отдельным аккуратным проходом, не блокирует; QA-гейт F — последним, перед merge.</p>
+  </section>
+
+  <!-- 9 -->
+  <h2>9. Гигиена Content (Этап G — housekeeping)</h2>
+  <section>
+    <p class="proof"><strong>Статус (2026-06-24):</strong> <span class="done">РЕОРГ /Content ЗАВЕРШЁН.</span> Структура приведена к feature-first (Lyra, ADR-023): батч 1 <code>e06e6a0</code> + батч 2 <code>a69dc68</code> + <strong>дочистка <code>678e703</code></strong> (влита в <code>feature/clean-village</code>, на origin).</p>
+    <p><strong>Дочистка <code>678e703</code> (06-24) — сделано:</strong></p>
+    <ul>
+      <li>Убраны все 7 заглушек-редиректоров (BP_Campfire, BP_ContrarySurviorGameMode, BP_EnemyBandit, SM_BonePile/GroundGrid/WolfDenCave).</li>
+      <li>Удалена лишняя копия <code>Weapons/Pistol/SM_Pistol</code> (код использует корневой <code>Weapons/SM_Pistol</code>).</li>
+      <li>Путь бандита в <code>BanditSpawnSubsystem.cpp:21</code> &rarr; <code>/Game/Characters/Bandit/BP_EnemyBandit</code> (сборка PASS; <strong>бандиты спавнятся — PIE-подтв. Ринат</strong>).</li>
+      <li>Удалена папка <code>Blueprints</code>; пересохранены ссылки (BP_PlayerCharacter, Archive-карта); вычищены мусорные скрипты и пустые служебные папки.</li>
+      <li>GameMode оказался корректно в <code>System/</code> (в <code>Blueprints/</code> была лишь заглушка — убрана).</li>
+    </ul>
+    <p><strong>Оставлено намеренно (не мешает демке):</strong></p>
+    <ul>
+      <li><strong>Скелет</strong> <code>HeadAndSkeletonfbx_Head_Skeleton</code> — 2 идентичные копии (артефакт глюк-сессии, не дизайн). Из кода не сводятся (свойство «скелет» у анимаций/мешей read-only). Убрать лишнюю копию = в редакторе «Replace References» (ПКМ по копии &rarr; оригинал); сделать тихо при случае. Игра работает.</li>
+      <li><strong>Броня <code>_02</code></strong> (<code>Characters/Shared/Armor/SK_Armor_{Head,Torso}_02</code>, без Legs) — орфан, кодом не используется, назначение неизвестно &rarr; не трогаем до выяснения. Канон рабочей брони = <code>_01</code> (грузит C++ из <code>Characters/Armor/</code>).</li>
+      <li><strong>ABP-пути старосты/трейдера</strong> (<code>ElderNPC.cpp:44</code>/<code>TraderNPC.cpp:52</code> &rarr; несуществующий <code>TestContentAndCode/…ABP</code>) — сломаны, но закроются фазой A (A2/A3 переписывают эти классы).</li>
+      <li><strong>Ножа-дубля НЕТ</strong> (был ошибочно в старых заметках): <code>SM_Knife</code> один, код совпадает.</li>
+    </ul>
+    <div class="callout"><strong>Метод (на будущее):</strong> перенос/удаление <code>.uasset</code> — через редактор (Replace References / delete) ИЛИ файлово при ЗАКРЫТОМ редакторе; жёсткие C++-пути Fix Up НЕ чинит — вручную + пересборка. <span class="warn">⚠</span> <strong>git checkout/merge/branch-switch — только при ЗАКРЫТОМ редакторе</strong> (открытый лочит .uasset &rarr; ломается переключение веток).</div>
+  </section>
+
+  <!-- 10 -->
+  <h2>10. Решения Рината (статус на 2026-06-24)</h2>
+  <section>
+    <p><span class="done">ПРИНЯТЫ:</span></p>
+    <ol>
+      <li><strong>Штраф смерти (A4):</strong> &minus;40% <strong>от денег игрока</strong>; дроп <strong>только расходников</strong> (Consumable); дроп = <strong>ронять мешком</strong> на месте смерти (не удалять); квест-предметы целы. UI-попап нужен.</li>
+      <li><strong>Порядок реорг &harr; A:</strong> реорг сделан <strong>ДО</strong> фазы A — <span class="done">выполнено</span> (<code>678e703</code>).</li>
+      <li><strong>Debug-телепорты V/Z + <code>cs.TestWolfChase</code></strong> (<code>PC.cpp:465/505/565</code>): <strong>выпилить</strong> (Ринат тестит лично). Делается в A5 при удалении сабсистем.</li>
+    </ol>
+    <p><span class="warn">ОСТАЛОСЬ</span> (мелочь, не блокирует старт Этапа A):</p>
+    <ol>
+      <li><strong>Текст UI-попапа</strong> штрафа смерти — game-lead готовит черновик на утверждение.</li>
+      <li><strong>Тех-долг сейва</strong> (<code>ItemName</code>/<code>StackCount</code> не сохраняются после reload) — чинить в A4 vs отложить к DataTable (E2). Рекомендация — отложить.</li>
+    </ol>
+  </section>
+
+</div>
+</body>
+</html>
