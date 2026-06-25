@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asset Catalog — ContrarySurvivor (preview)</title>
+<style>
+  :root{
+    --bg:#1b1d21; --panel:#26292e; --panel2:#2e3238; --line:#3a3f46;
+    --txt:#e6e8ea; --muted:#9aa1a9; --accent:#d98a4f; --chip:#34393f;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--txt);
+    font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  }
+  header{
+    padding:28px 32px 18px; border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#212429,#1b1d21);
+  }
+  header h1{margin:0 0 6px; font-size:22px; letter-spacing:.2px}
+  header .note{color:var(--muted); font-size:13px; max-width:780px}
+  header .note b{color:var(--accent)}
+  main{padding:28px 32px 48px}
+  .grid{
+    display:grid; gap:22px;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  }
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    overflow:hidden; display:flex; flex-direction:column;
+    box-shadow:0 2px 6px rgba(0,0,0,.35);
+  }
+  .thumb{
+    background:#0f1113 center/contain no-repeat;
+    aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
+    border-bottom:1px solid var(--line);
+  }
+  .thumb img{width:100%; height:100%; object-fit:contain; display:block}
+  .body{padding:16px 18px 18px}
+  .body h2{margin:0 0 2px; font-size:18px}
+  .sub{color:var(--muted); font-size:13px; margin:0 0 12px}
+  .status{
+    display:inline-block; font-size:11px; font-weight:600; letter-spacing:.4px;
+    text-transform:uppercase; color:#1b1d21; background:var(--accent);
+    border-radius:20px; padding:2px 10px; margin-left:8px; vertical-align:middle;
+  }
+  .desc{color:#cdd2d7; font-size:13.5px; margin:0 0 14px}
+  .specs{
+    display:grid; grid-template-columns:auto 1fr; gap:6px 14px;
+    font-size:13px; border-top:1px solid var(--line); padding-top:12px;
+  }
+  .specs dt{color:var(--muted)}
+  .specs dd{margin:0; font-variant-numeric:tabular-nums}
+  code{
+    background:var(--chip); border:1px solid var(--line); border-radius:5px;
+    padding:1px 6px; font-size:12px; color:#d7dce1;
+  }
+  footer{padding:18px 32px 40px; color:var(--muted); font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Asset Catalog — ContrarySurvivor</h1>
+  <p class="note">
+    <b>Превью-каталог.</b> Цифры (faces / tris / bbox / материал) — <b>производные от файлов</b>
+    в подпапках ассетов, а не источник правды. Источник правды по геометрии — сам
+    <code>.blend</code>; по дизайну — GDD. Страница статична, открывается локально с диска
+    (двойным кликом), без сервера и без внешних ресурсов.
+  </p>
+</header>
+
+<main>
+  <div class="grid">
+
+    <!-- iron_barrel -->
+    <article class="card">
+      <div class="thumb">
+        <img src="iron_barrel/iron_barrel_preview_v1.png" alt="Iron Barrel preview">
+      </div>
+      <div class="body">
+        <h2>Iron Barrel <span class="status">preview</span></h2>
+        <p class="sub">железная бочка · id: <code>iron_barrel</code></p>
+        <p class="desc">
+          Стальная бочка-«нефтянка» (200 л), стиль survival — состаренная сталь
+          с пятнами ржавчины. Демо-проп. Без UV / LOD / бейка / экспорта в UE.
+        </p>
+        <dl class="specs">
+          <dt>Status</dt><dd>preview</dd>
+          <dt>Faces</dt><dd>4162 <span style="color:var(--muted)">(база 3906, до модификаторов)</span></dd>
+          <dt>Tris</dt><dd>8444</dd>
+          <dt>BBox, м</dt><dd>0.646 × 0.646 × 0.88</dd>
+          <dt>Material</dt><dd><code>M_IronBarrel_Aged</code></dd>
+          <dt>Source</dt><dd><code>iron_barrel/iron_barrel_v1.blend</code></dd>
+        </dl>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  modeler-3d · seed-карточка (1 ассет). Авто-генератор каталога — позже, по JIT.
+</footer>
+</body>
+</html>
