@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0;width:1400px;height:1690px;overflow:hidden;background:#ffffff;}
+  svg{display:block;font-family:'Segoe UI',Arial,sans-serif;}
+</style>
+</head>
+<body>
+<svg id="c" width="1400" height="1690" viewBox="0 0 1400 1690" xmlns="http://www.w3.org/2000/svg"></svg>
+<script>
+const NS='http://www.w3.org/2000/svg';
+const svg=document.getElementById('c');
+function E(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e;}
+function T(x,y,s,a){const o=Object.assign({x:x,y:y,'font-size':22,fill:'#1b2018','text-anchor':'middle','font-family':"'Segoe UI',Arial,sans-serif"},a||{});const e=E('text',o);e.textContent=s;return e;}
+// seeded rng
+function rng(seed){let a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const R=rng(7);
+
+// label chip with bg for readability
+function chip(cx,cy,s,opt){opt=opt||{};const fs=opt.fs||22;const w=s.length*fs*0.56+18;const h=fs+10;
+  E('rect',{x:cx-w/2,y:cy-h/2,width:w,height:h,rx:6,fill:opt.bg||'rgba(244,241,230,0.92)',stroke:opt.stroke||'#1b2018','stroke-width':1});
+  T(cx,cy+fs*0.35,s,{'font-size':fs,fill:opt.fill||'#1b2018','font-weight':opt.bold?'700':'400'});}
+
+// ---- TITLE BAR ----
+E('rect',{x:0,y:0,width:1400,height:70,fill:'#1B2018'});
+T(40,46,'СХЕМА ДЕРЕВНИ — вид сверху (план размещения)',{'text-anchor':'start','font-size':30,fill:'#E7E4D8','font-weight':'700'});
+T(1360,44,'ЧЕРНОВИК · ContrarySurvivor',{'text-anchor':'end','font-size':20,fill:'#9AA08C'});
+
+// ---- MAP GROUP ----
+const M=E('g',{transform:'translate(0,70)'});
+function e(t,a){return E(t,a,M);}
+// forest base
+e('rect',{x:0,y:0,width:1400,height:1400,fill:'#2c4022'});
+// clearing
+e('rect',{x:120,y:120,width:1160,height:1160,rx:90,fill:'#7c9650'});
+// lighter grass patches
+[[420,420,170,120],[980,560,150,110],[560,980,160,120],[900,980,130,100]].forEach(p=>e('ellipse',{cx:p[0],cy:p[1],rx:p[2],ry:p[3],fill:'#88a25c',opacity:0.6}));
+
+// ROADS (crossroad) — dirt
+const dirt='#b8966a', dirtEdge='#8a6e44', plaza='#c2a577';
+e('rect',{x:600,y:60,width:84,height:1280,fill:dirt,stroke:dirtEdge,'stroke-width':3});      // vertical N-S
+e('rect',{x:60,y:662,width:1280,height:84,fill:dirt,stroke:dirtEdge,'stroke-width':3});      // horizontal E-W
+// central cleared plaza (where central house was) — overlaps road
+e('ellipse',{cx:700,cy:640,rx:185,ry:160,fill:plaza,stroke:dirtEdge,'stroke-width':3});
+
+// trodden paths from houses to plaza
+const plazaC=[700,640];
+const houses=[[260,300,'Дом 1'],[1050,250,'Дом 2'],[250,1050,'Дом 3'],[1080,1080,'Дом 4'],[250,470,'Дом 5']];
+houses.forEach(h=>{e('line',{x1:h[0],y1:h[1],x2:plazaC[0],y2:plazaC[1],stroke:'#caa978','stroke-width':10,'stroke-dasharray':'4 16','stroke-linecap':'round',opacity:0.7});});
+
+// forest canopy circles in border band
+function inClearing(x,y){return x>150&&x<1250&&y>150&&y<1250;}
+for(let i=0;i<340;i++){const x=R()*1400,y=R()*1400;if(inClearing(x,y))continue;const r=9+R()*13;
+  e('circle',{cx:x,cy:y,r:r+3,fill:'#24351c'});e('circle',{cx:x-r*0.18,cy:y-r*0.18,r:r,fill:'#3a5a2c'});e('circle',{cx:x-r*0.3,cy:y-r*0.3,r:r*0.45,fill:'#4e7338'});}
+// a few trees just inside edges
+[[180,640],[1230,520],[640,180],[760,1230],[200,200],[1220,1200]].forEach(p=>{const r=15;e('circle',{cx:p[0],cy:p[1],r:r+3,fill:'#24351c'});e('circle',{cx:p[0],cy:p[1],r:r,fill:'#3a5a2c'});});
+
+// grass tufts in clearing
+function onRoadOrPlaza(x,y){if(x>590&&x<694)return true;if(y>652&&y<756)return true;if(((x-700)/200)**2+((y-640)/175)**2<1)return true;return false;}
+let placed=0,tries=0;
+while(placed<34&&tries<400){tries++;const x=180+R()*1040,y=180+R()*1040;if(!inClearing(x,y)||onRoadOrPlaza(x,y))continue;
+  const c='#5c7a3e';e('path',{d:`M${x} ${y} l-5 -14 M${x} ${y} l0 -17 M${x} ${y} l5 -14`,stroke:c,'stroke-width':3,fill:'none','stroke-linecap':'round'});placed++;}
+
+// ---- ICON DRAW FUNCTIONS ----
+function house(x,y,label){const w=150,h=110;
+  e('rect',{x:x-w/2,y:y-h/2,width:w,height:h,rx:8,fill:'#9c6a3c',stroke:'#5c3a1e','stroke-width':4});
+  e('line',{x1:x-w/2+10,y1:y,x2:x+w/2-10,y2:y,stroke:'#c08a52','stroke-width':5});
+  e('line',{x1:x,y1:y-h/2+8,x2:x,y2:y+h/2-8,stroke:'#7a5230','stroke-width':3});
+  chip(x,y+h/2+22,label,{fs:22,bold:true});}
+function campfire(x,y){const st='#787268';
+  for(let k=0;k<8;k++){const a=k/8*Math.PI*2;e('circle',{cx:x+Math.cos(a)*42,cy:y+Math.sin(a)*42,r:11,fill:st,stroke:'#54504a','stroke-width':2});}
+  e('circle',{cx:x,cy:y,r:30,fill:'#c64b2c'});e('circle',{cx:x,cy:y,r:18,fill:'#e0a32e'});e('circle',{cx:x,cy:y,r:8,fill:'#fff0c0'});}
+function elder(x,y){e('circle',{cx:x,cy:y,r:15,fill:'#d9c08a',stroke:'#5c3a1e','stroke-width':3});}
+function stall(x,y){ // counter (crates) + partial awning on one side
+  e('rect',{x:x-55,y:y-26,width:110,height:52,rx:5,fill:'#8a5a32',stroke:'#5c3a1e','stroke-width':3});
+  e('line',{x1:x-18,y1:y-26,x2:x-18,y2:y+26,stroke:'#5c3a1e','stroke-width':2});
+  e('line',{x1:x+18,y1:y-26,x2:x+18,y2:y+26,stroke:'#5c3a1e','stroke-width':2});
+  // partial tarp awning over the top edge only (does not cover counter)
+  e('polygon',{points:`${x-60},${y-30} ${x+60},${y-30} ${x+74},${y-58} ${x-46},${y-58}`,fill:'#9aa08c',stroke:'#5e5f52','stroke-width':3,opacity:0.92});
+  e('line',{x1:x-60,y1:y-30,x2:x-46,y2:y-58,stroke:'#5e5f52','stroke-width':2});}
+function barrel(x,y){e('circle',{cx:x,cy:y,r:17,fill:'#b9543a',stroke:'#5c2a1e','stroke-width':3});e('circle',{cx:x,cy:y,r:9,fill:'none',stroke:'#7a3422','stroke-width':2});}
+function crate(x,y){e('rect',{x:x-15,y:y-15,width:30,height:30,rx:3,fill:'#8a5a32',stroke:'#5c3a1e','stroke-width':3});e('line',{x1:x-15,y1:y-15,x2:x+15,y2:y+15,stroke:'#5c3a1e','stroke-width':2});e('line',{x1:x+15,y1:y-15,x2:x-15,y2:y+15,stroke:'#5c3a1e','stroke-width':2});}
+function well(x,y){e('circle',{cx:x,cy:y,r:24,fill:'#8b8780',stroke:'#54504a','stroke-width':4});e('circle',{cx:x,cy:y,r:11,fill:'#2b3a2c'});e('line',{x1:x-26,y1:y-26,x2:x+26,y2:y-26,stroke:'#7a5230','stroke-width':5});}
+function woodpile(x,y){e('rect',{x:x-40,y:y-22,width:80,height:44,rx:4,fill:'#a9763c',stroke:'#5c3a1e','stroke-width':3});
+  for(let r=0;r<2;r++)for(let cc=0;cc<4;cc++){e('circle',{cx:x-30+cc*20,cy:y-10+r*20,r:7,fill:'#caa05a',stroke:'#7a5230','stroke-width':2});}}
+function chopblock(x,y){e('circle',{cx:x,cy:y,r:17,fill:'#a9763c',stroke:'#5c3a1e','stroke-width':3});e('circle',{cx:x,cy:y,r:8,fill:'#caa05a'});e('line',{x1:x,y1:y,x2:x+22,y2:y-16,stroke:'#5a6470','stroke-width':5,'stroke-linecap':'round'});}
+function laundry(x1,y1,x2,y2){e('circle',{cx:x1,cy:y1,r:6,fill:'#7a5230'});e('circle',{cx:x2,cy:y2,r:6,fill:'#7a5230'});
+  e('path',{d:`M${x1} ${y1} Q ${(x1+x2)/2} ${(y1+y2)/2+22} ${x2} ${y2}`,fill:'none',stroke:'#8a7a55','stroke-width':2});
+  for(let k=1;k<=3;k++){const t=k/4;const mx=x1+(x2-x1)*t;const my=y1+(y2-y1)*t+16;e('rect',{x:mx-11,y:my-2,width:22,height:30,rx:3,fill:['#cfc7b0','#9aa08c','#d9c08a'][k-1],stroke:'#5e5f52','stroke-width':2});}}
+function fenceSeg(x1,y1,x2,y2){e('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:'#6e5436','stroke-width':8,'stroke-dasharray':'6 14','stroke-linecap':'round'});}
+
+// ---- PLACE OBJECTS ----
+// campfire + elder + stall (center)
+campfire(700,640);chip(700,560,'Костёр (сейв-точка)',{fs:22,bold:true});
+elder(636,706);chip(610,742,'Староста',{fs:20});
+stall(836,690);chip(854,732,'Лавка торговца',{fs:21,bold:true});
+
+// houses
+houses.forEach(h=>house(h[0],h[1],h[2]));
+
+// cluster: Склад (barrels + crates) near Дом4 SE
+barrel(940,880);barrel(978,892);crate(916,910);crate(952,922);
+chip(948,962,'Склад: бочки / ящики',{fs:20});
+
+// cluster: Быт (woodpile + chopping block + laundry) near Дом5 W
+woodpile(420,360);chopblock(486,392);laundry(330,300,330,430);
+chip(410,470,'Быт: дрова / колода / бельё',{fs:20});
+
+// well near Дом2 NE
+well(1140,430);chip(1140,476,'Колодец',{fs:20});
+
+// fences (garden plot) near Дом3 SW
+fenceSeg(360,1020,520,1020);fenceSeg(360,1020,360,1140);fenceSeg(360,1140,520,1140);
+chip(440,1168,'Забор (огород)',{fs:20});
+
+// ---- NORTH ARROW (top-right of map) ----
+const nx=1300,ny=130;
+e('circle',{cx:nx,cy:ny,r:46,fill:'rgba(27,32,24,0.85)'});
+e('polygon',{points:`${nx},${ny-34} ${nx-14},${ny+6} ${nx+14},${ny+6}`,fill:'#C64B2C'});
+e('polygon',{points:`${nx},${ny+30} ${nx-14},${ny+4} ${nx+14},${ny+4}`,fill:'#E7E4D8'});
+T(nx,ny-44,'С',{'font-size':22,fill:'#E7E4D8','font-weight':'700'});
+
+// ---- SCALE BAR (bottom-left of map) ----
+const sx=150,sy=1330; // 29 px per metre (clearing 1160px ~ 40 m)
+e('rect',{x:sx,y:sy,width:290,height:14,fill:'#1b2018'});
+e('rect',{x:sx,y:sy,width:145,height:14,fill:'#E7E4D8'});
+e('rect',{x:sx,y:sy,width:290,height:14,fill:'none',stroke:'#1b2018','stroke-width':2});
+T(sx,sy-10,'0',{'font-size':18,'text-anchor':'middle'});T(sx+145,sy-10,'5',{'font-size':18});T(sx+290,sy-10,'10 м',{'font-size':18});
+T(sx,sy+34,'масштаб примерный',{'font-size':16,'text-anchor':'start',fill:'#1b2018'});
+
+// ---- LEGEND PANEL ----
+const L=E('g',{transform:'translate(0,1470)'});
+function l(t,a){return E(t,a,L);}
+l('rect',{x:0,y:0,width:1400,height:220,fill:'#EFEBDD'});
+l('rect',{x:0,y:0,width:1400,height:4,fill:'#C64B2C'});
+T(40,42,'ЛЕГЕНДА',{'text-anchor':'start','font-size':24,fill:'#1b2018','font-weight':'700'});
+const items=[
+ ['house','Дом (~5 шт. вразброс по краям поляны)'],
+ ['fire','Костёр — смысловой центр + сейв-точка'],
+ ['stall','Лавка торговца (прилавок + частичный навес)'],
+ ['elder','Староста (у костра)'],
+ ['barrel','Бочки / ящики (склад)'],
+ ['wood','Дрова / колода с топором / бельевая верёвка'],
+ ['well','Колодец'],
+ ['fence','Забор (огород)'],
+ ['road','Грунтовая дорога (перекрёсток)'],
+ ['path','Утоптанные тропы'],
+ ['tree','Хвойный лес (обрамление поляны)'],
+ ['grass','Кустики травы'],
+];
+function legIcon(kind,x,y){
+ if(kind==='house'){l('rect',{x:x-16,y:y-12,width:32,height:24,rx:3,fill:'#9c6a3c',stroke:'#5c3a1e','stroke-width':2});l('line',{x1:x-12,y1:y,x2:x+12,y2:y,stroke:'#c08a52','stroke-width':3});}
+ else if(kind==='fire'){l('circle',{cx:x,cy:y,r:13,fill:'#c64b2c'});l('circle',{cx:x,cy:y,r:7,fill:'#e0a32e'});}
+ else if(kind==='stall'){l('rect',{x:x-16,y:y-6,width:32,height:16,rx:2,fill:'#8a5a32',stroke:'#5c3a1e','stroke-width':2});l('polygon',{points:`${x-17},${y-8} ${x+17},${y-8} ${x+20},${y-18} ${x-14},${y-18}`,fill:'#9aa08c',stroke:'#5e5f52','stroke-width':2});}
+ else if(kind==='elder'){l('circle',{cx:x,cy:y,r:11,fill:'#d9c08a',stroke:'#5c3a1e','stroke-width':2});}
+ else if(kind==='barrel'){l('circle',{cx:x-8,cy:y,r:10,fill:'#b9543a',stroke:'#5c2a1e','stroke-width':2});l('rect',{x:x+2,y:y-9,width:18,height:18,rx:2,fill:'#8a5a32',stroke:'#5c3a1e','stroke-width':2});}
+ else if(kind==='wood'){l('rect',{x:x-16,y:y-9,width:32,height:18,rx:2,fill:'#a9763c',stroke:'#5c3a1e','stroke-width':2});l('circle',{cx:x-7,cy:y,r:4,fill:'#caa05a'});l('circle',{cx:x+5,cy:y,r:4,fill:'#caa05a'});}
+ else if(kind==='well'){l('circle',{cx:x,cy:y,r:13,fill:'#8b8780',stroke:'#54504a','stroke-width':2});l('circle',{cx:x,cy:y,r:6,fill:'#2b3a2c'});}
+ else if(kind==='fence'){l('line',{x1:x-18,y1:y,x2:x+18,y2:y,stroke:'#6e5436','stroke-width':6,'stroke-dasharray':'5 10','stroke-linecap':'round'});}
+ else if(kind==='road'){l('rect',{x:x-18,y:y-8,width:36,height:16,fill:'#b8966a',stroke:'#8a6e44','stroke-width':2});}
+ else if(kind==='path'){l('line',{x1:x-18,y1:y,x2:x+18,y2:y,stroke:'#caa978','stroke-width':7,'stroke-dasharray':'3 11','stroke-linecap':'round'});}
+ else if(kind==='tree'){l('circle',{cx:x,cy:y,r:12,fill:'#3a5a2c'});l('circle',{cx:x-3,cy:y-3,r:5,fill:'#4e7338'});}
+ else if(kind==='grass'){l('path',{d:`M${x} ${y+8} l-5 -14 M${x} ${y+8} l0 -17 M${x} ${y+8} l5 -14`,stroke:'#5c7a3e','stroke-width':3,fill:'none','stroke-linecap':'round'});}
+}
+items.forEach((it,i)=>{const col=i%3;const row=(i/3|0);const x=70+col*460;const y=88+row*44;legIcon(it[0],x,y);T(x+34,y+7,it[1],{'text-anchor':'start','font-size':21,fill:'#1b2018'});});
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+Using bundled DotNet SDK version: 8.0.300
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" ContrarySurvivorEditor Win64 Development -project=E:/ContrarySurvior/ContrarySurvivor/ContrarySurvivor.uproject -waitmutex
+Log file: C:\Users\pgr40\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (E:\ContrarySurvior\ContrarySurvivor).
+Creating makefile for ContrarySurvivorEditor (.uproject file is newer)
+Available x64 toolchains (1):
+ * C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207
+    (Family=14.44.35207, FamilyRank=1, Version=14.44.35222, Is64Bit=True, ReleaseChannel=Latest, Architecture=x64)
+Visual Studio 2022 compiler version 14.44.35222 is not a preferred version. Please use the latest preferred version 14.38.33130
+Parsing headers for ContrarySurvivorEditor
+  Running Internal UnrealHeaderTool E:\ContrarySurvior\ContrarySurvivor\ContrarySurvivor.uproject E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\ContrarySurvivorEditor\Development\ContrarySurvivorEditor.uhtmanifest -WarningsAsErrors -installed
+Total of 2 written
+Reflection code generated for ContrarySurvivorEditor in 1.2736313 seconds
+Building ContrarySurvivorEditor...
+Using Visual Studio 2022 14.44.35222 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+Warning: Visual Studio 2022 compiler is not a preferred version
+[Adaptive Build] Excluded from ContrarySurvivor unity file: PlayerCharacter.cpp
+Determining max actions to execute in parallel (10 physical cores, 16 logical cores)
+  Executing up to 10 processes, one per physical core
+Using Unreal Build Accelerator local executor to run 9 action(s)
+  Storage capacity 40Gb
+---- Starting trace: 260626_142046 ----
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+------ Building 9 action(s) started ------
+[1/9] Compile [x64] Module.ContrarySurvivor.1.cpp
+[2/9] Compile [x64] Module.ContrarySurvivor.3.cpp
+[3/9] Compile [x64] Module.ContrarySurvivor.2.cpp
+[4/9] Compile [x64] PlayerCharacter.cpp
+[5/9] Compile [x64] Module.ContrarySurvivor.4.cpp
+[6/9] Compile [x64] Module.ContrarySurvivor.5.cpp
+[7/9] Link [x64] UnrealEditor-ContrarySurvivor.lib
+   Создается библиотека E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\x64\UnrealEditor\Development\ContrarySurvivor\UnrealEditor-ContrarySurvivor.lib и объект E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\x64\UnrealEditor\Development\ContrarySurvivor\UnrealEditor-ContrarySurvivor.exp
+[8/9] Link [x64] UnrealEditor-ContrarySurvivor.dll
+   Создание объекта E:\ContrarySurvior\ContrarySurvivor\Binaries\Win64\UnrealEditor-ContrarySurvivor.exp
+[9/9] WriteMetadata ContrarySurvivorEditor.target (UBA disabled)
+Trace file written to C:/Users/pgr40/AppData/Local/UnrealBuildTool/Log.uba with size 4.6kb
+Total time in Unreal Build Accelerator local executor: 6.28 seconds
+Total execution time: 9.91 seconds
+BUILD_EXIT=0
