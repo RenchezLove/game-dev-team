@@ -15,14 +15,14 @@ const svg=document.getElementById('c');
 function E(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e;}
 function T(x,y,s,a){const o=Object.assign({x:x,y:y,'font-size':22,fill:'#1b2018','text-anchor':'middle','font-family':"'Segoe UI',Arial,sans-serif"},a||{});const e=E('text',o);e.textContent=s;return e;}
 function rng(seed){let a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
-const R=rng(42);
+const R=rng(23);
 function chip(cx,cy,s,opt){opt=opt||{};const fs=opt.fs||22;const w=s.length*fs*0.56+18;const h=fs+10;
   E('rect',{x:cx-w/2,y:cy-h/2,width:w,height:h,rx:6,fill:opt.bg||'rgba(244,241,230,0.94)',stroke:opt.stroke||'#1b2018','stroke-width':opt.sw||1});
   T(cx,cy+fs*0.35,s,{'font-size':fs,fill:opt.fill||'#1b2018','font-weight':opt.bold?'700':'400'});}
 
 // ---- TITLE BAR ----
 E('rect',{x:0,y:0,width:1400,height:70,fill:'#1B2018'});
-T(40,46,'СХЕМА КАРТЫ — вид сверху (весь квадрат)',{'text-anchor':'start','font-size':30,fill:'#E7E4D8','font-weight':'700'});
+T(40,46,'СХЕМА КАРТЫ — вид строго сверху (весь квадрат)',{'text-anchor':'start','font-size':30,fill:'#E7E4D8','font-weight':'700'});
 T(1360,44,'ЧЕРНОВИК · ContrarySurvivor',{'text-anchor':'end','font-size':20,fill:'#9AA08C'});
 
 // ---- MAP GROUP ----
@@ -31,105 +31,118 @@ function e(t,a){return E(t,a,M);}
 // forest base (whole square)
 e('rect',{x:0,y:0,width:1400,height:1400,fill:'#3a5630'});
 // open interior matrix (slightly lighter)
-e('rect',{x:90,y:90,width:1220,height:1220,rx:40,fill:'#557040'});
+e('rect',{x:80,y:80,width:1240,height:1240,rx:40,fill:'#557040'});
+
+// ---- LOCATION CENTRES ----
+const JUNC=[700,650], VIL=[360,650], DEN=[1180,650], BASE=[700,1160], NORTH=[700,180];
+
 // biome tint zones
-e('ellipse',{cx:1080,cy:680,rx:430,ry:560,fill:'#5a6470',opacity:0.20});   // cool (east, den)
-e('ellipse',{cx:620,cy:1160,rx:440,ry:300,fill:'#c64b2c',opacity:0.13});    // rust (south, base)
-e('ellipse',{cx:470,cy:680,rx:280,ry:260,fill:'#88a25c',opacity:0.5});      // open glade (village, warm)
+e('ellipse',{cx:DEN[0],cy:DEN[1],rx:360,ry:520,fill:'#5a6470',opacity:0.20});   // cool (east, den)
+e('ellipse',{cx:BASE[0],cy:BASE[1],rx:430,ry:300,fill:'#c64b2c',opacity:0.13});  // rust (south, base)
+e('ellipse',{cx:VIL[0],cy:VIL[1],rx:280,ry:260,fill:'#88a25c',opacity:0.5});     // open glade (village, warm)
 
-// location centres
-const VIL=[470,680], DEN=[1130,660], BASE=[560,1150], JUNC=[560,680];
-
-// ---- ROADS (cross) ----
+// ---- ROADS (cross, crossroads near centre) — просёлочные грунтовки, слегка извилистые ----
 const dirt='#b8966a', dirtEdge='#8a6e44';
-// main horizontal: village -> den (solid)
-e('rect',{x:VIL[0],y:650,width:DEN[0]-VIL[0],height:58,fill:dirt,stroke:dirtEdge,'stroke-width':3});
-// vertical: junction -> base (solid)
-e('rect',{x:530,y:JUNC[1],width:58,height:BASE[1]-JUNC[1],fill:dirt,stroke:dirtEdge,'stroke-width':3});
-// fading arms (dashed, thinning toward edges)
-function fade(x1,y1,x2,y2){e('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:dirt,'stroke-width':40,'stroke-dasharray':'34 30','stroke-linecap':'butt',opacity:0.8});
-  e('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:dirtEdge,'stroke-width':40,'stroke-dasharray':'34 30','stroke-linecap':'butt',opacity:0.18});}
-fade(VIL[0],679,150,679);          // west arm fades
-fade(DEN[0],679,1285,679);         // east beyond den fades
-fade(559,JUNC[1],559,150);         // north arm fades
-fade(559,BASE[1],559,1285);        // south beyond base fades
+const rW=58;
+// smooth wavy centreline (Catmull-Rom -> bezier)
+function smooth(pts){let d=`M${pts[0][0]} ${pts[0][1]}`;
+  for(let i=0;i<pts.length-1;i++){const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||pts[i+1];
+    const c1x=p1[0]+(p2[0]-p0[0])/6,c1y=p1[1]+(p2[1]-p0[1])/6,c2x=p2[0]-(p3[0]-p1[0])/6,c2y=p2[1]-(p3[1]-p1[1])/6;
+    d+=` C ${c1x} ${c1y} ${c2x} ${c2y} ${p2[0]} ${p2[1]}`;}return d;}
+function road(pts){const d=smooth(pts);
+  e('path',{d:d,fill:'none',stroke:dirtEdge,'stroke-width':rW+8,'stroke-linecap':'round','stroke-linejoin':'round'});
+  e('path',{d:d,fill:'none',stroke:dirt,'stroke-width':rW,'stroke-linecap':'round','stroke-linejoin':'round'});}
+// horizontal: village -> junction -> den (gentle waviness)
+road([[VIL[0],656],[470,642],[560,661],[640,645],[JUNC[0],650],[770,659],[860,641],[970,661],[1070,645],[DEN[0],654]]);
+// vertical south: junction -> base
+road([[JUNC[0],650],[711,762],[690,872],[707,982],[693,1076],[BASE[0],BASE[1]]]);
+// north arm: junction -> forest, fades near the top edge
+const nPts=[[JUNC[0],650],[709,560],[690,470],[707,380],[696,288],[JUNC[0],200]];
+e('path',{d:smooth(nPts),fill:'none',stroke:dirtEdge,'stroke-width':rW+8,'stroke-linecap':'round','stroke-linejoin':'round'});
+e('path',{d:smooth(nPts),fill:'none',stroke:dirt,'stroke-width':rW,'stroke-linecap':'round','stroke-linejoin':'round'});
+e('path',{d:smooth([[JUNC[0],200],[705,158],[700,108]]),fill:'none',stroke:dirt,'stroke-width':rW,'stroke-dasharray':'30 26','stroke-linecap':'butt',opacity:0.75});
+// junction plaza (slight widening, on top of road overlap)
+e('circle',{cx:JUNC[0],cy:JUNC[1],r:54,fill:'#c2a577',stroke:dirtEdge,'stroke-width':3});
+chip(JUNC[0]+92,JUNC[1]+64,'Перекрёсток',{fs:19,bold:true});
 
 // ---- FOREST (density weighted) ----
 function dist(a,b,c,d){return Math.hypot(a-c,b-d);}
-function openSpot(x,y){ // skip clearings & road corridors
+function openSpot(x,y){
   if(dist(x,y,VIL[0],VIL[1])<185)return false;
-  if(dist(x,y,DEN[0],DEN[1])<175)return false;
+  if(dist(x,y,DEN[0],DEN[1])<165)return false;
   if(dist(x,y,BASE[0],BASE[1])<175)return false;
-  if(y>636&&y<724&&x>120&&x<1290)return false;   // horizontal corridor
-  if(x>516&&x<604&&y>120&&y<1290)return false;    // vertical corridor
+  if(y>JUNC[1]-64&&y<JUNC[1]+64&&x>VIL[0]&&x<DEN[0])return false;   // horizontal corridor
+  if(x>JUNC[0]-64&&x<JUNC[0]+64&&y>108&&y<BASE[1])return false;     // vertical corridor
   return true;}
-for(let i=0;i<620;i++){const x=R()*1400,y=R()*1400;if(!openSpot(x,y))continue;
-  // density: high near edges, lower near village glade
+for(let i=0;i<640;i++){const x=R()*1400,y=R()*1400;if(!openSpot(x,y))continue;
   const edge=Math.min(x,1400-x,y,1400-y);
   const dv=dist(x,y,VIL[0],VIL[1]);
-  let p=0.25+ (edge<160?0.65:0.0) + (x>820?0.30:0) + (y>900?0.25:0);
+  let p=0.25+ (edge<160?0.65:0.0) + (x>900?0.30:0) + (y>950?0.25:0);
   if(dv<360)p-=0.45;
   if(R()>p)continue;
   const r=8+R()*13;
   e('circle',{cx:x,cy:y,r:r+3,fill:'#24351c'});e('circle',{cx:x-r*0.18,cy:y-r*0.18,r:r,fill:'#3a5a2c'});e('circle',{cx:x-r*0.3,cy:y-r*0.3,r:r*0.45,fill:'#4e7338'});}
 
 // rocks scattered toward east (den biome)
-for(let i=0;i<26;i++){const x=820+R()*520,y=240+R()*900;if(!openSpot(x,y))continue;const s=10+R()*12;
+for(let i=0;i<26;i++){const x=900+R()*460,y=240+R()*860;if(!openSpot(x,y))continue;const s=10+R()*12;
   e('polygon',{points:`${x},${y-s} ${x+s},${y-s*0.2} ${x+s*0.6},${y+s} ${x-s*0.6},${y+s} ${x-s},${y-s*0.2}`,fill:'#8b8780',stroke:'#54504a','stroke-width':2});}
 
 // ================= LOCATIONS =================
 function smoke(x,y){for(let k=0;k<3;k++){e('circle',{cx:x+ (k%2? 8:-6),cy:y-18-k*16,r:9-k*1.5,fill:'#cfcabf',opacity:0.55});}}
 
-// --- VILLAGE (centre-west) ---
+// --- VILLAGE (west) ---
 e('circle',{cx:VIL[0],cy:VIL[1],r:160,fill:'#7c9650',stroke:'#5c7a3e','stroke-width':3});
-// dirt patch + fire
-e('circle',{cx:VIL[0],cy:VIL[1],r:34,fill:'#c2a577'});
-e('circle',{cx:VIL[0],cy:VIL[1],r:15,fill:'#c64b2c'});e('circle',{cx:VIL[0],cy:VIL[1],r:8,fill:'#e0a32e'});
+// dirt patch + fire (centre)
+e('circle',{cx:VIL[0],cy:VIL[1],r:30,fill:'#c2a577'});
+e('circle',{cx:VIL[0],cy:VIL[1],r:14,fill:'#c64b2c'});e('circle',{cx:VIL[0],cy:VIL[1],r:8,fill:'#e0a32e'});
 smoke(VIL[0],VIL[1]-6);
-// small houses scattered in clearing edge
-[[VIL[0]-95,VIL[1]-95],[VIL[0]+95,VIL[1]-90],[VIL[0]-105,VIL[1]+80],[VIL[0]+90,VIL[1]+95],[VIL[0]-10,VIL[1]-120]].forEach(h=>{
+// two rows of small houses (echo new layout)
+[[VIL[0]-95,VIL[1]-78],[VIL[0]+95,VIL[1]-78],[VIL[0]-95,VIL[1]+82],[VIL[0],VIL[1]+82],[VIL[0]+95,VIL[1]+82]].forEach(h=>{
   e('rect',{x:h[0]-26,y:h[1]-19,width:52,height:38,rx:4,fill:'#9c6a3c',stroke:'#5c3a1e','stroke-width':3});
   e('line',{x1:h[0]-20,y1:h[1],x2:h[0]+20,y2:h[1],stroke:'#c08a52','stroke-width':3});});
 chip(VIL[0],VIL[1]+200,'ДЕРЕВНЯ',{fs:30,bold:true,sw:2});
-chip(VIL[0],VIL[1]+236,'хаб · староста · торговец · сейв',{fs:18});
+chip(VIL[0],VIL[1]+236,'запад · хаб · староста · торговец · сейв',{fs:18});
 
 // --- WOLF DEN (east) ---
-// rocky outcrop blobs
-[[0,0,150],[ -70,-40,90],[80,30,95],[-30,70,80],[60,-60,70]].forEach(b=>{
+[[0,0,130],[-66,-38,80],[74,28,84],[-28,64,70],[56,-56,62]].forEach(b=>{
   e('ellipse',{cx:DEN[0]+b[0],cy:DEN[1]+b[1],rx:b[2]*0.85,ry:b[2]*0.7,fill:'#8b8780',stroke:'#54504a','stroke-width':3});});
-[[0,0,150]].forEach(()=>{});
-e('ellipse',{cx:DEN[0]+10,cy:DEN[1]+24,rx:60,ry:46,fill:'#9aa0a0'});
+e('ellipse',{cx:DEN[0]+8,cy:DEN[1]+22,rx:56,ry:42,fill:'#9aa0a0'});
 // dark cave mouth
-e('ellipse',{cx:DEN[0]+8,cy:DEN[1]+30,rx:40,ry:30,fill:'#1c241a'});
+e('ellipse',{cx:DEN[0]+6,cy:DEN[1]+28,rx:36,ry:28,fill:'#1c241a'});
 // bones (light marks)
-[[-100,-90],[ -120,-60],[110,-80],[120,90],[-90,110]].forEach(o=>{
+[[-92,-82],[-110,-54],[100,-72],[110,82],[-82,100]].forEach(o=>{
   e('line',{x1:DEN[0]+o[0]-9,y1:DEN[1]+o[1],x2:DEN[0]+o[0]+9,y2:DEN[1]+o[1],stroke:'#e7e4d8','stroke-width':4,'stroke-linecap':'round'});
   e('circle',{cx:DEN[0]+o[0]-9,cy:DEN[1]+o[1],r:3,fill:'#e7e4d8'});e('circle',{cx:DEN[0]+o[0]+9,cy:DEN[1]+o[1],r:3,fill:'#e7e4d8'});});
-chip(DEN[0],DEN[1]+185,'ЛОГОВО ВОЛКОВ',{fs:28,bold:true,sw:2});
-chip(DEN[0],DEN[1]+221,'восток · 4 волка · холодный камень',{fs:18});
+chip(DEN[0],DEN[1]+168,'ЛОГОВО ВОЛКОВ',{fs:28,bold:true,sw:2});
+chip(DEN[0],DEN[1]+204,'восток · холодный камень · кости',{fs:18});
 
 // --- BANDIT BASE (south) ---
-e('ellipse',{cx:BASE[0],cy:BASE[1],rx:150,ry:130,fill:'#a98e63',opacity:0.85});  // trampled dirt
+e('ellipse',{cx:BASE[0],cy:BASE[1],rx:150,ry:128,fill:'#a98e63',opacity:0.85});  // trampled dirt
 // shed
 e('rect',{x:BASE[0]-70,y:BASE[1]-58,width:130,height:90,rx:5,fill:'#7a5a36',stroke:'#3e2a16','stroke-width':4});
 e('line',{x1:BASE[0]-62,y1:BASE[1]-13,x2:BASE[0]+52,y2:BASE[1]-13,stroke:'#9c6a3c','stroke-width':4});
 // campfire
-e('circle',{cx:BASE[0]+70,cy:BASE[1]+55,r:16,fill:'#c64b2c'});e('circle',{cx:BASE[0]+70,cy:BASE[1]+55,r:9,fill:'#e0a32e'});
+e('circle',{cx:BASE[0]+72,cy:BASE[1]+52,r:15,fill:'#c64b2c'});e('circle',{cx:BASE[0]+72,cy:BASE[1]+52,r:8,fill:'#e0a32e'});
 // barrels + crate
-e('circle',{cx:BASE[0]-78,cy:BASE[1]+58,r:15,fill:'#b9543a',stroke:'#5c2a1e','stroke-width':3});
-e('rect',{x:BASE[0]-40,y:BASE[1]+44,width:28,height:28,rx:3,fill:'#8a5a32',stroke:'#5c3a1e','stroke-width':3});
+e('circle',{cx:BASE[0]-80,cy:BASE[1]+56,r:14,fill:'#b9543a',stroke:'#5c2a1e','stroke-width':3});
+e('rect',{x:BASE[0]-42,y:BASE[1]+44,width:26,height:26,rx:3,fill:'#8a5a32',stroke:'#5c3a1e','stroke-width':3});
 // rust marks
-[[ -100,-60],[100,-50],[20,-95]].forEach(o=>e('line',{x1:BASE[0]+o[0],y1:BASE[1]+o[1],x2:BASE[0]+o[0]+24,y2:BASE[1]+o[1]+6,stroke:'#C64B2C','stroke-width':5,'stroke-linecap':'round'}));
-smoke(BASE[0]+70,BASE[1]+40);
-chip(BASE[0],BASE[1]+170,'БАЗА БАНДИТОВ',{fs:28,bold:true,sw:2});
-chip(BASE[0],BASE[1]+206,'юг · 3 бандита · ноутбук · рыжие метки',{fs:18});
+[[-98,-58],[98,-48],[18,-92]].forEach(o=>e('line',{x1:BASE[0]+o[0],y1:BASE[1]+o[1],x2:BASE[0]+o[0]+24,y2:BASE[1]+o[1]+6,stroke:'#C64B2C','stroke-width':5,'stroke-linecap':'round'}));
+smoke(BASE[0]+72,BASE[1]+38);
+chip(BASE[0],BASE[1]+168,'БАЗА БАНДИТОВ',{fs:28,bold:true,sw:2});
+chip(BASE[0],BASE[1]+204,'юг · сарай · костёр · бочки · рыжие метки',{fs:18});
+
+// --- NORTH exit (no object) ---
+chip(NORTH[0],NORTH[1]+6,'к лесу / тропам',{fs:22,bold:true});
+chip(NORTH[0],NORTH[1]+42,'север · выход с карты (без объекта)',{fs:17});
 
 // ---- DISTANCE MARKERS ----
-function distMark(x1,y1,x2,y2,label){const mx=(x1+x2)/2,my=(y1+y2)/2;
-  e('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:'#1b2018','stroke-width':2,'stroke-dasharray':'2 8',opacity:0.5});
-  chip(mx,my,label,{fs:20,bold:true,bg:'rgba(231,228,216,0.95)'});}
-distMark(VIL[0]+170,612,DEN[0]-170,612,'≈ 200 м');
-distMark(498,JUNC[1]+10,498,BASE[1]-10,'≈ 150 м');
+function distMark(x1,y1,x2,y2,label){
+  e('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:'#1b2018','stroke-width':2,'stroke-dasharray':'2 8',opacity:0.55});
+  chip((x1+x2)/2,(y1+y2)/2,label,{fs:20,bold:true,bg:'rgba(231,228,216,0.95)'});}
+distMark(VIL[0]+150,JUNC[1]-78,JUNC[0]-70,JUNC[1]-78,'≈ 150 м');
+distMark(JUNC[0]+70,JUNC[1]-78,DEN[0]-150,JUNC[1]-78,'≈ 300 м');
+distMark(JUNC[0]-86,JUNC[1]+70,JUNC[0]-86,BASE[1]-130,'≈ 250 м');
 
 // ---- NORTH ARROW ----
 const nx=1300,ny=130;
@@ -139,11 +152,11 @@ e('polygon',{points:`${nx},${ny+30} ${nx-14},${ny+4} ${nx+14},${ny+4}`,fill:'#E7
 T(nx,ny-44,'С',{'font-size':22,fill:'#E7E4D8','font-weight':'700'});
 
 // ---- SCALE BAR ----
-const sx=130,sy=1320; // ~0.32 m/px -> 50 m = 156 px
-e('rect',{x:sx,y:sy,width:312,height:14,fill:'#1b2018'});
-e('rect',{x:sx,y:sy,width:156,height:14,fill:'#E7E4D8'});
-e('rect',{x:sx,y:sy,width:312,height:14,fill:'none',stroke:'#1b2018','stroke-width':2});
-T(sx,sy-10,'0',{'font-size':18});T(sx+156,sy-10,'50',{'font-size':18});T(sx+312,sy-10,'100 м',{'font-size':18});
+const sx=130,sy=1320; // ~1.9 px/m -> 100 m = 190 px
+e('rect',{x:sx,y:sy,width:380,height:14,fill:'#1b2018'});
+e('rect',{x:sx,y:sy,width:190,height:14,fill:'#E7E4D8'});
+e('rect',{x:sx,y:sy,width:380,height:14,fill:'none',stroke:'#1b2018','stroke-width':2});
+T(sx,sy-10,'0',{'font-size':18});T(sx+190,sy-10,'100',{'font-size':18});T(sx+380,sy-10,'200 м',{'font-size':18});
 T(sx,sy+34,'масштаб и расстояния примерные (на утверждение)',{'font-size':16,'text-anchor':'start'});
 
 // ---- LEGEND PANEL ----
@@ -153,25 +166,25 @@ l('rect',{x:0,y:0,width:1400,height:220,fill:'#EFEBDD'});
 l('rect',{x:0,y:0,width:1400,height:4,fill:'#C64B2C'});
 T(40,42,'ЛЕГЕНДА',{'text-anchor':'start','font-size':24,fill:'#1b2018','font-weight':'700'});
 const items=[
- ['vil','ДЕРЕВНЯ — хаб (центр/запад): дома, костёр, торговец'],
+ ['vil','ДЕРЕВНЯ — хаб (запад): дома, костёр, торговец'],
  ['den','ЛОГОВО ВОЛКОВ (восток): скалы, устье пещеры, кости'],
  ['base','БАЗА БАНДИТОВ (юг): сарай, костёр, бочки, ржавчина'],
- ['road','Грунтовая дорога (перекрёсток)'],
- ['fade','Дорога теряется к краю квадрата'],
+ ['junc','Перекрёсток — пересечение дорог (центр)'],
+ ['road','Грунтовая дорога-крест (4 рукава)'],
+ ['fade','Северный рукав → к лесу / тропам (без объекта)'],
  ['dist','Примерное расстояние между точками'],
- ['cool','Холодный биом (гуще лес, камень)'],
- ['rust','Опасный биом базы (вытоптано, рыжие метки)'],
+ ['cool','Холодный биом востока (камень, гуще лес)'],
  ['tree','Хвойный лес (плотное кольцо по краю)'],
 ];
 function legIcon(kind,x,y){
  if(kind==='vil'){l('circle',{cx:x,cy:y,r:14,fill:'#7c9650',stroke:'#5c7a3e','stroke-width':2});l('circle',{cx:x,cy:y,r:6,fill:'#c64b2c'});}
  else if(kind==='den'){l('ellipse',{cx:x,cy:y,rx:15,ry:12,fill:'#8b8780',stroke:'#54504a','stroke-width':2});l('ellipse',{cx:x+2,cy:y+2,rx:6,ry:5,fill:'#1c241a'});}
  else if(kind==='base'){l('rect',{x:x-13,y:y-10,width:26,height:20,rx:3,fill:'#7a5a36',stroke:'#3e2a16','stroke-width':2});l('circle',{cx:x+17,cy:y+7,r:4,fill:'#e0a32e'});}
+ else if(kind==='junc'){l('rect',{x:x-16,y:y-5,width:32,height:10,fill:'#b8966a',stroke:'#8a6e44','stroke-width':1});l('rect',{x:x-5,y:y-16,width:10,height:32,fill:'#b8966a',stroke:'#8a6e44','stroke-width':1});l('circle',{cx:x,cy:y,r:7,fill:'#c2a577',stroke:'#8a6e44','stroke-width':1});}
  else if(kind==='road'){l('rect',{x:x-18,y:y-8,width:36,height:16,fill:'#b8966a',stroke:'#8a6e44','stroke-width':2});}
  else if(kind==='fade'){l('line',{x1:x-18,y1:y,x2:x+18,y2:y,stroke:'#b8966a','stroke-width':12,'stroke-dasharray':'10 9'});}
  else if(kind==='dist'){l('line',{x1:x-18,y1:y,x2:x+18,y2:y,stroke:'#1b2018','stroke-width':2,'stroke-dasharray':'2 7'});}
  else if(kind==='cool'){l('rect',{x:x-16,y:y-10,width:32,height:20,rx:3,fill:'#5a6470',opacity:0.5});}
- else if(kind==='rust'){l('rect',{x:x-16,y:y-10,width:32,height:20,rx:3,fill:'#c64b2c',opacity:0.4});}
  else if(kind==='tree'){l('circle',{cx:x,cy:y,r:12,fill:'#3a5a2c'});l('circle',{cx:x-3,cy:y-3,r:5,fill:'#4e7338'});}
 }
 items.forEach((it,i)=>{const col=i%3;const row=(i/3|0);const x=70+col*460;const y=88+row*44;legIcon(it[0],x,y);T(x+32,y+7,it[1],{'text-anchor':'start','font-size':19,fill:'#1b2018'});});
