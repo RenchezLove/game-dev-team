@@ -52,8 +52,17 @@ function smooth(pts){let d=`M${pts[0][0]} ${pts[0][1]}`;
 function road(pts){const d=smooth(pts);
   e('path',{d:d,fill:'none',stroke:dirtEdge,'stroke-width':rW+8,'stroke-linecap':'round','stroke-linejoin':'round'});
   e('path',{d:d,fill:'none',stroke:dirt,'stroke-width':rW,'stroke-linecap':'round','stroke-linejoin':'round'});}
-// horizontal: village -> junction -> den (gentle waviness)
-road([[VIL[0],656],[470,642],[560,661],[640,645],[JUNC[0],650],[770,659],[860,641],[970,661],[1070,645],[DEN[0],654]]);
+// horizontal WEST: village -> junction (solid)
+road([[VIL[0],656],[470,642],[560,661],[640,645],[JUNC[0],650]]);
+// horizontal EAST: junction -> toward den, but the track LOSES ITSELF short of the den
+road([[JUNC[0],650],[770,659],[855,643],[892,654]]);
+// the track thins and dissolves into the ground before the den (never reaches the marker)
+const ef=[[892,654],[924,649],[954,653],[982,650],[1006,652]];
+[[0,46,0.55],[1,38,0.44],[2,28,0.33],[3,18,0.23]].forEach(seg=>{const i=seg[0];
+  e('path',{d:smooth([ef[i],ef[i+1]]),fill:'none',stroke:dirt,'stroke-width':seg[1],'stroke-linecap':'round',opacity:seg[2]});});
+// a couple of faint earth scuffs trailing off, then bare ground up to the den
+e('ellipse',{cx:1022,cy:651,rx:8,ry:5,fill:dirt,opacity:0.17});
+e('ellipse',{cx:1034,cy:649,rx:5,ry:3,fill:dirt,opacity:0.11});
 // vertical south: junction -> base
 road([[JUNC[0],650],[711,762],[690,872],[707,982],[693,1076],[BASE[0],BASE[1]]]);
 // north arm: junction -> forest, fades near the top edge
@@ -61,8 +70,7 @@ const nPts=[[JUNC[0],650],[709,560],[690,470],[707,380],[696,288],[JUNC[0],200]]
 e('path',{d:smooth(nPts),fill:'none',stroke:dirtEdge,'stroke-width':rW+8,'stroke-linecap':'round','stroke-linejoin':'round'});
 e('path',{d:smooth(nPts),fill:'none',stroke:dirt,'stroke-width':rW,'stroke-linecap':'round','stroke-linejoin':'round'});
 e('path',{d:smooth([[JUNC[0],200],[705,158],[700,108]]),fill:'none',stroke:dirt,'stroke-width':rW,'stroke-dasharray':'30 26','stroke-linecap':'butt',opacity:0.75});
-// junction plaza (slight widening, on top of road overlap)
-e('circle',{cx:JUNC[0],cy:JUNC[1],r:54,fill:'#c2a577',stroke:dirtEdge,'stroke-width':3});
+// crossroads label only — no plaza circle (roads simply cross)
 chip(JUNC[0]+92,JUNC[1]+64,'Перекрёсток',{fs:19,bold:true});
 
 // ---- FOREST (density weighted) ----
@@ -171,7 +179,7 @@ const items=[
  ['base','БАЗА БАНДИТОВ (юг): сарай, костёр, бочки, ржавчина'],
  ['junc','Перекрёсток — пересечение дорог (центр)'],
  ['road','Грунтовая дорога-крест (4 рукава)'],
- ['fade','Северный рукав → к лесу / тропам (без объекта)'],
+ ['fade','Тропа теряется, не доходя до объекта'],
  ['dist','Примерное расстояние между точками'],
  ['cool','Холодный биом востока (камень, гуще лес)'],
  ['tree','Хвойный лес (плотное кольцо по краю)'],
@@ -180,7 +188,7 @@ function legIcon(kind,x,y){
  if(kind==='vil'){l('circle',{cx:x,cy:y,r:14,fill:'#7c9650',stroke:'#5c7a3e','stroke-width':2});l('circle',{cx:x,cy:y,r:6,fill:'#c64b2c'});}
  else if(kind==='den'){l('ellipse',{cx:x,cy:y,rx:15,ry:12,fill:'#8b8780',stroke:'#54504a','stroke-width':2});l('ellipse',{cx:x+2,cy:y+2,rx:6,ry:5,fill:'#1c241a'});}
  else if(kind==='base'){l('rect',{x:x-13,y:y-10,width:26,height:20,rx:3,fill:'#7a5a36',stroke:'#3e2a16','stroke-width':2});l('circle',{cx:x+17,cy:y+7,r:4,fill:'#e0a32e'});}
- else if(kind==='junc'){l('rect',{x:x-16,y:y-5,width:32,height:10,fill:'#b8966a',stroke:'#8a6e44','stroke-width':1});l('rect',{x:x-5,y:y-16,width:10,height:32,fill:'#b8966a',stroke:'#8a6e44','stroke-width':1});l('circle',{cx:x,cy:y,r:7,fill:'#c2a577',stroke:'#8a6e44','stroke-width':1});}
+ else if(kind==='junc'){l('rect',{x:x-16,y:y-5,width:32,height:10,fill:'#b8966a',stroke:'#8a6e44','stroke-width':1});l('rect',{x:x-5,y:y-16,width:10,height:32,fill:'#b8966a',stroke:'#8a6e44','stroke-width':1});}
  else if(kind==='road'){l('rect',{x:x-18,y:y-8,width:36,height:16,fill:'#b8966a',stroke:'#8a6e44','stroke-width':2});}
  else if(kind==='fade'){l('line',{x1:x-18,y1:y,x2:x+18,y2:y,stroke:'#b8966a','stroke-width':12,'stroke-dasharray':'10 9'});}
  else if(kind==='dist'){l('line',{x1:x-18,y1:y,x2:x+18,y2:y,stroke:'#1b2018','stroke-width':2,'stroke-dasharray':'2 7'});}

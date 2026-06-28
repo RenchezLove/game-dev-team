@@ -26,6 +26,8 @@ concept-art/*.png
 
 # local asset backups (orphans etc.) — not for VCS
 backups/
+# Blender авто-бэкапы (.blend1) — мусор, не версионируем
+*.blend1
 
 # game-lead служебные watcher-скрипты и временные (не в git)
 reports/Agents/_gl_*.sh
