@@ -24,7 +24,7 @@ concept-art/*.png
 *.pdf
 *.xlsx
 # исключение: плановая таблица Рината — рабочий документ, ведёт game-lead (директива 07-02)
-!docs/contrary-survivor/DemoPlanTemplate.xlsx
+!docs/contrary-survivor/DemoPlanTemplateRec.xlsx
 
 # local asset backups (orphans etc.) — not for VCS
 backups/

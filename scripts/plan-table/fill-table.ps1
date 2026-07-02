@@ -3,7 +3,7 @@
 
 function RGB($r, $g, $b) { return $r + $g * 256 + $b * 65536 }
 
-$target = 'E:\game-dev-team\docs\contrary-survivor\DemoPlanTemplate.xlsx'
+$target = 'E:\game-dev-team\docs\contrary-survivor\DemoPlanTemplateRec.xlsx'
 $backup = $env:TEMP + '\DemoPlanTemplate.orig.xlsx'
 $dataPath = $env:TEMP + '\xlsx_new\data2.json'
 

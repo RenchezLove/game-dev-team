@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 [Console]::OutputEncoding = [Text.Encoding]::UTF8
 
-$target = 'E:\game-dev-team\docs\contrary-survivor\DemoPlanTemplate.xlsx'
+$target = 'E:\game-dev-team\docs\contrary-survivor\DemoPlanTemplateRec.xlsx'
 $dataPath = $env:TEMP + '\xlsx_new\data2.json'
 
 $rows = Get-Content -Raw -Encoding UTF8 $dataPath | ConvertFrom-Json
