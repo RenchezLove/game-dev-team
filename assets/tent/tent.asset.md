@@ -11,7 +11,7 @@ tris: 116                   # бюджет <=200 OK
 verts: 87
 bbox_m: [1.56, 2.868, 1.223]   # Y с растяжками/колышками; сам домик 1.5 x 2.0 x 1.2
 color_attr: Col (CORNER / BYTE_COLOR)
-forward: +Y (вход), up +Z, origin центр домика на земле (Z=0)
+forward: +Y (вход) в Blender-сборке; ПОСЛЕ FBX-импорта в UE ось Y зеркалится => вход в UE = -Y. up +Z, origin центр домика на земле (Z=0)
 created: 2026-07-04
 author: modeler-3d
 verified_from: round-trip импорт SM_Tent.fbx (verify_car.py) — rot0/scale1, нормали наружу (signed_volume +1.56)
