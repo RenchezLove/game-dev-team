@@ -1,0 +1,606 @@
+diff --git a/Source/ContrarySurvivor/Actors/MasterEnemyBase.cpp b/Source/ContrarySurvivor/Actors/MasterEnemyBase.cpp
+index e1d9eaf..18865ef 100644
+--- a/Source/ContrarySurvivor/Actors/MasterEnemyBase.cpp
++++ b/Source/ContrarySurvivor/Actors/MasterEnemyBase.cpp
+@@ -34,6 +34,16 @@ AMasterEnemyBase::AMasterEnemyBase()
+ 	ActivationVisualizer->SetCanEverAffectNavigation(false);
+ 	ActivationVisualizer->ShapeColor = FColor(255, 140, 0, 255); // оранжевый — заметная граница спавна
+ 
++	// Визуализатор радиуса поводка (фидбек Рината 07-05): та же схема, что ActivationVisualizer,
++	// но радиус = LeashRadius и другой цвет, чтобы границы не путались во вьюпорте. Отдельного
++	// параметра радиуса НЕТ — сфера следует за LeashRadius (синк в OnConstruction).
++	LeashVisualizer = CreateDefaultSubobject<USphereComponent>(TEXT("LeashVisualizer"));
++	LeashVisualizer->SetupAttachment(SceneRoot);
++	LeashVisualizer->InitSphereRadius(LeashRadius);
++	LeashVisualizer->SetCollisionEnabled(ECollisionEnabled::NoCollision);
++	LeashVisualizer->SetCanEverAffectNavigation(false);
++	LeashVisualizer->ShapeColor = FColor(150, 60, 255, 255); // фиолетовый — граница поводка погони
++
+ 	// Дефолтная точка спавна-образец: видимый перемещаемый маркер на базовом акторе. Смещаем от
+ 	// центра, чтобы стрелка не сливалась с корнем. Дизайнер двигает её и добавляет ещё точек в BP.
+ 	DefaultSpawnPoint = CreateDefaultSubobject<UEnemySpawnPointComponent>(TEXT("SpawnPoint0"));
+@@ -49,13 +59,17 @@ void AMasterEnemyBase::OnConstruction(const FTransform& Transform)
+ {
+ 	Super::OnConstruction(Transform);
+ 
+-	// Держим радиус сферы-визуализатора равным ActivationRadius — чтобы при правке ActivationRadius
+-	// в Details граница сразу обновлялась во вьюпорте (превью BP и размещённый актор реконструируются
+-	// при изменении свойства, что снова вызывает OnConstruction).
++	// Держим радиусы сфер-визуализаторов равными своим полям — чтобы при правке ActivationRadius/
++	// LeashRadius в Details границы сразу обновлялись во вьюпорте (превью BP и размещённый актор
++	// реконструируются при изменении свойства, что снова вызывает OnConstruction).
+ 	if (ActivationVisualizer)
+ 	{
+ 		ActivationVisualizer->SetSphereRadius(ActivationRadius, /*bUpdateOverlaps=*/false);
+ 	}
++	if (LeashVisualizer)
++	{
++		LeashVisualizer->SetSphereRadius(LeashRadius, /*bUpdateOverlaps=*/false);
++	}
+ }
+ 
+ void AMasterEnemyBase::BeginPlay()
+diff --git a/Source/ContrarySurvivor/Actors/MasterEnemyBase.h b/Source/ContrarySurvivor/Actors/MasterEnemyBase.h
+index 2f7a7f6..d285b0d 100644
+--- a/Source/ContrarySurvivor/Actors/MasterEnemyBase.h
++++ b/Source/ContrarySurvivor/Actors/MasterEnemyBase.h
+@@ -58,9 +58,10 @@ public:
+ protected:
+ 	virtual void BeginPlay() override;
+ 
+-	// Подгоняет радиус сферы-визуализатора ActivationRadius под текущее значение поля — чтобы
+-	// граница активации обновлялась во вьюпорте сразу при правке ActivationRadius в Details
+-	// (и в превью BP, и на размещённом акторе). См. ActivationVisualizer.
++	// Подгоняет радиусы сфер-визуализаторов под текущие значения полей — чтобы границы
++	// активации (ActivationRadius) и поводка (LeashRadius) обновлялись во вьюпорте сразу при
++	// правке в Details (и в превью BP, и на размещённом акторе). См. ActivationVisualizer /
++	// LeashVisualizer.
+ 	virtual void OnConstruction(const FTransform& Transform) override;
+ 
+ 	// Корень-трансформ (placeable). Меш/иконку задаёт BP при желании.
+@@ -75,6 +76,13 @@ protected:
+ 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "EnemyBase")
+ 	USphereComponent* ActivationVisualizer;
+ 
++	// Визуализатор радиуса поводка (фидбек Рината 07-05): вторая каркас-сфера, радиус = LeashRadius,
++	// цвет фиолетовый (отличается от оранжевой границы активации). Как ActivationVisualizer:
++	// видна только в редакторе (bHiddenInGame), без коллизии/навмеша, ОТДЕЛЬНОГО параметра радиуса
++	// НЕТ — радиус синхронизируется с LeashRadius в OnConstruction. LeashRadius=0 — сфера в точку.
++	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "EnemyBase")
++	USphereComponent* LeashVisualizer;
++
+ 	// Дефолтная точка спавна — образец, чтобы у базового актора уже был видимый перемещаемый
+ 	// маркер. Дизайнер двигает её и/или добавляет ещё точек (Enemy Spawn Point) в дереве BP.
+ 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "EnemyBase")
+diff --git a/Source/ContrarySurvivor/Characters/MasterHumanoidCharacter.cpp b/Source/ContrarySurvivor/Characters/MasterHumanoidCharacter.cpp
+index 9be6fff..b46197d 100644
+--- a/Source/ContrarySurvivor/Characters/MasterHumanoidCharacter.cpp
++++ b/Source/ContrarySurvivor/Characters/MasterHumanoidCharacter.cpp
+@@ -125,6 +125,88 @@ void AMasterHumanoidCharacter::RelinkSlotToLeaderPose(EArmorSlot Slot)
+ void AMasterHumanoidCharacter::Tick(float DeltaTime)
+ {
+ 	Super::Tick(DeltaTime);
++
++	UpdateAimTurn(DeltaTime);
++}
++
++void AMasterHumanoidCharacter::StartAimTurnTo(AActor* Target)
++{
++	UWorld* World = GetWorld();
++	if (!bAimTurnToTarget || !World || !IsValid(Target) || Target == this)
++	{
++		return;
++	}
++
++	AimTurnTarget = Target;
++	AimTurnEndTime = World->GetTimeSeconds() + AimTurnHoldTime;
++
++	if (!bAimTurnActive)
++	{
++		bAimTurnActive = true;
++		// Ориентацию бега на окно доворота выключаем (BP игрока держит её включённой) — иначе
++		// CMC каждый кадр возвращает корпус в сторону движения и борется с прицелом. Значение
++		// сохраняем и восстанавливаем в EndAimTurn (уважаем настройку BP, не хардкодим).
++		if (UCharacterMovementComponent* Move = GetCharacterMovement())
++		{
++			bAimTurnSavedOrientToMovement = Move->bOrientRotationToMovement;
++			Move->bOrientRotationToMovement = false;
++		}
++	}
++}
++
++void AMasterHumanoidCharacter::UpdateAimTurn(float DeltaTime)
++{
++	if (!bAimTurnActive)
++	{
++		return;
++	}
++
++	UWorld* World = GetWorld();
++	AActor* Target = AimTurnTarget.Get();
++	if (!World || !IsValid(Target) || World->GetTimeSeconds() > AimTurnEndTime)
++	{
++		EndAimTurn();
++		return;
++	}
++
++	// Труп не доворачиваем: смерть гуманоида отключает движение (HandleDeath -> DisableMovement
++	// -> MOVE_None), сам актор ещё тикает время жизни трупа/рэгдолла.
++	const UCharacterMovementComponent* Move = GetCharacterMovement();
++	if (Move && Move->MovementMode == MOVE_None)
++	{
++		EndAimTurn();
++		return;
++	}
++
++	FVector ToTarget = Target->GetActorLocation() - GetActorLocation();
++	ToTarget.Z = 0.0f;
++	if (ToTarget.IsNearlyZero())
++	{
++		return; // вплотную/друг над другом — направление вырождено, кадр пропускаем
++	}
++
++	// Плавный yaw к цели. RInterpTo идёт по кратчайшей дуге (FInterpTo на «сыром» угле
++	// ломается на переходе ±180°). Pitch/Roll персонажа не трогаем (нули у Character).
++	const FRotator Current(0.0f, GetActorRotation().Yaw, 0.0f);
++	const FRotator Desired(0.0f, ToTarget.Rotation().Yaw, 0.0f);
++	const FRotator Stepped = FMath::RInterpTo(Current, Desired, DeltaTime, AimTurnInterpSpeed);
++	SetActorRotation(FRotator(0.0f, Stepped.Yaw, 0.0f));
++}
++
++void AMasterHumanoidCharacter::EndAimTurn()
++{
++	if (!bAimTurnActive)
++	{
++		return;
++	}
++
++	bAimTurnActive = false;
++	AimTurnTarget = nullptr;
++
++	if (UCharacterMovementComponent* Move = GetCharacterMovement())
++	{
++		Move->bOrientRotationToMovement = bAimTurnSavedOrientToMovement;
++	}
+ }
+ 
+ void AMasterHumanoidCharacter::EquipWeapon(AMasterWeapon* NewWeapon)
+diff --git a/Source/ContrarySurvivor/Characters/MasterHumanoidCharacter.h b/Source/ContrarySurvivor/Characters/MasterHumanoidCharacter.h
+index 8607787..5253826 100644
+--- a/Source/ContrarySurvivor/Characters/MasterHumanoidCharacter.h
++++ b/Source/ContrarySurvivor/Characters/MasterHumanoidCharacter.h
+@@ -46,6 +46,25 @@ protected:
+ 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat", meta = (DisplayPriority = "52"))
+     bool bIsAttacking;
+ 
++	// --- Прицеливание корпусом (вариант A, фидбек Рината 07-05 «не целятся») ---
++	// При реальном выстреле/ударе носитель ПЛАВНО доворачивается (yaw) на цель и AimTurnHoldTime
++	// секунд «ведёт» её; окно продлевается каждым выстрелом (StartAimTurnTo). Работает у игрока
++	// и бандита (хуки: ARangedWeapon::Fire, AEnemyAIController::PerformRangedAttack/PerformAttack).
++	// Снап-доворот ножа игрока (AMeleeWeapon::bTurnToLockedTarget) — отдельный механизм, не тронут.
++	// На окно доворота bOrientRotationToMovement выключается и потом восстанавливается —
++	// иначе ориентация бега (BP игрока держит её включённой) борется с прицелом каждый кадр.
++
++	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Aim", meta = (DisplayPriority = "55"))
++	bool bAimTurnToTarget = true;
++
++	// Скорость доворота (FMath::RInterpTo, 1/сек): больше = быстрее лицом к цели. Плавно, не снап.
++	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Aim", meta = (ClampMin = "0.5", DisplayPriority = "56"))
++	float AimTurnInterpSpeed = 10.0f;
++
++	// Сколько секунд после выстрела корпус продолжает вести цель (окно продлевается выстрелами).
++	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Aim", meta = (ClampMin = "0.0", DisplayPriority = "57"))
++	float AimTurnHoldTime = 1.0f;
++
+ 	// --- Меши ---
+ 	
+ 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true", DisplayPriority = "54"))
+@@ -122,6 +141,11 @@ public:
+ 	UFUNCTION(BlueprintCallable, Category = "Combat")
+ 	void FireCurrentWeapon(AActor* Target);
+ 
++	// Запустить/продлить плавный доворот корпуса на цель (вариант A прицеливания). Зовётся из
++	// точек РЕАЛЬНОГО выстрела/удара (после кулдаунов/патронов): ARangedWeapon::Fire (игрок),
++	// AEnemyAIController::PerformRangedAttack/PerformAttack (бандит). No-op при bAimTurnToTarget=false.
++	void StartAimTurnTo(AActor* Target);
++
+ 	// virtual: APlayerCharacter переопределяет, чтобы перед штатной перезарядкой пополнить
+ 	// резерв оружия из пачки патронов (AAmmoItem) в рюкзаке (Фаза 5, STALKER 2-стиль).
+ 	UFUNCTION(BlueprintCallable, Category = "Combat")
+@@ -221,6 +245,25 @@ protected:
+ private:
+     bool IsSprinting = false;
+ 
++    // --- Рантайм доворота корпуса на цель (вариант A прицеливания) ---
++
++    // Текущая цель доворота (слабый указатель: гибель цели просто завершает доворот).
++    TWeakObjectPtr<AActor> AimTurnTarget;
++
++    // Время конца окна доворота (мировые секунды); продлевается каждым StartAimTurnTo.
++    float AimTurnEndTime = 0.0f;
++
++    bool bAimTurnActive = false;
++
++    // Сохранённый bOrientRotationToMovement на окно доворота (восстанавливается в EndAimTurn).
++    bool bAimTurnSavedOrientToMovement = false;
++
++    // Кадровый шаг доворота (из Tick): плавный yaw на цель, завершение по таймеру/гибели/трупу.
++    void UpdateAimTurn(float DeltaTime);
++
++    // Завершить доворот и восстановить ориентацию бега.
++    void EndAimTurn();
++
+     // Базовые меши слотов (тело без брони) — снимок BeginPlay для UnequipArmor.
+     UPROPERTY()
+     USkeletalMesh* BaseHeadMesh = nullptr;
+diff --git a/Source/ContrarySurvivor/Characters/MasterTrader.cpp b/Source/ContrarySurvivor/Characters/MasterTrader.cpp
+index d0ee2e7..56366cc 100644
+--- a/Source/ContrarySurvivor/Characters/MasterTrader.cpp
++++ b/Source/ContrarySurvivor/Characters/MasterTrader.cpp
+@@ -197,9 +197,10 @@ void AMasterTrader::BuildDefaultCatalog()
+ 	Catalog.Add(MakeConsumable(TEXT("Bandage"), 12.0f, EConsumableType::Medkit));
+ 
+ 	// Патроны: 2/шт (GDD §7.6), покупаются стаком в рюкзак (AAmmoItem).
++	// Имя = ItemName AAmmoItem («Патроны»): в каталоге и в инвентаре предмет зовётся одинаково.
+ 	{
+ 		FShopEntry Ammo;
+-		Ammo.DisplayName = TEXT("Pistol Ammo");
++		Ammo.DisplayName = TEXT("Патроны");
+ 		Ammo.Price = 2.0f;
+ 		Ammo.Kind = EShopEntryKind::Ammo;
+ 		Ammo.AmmoAmount = 1;
+diff --git a/Source/ContrarySurvivor/Characters/PlayerCharacter.cpp b/Source/ContrarySurvivor/Characters/PlayerCharacter.cpp
+index f1599dc..bc1b39f 100644
+--- a/Source/ContrarySurvivor/Characters/PlayerCharacter.cpp
++++ b/Source/ContrarySurvivor/Characters/PlayerCharacter.cpp
+@@ -347,6 +347,7 @@ void APlayerCharacter::Tick(float DeltaTime)
+         // Бой: тот же сглаженный офсет ведём к центру угроз (переход из look-ahead бесшовный).
+         CameraLookAheadOffset = FMath::VInterpTo(CameraLookAheadOffset, CombatTargetOffset, DeltaTime, CombatCameraInterpSpeed);
+         DesiredOffset += CameraLookAheadOffset;
++        bCombatCameraRecovering = true; // после боя офсет возвращается мягкой скоростью выхода
+     }
+     else if (bEnableCameraLookAhead)
+     {
+@@ -359,8 +360,25 @@ void APlayerCharacter::Tick(float DeltaTime)
+         {
+             TargetLookAhead = Velocity.GetSafeNormal() * LookAheadAmount;
+         }
+-        // Плавно подмешиваем (в т.ч. возврат к нулю при остановке).
+-        CameraLookAheadOffset = FMath::VInterpTo(CameraLookAheadOffset, TargetLookAhead, DeltaTime, LookAheadInterpSpeed);
++        // Выход из боя — отдельной, заметно более мягкой скоростью (фидбек Рината 07-05);
++        // когда офсет догнал цель исследования — возвращаемся на обычную скорость look-ahead.
++        const float InterpSpeed = bCombatCameraRecovering ? CombatCameraExitInterpSpeed : LookAheadInterpSpeed;
++        CameraLookAheadOffset = FMath::VInterpTo(CameraLookAheadOffset, TargetLookAhead, DeltaTime, InterpSpeed);
++        if (bCombatCameraRecovering && CameraLookAheadOffset.Equals(TargetLookAhead, 25.0f))
++        {
++            bCombatCameraRecovering = false;
++        }
++        DesiredOffset += CameraLookAheadOffset;
++    }
++    else if (bCombatCameraRecovering)
++    {
++        // Look-ahead выключен: после боя офсет НЕ сбрасываем скачком — мягко ведём к нулю.
++        CameraLookAheadOffset = FMath::VInterpTo(CameraLookAheadOffset, FVector::ZeroVector, DeltaTime, CombatCameraExitInterpSpeed);
++        if (CameraLookAheadOffset.IsNearlyZero(1.0f))
++        {
++            CameraLookAheadOffset = FVector::ZeroVector;
++            bCombatCameraRecovering = false;
++        }
+         DesiredOffset += CameraLookAheadOffset;
+     }
+     else
+diff --git a/Source/ContrarySurvivor/Characters/PlayerCharacter.h b/Source/ContrarySurvivor/Characters/PlayerCharacter.h
+index f96cdcf..8d9981c 100644
+--- a/Source/ContrarySurvivor/Characters/PlayerCharacter.h
++++ b/Source/ContrarySurvivor/Characters/PlayerCharacter.h
+@@ -136,10 +136,16 @@ protected:
+     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Camera|Combat", meta = (ClampMin = "0.0", DisplayPriority = "26"))
+     float CombatCameraMaxOffset = 500.0f;
+ 
+-    // Скорость плавного перехода камеры в/из боевого смещения (VInterpTo, «без рывков»).
++    // Скорость плавного перехода камеры В боевое смещение (VInterpTo, «без рывков»).
+     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Camera|Combat", meta = (ClampMin = "0.1", DisplayPriority = "27"))
+     float CombatCameraInterpSpeed = 2.0f;
+ 
++    // Скорость ВЫХОДА камеры из боя (возврат к look-ahead исследования). Отдельная и заметно
++    // мягче боевого входа — фидбек Рината 07-05: «при потере противника камера смещается
++    // в сторону движения достаточно резко».
++    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Camera|Combat", meta = (ClampMin = "0.1", DisplayPriority = "28"))
++    float CombatCameraExitInterpSpeed = 1.0f;
++
+     // --- Тряска камеры (D5) ---
+     // Процедурная trauma-модель: AddCameraShake копит «травму» [0..1], затухающую со временем;
+     // смещение = PerlinNoise1D * амплитуда * травма² — подмешивается в SpringArm->TargetOffset.
+@@ -522,6 +528,10 @@ private:
+     // Текущее сглаженное смещение look-ahead/боевого смещения (world XY), интерполируется в Tick.
+     FVector CameraLookAheadOffset = FVector::ZeroVector;
+ 
++    // Идёт возврат камеры из боя: офсет ведём мягкой CombatCameraExitInterpSpeed, пока он не
++    // догонит цель исследования (иначе выход из боя дёргался бы на скорости look-ahead).
++    bool bCombatCameraRecovering = false;
++
+     // --- Рантайм тряски камеры (D5) ---
+     // Текущая «травма» [0..1] (копится AddCameraShake, затухает CameraShakeDecay).
+     float CameraShakeTrauma = 0.0f;
+diff --git a/Source/ContrarySurvivor/Controllers/EnemyAIController.cpp b/Source/ContrarySurvivor/Controllers/EnemyAIController.cpp
+index 50f5041..1191735 100644
+--- a/Source/ContrarySurvivor/Controllers/EnemyAIController.cpp
++++ b/Source/ContrarySurvivor/Controllers/EnemyAIController.cpp
+@@ -146,6 +146,14 @@ bool AEnemyAIController::PerformAttack(APawn* Player)
+ 
+ 	LastAttackTime = Now;
+ 
++	// Вариант A прицеливания: гуманоид-носитель плавно доворачивается корпусом на игрока и при
++	// ближнем ударе (SetFocus пешку НЕ вращает: у ACharacter bUseControllerRotation* по умолчанию
++	// false, FaceRotation при них no-op). Волк — не гуманоид, Cast даёт nullptr (его не трогаем).
++	if (AMasterHumanoidCharacter* SelfHumanoid = Cast<AMasterHumanoidCharacter>(GetPawn()))
++	{
++		SelfHumanoid->StartAimTurnTo(Player);
++	}
++
+ 	// Урон игроку через стандартный пайплайн UE.
+ 	FDamageEvent DamageEvent;
+ 	Player->TakeDamage(AttackDamage, DamageEvent, this, GetPawn());
+@@ -179,6 +187,15 @@ bool AEnemyAIController::PerformRangedAttack(APawn* Player)
+ 
+ 	LastRangedAttackTime = Now;
+ 
++	// Вариант A прицеливания (фидбек Рината 07-05): бандит плавно доворачивается корпусом на
++	// игрока при реальном выстреле (кулдаун/честность уже пройдены). До этого корпус бандита
++	// НИЧТО не вращало: SetFocus при выключенных bUseControllerRotation* пешку не поворачивает,
++	// bOrientRotationToMovement у бандита тоже выключен — стрелял «из любой позы».
++	if (AMasterHumanoidCharacter* SelfHumanoid = Cast<AMasterHumanoidCharacter>(Self))
++	{
++		SelfHumanoid->StartAimTurnTo(Player);
++	}
++
+ 	// Разброс как вероятность попадания (дешевле честной баллистики; Android-бюджет).
+ 	const bool bHit = FMath::FRand() <= RangedHitChance;
+ 
+@@ -644,11 +661,6 @@ void AEnemyAIController::Tick(float DeltaTime)
+ 			{
+ 				Self->AddMovementInput(ToPlayer, 1.0f);
+ 			}
+-
+-			// ПРОБА nav на восстановление: ВРЕМЕННО ОТКЛЮЧЕНА (тест дёргания).
+-			// Гипотеза: MoveToActor каждые 0.35с вызывает AbortMove внутри → CMC velocity сбрасывается
+-			// → "шаг-стоп-шаг-стоп". При selfNav=no зонд всегда Failed и только мешает.
+-			// Если дёрганье исчезнет — убрать насовсем; если нет — искать дальше.
+ 		}
+ 		else
+ 		{
+diff --git a/Source/ContrarySurvivor/HUD/ContrarySurvivorHUD.cpp b/Source/ContrarySurvivor/HUD/ContrarySurvivorHUD.cpp
+index c9cc974..1f53282 100644
+--- a/Source/ContrarySurvivor/HUD/ContrarySurvivorHUD.cpp
++++ b/Source/ContrarySurvivor/HUD/ContrarySurvivorHUD.cpp
+@@ -1676,27 +1676,62 @@ void AContrarySurvivorHUD::DrawQuestTargetMarker(APlayerCharacter* Player)
+ 		return; // нет активного квеста с меткой (после сдачи GetTrackedQuest = null — метка гаснет)
+ 	}
+ 
+-	// Цель: база врагов с совпадающим QuestMarkerTag (BP_WolfDen/BP_BanditBase)…
+-	AActor* Target = nullptr;
+-	for (TActorIterator<AMasterEnemyBase> It(World); It; ++It)
+-	{
+-		if (It->GetQuestMarkerTag() == Tracked->MapMarkerTag)
++	// Фикс меты (фидбек Рината 07-05): пока цели квеста НЕ выполнены — метка на цель (базу);
++	// квест ГОТОВ К СДАЧЕ (Completed: все убиты/собрано) — метка ведёт к квестодателю (старосте).
++	const bool bToGiver = (Tracked->State == EQuestState::Completed);
++
++	// Кэш цели (qa-фикс): мир сканируется только при инвалидации кэша (смена тега/фазы, гибель
++	// актора), НЕ каждый кадр; повторный поиск ненайденной цели дросселируется по времени.
++	AActor* Target = QuestMarkerTargetCache.Get();
++	if (!Target || QuestMarkerCachedTag != Tracked->MapMarkerTag || bQuestMarkerCachedToGiver != bToGiver)
++	{
++		const float Now = World->GetTimeSeconds();
++		const bool bSameSearch = (QuestMarkerCachedTag == Tracked->MapMarkerTag
++			&& bQuestMarkerCachedToGiver == bToGiver);
++		if (!Target && bSameSearch && Now < QuestMarkerNextSearchTime)
+ 		{
+-			Target = *It;
+-			break;
++			return; // недавно искали и не нашли (цель не размещена/тег не проставлен) — ждём
+ 		}
+-	}
+-	// …или ЛЮБОЙ актор со стандартным Actor Tag (гибкость для будущих квестов без правок кода).
+-	if (!Target)
+-	{
+-		for (TActorIterator<AActor> It(World); It; ++It)
++
++		Target = nullptr;
++		if (bToGiver)
+ 		{
+-			if (IsValid(*It) && It->ActorHasTag(Tracked->MapMarkerTag))
++			// Квестодатель MVP — староста (единственный AElderNPC на карте).
++			for (TActorIterator<AElderNPC> It(World); It; ++It)
+ 			{
+ 				Target = *It;
+ 				break;
+ 			}
+ 		}
++		else
++		{
++			// Цель: база врагов с совпадающим QuestMarkerTag (BP_WolfDen/BP_BanditBase)…
++			for (TActorIterator<AMasterEnemyBase> It(World); It; ++It)
++			{
++				if (It->GetQuestMarkerTag() == Tracked->MapMarkerTag)
++				{
++					Target = *It;
++					break;
++				}
++			}
++			// …или ЛЮБОЙ актор со стандартным Actor Tag (гибкость для будущих квестов без правок кода).
++			if (!Target)
++			{
++				for (TActorIterator<AActor> It(World); It; ++It)
++				{
++					if (IsValid(*It) && It->ActorHasTag(Tracked->MapMarkerTag))
++					{
++						Target = *It;
++						break;
++					}
++				}
++			}
++		}
++
++		QuestMarkerTargetCache = Target;
++		QuestMarkerCachedTag = Tracked->MapMarkerTag;
++		bQuestMarkerCachedToGiver = bToGiver;
++		QuestMarkerNextSearchTime = Now + 0.5f; // дроссель следующего поиска, если не нашли
+ 	}
+ 
+ 	if (!Target)
+@@ -1704,8 +1739,20 @@ void AContrarySurvivorHUD::DrawQuestTargetMarker(APlayerCharacter* Player)
+ 		return; // цель не размещена/тег не проставлен — метки нет (лог не спамим: каждый кадр)
+ 	}
+ 
+-	DrawNPCMarker(Target->GetActorLocation() + FVector(0.0f, 0.0f, QuestTargetMarkerZOffset),
+-		Tracked->Title, QuestTargetMarkerColor);
++	// К сдаче метка висит над старостой ВЫШЕ его зелёного NPC-ромба (чтобы не сливались),
++	// подпись — «Сдать: <квест>»; на цели — обычный подъём и название квеста.
++	float ZOff = QuestTargetMarkerZOffset;
++	FString Label = Tracked->Title;
++	if (bToGiver)
++	{
++		if (const IInteractableNPCInterface* NPC = Cast<IInteractableNPCInterface>(Target))
++		{
++			ZOff = NPC->GetNPCMarkerZOffset() + 120.0f;
++		}
++		Label = FString::Printf(TEXT("Сдать: %s"), *Tracked->Title);
++	}
++
++	DrawNPCMarker(Target->GetActorLocation() + FVector(0.0f, 0.0f, ZOff), Label, QuestTargetMarkerColor);
+ }
+ 
+ void AContrarySurvivorHUD::DrawNPCMarker(const FVector& WorldAnchor, const FString& Label,
+diff --git a/Source/ContrarySurvivor/HUD/ContrarySurvivorHUD.h b/Source/ContrarySurvivor/HUD/ContrarySurvivorHUD.h
+index 2d94607..b601f6a 100644
+--- a/Source/ContrarySurvivor/HUD/ContrarySurvivorHUD.h
++++ b/Source/ContrarySurvivor/HUD/ContrarySurvivorHUD.h
+@@ -457,11 +457,20 @@ private:
+ 	// (реюз механизма краевых стрелок NPC — критерий D6).
+ 	void DrawOffscreenShooterArrows();
+ 
+-	// Этап D: метка цели активного квеста (Active/Completed, FQuest::MapMarkerTag):
+-	// актор ищется по QuestMarkerTag базы (AMasterEnemyBase) или стандартному Actor Tag.
+-	// В кадре — золотой ромб с названием квеста, за кадром — краевая стрелка. TurnedIn — гаснет.
++	// Этап D: метка цели активного квеста (FQuest::MapMarkerTag). Пока цели НЕ выполнены (Active) —
++	// на актор-цель (QuestMarkerTag базы AMasterEnemyBase или стандартный Actor Tag); квест готов
++	// к сдаче (Completed) — на квестодателя (старосту), фидбек Рината 07-05. TurnedIn — гаснет.
++	// В кадре — золотой ромб с подписью, за кадром — краевая стрелка.
+ 	void DrawQuestTargetMarker(APlayerCharacter* Player);
+ 
++	// Кэш актора-цели метки квеста (qa-фикс: НЕ перебирать все акторы мира каждый кадр).
++	// Инвалидация: смена тега/фазы (цель <-> квестодатель) или гибель актора; неудачный поиск
++	// повторяется не чаще чем раз в полсекунды (QuestMarkerNextSearchTime).
++	TWeakObjectPtr<AActor> QuestMarkerTargetCache;
++	FName QuestMarkerCachedTag = NAME_None;
++	bool bQuestMarkerCachedToGiver = false;
++	float QuestMarkerNextSearchTime = 0.0f;
++
+ 	// Рисует контекстную подсказку взаимодействия («E — подобрать» / «E — торговать»)
+ 	// по центру снизу (BUG3). Текст берётся у контроллера (ближайший интерактив).
+ 	void DrawInteractPrompt(const FString& Text);
+diff --git a/Source/ContrarySurvivor/Private/AMeleeWeapon.cpp b/Source/ContrarySurvivor/Private/AMeleeWeapon.cpp
+index 25d1505..d2fae66 100644
+--- a/Source/ContrarySurvivor/Private/AMeleeWeapon.cpp
++++ b/Source/ContrarySurvivor/Private/AMeleeWeapon.cpp
+@@ -237,6 +237,7 @@ void AMeleeWeapon::ApplyHitStop()
+ 	}
+ 
+ 	UGameplayStatics::SetGlobalTimeDilation(World, HitStopTimeDilation);
++	bHitStopPending = true;
+ 
+ 	// Таймеры считают ИГРОВОЕ (замедленное) время: чтобы пауза длилась HitStopDuration
+ 	// РЕАЛЬНЫХ секунд, период таймера = HitStopDuration * dilation. Повторный удар до
+@@ -244,6 +245,7 @@ void AMeleeWeapon::ApplyHitStop()
+ 	World->GetTimerManager().SetTimer(HitStopTimerHandle,
+ 		FTimerDelegate::CreateWeakLambda(this, [this]()
+ 		{
++			bHitStopPending = false;
+ 			if (UWorld* W = GetWorld())
+ 			{
+ 				UGameplayStatics::SetGlobalTimeDilation(W, 1.0f);
+@@ -251,3 +253,21 @@ void AMeleeWeapon::ApplyHitStop()
+ 		}),
+ 		FMath::Max(0.001f, HitStopDuration * HitStopTimeDilation), /*bLoop=*/false);
+ }
++
++void AMeleeWeapon::EndPlay(const EEndPlayReason::Type EndPlayReason)
++{
++	// Страховка (qa): уничтожение/снятие оружия в окно hitstop — таймер с WeakLambda уже
++	// не выполнится, восстанавливаем нормальный ход времени сами. Вне окна — ничего не трогаем
++	// (не сбивать дилатацию, если её меняет кто-то другой).
++	if (bHitStopPending)
++	{
++		bHitStopPending = false;
++		if (UWorld* World = GetWorld())
++		{
++			World->GetTimerManager().ClearTimer(HitStopTimerHandle);
++			UGameplayStatics::SetGlobalTimeDilation(World, 1.0f);
++		}
++	}
++
++	Super::EndPlay(EndPlayReason);
++}
+diff --git a/Source/ContrarySurvivor/Private/ARangedWeapon.cpp b/Source/ContrarySurvivor/Private/ARangedWeapon.cpp
+index 3685fd8..413d7ea 100644
+--- a/Source/ContrarySurvivor/Private/ARangedWeapon.cpp
++++ b/Source/ContrarySurvivor/Private/ARangedWeapon.cpp
+@@ -12,6 +12,7 @@
+ #include "Kismet/GameplayStatics.h"
+ #include "UObject/ConstructorHelpers.h"
+ #include "ContrarySurvivor/Characters/PlayerCharacter.h" // D5: лёгкая тряска камеры при выстреле игрока
++#include "ContrarySurvivor/Characters/MasterHumanoidCharacter.h" // вариант A прицеливания: доворот корпуса носителя
+ 
+ ARangedWeapon::ARangedWeapon()
+ {
+@@ -213,6 +214,13 @@ void ARangedWeapon::Fire(AActor* Target)
+ 		return;
+ 	}
+ 
++	// Вариант A прицеливания (фидбек Рината 07-05): носитель плавно доворачивается корпусом
++	// на цель реального выстрела (CanFire/цель уже проверены). Игрок и любой гуманоид.
++	if (AMasterHumanoidCharacter* Wielder = Cast<AMasterHumanoidCharacter>(GetInstigator()))
++	{
++		Wielder->StartAimTurnTo(FiringTarget);
++	}
++
+ 	FHitResult HitResult;
+ 	FVector TracerEnd = FiringTarget->GetActorLocation(); // дефолт следа — к цели
+ 	if (PerformLineTrace(FiringTarget, HitResult))
+diff --git a/Source/ContrarySurvivor/Public/AMeleeWeapon.h b/Source/ContrarySurvivor/Public/AMeleeWeapon.h
+index 3e7bd94..cac498c 100644
+--- a/Source/ContrarySurvivor/Public/AMeleeWeapon.h
++++ b/Source/ContrarySurvivor/Public/AMeleeWeapon.h
+@@ -42,6 +42,11 @@ public:
+ 	// приоритет лока реализован доворотом носителя (bTurnToLockedTarget). Кулдаун замаха.
+ 	virtual void Fire(AActor* Target) override;
+ 
++	// Страховка hitstop (qa): если оружие уничтожают в окно замедления (~HitStopDuration),
++	// таймер восстановления (WeakLambda) уже не сработает и global time dilation залип бы
++	// НАВСЕГДА — восстанавливаем дилатацию здесь.
++	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
++
+ protected:
+ 	// Дальность атаки ПОВЕРХНОСТЬ-К-ПОВЕРХНОСТИ капсул (см). Эффективная проверка
+ 	// центр-к-центру = MeleeRange + (радиус капсулы носителя + радиус капсулы цели).
+@@ -103,4 +108,8 @@ private:
+ 	void ApplyHitStop();
+ 
+ 	FTimerHandle HitStopTimerHandle;
++
++	// Замедление времени сейчас активно (выставлен ApplyHitStop, ещё не восстановлен таймером).
++	// По нему EndPlay понимает, что дилатацию нужно вернуть к 1.0 (см. комментарий у EndPlay).
++	bool bHitStopPending = false;
+ };
+diff --git a/Source/ContrarySurvivor/Public/ARangedWeapon.h b/Source/ContrarySurvivor/Public/ARangedWeapon.h
+index ed61baa..d2695c3 100644
+--- a/Source/ContrarySurvivor/Public/ARangedWeapon.h
++++ b/Source/ContrarySurvivor/Public/ARangedWeapon.h
+@@ -152,4 +152,4 @@ private:
+ 	// Таймеры скрытия вспышки/следа (переиспользуются между выстрелами).
+ 	FTimerHandle MuzzleFlashTimerHandle;
+ 	FTimerHandle TracerTimerHandle;
+-};
+\ No newline at end of file
++};
