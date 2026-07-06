@@ -1,0 +1,250 @@
+
+===== FILE HeadAndSkeletonfbx_Head.fbx (64.3 KB) =====
+FBX version: 7300
+importer: io_scene_fbx
+ OBJ name='HeadAndSkeletonfbx_Head' type=EMPTY loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+ OBJ name='HeadAndSkeletonfbx_Head.001' type=MESH loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+  MESH verts=114 polys=130 tris=130
+  bboxW x=[-0.133..0.133] y=[-0.143..0.126] z=[1.532..1.801]
+  vgroups=2 names=['C_Spine02', 'C_Head']
+  unweighted_verts=0
+  uv_layers=['DiffuseUV']
+  materials=['Material']
+  modifiers=[('ARMATURE', 'RootAnim')]
+  vcol 'Attribute' domain=CORNER type=BYTE_COLOR
+  unique_colors(raw,count)<=40:
+    raw=(1.0, 1.0, 1.0) a=1.00 n=390 rawhex=#FFFFFF ifLinThenSrgb=#FFFFFF
+ OBJ name='RootAnim' type=ARMATURE loc=(0.0, 0.0, 0.0) rot_eul=(-0.0, 0.0, 0.0) scale=(100.0, 100.0, 99.9998)
+  ARMATURE datablock='RootAnim' bones=26
+   bone C_Root               parent=-              headW=(-0.000,-0.001,0.839)
+   bone C_Spine01            parent=C_Root         headW=(-0.000,-0.001,1.094)
+   bone L_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone L_Shoulder           parent=L_UpperArm     headW=(0.286,-0.001,1.342)
+   bone L_Arm                parent=L_Shoulder     headW=(0.310,-0.119,1.019)
+   bone L_Hand               parent=L_Arm          headW=(0.333,-0.289,0.816)
+   bone L_Hand_end           parent=L_Hand         headW=(0.327,-0.335,0.762)
+   bone R_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone R_Arm                parent=R_UpperArm     headW=(-0.286,-0.001,1.342)
+   bone Pelvis_009_R_002     parent=R_Arm          headW=(-0.310,0.117,1.019)
+   bone R_Hand               parent=Pelvis_009_R_002 headW=(-0.334,0.117,0.753)
+   bone R_Hand_end           parent=R_Hand         headW=(-0.327,0.117,0.683)
+   bone C_Spine02            parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone C_Neck               parent=C_Spine02      headW=(-0.000,-0.001,1.461)
+   bone C_Head               parent=C_Neck         headW=(-0.000,-0.001,1.532)
+   bone C_Head_end           parent=C_Head         headW=(-0.000,-0.001,1.781)
+   bone L_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone L_Thigh              parent=L_Pelvis       headW=(0.105,-0.001,0.837)
+   bone L_Claf               parent=L_Thigh        headW=(0.126,0.149,0.489)
+   bone L_Foot               parent=L_Claf         headW=(0.149,0.410,0.158)
+   bone L_Foot_end           parent=L_Foot         headW=(0.149,0.256,0.035)
+   bone R_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone R_Thigh              parent=R_Pelvis       headW=(-0.105,-0.001,0.837)
+   bone R_Claf               parent=R_Thigh        headW=(-0.126,-0.148,0.488)
+   bone R_Foot               parent=R_Claf         headW=(-0.149,-0.205,0.070)
+   bone R_Foot_end           parent=R_Foot         headW=(-0.149,-0.401,0.095)
+
+===== FILE TorsoAndSkeleton_Torso.fbx (62.3 KB) =====
+FBX version: 7300
+importer: io_scene_fbx
+ OBJ name='RootAnim' type=ARMATURE loc=(0.0, 0.0, 0.0) rot_eul=(-0.0, 0.0, 0.0) scale=(100.0, 100.0, 99.9998)
+  ARMATURE datablock='RootAnim' bones=21
+   bone C_Root               parent=-              headW=(-0.000,-0.001,0.839)
+   bone C_Spine01            parent=C_Root         headW=(-0.000,-0.001,1.094)
+   bone L_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone L_Shoulder           parent=L_UpperArm     headW=(0.286,-0.001,1.342)
+   bone L_Arm                parent=L_Shoulder     headW=(0.310,-0.081,1.008)
+   bone L_Hand               parent=L_Arm          headW=(0.333,-0.228,0.786)
+   bone R_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone R_Arm                parent=R_UpperArm     headW=(-0.286,-0.001,1.342)
+   bone Pelvis_009_R_002     parent=R_Arm          headW=(-0.310,0.092,1.011)
+   bone R_Hand               parent=Pelvis_009_R_002 headW=(-0.334,0.072,0.746)
+   bone C_Spine02            parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone C_Neck               parent=C_Spine02      headW=(-0.000,-0.001,1.461)
+   bone C_Head               parent=C_Neck         headW=(-0.000,-0.001,1.532)
+   bone L_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone L_Thigh              parent=L_Pelvis       headW=(0.105,-0.001,0.837)
+   bone L_Claf               parent=L_Thigh        headW=(0.126,0.112,0.476)
+   bone L_Foot               parent=L_Claf         headW=(0.149,0.338,0.120)
+   bone R_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone R_Thigh              parent=R_Pelvis       headW=(-0.105,-0.001,0.837)
+   bone R_Claf               parent=R_Thigh        headW=(-0.126,-0.117,0.476)
+   bone R_Foot               parent=R_Claf         headW=(-0.149,-0.138,0.055)
+ OBJ name='TorsoAndSkeleton_Torso' type=EMPTY loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+ OBJ name='TorsoAndSkeleton_Torso.001' type=MESH loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+  MESH verts=152 polys=218 tris=218
+  bboxW x=[-0.361..0.361] y=[-0.314..0.167] z=[0.639..1.549]
+  vgroups=16 names=['C_Root', 'C_Spine01', 'L_UpperArm', 'L_Shoulder', 'L_Arm', 'L_Hand', 'R_UpperArm', 'R_Arm', 'Pelvis_009_R_002', 'R_Hand', 'C_Spine02', 'C_Head', 'L_Pelvis', 'L_Thigh', 'R_Pelvis', 'R_Thigh']
+  unweighted_verts=0
+  uv_layers=['DiffuseUV']
+  materials=['Material']
+  modifiers=[('ARMATURE', 'RootAnim')]
+  vcol 'Attribute' domain=CORNER type=BYTE_COLOR
+  unique_colors(raw,count)<=40:
+    raw=(1.0, 1.0, 1.0) a=1.00 n=654 rawhex=#FFFFFF ifLinThenSrgb=#FFFFFF
+
+===== FILE LegsAndSkeleton_Legs.fbx (57.7 KB) =====
+FBX version: 7300
+importer: io_scene_fbx
+ OBJ name='LegsAndSkeleton_Legs' type=EMPTY loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+ OBJ name='LegsAndSkeleton_Legs.001' type=MESH loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+  MESH verts=100 polys=96 tris=96
+  bboxW x=[-0.224..0.224] y=[-0.381..0.428] z=[-0.033..0.923]
+  vgroups=12 names=['C_Root', 'C_Spine01', 'L_UpperArm', 'R_UpperArm', 'L_Pelvis', 'L_Thigh', 'L_Claf', 'L_Foot', 'R_Pelvis', 'R_Thigh', 'R_Claf', 'R_Foot']
+  unweighted_verts=0
+  uv_layers=['DiffuseUV']
+  materials=['Material']
+  modifiers=[('ARMATURE', 'RootAnim')]
+  vcol 'Attribute' domain=CORNER type=BYTE_COLOR
+  unique_colors(raw,count)<=40:
+    raw=(1.0, 1.0, 1.0) a=1.00 n=288 rawhex=#FFFFFF ifLinThenSrgb=#FFFFFF
+ OBJ name='RootAnim' type=ARMATURE loc=(0.0, 0.0, 0.0) rot_eul=(-0.0, 0.0, 0.0) scale=(100.0, 100.0, 99.9998)
+  ARMATURE datablock='RootAnim' bones=21
+   bone C_Root               parent=-              headW=(-0.000,-0.001,0.839)
+   bone C_Spine01            parent=C_Root         headW=(-0.000,-0.001,1.094)
+   bone L_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone L_Shoulder           parent=L_UpperArm     headW=(0.286,-0.001,1.342)
+   bone L_Arm                parent=L_Shoulder     headW=(0.310,-0.081,1.008)
+   bone L_Hand               parent=L_Arm          headW=(0.333,-0.228,0.786)
+   bone R_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone R_Arm                parent=R_UpperArm     headW=(-0.286,-0.001,1.342)
+   bone Pelvis_009_R_002     parent=R_Arm          headW=(-0.310,0.092,1.011)
+   bone R_Hand               parent=Pelvis_009_R_002 headW=(-0.334,0.072,0.746)
+   bone C_Spine02            parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone C_Neck               parent=C_Spine02      headW=(-0.000,-0.001,1.461)
+   bone C_Head               parent=C_Neck         headW=(-0.000,-0.001,1.532)
+   bone L_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone L_Thigh              parent=L_Pelvis       headW=(0.105,-0.001,0.837)
+   bone L_Claf               parent=L_Thigh        headW=(0.126,0.112,0.476)
+   bone L_Foot               parent=L_Claf         headW=(0.149,0.338,0.120)
+   bone R_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone R_Thigh              parent=R_Pelvis       headW=(-0.105,-0.001,0.837)
+   bone R_Claf               parent=R_Thigh        headW=(-0.126,-0.117,0.476)
+   bone R_Foot               parent=R_Claf         headW=(-0.149,-0.138,0.055)
+
+===== FILE SK_Cloth_L1_Head.fbx (67.3 KB) =====
+FBX version: 7300
+importer: io_scene_fbx
+ OBJ name='RootAnim' type=ARMATURE loc=(0.0, 0.0, 0.0) rot_eul=(-0.0, 0.0, 0.0) scale=(100.0, 100.0, 99.9998)
+  ARMATURE datablock='RootAnim' bones=21
+   bone C_Root               parent=-              headW=(-0.000,-0.001,0.839)
+   bone C_Spine01            parent=C_Root         headW=(-0.000,-0.001,1.094)
+   bone L_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone L_Shoulder           parent=L_UpperArm     headW=(0.286,-0.001,1.342)
+   bone L_Arm                parent=L_Shoulder     headW=(0.631,-0.001,1.336)
+   bone L_Hand               parent=L_Arm          headW=(0.898,-0.001,1.336)
+   bone R_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone R_Arm                parent=R_UpperArm     headW=(-0.286,-0.001,1.342)
+   bone Pelvis_009_R_002     parent=R_Arm          headW=(-0.631,-0.001,1.336)
+   bone R_Hand               parent=Pelvis_009_R_002 headW=(-0.898,-0.001,1.336)
+   bone C_Spine02            parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone C_Neck               parent=C_Spine02      headW=(-0.000,-0.001,1.461)
+   bone C_Head               parent=C_Neck         headW=(-0.000,-0.001,1.532)
+   bone L_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone L_Thigh              parent=L_Pelvis       headW=(0.105,-0.001,0.837)
+   bone L_Claf               parent=L_Thigh        headW=(0.126,-0.001,0.458)
+   bone L_Foot               parent=L_Claf         headW=(0.149,-0.001,0.037)
+   bone R_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone R_Thigh              parent=R_Pelvis       headW=(-0.105,-0.001,0.837)
+   bone R_Claf               parent=R_Thigh        headW=(-0.126,-0.001,0.458)
+   bone R_Foot               parent=R_Claf         headW=(-0.149,-0.001,0.037)
+ OBJ name='SK_Cloth_L1_Head' type=EMPTY loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+ OBJ name='SK_Cloth_L1_Head.001' type=MESH loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+  MESH verts=669 polys=227 tris=227
+  bboxW x=[-0.167..0.176] y=[-0.178..0.200] z=[1.532..1.865]
+  vgroups=2 names=['C_Spine02', 'C_Head']
+  unweighted_verts=0
+  uv_layers=['DiffuseUV']
+  materials=['M_Clothes_Flat']
+  modifiers=[('ARMATURE', 'RootAnim')]
+  vcol 'Attribute' domain=CORNER type=BYTE_COLOR
+  unique_colors(raw,count)<=40:
+    raw=(0.584, 0.352, 0.231) a=1.00 n=390 rawhex=#955A3B ifLinThenSrgb=#C9A084
+    raw=(0.06, 0.068, 0.051) a=1.00 n=237 rawhex=#0F110D ifLinThenSrgb=#454A40
+    raw=(0.037, 0.044, 0.033) a=1.00 n=54 rawhex=#090B08 ifLinThenSrgb=#363B33
+
+===== FILE SK_Cloth_L1_Torso.fbx (86.7 KB) =====
+FBX version: 7300
+importer: io_scene_fbx
+ OBJ name='RootAnim' type=ARMATURE loc=(0.0, 0.0, 0.0) rot_eul=(-0.0, 0.0, 0.0) scale=(100.0, 100.0, 99.9998)
+  ARMATURE datablock='RootAnim' bones=21
+   bone C_Root               parent=-              headW=(-0.000,-0.001,0.839)
+   bone C_Spine01            parent=C_Root         headW=(-0.000,-0.001,1.094)
+   bone L_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone L_Shoulder           parent=L_UpperArm     headW=(0.286,-0.001,1.342)
+   bone L_Arm                parent=L_Shoulder     headW=(0.631,-0.001,1.336)
+   bone L_Hand               parent=L_Arm          headW=(0.898,-0.001,1.336)
+   bone R_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone R_Arm                parent=R_UpperArm     headW=(-0.286,-0.001,1.342)
+   bone Pelvis_009_R_002     parent=R_Arm          headW=(-0.631,-0.001,1.336)
+   bone R_Hand               parent=Pelvis_009_R_002 headW=(-0.898,-0.001,1.336)
+   bone C_Spine02            parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone C_Neck               parent=C_Spine02      headW=(-0.000,-0.001,1.461)
+   bone C_Head               parent=C_Neck         headW=(-0.000,-0.001,1.532)
+   bone L_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone L_Thigh              parent=L_Pelvis       headW=(0.105,-0.001,0.837)
+   bone L_Claf               parent=L_Thigh        headW=(0.126,-0.001,0.458)
+   bone L_Foot               parent=L_Claf         headW=(0.149,-0.001,0.037)
+   bone R_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone R_Thigh              parent=R_Pelvis       headW=(-0.105,-0.001,0.837)
+   bone R_Claf               parent=R_Thigh        headW=(-0.126,-0.001,0.458)
+   bone R_Foot               parent=R_Claf         headW=(-0.149,-0.001,0.037)
+ OBJ name='SK_Cloth_L1_Torso' type=EMPTY loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+ OBJ name='SK_Cloth_L1_Torso.001' type=MESH loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+  MESH verts=974 polys=386 tris=386
+  bboxW x=[-0.999..0.999] y=[-0.201..0.191] z=[0.905..1.549]
+  vgroups=16 names=['C_Root', 'C_Spine01', 'L_UpperArm', 'L_Shoulder', 'L_Arm', 'L_Hand', 'R_UpperArm', 'R_Arm', 'Pelvis_009_R_002', 'R_Hand', 'C_Spine02', 'C_Head', 'L_Pelvis', 'L_Thigh', 'R_Pelvis', 'R_Thigh']
+  unweighted_verts=0
+  uv_layers=['DiffuseUV']
+  materials=['M_Clothes_Flat']
+  modifiers=[('ARMATURE', 'RootAnim')]
+  vcol 'Attribute' domain=CORNER type=BYTE_COLOR
+  unique_colors(raw,count)<=40:
+    raw=(0.178, 0.178, 0.112) a=1.00 n=408 rawhex=#2D2D1D ifLinThenSrgb=#75755E
+    raw=(0.024, 0.019, 0.015) a=1.00 n=312 rawhex=#060504 ifLinThenSrgb=#2B2621
+    raw=(0.125, 0.133, 0.089) a=1.00 n=240 rawhex=#202217 ifLinThenSrgb=#636654
+    raw=(0.235, 0.242, 0.212) a=1.00 n=198 rawhex=#3C3E36 ifLinThenSrgb=#85877F
+
+===== FILE SK_Cloth_L1_Legs.fbx (73.1 KB) =====
+FBX version: 7300
+importer: io_scene_fbx
+ OBJ name='RootAnim' type=ARMATURE loc=(0.0, 0.0, 0.0) rot_eul=(-0.0, 0.0, 0.0) scale=(100.0, 100.0, 99.9998)
+  ARMATURE datablock='RootAnim' bones=21
+   bone C_Root               parent=-              headW=(-0.000,-0.001,0.839)
+   bone C_Spine01            parent=C_Root         headW=(-0.000,-0.001,1.094)
+   bone L_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone L_Shoulder           parent=L_UpperArm     headW=(0.286,-0.001,1.342)
+   bone L_Arm                parent=L_Shoulder     headW=(0.631,-0.001,1.336)
+   bone L_Hand               parent=L_Arm          headW=(0.898,-0.001,1.336)
+   bone R_UpperArm           parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone R_Arm                parent=R_UpperArm     headW=(-0.286,-0.001,1.342)
+   bone Pelvis_009_R_002     parent=R_Arm          headW=(-0.631,-0.001,1.336)
+   bone R_Hand               parent=Pelvis_009_R_002 headW=(-0.898,-0.001,1.336)
+   bone C_Spine02            parent=C_Spine01      headW=(-0.000,-0.001,1.340)
+   bone C_Neck               parent=C_Spine02      headW=(-0.000,-0.001,1.461)
+   bone C_Head               parent=C_Neck         headW=(-0.000,-0.001,1.532)
+   bone L_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone L_Thigh              parent=L_Pelvis       headW=(0.105,-0.001,0.837)
+   bone L_Claf               parent=L_Thigh        headW=(0.126,-0.001,0.458)
+   bone L_Foot               parent=L_Claf         headW=(0.149,-0.001,0.037)
+   bone R_Pelvis             parent=-              headW=(-0.000,-0.001,0.839)
+   bone R_Thigh              parent=R_Pelvis       headW=(-0.105,-0.001,0.837)
+   bone R_Claf               parent=R_Thigh        headW=(-0.126,-0.001,0.458)
+   bone R_Foot               parent=R_Claf         headW=(-0.149,-0.001,0.037)
+ OBJ name='SK_Cloth_L1_Legs' type=EMPTY loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+ OBJ name='SK_Cloth_L1_Legs.001' type=MESH loc=(0.0, 0.0, 0.0) rot_eul=(0.0, -0.0, 0.0) scale=(0.01, 0.01, 0.01)
+  MESH verts=592 polys=224 tris=224
+  bboxW x=[-0.257..0.257] y=[-0.243..0.140] z=[0.001..0.907]
+  vgroups=12 names=['C_Root', 'C_Spine01', 'L_UpperArm', 'R_UpperArm', 'L_Pelvis', 'L_Thigh', 'L_Claf', 'L_Foot', 'R_Pelvis', 'R_Thigh', 'R_Claf', 'R_Foot']
+  unweighted_verts=0
+  uv_layers=['DiffuseUV']
+  materials=['M_Clothes_Flat']
+  modifiers=[('ARMATURE', 'RootAnim')]
+  vcol 'Attribute' domain=CORNER type=BYTE_COLOR
+  unique_colors(raw,count)<=40:
+    raw=(0.156, 0.125, 0.068) a=1.00 n=564 rawhex=#282011 ifLinThenSrgb=#6E634A
+    raw=(0.078, 0.04, 0.018) a=1.00 n=108 rawhex=#140A05 ifLinThenSrgb=#4F3824
+
+INSPECT DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -3,19 +3,13 @@
 > Лёгкая рабочая память `cpp-dev` (правило H + Гигиена памяти из CLAUDE.md: стоп >150 строк, СЕЙЧАС вырезает прошлый). Закрытая история — в [archive.md](archive.md) (read-on-demand, НЕ для грунтовки). Build-логи — `logs/`, история — git.
 
 ## 🧭 СЕЙЧАС
-**ЭТАП D — фидбек-пакет 07-05 + вариант A прицеливания: КОД ГОТОВ НА ДИСКЕ, НЕ СОБРАН, НЕ ЗАКОММИЧЕН** (сборки в сессии 07-05 не было — редактор у Рината был открыт всю сессию). Ветка `feature/stage-d-combat` (база 5228245), 14 файлов Source в рабочей копии; страховка лида — патч `context/cpp-dev/logs/stage-d-feedback-pack.patch`. BP_PlayerCharacter.uasset в git status — не мой (лида/Рината), не коммитить.
-- **ПЕРВОЕ ДЕЙСТВИЕ следующей сессии:** Build.bat при ЗАКРЫТОМ редакторе (команда — LIVE-КОНВЕНЦИИ, проверить tasklist), лог в `context/cpp-dev/logs/`, починить ошибки → логические коммиты в `feature/stage-d-combat`.
-- **БАГ-РИСК: компиляция пакета НЕ ПРОВЕРЕНА** (ни одного прогона компилятора за сессию). PIE-поведение (маркер/камера/доворот) — тоже НЕ ПРОВЕРЕНО.
-- **Состав пакета (файл → задача):**
-  1. MasterTrader.cpp — «Pistol Ammo» → «Патроны» (единое имя с ItemName AAmmoItem).
-  2. ContrarySurvivorHUD.{h,cpp} — квест-маркер: State==Completed → метка на старосту («Сдать: <квест>», якорь +120 над его NPC-ромбом), иначе на базу по тегу; + кэш цели (слабый указатель, инвалидация тег/фаза/гибель, дроссель неудачного поиска 0.5с).
-  3. MasterEnemyBase.{h,cpp} — LeashVisualizer: фиолетовая каркас-сфера радиуса LeashRadius, синк в OnConstruction, БЕЗ отдельного параметра (паттерн ActivationVisualizer).
-  4. PlayerCharacter.{h,cpp} — CombatCameraExitInterpSpeed=1.0 + флаг bCombatCameraRecovering: мягкий выход камеры из боя до схождения офсета; при выключенном look-ahead — мягкий увод к нулю вместо скачка.
-  5. AMeleeWeapon.{h,cpp} — hitstop-страховка: bHitStopPending + EndPlay восстанавливает дилатацию 1.0 и чистит таймер.
-  6. EnemyAIController.cpp — удалён устаревший комментарий (ПРОБА nav/AbortMove); + хуки варианта A: PerformAttack (:154), PerformRangedAttack (:196).
-  7. ARangedWeapon.{h,cpp} — .h: завершающий CRLF; .cpp: хук варианта A в Fire() (:221) + include MasterHumanoidCharacter.h.
-  8. MasterHumanoidCharacter.{h,cpp} — вариант A: StartAimTurnTo/UpdateAimTurn (плавный yaw FMath::RInterpTo в Tick; окно AimTurnHoldTime=1.0 продлевается выстрелом; save/restore bOrientRotationToMovement — BP игрока держит true; гейт трупа MOVE_None); параметры bAimTurnToTarget / AimTurnInterpSpeed=10 / AimTurnHoldTime (EditAnywhere+BRW, DisplayPriority 55-57). Снап-доворот ножа не тронут; волк не гуманоид — no-op.
-- Цифры урона (задача 4 фидбека) — код был готов ранее (6800dce); пробел «негде крутить» закрыл лид: /Game/System/BP_ContrarySurvivorHUD + HUDClass в BP_ContrarySurviorGameMode.
+**ЭТАП D — фидбек-пакет №2 (приёмка Рината 07-06): СОБРАН, ЗАКОММИЧЕН, ЗАПУШЕН.** Ветка `feature/stage-d-combat`, origin = `f45675e`. Оба пакета 07-06 в git.
+- **Пруф сборки №2:** BUILD_EXIT=0, DLL слинкована (редактор закрыт, tasklist проверен). Лог: `logs/build-2026-07-06-stage-d-feedback-pack2.log`.
+- **Коммиты №2:** `4a3215d` фикс погони (враг в бою не теряет цель по DetectionRange — только поводок, ADR-036; корень доказан логом PIE: idle-far-from-home, не leash), `5234601` маркер = текущая невыполненная цель (FQuest::KillObjectiveLabel/ItemObjectiveLabel + ElderNPC + DrawQuestTargetMarker), `f45675e` «Патроны 9мм» (AAmmoItem/торговец/фолбэк HUD; матчинг патронов по классу, сейв только class path). Push `483b230..f45675e` подтверждён.
+- В рабочей копии остались ТОЛЬКО 3 бинарника Рината (НЕ коммитить, его указание): BP_PlayerCharacter.uasset, L_World_C.umap, BP_ContrarySurvivorHUD.uasset.
+- **НЕ ПРОВЕРЕНО: PIE-поведение пакета №2** (погоня до поводка / смена текста метки / имя патронов в UI) — за лидом/Ринатом.
+- ДОПУЩЕНИЕ (umap недоступен): пикап карты с явным PlacedItemDisplayName «Патроны» показал бы старое имя; по D8 патроны шли через PlacedAmmoAmount (имя из класса) — проверить оператору при случае.
+- Патч-бэкап `logs/stage-d-feedback-pack.patch` устарел (всё в git) — удалить при чистке.
 - Вариант B прицеливания (Modify Bone руки в общем ABP) — отложен лидом как полировка; разведка — в archive.md (сессия 07-05).
 
 ## LIVE-КОНВЕНЦИИ (как работаю в этом проекте)
