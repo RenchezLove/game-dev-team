@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<style>
+  html,body{width:1680px;height:1160px;margin:0;padding:0;overflow:hidden;background:#1B2018;
+    font-family:"Segoe UI",Arial,sans-serif;color:#E7E4D8;}
+  .wrap{padding:22px 28px;box-sizing:border-box;width:100%;height:100%;}
+  h1{font-size:26px;margin:0 0 4px 0;font-weight:700;letter-spacing:.5px;}
+  .sub{font-size:13px;color:#9AA08C;margin-bottom:10px;}
+  .status{display:inline-block;background:#C64B2C;color:#E7E4D8;font-size:12px;font-weight:700;
+    padding:2px 10px;border-radius:3px;margin-left:10px;vertical-align:middle;letter-spacing:1px;}
+  .shared{display:flex;gap:14px;align-items:center;background:#242B21;border:1px solid #3a4234;
+    border-radius:6px;padding:8px 14px;margin-bottom:14px;}
+  .shared .lbl{font-size:12px;color:#9AA08C;font-weight:700;margin-right:2px;}
+  .sw{display:flex;align-items:center;gap:6px;font-size:11px;}
+  .sw .c{width:26px;height:20px;border-radius:3px;border:1px solid rgba(231,228,216,.25);}
+  .grid{display:grid;grid-template-columns:56px repeat(4,1fr);grid-template-rows:44px repeat(3,1fr);
+    gap:10px;height:880px;}
+  .tierhead{background:#242B21;border-radius:6px;display:flex;flex-direction:column;justify-content:center;
+    padding:4px 14px;}
+  .tierhead b{font-size:16px;}
+  .tierhead span{font-size:11px;color:#9AA08C;}
+  .slotlab{writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:center;
+    background:#242B21;border-radius:6px;font-size:14px;font-weight:700;color:#9AA08C;letter-spacing:2px;}
+  .cell{background:#20261D;border:1px solid #343d2e;border-radius:6px;padding:10px 14px;box-sizing:border-box;}
+  .cell h3{margin:0 0 2px 0;font-size:15px;}
+  .cell .sk{font-size:10.5px;color:#8a917d;font-family:Consolas,monospace;margin-bottom:7px;}
+  .zone{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+  .zone .c{width:44px;height:24px;border-radius:3px;border:1px solid rgba(231,228,216,.22);flex:none;}
+  .zone .n{font-size:12px;line-height:1.15;flex:1;}
+  .zone .h{font-size:11px;font-family:Consolas,monospace;color:#B8BCA8;flex:none;}
+  .foot{margin-top:12px;font-size:11.5px;color:#9AA08C;display:flex;justify-content:space-between;}
+  .corner{position:absolute;left:56px;top:0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>ContrarySurvivor — палитры носимой экипировки (Т0 базовый + 9 предметов)<span class="status">ЧЕРНОВИК НА УТВЕРЖДЕНИЕ</span></h1>
+  <div class="sub">Vertex-color flat (ADR-032), материал M_Clothes_Flat. Полный спек: docs/contrary-survivor/armor-wearables-artdirection.md · concept-artist · 2026-07-06</div>
+
+  <div class="shared">
+    <span class="lbl">СКВОЗНЫЕ:</span>
+    <span class="sw"><span class="c" style="background:#C89A7A"></span>кожа #C89A7A</span>
+    <span class="sw"><span class="c" style="background:#4A3826"></span>волосы #4A3826</span>
+    <span class="sw"><span class="c" style="background:#5A6470"></span>металл #5A6470</span>
+    <span class="sw"><span class="c" style="background:#7A4A32"></span>ржавчина #7A4A32</span>
+    <span class="sw"><span class="c" style="background:#2B2823"></span>фурнитура #2B2823</span>
+    <span class="lbl" style="margin-left:14px">КАМО Т3:</span>
+    <span class="sw"><span class="c" style="background:#4F5538"></span>база #4F5538</span>
+    <span class="sw"><span class="c" style="background:#8B7E5A"></span>хаки #8B7E5A</span>
+    <span class="sw"><span class="c" style="background:#3E362A"></span>тёмный #3E362A</span>
+  </div>
+
+  <div class="grid" id="grid">
+    <div></div>
+    <div class="tierhead"><b>T0 — сток (спавн)</b><span>майка + простые штаны, блёкло-серый, реюз SK_Cloth_L1</span></div>
+    <div class="tierhead"><b>T1 — бытовой</b><span>гражданское, тёплый коричневый, силуэт худой</span></div>
+    <div class="tierhead"><b>T2 — самопал-рейдер</b><span>самый тёмный тир, кожа + металл + ржавые акценты</span></div>
+    <div class="tierhead"><b>T3 — военный</b><span>средне-холодный зелёный, камо + разгрузка, симметрия</span></div>
+  </div>
+
+  <div class="foot">
+    <span>⛔ Красная линия (ADR-040): без госсимволов / флагов / шевронов / религии; камуфляж — обобщённый.</span>
+    <span>Рендер: HTML/CSS → headless Edge</span>
+  </div>
+</div>
+
+<script>
+const ITEMS = {
+  head: [
+    {t:'Базовая голова (окраска)', sk:'HeadAndSkeletonfbx_Head + vcol', z:[
+      ['#C89A7A','Кожа лица/шеи/ушей'],
+      ['#4A3826','Волосы/щетина (по 1.png)'],
+      ['#2B2823','Глаза/брови (мелко)']]},
+    {t:'Кепка', sk:'SK_Armor_T1_Head', z:[
+      ['#4A443C','Тулья кепки'],
+      ['#3B362F','Козырёк'],
+      ['#4A3826','Волосы/щетина'],
+      ['#C89A7A','Кожа лица/шеи'],
+      ['#2B2823','Глаза/брови (мелко)']]},
+    {t:'Битый мотошлем', sk:'SK_Armor_T2_Head', z:[
+      ['#3C3E42','Скорлупа шлема (ганметал)'],
+      ['#7A4A32','Сколы/ржавые пятна (2–4 шт)'],
+      ['#17181A','Смотровой проём'],
+      ['#33342F','Ворот/шарф под шлемом']]},
+    {t:'Военный шлем', sk:'SK_Armor_T3_Head', z:[
+      ['#4F5538','Купол (сплошная олива, БЕЗ камо)'],
+      ['#3B4030','Кант/обод'],
+      ['#3A3B38','Ремень подбородочный'],
+      ['#C89A7A','Кожа лица/шеи'],
+      ['#2B2823','Глаза/брови (мелко)']]}
+  ],
+  torso: [
+    {t:'«Футболка» (перекраска)', sk:'SK_Cloth_L1 верх → vcol', z:[
+      ['#7C776A','Майка/футболка (корпус)'],
+      ['#C89A7A','Рукава + кисти = тон кожи'],
+      ['#635E52','Кант ворота (мелко)']]},
+    {t:'Кожаная куртка', sk:'SK_Armor_T1_Torso', z:[
+      ['#6F4A2B','Кожа куртки'],
+      ['#56381F','Тёмные партии (ворот, клапаны)'],
+      ['#A89B7E','Рубаха в проёме (маркер груди)'],
+      ['#C89A7A','Кисти (кожа)'],
+      ['#2B2823','Фурнитура (молния, пуговицы)']]},
+    {t:'Куртка рейдера', sk:'SK_Armor_T2_Torso', z:[
+      ['#33302C','Кожа куртки + поддёва'],
+      ['#5C4128','Ремни/портупея'],
+      ['#5A6470','Металл наплечников, клёпки'],
+      ['#7A4A32','Ржавчина + заплатки'],
+      ['#C89A7A','Пальцы (кожа)'],
+      ['#2B2823','Перчатки/фурнитура']]},
+    {t:'Военная куртка + разгрузка', sk:'SK_Armor_T3_Torso', z:[
+      ['#4F5538','Камо: база (олива)'],
+      ['#8B7E5A','Камо: выцветший хаки'],
+      ['#3E362A','Камо: тёмно-бурый'],
+      ['#565B44','Разгрузка + подсумки (НЕ камо)'],
+      ['#C89A7A','Пальцы (кожа)'],
+      ['#2B2823','Перчатки/фурнитура']]}
+  ],
+  legs: [
+    {t:'Простые штаны (перекраска)', sk:'SK_Cloth_L1 низ → vcol', z:[
+      ['#4A4843','Штаны (тёмно-серые)'],
+      ['#33302C','Обувь простая'],
+      ['#3B362F','Пояс (если есть топология)']]},
+    {t:'Штаны спецовки', sk:'SK_Armor_T1_Legs', z:[
+      ['#4E5258','Штаны (серо-синие)'],
+      ['#5C5348','Затёртости/грязь (колени, низ)'],
+      ['#6F4A2B','Ботинки (рифма с курткой Т1)'],
+      ['#2B2823','Подошвы/шнуровка'],
+      ['#3B362F','Ремень/пояс']]},
+    {t:'Карго с наколенниками', sk:'SK_Armor_T2_Legs', z:[
+      ['#5C5A3E','Штаны (олива)'],
+      ['#4A4832','Карманы/тёмные партии'],
+      ['#5A6470','Наколенники (металл)'],
+      ['#7A4A32','Ржавый кант наколенников'],
+      ['#5C4128','Ремни креплений'],
+      ['#2B2823','Ботинки + подошвы']]},
+    {t:'Военные штаны в берцах', sk:'SK_Armor_T3_Legs', z:[
+      ['#4F5538','Камо: база (олива)'],
+      ['#8B7E5A','Камо: выцветший хаки'],
+      ['#3E362A','Камо: тёмно-бурый'],
+      ['#44483C','Наколенники-щитки (сплошные)'],
+      ['#2E2A24','Берцы + подошвы']]}
+  ]
+};
+const SLOT_LABELS = {head:'ГОЛОВА', torso:'ТОРС', legs:'НОГИ'};
+const grid = document.getElementById('grid');
+for (const slot of ['head','torso','legs']) {
+  const lab = document.createElement('div');
+  lab.className = 'slotlab'; lab.textContent = SLOT_LABELS[slot];
+  grid.appendChild(lab);
+  for (const item of ITEMS[slot]) {
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+    cell.innerHTML = `<h3>${item.t}</h3><div class="sk">${item.sk}</div>` +
+      item.z.map(([hex,name]) =>
+        `<div class="zone"><span class="c" style="background:${hex}"></span>` +
+        `<span class="n">${name}</span><span class="h">${hex}</span></div>`).join('');
+    grid.appendChild(cell);
+  }
+}
+</script>
+</body>
+</html>
