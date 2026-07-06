@@ -1,0 +1,52 @@
+00:00.329  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_t2t3.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Armor_T2_Head.fbx'
+export finished in 0.0091 sec.
+EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Armor_T2_Head.fbx (59.3 KB)
+
+FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Armor_T2_Torso.fbx'
+export finished in 0.0113 sec.
+EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Armor_T2_Torso.fbx (76.6 KB)
+
+FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Armor_T2_Legs.fbx'
+export finished in 0.0090 sec.
+EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Armor_T2_Legs.fbx (71.0 KB)
+
+FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Armor_T3_Head.fbx'
+export finished in 0.0080 sec.
+EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Armor_T3_Head.fbx (67.8 KB)
+
+FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Armor_T3_Torso.fbx'
+export finished in 0.0100 sec.
+EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Armor_T3_Torso.fbx (75.2 KB)
+
+FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Armor_T3_Legs.fbx'
+export finished in 0.0104 sec.
+EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Armor_T3_Legs.fbx (71.1 KB)
+FBX version: 7300
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+
+REFERENCE bones=21
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+VERIFY SK_Armor_T2_Head       bones=21 names_match=True rest_maxdelta=0.00002 tris=110 verts=71 vgroups=2 unweighted=0 vcol=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] z=[1.497..1.852] -> PASS
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+VERIFY SK_Armor_T2_Torso      bones=21 names_match=True rest_maxdelta=0.00002 tris=422 verts=274 vgroups=16 unweighted=0 vcol=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] z=[0.905..1.549] -> PASS
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+VERIFY SK_Armor_T2_Legs       bones=21 names_match=True rest_maxdelta=0.00002 tris=328 verts=231 vgroups=12 unweighted=0 vcol=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] z=[0.000..0.907] -> PASS
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+VERIFY SK_Armor_T3_Head       bones=21 names_match=True rest_maxdelta=0.00002 tris=212 verts=129 vgroups=2 unweighted=0 vcol=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] z=[1.532..1.856] -> PASS
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+VERIFY SK_Armor_T3_Torso      bones=21 names_match=True rest_maxdelta=0.00002 tris=410 verts=238 vgroups=16 unweighted=0 vcol=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] z=[0.905..1.549] -> PASS
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+VERIFY SK_Armor_T3_Legs       bones=21 names_match=True rest_maxdelta=0.00002 tris=328 verts=231 vgroups=12 unweighted=0 vcol=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] z=[0.000..0.907] -> PASS
+
+ROUNDTRIP ALL PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

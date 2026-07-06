@@ -1,0 +1,108 @@
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\master.blend"
+00:02.032  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Head_front.png'
+00:02.391  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Head_tq.png'
+00:02.844  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Head_side.png'
+00:03.266  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Head_top.png'
+00:03.703  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Head_back.png'
+00:04.110  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Torso_front.png'
+00:04.485  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Torso_tq.png'
+00:04.907  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Torso_side.png'
+00:05.297  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Torso_top.png'
+00:05.703  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Torso_back.png'
+00:06.141  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Legs_front.png'
+00:06.610  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Legs_tq.png'
+00:07.032  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Legs_side.png'
+00:07.422  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Legs_top.png'
+00:07.907  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T2_Legs_back.png'
+00:08.391  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Head_front.png'
+00:08.844  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Head_tq.png'
+00:09.328  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Head_side.png'
+00:09.766  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Head_top.png'
+00:10.203  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Head_back.png'
+00:10.610  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Torso_front.png'
+00:11.047  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Torso_tq.png'
+00:11.485  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Torso_side.png'
+00:11.922  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Torso_top.png'
+00:12.360  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Torso_back.png'
+00:12.828  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Legs_front.png'
+00:13.266  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Legs_tq.png'
+00:13.672  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Legs_side.png'
+00:14.094  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Legs_top.png'
+00:14.563  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\SK_Armor_T3_Legs_back.png'
+00:14.969  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\T2_set_front.png'
+00:15.407  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\T2_set_tq.png'
+00:15.813  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\T2_set_side.png'
+00:16.188  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\T2_set_top.png'
+00:16.625  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\T2_set_back.png'
+00:17.078  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\T3_set_front.png'
+00:17.516  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\T3_set_tq.png'
+00:17.938  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\T3_set_side.png'
+00:18.313  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\T3_set_top.png'
+00:18.735  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc2\T3_set_back.png'
+  weld SK_Armor_T2_Head: 114 -> 70 verts
+  weld SK_Armor_T2_Torso: 974 -> 222 verts
+  dropped 48 vest-box faces
+  weld SK_Armor_T2_Legs: 592 -> 135 verts
+  weld SK_Armor_T3_Head: 114 -> 70 verts
+  weld SK_Armor_T3_Torso: 974 -> 222 verts
+  dropped 48 vest-box faces
+  weld SK_Armor_T3_Legs: 592 -> 135 verts
+BUILT SK_Armor_T2_Head       tris= 110 verts=  71 unweighted=0
+BUILT SK_Armor_T2_Torso      tris= 422 verts= 274 unweighted=0
+BUILT SK_Armor_T2_Legs       tris= 328 verts= 231 unweighted=0
+BUILT SK_Armor_T3_Head       tris= 212 verts= 129 unweighted=0
+BUILT SK_Armor_T3_Torso      tris= 410 verts= 238 unweighted=0
+BUILT SK_Armor_T3_Legs       tris= 328 verts= 231 unweighted=0
+XFORM SK_Armor_T2_Head       world_scale=(1.000,1.000,1.000) OK
+XFORM SK_Armor_T2_Torso      world_scale=(1.000,1.000,1.000) OK
+XFORM SK_Armor_T2_Legs       world_scale=(1.000,1.000,1.000) OK
+XFORM SK_Armor_T3_Head       world_scale=(1.000,1.000,1.000) OK
+XFORM SK_Armor_T3_Torso      world_scale=(1.000,1.000,1.000) OK
+XFORM SK_Armor_T3_Legs       world_scale=(1.000,1.000,1.000) OK
+XFORM RootAnim               world_scale=(1.000,1.000,1.000) OK
+Info: Saved "wearables_t2t3.blend"
+SAVED E:/game-dev-team/assets/armor_wearables/_work/wearables_t2t3.blend
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Head_front.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Head_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Head_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Head_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Head_back.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Torso_front.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Torso_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Torso_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Torso_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Torso_back.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Legs_front.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Legs_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Legs_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Legs_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T2_Legs_back.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Head_front.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Head_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Head_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Head_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Head_back.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Torso_front.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Torso_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Torso_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Torso_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Torso_back.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Legs_front.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Legs_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Legs_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Legs_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/SK_Armor_T3_Legs_back.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/T2_set_front.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/T2_set_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/T2_set_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/T2_set_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/T2_set_back.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/T3_set_front.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/T3_set_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/T3_set_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/T3_set_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc2/T3_set_back.png
+QC DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

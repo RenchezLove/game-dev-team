@@ -1,0 +1,19 @@
+00:00.500  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_work.blend"
+00:02.000  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc\diag_trio_hide.png'
+00:02.375  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc\diag_all_visible.png'
+OBJ BaseHead               hide_render=True hide_viewport=True visible_get=n/a evalpolys=130 mats=['Material']
+OBJ L1_Head                hide_render=True hide_viewport=True visible_get=n/a evalpolys=227 mats=['M_Clothes_Flat.002']
+OBJ L1_Legs                hide_render=True hide_viewport=True visible_get=n/a evalpolys=224 mats=['M_Clothes_Flat.001']
+OBJ L1_Torso               hide_render=True hide_viewport=True visible_get=n/a evalpolys=386 mats=['M_Clothes_Flat']
+OBJ SK_Armor_T1_Head       hide_render=False hide_viewport=False visible_get=True evalpolys=274 mats=['M_Clothes_Flat']
+OBJ SK_Armor_T1_Legs       hide_render=False hide_viewport=False visible_get=True evalpolys=328 mats=['M_Clothes_Flat']
+OBJ SK_Armor_T1_Torso      hide_render=False hide_viewport=False visible_get=True evalpolys=658 mats=['M_Clothes_Flat']
+OBJ SK_Cloth_T0_Head       hide_render=True hide_viewport=False visible_get=True evalpolys=134 mats=['M_Clothes_Flat']
+OBJ SK_Cloth_T0_Legs       hide_render=True hide_viewport=False visible_get=True evalpolys=224 mats=['M_Clothes_Flat']
+OBJ SK_Cloth_T0_Torso      hide_render=True hide_viewport=False visible_get=True evalpolys=338 mats=['M_Clothes_Flat']
+RENDER E:/game-dev-team/assets/armor_wearables/_qc/diag_trio_hide.png
+RENDER E:/game-dev-team/assets/armor_wearables/_qc/diag_all_visible.png
+DIAG DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

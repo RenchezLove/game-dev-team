@@ -220,7 +220,10 @@ def export_skeletal(ob, rig, path):
         filepath=path, use_selection=True,
         object_types={'MESH', 'ARMATURE'}, mesh_smooth_type='FACE',
         use_mesh_modifiers=False, add_leaf_bones=False, bake_anim=False,
-        path_mode='AUTO')
+        path_mode='AUTO',
+        # ONLY 'LINEAR': default 'SRGB' dumps stored bytes into the FBX as-is
+        # and UE re-encodes on import -> double sRGB, washed-out grey (07-06)
+        colors_type='LINEAR')
 
 
 # ---------------- QC rendering ----------------

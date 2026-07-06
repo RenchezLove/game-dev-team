@@ -1,27 +1,27 @@
-00:00.297  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_work.blend"
+00:00.484  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_work.blend"
 
 FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Cloth_T0_Head.fbx'
-export finished in 0.0081 sec.
+export finished in 0.0093 sec.
 EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Cloth_T0_Head.fbx (64.7 KB)
 
 FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Cloth_T0_Torso.fbx'
-export finished in 0.0101 sec.
+export finished in 0.0102 sec.
 EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Cloth_T0_Torso.fbx (72.9 KB)
 
 FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Cloth_T0_Legs.fbx'
-export finished in 0.0073 sec.
+export finished in 0.0098 sec.
 EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Cloth_T0_Legs.fbx (66.9 KB)
 
 FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Armor_T1_Head.fbx'
-export finished in 0.0076 sec.
+export finished in 0.0075 sec.
 EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Armor_T1_Head.fbx (70.2 KB)
 
 FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Armor_T1_Torso.fbx'
-export finished in 0.0204 sec.
+export finished in 0.0106 sec.
 EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Armor_T1_Torso.fbx (85.5 KB)
 
 FBX export starting... 'E:/game-dev-team/assets/armor_wearables/SK_Armor_T1_Legs.fbx'
-export finished in 0.0182 sec.
+export finished in 0.0090 sec.
 EXPORTED E:/game-dev-team/assets/armor_wearables/SK_Armor_T1_Legs.fbx (70.4 KB)
 FBX version: 7300
   armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)

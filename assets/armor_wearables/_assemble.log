@@ -1,0 +1,90 @@
+E:\game-dev-team\assets\armor_wearables\00_assemble_master.py:92: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+00:02.047  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Torso_ym.png'
+00:02.265  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Torso_yp.png'
+00:02.484  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Torso_side.png'
+00:02.718  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Torso_top.png'
+00:02.922  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Torso_tq.png'
+00:03.250  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Legs_ym.png'
+00:03.562  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Legs_yp.png'
+00:03.843  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Legs_side.png'
+00:04.140  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Legs_top.png'
+00:04.468  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Legs_tq.png'
+00:04.765  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Head_ym.png'
+00:05.062  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Head_yp.png'
+00:05.375  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Head_side.png'
+00:05.687  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Head_top.png'
+00:05.984  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1_Head_tq.png'
+00:06.281  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_BaseHead_ym.png'
+00:06.578  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_BaseHead_yp.png'
+00:06.890  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_BaseHead_side.png'
+00:07.187  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_BaseHead_top.png'
+00:07.453  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_BaseHead_tq.png'
+00:07.750  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1set_ym.png'
+00:08.062  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1set_yp.png'
+00:08.375  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1set_side.png'
+00:08.656  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1set_top.png'
+00:08.937  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_ref_renders\src_L1set_tq.png'
+FBX version: 7300
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+FBX version: 7300
+  armature RootAnim.001 applied: C_Neck local z=1.461 (expect ~1.461)
+FBX version: 7300
+  armature RootAnim.001 applied: C_Neck local z=1.461 (expect ~1.461)
+FBX version: 7300
+  armature RootAnim.001 applied: C_Neck local z=1.461 (expect ~1.461)
+
+--- HEAD BONE REST MATRIX PROBE ---
+  SK_Cloth_L1_Legs.fbx C_Spine02 maxdelta=0.000000 OK
+  SK_Cloth_L1_Legs.fbx C_Neck maxdelta=0.000000 OK
+  SK_Cloth_L1_Legs.fbx C_Head maxdelta=0.000000 OK
+  SK_Cloth_L1_Head.fbx C_Spine02 maxdelta=0.000000 OK
+  SK_Cloth_L1_Head.fbx C_Neck maxdelta=0.000000 OK
+  SK_Cloth_L1_Head.fbx C_Head maxdelta=0.000000 OK
+  HeadAndSkeletonfbx_Head.fbx C_Spine02 maxdelta=0.000000 OK
+  HeadAndSkeletonfbx_Head.fbx C_Neck maxdelta=0.000000 OK
+  HeadAndSkeletonfbx_Head.fbx C_Head maxdelta=0.000004 OK
+
+RIG bones=21 names=['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Claf', 'L_Foot', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'L_UpperArm', 'Pelvis_009_R_002', 'R_Arm', 'R_Claf', 'R_Foot', 'R_Hand', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
+MESH L1_Torso  tris=386 verts=974 x=[-0.999..0.999] y=[-0.201..0.191] z=[0.905..1.549]
+MESH L1_Legs   tris=224 verts=592 x=[-0.257..0.257] y=[-0.243..0.140] z=[0.001..0.907]
+MESH L1_Head   tris=227 verts=669 x=[-0.167..0.176] y=[-0.178..0.200] z=[1.532..1.865]
+MESH BaseHead  tris=130 verts=114 x=[-0.133..0.133] y=[-0.143..0.126] z=[1.532..1.801]
+BaseHead most -Y verts: [(0.0, -0.143, 1.643), (0.0, -0.143, 1.643), (0.0, -0.122, 1.629)]
+BaseHead most +Y verts: [(-0.0, 0.126, 1.662), (-0.0, 0.126, 1.662), (-0.0, 0.112, 1.567)]
+XFORM RootAnim               world_scale=(1.000,1.000,1.000) OK
+XFORM L1_Torso               world_scale=(1.000,1.000,1.000) OK
+XFORM L1_Legs                world_scale=(1.000,1.000,1.000) OK
+XFORM L1_Head                world_scale=(1.000,1.000,1.000) OK
+XFORM BaseHead               world_scale=(1.000,1.000,1.000) OK
+Info: Saved "master.blend"
+SAVED E:/game-dev-team/assets/armor_wearables/_work/master.blend
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Torso_ym.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Torso_yp.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Torso_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Torso_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Torso_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Legs_ym.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Legs_yp.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Legs_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Legs_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Legs_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Head_ym.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Head_yp.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Head_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Head_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1_Head_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_BaseHead_ym.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_BaseHead_yp.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_BaseHead_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_BaseHead_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_BaseHead_tq.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1set_ym.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1set_yp.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1set_side.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1set_top.png
+RENDER E:/game-dev-team/assets/armor_wearables/_ref_renders/src_L1set_tq.png
+PREVIEWS DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

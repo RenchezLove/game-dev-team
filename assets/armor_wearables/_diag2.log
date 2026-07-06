@@ -1,0 +1,11 @@
+00:00.453  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_work.blend"
+00:02.516  render           | Saved: 'E:\game-dev-team\assets\armor_wearables\_qc\diag_trio_nomod.png'
+rig pose transforms (non-identity):
+EVAL SK_Armor_T1_Head       verts=167 x=[-0.150..0.150] z=[1.532..1.845]
+EVAL SK_Armor_T1_Torso      verts=398 x=[-99.908..99.908] z=[85.000..155.200]
+EVAL SK_Armor_T1_Legs       verts=215 x=[-0.274..0.274] z=[0.000..0.907]
+RENDER E:/game-dev-team/assets/armor_wearables/_qc/diag_trio_nomod.png
+DIAG2 DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
