@@ -1,0 +1,65 @@
+00:00.375  blend            | Read blend: "E:\game-dev-team\assets\npc_elder\_work\elder_work.blend"
+00:02.547  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Head_front.png'
+00:02.828  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Head_tq.png'
+00:03.203  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Head_side.png'
+00:03.656  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Head_top.png'
+00:04.063  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Head_back.png'
+00:04.438  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Torso_front.png'
+00:04.797  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Torso_tq.png'
+00:05.234  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Torso_side.png'
+00:05.641  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Torso_top.png'
+00:06.063  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Torso_back.png'
+00:06.516  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Legs_front.png'
+00:06.922  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Legs_tq.png'
+00:07.359  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Legs_side.png'
+00:07.781  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Legs_top.png'
+00:08.188  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Legs_back.png'
+00:08.594  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\Elder_assembled_front.png'
+00:09.016  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\Elder_assembled_tq.png'
+00:09.453  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\Elder_assembled_side.png'
+00:09.844  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\Elder_assembled_top.png'
+00:10.250  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\Elder_assembled_back.png'
+00:10.625  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\Elder_pose_front.png'
+00:11.078  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\Elder_pose_tq.png'
+00:11.500  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\Elder_pose_side.png'
+E:\game-dev-team\assets\npc_elder\11_pose_check_elder.py:63: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  wm.use_nodes = True
+00:12.000  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Head_wire_tq.png'
+00:12.453  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Head_wire_top.png'
+00:12.891  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Torso_wire_tq.png'
+00:13.359  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Torso_wire_top.png'
+00:13.813  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Legs_wire_tq.png'
+00:14.234  render           | Saved: 'E:\game-dev-team\assets\npc_elder\renders_elder\SK_Elder_Legs_wire_top.png'
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Head_front.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Head_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Head_side.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Head_top.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Head_back.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Torso_front.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Torso_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Torso_side.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Torso_top.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Torso_back.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Legs_front.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Legs_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Legs_side.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Legs_top.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Legs_back.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/Elder_assembled_front.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/Elder_assembled_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/Elder_assembled_side.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/Elder_assembled_top.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/Elder_assembled_back.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/Elder_pose_front.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/Elder_pose_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/Elder_pose_side.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Head_wire_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Head_wire_top.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Torso_wire_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Torso_wire_top.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Legs_wire_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/renders_elder/SK_Elder_Legs_wire_top.png
+POSE+WIRE RENDERS DONE -> E:/game-dev-team/assets/npc_elder/renders_elder/
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

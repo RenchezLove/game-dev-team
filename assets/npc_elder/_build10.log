@@ -1,0 +1,59 @@
+00:00.343  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\master.blend"
+00:01.843  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Head_front.png'
+00:02.093  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Head_tq.png'
+00:02.328  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Head_side.png'
+00:02.562  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Head_top.png'
+00:02.796  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Head_back.png'
+00:03.015  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Torso_front.png'
+00:03.250  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Torso_tq.png'
+00:03.453  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Torso_side.png'
+00:03.671  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Torso_top.png'
+00:03.890  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Torso_back.png'
+00:04.140  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Legs_front.png'
+00:04.375  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Legs_tq.png'
+00:04.609  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Legs_side.png'
+00:04.828  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Legs_top.png'
+00:05.078  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\SK_Elder_Legs_back.png'
+00:05.312  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\Elder_set_front.png'
+00:05.531  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\Elder_set_tq.png'
+00:05.765  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\Elder_set_side.png'
+00:05.984  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\Elder_set_top.png'
+00:06.203  render           | Saved: 'E:\game-dev-team\assets\npc_elder\_qc_elder\Elder_set_back.png'
+SHOE_HX = #4F3824
+  weld SK_Elder_Head: 114 -> 70 verts
+  weld SK_Elder_Torso: 974 -> 222 verts
+  dropped 48 pocket-box faces
+  weld SK_Elder_Legs: 592 -> 135 verts
+BUILT SK_Elder_Head        tris= 284 verts= 168 unweighted=0
+BUILT SK_Elder_Torso       tris= 594 verts= 364 unweighted=0
+BUILT SK_Elder_Legs        tris= 260 verts= 159 unweighted=0
+XFORM SK_Elder_Head          world_scale=(1.000,1.000,1.000) OK
+XFORM SK_Elder_Torso         world_scale=(1.000,1.000,1.000) OK
+XFORM SK_Elder_Legs          world_scale=(1.000,1.000,1.000) OK
+XFORM RootAnim               world_scale=(1.000,1.000,1.000) OK
+Info: Saved "elder_work.blend"
+SAVED E:/game-dev-team/assets/npc_elder/_work/elder_work.blend
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Head_front.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Head_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Head_side.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Head_top.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Head_back.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Torso_front.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Torso_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Torso_side.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Torso_top.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Torso_back.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Legs_front.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Legs_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Legs_side.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Legs_top.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/SK_Elder_Legs_back.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/Elder_set_front.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/Elder_set_tq.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/Elder_set_side.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/Elder_set_top.png
+RENDER E:/game-dev-team/assets/npc_elder/_qc_elder/Elder_set_back.png
+QC DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
