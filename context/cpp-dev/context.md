@@ -3,14 +3,13 @@
 > Лёгкая рабочая память `cpp-dev` (правило H + Гигиена памяти из CLAUDE.md: стоп >150 строк, СЕЙЧАС вырезает прошлый). Закрытая история — в [archive.md](archive.md) (read-on-demand, НЕ для грунтовки). Build-логи — `logs/`, история — git.
 
 ## 🧭 СЕЙЧАС
-**ЭТАП D — фидбек-пакет №2 (приёмка Рината 07-06): СОБРАН, ЗАКОММИЧЕН, ЗАПУШЕН.** Ветка `feature/stage-d-combat`, origin = `f45675e`. Оба пакета 07-06 в git.
-- **Пруф сборки №2:** BUILD_EXIT=0, DLL слинкована (редактор закрыт, tasklist проверен). Лог: `logs/build-2026-07-06-stage-d-feedback-pack2.log`.
-- **Коммиты №2:** `4a3215d` фикс погони (враг в бою не теряет цель по DetectionRange — только поводок, ADR-036; корень доказан логом PIE: idle-far-from-home, не leash), `5234601` маркер = текущая невыполненная цель (FQuest::KillObjectiveLabel/ItemObjectiveLabel + ElderNPC + DrawQuestTargetMarker), `f45675e` «Патроны 9мм» (AAmmoItem/торговец/фолбэк HUD; матчинг патронов по классу, сейв только class path). Push `483b230..f45675e` подтверждён.
-- В рабочей копии остались ТОЛЬКО 3 бинарника Рината (НЕ коммитить, его указание): BP_PlayerCharacter.uasset, L_World_C.umap, BP_ContrarySurvivorHUD.uasset.
-- **НЕ ПРОВЕРЕНО: PIE-поведение пакета №2** (погоня до поводка / смена текста метки / имя патронов в UI) — за лидом/Ринатом.
-- ДОПУЩЕНИЕ (umap недоступен): пикап карты с явным PlacedItemDisplayName «Патроны» показал бы старое имя; по D8 патроны шли через PlacedAmmoAmount (имя из класса) — проверить оператору при случае.
-- Патч-бэкап `logs/stage-d-feedback-pack.patch` устарел (всё в git) — удалить при чистке.
-- Вариант B прицеливания (Modify Bone руки в общем ABP) — отложен лидом как полировка; разведка — в archive.md (сессия 07-05).
+**ЭТАП D — броня Т1-Т3 в магазин (решение Рината 07-07): КОД НАПИСАН, ЖДЁТ КОМАНДЫ «СОБИРАЙ» от лида.** Ветка `feature/stage-d-combat` (база f45675e). СБОРКА НЕ ЗАПУСКАЛАСЬ (редактор открыт у Рината — запрет лида). НЕ ЗАКОММИЧЕНО.
+- **Файлы:** новые `Public/AArmorTiers.h` + `Private/AArmorTiers.cpp` (9 классов A{Head,Torso,Pants}ArmorT{1,2,3}: слот+защита 0.05/0.10/0.16+русское ItemName+FObjectFinder на /Game/Characters/Shared/Armor/SK_Armor_T*_*); `Characters/MasterTrader.cpp` +14 строк (include + 9 FShopEntry, Price=5, через MakeItem). Ассеты (9 uasset) и имена объектов в них сверены с диском.
+- **Прокрутка магазина СДЕЛАНА** (переполнение: 18 позиций против ~12 видимых; решение лида — реюз экшенов ShopQtyInc/Dec, колесо УЖЕ в DefaultInput.ini:77-84, моё «обработки колеса нет» было неверно). `ContrarySurvivorHUD.h/.cpp`: ScrollShopList(Delta) + ShopListScrollOffset/MaxScroll (кламп в DrawShop от фактической высоты панели, сброс в SetShopOpen), цикл BUY стартует с offset, счётчик «X-Y из N (колесо — листать)» справа от заголовка при переполнении; `ContrarySurvivorPlayerController.cpp` OnShopQtyDec/Inc: else (слайдер неактивен) → ScrollShopList(+1/-1). Колесо вниз = список вниз. SELL-колонку не трогал.
+- После «собирай»: Build.bat → BUILD_EXIT=0 → коммит ТОЛЬКО Source/** (6 файлов: AArmorTiers.h/.cpp новые + MasterTrader.cpp + ContrarySurvivorHUD.h/.cpp + ContrarySurvivorPlayerController.cpp) в stage-d-combat.
+- **Пруф прошлой сборки:** пакет №2 BUILD_EXIT=0, лог `logs/build-2026-07-06-stage-d-feedback-pack2.log`; push `483b230..f45675e` подтверждён. PIE-проверка пакета №2 — за лидом/Ринатом.
+- В рабочей копии бинарники Рината/оператора (BP_*, umap, новые uasset экипировки) — НЕ коммитить с моим кодом.
+- Вариант B прицеливания (Modify Bone) — отложен лидом; разведка в archive.md (07-05).
 
 ## LIVE-КОНВЕНЦИИ (как работаю в этом проекте)
 - **Include внутри модуля**: префикс `ContrarySurvivor/<Subdir>/Header.h`. Относительный `Components/Header.h` из другой подпапки НЕ резолвится (C1083).
