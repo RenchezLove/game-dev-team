@@ -1,0 +1,125 @@
+Using bundled DotNet SDK version: 8.0.300
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" ContrarySurvivorEditor Win64 Development -Project=E:/ContrarySurvior/ContrarySurvivor/ContrarySurvivor.uproject -WaitMutex -NoHotReload
+Log file: C:\Users\pgr40\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (E:\ContrarySurvior\ContrarySurvivor).
+Invalidating makefile for ContrarySurvivorEditor (working set of source files changed)
+Available x64 toolchains (1):
+ * C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207
+    (Family=14.44.35207, FamilyRank=1, Version=14.44.35222, Is64Bit=True, ReleaseChannel=Latest, Architecture=x64)
+Visual Studio 2022 compiler version 14.44.35222 is not a preferred version. Please use the latest preferred version 14.38.33130
+Parsing headers for ContrarySurvivorEditor
+  Running Internal UnrealHeaderTool E:\ContrarySurvior\ContrarySurvivor\ContrarySurvivor.uproject E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\ContrarySurvivorEditor\Development\ContrarySurvivorEditor.uhtmanifest -WarningsAsErrors -installed
+Total of 23 written
+Reflection code generated for ContrarySurvivorEditor in 5.7971541 seconds
+Building ContrarySurvivorEditor...
+Using Visual Studio 2022 14.44.35222 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+Warning: Visual Studio 2022 compiler is not a preferred version
+[Adaptive Build] Excluded from ContrarySurvivor unity file: MasterHumanoidCharacter.cpp, MasterTrader.cpp, PlayerCharacter.cpp, ContrarySurvivorPlayerController.cpp, ContrarySurvivorHUD.cpp, AArmor.cpp, AArmorTiers.cpp, AMasterInventoryItem.cpp, CombatAutomationTests.cpp
+Determining max actions to execute in parallel (10 physical cores, 16 logical cores)
+  Executing up to 10 processes, one per physical core
+  Requested 1.5 GB memory per action, 9.81 GB available: limiting max parallel actions to 6
+Using Unreal Build Accelerator local executor to run 18 action(s)
+  Storage capacity 40Gb
+---- Starting trace: 260711_191830 ----
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+------ Building 18 action(s) started ------
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Delaying 1 processes from spawning due to memory pressure (Available: 429.3mb Total: 38.5gb)
+UbaSessionServer - NOTE - To mitigate this spawn delay it is recommended to make page file larger until you don't see these messages again (Or reduce number of max parallel processes)
+UbaSessionServer -        Set max page file to a large number (like 128gb). It will not use disk space unless you actually start using that amount of committed memory
+UbaSessionServer -        Also note, this is "committed" memory. Not memory in use. So you necessarily don't need more physical memory
+UbaSessionServer -   MaxPage:   4.6gb
+UbaSessionServer -   TotalPhys: 34.0gb
+UbaSessionServer -   AvailPhys: 9.3gb
+UbaSessionServer -   TotalPage: 40.4gb
+UbaSessionServer -   AvailPage: 429.3mb
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+[1/18] Compile [x64] AMasterInventoryItem.cpp
+UbaSessionServer - Delaying 2 processes from spawning due to memory pressure (Available: 2.6gb Total: 38.5gb)
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Delaying 2 processes from spawning due to memory pressure (Available: 68.3mb Total: 38.5gb)
+UbaSessionServer - Allocation failed in VirtualAlloc (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in VirtualAlloc (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Delaying 2 processes from spawning due to memory pressure (Available: 63.4mb Total: 38.5gb)
+UbaSessionServer - Allocation failed in VirtualAlloc (The paging file is too small for this operation to complete.).. process will sleep and try again
+[2/18] Compile [x64] CombatAutomationTests.cpp
+[3/18] Compile [x64] ContrarySurvivorHUD.cpp
+[4/18] Compile [x64] AArmor.cpp
+UbaSessionServer - Delaying 5 processes from spawning due to memory pressure (Available: 5.1gb Total: 38.5gb)
+UbaSessionServer - Waited 27.5s for memory pressure to go down (Available: 7.1gb Total: 38.5gb)
+[5/18] Compile [x64] AArmorTiers.cpp
+[6/18] Compile [x64] ContrarySurvivorPlayerController.cpp
+[7/18] Compile [x64] MasterHumanoidCharacter.cpp
+UbaSessionServer - Delaying 5 processes from spawning due to memory pressure (Available: 4.9gb Total: 38.5gb)
+UbaSessionServer - Waited 22.3s for memory pressure to go down (Available: 6.2gb Total: 38.5gb)
+[8/18] Compile [x64] Module.ContrarySurvivor.4.cpp
+[9/18] Compile [x64] Module.ContrarySurvivor.5.cpp
+UbaSessionServer - Waited 11.7s for memory pressure to go down (Available: 7.1gb Total: 38.5gb)
+UbaSessionServer - Delaying 3 processes from spawning due to memory pressure (Available: 7.1gb Total: 38.5gb)
+[10/18] Compile [x64] MasterTrader.cpp
+[11/18] Compile [x64] PlayerCharacter.cpp
+UbaSessionServer - Waited 12.1s for memory pressure to go down (Available: 7.2gb Total: 38.5gb)
+[12/18] Compile [x64] Module.ContrarySurvivor.1.cpp
+UbaSessionServer - Waited 14.0s for memory pressure to go down (Available: 7.2gb Total: 38.5gb)
+[13/18] Compile [x64] Module.ContrarySurvivor.2.cpp
+UbaSessionServer - Waited 9.5s for memory pressure to go down (Available: 7.2gb Total: 38.5gb)
+[14/18] Compile [x64] Module.ContrarySurvivor.3.cpp
+[15/18] Compile [x64] Module.ContrarySurvivor.6.cpp
+[16/18] Link [x64] UnrealEditor-ContrarySurvivor.lib
+   Создается библиотека E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\x64\UnrealEditor\Development\ContrarySurvivor\UnrealEditor-ContrarySurvivor.lib и объект E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\x64\UnrealEditor\Development\ContrarySurvivor\UnrealEditor-ContrarySurvivor.exp
+[17/18] Link [x64] UnrealEditor-ContrarySurvivor.dll
+   Создание объекта E:\ContrarySurvior\ContrarySurvivor\Binaries\Win64\UnrealEditor-ContrarySurvivor.exp
+[18/18] WriteMetadata ContrarySurvivorEditor.target (UBA disabled)
+Trace file written to C:/Users/pgr40/AppData/Local/UnrealBuildTool/Log.uba with size 10.1kb
+Total time in Unreal Build Accelerator local executor: 79.48 seconds
+Total execution time: 93.63 seconds

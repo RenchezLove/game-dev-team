@@ -1,0 +1,73 @@
+Using bundled DotNet SDK version: 8.0.300
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" ContrarySurvivorEditor Win64 Development E:/ContrarySurvior/ContrarySurvivor/ContrarySurvivor.uproject -waitmutex
+Log file: C:\Users\pgr40\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (E:\ContrarySurvior\ContrarySurvivor).
+Invalidating makefile for ContrarySurvivorEditor (GameAnalytics.uplugin has been added)
+Available x64 toolchains (1):
+ * C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207
+    (Family=14.44.35207, FamilyRank=1, Version=14.44.35222, Is64Bit=True, ReleaseChannel=Latest, Architecture=x64)
+Visual Studio 2022 compiler version 14.44.35222 is not a preferred version. Please use the latest preferred version 14.38.33130
+Parsing headers for ContrarySurvivorEditor
+  Running Internal UnrealHeaderTool E:\ContrarySurvior\ContrarySurvivor\ContrarySurvivor.uproject E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\ContrarySurvivorEditor\Development\ContrarySurvivorEditor.uhtmanifest -WarningsAsErrors -installed
+Total of 12 written
+Reflection code generated for ContrarySurvivorEditor in 1.1276673 seconds
+Building ContrarySurvivorEditor...
+Using Visual Studio 2022 14.44.35222 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+Warning: Visual Studio 2022 compiler is not a preferred version
+[Adaptive Build] Excluded from GameAnalytics unity file: GameAnalytics.cpp, GameAnalyticsModule.cpp, GameAnalyticsPerformance.cpp, GameAnalyticsProvider.cpp, GAWrapperCpp.cpp, PerModuleInline.gen.cpp, GAEnums.gen.cpp, GameAnalytics.gen.cpp, GameAnalytics.init.gen.cpp, GameAnalyticsPerformance.gen.cpp
+[Adaptive Build] Excluded from GameAnalyticsEditor unity file: GameAnalyticsEditor.cpp, GameAnalyticsProjectSettings.cpp, GameAnalyticsTargetSettingsCustomization.cpp, PerModuleInline.gen.cpp, GameAnalyticsEditor.init.gen.cpp, GameAnalyticsProjectSettings.gen.cpp
+Determining max actions to execute in parallel (10 physical cores, 16 logical cores)
+  Executing up to 10 processes, one per physical core
+Using Unreal Build Accelerator local executor to run 31 action(s)
+  Storage capacity 40Gb
+---- Starting trace: 260711_201933 ----
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+------ Building 31 action(s) started ------
+[1/31] Resource Default.rc2
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+[2/31] Compile [x64] GameAnalyticsEditor.init.gen.cpp
+UbaSessionServer - Allocation failed in MapViewOfFile (The paging file is too small for this operation to complete.).. process will sleep and try again
+[3/31] Compile [x64] GameAnalyticsProjectSettings.cpp
+[4/31] Compile [x64] GameAnalyticsEditor.cpp
+[5/31] Resource Default.rc2
+[6/31] Compile [x64] GAEnums.gen.cpp
+[7/31] Compile [x64] Module.ContrarySurvivor.1.cpp
+[8/31] Compile [x64] Module.ContrarySurvivor.4.cpp
+[9/31] Compile [x64] GAWrapperCpp.cpp
+[10/31] Compile [x64] GameAnalytics.gen.cpp
+UbaSessionServer - Waited 745ms for memory pressure to go down (Available: 12.2gb Total: 40.6gb)
+[11/31] Compile [x64] GameAnalytics.cpp
+[12/31] Compile [x64] Module.ContrarySurvivor.2.cpp
+[13/31] Compile [x64] GameAnalytics.init.gen.cpp
+[14/31] Compile [x64] GameAnalyticsPerformance.gen.cpp
+[15/31] Compile [x64] PerModuleInline.gen.cpp
+UbaSessionServer - Waited 1.7s for memory pressure to go down (Available: 12.3gb Total: 40.6gb)
+UbaSessionServer - Waited 1.2s for memory pressure to go down (Available: 12.3gb Total: 40.6gb)
+[16/31] Compile [x64] Module.ContrarySurvivor.6.cpp
+[17/31] Compile [x64] GameAnalyticsPerformance.cpp
+[18/31] Compile [x64] GameAnalyticsModule.cpp
+[19/31] Compile [x64] GameAnalyticsProvider.cpp
+[20/31] Link [x64] UnrealEditor-GameAnalytics.lib
+   Создается библиотека E:\ContrarySurvior\ContrarySurvivor\Plugins\GameAnalytics\Intermediate\Build\Win64\x64\UnrealEditor\Development\GameAnalytics\UnrealEditor-GameAnalytics.lib и объект E:\ContrarySurvior\ContrarySurvivor\Plugins\GameAnalytics\Intermediate\Build\Win64\x64\UnrealEditor\Development\GameAnalytics\UnrealEditor-GameAnalytics.exp
+[21/31] Link [x64] UnrealEditor-GameAnalytics.dll
+   Создание объекта E:\ContrarySurvior\ContrarySurvivor\Plugins\GameAnalytics\Binaries\Win64\UnrealEditor-GameAnalytics.exp
+[22/31] Compile [x64] GameAnalyticsProjectSettings.gen.cpp
+[23/31] Compile [x64] PerModuleInline.gen.cpp
+[24/31] Compile [x64] Module.ContrarySurvivor.5.cpp
+[25/31] Compile [x64] Module.ContrarySurvivor.3.cpp
+[26/31] Link [x64] UnrealEditor-ContrarySurvivor.lib
+   Создается библиотека E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\x64\UnrealEditor\Development\ContrarySurvivor\UnrealEditor-ContrarySurvivor.lib и объект E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\x64\UnrealEditor\Development\ContrarySurvivor\UnrealEditor-ContrarySurvivor.exp
+[27/31] Link [x64] UnrealEditor-ContrarySurvivor.dll
+   Создание объекта E:\ContrarySurvior\ContrarySurvivor\Binaries\Win64\UnrealEditor-ContrarySurvivor.exp
+[28/31] Compile [x64] GameAnalyticsTargetSettingsCustomization.cpp
+E:\ContrarySurvior\ContrarySurvivor\Plugins\GameAnalytics\Source\GameAnalyticsEditor\Private\GameAnalyticsTargetSettingsCustomization.cpp(118): warning C4996: 'FEditorStyle::Get': FEditorStyle::Get() is deprecated, use FAppStyle::Get() instead. Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+E:\ContrarySurvior\ContrarySurvivor\Plugins\GameAnalytics\Source\GameAnalyticsEditor\Private\GameAnalyticsTargetSettingsCustomization.cpp(119): warning C4996: 'FEditorStyle::Get': FEditorStyle::Get() is deprecated, use FAppStyle::Get() instead. Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+[29/31] Link [x64] UnrealEditor-GameAnalyticsEditor.lib
+   Создается библиотека E:\ContrarySurvior\ContrarySurvivor\Plugins\GameAnalytics\Intermediate\Build\Win64\x64\UnrealEditor\Development\GameAnalyticsEditor\UnrealEditor-GameAnalyticsEditor.lib и объект E:\ContrarySurvior\ContrarySurvivor\Plugins\GameAnalytics\Intermediate\Build\Win64\x64\UnrealEditor\Development\GameAnalyticsEditor\UnrealEditor-GameAnalyticsEditor.exp
+[30/31] Link [x64] UnrealEditor-GameAnalyticsEditor.dll
+   Создание объекта E:\ContrarySurvior\ContrarySurvivor\Plugins\GameAnalytics\Binaries\Win64\UnrealEditor-GameAnalyticsEditor.exp
+[31/31] WriteMetadata ContrarySurvivorEditor.target (UBA disabled)
+Trace file written to C:/Users/pgr40/AppData/Local/UnrealBuildTool/Log.uba with size 9.3kb
+Total time in Unreal Build Accelerator local executor: 9.55 seconds
+Total execution time: 15.97 seconds

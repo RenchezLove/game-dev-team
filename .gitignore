@@ -39,3 +39,6 @@ reports/Agents/*.bak.*
 reports/Agents/HEARTBEAT.md
 reports/Agents/STATUS_PULSE.txt
 reports/Agents/gl_heartbeat_status.txt
+
+# Секреты — НИКОГДА не коммитить (ADR-013)
+keys/
