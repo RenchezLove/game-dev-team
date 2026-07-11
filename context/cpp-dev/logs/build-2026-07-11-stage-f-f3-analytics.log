@@ -1,0 +1,45 @@
+Using bundled DotNet SDK version: 8.0.300
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" ContrarySurvivorEditor Win64 Development -Project=E:/ContrarySurvior/ContrarySurvivor/ContrarySurvivor.uproject -WaitMutex -NoHotReload -NoUBA -MaxParallelActions=6
+Log file: C:\Users\pgr40\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (E:\ContrarySurvior\ContrarySurvivor).
+Invalidating makefile for ContrarySurvivorEditor (source file added)
+Available x64 toolchains (1):
+ * C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207
+    (Family=14.44.35207, FamilyRank=1, Version=14.44.35222, Is64Bit=True, ReleaseChannel=Latest, Architecture=x64)
+Visual Studio 2022 compiler version 14.44.35222 is not a preferred version. Please use the latest preferred version 14.38.33130
+Parsing headers for ContrarySurvivorEditor
+  Running Internal UnrealHeaderTool E:\ContrarySurvior\ContrarySurvivor\ContrarySurvivor.uproject E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\ContrarySurvivorEditor\Development\ContrarySurvivorEditor.uhtmanifest -WarningsAsErrors -installed
+Total of 4 written
+Reflection code generated for ContrarySurvivorEditor in 0.9963497 seconds
+Building ContrarySurvivorEditor...
+Using Visual Studio 2022 14.44.35222 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+Warning: Visual Studio 2022 compiler is not a preferred version
+[Adaptive Build] Excluded from ContrarySurvivor unity file: AnalyticsSubsystem.cpp, EnemyCharacter.cpp, PlayerCharacter.cpp, WolfCharacter.cpp, QuestComponent.cpp, DailyRewardComponent.cpp, RetentionAutomationTests.cpp
+Executing up to 6 actions based on MaxProcessorCount override
+Using Unreal Build Accelerator local executor to run 15 action(s)
+  Storage capacity 40Gb
+---- Starting trace: 260711_232807 ----
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+------ Building 15 action(s) started ------
+[1/15] Compile [x64] AnalyticsSubsystem.cpp
+[2/15] Compile [x64] Module.ContrarySurvivor.1.cpp
+[3/15] Compile [x64] Module.ContrarySurvivor.4.cpp
+UbaSessionServer - Waited 977ms for memory pressure to go down (Available: 9.6gb Total: 41.6gb)
+[4/15] Compile [x64] EnemyCharacter.cpp
+[5/15] Compile [x64] DailyRewardComponent.cpp
+[6/15] Compile [x64] Module.ContrarySurvivor.2.cpp
+UbaSessionServer - Waited 1.5s for memory pressure to go down (Available: 7.4gb Total: 41.6gb)
+[7/15] Compile [x64] RetentionAutomationTests.cpp
+[8/15] Compile [x64] QuestComponent.cpp
+[9/15] Compile [x64] WolfCharacter.cpp
+[10/15] Compile [x64] PlayerCharacter.cpp
+[11/15] Compile [x64] Module.ContrarySurvivor.5.cpp
+[12/15] Compile [x64] Module.ContrarySurvivor.6.cpp
+[13/15] Link [x64] UnrealEditor-ContrarySurvivor.lib
+   Создается библиотека E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\x64\UnrealEditor\Development\ContrarySurvivor\UnrealEditor-ContrarySurvivor.lib и объект E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\x64\UnrealEditor\Development\ContrarySurvivor\UnrealEditor-ContrarySurvivor.exp
+[14/15] Link [x64] UnrealEditor-ContrarySurvivor.dll
+   Создание объекта E:\ContrarySurvior\ContrarySurvivor\Binaries\Win64\UnrealEditor-ContrarySurvivor.exp
+[15/15] WriteMetadata ContrarySurvivorEditor.target (UBA disabled)
+Trace file written to C:/Users/pgr40/AppData/Local/UnrealBuildTool/Log.uba with size 5.8kb
+Total time in Unreal Build Accelerator local executor: 7.66 seconds
+Total execution time: 10.32 seconds
