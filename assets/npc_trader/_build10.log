@@ -1,0 +1,59 @@
+00:00.422  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\master.blend"
+00:02.109  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Head_front.png'
+00:02.500  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Head_tq.png'
+00:02.937  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Head_side.png'
+00:03.343  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Head_top.png'
+00:03.843  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Head_back.png'
+00:04.281  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Torso_front.png'
+00:04.656  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Torso_tq.png'
+00:05.047  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Torso_side.png'
+00:05.453  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Torso_top.png'
+00:05.843  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Torso_back.png'
+00:06.328  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Legs_front.png'
+00:06.843  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Legs_tq.png'
+00:07.265  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Legs_side.png'
+00:07.656  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Legs_top.png'
+00:08.109  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\SK_Trader_Legs_back.png'
+00:08.515  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\Trader_set_front.png'
+00:08.937  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\Trader_set_tq.png'
+00:09.359  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\Trader_set_side.png'
+00:09.765  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\Trader_set_top.png'
+00:10.187  render           | Saved: 'E:\game-dev-team\assets\npc_trader\_qc_trader\Trader_set_back.png'
+SHOE_HX = #4F3824
+  weld SK_Trader_Head: 114 -> 70 verts
+  weld SK_Trader_Torso: 974 -> 222 verts
+  kept pocket boxes: 4
+  weld SK_Trader_Legs: 592 -> 135 verts
+BUILT SK_Trader_Head       tris= 210 verts= 131 unweighted=0
+BUILT SK_Trader_Torso      tris= 414 verts= 238 unweighted=0
+BUILT SK_Trader_Legs       tris= 272 verts= 167 unweighted=0
+XFORM SK_Trader_Head         world_scale=(1.000,1.000,1.000) OK
+XFORM SK_Trader_Torso        world_scale=(1.000,1.000,1.000) OK
+XFORM SK_Trader_Legs         world_scale=(1.000,1.000,1.000) OK
+XFORM RootAnim               world_scale=(1.000,1.000,1.000) OK
+Info: Saved "trader_work.blend"
+SAVED E:/game-dev-team/assets/npc_trader/_work/trader_work.blend
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Head_front.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Head_tq.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Head_side.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Head_top.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Head_back.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Torso_front.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Torso_tq.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Torso_side.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Torso_top.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Torso_back.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Legs_front.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Legs_tq.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Legs_side.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Legs_top.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/SK_Trader_Legs_back.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/Trader_set_front.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/Trader_set_tq.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/Trader_set_side.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/Trader_set_top.png
+RENDER E:/game-dev-team/assets/npc_trader/_qc_trader/Trader_set_back.png
+QC DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

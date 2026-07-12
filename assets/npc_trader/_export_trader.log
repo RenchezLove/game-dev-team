@@ -1,0 +1,31 @@
+00:00.344  blend            | Read blend: "E:\game-dev-team\assets\npc_trader\_work\trader_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/npc_trader/SK_Trader_Head.fbx'
+export finished in 0.0149 sec.
+EXPORTED E:/game-dev-team/assets/npc_trader/SK_Trader_Head.fbx (67.8 KB)
+
+FBX export starting... 'E:/game-dev-team/assets/npc_trader/SK_Trader_Torso.fbx'
+export finished in 0.0125 sec.
+EXPORTED E:/game-dev-team/assets/npc_trader/SK_Trader_Torso.fbx (75.7 KB)
+
+FBX export starting... 'E:/game-dev-team/assets/npc_trader/SK_Trader_Legs.fbx'
+export finished in 0.0093 sec.
+EXPORTED E:/game-dev-team/assets/npc_trader/SK_Trader_Legs.fbx (68.3 KB)
+FBX version: 7300
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+
+REFERENCE bones=21
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+VERIFY SK_Trader_Head       bones=21 names_match=True rest_maxdelta=0.00002 tris=210 verts=131 vgroups=2 unweighted=0 vcol=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] z=[1.532..1.830] -> PASS
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+VERIFY SK_Trader_Torso      bones=21 names_match=True rest_maxdelta=0.00002 tris=414 verts=238 vgroups=16 unweighted=0 vcol=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] z=[0.905..1.549] -> PASS
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+VERIFY SK_Trader_Legs       bones=21 names_match=True rest_maxdelta=0.00002 tris=272 verts=167 vgroups=12 unweighted=0 vcol=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] z=[0.000..0.907] -> PASS
+
+ROUNDTRIP ALL PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

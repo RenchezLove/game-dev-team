@@ -1,0 +1,28 @@
+FBX version: 7400
+
+SK_Trader_Head vcol=Col/CORNER/BYTE_COLOR faces_by_hex:
+  #111216 n= 130 BANDANA (srgb #494C52)
+  #110A05 n=  44 STUBBLE/HAIR (srgb #4A3826)
+  #935232 n=  32 SKIN (srgb #C89A7A)
+  #060504 n=   4 EYES|BOOTS (srgb #2B2823)
+FBX version: 7400
+
+SK_Trader_Torso vcol=Col/CORNER/BYTE_COLOR faces_by_hex:
+  #1A2029 n= 170 VEST(ColdSteel) (srgb #5A6470)
+  #080806 n=  96 SWEATER (srgb #33302B)
+  #935232 n=  72 SKIN (srgb #C89A7A)
+  #13181E n=  62 POCKET (srgb #4D5661)
+  #BE5D07 n=  14 AMBER(AmberLoot) (srgb #E0A32E)
+FBX version: 7400
+
+SK_Trader_Legs vcol=Col/CORNER/BYTE_COLOR faces_by_hex:
+  #28251E n= 166 PANTS(Concrete) (srgb #6E6A60)
+  #060504 n=  52 EYES|BOOTS (srgb #2B2823)
+  #1E1B16 n=  24 PANTS_PKT (srgb #605C52)
+  #030302 n=  24 SOLE (srgb #1D1A17)
+  #080806 n=   6 SWEATER (srgb #33302B)
+
+CENSUS DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
