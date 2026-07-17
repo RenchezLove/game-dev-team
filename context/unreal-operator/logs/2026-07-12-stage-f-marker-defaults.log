@@ -1,0 +1,13 @@
+[2026.07.12-07.50.59:130][  1]LogPython: UOPTAG: START stage_f_set_marker_defaults
+[2026.07.12-07.50.59:536][  1]LogPython: UOPTAG: SET BP_WolfDen: before='None' after='WolfDen' saved=True
+[2026.07.12-07.50.59:656][  1]LogPython: UOPTAG: SET BP_BanditBase: before='None' after='BanditBase' saved=True
+[2026.07.12-07.50.59:698][  1]LogPython: UOPTAG: CREATED /Game/Characters/Wolf/BP_WolfDen2.BP_WolfDen2
+[2026.07.12-07.50.59:828][  1]LogPython: UOPTAG: SET BP_WolfDen2: tag='WolfDen2' num_to_spawn=4 saved=True
+[2026.07.12-07.50.59:828][  1]LogPython: UOPTAG: DONE stage_f_set_marker_defaults
+[2026.07.12-07.52.42:064][  1]LogPython: UOPVERIFY: START stage_f_verify_marker_defaults
+[2026.07.12-07.52.42:064][  1]LogPython: UOPVERIFY: OK BP_WolfDen: quest_marker_tag='WolfDen' expected='WolfDen' num_to_spawn=4
+[2026.07.12-07.52.42:064][  1]LogPython: UOPVERIFY: OK BP_BanditBase: quest_marker_tag='BanditBase' expected='BanditBase' num_to_spawn=3
+[2026.07.12-07.52.42:068][  1]LogPython: UOPVERIFY: OK BP_WolfDen2: quest_marker_tag='WolfDen2' expected='WolfDen2' num_to_spawn=4
+[2026.07.12-07.52.42:068][  1]LogPython: UOPVERIFY: PARENT CHECK: BP_WolfDen2_C is child of BP_WolfDen_C = True
+[2026.07.12-07.52.42:068][  1]LogPython: UOPVERIFY: PARENT PROPERTY read failed: Blueprint: Failed to find property 'parent_class' for attribute 'parent_class' on 'Blueprint'
+[2026.07.12-07.52.42:068][  1]LogPython: UOPVERIFY: RESULT: ALL_OK

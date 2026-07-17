@@ -1,0 +1,168 @@
+Using bundled DotNet SDK version: 8.0.300
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" ContrarySurvivorEditor Win64 Development -Project=E:/ContrarySurvior/ContrarySurvivor/ContrarySurvivor.uproject -WaitMutex -NoHotReload
+Log file: C:\Users\pgr40\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (E:\ContrarySurvior\ContrarySurvivor).
+Parsing headers for ContrarySurvivorEditor
+  Running Internal UnrealHeaderTool E:\ContrarySurvior\ContrarySurvivor\ContrarySurvivor.uproject E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\ContrarySurvivorEditor\Development\ContrarySurvivorEditor.uhtmanifest -WarningsAsErrors -installed
+Total of 5 written
+Reflection code generated for ContrarySurvivorEditor in 6.3728453 seconds
+Building ContrarySurvivorEditor...
+Using Visual Studio 2022 14.44.35222 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+Warning: Visual Studio 2022 compiler is not a preferred version
+[Adaptive Build] Excluded from ContrarySurvivor unity file: ElderNPC.cpp, ContrarySurvivorHUD.cpp
+Determining max actions to execute in parallel (10 physical cores, 16 logical cores)
+  Executing up to 10 processes, one per physical core
+Using Unreal Build Accelerator local executor to run 11 action(s)
+  Storage capacity 40Gb
+---- Starting trace: 260717_160157 ----
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+------ Building 11 action(s) started ------
+[1/11] Compile [x64] Module.ContrarySurvivor.1.cpp
+[2/11] Compile [x64] Module.ContrarySurvivor.4.cpp
+[3/11] Compile [x64] ElderNPC.cpp
+[4/11] Compile [x64] Module.ContrarySurvivor.3.cpp
+[5/11] Compile [x64] Module.ContrarySurvivor.2.cpp
+[6/11] Compile [x64] ContrarySurvivorHUD.cpp
+[7/11] Compile [x64] Module.ContrarySurvivor.6.cpp
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(631): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(631): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Retention\OnboardingComponent.cpp(39): note: выполняется компиляция ссылки на экземпляр шаблон функции "TDelegate<void (void),FNotThreadSafeNotCheckedDelegateUserPolicy> TDelegate<void (void),FNotThreadSafeNotCheckedDelegateUserPolicy>::CreateUObject<UOnboardingComponent,EOnboardingHint>(UserClass *,void (__cdecl UOnboardingComponent::* )(EOnboardingHint),EOnboardingHint &&)"
+        with
+        [
+            UserClass=UOnboardingComponent
+        ]
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Retention\OnboardingComponent.cpp(39): note: см. первую ссылку на "TDelegate<void (void),FNotThreadSafeNotCheckedDelegateUserPolicy>::CreateUObject" в "UOnboardingComponent::BeginPlay"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateSignatureImpl.inl(567): note: выполняется компиляция ссылки на экземпляр класс шаблон функции "TBaseUObjectMethodDelegateInstance<false,UOnboardingComponent,void (void),FNotThreadSafeNotCheckedDelegateUserPolicy,EOnboardingHint>"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(631): note: во время компиляции функции-члена класс шаблон "void TBaseUObjectMethodDelegateInstance<false,UOnboardingComponent,void (void),FNotThreadSafeNotCheckedDelegateUserPolicy,EOnboardingHint>::CreateCopy(TDelegateBase<FNotThreadSafeNotCheckedDelegateUserPolicy::FThreadSafetyMode> &) const"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(626): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(626): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(626): note: во время компиляции функции-члена класс шаблон "void TBaseUObjectMethodDelegateInstance<false,UOnboardingComponent,void (void),FNotThreadSafeNotCheckedDelegateUserPolicy,EOnboardingHint>::CreateCopy(TDelegateBase<FDefaultDelegateUserPolicy::FThreadSafetyMode> &) const"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(621): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(621): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(621): note: во время компиляции функции-члена класс шаблон "void TBaseUObjectMethodDelegateInstance<false,UOnboardingComponent,void (void),FNotThreadSafeNotCheckedDelegateUserPolicy,EOnboardingHint>::CreateCopy(TDelegateBase<FDefaultTSDelegateUserPolicy::FThreadSafetyMode> &) const"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(956): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(956): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Private\ARangedWeapon.cpp(169): note: выполняется компиляция ссылки на экземпляр шаблон функции "TDelegate<void (void),FNotThreadSafeNotCheckedDelegateUserPolicy> TDelegate<void (void),FNotThreadSafeNotCheckedDelegateUserPolicy>::CreateWeakLambda<ARangedWeapon,ARangedWeapon::PlayFireVisuals::<lambda_2>,>(UserClass *,FunctorType &&)"
+        with
+        [
+            UserClass=ARangedWeapon,
+            FunctorType=ARangedWeapon::PlayFireVisuals::<lambda_2>
+        ]
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Private\ARangedWeapon.cpp(168): note: см. первую ссылку на "TDelegate<void (void),FNotThreadSafeNotCheckedDelegateUserPolicy>::CreateWeakLambda" в "ARangedWeapon::PlayFireVisuals"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateSignatureImpl.inl(411): note: выполняется компиляция ссылки на экземпляр класс шаблон функции "TWeakBaseFunctorDelegateInstance<ARangedWeapon,void (void),FNotThreadSafeNotCheckedDelegateUserPolicy,ARangedWeapon::PlayFireVisuals::<lambda_2>>"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(956): note: во время компиляции функции-члена класс шаблон "void TWeakBaseFunctorDelegateInstance<ARangedWeapon,void (void),FNotThreadSafeNotCheckedDelegateUserPolicy,ARangedWeapon::PlayFireVisuals::<lambda_2>>::CreateCopy(TDelegateBase<FNotThreadSafeNotCheckedDelegateUserPolicy::FThreadSafetyMode> &) const"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(951): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(951): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(951): note: во время компиляции функции-члена класс шаблон "void TWeakBaseFunctorDelegateInstance<ARangedWeapon,void (void),FNotThreadSafeNotCheckedDelegateUserPolicy,ARangedWeapon::PlayFireVisuals::<lambda_2>>::CreateCopy(TDelegateBase<FDefaultDelegateUserPolicy::FThreadSafetyMode> &) const"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(946): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(946): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(946): note: во время компиляции функции-члена класс шаблон "void TWeakBaseFunctorDelegateInstance<ARangedWeapon,void (void),FNotThreadSafeNotCheckedDelegateUserPolicy,ARangedWeapon::PlayFireVisuals::<lambda_2>>::CreateCopy(TDelegateBase<FDefaultTSDelegateUserPolicy::FThreadSafetyMode> &) const"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(857): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(857): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Slate\Public\Widgets\Layout\SConstraintCanvas.h(47): note: выполняется компиляция ссылки на экземпляр класс шаблон функции "TAttribute<FAnchors>"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Misc\Attribute.h(202): note: во время компиляции функции-члена класс шаблон "TAttribute<FAnchors> TAttribute<FAnchors>::Create(TFunction<ObjectType (void)> &&)"
+        with
+        [
+            ObjectType=FAnchors
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Slate\Public\Widgets\Layout\SConstraintCanvas.h(47): note: см. первую ссылку на "TAttribute<FAnchors>::Create" в "SConstraintCanvas::FSlot::FSlotArguments::Anchors_Lambda"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Misc\Attribute.h(204): note: выполняется компиляция ссылки на экземпляр шаблон функции "TDelegate<ObjectType (void),FDefaultDelegateUserPolicy> TDelegate<ObjectType (void),FDefaultDelegateUserPolicy>::CreateLambda<TFunction<ObjectType (void)>,>(FunctorType &&)"
+        with
+        [
+            ObjectType=FAnchors,
+            FunctorType=TFunction<FAnchors (void)>
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateSignatureImpl.inl(380): note: выполняется компиляция ссылки на экземпляр класс шаблон функции "TBaseFunctorDelegateInstance<FAnchors (void),FDefaultDelegateUserPolicy,TFunction<ObjectType (void)>>"
+        with
+        [
+            ObjectType=FAnchors
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(857): note: во время компиляции функции-члена класс шаблон "void TBaseFunctorDelegateInstance<FAnchors (void),FDefaultDelegateUserPolicy,TFunction<ObjectType (void)>>::CreateCopy(TDelegateBase<FNotThreadSafeNotCheckedDelegateUserPolicy::FThreadSafetyMode> &) const"
+        with
+        [
+            ObjectType=FAnchors
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(852): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(852): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(852): note: во время компиляции функции-члена класс шаблон "void TBaseFunctorDelegateInstance<FAnchors (void),FDefaultDelegateUserPolicy,TFunction<ObjectType (void)>>::CreateCopy(TDelegateBase<FDefaultDelegateUserPolicy::FThreadSafetyMode> &) const"
+        with
+        [
+            ObjectType=FAnchors
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(847): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(847): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(847): note: во время компиляции функции-члена класс шаблон "void TBaseFunctorDelegateInstance<FAnchors (void),FDefaultDelegateUserPolicy,TFunction<ObjectType (void)>>::CreateCopy(TDelegateBase<FDefaultTSDelegateUserPolicy::FThreadSafetyMode> &) const"
+        with
+        [
+            ObjectType=FAnchors
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(140): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(140): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\UMG\Public\Blueprint\UserWidget.h(1677): note: выполняется компиляция ссылки на экземпляр шаблон функции "TAttribute<FSlateColor> TAttribute<FSlateColor>::Create<UObject>(SourceType *,const FName &)"
+        with
+        [
+            SourceType=UObject
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\UMG\Public\Blueprint\UserWidget.h(1677): note: см. первую ссылку на "TAttribute<FSlateColor>::Create" в "UUserWidget::K2_Gate_ForegroundColor"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Misc\Attribute.h(198): note: выполняется компиляция ссылки на экземпляр шаблон функции "void TAttribute<FSlateColor>::BindUFunction<UObject>(SourceType *,const FName &)"
+        with
+        [
+            SourceType=UObject
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Misc\Attribute.h(383): note: выполняется компиляция ссылки на экземпляр шаблон функции "void TDelegateRegistration<InRetValType (void),UserPolicy>::BindUFunction<SourceType,>(UObjectTemplate *,const FName &)"
+        with
+        [
+            InRetValType=FSlateColor,
+            UserPolicy=FDefaultDelegateUserPolicy,
+            SourceType=UObject,
+            UObjectTemplate=UObject
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateSignatureImpl.inl(261): note: выполняется компиляция ссылки на экземпляр класс шаблон функции "TBaseUFunctionDelegateInstance<SourceType,FSlateColor (void),UserPolicy>"
+        with
+        [
+            SourceType=UObject,
+            UserPolicy=FDefaultDelegateUserPolicy
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(140): note: во время компиляции функции-члена класс шаблон "void TBaseUFunctionDelegateInstance<SourceType,FSlateColor (void),UserPolicy>::CreateCopy(TDelegateBase<FNotThreadSafeNotCheckedDelegateUserPolicy::FThreadSafetyMode> &) const"
+        with
+        [
+            SourceType=UObject,
+            UserPolicy=FDefaultDelegateUserPolicy
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(135): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(135): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(135): note: во время компиляции функции-члена класс шаблон "void TBaseUFunctionDelegateInstance<SourceType,FSlateColor (void),UserPolicy>::CreateCopy(TDelegateBase<FDefaultDelegateUserPolicy::FThreadSafetyMode> &) const"
+        with
+        [
+            SourceType=UObject,
+            UserPolicy=FDefaultDelegateUserPolicy
+        ]
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(130): warning C4459: объявление "Base" скрывает глобальное объявление
+E:\ContrarySurvior\ContrarySurvivor\Source\ContrarySurvivor\Tests\RetentionAutomationTests.cpp(24): note:  см. объявление "`anonymous-namespace'::Base"
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(130): note: контекст создания экземпляра шаблона (сначала самый старый)
+E:\UnrealEngine\UE_5.5\Engine\Source\Runtime\Core\Public\Delegates\DelegateInstancesImpl.h(130): note: во время компиляции функции-члена класс шаблон "void TBaseUFunctionDelegateInstance<SourceType,FSlateColor (void),UserPolicy>::CreateCopy(TDelegateBase<FDefaultTSDelegateUserPolicy::FThreadSafetyMode> &) const"
+        with
+        [
+            SourceType=UObject,
+            UserPolicy=FDefaultDelegateUserPolicy
+        ]
+[8/11] Compile [x64] Module.ContrarySurvivor.5.cpp
+[9/11] Link [x64] UnrealEditor-ContrarySurvivor.lib
+   Создается библиотека E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\x64\UnrealEditor\Development\ContrarySurvivor\UnrealEditor-ContrarySurvivor.lib и объект E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\x64\UnrealEditor\Development\ContrarySurvivor\UnrealEditor-ContrarySurvivor.exp
+[10/11] Link [x64] UnrealEditor-ContrarySurvivor.dll
+   Создание объекта E:\ContrarySurvior\ContrarySurvivor\Binaries\Win64\UnrealEditor-ContrarySurvivor.exp
+[11/11] WriteMetadata ContrarySurvivorEditor.target (UBA disabled)
+Trace file written to C:/Users/pgr40/AppData/Local/UnrealBuildTool/Log.uba with size 5.1kb
+Total time in Unreal Build Accelerator local executor: 8.91 seconds
+Total execution time: 17.37 seconds

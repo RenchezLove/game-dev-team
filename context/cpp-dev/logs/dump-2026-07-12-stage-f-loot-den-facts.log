@@ -1,0 +1,24 @@
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP: === BEGIN stage-f facts dump ===
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP: CDO /Game/Characters/Bandit/BP_EnemyBandit.BP_EnemyBandit_C
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   LootMoneyMin = 10.0
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   LootMoneyMax = 30.0
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   LootItemDropChance = 0.3499999940395355
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   LootItemClass = <Object '/Script/ContrarySurvivor.ConsumableItem' (0x00000752FB36F780) Class 'Class'>
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   PickupClass = <Object '/Script/ContrarySurvivor.Pickup' (0x0000075309044380) Class 'Class'>
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   BanditMaxHealth = 80.0
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP: CDO /Game/Characters/Bandit/BP_BanditBase.BP_BanditBase_C
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   EnemyClass = <Object '/Game/Characters/Bandit/BP_EnemyBandit.BP_EnemyBandit_C' (0x0000075309CBE000) Class 'BlueprintGeneratedClass'>
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   NumToSpawn = 3
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   QuestMarkerTag = None
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   bSpawnQuestItem = True
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   QuestItemName = Ноутбук
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP: CDO /Game/Characters/Wolf/BP_WolfDen.BP_WolfDen_C
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   EnemyClass = <Object '/Game/Characters/Wolf/BP_Wolf.BP_Wolf_C' (0x0000075309CB9A00) Class 'BlueprintGeneratedClass'>
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   NumToSpawn = 4
+[2026.07.12-07.31.29:042][  2]LogPython: CPPDUMP:   QuestMarkerTag = None
+[2026.07.12-07.31.38:861][  2]LogPython: CPPDUMP: map loaded: L_World_C
+[2026.07.12-07.31.38:861][  2]LogPython: CPPDUMP: map actors total=101
+[2026.07.12-07.31.38:861][  2]LogPython: CPPDUMP: BASE label='BP_BanditBase' name=BP_BanditBase_C_0 class=BP_BanditBase_C QuestMarkerTag='BanditBase' EnemyClass=<Object '/Game/Characters/Bandit/BP_EnemyBandit.BP_EnemyBandit_C' (0x0000075309CBE000) Class 'BlueprintGeneratedClass'> NumToSpawn=3
+[2026.07.12-07.31.38:861][  2]LogPython: CPPDUMP: BASE label='BP_WolfDen' name=BP_WolfDen_C_0 class=BP_WolfDen_C QuestMarkerTag='WolfDen' EnemyClass=<Object '/Game/Characters/Wolf/BP_Wolf.BP_Wolf_C' (0x0000075309CB9A00) Class 'BlueprintGeneratedClass'> NumToSpawn=4
+[2026.07.12-07.31.38:861][  2]LogPython: CPPDUMP: BASE label='BP_WolfDen2' name=BP_WolfDen_C_2 class=BP_WolfDen_C QuestMarkerTag='WolfDen2' EnemyClass=<Object '/Game/Characters/Wolf/BP_Wolf.BP_Wolf_C' (0x0000075309CB9A00) Class 'BlueprintGeneratedClass'> NumToSpawn=4
+[2026.07.12-07.31.38:861][  2]LogPython: CPPDUMP: === END stage-f facts dump ===
