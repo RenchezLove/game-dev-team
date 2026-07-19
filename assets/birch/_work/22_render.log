@@ -1,0 +1,25 @@
+E:\game-dev-team\assets\birch\_work\22_render_recolor.py:25: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+E:\game-dev-team\assets\birch\_work\22_render_recolor.py:109: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+00:02.204  render           | Saved: 'E:\game-dev-team\assets\birch\renders\recolor\01_lineup_side.png'
+00:02.829  render           | Saved: 'E:\game-dev-team\assets\birch\renders\recolor\02_lineup_gamecam_angle.png'
+00:03.329  render           | Saved: 'E:\game-dev-team\assets\birch\renders\recolor\03_lineup_topdown.png'
+00:03.735  render           | Saved: 'E:\game-dev-team\assets\birch\renders\recolor\04_trunk_closeup.png'
+00:04.172  render           | Saved: 'E:\game-dev-team\assets\birch\renders\recolor\05_grove_gameplay_scale.png'
+00:04.641  render           | Saved: 'E:\game-dev-team\assets\birch\renders\recolor\06_grove_closer.png'
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+=== РЕНДЕРЫ ПЕРЕКРАСКИ ===
+  RENDER 01_lineup_side.png                         exists=True
+  RENDER 02_lineup_gamecam_angle.png                exists=True
+  RENDER 03_lineup_topdown.png                      exists=True
+  RENDER 04_trunk_closeup.png                       exists=True
+  RENDER 05_grove_gameplay_scale.png                exists=True
+  RENDER 06_grove_closer.png                        exists=True
+DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

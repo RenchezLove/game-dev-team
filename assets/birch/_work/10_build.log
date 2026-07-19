@@ -1,0 +1,27 @@
+E:\game-dev-team\assets\birch\_work\10_build_birch.py:215: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+=== СБОРКА БЕРЁЗЫ ===
+  LOD0 (крона+ствол)           tris=226   verts=125   dim=(1.070, 0.935, 2.111) zmin=0.0000 vol=+0.51453 uv=['UVMap'] vcol=['Col']
+  LOD1                         tris=116   verts=66    dim=(0.897, 0.806, 2.111) zmin=0.0000 vol=+0.37840 uv=['UVMap'] vcol=['Col']
+  LOD2                         tris=60    verts=36    dim=(0.829, 0.797, 2.111) zmin=0.0000 vol=+0.30735 uv=['UVMap'] vcol=['Col']
+  UCX (коллизия)               tris=20    verts=12    dim=(0.340, 0.294, 2.000) zmin=0.0000 vol=+0.15017 uv=[] vcol=['Col']
+  ИТОГО рендер-трисов LOD0=226 LOD1=116 LOD2=60, коллизия=20
+=== ЭКСПОРТ ===
+
+FBX export starting... 'E:/game-dev-team/assets/birch/SM_Tree_Birch_01.fbx'
+export finished in 0.0071 sec.
+  EXPORT E:/game-dev-team/assets/birch/SM_Tree_Birch_01.fbx exists=True size=28796
+
+FBX export starting... 'E:/game-dev-team/assets/birch/SM_Tree_Birch_01_LOD1.fbx'
+export finished in 0.0053 sec.
+  EXPORT E:/game-dev-team/assets/birch/SM_Tree_Birch_01_LOD1.fbx exists=True size=20988
+
+FBX export starting... 'E:/game-dev-team/assets/birch/SM_Tree_Birch_01_LOD2.fbx'
+export finished in 0.0040 sec.
+  EXPORT E:/game-dev-team/assets/birch/SM_Tree_Birch_01_LOD2.fbx exists=True size=18668
+Info: Saved as "_qc_birch.blend"
+  BLEND True
+DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

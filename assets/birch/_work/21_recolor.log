@@ -1,0 +1,31 @@
+=== ЭТАЛОН (исходный SM_Tree_01) ===
+FBX version: 7400
+  tris=112 verts=60 polys=112
+=== ПЕРЕКРАСКА ===
+FBX version: 7400
+  SM_Tree_01_birch                   перекрашено углов: ствол=96 крона=240 (граней ствола=32 кроны=80)
+     ГЕОМЕТРИЯ ИДЕНТИЧНА ЭТАЛОНУ: True  (tris 112 -> 112)
+
+FBX export starting... 'E:/game-dev-team/assets/birch/SM_Tree_01_birch.fbx'
+export finished in 0.0037 sec.
+     EXPORT SM_Tree_01_birch.fbx exists=True size=19868
+FBX version: 7400
+  SM_Tree_01_birch_origcrown         перекрашено углов: ствол=96 крона=0 (граней ствола=32 кроны=80)
+     ГЕОМЕТРИЯ ИДЕНТИЧНА ЭТАЛОНУ: True  (tris 112 -> 112)
+
+FBX export starting... 'E:/game-dev-team/assets/birch/SM_Tree_01_birch_origcrown.fbx'
+export finished in 0.0029 sec.
+     EXPORT SM_Tree_01_birch_origcrown.fbx exists=True size=19868
+FBX version: 7400
+  SM_Tree_01_birch_whitetrunk        перекрашено углов: ствол=96 крона=240 (граней ствола=32 кроны=80)
+     ГЕОМЕТРИЯ ИДЕНТИЧНА ЭТАЛОНУ: True  (tris 112 -> 112)
+
+FBX export starting... 'E:/game-dev-team/assets/birch/SM_Tree_01_birch_whitetrunk.fbx'
+export finished in 0.0037 sec.
+     EXPORT SM_Tree_01_birch_whitetrunk.fbx exists=True size=19804
+Info: Saved as "_qc_recolor.blend"
+  BLEND True
+DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

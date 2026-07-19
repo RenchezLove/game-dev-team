@@ -1,0 +1,52 @@
+========================================================================
+FILE SM_Tree_Birch_01.fbx exists=True size=28796
+FBX version: 7400
+  obj=SM_Tree_Birch_01           tris=226   verts=125  ngons=0
+     loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+     bbox X[-0.560..0.511] Y[-0.374..0.561] Z[-0.000..2.111] size=(1.070, 0.935, 2.111)
+     color_attrs=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] materials=['M_Birch']
+     uv range U[0.009..0.991] V[0.009..0.979]
+     vcol uniq=5:
+        #CCC6AF  углов=303
+        #1B320C  углов=180
+        #0D1A08  углов=120
+        #030402  углов=48
+        #0B0E08  углов=27
+     незамкнутых рёбер=0
+  obj=UCX_SM_Tree_Birch_01_01    tris=20    verts=12   ngons=0
+     loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+     bbox X[-0.160..0.180] Y[-0.087..0.207] Z[-0.000..2.000] size=(0.340, 0.294, 2.000)
+     color_attrs=[('Col', 'CORNER', 'BYTE_COLOR')] uv=[] materials=['M_Birch']
+     vcol uniq=1:
+        #28251E  углов=60
+     незамкнутых рёбер=0
+========================================================================
+FILE SM_Tree_Birch_01_LOD1.fbx exists=True size=20988
+FBX version: 7400
+  obj=SM_Tree_Birch_01_LOD1      tris=116   verts=66   ngons=0
+     loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+     bbox X[-0.387..0.511] Y[-0.245..0.561] Z[-0.000..2.111] size=(0.897, 0.806, 2.111)
+     color_attrs=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] materials=['M_Birch.001']
+     uv range U[0.007..0.942] V[0.007..0.993]
+     vcol uniq=3:
+        #1B320C  углов=180
+        #CCC6AF  углов=141
+        #0B0E08  углов=27
+     незамкнутых рёбер=0
+========================================================================
+FILE SM_Tree_Birch_01_LOD2.fbx exists=True size=18668
+FBX version: 7400
+  obj=SM_Tree_Birch_01_LOD2      tris=60    verts=36   ngons=0
+     loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+     bbox X[-0.387..0.442] Y[-0.245..0.551] Z[-0.000..2.111] size=(0.829, 0.797, 2.111)
+     color_attrs=[('Col', 'CORNER', 'BYTE_COLOR')] uv=['UVMap'] materials=['M_Birch.002']
+     uv range U[0.006..0.994] V[0.006..0.817]
+     vcol uniq=3:
+        #1B320C  углов=120
+        #CCC6AF  углов=54
+        #0B0E08  углов=6
+     незамкнутых рёбер=0
+DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,37 @@
+00:00.312  blend            | Read blend: "E:\game-dev-team\assets\birch\_work\_qc_birch.blend"
+E:\game-dev-team\assets\birch\_work\13_render_birch.py:26: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+E:\game-dev-team\assets\birch\_work\13_render_birch.py:122: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+00:02.031  render           | Saved: 'E:\game-dev-team\assets\birch\renders\01_birch_front.png'
+00:02.468  render           | Saved: 'E:\game-dev-team\assets\birch\renders\02_birch_side.png'
+00:02.906  render           | Saved: 'E:\game-dev-team\assets\birch\renders\03_birch_back.png'
+00:03.343  render           | Saved: 'E:\game-dev-team\assets\birch\renders\04_birch_bark_closeup.png'
+00:03.797  render           | Saved: 'E:\game-dev-team\assets\birch\renders\05_birch_topdown_strict.png'
+00:04.250  render           | Saved: 'E:\game-dev-team\assets\birch\renders\06_birch_wireframe.png'
+00:04.703  render           | Saved: 'E:\game-dev-team\assets\birch\renders\07_size_vs_SM_Tree_01.png'
+00:05.203  render           | Saved: 'E:\game-dev-team\assets\birch\renders\08_size_vs_SM_Tree_01_top.png'
+00:05.687  render           | Saved: 'E:\game-dev-team\assets\birch\renders\09_lods_0_1_2.png'
+00:06.156  render           | Saved: 'E:\game-dev-team\assets\birch\renders\10_lods_0_1_2_wire.png'
+00:06.625  render           | Saved: 'E:\game-dev-team\assets\birch\renders\11_collision_UCX.png'
+00:07.062  render           | Saved: 'E:\game-dev-team\assets\birch\renders\12_gameplay_camera_grove.png'
+00:07.468  render           | Saved: 'E:\game-dev-team\assets\birch\renders\13_gameplay_camera_birch_only.png'
+FBX version: 7400
+=== РЕНДЕРЫ ===
+  RENDER 01_birch_front.png                       exists=True size=1119774
+  RENDER 02_birch_side.png                        exists=True size=1122119
+  RENDER 03_birch_back.png                        exists=True size=1117610
+  RENDER 04_birch_bark_closeup.png                exists=True size=1177522
+  RENDER 05_birch_topdown_strict.png              exists=True size=1079685
+  RENDER 06_birch_wireframe.png                   exists=True size=1131053
+  RENDER 07_size_vs_SM_Tree_01.png                exists=True size=1200003
+  RENDER 08_size_vs_SM_Tree_01_top.png            exists=True size=1180923
+  RENDER 09_lods_0_1_2.png                        exists=True size=1283083
+  RENDER 10_lods_0_1_2_wire.png                   exists=True size=1283083
+  RENDER 11_collision_UCX.png                     exists=True size=1120537
+  RENDER 12_gameplay_camera_grove.png             exists=True size=893256
+  RENDER 13_gameplay_camera_birch_only.png        exists=True size=873331
+DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
