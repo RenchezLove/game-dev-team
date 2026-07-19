@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#63723a"/>
+      <stop offset="1" stop-color="#4f5c30"/>
+    </linearGradient>
+    <radialGradient id="fire" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0" stop-color="#f0be5a"/>
+      <stop offset="1" stop-color="#b5791f"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#grass)"/>
+  <!-- safe zone -->
+  <rect x="40" y="40" width="1520" height="820" rx="26" fill="none" stroke="#ffffff66" stroke-width="2" stroke-dasharray="10 8"/>
+  <text x="52" y="856" fill="#ffffff88" font-size="15">безопасная зона — кнопки не выносить за пунктир (скругления экрана, системные жесты)</text>
+
+  <!-- HUD top-left -->
+  <g>
+    <rect x="56" y="52" width="250" height="118" rx="10" fill="#15201388" />
+    <rect x="70" y="64" width="222" height="18" rx="4" fill="#3a2020"/><rect x="70" y="64" width="150" height="18" rx="4" fill="#c9423a"/><text x="78" y="78" fill="#fff" font-size="12">HP</text>
+    <rect x="70" y="90" width="222" height="18" rx="4" fill="#3a2e18"/><rect x="70" y="90" width="130" height="18" rx="4" fill="#d99a3a"/><text x="78" y="104" fill="#fff" font-size="12">Голод</text>
+    <rect x="70" y="116" width="222" height="18" rx="4" fill="#1c2c38"/><rect x="70" y="116" width="120" height="18" rx="4" fill="#4a90c2"/><text x="78" y="130" fill="#fff" font-size="12">Жажда</text>
+    <text x="70" y="156" fill="#e8e2d0" font-size="13">Патроны 12 / 48</text><text x="220" y="156" fill="#f0be5a" font-size="13">◎ 50</text>
+  </g>
+
+  <!-- objective pill top-center -->
+  <g>
+    <rect x="600" y="52" width="400" height="46" rx="23" fill="#152013cc" stroke="#e0a53a" stroke-width="2"/>
+    <text x="800" y="81" fill="#ffffff" font-size="19" text-anchor="middle">⚑  Добраться до деревни</text>
+    <text x="800" y="118" fill="#ffffffaa" font-size="13" text-anchor="middle">задача — верх по центру, всегда одна строка</text>
+  </g>
+
+  <!-- inventory top-right -->
+  <g>
+    <circle cx="1500" cy="92" r="34" fill="#2a332680" stroke="#ffffff88" stroke-width="2"/>
+    <rect x="1487" y="79" width="12" height="12" rx="2" fill="#fff"/><rect x="1501" y="79" width="12" height="12" rx="2" fill="#fff"/><rect x="1487" y="93" width="12" height="12" rx="2" fill="#fff"/><rect x="1501" y="93" width="12" height="12" rx="2" fill="#fff"/>
+    <text x="1500" y="146" fill="#fff" font-size="13" text-anchor="middle">Инвентарь</text>
+    <text x="1500" y="164" fill="#ffffffaa" font-size="12" text-anchor="middle">≈64 px · не жмут в бою</text>
+  </g>
+
+  <!-- movement stick bottom-left -->
+  <g>
+    <circle cx="235" cy="675" r="105" fill="#00000033" stroke="#ffffff88" stroke-width="2" stroke-dasharray="6 6"/>
+    <circle cx="235" cy="675" r="46" fill="#e8e2d0" opacity="0.85"/>
+    <text x="235" y="812" fill="#fff" font-size="14" text-anchor="middle">Стик движения</text>
+    <text x="235" y="830" fill="#ffffffaa" font-size="12" text-anchor="middle">плавающий · зона Ø≈200 px</text>
+  </g>
+
+  <!-- run -->
+  <g>
+    <circle cx="455" cy="700" r="40" fill="#2a332680" stroke="#ffffff88" stroke-width="2"/>
+    <path d="M443 686 l14 14 -14 14 M455 686 l14 14 -14 14" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="455" y="762" fill="#fff" font-size="13" text-anchor="middle">Бег</text>
+    <text x="455" y="779" fill="#ffffffaa" font-size="11" text-anchor="middle">≈80 px · у стика</text>
+  </g>
+
+  <!-- RIGHT combat cluster -->
+  <!-- fire (primary) -->
+  <g>
+    <circle cx="1455" cy="730" r="64" fill="url(#fire)" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="1455" cy="730" r="22" fill="none" stroke="#3a2400" stroke-width="4"/>
+    <path d="M1455 698 v14 M1455 748 v14 M1423 730 h14 M1473 730 h14" stroke="#3a2400" stroke-width="4" stroke-linecap="round"/>
+    <text x="1455" y="820" fill="#fff" font-size="15" text-anchor="middle" font-weight="bold">Огонь</text>
+  </g>
+  <!-- reload -->
+  <g>
+    <circle cx="1490" cy="588" r="44" fill="#2a332680" stroke="#ffffff88" stroke-width="2"/>
+    <path d="M1490 566 a22 22 0 1 1 -20 13" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M1490 560 l0 12 -10 -2 z" fill="#fff"/>
+    <text x="1490" y="650" fill="#fff" font-size="13" text-anchor="middle">Перезаряд</text>
+  </g>
+  <!-- weapon switch -->
+  <g>
+    <circle cx="1338" cy="560" r="40" fill="#2a332680" stroke="#ffffff88" stroke-width="2"/>
+    <path d="M1320 556 h26 v6 h-8 l-4 8 h-6 v-8 h-8 z" fill="#fff"/>
+    <text x="1338" y="620" fill="#fff" font-size="13" text-anchor="middle">Оружие</text>
+  </g>
+  <!-- action (contextual) -->
+  <g>
+    <circle cx="1300" cy="700" r="46" fill="#2a332666" stroke="#e0a53a" stroke-width="2.5" stroke-dasharray="7 6"/>
+    <path d="M1300 682 v26 M1288 698 l12 12 12 -12" fill="none" stroke="#f0be5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1300" y="764" fill="#fff" font-size="13" text-anchor="middle">Действие</text>
+    <text x="1300" y="781" fill="#f0be5a" font-size="11" text-anchor="middle">только у объекта</text>
+  </g>
+
+  <!-- size callouts -->
+  <g font-size="13" fill="#152013" >
+    <g><rect x="1300" y="852" width="196" height="26" rx="13" fill="#f0be5a"/><text x="1398" y="870" text-anchor="middle">Огонь ≈120 px — самая крупная</text></g>
+    <g><rect x="1150" y="486" width="150" height="24" rx="12" fill="#f0be5a"/><text x="1225" y="503" text-anchor="middle">второстепенные ≈80 px</text></g>
+    <line x1="1225" y1="510" x2="1300" y2="540" stroke="#f0be5a" stroke-width="2"/>
+    <line x1="1398" y1="852" x2="1455" y2="794" stroke="#f0be5a" stroke-width="2"/>
+  </g>
+
+  <!-- legend card -->
+  <g>
+    <rect x="520" y="300" width="560" height="230" rx="14" fill="#0f1810dd" stroke="#ffffff33"/>
+    <text x="544" y="336" fill="#f0be5a" font-size="18" font-weight="bold">Правила</text>
+    <text x="544" y="368" fill="#eee" font-size="15">• Левый низ — движение, правый низ — боевой кластер.</text>
+    <text x="544" y="394" fill="#eee" font-size="15">• «Огонь» крупнее и ярче всех, свой акцентный цвет.</text>
+    <text x="544" y="420" fill="#eee" font-size="15">• В покое кнопки полупрозрачные (~45%), при нажатии —</text>
+    <text x="560" y="442" fill="#eee" font-size="15">вспышка + вибро-отклик.</text>
+    <text x="544" y="468" fill="#eee" font-size="15">• Иконки вместо слов; подпись — только если неочевидно.</text>
+    <text x="544" y="494" fill="#eee" font-size="15">• Недоступную кнопку гасить серой (напр. «Перезаряд»</text>
+    <text x="560" y="516" fill="#eee" font-size="15">при полном магазине).</text>
+  </g>
+
+  <!-- title -->
+  <text x="800" y="30" fill="#ffffffcc" font-size="16" text-anchor="middle">ТЗ · Раскладка игровых кнопок (телефон, альбомная 16:9) · ContrarySurvivor · черновик 2026-07-19</text>
+</svg>
