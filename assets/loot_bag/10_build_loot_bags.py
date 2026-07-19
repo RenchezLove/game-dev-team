@@ -45,8 +45,10 @@ def box(bm, mn, mx, part):
         f.material_index = part
 
 
-def lathe(bm, profile, n, part, ang0=0.0):
-    """profile = [(r,z), ...]; r==0 entries are poles (fan caps)."""
+def lathe(bm, profile, n, part, ang0=0.0, jit=None):
+    """profile = [(r,z), ...]; r==0 entries are poles (fan caps).
+    jit = per-angle radius multipliers (len n) that break the circular
+    top-down outline so the prop does not read as a ball."""
     entries = []
     for r, z in profile:
         if r == 0.0:
@@ -55,7 +57,9 @@ def lathe(bm, profile, n, part, ang0=0.0):
             ring = []
             for k in range(n):
                 a = ang0 + 2.0 * math.pi * k / n
-                ring.append(bm.verts.new((r * math.cos(a), r * math.sin(a), z)))
+                rk = r * (jit[k] if jit else 1.0)
+                ring.append(bm.verts.new((rk * math.cos(a),
+                                          rk * math.sin(a), z)))
             entries.append(('ring', ring))
     for i in range(len(entries) - 1):
         ka, va = entries[i]
@@ -106,17 +110,26 @@ def slab(bm, path, x0, x1, th, sign, part):
 
 
 def build_sack():
+    """Cinched cloth sack. Read from the top-down game camera must be
+    'tied sack', not 'ball': lumpy non-circular body (jit), a narrow amber
+    neck band, a SMALL pale tuft above it, and two tie ends splaying past
+    the body outline so the silhouette is not a disc."""
     bm = bmesh.new()
-    profile = [(0.0, 0.0), (0.13, 0.0), (0.175, 0.055), (0.185, 0.13),
-               (0.145, 0.21), (0.09, 0.26), (0.078, 0.30),
-               (0.115, 0.345), (0.055, 0.40), (0.0, 0.415)]
-    lathe(bm, profile, 8, P_BODY, math.radians(22.5))
-    # knot at front (+Y) of the neck
-    box(bm, (-0.034, 0.06, 0.255), (0.034, 0.105, 0.305), P_KNOT)
-    # two tie ends draping down the front shoulder of the bag
-    tie_path = [(0.095, 0.272), (0.148, 0.222), (0.168, 0.178)]
-    slab(bm, tie_path, -0.056, -0.028, 0.012, 1, P_TIE)
-    slab(bm, tie_path, 0.028, 0.056, 0.012, 1, P_TIE)
+    # The collar FLARES OUT (rings 5-7) instead of being a vertical band: a
+    # vertical band projects to a hairline under a top-down camera, a flared
+    # one reads as a proper amber tie ring around the neck.
+    profile = [(0.0, 0.0), (0.15, 0.0), (0.19, 0.07), (0.165, 0.155),
+               (0.10, 0.225), (0.062, 0.255), (0.098, 0.272),
+               (0.060, 0.295), (0.052, 0.335), (0.0, 0.375)]
+    jit = (1.00, 0.86, 1.07, 0.90, 1.02, 0.87, 1.08, 0.92)
+    lathe(bm, profile, 8, P_BODY, math.radians(22.5), jit=jit)
+    # knot bulging off the front (+Y) of the collar
+    box(bm, (-0.032, 0.085, 0.258), (0.032, 0.135, 0.300), P_KNOT)
+    # two uneven tie ends draping down the front slope
+    slab(bm, [(0.115, 0.288), (0.155, 0.232), (0.178, 0.165)],
+         -0.050, -0.022, 0.011, 1, P_TIE)
+    slab(bm, [(0.115, 0.288), (0.163, 0.222), (0.196, 0.140)],
+         0.022, 0.050, 0.011, 1, P_TIE)
     return bm
 
 
@@ -131,25 +144,26 @@ def build_pack():
                 (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)):
         f = bm.faces.new([vs[i] for i in idx])
         f.material_index = P_BODY
-    # leather flap over the top, hanging down the front (+Y)
-    slab(bm, [(-0.06, 0.295), (0.0, 0.325), (0.058, 0.315),
-              (0.085, 0.24), (0.082, 0.155)], -0.12, 0.12, 0.022, 1, P_FLAP)
+    # leather flap over the top, hanging down the front (+Y). Narrower in X
+    # than the body so the blue-grey body still reads around it from above.
+    slab(bm, [(-0.05, 0.298), (0.0, 0.322), (0.058, 0.312),
+              (0.085, 0.24), (0.082, 0.155)], -0.08, 0.08, 0.020, 1, P_FLAP)
     # front pocket
     box(bm, (-0.085, 0.055, 0.025), (0.085, 0.115, 0.125), P_POCKET)
-    # shoulder straps on the back (-Y), bowed outward
-    strap_path = [(-0.055, 0.285), (-0.105, 0.16), (-0.065, 0.02)]
-    slab(bm, strap_path, -0.085, -0.045, 0.016, -1, P_STRAP)
-    slab(bm, strap_path, 0.045, 0.085, 0.016, -1, P_STRAP)
-    # buckle straps on flap front: dark strap + slightly proud amber buckle
+    # shoulder straps on the back (-Y), bowed just enough to read in profile
+    # without poking out as separate "legs" in the top-down silhouette
+    strap_path = [(-0.052, 0.285), (-0.088, 0.16), (-0.060, 0.02)]
+    slab(bm, strap_path, -0.082, -0.046, 0.015, -1, P_STRAP)
+    slab(bm, strap_path, 0.046, 0.082, 0.015, -1, P_STRAP)
+    # dark strap tails down the flap front + amber buckles sitting on the
+    # UPPER face of the flap, where the top-down camera can actually see them
     for sx in (-1, 1):
-        box(bm, (sx * 0.063 - (0.026 if sx < 0 else 0), 0.075, 0.15)
-            if False else
-            (min(sx * 0.063, sx * 0.037), 0.075, 0.15),
-            (max(sx * 0.063, sx * 0.037), 0.106, 0.195), P_BUCK_A)
-        box(bm, (min(sx * 0.063, sx * 0.037), 0.075, 0.185),
-            (max(sx * 0.063, sx * 0.037), 0.100, 0.26), P_BUCK_D)
-    # top carry handle
-    box(bm, (-0.045, -0.048, 0.295), (0.045, -0.018, 0.328), P_HANDLE)
+        box(bm, (min(sx * 0.060, sx * 0.034), 0.078, 0.150),
+            (max(sx * 0.060, sx * 0.034), 0.104, 0.245), P_BUCK_D)
+        box(bm, (min(sx * 0.060, sx * 0.034), -0.012, 0.315),
+            (max(sx * 0.060, sx * 0.034), 0.070, 0.340), P_BUCK_A)
+    # top carry handle, amber = the "grab me" accent seen from straight above
+    box(bm, (-0.042, -0.050, 0.298), (0.042, -0.020, 0.334), P_HANDLE)
     return bm
 
 
@@ -159,13 +173,13 @@ def paint_sack(me):
         if pid in (P_KNOT, P_TIE):
             return HEX['AmberLoot']
         z = p.center.z
-        if z < 0.06:
+        if z < 0.05:
             return HEX['Timber']       # dirty base
-        if z < 0.265:
+        if z < 0.255:
             return HEX['DryEarth']     # cloth body
-        if z < 0.307:
-            return HEX['AmberLoot']    # tie band
-        return HEX['FadedSage']        # puff above the tie
+        if z < 0.30:
+            return HEX['AmberLoot']    # flared collar, reads from above
+        return HEX['FadedSage']        # small pinched tuft above the tie
     _paint(me, rule)
 
 
@@ -176,9 +190,9 @@ def paint_pack(me):
             return HEX['ColdSteel']
         if pid in (P_FLAP, P_POCKET):
             return HEX['Timber']
-        if pid == P_BUCK_A:
-            return HEX['AmberLoot']
-        return HEX['PanelDark']        # straps, handle, dark buckle straps
+        if pid in (P_BUCK_A, P_HANDLE):
+            return HEX['AmberLoot']    # buckles + handle: top-down accent
+        return HEX['PanelDark']        # shoulder straps, strap tails
     _paint(me, rule)
 
 
@@ -317,14 +331,31 @@ def verify(path, name):
           % (name, ca.name, ca.domain, ca.data_type, sorted(census.items())))
     exp = EXPECT[name]
 
-    def near(hx):
-        r, g, b = (int(hx[i:i + 2], 16) for i in (1, 3, 5))
+    # FBX is written with colors_type='LINEAR', so a round-trip reports the
+    # LINEAR bytes of the sRGB palette hex (project convention). Compare the
+    # palette in that same space, and report which space actually matched.
+    def s2l_byte(b):
+        c = b / 255.0
+        c = c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+        return round(c * 255)
+
+    def rgb(hx):
+        return tuple(int(hx[i:i + 2], 16) for i in (1, 3, 5))
+
+    def match(hx):
+        got = rgb(hx)
         for e in exp:
-            er, eg, eb = (int(e[i:i + 2], 16) for i in (1, 3, 5))
-            if abs(r - er) <= 3 and abs(g - eg) <= 3 and abs(b - eb) <= 3:
-                return True
-        return False
-    bad = {h: n for h, n in census.items() if not near(h)}
+            er, eg, eb = rgb(e)
+            lin = (s2l_byte(er), s2l_byte(eg), s2l_byte(eb))
+            if all(abs(g - x) <= 3 for g, x in zip(got, lin)):
+                return 'LINEAR', e
+            if all(abs(g - x) <= 3 for g, x in zip(got, (er, eg, eb))):
+                return 'SRGB', e
+        return None, None
+    mapping = {h: match(h) for h in census}
+    print('VERIFY %s color_mapping=%s' % (name, sorted(
+        (h, n, mapping[h][1], mapping[h][0]) for h, n in census.items())))
+    bad = {h: n for h, n in census.items() if mapping[h][0] is None}
     magenta = census.get(HEX['Magenta'], 0)
     print('VERIFY %s palette_check=%s off_palette=%s magenta_faces=%d'
           % (name, 'PASS' if not bad else 'FAIL', bad, magenta))

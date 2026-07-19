@@ -1,0 +1,62 @@
+00:00.297  blend            | Read blend: "E:\game-dev-team\assets\loot_bag\loot_bag.blend"
+00:01.844  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootSack_front.png'
+00:02.125  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootSack_back.png'
+00:02.391  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootSack_side.png'
+00:02.672  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootSack_tq.png'
+00:02.938  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootSack_top.png'
+00:03.219  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootSack_game.png'
+00:03.500  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootBackpack_front.png'
+00:03.782  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootBackpack_back.png'
+00:04.079  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootBackpack_side.png'
+00:04.391  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootBackpack_tq.png'
+00:04.688  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootBackpack_top.png'
+00:04.985  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootBackpack_game.png'
+00:05.266  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\LootPair_front.png'
+00:05.547  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\LootPair_tq.png'
+00:05.829  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\LootPair_top.png'
+00:06.110  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\LootPair_game.png'
+E:\game-dev-team\assets\loot_bag\11_render_loot_bags.py:71: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm.use_nodes = True
+E:\game-dev-team\assets\loot_bag\11_render_loot_bags.py:82: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mm.use_nodes = True
+00:06.907  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\LootPair_gameplay_scale.png'
+00:07.735  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\LootPair_gameplay_zoom.png'
+E:\game-dev-team\assets\loot_bag\11_render_loot_bags.py:139: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  wm.use_nodes = True
+00:08.016  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootSack_wire_tq.png'
+00:08.297  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootSack_wire_top.png'
+00:08.579  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootSack_wire_game.png'
+00:08.875  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootBackpack_wire_tq.png'
+00:09.141  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootBackpack_wire_top.png'
+00:09.422  render           | Saved: 'E:\game-dev-team\assets\loot_bag\renders\SM_LootBackpack_wire_game.png'
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootSack_front.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootSack_back.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootSack_side.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootSack_tq.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootSack_top.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootSack_game.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootBackpack_front.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootBackpack_back.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootBackpack_side.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootBackpack_tq.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootBackpack_top.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootBackpack_game.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/LootPair_front.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/LootPair_tq.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/LootPair_top.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/LootPair_game.png
+GAMEPLAY cam_loc=(0.45,15.00,26.18) dist=30.0m fov=40 visible_width=21.8m
+RENDER E:/game-dev-team/assets/loot_bag/renders/LootPair_gameplay_scale.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/LootPair_gameplay_zoom.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootSack_wire_tq.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootSack_wire_top.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootSack_wire_game.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootBackpack_wire_tq.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootBackpack_wire_top.png
+RENDER E:/game-dev-team/assets/loot_bag/renders/SM_LootBackpack_wire_game.png
+RECHECK SM_LootSack source_tris=180 (wireframe modifier not applied to data)
+RECHECK SM_LootBackpack source_tris=160 (wireframe modifier not applied to data)
+RENDERS DONE -> E:/game-dev-team/assets/loot_bag/renders/
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
