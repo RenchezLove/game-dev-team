@@ -1,0 +1,34 @@
+E:\game-dev-team\assets\loot_bag\10_build_loot_bags.py:202: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+BUILD SM_LootSack      tris=180 verts=98 dims=(0.342,0.342,0.415) signed_vol=+0.02214 nonmanifold_edges=0 dup_faces=0
+BUILD SM_LootBackpack  tris=160 verts=100 dims=(0.260,0.220,0.328) signed_vol=+0.01209 nonmanifold_edges=0 dup_faces=0
+Info: Saved as "loot_bag.blend"
+SAVED E:/game-dev-team/assets/loot_bag/loot_bag.blend
+
+FBX export starting... 'E:/game-dev-team/assets/loot_bag/SM_LootSack.fbx'
+export finished in 0.0099 sec.
+EXPORTED E:/game-dev-team/assets/loot_bag/SM_LootSack.fbx
+
+FBX export starting... 'E:/game-dev-team/assets/loot_bag/SM_LootBackpack.fbx'
+export finished in 0.0055 sec.
+EXPORTED E:/game-dev-team/assets/loot_bag/SM_LootBackpack.fbx
+FBX version: 7400
+VERIFY SM_LootSack imported_meshes=1
+VERIFY SM_LootSack tris=180 verts=98 dims_m=(0.342,0.342,0.415)
+VERIFY SM_LootSack origin=(0.0000,0.0000,0.0000) scale=(1.000,1.000,1.000) bbox_z=[-0.0000..0.4150] xy_center=(0.0000,0.0000)
+VERIFY SM_LootSack vcol_attr=Col/CORNER/BYTE_COLOR census=[('#342513', 48), ('#411A08', 24), ('#525A43', 40), ('#BE5D07', 68)]
+VERIFY SM_LootSack palette_check=FAIL off_palette={'#411A08': 24, '#342513': 48, '#BE5D07': 68, '#525A43': 40} magenta_faces=0
+VERIFY SM_LootSack uv_u=[0.007..0.993] uv_v=[0.007..0.988] materials=['M_LootSack']
+VERIFY SM_LootSack tri_budget<=200: PASS (180)
+FBX version: 7400
+VERIFY SM_LootBackpack imported_meshes=1
+VERIFY SM_LootBackpack tris=160 verts=100 dims_m=(0.260,0.220,0.328)
+VERIFY SM_LootBackpack origin=(0.0000,0.0000,0.0000) scale=(1.000,1.000,1.000) bbox_z=[-0.0000..0.3280] xy_center=(0.0000,0.0000)
+VERIFY SM_LootBackpack vcol_attr=Col/CORNER/BYTE_COLOR census=[('#030402', 76), ('#1A2029', 12), ('#411A08', 48), ('#BE5D07', 24)]
+VERIFY SM_LootBackpack palette_check=FAIL off_palette={'#1A2029': 12, '#411A08': 48, '#030402': 76, '#BE5D07': 24} magenta_faces=0
+VERIFY SM_LootBackpack uv_u=[0.010..0.978] uv_v=[0.010..0.990] materials=['M_LootBackpack']
+VERIFY SM_LootBackpack tri_budget<=200: PASS (160)
+DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
