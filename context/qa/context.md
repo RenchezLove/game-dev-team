@@ -2,8 +2,9 @@
 
 ## 🧭 СЕЙЧАС
 - Фаза: доводка Build 1 (ADR-051), ветка feature/build1-intro.
-- 2026-07-27: interim-прогон после 6e255d9 (хромота/ULimpIndicatorWidget) + cac86f9 (замки bLockedInDesigner). Сборка EXIT=0 (`logs/build-2026-07-27-limp-locks.log`), тесты 17/17 Success, GIsCriticalError=0 (`context/qa/logs/tests-2026-07-27-interim.log`). Новый тест Retention.LimpHint.FirstShowOnce присутствует и зелёный. Состав = эталон 16 + LimpHint.
-- Это НЕ мерж-гейт: после меня оператор гонит -run=GenerateWbp, гейтовый прогон будет позже.
+- 2026-07-27, interim №2 (HEAD a915dc6, после WorldBorder 161cd97 + канвас WBP_PlayerStats f347ea4): сборка EXIT=0 (`logs/build-2026-07-27-border-stats.log`), тесты 17/17 Success, GIsCriticalError=0 (`context/qa/logs/tests-2026-07-27-interim2.log`).
+- Interim №1 того же дня (HEAD cac86f9, хромота+замки): тоже зелёный — `logs/build-2026-07-27-limp-locks.log`, `context/qa/logs/tests-2026-07-27-interim.log`, там же появился 17-й тест Retention.LimpHint.FirstShowOnce.
+- Это interim'ы, НЕ мерж-гейт: после меня оператор гонит -run=GenerateWbp (rebuild трёх окон), гейтовый прогон будет позже.
 - Замечание (не блокер): RetentionAutomationTests.cpp:26 — имя `Base` в анонимном namespace даёт ворох warning C4459 при инстанцировании делегатов UE.
 - В рабочей копии незакоммиченные правки Рината — НЕ трогать, НЕ откатывать.
 - Урок машины: UBA-сборка нестабильна (paging file) — гонять с `-NoUBA -MaxParallelActions=6`.
