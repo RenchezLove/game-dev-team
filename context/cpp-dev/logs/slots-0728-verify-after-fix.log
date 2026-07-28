@@ -1,0 +1,198 @@
+Display: VERIFY WBP_TouchControls: ???????? = /Script/ContrarySurvivor.TouchControlsWidget, generated = /Game/UI/WBP_TouchControls.WBP_TouchControls_C
+Display: VERIFY:   RootCanvas : CanvasPanel
+Display: VERIFY:     StickBase : Image
+Display: VERIFY:     StickThumb : Image
+Display: VERIFY:     FireButton : Button
+Display: VERIFY:       FireText : TextBlock
+Display: VERIFY:     ReloadButton : Button
+Display: VERIFY:       ReloadText : TextBlock
+Display: VERIFY:     InteractButton : Button
+Display: VERIFY:       InteractText : TextBlock
+Display: VERIFY:     SprintButton : Button
+Display: VERIFY:       SprintText : TextBlock
+Display: VERIFY:     WeaponButton : Button
+Display: VERIFY:       WeaponText : TextBlock
+Display: VERIFY:     InventoryButton : Button
+Display: VERIFY:       InventoryText : TextBlock
+Display: VERIFY:     PauseButton : Button
+Display: VERIFY:       PauseText : TextBlock
+Display: VERIFY:     WeaponIconImage : Image
+Display: VERIFY OK: WBP_TouchControls ? ??? 17 ??????? ?? ?????.
+Display: VERIFY WBP_InventoryRow: ???????? = /Script/ContrarySurvivor.InventoryRowWidget, generated = /Game/UI/WBP_InventoryRow.WBP_InventoryRow_C
+Display: VERIFY:   RowSize : SizeBox
+Display: VERIFY:     RowPlate : Border
+Display: VERIFY:       RowBox : HorizontalBox
+Display: VERIFY:         NameText : TextBlock
+Display: VERIFY:         UseButton : Button
+Display: VERIFY:           UseText : TextBlock
+Display: VERIFY:         DropButton : Button
+Display: VERIFY:           DropLabel : TextBlock
+Display: VERIFY OK: WBP_InventoryRow ? ??? 4 ??????? ?? ?????.
+Display: VERIFY WBP_Inventory: ???????? = /Script/ContrarySurvivor.InventoryScreenWidget, generated = /Game/UI/WBP_Inventory.WBP_Inventory_C
+Display: VERIFY:   RootCanvas : CanvasPanel
+Display: VERIFY:     DimBorder : Border
+Display: VERIFY:     PanelPlate : Border
+Display: VERIFY:       PanelCanvas : CanvasPanel
+Display: VERIFY:         HeaderText : TextBlock
+Display: VERIFY:         StatsRow : HorizontalBox
+Display: VERIFY:           InvMoneyIcon : Image
+Display: VERIFY:           InvMoneyText : TextBlock
+Display: VERIFY:           InvHungerIcon : Image
+Display: VERIFY:           InvHungerText : TextBlock
+Display: VERIFY:           InvThirstIcon : Image
+Display: VERIFY:           InvThirstText : TextBlock
+Display: VERIFY:         EquipHeaderText : TextBlock
+Display: VERIFY:         HeadSlotButton : Button
+Display: VERIFY:           HeadSlotButtonBox : HorizontalBox
+Display: VERIFY:             HeadSlotButtonCaption : TextBlock
+Display: VERIFY:             HeadSlotIcon : Image
+Display: VERIFY:             HeadSlotText : TextBlock
+Display: VERIFY:         TorsoSlotButton : Button
+Display: VERIFY:           TorsoSlotButtonBox : HorizontalBox
+Display: VERIFY:             TorsoSlotButtonCaption : TextBlock
+Display: VERIFY:             TorsoSlotIcon : Image
+Display: VERIFY:             TorsoSlotText : TextBlock
+Display: VERIFY:         LegsSlotButton : Button
+Display: VERIFY:           LegsSlotButtonBox : HorizontalBox
+Display: VERIFY:             LegsSlotButtonCaption : TextBlock
+Display: VERIFY:             LegsSlotIcon : Image
+Display: VERIFY:             LegsSlotText : TextBlock
+Display: VERIFY:         ProtectionLabel : TextBlock
+Display: VERIFY:         ProtectionText : TextBlock
+Display: VERIFY:         WeaponLabel : TextBlock
+Display: VERIFY:         WeaponText : TextBlock
+Display: VERIFY:         BackpackHeaderText : TextBlock
+Display: VERIFY:         BackpackList : ScrollBox
+Display: VERIFY:         CloseButton : Button
+Display: VERIFY:           CloseLabel : TextBlock
+Display: VERIFY WBP_Inventory: ????? ?? ????? ? ????????? ??????? 13, ????????? ??????????????? ???????? 4.
+Display: VERIFY WBP_Inventory: Row Widget Class = WBP_InventoryRow_C.
+Display: VERIFY OK: WBP_Inventory ? ??? 16 ??????? ?? ?????.
+Display: VERIFY WBP_Death: ???????? = /Script/ContrarySurvivor.DeathScreenWidget, generated = /Game/UI/WBP_Death.WBP_Death_C
+Display: VERIFY:   RootCanvas : CanvasPanel
+Display: VERIFY:     DimBorder : Border
+Display: VERIFY:     TitleText : TextBlock
+Display: VERIFY:     LifetimeTextRow : HorizontalBox
+Display: VERIFY:       LifetimeLabel : TextBlock
+Display: VERIFY:       LifetimeText : TextBlock
+Display: VERIFY:     KillerTextRow : HorizontalBox
+Display: VERIFY:       KillerLabel : TextBlock
+Display: VERIFY:       KillerText : TextBlock
+Display: VERIFY:     MoneyTextRow : HorizontalBox
+Display: VERIFY:       MoneyLabel : TextBlock
+Display: VERIFY:       MoneyText : TextBlock
+Display: VERIFY:     QuestsTextRow : HorizontalBox
+Display: VERIFY:       QuestsLabel : TextBlock
+Display: VERIFY:       QuestsText : TextBlock
+Display: VERIFY:     KillsTextRow : HorizontalBox
+Display: VERIFY:       KillsLabel : TextBlock
+Display: VERIFY:       KillsText : TextBlock
+Display: VERIFY:     RespawnLineText : TextBlock
+Display: VERIFY:     MoneyLossText : TextBlock
+Display: VERIFY:     ConsumablesLineText : TextBlock
+Display: VERIFY:     SavedLineText : TextBlock
+Display: VERIFY:     RespawnButton : Button
+Display: VERIFY:       RespawnLabel : TextBlock
+Display: VERIFY:     KeyHintText : TextBlock
+Display: VERIFY WBP_Death: ????? ?? ????? ? ????????? ??????? 11, ????????? ??????????????? ???????? 12.
+Display: VERIFY OK: WBP_Death ? ??? 7 ??????? ?? ?????.
+Display: VERIFY WBP_QuestTracker: ???????? = /Script/ContrarySurvivor.QuestTrackerWidget, generated = /Game/UI/WBP_QuestTracker.WBP_QuestTracker_C
+Display: VERIFY:   RootCanvas : CanvasPanel
+Display: VERIFY:     TrackerPlate : Border
+Display: VERIFY:       TrackerText : TextBlock
+Display: VERIFY OK: WBP_QuestTracker ? ??? 1 ??????? ?? ?????.
+Display: VERIFY WBP_InteractPrompt: ???????? = /Script/ContrarySurvivor.InteractPromptWidget, generated = /Game/UI/WBP_InteractPrompt.WBP_InteractPrompt_C
+Display: VERIFY:   RootCanvas : CanvasPanel
+Display: VERIFY:     PromptPlate : Border
+Display: VERIFY:       PromptText : TextBlock
+Display: VERIFY OK: WBP_InteractPrompt ? ??? 1 ??????? ?? ?????.
+Display: VERIFY WBP_ShopRow: ???????? = /Script/ContrarySurvivor.ShopRowWidget, generated = /Game/UI/WBP_ShopRow.WBP_ShopRow_C
+Display: VERIFY:   RowSize : SizeBox
+Display: VERIFY:     RowPlate : Border
+Display: VERIFY:       RowBox : HorizontalBox
+Display: VERIFY:         NameText : TextBlock
+Display: VERIFY:         PriceText : TextBlock
+Display: VERIFY:         NoMoneyText : TextBlock
+Display: VERIFY:         ActionButton : Button
+Display: VERIFY:           ActionText : TextBlock
+Display: VERIFY OK: WBP_ShopRow ? ??? 5 ??????? ?? ?????.
+Display: VERIFY WBP_Shop: ???????? = /Script/ContrarySurvivor.ShopScreenWidget, generated = /Game/UI/WBP_Shop.WBP_Shop_C
+Display: VERIFY:   RootCanvas : CanvasPanel
+Display: VERIFY:     DimBorder : Border
+Display: VERIFY:     PanelPlate : Border
+Display: VERIFY:       PanelCanvas : CanvasPanel
+Display: VERIFY:         HeaderText : TextBlock
+Display: VERIFY:         CloseButton : Button
+Display: VERIFY:           CloseLabel : TextBlock
+Display: VERIFY:         MoneyLabel : TextBlock
+Display: VERIFY:         MoneyText : TextBlock
+Display: VERIFY:         BuyHeaderText : TextBlock
+Display: VERIFY:         BuyList : ScrollBox
+Display: VERIFY:         SellHeaderText : TextBlock
+Display: VERIFY:         SellList : ScrollBox
+Display: VERIFY:     SliderPanel : Border
+Display: VERIFY:       SliderCanvas : CanvasPanel
+Display: VERIFY:         SliderTitleText : TextBlock
+Display: VERIFY:         SliderQtyLabel : TextBlock
+Display: VERIFY:         SliderQtyText : TextBlock
+Display: VERIFY:         SliderQtyAmmoRow : HorizontalBox
+Display: VERIFY:           SliderQtyAmmoText : TextBlock
+Display: VERIFY:         QtySlider : Slider
+Display: VERIFY:         QtyMinusButton : Button
+Display: VERIFY:           QtyMinusLabel : TextBlock
+Display: VERIFY:         QtyPlusButton : Button
+Display: VERIFY:           QtyPlusLabel : TextBlock
+Display: VERIFY:         SliderTotalText : TextBlock
+Display: VERIFY:         SliderCancelButton : Button
+Display: VERIFY:           SliderCancelLabel : TextBlock
+Display: VERIFY:         SliderConfirmButton : Button
+Display: VERIFY:           SliderConfirmLabel : TextBlock
+Display: VERIFY WBP_Shop: ????? ?? ????? ? ????????? ??????? 5, ????????? ??????????????? ???????? 5.
+Display: VERIFY WBP_Shop: Row Widget Class = WBP_ShopRow_C.
+Display: VERIFY OK: WBP_Shop ? ??? 15 ??????? ?? ?????.
+Display: VERIFY WBP_Dialog: ???????? = /Script/ContrarySurvivor.DialogScreenWidget, generated = /Game/UI/WBP_Dialog.WBP_Dialog_C
+Display: VERIFY:   RootCanvas : CanvasPanel
+Display: VERIFY:     DimBorder : Border
+Display: VERIFY:     PanelPlate : Border
+Display: VERIFY:       PanelCanvas : CanvasPanel
+Display: VERIFY:         NPCNameText : TextBlock
+Display: VERIFY:         ReplicaText : TextBlock
+Display: VERIFY:         AcceptButton : Button
+Display: VERIFY:           AcceptText : TextBlock
+Display: VERIFY:         DeclineButton : Button
+Display: VERIFY:           DeclineText : TextBlock
+Display: VERIFY:         TurnInButton : Button
+Display: VERIFY:           TurnInText : TextBlock
+Display: VERIFY:         CloseButton : Button
+Display: VERIFY:           CloseText : TextBlock
+Display: VERIFY WBP_Dialog: ????? ?? ????? ? ????????? ??????? 4, ????????? ??????????????? ???????? 7.
+Display: VERIFY OK: WBP_Dialog ? ??? 10 ??????? ?? ?????.
+Display: VERIFY WBP_PlayerStats: ???????? = /Script/ContrarySurvivor.PlayerStatsWidget, generated = /Game/UI/WBP_PlayerStats.WBP_PlayerStats_C
+Display: VERIFY:   RootCanvas : CanvasPanel
+Display: VERIFY:     HealthRow : HorizontalBox
+Display: VERIFY:       HealthIcon : Image
+Display: VERIFY:       HealthBarOverlay : Overlay
+Display: VERIFY:         HealthBarSize : SizeBox
+Display: VERIFY:           HealthBar : ProgressBar
+Display: VERIFY:         HealthText : TextBlock
+Display: VERIFY:     HungerRow : HorizontalBox
+Display: VERIFY:       HungerIcon : Image
+Display: VERIFY:       HungerBarOverlay : Overlay
+Display: VERIFY:         HungerBarSize : SizeBox
+Display: VERIFY:           HungerBar : ProgressBar
+Display: VERIFY:         HungerText : TextBlock
+Display: VERIFY:     ThirstRow : HorizontalBox
+Display: VERIFY:       ThirstIcon : Image
+Display: VERIFY:       ThirstBarOverlay : Overlay
+Display: VERIFY:         ThirstBarSize : SizeBox
+Display: VERIFY:           ThirstBar : ProgressBar
+Display: VERIFY:         ThirstText : TextBlock
+Display: VERIFY:     AmmoRow : HorizontalBox
+Display: VERIFY:       AmmoText : TextBlock
+Display: VERIFY:     MoneyPlate : Border
+Display: VERIFY:       MoneyRow : HorizontalBox
+Display: VERIFY:         MoneyIcon : Image
+Display: VERIFY:         MoneyText : TextBlock
+Display: VERIFY WBP_PlayerStats: ????? ?? ????? ? ????????? ??????? 19, ????????? ??????????????? ???????? 5.
+Display: VERIFY OK: WBP_PlayerStats ? ??? 9 ??????? ?? ?????.
+Display: ???? ????????: ?????? 0.

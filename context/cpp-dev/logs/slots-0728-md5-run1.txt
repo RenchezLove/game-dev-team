@@ -1,0 +1,5 @@
+872d6c9e60e0e6d567f728779b757200 *WBP_Shop.uasset
+7e846224ceea8b874e440f7142bedd64 *WBP_Inventory.uasset
+ffb05241fdc1fb007f992222b15bf304 *WBP_PlayerStats.uasset
+02ce961f2455b3645e74d6155112e03c *WBP_Dialog.uasset
+2b454df0abe4d5a36f2f802cd34f9022 *WBP_Death.uasset
