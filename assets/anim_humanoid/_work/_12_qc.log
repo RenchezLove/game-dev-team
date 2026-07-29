@@ -1,0 +1,20 @@
+00:00.281  blend            | Read blend: "E:\game-dev-team\assets\anim_humanoid\_work\_qc_anim.blend"
+<string>:37: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+<string>:75: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+<string>:95: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+00:02.547  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f07.png'
+00:02.875  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f12.png'
+00:03.281  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f16.png'
+00:03.859  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_game_front_f16.png'
+00:04.297  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_AimPistol_Humanoid_front_f01.png'
+00:04.828  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_AimPistol_Humanoid_game_front_f01.png'
+character meshes: ['BaseHead', 'L1_Head', 'L1_Legs', 'L1_Torso']
+FBX version: 7400
+FBX version: 7400
+pistol dims (0.201, 0.031, 0.141)
+knife dims (0.278, 0.028, 0.036)
+MONTAGE E:/game-dev-team/assets/anim_humanoid/renders/qc_closeups.png 2700x1800  exists=True
+QC_DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

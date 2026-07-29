@@ -1,0 +1,37 @@
+--- /tmp/before.txt	2026-07-29 12:17:36.157452300 +0300
++++ /tmp/after.txt	2026-07-29 12:17:36.182454400 +0300
+@@ -1,8 +1,30 @@
+ СРЕЗ /Game/Characters/Shared/Humanoid/ABP_HumanoidCharacter.ABP_HumanoidCharacter: графов всего 8.
+ УЗЕЛ x=-160 y=96 AnimGraphNode_StateMachine «Locomotion»
++    ПИН выход Pose поза=1 -> AnimGraphNode_SaveCachedPose «Save cached pose 'LocomotionPose'».Pose
++УЗЕЛ x=100 y=220 AnimGraphNode_SaveCachedPose «Save cached pose 'LocomotionPose'»
++    ПИН вход  Pose поза=1 -> AnimGraphNode_StateMachine «Locomotion».Pose
++УЗЕЛ x=300 y=-200 AnimGraphNode_SequenceEvaluator «Sequence Evaluator (by time) 'Anim_AimPistol_Humanoid'»
++    ПИН вход  ExplicitTime поза=0 -> (не подключён)
++    ПИН выход Pose поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».BlendPoses_0
++УЗЕЛ x=300 y=-60 K2Node_VariableGet «Get AimBlendWeight»
++    ПИН выход AimBlendWeight поза=0 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».BlendWeights_0
++    ПИН вход  self поза=0 -> (не подключён)
++УЗЕЛ x=300 y=120 AnimGraphNode_UseCachedPose «Use cached pose 'LocomotionPose'»
++    ПИН выход Pose поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».BasePose
++УЗЕЛ x=600 y=0 AnimGraphNode_LayeredBoneBlend «Layered blend per bone»
++    ПИН вход  BasePose поза=1 -> AnimGraphNode_UseCachedPose «Use cached pose 'LocomotionPose'».Pose
++    ПИН вход  BlendPoses_0 поза=1 -> AnimGraphNode_SequenceEvaluator «Sequence Evaluator (by time) 'Anim_AimPistol_Humanoid'».Pose
++    ПИН вход  BlendWeights_0 поза=0 -> K2Node_VariableGet «Get AimBlendWeight».AimBlendWeight
+     ПИН выход Pose поза=1 -> AnimGraphNode_Slot «Slot 'DefaultSlot'».Source
+-УЗЕЛ x=140 y=0 AnimGraphNode_Slot «Slot 'DefaultSlot'»
+-    ПИН вход  Source поза=1 -> AnimGraphNode_StateMachine «Locomotion».Pose
++УЗЕЛ x=900 y=0 AnimGraphNode_Slot «Slot 'DefaultSlot'»
++    ПИН вход  Source поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».Pose
++    ПИН выход Pose поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».BlendPoses_0
++УЗЕЛ x=900 y=200 AnimGraphNode_UseCachedPose «Use cached pose 'LocomotionPose'»
++    ПИН выход Pose поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».BasePose
++УЗЕЛ x=1160 y=0 AnimGraphNode_LayeredBoneBlend «Layered blend per bone»
++    ПИН вход  BasePose поза=1 -> AnimGraphNode_UseCachedPose «Use cached pose 'LocomotionPose'».Pose
++    ПИН вход  BlendPoses_0 поза=1 -> AnimGraphNode_Slot «Slot 'DefaultSlot'».Pose
++    ПИН вход  BlendWeights_0 поза=0 -> (не подключён)
+     ПИН выход Pose поза=1 -> AnimGraphNode_Root «Output Pose».Result
+-УЗЕЛ x=440 y=0 AnimGraphNode_Root «Output Pose»
+-    ПИН вход  Result поза=1 -> AnimGraphNode_Slot «Slot 'DefaultSlot'».Pose
++УЗЕЛ x=1460 y=0 AnimGraphNode_Root «Output Pose»
++    ПИН вход  Result поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».Pose

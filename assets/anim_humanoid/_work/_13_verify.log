@@ -1,0 +1,40 @@
+FBX version: 7400
+==== Anim_AimPistol_Humanoid.fbx  (137900 bytes)
+  objects: ['RootAnim']   meshes_in_file=0
+  armature object name: RootAnim   bones=21
+  missing bones: none
+  unexpected bones: none
+  root bones in file: ['C_Root', 'L_Pelvis', 'R_Pelvis']
+  scene frame range: 1..250  fps=30
+  bound action: RootAnim|Anim_AimPistol_Humanoid
+  moving bones (0): 
+  max travel on root/legs: 0.000000 m  (must be 0)
+  VERDICT OK
+FBX version: 7400
+==== Anim_FirePistol_Humanoid.fbx  (154524 bytes)
+  objects: ['RootAnim']   meshes_in_file=0
+  armature object name: RootAnim   bones=21
+  missing bones: none
+  unexpected bones: none
+  root bones in file: ['C_Root', 'L_Pelvis', 'R_Pelvis']
+  scene frame range: 1..250  fps=30
+  bound action: RootAnim|Anim_FirePistol_Humanoid
+  moving bones (8): R_Hand 0.450, Pelvis_009_R_002 0.155, L_Hand 0.126, R_Arm 0.048, C_Head 0.045, C_Neck 0.033, L_Arm 0.032, C_Spine02 0.021
+  max travel on root/legs: 0.000000 m  (must be 0)
+  VERDICT OK
+FBX version: 7400
+==== Anim_MeleeSlash_Humanoid.fbx  (176508 bytes)
+  objects: ['RootAnim']   meshes_in_file=0
+  armature object name: RootAnim   bones=21
+  missing bones: none
+  unexpected bones: none
+  root bones in file: ['C_Root', 'L_Pelvis', 'R_Pelvis']
+  scene frame range: 1..250  fps=30
+  bound action: RootAnim|Anim_MeleeSlash_Humanoid
+  moving bones (12): R_Hand 5.696, Pelvis_009_R_002 3.624, L_Hand 1.930, R_Arm 1.835, L_Arm 1.430, L_Shoulder 0.945, R_UpperArm 0.534, L_UpperArm 0.350
+  max travel on root/legs: 0.000000 m  (must be 0)
+  VERDICT OK
+VERIFY_DONE failures=0
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

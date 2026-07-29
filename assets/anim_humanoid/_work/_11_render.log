@@ -1,0 +1,71 @@
+00:00.344  blend            | Read blend: "E:\game-dev-team\assets\anim_humanoid\_work\_qc_anim.blend"
+E:\game-dev-team\assets\anim_humanoid\_work\11_render_previews.py:37: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+E:\game-dev-team\assets\anim_humanoid\_work\11_render_previews.py:75: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w.use_nodes = True
+E:\game-dev-team\assets\anim_humanoid\_work\11_render_previews.py:95: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm.use_nodes = True
+00:02.062  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_AimPistol_Humanoid_topdown_f01.png'
+00:02.297  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_AimPistol_Humanoid_game_back_f01.png'
+00:02.531  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_AimPistol_Humanoid_game_front_f01.png'
+00:02.750  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_AimPistol_Humanoid_side_f01.png'
+00:03.844  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_side_f01.png'
+00:04.156  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_side_f02.png'
+00:04.469  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_side_f03.png'
+00:04.797  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_side_f04.png'
+00:05.172  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_side_f06.png'
+00:05.500  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_side_f09.png'
+00:07.187  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_game_back_f01.png'
+00:07.516  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_game_back_f02.png'
+00:07.828  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_game_back_f03.png'
+00:08.125  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_game_back_f04.png'
+00:08.453  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_game_back_f06.png'
+00:08.781  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_FirePistol_Humanoid_game_back_f09.png'
+00:10.219  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_topdown_f01.png'
+00:10.562  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_topdown_f04.png'
+00:10.875  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_topdown_f07.png'
+00:11.234  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_topdown_f09.png'
+00:11.609  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_topdown_f11.png'
+00:12.016  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_topdown_f12.png'
+00:12.406  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_topdown_f14.png'
+00:12.766  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_topdown_f16.png'
+00:13.094  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_topdown_f18.png'
+00:13.391  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_topdown_f21.png'
+00:15.750  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_game_back_f01.png'
+00:16.062  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_game_back_f04.png'
+00:16.359  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_game_back_f07.png'
+00:16.672  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_game_back_f09.png'
+00:16.953  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_game_back_f11.png'
+00:17.250  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_game_back_f12.png'
+00:17.547  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_game_back_f14.png'
+00:17.859  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_game_back_f16.png'
+00:18.156  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_game_back_f18.png'
+00:18.437  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_game_back_f21.png'
+00:20.641  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f01.png'
+00:20.984  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f04.png'
+00:21.266  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f07.png'
+00:21.562  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f09.png'
+00:21.844  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f11.png'
+00:22.141  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f12.png'
+00:22.453  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f14.png'
+00:22.719  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f16.png'
+00:23.062  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f18.png'
+00:23.375  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_MeleeSlash_Humanoid_front_f21.png'
+00:25.875  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\arc_topdown.png'
+00:26.406  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\arc_game_back.png'
+character meshes: ['BaseHead', 'L1_Head', 'L1_Legs', 'L1_Torso']
+FBX version: 7400
+FBX version: 7400
+pistol dims (0.201, 0.031, 0.141)
+knife dims (0.278, 0.028, 0.036)
+MONTAGE E:/game-dev-team/assets/anim_humanoid/renders/aim_pistol_views.png 920x920  exists=True
+MONTAGE E:/game-dev-team/assets/anim_humanoid/renders/fire_pistol_side.png 1380x920  exists=True
+MONTAGE E:/game-dev-team/assets/anim_humanoid/renders/fire_pistol_gamecam.png 1380x920  exists=True
+MONTAGE E:/game-dev-team/assets/anim_humanoid/renders/melee_slash_topdown.png 2300x920  exists=True
+MONTAGE E:/game-dev-team/assets/anim_humanoid/renders/melee_slash_gamecam.png 2300x920  exists=True
+MONTAGE E:/game-dev-team/assets/anim_humanoid/renders/melee_slash_front.png 2300x920  exists=True
+MONTAGE E:/game-dev-team/assets/anim_humanoid/renders/melee_slash_arc.png 1800x900  exists=True
+RENDER_DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

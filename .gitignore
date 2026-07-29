@@ -42,3 +42,4 @@ reports/Agents/gl_heartbeat_status.txt
 
 # Секреты — НИКОГДА не коммитить (ADR-013)
 keys/
+__pycache__/

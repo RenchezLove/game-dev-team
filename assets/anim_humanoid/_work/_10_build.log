@@ -1,0 +1,68 @@
+00:00.281  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\master.blend"
+==== CHANNEL CHECK (rotation only, upper body only) ====
+  Anim_AimPistol_Humanoid          bones=12 channels=['rotation_quaternion'] lower_body_keys=[]
+  Anim_FirePistol_Humanoid         bones=12 channels=['rotation_quaternion'] lower_body_keys=[]
+  Anim_MeleeSlash_Humanoid         bones=12 channels=['rotation_quaternion'] lower_body_keys=[]
+==== MOTION CHECK (world space, per frame) ====
+  Anim_AimPistol_Humanoid          frames= 2 dur=0.033s  R_Hand_travel=0.000m  max_lower_body_travel=0.000000m
+     hand aim angle: min=+3.4 max=+3.4 sweep=0.0 deg  (0=forward, +=to char left)
+     hand height band: min=1.301 max=1.301 spread=0.000 m
+     max shoulder flex: 104.9 deg (L arm, f2)   limit 110
+       f1   phi=   +3.4  hand_tail=(-0.165,-1.009,+1.301)
+       f2   phi=   +3.4  hand_tail=(-0.165,-1.009,+1.301)
+  Anim_FirePistol_Humanoid         frames= 9 dur=0.267s  R_Hand_travel=0.450m  max_lower_body_travel=0.000000m
+     hand aim angle: min=+3.4 max=+4.1 sweep=0.6 deg  (0=forward, +=to char left)
+     hand height band: min=1.301 max=1.519 spread=0.218 m
+     max shoulder flex: 104.9 deg (L arm, f9)   limit 110
+       f1   phi=   +3.4  hand_tail=(-0.165,-1.009,+1.301)
+       f2   phi=   +3.9  hand_tail=(-0.165,-0.973,+1.488)
+       f3   phi=   +4.1  hand_tail=(-0.165,-0.960,+1.519)
+       f4   phi=   +3.8  hand_tail=(-0.165,-0.977,+1.477)
+       f5   phi=   +3.6  hand_tail=(-0.165,-0.998,+1.402)
+       f6   phi=   +3.5  hand_tail=(-0.166,-1.006,+1.357)
+       f7   phi=   +3.5  hand_tail=(-0.165,-1.008,+1.335)
+       f8   phi=   +3.4  hand_tail=(-0.165,-1.009,+1.312)
+       f9   phi=   +3.4  hand_tail=(-0.165,-1.009,+1.301)
+  Anim_MeleeSlash_Humanoid         frames=21 dur=0.667s  R_Hand_travel=5.696m  max_lower_body_travel=0.000000m
+     hand aim angle: min=-146.0 max=+104.0 sweep=250.0 deg  (0=forward, +=to char left)
+     hand height band: min=0.918 max=1.205 spread=0.287 m
+     max shoulder flex: 97.8 deg (R arm, f14)   limit 110
+       f1   phi=   -6.0  hand_tail=(-0.555,-0.772,+0.918)
+       f2   phi=  -27.0  hand_tail=(-0.740,-0.699,+0.946)
+       f3   phi=  -73.4  hand_tail=(-1.044,-0.366,+1.039)
+       f4   phi= -119.0  hand_tail=(-1.085,+0.089,+1.132)
+       f5   phi= -142.0  hand_tail=(-0.997,+0.316,+1.175)
+       f6   phi= -145.5  hand_tail=(-0.979,+0.363,+1.197)
+       f7   phi= -146.0  hand_tail=(-0.976,+0.371,+1.205)
+       f8   phi= -130.6  hand_tail=(-1.057,+0.252,+1.196)
+       f9   phi=  -94.8  hand_tail=(-1.133,-0.102,+1.173)
+       f10  phi=  -54.0  hand_tail=(-0.985,-0.540,+1.157)
+       f11  phi=  -18.4  hand_tail=(-0.627,-0.853,+1.144)
+       f12  phi=  +14.0  hand_tail=(-0.176,-0.955,+1.127)
+       f13  phi=  +45.3  hand_tail=(+0.227,-0.848,+1.124)
+       f14  phi=  +72.0  hand_tail=(+0.459,-0.653,+1.127)
+       f15  phi=  +94.0  hand_tail=(+0.541,-0.471,+1.127)
+       f16  phi= +104.0  hand_tail=(+0.547,-0.388,+1.127)
+       f17  phi=  +84.4  hand_tail=(+0.479,-0.556,+1.062)
+       f18  phi=  +54.0  hand_tail=(+0.231,-0.770,+0.979)
+       f19  phi=  +28.5  hand_tail=(-0.097,-0.859,+0.946)
+       f20  phi=   +4.5  hand_tail=(-0.420,-0.824,+0.925)
+       f21  phi=   -6.0  hand_tail=(-0.555,-0.772,+0.918)
+==== EXPORT ====
+
+FBX export starting... 'E:/game-dev-team/assets/anim_humanoid/Anim_AimPistol_Humanoid.fbx'
+export finished in 0.0174 sec.
+EXPORT Anim_AimPistol_Humanoid.fbx              exists=True bytes=137900
+
+FBX export starting... 'E:/game-dev-team/assets/anim_humanoid/Anim_FirePistol_Humanoid.fbx'
+export finished in 0.0177 sec.
+EXPORT Anim_FirePistol_Humanoid.fbx             exists=True bytes=154524
+
+FBX export starting... 'E:/game-dev-team/assets/anim_humanoid/Anim_MeleeSlash_Humanoid.fbx'
+export finished in 0.0276 sec.
+EXPORT Anim_MeleeSlash_Humanoid.fbx             exists=True bytes=176508
+Info: Saved as "_qc_anim.blend"
+BUILD_DONE failures=0
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

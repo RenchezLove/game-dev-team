@@ -1,0 +1,30 @@
+LogPatchAnimBp: Display: СРЕЗ /Game/Characters/Shared/Humanoid/ABP_HumanoidCharacter.ABP_HumanoidCharacter: графов всего 8.
+LogPatchAnimBp: Display: УЗЕЛ x=-160 y=96 AnimGraphNode_StateMachine «Locomotion»
+LogPatchAnimBp: Display:     ПИН выход Pose поза=1 -> AnimGraphNode_SaveCachedPose «Save cached pose 'LocomotionPose'».Pose
+LogPatchAnimBp: Display: УЗЕЛ x=100 y=220 AnimGraphNode_SaveCachedPose «Save cached pose 'LocomotionPose'»
+LogPatchAnimBp: Display:     ПИН вход  Pose поза=1 -> AnimGraphNode_StateMachine «Locomotion».Pose
+LogPatchAnimBp: Display: УЗЕЛ x=300 y=-200 AnimGraphNode_SequenceEvaluator «Sequence Evaluator (by time) 'Anim_AimPistol_Humanoid'»
+LogPatchAnimBp: Display:     ПИН вход  ExplicitTime поза=0 -> (не подключён)
+LogPatchAnimBp: Display:     ПИН выход Pose поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».BlendPoses_0
+LogPatchAnimBp: Display: УЗЕЛ x=300 y=-60 K2Node_VariableGet «Get AimBlendWeight»
+LogPatchAnimBp: Display:     ПИН выход AimBlendWeight поза=0 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».BlendWeights_0
+LogPatchAnimBp: Display:     ПИН вход  self поза=0 -> (не подключён)
+LogPatchAnimBp: Display: УЗЕЛ x=300 y=120 AnimGraphNode_UseCachedPose «Use cached pose 'LocomotionPose'»
+LogPatchAnimBp: Display:     ПИН выход Pose поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».BasePose
+LogPatchAnimBp: Display: УЗЕЛ x=600 y=0 AnimGraphNode_LayeredBoneBlend «Layered blend per bone»
+LogPatchAnimBp: Display:     ПИН вход  BasePose поза=1 -> AnimGraphNode_UseCachedPose «Use cached pose 'LocomotionPose'».Pose
+LogPatchAnimBp: Display:     ПИН вход  BlendPoses_0 поза=1 -> AnimGraphNode_SequenceEvaluator «Sequence Evaluator (by time) 'Anim_AimPistol_Humanoid'».Pose
+LogPatchAnimBp: Display:     ПИН вход  BlendWeights_0 поза=0 -> K2Node_VariableGet «Get AimBlendWeight».AimBlendWeight
+LogPatchAnimBp: Display:     ПИН выход Pose поза=1 -> AnimGraphNode_Slot «Slot 'DefaultSlot'».Source
+LogPatchAnimBp: Display: УЗЕЛ x=900 y=0 AnimGraphNode_Slot «Slot 'DefaultSlot'»
+LogPatchAnimBp: Display:     ПИН вход  Source поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».Pose
+LogPatchAnimBp: Display:     ПИН выход Pose поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».BlendPoses_0
+LogPatchAnimBp: Display: УЗЕЛ x=900 y=200 AnimGraphNode_UseCachedPose «Use cached pose 'LocomotionPose'»
+LogPatchAnimBp: Display:     ПИН выход Pose поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».BasePose
+LogPatchAnimBp: Display: УЗЕЛ x=1160 y=0 AnimGraphNode_LayeredBoneBlend «Layered blend per bone»
+LogPatchAnimBp: Display:     ПИН вход  BasePose поза=1 -> AnimGraphNode_UseCachedPose «Use cached pose 'LocomotionPose'».Pose
+LogPatchAnimBp: Display:     ПИН вход  BlendPoses_0 поза=1 -> AnimGraphNode_Slot «Slot 'DefaultSlot'».Pose
+LogPatchAnimBp: Display:     ПИН вход  BlendWeights_0 поза=0 -> (не подключён)
+LogPatchAnimBp: Display:     ПИН выход Pose поза=1 -> AnimGraphNode_Root «Output Pose».Result
+LogPatchAnimBp: Display: УЗЕЛ x=1460 y=0 AnimGraphNode_Root «Output Pose»
+LogPatchAnimBp: Display:     ПИН вход  Result поза=1 -> AnimGraphNode_LayeredBoneBlend «Layered blend per bone».Pose

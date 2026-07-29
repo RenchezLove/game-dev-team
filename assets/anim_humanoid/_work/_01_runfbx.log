@@ -1,0 +1,39 @@
+Traceback (most recent call last):
+  File "E:\game-dev-team\assets\anim_humanoid\_work\01_inspect_fbx.py", line 32, in <module>
+    bones = sorted({fc.data_path.split('"')[1] for fc in act.fcurves if '"' in fc.data_path})
+                                                         ^^^^^^^^^^^
+AttributeError: 'Action' object has no attribute 'fcurves'
+FBX version: 7400
+=== IMPORTED Anim_Run_Humanoid .fbx
+  obj RootAnim                     type=ARMATURE  parent=-              loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+--- REST (bind) pose, world coords, armature RootAnim bones=26 ---
+  C_Root               parent=-                    head=(-0.0002,-0.0008, 0.8390) tail=(-0.0002,-0.0008, 1.0945)
+  C_Spine01            parent=C_Root               head=(-0.0002,-0.0008, 1.0945) tail=(-0.0002,-0.0479, 1.3359)
+  L_UpperArm           parent=C_Spine01            head=(-0.0002,-0.0479, 1.3359) tail=( 0.2860,-0.0483, 1.3378)
+  L_Shoulder           parent=L_UpperArm           head=( 0.2860,-0.0483, 1.3378) tail=( 0.2940, 0.0228, 1.0004)
+  L_Arm                parent=L_Shoulder           head=( 0.2940, 0.0228, 1.0004) tail=( 0.3057,-0.2284, 0.9115)
+  L_Hand               parent=L_Arm                head=( 0.3057,-0.2284, 0.9115) tail=( 0.2960,-0.2944, 0.8882)
+  L_Hand_end           parent=L_Hand               head=( 0.2960,-0.2944, 0.8882) tail=( 0.2863,-0.3603, 0.8648)
+  R_UpperArm           parent=C_Spine01            head=(-0.0002,-0.0479, 1.3359) tail=(-0.2864,-0.0483, 1.3378)
+  R_Arm                parent=R_UpperArm           head=(-0.2864,-0.0483, 1.3378) tail=(-0.3163, 0.0125, 0.9996)
+  Pelvis.009_R.002     parent=R_Arm                head=(-0.3163, 0.0125, 0.9996) tail=(-0.3330,-0.2293, 0.8881)
+  R_Hand               parent=Pelvis.009_R.002     head=(-0.3330,-0.2293, 0.8881) tail=(-0.3246,-0.2929, 0.8587)
+  R_Hand_end           parent=R_Hand               head=(-0.3246,-0.2929, 0.8587) tail=(-0.3162,-0.3565, 0.8292)
+  C_Spine02            parent=C_Spine01            head=(-0.0002,-0.0479, 1.3359) tail=(-0.0002,-0.0709, 1.4543)
+  C_Neck               parent=C_Spine02            head=(-0.0002,-0.0709, 1.4543) tail=( 0.0010,-0.0745, 1.5250)
+  C_Head               parent=C_Neck               head=( 0.0010,-0.0745, 1.5250) tail=( 0.0050,-0.0869, 1.7734)
+  C_Head_end           parent=C_Head               head=( 0.0050,-0.0869, 1.7734) tail=( 0.0090,-0.0993, 2.0218)
+  L_Pelvis             parent=-                    head=(-0.0002,-0.0008, 0.8390) tail=( 0.1049,-0.0008, 0.8372)
+  L_Thigh              parent=L_Pelvis             head=( 0.1049,-0.0008, 0.8372) tail=( 0.1218,-0.0384, 0.4599)
+  L_Claf               parent=L_Thigh              head=( 0.1218,-0.0384, 0.4599) tail=( 0.1477, 0.1903, 0.1061)
+  L_Foot               parent=L_Claf               head=( 0.1477, 0.1903, 0.1061) tail=( 0.1451, 0.0254,-0.0026)
+  L_Foot_end           parent=L_Foot               head=( 0.1451, 0.0254,-0.0026) tail=( 0.1425,-0.1395,-0.1113)
+  R_Pelvis             parent=-                    head=(-0.0002,-0.0008, 0.8390) tail=(-0.1052,-0.0008, 0.8372)
+  R_Thigh              parent=R_Pelvis             head=(-0.1052,-0.0008, 0.8372) tail=(-0.1138,-0.0737, 0.4649)
+  R_Claf               parent=R_Thigh              head=(-0.1138,-0.0737, 0.4649) tail=(-0.1340, 0.2557, 0.2016)
+  R_Foot               parent=R_Claf               head=(-0.1340, 0.2557, 0.2016) tail=(-0.1327, 0.1336, 0.0463)
+  R_Foot_end           parent=R_Foot               head=(-0.1327, 0.1336, 0.0463) tail=(-0.1314, 0.0116,-0.1090)
+--- action: RootAnim|RootAnim|ArmatureAction scene range 1 250
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
