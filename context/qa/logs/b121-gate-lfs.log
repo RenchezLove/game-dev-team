@@ -1,0 +1,19 @@
+=== binary files in diff: 17
+=== check each against LFS:
+LFS OK  Content/Characters/Trader/SK_Trader_Head.uasset
+LFS OK  Content/Characters/Trader/SK_Trader_Legs.uasset
+LFS OK  Content/Characters/Trader/SK_Trader_Torso.uasset
+LFS OK  Content/Environment/Props/SM_HidePickup.uasset
+LFS OK  Content/Environment/Props/SM_LootBackpack.uasset
+LFS OK  Content/Environment/Props/SM_LootSack.uasset
+LFS OK  Content/Maps/L_World_C.umap
+LFS OK  Content/Materials/M_VColor.uasset
+LFS OK  Content/UI/WBP_CorpseLoot.uasset
+LFS OK  Content/UI/WBP_Death.uasset
+LFS OK  Content/UI/WBP_Dialog.uasset
+LFS OK  Content/UI/WBP_EndOfStory.uasset
+LFS OK  Content/UI/WBP_Inventory.uasset
+LFS OK  Content/UI/WBP_InventoryRow.uasset
+LFS OK  Content/UI/WBP_PlayerStats.uasset
+LFS OK  Content/UI/WBP_Shop.uasset
+LFS OK  Content/UI/WBP_ShopRow.uasset
