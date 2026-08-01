@@ -1,0 +1,80 @@
+ Content/Characters/Bandit/BP_EnemyBandit.uasset    |   4 +-
+ .../Shared/Humanoid/Anim_Death_Humanoid.uasset     |   3 +
+ .../HeadAndSkeletonfbx_Head_Skeleton.uasset        |   4 +-
+ Content/Characters/Trader/BP_Trader.uasset         |   4 +-
+ Content/Characters/Trader/SK_Trader_Head.uasset    |   3 +
+ Content/Characters/Trader/SK_Trader_Legs.uasset    |   3 +
+ Content/Characters/Trader/SK_Trader_Torso.uasset   |   3 +
+ Content/Characters/Wolf/Anim_Wolf_Death.uasset     |   3 +
+ Content/Characters/Wolf/BP_Wolf.uasset             |   4 +-
+ Content/Characters/Wolf/SK_Wolf.uasset             |   4 +-
+ Content/Environment/Props/SM_HidePickup.uasset     |   3 +
+ Content/Environment/Props/SM_LootBackpack.uasset   |   3 +
+ Content/Environment/Props/SM_LootSack.uasset       |   3 +
+ Content/System/BP_Pickup.uasset                    |   3 +
+ Content/System/BP_PickupWolf.uasset                |   3 +
+ .../HeadAndSkeletonfbx_Head_Skeleton.uasset        |   4 +-
+ Content/UI/Icons/T_Icon_AdVideo.uasset             |   3 +
+ Content/UI/WBP_Death.uasset                        |   4 +-
+ Content/UI/WBP_Shop.uasset                         |   4 +-
+ Source/ContrarySurvivor/Actors/ElderNPC.cpp        |  21 +-
+ Source/ContrarySurvivor/Actors/ElderNPC.h          |  29 +-
+ Source/ContrarySurvivor/Actors/Pickup.cpp          |   4 +-
+ Source/ContrarySurvivor/Actors/Pickup.h            |   4 +-
+ Source/ContrarySurvivor/Ads/AdGatingLogic.cpp      |  34 ++
+ Source/ContrarySurvivor/Ads/AdGatingLogic.h        |  36 +++
+ Source/ContrarySurvivor/Ads/AdService.h            |  61 ++++
+ Source/ContrarySurvivor/Ads/DeathLossLogic.cpp     |  26 ++
+ Source/ContrarySurvivor/Ads/DeathLossLogic.h       |  41 +++
+ Source/ContrarySurvivor/Ads/MockAdService.cpp      |  82 +++++
+ Source/ContrarySurvivor/Ads/MockAdService.h        |  42 +++
+ Source/ContrarySurvivor/Ads/MockAdWidget.cpp       | 135 ++++++++
+ Source/ContrarySurvivor/Ads/MockAdWidget.h         |  58 ++++
+ .../Analytics/AnalyticsSubsystem.cpp               |  24 ++
+ .../Analytics/AnalyticsSubsystem.h                 |  50 +++
+ .../ContrarySurvivor/Characters/EnemyCharacter.cpp |  21 +-
+ .../Characters/MasterHumanoidCharacter.cpp         |  80 ++++-
+ .../Characters/MasterHumanoidCharacter.h           |  26 ++
+ .../Characters/PlayerCharacter.cpp                 | 246 ++++++++++++---
+ .../ContrarySurvivor/Characters/PlayerCharacter.h  | 132 +++++++-
+ .../ContrarySurvivor/Characters/WolfCharacter.cpp  |  20 +-
+ Source/ContrarySurvivor/Characters/WolfCharacter.h |   6 +
+ .../ContrarySurvivorPlayerController.cpp           |  26 +-
+ .../ContrarySurvivor/HUD/ContrarySurvivorHUD.cpp   | 139 +++++++++
+ Source/ContrarySurvivor/HUD/ContrarySurvivorHUD.h  |  96 +++++-
+ .../Retention/DailyRewardComponent.cpp             | 148 ++++++++-
+ .../Retention/DailyRewardComponent.h               |  23 ++
+ Source/ContrarySurvivor/Save/ContrarySaveGame.cpp  |  10 +
+ Source/ContrarySurvivor/Save/ContrarySaveGame.h    |  35 +++
+ .../ContrarySurvivor/Tests/AdsAutomationTests.cpp  | 124 ++++++++
+ .../Tests/StoryAutomationTests.cpp                 |  59 ++++
+ Source/ContrarySurvivor/UI/DailyRewardWidget.cpp   | 147 +++++++++
+ Source/ContrarySurvivor/UI/DailyRewardWidget.h     |  60 ++++
+ Source/ContrarySurvivor/UI/DeathScreenWidget.cpp   | 302 +++++++++++++++++-
+ Source/ContrarySurvivor/UI/DeathScreenWidget.h     |  97 +++++-
+ Source/ContrarySurvivor/UI/DialogScreenWidget.cpp  |  12 +
+ Source/ContrarySurvivor/UI/EndOfStoryWidget.cpp    | 219 +++++++++++++
+ Source/ContrarySurvivor/UI/EndOfStoryWidget.h      | 161 ++++++++++
+ Source/ContrarySurvivor/UI/ShopScreenWidget.cpp    | 205 +++++++++++-
+ Source/ContrarySurvivor/UI/ShopScreenWidget.h      |  74 +++++
+ .../AddGripSocketCommandlet.cpp                    | 195 ++++++++++++
+ .../AddGripSocketCommandlet.h                      |  53 ++++
+ .../GenerateWbpCommandlet.cpp                      | 343 +++++++++++++++++++--
+ .../ContrarySurvivorEditor/GenerateWbpCommandlet.h |   9 +-
+ 63 files changed, 3624 insertions(+), 156 deletions(-)
+50ab6a6 feat(assets): BP-классы пикапов подключены + модель торговца в BP_Trader
+9fbb49c feat(weapon): сокет WeaponGripSocket добавлен на оба скелета-дубля (кость R_Hand, нулевой трансформ)
+04dd899 feat(loot): класс пикапа игрока настраиваемый — PickupSpawnClass (дозадача cpp-2)
+19729ca feat(ads): ассеты рекламы — иконка видео, экран смерти пересобран, золотая кнопка в магазине
+aec7f2e feat(ads): точка 3 — удвоение ежедневки за ролик + доводки точек 1-2 (ТЗ издателя, Build 1.2)
+5931b88 feat(wolf): волк перекрашен из коричневого в серо-стальной (вершинная покраска)
+2e66ae8 fix(ui): плашка конца сюжета восстанавливает режим ввода после модалки
+3f6bdf3 feat(ui): сообщение конца сюжета + маркеры NPC по необходимости (задачи Рината 07-31)
+9402778 feat(anim): анимация смерти волка — падение на бок, 1.03 с
+f957178 wip(ads): наработки cpp-2 на момент обрыва лимита + поле bEndOfStoryShown в сейв (game-lead)
+017f2c4 feat(anim): анимация смерти гуманоида — падение на спину, 1.1 с, полное тело
+6ec3084 feat(loot): импорт мешей лута — мешок, рюкзак (приняты Ринатом 07-19), свёрток шкуры волка
+477eecb feat(death): анимации смерти — гуманоид на спину (одна в мастер-базе), волк на бок
+a8639dd feat(intro): у околицы деревни маркер переезжает с деревни на старосту (задача Рината 07-31, маркеры по необходимости)
+bbbabb7 feat(weapon): авторский сокет хвата WeaponGripSocket в приоритете над костью + коммандлет AddGripSocket
+6422447 feat(dialog): сценка старосты после ноутбука — способ заработка вместо намёка (задача Рината 07-31)
