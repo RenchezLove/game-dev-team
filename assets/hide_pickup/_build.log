@@ -1,0 +1,22 @@
+E:\game-dev-team\assets\hide_pickup\10_build_hide_pickup.py:171: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+BUILD SM_HidePickup    tris=212 verts=114 dims=(0.450,0.223,0.194) signed_vol=+0.00925 nonmanifold_edges=0 dup_faces=0
+Info: Saved as "hide_pickup.blend"
+SAVED E:/game-dev-team/assets/hide_pickup/hide_pickup.blend
+
+FBX export starting... 'E:/game-dev-team/assets/hide_pickup/SM_HidePickup.fbx'
+export finished in 0.0039 sec.
+EXPORTED E:/game-dev-team/assets/hide_pickup/SM_HidePickup.fbx
+FBX version: 7400
+VERIFY SM_HidePickup imported_meshes=1
+VERIFY SM_HidePickup tris=212 verts=114 dims_m=(0.450,0.223,0.194)
+VERIFY SM_HidePickup origin=(0.0000,0.0000,0.0000) scale=(1.000,1.000,1.000) bbox_z=[-0.0000..0.1945] xy_center=(0.0000,0.0000)
+VERIFY SM_HidePickup vcol_attr=Col/CORNER/BYTE_COLOR census=[('#28251E', 31), ('#342513', 81), ('#976013', 84), ('#CCC6AF', 16)]
+VERIFY SM_HidePickup color_mapping=[('#28251E', 31, '#6E6A60', 'LINEAR'), ('#342513', 81, '#7D6A4E', 'LINEAR'), ('#976013', 84, '#CAA54E', 'LINEAR'), ('#CCC6AF', 16, '#E7E4D8', 'LINEAR')]
+VERIFY SM_HidePickup palette_check=PASS off_palette={} magenta_faces=0
+VERIFY SM_HidePickup uv_u=[0.006..0.994] uv_v=[0.006..0.982] materials=['M_HidePickup']
+VERIFY SM_HidePickup tri_budget_100_300: PASS (212)
+DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

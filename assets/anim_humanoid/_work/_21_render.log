@@ -1,0 +1,39 @@
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\anim_humanoid\_work\_qc_death.blend"
+E:\game-dev-team\assets\anim_humanoid\_work\21_render_death.py:31: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+E:\game-dev-team\assets\anim_humanoid\_work\21_render_death.py:69: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w.use_nodes = True
+E:\game-dev-team\assets\anim_humanoid\_work\21_render_death.py:86: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm.use_nodes = True
+00:01.828  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_side_f01.png'
+00:02.047  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_side_f04.png'
+00:02.281  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_side_f06.png'
+00:02.500  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_side_f09.png'
+00:02.703  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_side_f14.png'
+00:02.922  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_side_f17.png'
+00:03.125  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_side_f19.png'
+00:03.344  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_side_f22.png'
+00:03.547  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_side_f26.png'
+00:03.750  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_side_f34.png'
+00:05.094  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_game_back_f01.png'
+00:05.344  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_game_back_f04.png'
+00:05.578  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_game_back_f06.png'
+00:05.812  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_game_back_f09.png'
+00:06.062  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_game_back_f14.png'
+00:06.312  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_game_back_f17.png'
+00:06.547  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_game_back_f19.png'
+00:06.781  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_game_back_f22.png'
+00:07.031  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_game_back_f26.png'
+00:07.281  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_game_back_f34.png'
+00:08.641  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_topdown_f34.png'
+00:08.891  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_game_back_f34.png'
+00:09.125  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_side_f34.png'
+00:09.375  render           | Saved: 'E:\game-dev-team\assets\anim_humanoid\_work\_frames\Anim_Death_Humanoid_front_f34.png'
+character meshes: ['BaseHead', 'L1_Head', 'L1_Legs', 'L1_Torso']
+MONTAGE E:/game-dev-team/assets/anim_humanoid/renders/death_humanoid_side.png 2300x920  exists=True
+MONTAGE E:/game-dev-team/assets/anim_humanoid/renders/death_humanoid_gamecam.png 2300x920  exists=True
+MONTAGE E:/game-dev-team/assets/anim_humanoid/renders/death_humanoid_final.png 920x920  exists=True
+RENDER_DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

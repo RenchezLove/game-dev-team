@@ -1,0 +1,52 @@
+00:00.328  blend            | Read blend: "E:\ForGameLead(Materials)\phase3-assets\_build\wolf.blend"
+==== CHANNEL CHECK (honest: what is actually keyed) ====
+  rotation keys on 18 bones: ['chest', 'frontlower_L', 'frontlower_R', 'frontpaw_L', 'frontpaw_R', 'frontupper_L', 'frontupper_R', 'head', 'neck', 'rearpaw_L', 'rearpaw_R', 'root', 'shin_L', 'shin_R', 'tail_01', 'tail_02', 'thigh_L', 'thigh_R']
+  location keys on 1 bones: ['root']
+==== MOTION CHECK (world space, per frame) ====
+  f1   min_z=+0.020 (frontpaw_L.tail) max_z=0.838 (neck.tail)
+  f2   min_z=+0.016 (frontpaw_L.tail) max_z=0.836 (neck.tail)
+  f3   min_z=+0.005 (frontpaw_L.tail) max_z=0.829 (neck.tail)
+  f4   min_z=-0.011 (frontpaw_L.tail) max_z=0.817 (neck.tail)
+  f5   min_z=-0.021 (frontpaw_L.tail) max_z=0.798 (neck.tail)
+  f6   min_z=-0.016 (frontpaw_L.tail) max_z=0.775 (neck.tail)
+  f7   min_z=+0.003 (frontpaw_L.tail) max_z=0.750 (neck.tail)
+  f8   min_z=+0.002 (root.head) max_z=0.722 (neck.tail)
+  f9   min_z=+0.003 (root.head) max_z=0.691 (neck.tail)
+  f10  min_z=+0.009 (root.head) max_z=0.652 (neck.tail)
+  f11  min_z=+0.022 (root.head) max_z=0.602 (neck.tail)
+  f12  min_z=+0.021 (frontpaw_L.tail) max_z=0.542 (neck.tail)
+  f13  min_z=+0.022 (frontpaw_L.tail) max_z=0.479 (head.tail)
+  f14  min_z=+0.034 (frontpaw_L.tail) max_z=0.425 (head.tail)
+  f15  min_z=+0.054 (frontpaw_L.tail) max_z=0.396 (thigh_R.tail)
+  f16  min_z=+0.059 (shin_L.head) max_z=0.387 (thigh_R.tail)
+  f17  min_z=+0.056 (shin_L.head) max_z=0.384 (thigh_R.tail)
+  f18  min_z=+0.057 (shin_L.head) max_z=0.386 (thigh_R.tail)
+  f19  min_z=+0.060 (shin_L.head) max_z=0.389 (thigh_R.tail)
+  f20  min_z=+0.062 (shin_L.head) max_z=0.391 (thigh_R.tail)
+  f21  min_z=+0.061 (shin_L.head) max_z=0.390 (thigh_R.tail)
+  f22  min_z=+0.060 (shin_L.head) max_z=0.387 (thigh_R.tail)
+  f23  min_z=+0.059 (shin_L.head) max_z=0.384 (thigh_R.tail)
+  f24  min_z=+0.059 (shin_L.head) max_z=0.382 (thigh_R.tail)
+  f25  min_z=+0.059 (shin_L.head) max_z=0.382 (thigh_R.tail)
+  f26  min_z=+0.059 (shin_L.head) max_z=0.382 (thigh_R.tail)
+  f27  min_z=+0.059 (shin_L.head) max_z=0.382 (thigh_R.tail)
+  f28  min_z=+0.059 (shin_L.head) max_z=0.382 (thigh_R.tail)
+  f29  min_z=+0.059 (shin_L.head) max_z=0.382 (thigh_R.tail)
+  f30  min_z=+0.059 (shin_L.head) max_z=0.382 (thigh_R.tail)
+  f31  min_z=+0.059 (shin_L.head) max_z=0.382 (thigh_R.tail)
+  f32  min_z=+0.059 (shin_L.head) max_z=0.382 (thigh_R.tail)
+  lowest point in the take: -0.021 m at f5 (limit -0.03)
+  final frame highest bone point: 0.382 m (on the side => must be < 0.45)
+  hold drift f24..f32: 0.000000 m (must be ~0)
+  duration: 32 frames = 1.033 s (asked 0.8-1.2)
+  max mesh edge stretch vs rest: 1.390 (smearing guard, limit 2.5)
+
+FBX export starting... 'E:/game-dev-team/assets/anim_wolf/Anim_Wolf_Death.fbx'
+(bpy.data.armatures['WolfRig'], 'POSE')
+export finished in 0.0451 sec.
+EXPORT E:/game-dev-team/assets/anim_wolf/Anim_Wolf_Death.fbx exists=True bytes=261580
+Info: Saved as "_qc_wolf_death.blend"
+BUILD_DONE failures=0
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

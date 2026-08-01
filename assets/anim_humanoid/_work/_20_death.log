@@ -1,0 +1,55 @@
+00:00.297  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\master.blend"
+==== CHANNEL CHECK (honest: what is actually keyed) ====
+  rotation keys on 21 bones: ['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Claf', 'L_Foot', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'L_UpperArm', 'Pelvis_009_R_002', 'R_Arm', 'R_Claf', 'R_Foot', 'R_Hand', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
+  location keys on 3 bones: ['C_Root', 'L_Pelvis', 'R_Pelvis']
+  channel kinds: ['location', 'rotation_quaternion']
+==== MOTION CHECK (world space, per frame) ====
+  f1   min_z=+0.033 (L_Foot.tail) max_z=1.602
+  f2   min_z=+0.030 (R_Foot.tail) max_z=1.600
+  f3   min_z=+0.023 (L_Foot.tail) max_z=1.585
+  f4   min_z=+0.020 (R_Foot.tail) max_z=1.557
+  f5   min_z=+0.018 (R_Claf.tail) max_z=1.528
+  f6   min_z=+0.015 (L_Claf.tail) max_z=1.492
+  f7   min_z=+0.018 (L_Claf.tail) max_z=1.445
+  f8   min_z=+0.024 (L_Claf.tail) max_z=1.382
+  f9   min_z=+0.035 (R_Claf.tail) max_z=1.302
+  f10  min_z=+0.052 (R_Claf.tail) max_z=1.368
+  f11  min_z=+0.079 (R_Claf.tail) max_z=1.372
+  f12  min_z=+0.108 (R_Claf.tail) max_z=1.330
+  f13  min_z=+0.128 (R_Claf.tail) max_z=1.260
+  f14  min_z=+0.133 (R_Claf.tail) max_z=1.164
+  f15  min_z=+0.128 (R_Claf.tail) max_z=1.006
+  f16  min_z=+0.127 (R_Claf.tail) max_z=0.768
+  f17  min_z=+0.133 (R_Claf.tail) max_z=0.509
+  f18  min_z=+0.140 (R_Claf.tail) max_z=0.396
+  f19  min_z=+0.139 (R_Pelvis.tail) max_z=0.357
+  f20  min_z=+0.143 (L_Claf.tail) max_z=0.334
+  f21  min_z=+0.144 (R_Claf.tail) max_z=0.316
+  f22  min_z=+0.145 (R_Claf.tail) max_z=0.308
+  f23  min_z=+0.145 (L_Claf.tail) max_z=0.289
+  f24  min_z=+0.146 (L_Claf.tail) max_z=0.289
+  f25  min_z=+0.131 (R_Pelvis.tail) max_z=0.293
+  f26  min_z=+0.117 (C_Head.tail) max_z=0.296
+  f27  min_z=+0.117 (C_Head.tail) max_z=0.296
+  f28  min_z=+0.117 (C_Head.tail) max_z=0.296
+  f29  min_z=+0.117 (C_Head.tail) max_z=0.296
+  f30  min_z=+0.117 (C_Head.tail) max_z=0.296
+  f31  min_z=+0.117 (C_Head.tail) max_z=0.296
+  f32  min_z=+0.117 (C_Head.tail) max_z=0.296
+  f33  min_z=+0.117 (C_Head.tail) max_z=0.296
+  f34  min_z=+0.117 (C_Head.tail) max_z=0.296
+  lowest point in the whole take: 0.015 m at f6 (limit -0.03)
+  max shoulder flex: 71.0 deg (L arm, f1)   limit 110
+  final frame highest point: 0.296 m (lying flat => must be < 0.45)
+  hold drift f26..f34: 0.000000 m (must be ~0)
+  duration: 34 frames = 1.100 s (asked 1.0-1.5)
+==== EXPORT ====
+
+FBX export starting... 'E:/game-dev-team/assets/anim_humanoid/Anim_Death_Humanoid.fbx'
+export finished in 0.0377 sec.
+EXPORT Anim_Death_Humanoid.fbx                  exists=True bytes=190412
+Info: Saved as "_qc_death.blend"
+BUILD_DONE failures=0
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

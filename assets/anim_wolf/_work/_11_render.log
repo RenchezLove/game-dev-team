@@ -1,0 +1,34 @@
+00:00.312  blend            | Read blend: "E:\game-dev-team\assets\anim_wolf\_work\_qc_wolf_death.blend"
+E:\game-dev-team\assets\anim_wolf\11_render_wolf_death.py:31: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+E:\game-dev-team\assets\anim_wolf\11_render_wolf_death.py:61: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w.use_nodes = True
+E:\game-dev-team\assets\anim_wolf\11_render_wolf_death.py:78: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm.use_nodes = True
+00:01.781  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_nose_on_f01.png'
+00:02.015  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_nose_on_f04.png'
+00:02.234  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_nose_on_f08.png'
+00:02.468  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_nose_on_f13.png'
+00:02.687  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_nose_on_f17.png'
+00:02.890  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_nose_on_f20.png'
+00:03.093  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_nose_on_f24.png'
+00:03.312  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_nose_on_f32.png'
+00:04.406  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_game_f01.png'
+00:04.640  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_game_f04.png'
+00:04.890  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_game_f08.png'
+00:05.125  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_game_f13.png'
+00:05.375  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_game_f17.png'
+00:05.625  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_game_f20.png'
+00:05.859  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_game_f24.png'
+00:06.109  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_game_f32.png'
+00:07.250  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_topdown_f32.png'
+00:07.593  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_game_f32.png'
+00:07.828  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_fall_side_f32.png'
+00:08.062  render           | Saved: 'E:\game-dev-team\assets\anim_wolf\_work\_frames\Anim_Wolf_Death_nose_on_f32.png'
+MONTAGE E:/game-dev-team/assets/anim_wolf/renders/wolf_death_front.png 1840x920 exists=True
+MONTAGE E:/game-dev-team/assets/anim_wolf/renders/wolf_death_gamecam.png 1840x920 exists=True
+MONTAGE E:/game-dev-team/assets/anim_wolf/renders/wolf_death_final.png 920x920 exists=True
+RENDER_DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

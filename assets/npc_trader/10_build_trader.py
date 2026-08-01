@@ -37,13 +37,15 @@ L1L = bpy.data.objects['L1_Legs']
 SKIN = '#C89A7A'          # face + hands
 STUBBLE = '#4A3826'       # approved stubble hex; doubles as the short dark hair
 EYES = '#2B2823'
-BANDANA = '#494C52'       # muted dark grey (darker than the vest, flat dome)
+# 08-01 touch-up (game-lead order, match TraiderReference/1.png closer):
+# bandana darker, vest de-blued to neutral grey, trousers olive -> grey.
+BANDANA = '#3A3D42'       # dark bandana, near-black grey (ref key feature)
 SWEATER = '#33302B'       # dark sweater: sleeves, collar, hem under the vest
-VEST = '#5A6470'          # ColdSteel — dominant of the top (approved)
-POCKET = '#4D5661'        # vest pouches: ColdSteel darkened a step for read
+VEST = '#606266'          # neutral grey utility vest (was ColdSteel #5A6470)
+POCKET = '#515358'        # vest pouches: vest darkened a step for read
 AMBER = '#E0A32E'         # AmberLoot — ONE small flap, the only bright spot
-PANTS = '#6E6A60'         # Concrete (approved) — cargo trousers
-PANTS_PKT = '#605C52'     # thigh patch pockets, a step darker than pants
+PANTS = '#717274'         # grey cargo trousers (was olive Concrete #6E6A60)
+PANTS_PKT = '#616264'     # thigh patch pockets, a step darker than pants
 BOOTS = '#2B2823'         # sturdy dark boots (approved dark-parts hex)
 SOLE = '#1D1A17'
 
@@ -222,22 +224,25 @@ for i in range(N):
     j = (i + 1) % N
     bandana.append(bm.faces.new([r2[i], r2[j], apex]))
 
-# knot at the nape: compact bulge tucked against the dome back
-# (rim back edge y = CY+0.150 = 0.162 at z 1.700; v1 knot stuck out like a plate)
+# knot at the nape: bulge tucked against the dome back. 08-01: enlarged —
+# the 07-12 knot was so small the head read as a CAP, and the knot is THE
+# feature separating bandana from cap in the reference back view.
 before = set(bm.faces)
 bmesh.ops.create_cube(bm, size=1.0,
-                      matrix=Matrix.Translation((0.0, 0.155, 1.685)) @
+                      matrix=Matrix.Translation((0.0, 0.158, 1.683)) @
                       Matrix.Rotation(math.radians(20), 4, 'X') @
-                      Matrix.Diagonal((0.070, 0.050, 0.055, 1)))
+                      Matrix.Diagonal((0.088, 0.060, 0.066, 1)))
 bandana += new_faces(bm, before)
 
-# two short tails right under the knot (single-sided; material Two-Sided in UE)
-for sgn in (1, -1):
-    vs = [bm.verts.new((sgn * 0.008, 0.168, 1.662)),
-          bm.verts.new((sgn * 0.048, 0.174, 1.650)),
-          bm.verts.new((sgn * 0.054, 0.192, 1.585)),
-          bm.verts.new((sgn * 0.014, 0.186, 1.594))]
-    bandana.append(bm.faces.new(vs))
+# two hanging tails under the knot (single-sided; material Two-Sided in UE).
+# 08-01: lengthened to the collar line (~1.51) and widened at the bottom —
+# the 07-12 stubs (7 cm) were invisible from the game camera. Sides differ
+# on purpose so the back does not read mirror-stamped.
+for pts in (((0.010, 0.172, 1.665), (0.052, 0.178, 1.652),
+             (0.070, 0.208, 1.505), (0.022, 0.200, 1.518)),
+            ((-0.010, 0.172, 1.665), (-0.050, 0.176, 1.655),
+             (-0.062, 0.205, 1.522), (-0.018, 0.198, 1.535))):
+    bandana.append(bm.faces.new([bm.verts.new(p) for p in pts]))
 paint_faces(bm, col, bandana, BANDANA)
 
 bmesh.ops.recalc_face_normals(bm, faces=bm.faces[:])

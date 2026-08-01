@@ -1,0 +1,34 @@
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\hide_pickup\hide_pickup.blend"
+00:01.937  render           | Saved: 'E:\game-dev-team\assets\hide_pickup\renders\SM_HidePickup_front.png'
+00:02.281  render           | Saved: 'E:\game-dev-team\assets\hide_pickup\renders\SM_HidePickup_back.png'
+00:02.562  render           | Saved: 'E:\game-dev-team\assets\hide_pickup\renders\SM_HidePickup_side.png'
+00:02.906  render           | Saved: 'E:\game-dev-team\assets\hide_pickup\renders\SM_HidePickup_tq.png'
+00:03.266  render           | Saved: 'E:\game-dev-team\assets\hide_pickup\renders\SM_HidePickup_top.png'
+00:03.625  render           | Saved: 'E:\game-dev-team\assets\hide_pickup\renders\SM_HidePickup_game.png'
+E:\game-dev-team\assets\hide_pickup\11_render_hide_pickup.py:54: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm.use_nodes = True
+E:\game-dev-team\assets\hide_pickup\11_render_hide_pickup.py:65: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mm.use_nodes = True
+00:04.797  render           | Saved: 'E:\game-dev-team\assets\hide_pickup\renders\HidePickup_gameplay_scale.png'
+00:05.922  render           | Saved: 'E:\game-dev-team\assets\hide_pickup\renders\HidePickup_gameplay_zoom.png'
+E:\game-dev-team\assets\hide_pickup\11_render_hide_pickup.py:115: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  wm.use_nodes = True
+00:06.297  render           | Saved: 'E:\game-dev-team\assets\hide_pickup\renders\SM_HidePickup_wire_tq.png'
+00:06.625  render           | Saved: 'E:\game-dev-team\assets\hide_pickup\renders\SM_HidePickup_wire_top.png'
+00:06.969  render           | Saved: 'E:\game-dev-team\assets\hide_pickup\renders\SM_HidePickup_wire_game.png'
+RENDER E:/game-dev-team/assets/hide_pickup/renders/SM_HidePickup_front.png
+RENDER E:/game-dev-team/assets/hide_pickup/renders/SM_HidePickup_back.png
+RENDER E:/game-dev-team/assets/hide_pickup/renders/SM_HidePickup_side.png
+RENDER E:/game-dev-team/assets/hide_pickup/renders/SM_HidePickup_tq.png
+RENDER E:/game-dev-team/assets/hide_pickup/renders/SM_HidePickup_top.png
+RENDER E:/game-dev-team/assets/hide_pickup/renders/SM_HidePickup_game.png
+RENDER E:/game-dev-team/assets/hide_pickup/renders/HidePickup_gameplay_scale.png
+RENDER E:/game-dev-team/assets/hide_pickup/renders/HidePickup_gameplay_zoom.png
+RENDER E:/game-dev-team/assets/hide_pickup/renders/SM_HidePickup_wire_tq.png
+RENDER E:/game-dev-team/assets/hide_pickup/renders/SM_HidePickup_wire_top.png
+RENDER E:/game-dev-team/assets/hide_pickup/renders/SM_HidePickup_wire_game.png
+RECHECK SM_HidePickup source_tris=212
+RENDERS DONE -> E:/game-dev-team/assets/hide_pickup/renders/
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,23 @@
+E:\game-dev-team\assets\wolf_recolor\11_render_compare.py:46: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+E:\game-dev-team\assets\wolf_recolor\11_render_compare.py:82: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w.use_nodes = True
+E:\game-dev-team\assets\wolf_recolor\11_render_compare.py:99: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm.use_nodes = True
+00:02.594  render           | Saved: 'E:\game-dev-team\assets\wolf_recolor\_work\_frames\cmp_front34_old.png'
+00:02.953  render           | Saved: 'E:\game-dev-team\assets\wolf_recolor\_work\_frames\cmp_front34_new.png'
+00:03.985  render           | Saved: 'E:\game-dev-team\assets\wolf_recolor\_work\_frames\cmp_side_old.png'
+00:04.328  render           | Saved: 'E:\game-dev-team\assets\wolf_recolor\_work\_frames\cmp_side_new.png'
+00:05.360  render           | Saved: 'E:\game-dev-team\assets\wolf_recolor\_work\_frames\cmp_game_old.png'
+00:05.719  render           | Saved: 'E:\game-dev-team\assets\wolf_recolor\_work\_frames\cmp_game_new.png'
+FBX version: 7400
+LOADED old_brown E:/ForGameLead(Materials)/phase3-assets/SK_Wolf.fbx
+FBX version: 7400
+LOADED new_grey E:/game-dev-team/assets/wolf_recolor/SK_Wolf.fbx
+RENDER E:/game-dev-team/assets/wolf_recolor/renders/wolf_compare_front34.png
+RENDER E:/game-dev-team/assets/wolf_recolor/renders/wolf_compare_side.png
+RENDER E:/game-dev-team/assets/wolf_recolor/renders/wolf_compare_game.png
+COMPARE_DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,20 +1,20 @@
-00:00.500  blend            | Read blend: "E:\game-dev-team\assets\npc_trader\_work\trader_work.blend"
-00:02.141  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_assembled_front.png'
-00:02.563  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_assembled_tq.png'
-00:02.953  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_assembled_side.png'
-00:03.359  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_assembled_top.png'
-00:03.844  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_assembled_back.png'
-00:04.328  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_pose_front.png'
-00:04.828  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_pose_tq.png'
-00:05.313  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_pose_side.png'
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\npc_trader\_work\trader_work.blend"
+00:02.032  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_assembled_front.png'
+00:02.266  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_assembled_tq.png'
+00:02.500  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_assembled_side.png'
+00:02.719  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_assembled_top.png'
+00:02.969  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_assembled_back.png'
+00:03.203  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_pose_front.png'
+00:03.453  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_pose_tq.png'
+00:03.688  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\Trader_pose_side.png'
 E:\game-dev-team\assets\npc_trader\11_pose_check_trader.py:59: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   wm.use_nodes = True
-00:05.828  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Head_wire_tq.png'
-00:06.281  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Head_wire_top.png'
-00:06.750  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Torso_wire_tq.png'
-00:07.203  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Torso_wire_top.png'
-00:07.688  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Legs_wire_tq.png'
-00:08.109  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Legs_wire_top.png'
+00:03.938  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Head_wire_tq.png'
+00:04.203  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Head_wire_top.png'
+00:04.438  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Torso_wire_tq.png'
+00:04.672  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Torso_wire_top.png'
+00:04.938  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Legs_wire_tq.png'
+00:05.188  render           | Saved: 'E:\game-dev-team\assets\npc_trader\renders_trader\SK_Trader_Legs_wire_top.png'
 RENDER E:/game-dev-team/assets/npc_trader/renders_trader/Trader_assembled_front.png
 RENDER E:/game-dev-team/assets/npc_trader/renders_trader/Trader_assembled_tq.png
 RENDER E:/game-dev-team/assets/npc_trader/renders_trader/Trader_assembled_side.png

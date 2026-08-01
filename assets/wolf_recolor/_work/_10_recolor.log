@@ -1,0 +1,17 @@
+00:00.343  blend            | Read blend: "E:\ForGameLead(Materials)\phase3-assets\_build\wolf.blend"
+RECOLOR loops: back=282 belly=1446 nose=120 unknown=0
+Info: Saved "wolf.blend"
+SAVED E:/ForGameLead(Materials)/phase3-assets/_build/wolf.blend
+
+FBX export starting... 'E:/game-dev-team/assets/wolf_recolor/SK_Wolf.fbx'
+(bpy.data.armatures['WolfRig'], 'POSE')
+export finished in 0.0166 sec.
+EXPORTED E:/game-dev-team/assets/wolf_recolor/SK_Wolf.fbx exists=True bytes=84316
+FBX version: 7400
+VERIFY OLD tris=616 verts=324 bones=22 colors=[((55, 46, 34), 1446), ((23, 17, 13), 282), ((3, 2, 2), 120)]
+FBX version: 7400
+VERIFY NEW tris=616 verts=324 bones=22 colors=[((46, 50, 55), 1446), ((20, 23, 27), 282), ((3, 2, 2), 120)]
+RECOLOR_DONE
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

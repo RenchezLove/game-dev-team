@@ -11,10 +11,13 @@ files:
   - Anim_AimPistol_Humanoid.fbx
   - Anim_FirePistol_Humanoid.fbx
   - Anim_MeleeSlash_Humanoid.fbx
+  - Anim_Death_Humanoid.fbx
 renders: [aim_pistol_views.png, fire_pistol_side.png, fire_pistol_gamecam.png,
           melee_slash_topdown.png, melee_slash_gamecam.png, melee_slash_front.png,
-          melee_slash_arc.png, qc_closeups.png]
+          melee_slash_arc.png, qc_closeups.png,
+          death_humanoid_side.png, death_humanoid_gamecam.png, death_humanoid_final.png]
 created: 2026-07-28
+updated: 2026-08-01 (добавлена Anim_Death_Humanoid)
 author: modeler-3d
 verified_from: обратный реимпорт всех трёх FBX + чтение длины такта прямо из контейнера FBX
 tags: [animation, humanoid, pistol, aim, recoil, melee, slash, shared-skeleton]
@@ -131,3 +134,26 @@ tags: [animation, humanoid, pistol, aim, recoil, melee, slash, shared-skeleton]
 - `renders/` — контактные листы по кадрам; `melee_slash_arc.png` показывает всю дугу
   удара одной картинкой, `qc_closeups.png` — крупные планы самых напряжённых кадров.
 - `_work/` — сборщик, скрипты проверки и рендера, логи, QC-бленд.
+
+## Дополнение 2026-08-01: `Anim_Death_Humanoid.fbx` — смерть, падение на спину
+
+Одна общая анимация смерти для всех гуманоидов (решение game-lead: применяется в
+мастер-классе). Персонаж получает удар, запрокидывается, колени подламываются,
+он садится назад и опрокидывается на спину; финал — лежит неподвижно на спине,
+руки чуть раскинуты, голова слегка повёрнута набок. Длительность 1.100 секунды
+(34 кадра при 30 к/с), последние 8 кадров — полная неподвижность (замеренный
+дрейф 0.000000 м), чтобы последний кадр можно было заморозить как позу трупа.
+
+**Честный отчёт по ключам (снят фактически с файла действия):** ключи вращения
+стоят на всех 21 костях; ключи перемещения — на трёх костях `C_Root`,
+`L_Pelvis`, `R_Pelvis`. Причина: у скелета ТРИ корневые кости без родителя
+(торс и каждая нога отдельно), уложить тело можно только одинаковым поворотом
+и сдвигом всех трёх корней. Направления рук авторились в системе стоящего тела
+и поворачивались вместе с корпусом (хелпер bdir в билдере).
+
+Проверки по файлу: длина такта в контейнере FBX (Takes/LocalTime) ровно
+1.1000 с; реимпорт в чистый Blender — 21 кость + RootAnim, мешей нет, движутся
+21/21 костей, финальный кадр лежит (максимум высоты костей 0.296 м); за весь
+такт ни одна кость не опускается ниже +0.015 м (под пол не уходит). Билдер:
+`_work/20_build_death.py`, проверка: `_work/22_verify_death.py`, QC-сцена:
+`_work/_qc_death.blend`, лог: `_work/_20_death.log`.

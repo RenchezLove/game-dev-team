@@ -1,0 +1,16 @@
+==== container fbx_version=7400 bytes=261580
+  global UpAxis           = 1
+  global FrontAxis        = 2
+  global CoordAxis        = 0
+  global UnitScaleFactor  = 1.0
+  Take LocalTime: 1.0333 s
+FBX version: 7400
+==== roundtrip
+  armature: WolfRig bones=22  meshes_in_file=1 (['SK_Wolf'])
+  missing: none  unexpected: none
+  moving bones (22/22): top root 0.75, neck 0.74, frontpaw_L 0.73, rearpaw_L 0.66, spine 0.64, chest 0.64
+  final frame: max_bone_z=0.382 (lying on the side => <0.45)
+VERIFY_WOLF_DEATH_DONE failures=0
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

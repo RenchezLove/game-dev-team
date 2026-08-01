@@ -1,0 +1,17 @@
+==== container Anim_Death_Humanoid  fbx_version=7400  bytes=190412
+  global UpAxis           = 1
+  global FrontAxis        = 2
+  global CoordAxis        = 0
+  global UnitScaleFactor  = 1.0
+  Take LocalTime: 1.1000 s
+FBX version: 7400
+==== roundtrip Anim_Death_Humanoid
+  armature object: RootAnim  bones=21  meshes_in_file=0
+  missing: none  unexpected: none
+  scene frame range: 1..250 fps=30
+  moving bones (21/21): top L_Hand 3.18, R_Hand 3.09, L_Arm 2.37, Pelvis_009_R_002 2.33, C_Head 2.23, C_Neck 2.06
+  final frame: max_bone_z=0.296 (must be <0.45)  hip_y=0.279 (moved back)
+VERIFY_DEATH_DONE failures=0
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
