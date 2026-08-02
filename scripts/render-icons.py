@@ -17,7 +17,6 @@ Adding future items: append to ITEMS below. 'blend' entries need the source
 .blend path + object name (+ optional yaw so the item faces the camera).
 """
 import bpy
-import bmesh
 import math
 import os
 import sys
@@ -48,7 +47,14 @@ ITEMS = {
     'pistol':         ('blend', A + 'pistol/SM_Pistol.blend', 'SM_Pistol', 0),
     'wolf_hide':      ('blend', A + 'hide_pickup/hide_pickup.blend',
                        'SM_HidePickup', 0),
-    'money':          ('builder', 'build_money', None, 0),
+    'money':          ('blend', A + 'money/money.blend', 'SM_Money', 0),
+    'medkit':         ('blend', A + 'medkit/medkit.blend', 'SM_Medkit', 0),
+    'canned_food':    ('blend', A + 'canned_food/canned_food.blend',
+                       'SM_CannedFood', -45),   # label patch into camera
+    'water':          ('blend', A + 'water/water.blend', 'SM_WaterBottle', 0),
+    'ammo_9mm':       ('blend', A + 'ammo_9mm/ammo_9mm.blend',
+                       'SM_Ammo9mm', 0),
+    'laptop':         ('blend', A + 'laptop/laptop.blend', 'SM_Laptop', 0),
     'armor_t1_head':  ('blend', WW, 'SK_Armor_T1_Head', 180),
     'armor_t1_torso': ('blend', WW, 'SK_Armor_T1_Torso', 180),
     'armor_t1_legs':  ('blend', WW, 'SK_Armor_T1_Legs', 180),
@@ -59,62 +65,6 @@ ITEMS = {
     'armor_t3_torso': ('blend', WT, 'SK_Armor_T3_Torso', 180),
     'armor_t3_legs':  ('blend', WT, 'SK_Armor_T3_Legs', 180),
 }
-
-
-def hexv(hx):
-    hx = hx.lstrip('#')
-    return (int(hx[0:2], 16) / 255.0, int(hx[2:4], 16) / 255.0,
-            int(hx[4:6], 16) / 255.0, 1.0)
-
-
-# ---------------- money (PROPOSAL: no source asset existed, simplest own
-# model - banknote stack with a paper band + two loose bills on top; if
-# game-lead approves it graduates to assets/money/ with builder+passport) ----
-
-def build_money():
-    me = bpy.data.meshes.new('SM_Money')
-    ob = bpy.data.objects.new('SM_Money', me)
-    bpy.context.scene.collection.objects.link(ob)
-    bm = bmesh.new()
-    boxes = [   # (size xyz, center xyz, yaw_deg, tag)
-        ((0.156, 0.067, 0.040), (0, 0, 0.020), 0, 'stack'),
-        ((0.034, 0.071, 0.046), (0, 0, 0.023), 0, 'band'),
-        ((0.156, 0.067, 0.004), (0.004, 0.003, 0.046), 12, 'bill'),
-        ((0.150, 0.064, 0.004), (-0.005, -0.002, 0.050), -9, 'bill'),
-    ]
-    tags = []   # per-quad tag, 6 quads per box, creation order preserved
-    for size, center, yaw, tag in boxes:
-        M = (Matrix.Translation(Vector(center))
-             @ Matrix.Rotation(math.radians(yaw), 4, 'Z')
-             @ Matrix.Diagonal(Vector(size).to_4d()))
-        bmesh.ops.create_cube(bm, size=1.0, matrix=M)
-        tags += [tag] * 6
-    bm.to_mesh(me)
-    bm.free()
-    ca = me.color_attributes.new('Col', 'BYTE_COLOR', 'CORNER')
-    paper = hexv('#D6CFBC')     # bill edges: layered paper
-    bill = hexv('#7C8A66')      # bill face: worn green
-    band = hexv('#C4A05F')      # kraft-paper band (contrast vs paper + bill)
-    for p, tag in zip(me.polygons, tags):
-        top = p.normal.z > 0.5
-        if tag == 'band':
-            c = band
-        elif tag == 'stack':
-            c = bill if top else paper
-        else:                   # loose bill
-            c = bill if top else paper
-        for li in p.loop_indices:
-            ca.data[li].color_srgb = c
-    bm = bmesh.new()
-    bm.from_mesh(me)
-    bmesh.ops.recalc_face_normals(bm, faces=bm.faces[:])
-    bmesh.ops.triangulate(bm, faces=bm.faces[:])
-    bm.to_mesh(me)
-    bm.free()
-    for p in me.polygons:
-        p.use_smooth = False
-    me.update()
-    return ob
 
 
 # ---------------- stand ----------------
