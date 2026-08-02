@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-# Подключается к живому редактору UE по remote_execution, печатает список
-# несохранённых (dirty) пакетов и сохраняет их. Запуск движковым python.
+# Живой редактор: dirty-пакеты + поиск акторов POI/Loot/Pickup на карте.
 import sys, time
 
 PLUGIN = r"E:/UnrealEngine/UE_5.5/Engine/Plugins/Experimental/PythonScriptPlugin/Content/Python"
@@ -11,13 +10,13 @@ CMD = (
     "import unreal\n"
     "d1 = unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()\n"
     "d2 = unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()\n"
-    "names = [p.get_name() for p in list(d1) + list(d2)]\n"
-    "print('DIRTY_LIST=' + repr(names))\n"
-    "if names:\n"
-    "    ok = unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True, True)\n"
-    "    print('SAVE_RESULT=' + repr(ok))\n"
-    "else:\n"
-    "    print('SAVE_RESULT=nothing_to_save')\n"
+    "print('DIRTY=' + repr([p.get_name() for p in list(d1) + list(d2)]))\n"
+    "actors = unreal.EditorLevelLibrary.get_all_level_actors()\n"
+    "for a in actors:\n"
+    "    lbl = a.get_actor_label()\n"
+    "    if ('POI' in lbl) or ('Loot' in lbl) or ('Pickup' in lbl):\n"
+    "        loc = a.get_actor_location()\n"
+    "        print('ACTOR|%s|%s|%.0f,%.0f,%.0f' % (lbl, a.get_class().get_name(), loc.x, loc.y, loc.z))\n"
 )
 
 def main():

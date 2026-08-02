@@ -1,24 +1,11 @@
 # -*- coding: utf-8 -*-
-# Подключается к живому редактору UE по remote_execution, печатает список
-# несохранённых (dirty) пакетов и сохраняет их. Запуск движковым python.
 import sys, time
 
 PLUGIN = r"E:/UnrealEngine/UE_5.5/Engine/Plugins/Experimental/PythonScriptPlugin/Content/Python"
 sys.path.append(PLUGIN)
 import remote_execution as re_mod
 
-CMD = (
-    "import unreal\n"
-    "d1 = unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()\n"
-    "d2 = unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()\n"
-    "names = [p.get_name() for p in list(d1) + list(d2)]\n"
-    "print('DIRTY_LIST=' + repr(names))\n"
-    "if names:\n"
-    "    ok = unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True, True)\n"
-    "    print('SAVE_RESULT=' + repr(ok))\n"
-    "else:\n"
-    "    print('SAVE_RESULT=nothing_to_save')\n"
-)
+CMD = "import unreal\nunreal.SystemLibrary.execute_console_command(None, 'QUIT_EDITOR')\nprint('QUIT_SENT')\n"
 
 def main():
     config = re_mod.RemoteExecutionConfig()
@@ -42,7 +29,6 @@ def main():
     result = r.run_command(CMD, exec_mode=re_mod.MODE_EXEC_FILE)
     for entry in result.get("output", []):
         print(entry.get("type"), ":", entry.get("output"))
-    print("COMMAND_SUCCESS=", result.get("success"))
     r.close_command_connection()
     r.stop()
 
