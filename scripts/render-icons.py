@@ -44,8 +44,10 @@ SHOULDER_BONES = (('L_Shoulder', 1), ('R_Arm', -1))   # (bone, rotation sign)
 # T2 balaclava IS the repainted head - only the eye-slit skin goes.
 DUMMY_PREFIX = 134
 STRIP = {   # item -> [(hex, max_face_index or None), ...]
+    # T1: brown cap ear flaps (gear faces in the hair color) read as hair
+    # locks without the head - cut ALL #4A3826, Rinat acceptance 08-02
     'armor_t1_head': [('#C89A7A', None), ('#2B2823', None),
-                      ('#4A3826', DUMMY_PREFIX)],
+                      ('#4A3826', None)],
     'armor_t2_head': [('#7A4A32', None)],
     'armor_t3_head': [('#C89A7A', None), ('#2B2823', None),
                       ('#4A3826', DUMMY_PREFIX)],
