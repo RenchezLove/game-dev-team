@@ -35,6 +35,22 @@ POSE_ARMS = {'armor_t1_torso', 'armor_t2_torso', 'armor_t3_torso'}
 ARM_DOWN_DEG = 68     # from T-pose horizontal; hands end ~22 deg off vertical
 SHOULDER_BONES = (('L_Shoulder', 1), ('R_Arm', -1))   # (bone, rotation sign)
 
+# Head icons: the head dummy (skin/hair/brows) is part of the same mesh as
+# the headgear, so "hide the head" = delete its faces on the RENDER COPY
+# (Rinat review 08-02: a face in the icon reads as a severed head; assets
+# untouched). T1/T3 heads are a dup of the base head (134 faces: 60 skin
+# #C89A7A + 70 hair #4A3826 + 4 brows #2B2823) with gear appended after, so
+# hair color is restricted to that prefix (the T1 cap reuses the same brown).
+# T2 balaclava IS the repainted head - only the eye-slit skin goes.
+DUMMY_PREFIX = 134
+STRIP = {   # item -> [(hex, max_face_index or None), ...]
+    'armor_t1_head': [('#C89A7A', None), ('#2B2823', None),
+                      ('#4A3826', DUMMY_PREFIX)],
+    'armor_t2_head': [('#7A4A32', None)],
+    'armor_t3_head': [('#C89A7A', None), ('#2B2823', None),
+                      ('#4A3826', DUMMY_PREFIX)],
+}
+
 A = 'E:/game-dev-team/assets/'
 WW = A + 'armor_wearables/_work/wearables_work.blend'
 WT = A + 'armor_wearables/_work/wearables_t2t3.blend'
@@ -44,7 +60,8 @@ WT = A + 'armor_wearables/_work/wearables_t2t3.blend'
 # props author forward +Y (yaw 0), humanoid pieces author forward -Y (yaw 180).
 ITEMS = {
     'knife':          ('blend', A + 'knife/SM_Knife.blend', 'SM_Knife', 0),
-    'pistol':         ('blend', A + 'pistol/SM_Pistol.blend', 'SM_Pistol', 0),
+    # -45: side toward camera - readable profile (Rinat review 08-02)
+    'pistol':         ('blend', A + 'pistol/SM_Pistol.blend', 'SM_Pistol', -45),
     'wolf_hide':      ('blend', A + 'hide_pickup/hide_pickup.blend',
                        'SM_HidePickup', 0),
     'money':          ('blend', A + 'money/money.blend', 'SM_Money', 0),
@@ -65,6 +82,35 @@ ITEMS = {
     'armor_t3_torso': ('blend', WT, 'SK_Armor_T3_Torso', 180),
     'armor_t3_legs':  ('blend', WT, 'SK_Armor_T3_Legs', 180),
 }
+
+
+def strip_faces(ob, rules):
+    """Delete faces by vcol hex (optionally only below a face index) on the
+    loaded copy; the source .blend is never written. Prints the count as
+    proof that only the expected dummy faces went away."""
+    import bmesh
+    me = ob.data
+    ca = me.color_attributes[0]
+    kill = set()
+    for hx, max_idx in rules:
+        want = tuple(int(hx.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4))
+        for p in me.polygons:
+            if max_idx is not None and p.index >= max_idx:
+                continue
+            c = ca.data[p.loop_indices[0]].color_srgb
+            got = tuple(round(v * 255) for v in c[:3])
+            if all(abs(g - w) <= 3 for g, w in zip(got, want)):
+                kill.add(p.index)
+    bm = bmesh.new()
+    bm.from_mesh(me)
+    bm.faces.ensure_lookup_table()
+    bmesh.ops.delete(bm, geom=[bm.faces[i] for i in sorted(kill)],
+                     context='FACES')
+    bm.to_mesh(me)
+    bm.free()
+    me.update()
+    print('STRIP %s removed=%d left=%d' % (ob.name, len(kill),
+                                           len(me.polygons)))
 
 
 # ---------------- stand ----------------
@@ -218,6 +264,8 @@ def render_icon(name):
         pose_arms_down(rig)
     else:
         ob.rotation_euler = (0, 0, math.radians(yaw))
+    if name in STRIP:
+        strip_faces(ob, STRIP[name])
     mat = icon_material()
     ob.data.materials.clear()
     ob.data.materials.append(mat)
