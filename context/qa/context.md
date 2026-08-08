@@ -1,36 +1,40 @@
 # context: qa
 
 ## 🧭 СЕЙЧАС
-- 2026-08-06 мерж-гейт волны Б4–Б9 ветки `feature/build122` (HEAD `7cf4f01`, 8 коммитов bc39673..7cf4f01): **ДОБРО НА МЕРЖ**, вердикт отдан game-lead. Пруфы (в `Saved/` гейм-репозитория): `b122-wave3-build2.log` — реальная компиляция всех файлов волны + Link .lib/.dll, 0 ошибок; `b122-wave3-tests2.log` — 65 Success / 0 Fail, EXIT CODE 0, все 4 новых теста волны прошли (строки 1451/1618/1754/2220); манифест Shipping-пакета через aapt — без EXTERNAL_STORAGE и RemoteFileManager; `b122-wave3-augment1.log:1198` — SAFEZONE-строка, коммит 179664a = ровно один WBP_PlayerStats.uasset; дифф глазами чистый, все 21+1 отладочная привязка под `CONTRARY_WITH_QA_CHEATS`, игровые снаружи.
-- Замечание не-блокер: таймаут ~30 с ожидания экрана согласия оставляет рекламный SDK неподнятым на этот запуск (при нормальном старте недостижимо). Известное ограничение лида: живой прогон магазина Б8 на телефоне не делался.
-- Следующий шаг: за game-lead — маркер QA_OK и merge в master.
+- 2026-08-08 мерж-гейт ветки `feature/night-0807` (7 коммитов 1ea5e2d..0181111 поверх master `86274ad`): **ДОБРО НА МЕРЖ с одним замечанием**, вердикт отдан game-lead. Пруфы (в `Saved/` гейм-репозитория): `qa-gate2-build.log` — после touch 21 правленого .cpp реальная компиляция Module.ContrarySurvivor.9–12 + GenerateWbpCommandlet.cpp, линк обеих DLL (08-08 09:01), 0 ошибок; `qa-gate2-tests.log` — 81 Success / 0 Fail (= 81 макрос на ветке, master 74, +7 новых: 3 ContinueSpawn + 4 AttackLos/LootName; все 7 сверены по полным именам), TEST COMPLETE EXIT CODE 0, GIsCriticalError=0; `qa-gate2-wbp.log` — 19 WBP «VERIFY OK» (11 старых + 8 новых), 13 слотов HUD и 3 слота контроллера заполнены, «Итог проверки: ошибок 0». Дифф глазами чистый, LFS покрывает все 17 ассетов, хекс-греп секретов пуст (позитивный контроль 117), пустой документирующий коммит cd27744 подтверждён.
+- ЗАМЕЧАНИЕ (не регрессия, передано лиду): `PlayerCharacter.cpp:524` создаёт индикатор хромоты жёстко из `ULimpIndicatorWidget::StaticClass()` — слот `LimpIndicatorWidgetClass` объявлен на HUD, заполнен генератором и «VERIFY OK», но НЕ ЧИТАЕТСЯ; правки Рината в WBP_LimpIndicator в игре не проявятся. -verify этот случай не ловит (проверяет заполненность слота, не чтение).
+- В корне гейм-репо посторонняя нетрекаемая папка `scratchpad/` (poi_dump.py, poi_rename.py) — в мерж не попадает, прибрать.
+- Следующий шаг: за game-lead — решение по замечанию (хвост или дофикс), маркер QA_OK и merge.
 
 ## Урок сессии: «EXIT=0» бывает пустым
-`Build.bat` может вернуть 0 со строкой `Target is up to date`, не скомпилировав НИЧЕГО. Для гейта искать строки `Compile [x64] <файл>`; нет их — гнать `Rebuild.bat`. При unity-сборке отдельных имён .cpp игрового модуля в логе НЕТ — они внутри блоков `Module.ContrarySurvivor.N.cpp`; полная чистая пересборка всех N блоков покрывает все файлы модуля по построению.
+`Build.bat` может вернуть 0 со строкой `Target is up to date`, не скомпилировав НИЧЕГО. Для гейта искать строки `Compile [x64] <файл>`; нет их — touch правленых .cpp и пересобрать (срабатывало 08-07 и 08-08). При unity-сборке отдельных имён .cpp игрового модуля в логе НЕТ — они внутри блоков `Module.ContrarySurvivor.N.cpp`.
+
+## Урок сессии (08-08): ловушка «объявлено, но не читается» — проверять ОБЕ стороны
+Слот WBP-класса — это пара «объявлен+заполнен» И «читается в CreateWidget». Верификация коммандлета проверяет только первую половину. Греп по всем `CreateWidget<`: каждый жёсткий `::StaticClass()` без выбора из слота — кандидат на пробел (08-08: LimpIndicator).
 
 ## Урок сессии: проверять занятость проекта, а не верить вводной
-`tasklist`/`Get-Process *Unreal*` + `git status` ДО начала; при чужой активности ждать. HEAD фиксировать в отчёте — может уехать.
+`tasklist`/`Get-Process *Unreal*` + `git status` ДО начала; при чужой активности ждать. HEAD фиксировать в отчёте — может уехать. Замок `.build-lock` в корне гейм-репо ставить на время сборки, снимать после.
 
 ## Урок сессии (08-06): число тестов сверять со счётом макросов на КОНКРЕТНОМ коммите
-Старый лог мог сниматься с рабочей копии, где уже лежали ещё не закоммиченные тесты (b6-consent-tests1.log: 63 успеха при 61 макросе на bc39673). Арифметика «было + добавили = стало» сходится только через `git grep -c IMPLEMENT_SIMPLE_AUTOMATION_TEST <коммит>`, а не по числам из сообщений коммитов.
+Арифметика «было + добавили = стало» сходится только через `git grep -c IMPLEMENT_SIMPLE_AUTOMATION_TEST <коммит> -- Source/ContrarySurvivor/Tests/`. 08-08: ветка 81, master 74 — сошлось с прогоном 81/0. Лист-имена тестов в логе могут совпадать между сьютами (HealsPoisonedSaveToCampfire есть и в Respawn, и в ContinueSpawn) — сверять по ПОЛНОМУ имени.
 
-## Как гонять полный набор (эталон Build 1.2.1: 32 теста; на 08-06 в наборе уже 65)
+## Как гонять полный набор (на 08-08 в наборе 81 тест)
 1. Проверить, что проект свободен.
-2. Начисто: `Rebuild.bat ContrarySurvivorEditor Win64 Development -Project=<uproject> -WaitMutex` (~1–2.5 мин; при «paging file too small» добавить `-NoUBA -MaxParallelActions=6`). Движок: `E:/UnrealEngine/UE_5.5`.
-3. Тесты: `UnrealEditor-Cmd.exe <uproject> -ExecCmds="Automation RunTests ContrarySurvivor" -TestExit="Automation Test Queue Empty" -unattended -nopause -nosplash -stdout -nullrhi -abslog=<лог>`.
-4. Критерий: число `Result={Success}` = числу макросов `IMPLEMENT_SIMPLE_AUTOMATION_TEST` в `Source/ContrarySurvivor/Tests/` на проверяемом коммите, падений 0, чистый выход `TestExit: Automation Test Queue Empty` и `TEST COMPLETE. EXIT CODE: 0`. Строки `GIsCriticalError` в логе UE 5.5 может не быть — чистоту выхода смотреть по хвосту лога.
-5. Коммандлеты целостности, каждый свежим процессом: `-run=GenerateWbp -verify` (12 WBP, «VERIFY OK» у каждого); `-run=GenerateWbp -dumpslots` (срез `SLOTS WBP_*` по всем 12); при затронутых анимациях/скелетах — `-run=PatchAnimBp -verify`, `-run=AddGripSocket -verify`.
+2. Сборка: `Build.bat ContrarySurvivorEditor Win64 Development -Project=<uproject> -WaitMutex -NoHotReload -NoUBA -MaxParallelActions=6` (движок `E:/UnrealEngine/UE_5.5`; `-NoUBA` обязателен). «Target is up to date» — touch и заново.
+3. Тесты: `UnrealEditor-Cmd.exe <uproject> -ExecCmds="Automation RunTests ContrarySurvivor; Quit" -unattended -nopause -nosplash -nullrhi -abslog=<лог>` (из Git Bash — префикс `MSYS_NO_PATHCONV=1`).
+4. Критерий: число `Result={Success}` = числу макросов на проверяемом коммите, падений 0, хвост `TEST COMPLETE. EXIT CODE: 0`, `GIsCriticalError=0`.
+5. Коммандлеты целостности свежим процессом: `-run=GenerateWbp -verify` — на 08-08 это 19 WBP «VERIFY OK» + 9 контрактов слотов CDO (6 HUD + 3 контроллера) + печать всех 13 слотов HUD; `-run=GenerateWbp -dumpslots`; при затронутых анимациях/скелетах — `-run=PatchAnimBp -verify`, `-run=AddGripSocket -verify`.
 
 ## Рецепты проверки
 - **Мёртвая фича при зелёной сборке.** Пути на контент в C++ не проверяются компилятором: `grep -rhoE '"/Game/[^"]+"' Source/` и сверять с `Content/<путь>.uasset`.
 - **Удаление класса с UCLASS.** Доказательство невключения — файл ответа линковщика `UnrealEditor-<Модуль>.dll.rsp`.
 - **Git LFS.** `git lfs ls-files` — истина по HEAD; сверять ВСЕ .uasset/.umap из диффа против списка, не только новые.
-- **Секреты в диффе.** Хекс-греп `[0-9a-fA-F]{32}` по текстовому диффу (`':(exclude)*.uasset' ':(exclude)*.umap'`); код возврата снимать с grep, не с head в конце конвейера; рядом позитивный контроль (греп заведомо частой строки).
+- **Секреты в диффе.** Хекс-греп `[0-9a-fA-F]{32}` по текстовому диффу (`':(exclude)*.uasset' ':(exclude)*.umap'`); код возврата снимать с grep; рядом позитивный контроль.
 - **Двоичный поиск** только через Bash, с позитивным и негативным контролем; ловушка префиксов (`MI_FogBand` ловит `MI_FogBandSoft`).
 - **Цепочки с grep рвутся:** ноль совпадений даёт код 1 и обрывает `&&`.
-- **Безобидный шум в логах UE:** `Failed to load 'WinPixGpuCapturer.dll'` — отладочная библиотека PIX, не ошибка.
+- **Безобидный шум в логах UE:** `Failed to load 'WinPixGpuCapturer.dll'` — отладочная библиотека PIX, не ошибка; строка Build.cs про ключ статистики из `E:/game-dev-team/keys` — штатная, ключ вне репозитория.
 - **Манифест Android-пакета:** `E:/Android/sdk/build-tools/34.0.0/aapt.exe dump permissions <apk>` и `dump xmltree <apk> AndroidManifest.xml`; сверять дату пакета с датой последнего коммита волны.
 
 ## Ограничения
 - Вердикт только с реальными логами (правило B). Логи qa — в `context/qa/logs/`.
-- Headless не проверяет: проигрывание анимаций/монтажей, тач-жесты, визуал (материалы/масштаб/торговец) — это живой PIE и приёмка Рината.
+- Headless не проверяет: проигрывание анимаций/монтажей, тач-жесты, визуал (материалы/масштаб/торговец), Z у пола (трасса вне PIE невалидна) — это живой PIE и приёмка Рината.
