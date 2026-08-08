@@ -1,10 +1,11 @@
 # context: qa
 
 ## 🧭 СЕЙЧАС
-- 2026-08-08 мерж-гейт `feature/night-0807`: **ДОБРО НА МЕРЖ, замечание закрыто дофиксом** — вердикт финальный, отдан game-lead. Гейт основной волны (7 коммитов до 0181111): `Saved/qa-gate2-build.log` — реальная компиляция после touch 21 .cpp, линк обеих DLL, 0 ошибок; `qa-gate2-tests.log` — 81/81 (макросов на ветке 81, master 74, все +7 новых сверены по полным именам), чистый выход; `qa-gate2-wbp.log` — 19 WBP «VERIFY OK», 13 слотов HUD + 3 контроллера, «ошибок 0». Дифф/LFS/секреты чистые, пустота cd27744 подтверждена.
-- Дельта `0ec0a43` (дофикс замечания про индикатор хромоты) проверена отдельно: дифф глазами — ровно чтение слота LimpIndicatorWidgetClass с HUD по образцу DailyRewardComponent + include, лишнего нет; в логе лида `night-lead-build3.log` PlayerCharacter.cpp реально компилировался; мой запуск Build.bat дал «Target is up to date» = текущая DLL соответствует исходникам коммита; НЕЗАВИСИМЫЙ прогон `qa-gate2-tests-delta.log` — 81 Success / 0 Fail, TEST COMPLETE EXIT CODE 0, GIsCriticalError=0. Папка scratchpad/ прибрана лидом, дерево чистое.
-- Урок в копилку: «Target is up to date» ВРЕДЕН как пруф компиляции, но ПОЛЕЗЕН как пруф соответствия «DLL = исходники» при проверке чужой готовой сборки.
-- Следующий шаг: за game-lead — маркер QA_OK и merge в master.
+- 2026-08-08 мерж-гейт `fix/shop-pause-bones-0808` (4 коммита d7291fb..963b1a6 поверх master 0ec0a43): **ДОБРО НА МЕРЖ** — вердикт отдан game-lead. Прошлый гейт night-0807 вынесен в archive.md.
+- Сборка (`Saved/qa-gate3-build.log`): touch 4 правленых .cpp + новый тест, реальная компиляция `Module.ContrarySurvivor.10/12.cpp`, линк .lib и .dll, DLL перелинкована 10:58:54 (была 10:49:12), 0 ошибок, exit 0.
+- Тесты (`Saved/qa-gate3-tests.log`): 82 Success / 0 Fail (макросов ветка 82, master 81 = +1 новый ShopBackpackWeapon), TEST COMPLETE EXIT CODE 0, GIsCriticalError=0. Регрессии оружия зелёные: StartWithoutFirearm, WeaponSlotDesync.*(3), WeaponUiGating.RangedGate; новый PurchasedFirearmGoesToBackpackThenTapEquips=Success.
+- Логика проверена глазами: TryAdoptRangedWeapon при не-огнестреле/занятом слоте возвращает false, предмет остаётся в рюкзаке (ветка HandleTileUse для любой категории Weapon безопасна, потерь/дублей нет). Пауза: убрано только согласие, строка политики и номер версии сохранены (RefreshConsentAndVersion цел). L_World_C.umap — LFS-указатель. Дифф/секреты чистые (позитивный контроль сработал).
+- Следующий шаг: за game-lead — маркер QA_OK и merge в master. Дерево чистое, HEAD d7291fb, замок сборки снят.
 ## Урок сессии: «EXIT=0» бывает пустым
 `Build.bat` может вернуть 0 со строкой `Target is up to date`, не скомпилировав НИЧЕГО. Для гейта искать строки `Compile [x64] <файл>`; нет их — touch правленых .cpp и пересобрать (срабатывало 08-07 и 08-08). При unity-сборке отдельных имён .cpp игрового модуля в логе НЕТ — они внутри блоков `Module.ContrarySurvivor.N.cpp`.
 

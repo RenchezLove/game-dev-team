@@ -7,3 +7,6 @@
 
 ## 2026-08-02 — мерж-гейт feature/build121-fixes (закрыт)
 ГОДНО по всем 5 пунктам ТЗ Build 1.2.1 (HEAD 188b5fd). Пруфы в context/qa/logs/ с префиксом b121-gate: rebuild (обе DLL, EXIT=0), tests (32/32 Success), wbp-verify (12 WBP OK), dumpslots, diff-stat/diff-text (58 файлов, hex-секретов 0), lfs (17/17). Дальше шла живая приёмка Рината.
+
+## 2026-08-08 мерж-гейт feature/night-0807 (ЗАКРЫТ, влит в 0ec0a43)
+ДОБРО дано, вердикт финальный. Гейт волны (7 коммитов до 0181111): qa-gate2-build.log — реальная компиляция после touch 21 .cpp, линк обеих DLL, 0 ошибок; qa-gate2-tests.log — 81/81 (ветка 81, master 74); qa-gate2-wbp.log — 19 WBP VERIFY OK. Дельта 0ec0a43 (индикатор хромоты): дифф чистый, qa-gate2-tests-delta.log 81/0 EXIT 0. Дифф/LFS/секреты чистые.
