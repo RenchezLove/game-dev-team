@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1600px; height:600px; overflow:hidden; }
+  body {
+    background:#222427;
+    display:flex; align-items:center; justify-content:center; gap:0;
+  }
+  .card { position:relative; overflow:hidden; border-radius:10px; }
+  .left  { width:620px; height:480px; background:#57585c; }
+  .left img { position:absolute; width:660px; left:39px; top:-99px; }
+  .right { width:783px; height:480px; }
+  .right img { position:absolute; width:783px; left:0; top:0; }
+  .arrow { width:170px; display:flex; align-items:center; justify-content:center; }
+</style>
+</head>
+<body>
+  <div class="card left"><img src="current.png"></div>
+  <div class="arrow">
+    <svg width="140" height="70" viewBox="0 0 140 70">
+      <g fill="none" stroke="#e8e2d6" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="35" x2="112" y2="35"/>
+        <polyline points="88,12 116,35 88,58"/>
+      </g>
+    </svg>
+  </div>
+  <div class="card right"><img src="tripo.jpg"></div>
+</body>
+</html>
