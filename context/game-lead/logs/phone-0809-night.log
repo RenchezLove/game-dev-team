@@ -1,0 +1,1756 @@
+﻿Log file open, 08/09/26 20:47:19
+LogAndroid: Case APP_CMD_WINDOW_RESIZED
+LogAndroid: Case APP_CMD_WINDOW_REDRAW_NEEDED
+LogTrace: Initializing trace...
+LogTrace: Finished trace initialization.
+LogCsvProfiler: Display: Metadata set : platform="Android"
+LogCsvProfiler: Display: Metadata set : config="Development"
+LogCsvProfiler: Display: Metadata set : buildversion="++UE5+Release-5.5-CL-40574608"
+LogCsvProfiler: Display: Metadata set : engineversion="5.5.4-40574608+++UE5+Release-5.5"
+LogCsvProfiler: Display: Metadata set : os="Android 14"
+LogCsvProfiler: Display: Metadata set : cpu="realme|RMX3938|ums9230_latte"
+LogCsvProfiler: Display: Metadata set : pgoenabled="0"
+LogCsvProfiler: Display: Metadata set : pgoprofilingenabled="0"
+LogCsvProfiler: Display: Metadata set : ltoenabled="0"
+LogCsvProfiler: Display: Metadata set : asan="0"
+LogCsvProfiler: Display: Metadata set : commandline="" -project="../../../ContrarySurvivor/ContrarySurvivor.uproject"""
+LogCsvProfiler: Display: Metadata set : loginid="C11804F6A53840CFAD40F2585899CB39"
+LogCsvProfiler: Display: Metadata set : deviceid="8edf8a75b4875ef0"
+LogCsvProfiler: Display: Metadata set : llm="0"
+LogAndroid: Case APP_CMD_GAINED_FOCUS
+LogInit: Display: Project file not found: ../../../ContrarySurvivor/ContrarySurvivor.uproject
+LogInit: Display: 	Attempting to find via project info helper.
+LogTemp: 8 cores and 8 assignable cores
+LogPakFile: Initializing PakPlatformFile
+LogIoDispatcher: Display: Reading toc: ../../../ContrarySurvivor/Content/Paks/global.utoc
+LogIoDispatcher: Display: Toc loaded : ../../../ContrarySurvivor/Content/Paks/global.utoc, Id=ffffffffffffffff, Order=0, EntryCount=1, SignatureHash=0000000000000000000000000000000000000000
+LogIoDispatcher: Display: Mounting container '../../../ContrarySurvivor/Content/Paks/global.utoc' in location slot 0
+LogPakFile: Display: Initialized I/O dispatcher file backend. Mounted the global container: ../../../ContrarySurvivor/Content/Paks/global.utoc
+LogPakFile: Display: Found Pak file ContrarySurvivor/Content/Paks/ContrarySurvivor-Android_ASTC.pak attempting to mount.
+LogPakFile: Display: Mounting pak file ContrarySurvivor/Content/Paks/ContrarySurvivor-Android_ASTC.pak.
+LogIoDispatcher: Display: Reading toc: ContrarySurvivor/Content/Paks/ContrarySurvivor-Android_ASTC.utoc
+LogIoDispatcher: Display: Toc loaded : ContrarySurvivor/Content/Paks/ContrarySurvivor-Android_ASTC.utoc, Id=f75971945e706b9, Order=0, EntryCount=1308, SignatureHash=0000000000000000000000000000000000000000
+LogIoDispatcher: Display: Mounting container 'ContrarySurvivor/Content/Paks/ContrarySurvivor-Android_ASTC.utoc' in location slot 0
+LogPakFile: Display: Mounted IoStore container "ContrarySurvivor/Content/Paks/ContrarySurvivor-Android_ASTC.utoc"
+LogFilePackageStore: Mounting container: Id=f75971945e706b9, Order=0, NumPackages=629
+LogPakFile: Display: Mounted Pak file 'ContrarySurvivor/Content/Paks/ContrarySurvivor-Android_ASTC.pak', mount point: '../../../'
+LogStats: Stats thread started at 2.419040
+LogAssetRegistry: Premade AssetRegistry loaded from '../../../ContrarySurvivor/AssetRegistry.bin'
+LogIris: FNetObjectFactoryRegistry::UnregisterFactory is unregistering factory: None name: NetActorFactory id: 0
+LogIris: FNetObjectFactoryRegistry::UnregisterFactory is unregistering factory: None name: NetSubObjectFactory id: 1
+LogICUInternationalization: OS requested locale 'ru_RU' is not supported. Using the OS requested language of 'ru-RU' as the locale.
+LogICUInternationalization: ICU TimeZone Detection - Raw Offset: +3:00, Platform Override: ''
+LogAndroid: EGL Extensions: 
+EGL_ANDROID_front_buffer_auto_refresh EGL_ANDROID_get_native_client_buffer EGL_ANDROID_presentation_time EGL_EXT_surface_CTA861_3_metadata EGL_EXT_surface_SMPTE2086_metadata EGL_KHR_get_all_proc_addresses EGL_KHR_swap_buffers_with_damage EGL_ANDROID_get_frame_timestamps EGL_ANDROID_image_native_buffer EGL_ANDROID_native_fence_sync EGL_ANDROID_recordable EGL_EXT_create_context_robustness EGL_EXT_image_gl_colorspace EGL_EXT_pixel_format_float EGL_EXT_protected_content EGL_EXT_yuv_surface EGL_IMG_context_priority EGL_KHR_config_attribs EGL_KHR_create_context EGL_KHR_fence_sync EGL_KHR_gl_colorspace EGL_KHR_gl_renderbuffer_image EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_image EGL_KHR_image_base EGL_KHR_mutable_render_buffer EGL_KHR_no_config_context EGL_KHR_partial_update EGL_KHR_surfaceless_context EGL_KHR_wait_sync EGL_NV_context_priority_realtime 
+LogAndroid: Mobile HDR: YES
+LogAndroidWindowUtils: Setting Width=1600 and Height=720 (requested scale = 1.000000)
+LogAndroid: ***** Cached WindowRect 1600, 720 (0)
+LogAndroid: FAndroidGPUInfo renaming GPUFamily: Mali-G57 -> Mali-G57 MP1
+LogInit: Session CrashGUID >====================================================
+         Session CrashGUID >   UECC-Android-380AC1C7FDA84BCCA99034B73D1AE413
+         Session CrashGUID >====================================================
+LogAndroid: Vulkan library detected, checking for available driver
+LogAndroid: VulkanRHI is available, Vulkan capable device detected.
+LogConfig: No local boot hotfix file found at: [/storage/emulated/0/Android/data/com.renchezlove.contrarysurvivor/files/HotfixForNextBoot.txt]
+LogAudio: Display: Pre-Initializing Audio Device Manager...
+LogAudio: Display: AudioInfo: 'OPUS' Registered
+LogAudio: Display: AudioInfo: 'OGG' Registered
+LogAudio: Display: AudioInfo: 'ADPCM' Registered
+LogAudio: Display: AudioInfo: 'PCM' Registered
+LogAudio: Display: AudioInfo: 'BINKA' Registered
+LogAudio: Display: AudioInfo: 'RADA' Registered
+LogAudio: Display: Audio Device Manager Pre-Initialized
+LogPluginManager: Display: Ignored optional reference to 'Interchange' plugin from 'GLTFExporter' plugin; plugin was not built by target.
+LogPluginManager: Mounting Project plugin GameAnalytics
+LogPluginManager: Mounting Project plugin YandexAds
+LogPluginManager: Mounting Engine plugin Paper2D
+LogPluginManager: Mounting Engine plugin AISupport
+LogPluginManager: Mounting Engine plugin EnvironmentQueryEditor
+LogPluginManager: Mounting Engine plugin ACLPlugin
+LogPluginManager: Mounting Engine plugin AnimationData
+LogPluginManager: Mounting Engine plugin ControlRigModules
+LogPluginManager: Mounting Engine plugin ControlRigSpline
+LogPluginManager: Mounting Engine plugin ControlRig
+LogPluginManager: Mounting Engine plugin DeformerGraph
+LogPluginManager: Mounting Engine plugin IKRig
+LogPluginManager: Mounting Engine plugin RigLogic
+LogPluginManager: Mounting Engine plugin Bridge
+LogPluginManager: Mounting Engine plugin CameraShakePreviewer
+LogPluginManager: Mounting Engine plugin EngineCameras
+LogPluginManager: Mounting Engine plugin GameplayCameras
+LogPluginManager: Mounting Engine plugin ChaosCloth
+LogPluginManager: Mounting Engine plugin ChaosVD
+LogPluginManager: Mounting Engine plugin OodleNetwork
+LogPluginManager: Mounting Engine plugin AnimationSharing
+LogPluginManager: Mounting Engine plugin DumpGPUServices
+LogPluginManager: Mounting Engine plugin PluginUtils
+LogPluginManager: Mounting Engine plugin UObjectPlugin
+LogPluginManager: Mounting Engine plugin AssetManagerEditor
+LogPluginManager: Mounting Engine plugin BlueprintHeaderView
+LogPluginManager: Mounting Engine plugin ColorGrading
+LogPluginManager: Mounting Engine plugin ContentBrowserAssetDataSource
+LogPluginManager: Mounting Engine plugin DataValidation
+LogPluginManager: Mounting Engine plugin EditorScriptingUtilities
+LogPluginManager: Mounting Engine plugin FacialAnimation
+LogPluginManager: Mounting Engine plugin GeometryMode
+LogPluginManager: Mounting Engine plugin LightMixer
+LogPluginManager: Mounting Engine plugin ObjectMixer
+LogPluginManager: Mounting Engine plugin ProxyLODPlugin
+LogPluginManager: Mounting Engine plugin SequencerAnimTools
+LogPluginManager: Mounting Engine plugin SpeedTreeImporter
+LogPluginManager: Mounting Engine plugin UMGWidgetPreview
+LogPluginManager: Mounting Engine plugin UVEditor
+LogPluginManager: Mounting Engine plugin EnhancedInput
+LogPluginManager: Mounting Engine plugin DatasmithContent
+LogPluginManager: Mounting Engine plugin GLTFExporter
+LogPluginManager: Mounting Engine plugin VariantManagerContent
+LogPluginManager: Mounting Engine plugin SkeletalMeshModelingTools
+LogPluginManager: Mounting Engine plugin AutomationUtils
+LogPluginManager: Mounting Engine plugin BackChannel
+LogPluginManager: Mounting Engine plugin ChaosCaching
+LogPluginManager: Mounting Engine plugin ChaosEditor
+LogPluginManager: Mounting Engine plugin ChaosNiagara
+LogPluginManager: Mounting Engine plugin ChaosSolverPlugin
+LogPluginManager: Mounting Engine plugin ChaosUserDataPT
+LogPluginManager: Mounting Engine plugin CharacterAI
+LogPluginManager: Mounting Engine plugin HoldoutComposite
+LogPluginManager: Mounting Engine plugin Dataflow
+LogPluginManager: Mounting Engine plugin EditorDataStorage
+LogPluginManager: Mounting Engine plugin Fracture
+LogPluginManager: Mounting Engine plugin FullBodyIK
+LogPluginManager: Mounting Engine plugin GeometryCollectionPlugin
+LogPluginManager: Mounting Engine plugin LocalizableMessage
+LogPluginManager: Mounting Engine plugin MetaHumanSDK
+LogPluginManager: Mounting Engine plugin PlanarCut
+LogPluginManager: Mounting Engine plugin PlatformCrypto
+LogPluginManager: Mounting Engine plugin PythonScriptPlugin
+LogPluginManager: Mounting Engine plugin StudioTelemetry
+LogPluginManager: Mounting Engine plugin ToolPresets
+LogPluginManager: Mounting Engine plugin NiagaraSimCaching
+LogPluginManager: Mounting Engine plugin Niagara
+LogPluginManager: Mounting Engine plugin Fab
+LogPluginManager: Mounting Engine plugin AlembicImporter
+LogPluginManager: Mounting Engine plugin InterchangeAssets
+LogPluginManager: Mounting Engine plugin AndroidMedia
+LogPluginManager: Mounting Engine plugin ImgMedia
+LogPluginManager: Mounting Engine plugin MediaCompositing
+LogPluginManager: Mounting Engine plugin MediaPlate
+LogPluginManager: Mounting Engine plugin MeshPainting
+LogPluginManager: Mounting Engine plugin TcpMessaging
+LogPluginManager: Mounting Engine plugin UdpMessaging
+LogPluginManager: Mounting Engine plugin ActorSequence
+LogPluginManager: Mounting Engine plugin LevelSequenceEditor
+LogPluginManager: Mounting Engine plugin SequencerScripting
+LogPluginManager: Mounting Engine plugin TemplateSequence
+LogPluginManager: Mounting Engine plugin OnlineSubsystemGooglePlay
+LogPluginManager: Mounting Engine plugin EOSShared
+LogPluginManager: Mounting Engine plugin OnlineBase
+LogPluginManager: Mounting Engine plugin OnlineServices
+LogPluginManager: Mounting Engine plugin OnlineSubsystemNull
+LogPluginManager: Mounting Engine plugin OnlineSubsystemUtils
+LogPluginManager: Mounting Engine plugin OnlineSubsystem
+LogPluginManager: Mounting Engine plugin ActorLayerUtilities
+LogPluginManager: Mounting Engine plugin AndroidDeviceProfileSelector
+LogPluginManager: Mounting Engine plugin AndroidFileServer
+LogPluginManager: Mounting Engine plugin AndroidMoviePlayer
+LogPluginManager: Mounting Engine plugin AndroidPermission
+LogPluginManager: Mounting Engine plugin AppleImageUtils
+LogPluginManager: Mounting Engine plugin ArchVisCharacter
+LogPluginManager: Mounting Engine plugin AssetTags
+LogPluginManager: Mounting Engine plugin AudioCapture
+LogPluginManager: Mounting Engine plugin AudioSynesthesia
+LogPluginManager: Mounting Engine plugin AudioWidgets
+LogPluginManager: Mounting Engine plugin CableComponent
+LogPluginManager: Mounting Engine plugin ChunkDownloader
+LogPluginManager: Mounting Engine plugin ComputeFramework
+LogPluginManager: Mounting Engine plugin CustomMeshComponent
+LogPluginManager: Mounting Engine plugin ExampleDeviceProfileSelector
+LogPluginManager: Mounting Engine plugin GeometryCache
+LogPluginManager: Mounting Engine plugin GeometryProcessing
+LogPluginManager: Mounting Engine plugin GeometryScripting
+LogPluginManager: Mounting Engine plugin GoogleCloudMessaging
+LogPluginManager: Mounting Engine plugin GooglePAD
+LogPluginManager: Mounting Engine plugin HairStrands
+LogPluginManager: Mounting Engine plugin InputDebugging
+LogPluginManager: Mounting Engine plugin LocationServicesBPLibrary
+LogPluginManager: Mounting Engine plugin MeshModelingToolset
+LogPluginManager: Mounting Engine plugin Metasound
+LogPluginManager: Mounting Engine plugin MobilePatchingUtils
+LogPluginManager: Mounting Engine plugin ProceduralMeshComponent
+LogPluginManager: Mounting Engine plugin PropertyAccessEditor
+LogPluginManager: Mounting Engine plugin ResonanceAudio
+LogPluginManager: Mounting Engine plugin RigVM
+LogPluginManager: Mounting Engine plugin SignificanceManager
+LogPluginManager: Mounting Engine plugin SoundFields
+LogPluginManager: Mounting Engine plugin StateTree
+LogPluginManager: Mounting Engine plugin Synthesis
+LogPluginManager: Mounting Engine plugin WaveTable
+LogPluginManager: Mounting Engine plugin InterchangeTests
+LogPluginManager: Mounting Engine plugin TraceUtilities
+LogPluginManager: Mounting Engine plugin Takes
+LogPluginManager: Mounting Engine plugin WorldMetrics
+LogEOSSDK: Initializing EOSSDK Version:1.17.0-39599718
+LogInit: Using libcurl 8.4.0
+LogInit:  - built for aarch64-none-linux-android21
+LogInit:  - supports SSL with OpenSSL/1.1.1t
+LogInit:  - supports HTTP deflate (compression) using libz 1.2.13
+LogInit:  - other features:
+LogInit:      CURL_VERSION_SSL
+LogInit:      CURL_VERSION_LIBZ
+LogInit:      CURL_VERSION_IPV6
+LogInit:      CURL_VERSION_ASYNCHDNS
+LogInit:      CURL_VERSION_LARGEFILE
+LogInit:      CURL_VERSION_HTTP2
+LogInit:  CurlRequestOptions (configurable via config and command line):
+LogInit:  - bVerifyPeer = true  - Libcurl will verify peer certificate
+LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+LogInit:  - MaxHostConnections = 16  - Libcurl will limit the number of connections to a host
+LogInit:  - LocalHostAddr = Default
+LogInit:  - BufferSize = 65536
+LogInit: CreateHttpThread using FCurlMultiPollEventLoopHttpThread
+LogInit: Creating http thread with maximum 2147483647 concurrent requests
+LogOnline: Display: OSS: OnlineSubsystemGooglePlayModule::StartupModule()
+LogOnline: Warning: OSS: FOnlineSubsystemGooglePlayModule was disabled
+LogOnline: OSS: Unable to create OnlineSubsystem instance GOOGLEPLAY
+LogOnline: OSS: Created online subsystem instance for: NULL
+LogOnline: OSS: TryLoadSubsystemAndSetDefault: Loaded subsystem for type [NULL]
+LogOnline: Warning: OSS: FOnlineSubsystemGooglePlayModule was disabled
+LogInit: ExecutableName: ContrarySurvivor
+LogInit: Build: ++UE5+Release-5.5-CL-40574608
+LogInit: Platform=Android
+LogInit: MachineId=C11804F6A53840CFAD40F2585899CB39
+LogInit: DeviceId=8edf8a75b4875ef0
+LogInit: Engine Version: 5.5.4-40574608+++UE5+Release-5.5
+LogInit: Compatible Engine Version: 5.5.0-37670630+++UE5+Release-5.5
+LogInit: Net CL: 37670630
+LogInit: OS: Android (14), CPU: RMX3938, GPU: Mali-G57 MP1
+LogInit: Compiled (64-bit): Mar  7 2025 14:59:38
+LogInit: Architecture: arm64
+LogInit: Compiled with Clang: 14.0.6 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6)
+LogInit: Build Configuration: Development
+LogInit: Branch Name: ++UE5+Release-5.5
+LogInit: Command Line:  -project="../../../ContrarySurvivor/ContrarySurvivor.uproject"
+LogInit: Base Directory: 
+LogInit: Allocator: Binned2
+LogInit: Installed Engine Build: 0
+LogInit: This binary is optimized with LTO: no, PGO: no, instrumented for PGO data collection: no
+LogDevObjectVersion: Number of dev versions registered: 39
+LogDevObjectVersion:   Dev-Blueprints (B0D832E4-1F89-4F0D-ACCF-7EB736FD4AA2): 10
+LogDevObjectVersion:   Dev-Build (E1C64328-A22C-4D53-A36C-8E866417BD8C): 0
+LogDevObjectVersion:   Dev-Core (375EC13C-06E4-48FB-B500-84F0262A717E): 4
+LogDevObjectVersion:   Dev-Editor (E4B068ED-F494-42E9-A231-DA0B2E46BB41): 40
+LogDevObjectVersion:   Dev-Framework (CFFC743F-43B0-4480-9391-14DF171D2073): 37
+LogDevObjectVersion:   Dev-Mobile (B02B49B5-BB20-44E9-A304-32B752E40360): 3
+LogDevObjectVersion:   Dev-Networking (A4E4105C-59A1-49B5-A7C5-40C4547EDFEE): 0
+LogDevObjectVersion:   Dev-Online (39C831C9-5AE6-47DC-9A44-9C173E1C8E7C): 0
+LogDevObjectVersion:   Dev-Physics (78F01B33-EBEA-4F98-B9B4-84EACCB95AA2): 20
+LogDevObjectVersion:   Dev-Platform (6631380F-2D4D-43E0-8009-CF276956A95A): 0
+LogDevObjectVersion:   Dev-Rendering (12F88B9F-8875-4AFC-A67C-D90C383ABD29): 49
+LogDevObjectVersion:   Dev-Sequencer (7B5AE74C-D270-4C10-A958-57980B212A5A): 13
+LogDevObjectVersion:   Dev-VR (D7296918-1DD6-4BDD-9DE2-64A83CC13884): 3
+LogDevObjectVersion:   Dev-LoadTimes (C2A15278-BFE7-4AFE-6C17-90FF531DF755): 1
+LogDevObjectVersion:   Private-Geometry (6EACA3D4-40EC-4CC1-B786-8BED09428FC5): 3
+LogDevObjectVersion:   Dev-AnimPhys (29E575DD-E0A3-4627-9D10-D276232CDCEA): 17
+LogDevObjectVersion:   Dev-Anim (AF43A65D-7FD3-4947-9873-3E8ED9C1BB05): 15
+LogDevObjectVersion:   Dev-ReflectionCapture (6B266CEC-1EC7-4B8F-A30B-E4D90942FC07): 1
+LogDevObjectVersion:   Dev-Automation (0DF73D61-A23F-47EA-B727-89E90C41499A): 1
+LogDevObjectVersion:   FortniteMain (601D1886-AC64-4F84-AA16-D3DE0DEAC7D6): 170
+LogDevObjectVersion:   FortniteValkyrie (8DBC2C5B-54A7-43E0-A768-FCBB7DA29060): 8
+LogDevObjectVersion:   FortniteSeason (5B4C06B7-2463-4AF8-805B-BF70CDF5D0DD): 13
+LogDevObjectVersion:   FortniteRelease (E7086368-6B23-4C58-8439-1B7016265E91): 15
+LogDevObjectVersion:   Dev-Enterprise (9DFFBCD6-494F-0158-E221-12823C92A888): 10
+LogDevObjectVersion:   Dev-Niagara (F2AED0AC-9AFE-416F-8664-AA7FFA26D6FC): 1
+LogDevObjectVersion:   Dev-Destruction (174F1F0B-B4C6-45A5-B13F-2EE8D0FB917D): 10
+LogDevObjectVersion:   Dev-Physics-Ext (35F94A83-E258-406C-A318-09F59610247C): 41
+LogDevObjectVersion:   Dev-PhysicsMaterial-Chaos (B68FC16E-8B1B-42E2-B453-215C058844FE): 1
+LogDevObjectVersion:   Dev-CineCamera (B2E18506-4273-CFC2-A54E-F4BB758BBA07): 1
+LogDevObjectVersion:   Dev-VirtualProduction (64F58936-FD1B-42BA-BA96-7289D5D0FA4E): 1
+LogDevObjectVersion:   UE5-Main (697DD581-E64F-41AB-AA4A-51ECBEB7B628): 119
+LogDevObjectVersion:   UE5-Release (D89B5E42-24BD-4D46-8412-ACA8DF641779): 51
+LogDevObjectVersion:   UE5-PrivateFrosty (59DA5D52-1232-4948-B878-597870B8E98B): 8
+LogDevObjectVersion:   Dev-MediaFramework (6F0ED827-A609-4895-9C91-998D90180EA4): 2
+LogDevObjectVersion:   Dev-NaniteResearch (30D58BE3-95EA-4282-A6E3-B159D8EBB06A): 1
+LogDevObjectVersion:   Dev-RigVM (DC49959B-53C0-4DE7-9156-EA885E7C5D39): 15
+LogDevObjectVersion:   Dev-ControlRig (A7820CFB-20A7-4359-8C54-2C149623CF50): 32
+LogDevObjectVersion:   Dev-IKRig (F6DFBB78-BB50-A0E4-4018-B84D60CBAF23): 2
+LogDevObjectVersion:   Dev-ComputeFramework (6304A3E7-0059-4F59-8CFC-21BD7721FD4E): 0
+LogConfig: Branch 'GameAnalytics' had been unloaded. Reloading on-demand took 0.54ms
+LogConfig: Branch 'YandexAds' had been unloaded. Reloading on-demand took 0.51ms
+LogConfig: Branch 'AISupport' had been unloaded. Reloading on-demand took 0.42ms
+LogConfig: Branch 'EnvironmentQueryEditor' had been unloaded. Reloading on-demand took 0.36ms
+LogConfig: Branch 'ACLPlugin' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'AnimationData' had been unloaded. Reloading on-demand took 0.38ms
+LogConfig: Branch 'ControlRigModules' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'ControlRigSpline' had been unloaded. Reloading on-demand took 0.33ms
+LogConfig: Branch 'RigLogic' had been unloaded. Reloading on-demand took 0.58ms
+LogConfig: Branch 'Bridge' had been unloaded. Reloading on-demand took 0.41ms
+LogConfig: Branch 'CameraShakePreviewer' had been unloaded. Reloading on-demand took 0.40ms
+LogConfig: Branch 'EngineCameras' had been unloaded. Reloading on-demand took 0.41ms
+LogConfig: Branch 'ChaosCloth' had been unloaded. Reloading on-demand took 0.37ms
+LogConfig: Branch 'OodleNetwork' had been unloaded. Reloading on-demand took 0.37ms
+LogConfig: Branch 'AnimationSharing' had been unloaded. Reloading on-demand took 0.40ms
+LogConfig: Branch 'DumpGPUServices' had been unloaded. Reloading on-demand took 0.37ms
+LogConfig: Branch 'PluginUtils' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'UObjectPlugin' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'AssetManagerEditor' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'BlueprintHeaderView' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'ColorGrading' had been unloaded. Reloading on-demand took 0.38ms
+LogConfig: Branch 'ContentBrowserAssetDataSource' had been unloaded. Reloading on-demand took 0.38ms
+LogConfig: Branch 'DataValidation' had been unloaded. Reloading on-demand took 0.37ms
+LogConfig: Branch 'FacialAnimation' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'GeometryMode' had been unloaded. Reloading on-demand took 0.32ms
+LogConfig: Branch 'LightMixer' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'ObjectMixer' had been unloaded. Reloading on-demand took 0.33ms
+LogConfig: Branch 'ProxyLODPlugin' had been unloaded. Reloading on-demand took 0.32ms
+LogConfig: Branch 'SequencerAnimTools' had been unloaded. Reloading on-demand took 0.32ms
+LogConfig: Branch 'SpeedTreeImporter' had been unloaded. Reloading on-demand took 0.40ms
+LogConfig: Branch 'UMGWidgetPreview' had been unloaded. Reloading on-demand took 0.36ms
+LogConfig: Branch 'UVEditor' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'SkeletalMeshModelingTools' had been unloaded. Reloading on-demand took 0.53ms
+LogConfig: Branch 'AutomationUtils' had been unloaded. Reloading on-demand took 0.44ms
+LogConfig: Branch 'BackChannel' had been unloaded. Reloading on-demand took 0.38ms
+LogConfig: Branch 'ChaosCaching' had been unloaded. Reloading on-demand took 0.37ms
+LogConfig: Branch 'ChaosEditor' had been unloaded. Reloading on-demand took 0.40ms
+LogConfig: Branch 'ChaosNiagara' had been unloaded. Reloading on-demand took 0.40ms
+LogConfig: Branch 'ChaosSolverPlugin' had been unloaded. Reloading on-demand took 0.38ms
+LogConfig: Branch 'ChaosUserDataPT' had been unloaded. Reloading on-demand took 0.36ms
+LogConfig: Branch 'CharacterAI' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'Dataflow' had been unloaded. Reloading on-demand took 0.36ms
+LogConfig: Branch 'EditorDataStorage' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'Fracture' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'GeometryCollectionPlugin' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'LocalizableMessage' had been unloaded. Reloading on-demand took 0.41ms
+LogConfig: Branch 'PlanarCut' had been unloaded. Reloading on-demand took 0.37ms
+LogConfig: Branch 'PlatformCrypto' had been unloaded. Reloading on-demand took 0.38ms
+LogConfig: Branch 'PythonScriptPlugin' had been unloaded. Reloading on-demand took 0.38ms
+LogConfig: Branch 'StudioTelemetry' had been unloaded. Reloading on-demand took 0.40ms
+LogConfig: Branch 'NiagaraSimCaching' had been unloaded. Reloading on-demand took 0.44ms
+LogConfig: Branch 'AlembicImporter' had been unloaded. Reloading on-demand took 0.67ms
+LogConfig: Branch 'AndroidMedia' had been unloaded. Reloading on-demand took 0.71ms
+LogConfig: Branch 'ImgMedia' had been unloaded. Reloading on-demand took 0.45ms
+LogConfig: Branch 'MediaCompositing' had been unloaded. Reloading on-demand took 0.40ms
+LogConfig: Branch 'MediaPlate' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'MeshPainting' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'TcpMessaging' had been unloaded. Reloading on-demand took 0.36ms
+LogConfig: Branch 'UdpMessaging' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'ActorSequence' had been unloaded. Reloading on-demand took 0.37ms
+LogConfig: Branch 'LevelSequenceEditor' had been unloaded. Reloading on-demand took 0.34ms
+LogConfig: Branch 'SequencerScripting' had been unloaded. Reloading on-demand took 0.38ms
+LogConfig: Branch 'TemplateSequence' had been unloaded. Reloading on-demand took 0.36ms
+LogConfig: Branch 'OnlineSubsystemGooglePlay' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'EOSShared' had been unloaded. Reloading on-demand took 0.34ms
+LogConfig: Branch 'OnlineBase' had been unloaded. Reloading on-demand took 0.33ms
+LogConfig: Branch 'OnlineServices' had been unloaded. Reloading on-demand took 0.34ms
+LogConfig: Branch 'OnlineSubsystemNull' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'OnlineSubsystemUtils' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'OnlineSubsystem' had been unloaded. Reloading on-demand took 0.34ms
+LogConfig: Branch 'ActorLayerUtilities' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'AndroidDeviceProfileSelector' had been unloaded. Reloading on-demand took 0.42ms
+LogConfig: Branch 'AndroidFileServer' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'AndroidMoviePlayer' had been unloaded. Reloading on-demand took 0.40ms
+LogConfig: Branch 'AndroidPermission' had been unloaded. Reloading on-demand took 0.36ms
+LogConfig: Branch 'AppleImageUtils' had been unloaded. Reloading on-demand took 0.34ms
+LogConfig: Branch 'ArchVisCharacter' had been unloaded. Reloading on-demand took 0.33ms
+LogConfig: Branch 'AssetTags' had been unloaded. Reloading on-demand took 0.33ms
+LogConfig: Branch 'AudioCapture' had been unloaded. Reloading on-demand took 0.34ms
+LogConfig: Branch 'AudioSynesthesia' had been unloaded. Reloading on-demand took 0.33ms
+LogConfig: Branch 'AudioWidgets' had been unloaded. Reloading on-demand took 0.33ms
+LogConfig: Branch 'CableComponent' had been unloaded. Reloading on-demand took 0.39ms
+LogConfig: Branch 'ChunkDownloader' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'ComputeFramework' had been unloaded. Reloading on-demand took 0.33ms
+LogConfig: Branch 'CustomMeshComponent' had been unloaded. Reloading on-demand took 0.36ms
+LogConfig: Branch 'ExampleDeviceProfileSelector' had been unloaded. Reloading on-demand took 0.38ms
+LogConfig: Branch 'GeometryCache' had been unloaded. Reloading on-demand took 0.34ms
+LogConfig: Branch 'GeometryProcessing' had been unloaded. Reloading on-demand took 0.33ms
+LogConfig: Branch 'GeometryScripting' had been unloaded. Reloading on-demand took 0.31ms
+LogConfig: Branch 'GoogleCloudMessaging' had been unloaded. Reloading on-demand took 0.32ms
+LogConfig: Branch 'GooglePAD' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'InputDebugging' had been unloaded. Reloading on-demand took 0.37ms
+LogConfig: Branch 'LocationServicesBPLibrary' had been unloaded. Reloading on-demand took 0.34ms
+LogConfig: Branch 'MeshModelingToolset' had been unloaded. Reloading on-demand took 0.35ms
+LogConfig: Branch 'MobilePatchingUtils' had been unloaded. Reloading on-demand took 0.38ms
+LogConfig: Branch 'ProceduralMeshComponent' had been unloaded. Reloading on-demand took 0.37ms
+LogConfig: Branch 'PropertyAccessEditor' had been unloaded. Reloading on-demand took 0.39ms
+LogConfig: Branch 'ResonanceAudio' had been unloaded. Reloading on-demand took 0.36ms
+LogConfig: Branch 'SignificanceManager' had been unloaded. Reloading on-demand took 0.37ms
+LogConfig: Branch 'SoundFields' had been unloaded. Reloading on-demand took 0.40ms
+LogConfig: Branch 'WaveTable' had been unloaded. Reloading on-demand took 0.50ms
+LogConfig: Branch 'InterchangeTests' had been unloaded. Reloading on-demand took 0.43ms
+LogConfig: Branch 'WorldMetrics' had been unloaded. Reloading on-demand took 0.38ms
+LogConfig: Branch 'GameplayTags' had been unloaded. Reloading on-demand took 2.22ms
+LogInit: Presizing for max 131072 objects, including 1 objects not considered by GC.
+LogStreaming: Display: AsyncLoading2 - Created: Event Driven Loader: false, Async Loading Thread: true, Async Post Load: true
+LogStreaming: Display: AsyncLoading2 - Initialized
+LogInit: Object subsystem initialized
+LogConfig: Set CVar [[con.DebugEarlyDefault:1]]
+LogConfig: CVar [[con.DebugLateDefault:1]] deferred - dummy variable created
+LogConfig: CVar [[con.DebugLateCheat:1]] deferred - dummy variable created
+LogConfig: CVar [[LogNamedEventFilters:Frame *]] deferred - dummy variable created
+LogConfig: CVar [[QualityLevelMapping:low]] deferred - dummy variable created
+LogConfig: Set CVar [[fx.Niagara.QualityLevel.Min:0]]
+LogConfig: Set CVar [[fx.Niagara.QualityLevel.Max:1]]
+[2026.08.09-17.47.19:834][  0]LogConfig: CVar [[con.DebugLateDefault:1]] deferred - dummy variable created
+[2026.08.09-17.47.19:834][  0]LogConfig: CVar [[con.DebugLateCheat:1]] deferred - dummy variable created
+[2026.08.09-17.47.19:835][  0]LogConfig: CVar [[LogNamedEventFilters:Frame *]] deferred - dummy variable created
+[2026.08.09-17.47.19:835][  0]LogConfig: CVar [[QualityLevelMapping:low]] deferred - dummy variable created
+[2026.08.09-17.47.19:835][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererSettings] File [Engine]
+[2026.08.09-17.47.19:835][  0]LogConfig: CVar [[VisualizeCalibrationColorMaterialPath:/Engine/EngineMaterials/PPM_DefaultCalibrationColor.PPM_DefaultCalibrationColor]] deferred - dummy variable created
+[2026.08.09-17.47.19:835][  0]LogConfig: CVar [[VisualizeCalibrationGrayscaleMaterialPath:/Engine/EngineMaterials/PPM_DefaultCalibrationGrayscale.PPM_DefaultCalibrationGrayscale]] deferred - dummy variable created
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.GPUCrashDebugging:0]]
+[2026.08.09-17.47.19:835][  0]LogConfig: CVar [[MaxSkinBones:(Default=65536,PerPlatform=(("Mobile", 256)))]] deferred - dummy variable created
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.Substrate.RoughDiffuse:0]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.Substrate.ShadingQuality:2]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.Substrate.TileCoord8bits:1]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.Substrate.SheenQuality:2]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.Substrate.Glints:0]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.Substrate.SpecularProfile:0]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.Substrate.ClosuresPerPixel:1]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.DefaultFeature.AutoExposure:0]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.DistanceFields:1]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.TemporalAA.Mobile.UseCompute:0]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.Visibility.DynamicMeshElements.Parallel:0]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererOverrideSettings] File [Engine]
+[2026.08.09-17.47.19:835][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [Engine]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[s.AsyncLoadingThreadEnabled:1]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[s.EventDrivenLoaderEnabled:1]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[s.WarnIfTimeLimitExceeded:0]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[s.TimeLimitExceededMultiplier:1.5]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[s.TimeLimitExceededMinTime:0.005]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[s.UseBackgroundLevelStreaming:1]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
+[2026.08.09-17.47.19:835][  0]LogConfig: Set CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[s.UnregisterComponentsTimeLimit:1.0]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
+[2026.08.09-17.47.19:836][  0]LogConfig: CVar [[s.MaxPackageSummarySize:16384]] deferred - dummy variable created
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[s.FlushStreamingOnExit:1]]
+[2026.08.09-17.47.19:836][  0]LogConfig: CVar [[FixedBootOrder:/Script/Engine/Default__SoundBase]] deferred - dummy variable created
+[2026.08.09-17.47.19:836][  0]LogConfig: CVar [[FixedBootOrder:/Script/Engine/Default__MaterialInterface]] deferred - dummy variable created
+[2026.08.09-17.47.19:836][  0]LogConfig: CVar [[FixedBootOrder:/Script/Engine/Default__DeviceProfileManager]] deferred - dummy variable created
+[2026.08.09-17.47.19:836][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.GarbageCollectionSettings] File [Engine]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.MaxObjectsNotConsideredByGC:1]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.FlushStreamingOnGC:0]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.NumRetriesBeforeForcingGC:10]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.AllowParallelGC:1]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.TimeBetweenPurgingPendingKillObjects:61.1]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.MaxObjectsInEditor:25165824]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.IncrementalBeginDestroyEnabled:1]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.CreateGCClusters:1]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.MinGCClusterSize:5]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.AssetClustreringEnabled:0]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.ActorClusteringEnabled:0]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.VerifyUObjectsAreNotFGCObjects:0]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.GarbageEliminationEnabled:1]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Set CVar [[gc.MaxObjectsInGame:131072]]
+[2026.08.09-17.47.19:836][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.NetworkSettings] File [Engine]
+[2026.08.09-17.47.19:836][  0]LogConfig: CVar [[NetworkEmulationProfiles:(ProfileName="Average",ToolTip="Simulates average internet conditions")]] deferred - dummy variable created
+[2026.08.09-17.47.19:836][  0]LogConfig: CVar [[NetworkEmulationProfiles:(ProfileName="Bad",ToolTip="Simulates laggy internet conditions")]] deferred - dummy variable created
+[2026.08.09-17.47.19:836][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [Scalability]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.SkeletalMeshLODBias:0]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.ViewDistanceScale:1.0]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.NeverOcclusionTestDistance:200]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [Scalability]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.FXAA.Quality:0]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.TemporalAA.Quality:2]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.TSR.History.R11G11B10:1]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.TSR.History.ScreenPercentage:200]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.TSR.History.UpdateQuality:3]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.TSR.ShadingRejection.Flickering:1]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.TSR.RejectionAntiAliasingQuality:2]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.TSR.ReprojectionField:1]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.TSR.Resurrection:1]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [Scalability]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.LightFunctionQuality:1]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.ShadowQuality:2]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.CSM.MaxCascades:3]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.MaxResolution:2048]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.RadiusThreshold:0.06]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.DistanceScale:1.0]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.DistanceFieldShadowing:1]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.VolumetricFog:0]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.VolumetricFog.GridPixelSize:8]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.VolumetricFog.GridSizeZ:128]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.LightMaxDrawDistanceScale:1]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.CapsuleShadows:1]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.Virtual.MaxPhysicalPages:4096]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasDirectional:-1.5]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasDirectionalMoving:-1.5]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasLocal:0.0]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasLocalMoving:1.0]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.RayCountDirectional:8]]
+[2026.08.09-17.47.19:837][  0]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.SamplesPerRayDirectional:4]]
+[2026.08.09-17.47.19:838][  0]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.RayCountLocal:8]]
+[2026.08.09-17.47.19:838][  0]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.SamplesPerRayLocal:4]]
+[2026.08.09-17.47.19:838][  0]LogConfig: Set CVar [[r.ContactShadows:0]]
+[2026.08.09-17.47.19:838][  0]LogConfig: Applying CVar settings from Section [GlobalIlluminationQuality@3] File [Scalability]
+[2026.08.09-17.47.19:838][  0]LogConfig: Set CVar [[r.DistanceFieldAO:1]]
+[2026.08.09-17.47.19:838][  0]LogConfig: Set CVar [[r.AOQuality:2]]
+[2026.08.09-17.47.19:839][  0]LogConfig: Set CVar [[r.Lumen.DiffuseIndirect.Allow:1]]
+[2026.08.09-17.47.19:839][  0]LogConfig: Set CVar [[r.LumenScene.Radiosity.ProbeSpacing:4]]
+[2026.08.09-17.47.19:839][  0]LogConfig: Set CVar [[r.LumenScene.Radiosity.HemisphereProbeResolution:4]]
+[2026.08.09-17.47.19:839][  0]LogConfig: Set CVar [[r.Lumen.TraceMeshSDFs.Allow:1]]
+[2026.08.09-17.47.19:839][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.RadianceCache.ProbeResolution:32]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.RadianceCache.NumProbesToTraceBudget:300]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.DownsampleFactor:16]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.TracingOctahedronResolution:8]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.IrradianceFormat:0]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.StochasticInterpolation:0]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.FullResolutionJitterWidth:1]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.TwoSidedFoliageBackfaceDiffuse:1]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.FullResDepth:1]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.ShortRangeAO.HardwareRayTracing:0]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.TranslucencyVolume.GridPixelSize:32]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.TranslucencyVolume.TraceFromVolume:1]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.TranslucencyVolume.TracingOctahedronResolution:3]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.TranslucencyVolume.RadianceCache.ProbeResolution:8]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.TranslucencyVolume.RadianceCache.NumProbesToTraceBudget:200]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.SkyLight.RealTimeReflectionCapture:1]]
+[2026.08.09-17.47.19:840][  0]LogConfig: CVar [[r.RayTracing.Scene.BuildMode:1]] deferred - dummy variable created
+[2026.08.09-17.47.19:840][  0]LogConfig: Applying CVar settings from Section [ReflectionQuality@3] File [Scalability]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.SSR.Quality:3]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.SSR.HalfResSceneColor:0]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.Reflections.Allow:1]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.Reflections.DownsampleFactor:1]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.Reflections.MaxRoughnessToTraceForFoliage:0.4]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.MaxRoughnessToEvaluateRoughSpecularForFoliage:0.8]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.Reflections.ScreenSpaceReconstruction.TonemapMode:1]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.Reflections.ScreenSpaceReconstruction.MinWeight:0]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.TranslucencyReflections.FrontLayer.Allow:1]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.Lumen.TranslucencyReflections.FrontLayer.Enable:0]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [Scalability]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.MotionBlurQuality:4]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.MotionBlur.HalfResGather:0]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2026.08.09-17.47.19:840][  0]LogConfig: Set CVar [[r.AmbientOcclusionLevels:-1]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DepthOfFieldQuality:1]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.RenderTargetPoolMin:400]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.LensFlareQuality:2]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.SceneColorFringeQuality:1]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.EyeAdaptationQuality:1]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.BloomQuality:1]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Bloom.ScreenPercentage:50.000]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.FastBlurThreshold:100]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Upscale.Quality:3]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.LightShaftQuality:1]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Filter.SizeScale:1]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Tonemapper.Quality:3]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Gather.ResolutionDivisor:2         ; lower gathering resolution]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Mobile.AmbientOcclusionQuality:1]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Mobile.PixelProjectedReflectionQuality:1]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [Scalability]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Streaming.MipBias:0]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Streaming.Boost:1]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.MaxAnisotropy:4]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.VT.MaxAnisotropy:8]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+[2026.08.09-17.47.19:841][  0]LogConfig: Set CVar [[r.Streaming.PoolSize:1000]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.VT.MaxTilesProducedPerFrame:2]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [Scalability]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.TranslucencyLightingVolumeDim:64]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.RefractionQuality:1]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SceneColorFormat:4]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.DetailMode:3]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.TranslucencyVolumeBlur:1]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SSS.Scale:1]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SSS.SampleSet:2]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SSS.Quality:1]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SSS.HalfRes:0]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SSGI.Quality:3]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.EmitterSpawnRateScale:1.0]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.ParticleLightQuality:2]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:1]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:4]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:1.0]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:8.0]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:1]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[fx.Niagara.QualityLevel:1]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.Refraction.OffsetQuality:1]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.HeterogeneousVolumes.DownsampleFactor:1]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.HeterogeneousVolumes.MaxStepCount:512]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.HeterogeneousVolumes.Shadows.Resolution:512]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.FastSkyLUT.Width:96]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[r.SkyAtmosphere.FastSkyLUT.Height:50]]
+[2026.08.09-17.47.19:842][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [Scalability]
+[2026.08.09-17.47.19:842][  0]LogConfig: Set CVar [[foliage.DensityScale:1.0]]
+[2026.08.09-17.47.19:843][  0]LogConfig: Set CVar [[grass.DensityScale:1.0]]
+[2026.08.09-17.47.19:843][  0]LogConfig: Set CVar [[grass.CullDistanceScale:1.0]]
+[2026.08.09-17.47.19:843][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [Scalability]
+[2026.08.09-17.47.19:843][  0]LogConfig: Set CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
+[2026.08.09-17.47.19:843][  0]LogConfig: Set CVar [[r.HairStrands.SkyAO.SampleCount:4]]
+[2026.08.09-17.47.19:843][  0]LogConfig: Set CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+[2026.08.09-17.47.19:843][  0]LogConfig: Set CVar [[r.AnisotropicMaterials:1]]
+[2026.08.09-17.47.19:843][  0]LogConfig: Applying CVar settings from Section [LandscapeQuality@3] File [Scalability]
+[2026.08.09-17.47.19:851][  0]LogAndroid: Checking 51 rules from DeviceProfile ini file.
+[2026.08.09-17.47.19:851][  0]LogAndroid:   Default profile: Android_Default
+[2026.08.09-17.47.19:851][  0]LogAndroid:   Android selector params: 
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_GPUFamily: Mali-G57 MP1
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_GLVersion: OpenGL ES 3.2 v1.r41p0-01eac0.018fc629603b7a70cc68d32f78ac8686
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_VulkanAvailable: true
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_VulkanVersion: 1.3.225
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_AndroidVersion: 14
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_DeviceMake: realme
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_DeviceModel: RMX3938
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_DeviceBuildNumber: RMX3938export_14_A.19
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_UsingHoudini: false
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_Hardware: ums9230_latte
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_Chipset: unknown
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_HMDSystemName: 
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_TotalPhysicalGB: 4
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_SM5Available: false
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_DeviceModel]: RMX3938
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_GpuVendor]: ARM
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[ro.soc.model]: T612
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[screenWidth]: 1600
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[memory]: 3761
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_DeviceMake]: realme
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_UsingHoudini]: false
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[ro.hardware]: ums9230_latte
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[versionName]: 0.1.0
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_AndroidVersion]: 14
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_VulkanAvailable]: true
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[OverrideProfile]: true
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_VulkanVersion]: 1.3.0
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[configRulesVersion]: 0
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[unsupportedDevice]: false
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[statusBarHeight]: 64
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[navigationBarHeight]: 96
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_SDKLevel]: 34
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[hardware]: ums9230_latte
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[processorCount]: 8
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[earlyrestart]: true
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_GpuFamily]: Mali-G57
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[supportsFloatingPointRenderTargets]: true
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[screenHeight]: 720
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[littleCoreMask]: 0x0
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[targetSdkVersion]: 34
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[processor]: 
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[versionCode]: 1
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_HMDSystemName]: 
+[2026.08.09-17.47.19:851][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_DeviceBuildNumber]: RMX3938export_14_A.19
+[2026.08.09-17.47.19:852][  0]LogAndroid:   SRC_ConfigRuleVar[isARM64]: true
+[2026.08.09-17.47.19:852][  0]LogAndroid:   SRC_ConfigRuleVar[hasNEON]: true
+[2026.08.09-17.47.19:852][  0]LogAndroid:   SRC_ConfigRuleVar[TextureFormats]: ASTC,ETC2,ETC1
+[2026.08.09-17.47.19:852][  0]LogAndroid:   SRC_ConfigRuleVar[bigCoreMask]: 0xffff
+[2026.08.09-17.47.19:852][  0]LogAndroid:   SRC_ConfigRuleVar[useAffinity]: false
+[2026.08.09-17.47.19:852][  0]LogAndroid:   SRC_ConfigRuleVar[SRC_GlVersion]: OpenGL ES 3.2 v1.r41p0-01eac0.018fc629603b7a70cc68d32f78ac8686
+[2026.08.09-17.47.19:852][  0]LogAndroid: Selected Device Profile: [Android_Unknown_Vulkan]
+[2026.08.09-17.47.19:852][  0]LogInit: Selected Device Profile: [Android_Unknown_Vulkan]
+[2026.08.09-17.47.19:853][  0]LogHAL: Display: Platform has ~ 4 GB [3944259584 / 4294967296 / 4], which maps to Default [LargestMinGB=8, LargerMinGB=6, DefaultMinGB=4, SmallerMinGB=3, SmallestMinGB=0)
+[2026.08.09-17.47.19:853][  0]LogDeviceProfileManager: Going up to parent DeviceProfile [Android_High]
+[2026.08.09-17.47.19:853][  0]LogDeviceProfileManager: Going up to parent DeviceProfile [Android]
+[2026.08.09-17.47.19:853][  0]LogDeviceProfileManager: Going up to parent DeviceProfile []
+[2026.08.09-17.47.19:854][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[r.Android.DisableVulkanSupport:0 -> 0]]
+[2026.08.09-17.47.19:854][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[sg.ViewDistanceQuality:3 -> 2]]
+[2026.08.09-17.47.19:854][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@2] File [Scalability]
+[2026.08.09-17.47.19:855][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[sg.AntiAliasingQuality:3 -> 2]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@2] File [Scalability]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.TemporalAA.Quality:1]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.TSR.History.ScreenPercentage:100]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.TSR.History.UpdateQuality:2]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.TSR.RejectionAntiAliasingQuality:1]]
+[2026.08.09-17.47.19:855][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[sg.ShadowQuality:3 -> 2]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@2] File [Scalability]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.Shadow.CSM.MaxCascades:2]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.Shadow.MaxResolution:1024]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.Shadow.CSM.TransitionScale:0.8]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.Shadow.PreShadowResolutionFactor:0.5]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.VolumetricFog.GridPixelSize:16]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.VolumetricFog.GridSizeZ:64]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.Shadow.Virtual.MaxPhysicalPages:2048]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasDirectional:-0.5]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasDirectionalMoving:-0.5]]
+[2026.08.09-17.47.19:855][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[sg.GlobalIlluminationQuality:3 -> 2]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Applying CVar settings from Section [GlobalIlluminationQuality@2] File [Scalability]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.AOQuality:1]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.LumenScene.Radiosity.ProbeSpacing:8]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.LumenScene.Radiosity.HemisphereProbeResolution:3]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.Lumen.TraceMeshSDFs.Allow:0]]
+[2026.08.09-17.47.19:855][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.RadianceCache.ProbeResolution:16]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.DownsampleFactor:32]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.IrradianceFormat:1]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.StochasticInterpolation:1]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.TwoSidedFoliageBackfaceDiffuse:0]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.ScreenTraces.HZBTraversal.FullResDepth:0]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.TranslucencyVolume.GridPixelSize:64]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.TranslucencyVolume.TraceFromVolume:0]]
+[2026.08.09-17.47.19:856][  0]LogConfig: CVar [[r.RayTracing.Scene.BuildMode:0]] deferred - dummy variable created
+[2026.08.09-17.47.19:856][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[sg.ReflectionQuality:3 -> 2]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Applying CVar settings from Section [ReflectionQuality@2] File [Scalability]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.SSR.Quality:2]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.SSR.HalfResSceneColor:1]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.Reflections.DownsampleFactor:2]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.Reflections.MaxRoughnessToTraceForFoliage:0.2]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.ScreenProbeGather.MaxRoughnessToEvaluateRoughSpecularForFoliage:0.4]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.Reflections.ScreenSpaceReconstruction.TonemapMode:2]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.Reflections.ScreenSpaceReconstruction.MinWeight:1]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Lumen.TranslucencyReflections.FrontLayer.Allow:0]]
+[2026.08.09-17.47.19:856][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[sg.PostProcessQuality:3 -> 2]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@2] File [Scalability]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.MotionBlurQuality:3]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.AmbientOcclusionMipLevelFactor:0.6]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.AmbientOcclusionRadiusScale:1.5]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.FastBlurThreshold:3]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Upscale.Quality:2]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.Filter.SizeScale:0.8]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.DOF.Gather.AccumulatorQuality:0        ; lower gathering accumulator quality]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.DOF.Gather.PostfilterMethod:2          ; Max3x3 postfilering method]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.DOF.Scatter.BackgroundCompositing:1    ; no background occlusion]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.DOF.Scatter.EnableBokehSettings:0      ; no bokeh simulation when scattering]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.DOF.Scatter.MaxSpriteRatio:0.04        ; only a maximum of 4% of scattered bokeh]]
+[2026.08.09-17.47.19:856][  0]LogConfig: Set CVar [[r.DOF.Recombine.Quality:0                ; no slight out of focus]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.DOF.TemporalAAQuality:0                ; faster temporal accumulation]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.DOF.Kernel.MaxForegroundRadius:0.012   ; required because of AccumulatorQuality=0]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.012   ; required because of AccumulatorQuality=0]]
+[2026.08.09-17.47.19:857][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[sg.TextureQuality:3 -> 2]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Applying CVar settings from Section [TextureQuality@2] File [Scalability]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.MaxAnisotropy:2]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.Streaming.LimitPoolSizeToVRAM:1]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.Streaming.PoolSize:800]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.VT.MaxTilesProducedPerFrame:1]]
+[2026.08.09-17.47.19:857][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[sg.EffectsQuality:3 -> 2]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@2] File [Scalability]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.TranslucencyLightingVolumeDim:48]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.SceneColorFormat:3]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.DetailMode:1]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.SSS.SampleSet:1]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.SSS.Quality:-1]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.SSS.HalfRes:1]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.SSGI.Quality:2]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.EmitterSpawnRateScale:0.5]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.ParticleLightQuality:1]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.SkyAtmosphere.SampleCountMax:64.0]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[fx.Niagara.QualityLevel:0]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.HeterogeneousVolumes.DownsampleFactor:2]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.HeterogeneousVolumes.MaxStepCount:256]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Set CVar [[r.HeterogeneousVolumes.Shadows.Resolution:256]]
+[2026.08.09-17.47.19:857][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[sg.FoliageQuality:3 -> 2]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@2] File [Scalability]
+[2026.08.09-17.47.19:857][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[sg.LandscapeQuality:3 -> 2]]
+[2026.08.09-17.47.19:857][  0]LogConfig: Applying CVar settings from Section [LandscapeQuality@2] File [Scalability]
+[2026.08.09-17.47.19:857][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[r.MobileContentScaleFactor:1 -> 1.0]]
+[2026.08.09-17.47.19:857][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[UI.SlateSDFText.RasterizationMode:Bitmap -> Msdf]]
+[2026.08.09-17.47.19:857][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[UI.SlateSDFText.ResolutionLevel:2 -> 2]]
+[2026.08.09-17.47.19:858][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[r.Vulkan.RobustBufferAccess:1 -> 1]]
+[2026.08.09-17.47.19:858][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[r.Android.DisableVulkanSM5Support:0 -> 1]]
+[2026.08.09-17.47.19:858][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[r.DefaultBackBufferPixelFormat:4 -> 0]]
+[2026.08.09-17.47.19:858][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[r.DistanceFields:1 -> 0]]
+[2026.08.09-17.47.19:858][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[r.Forward.LightLinkedListCulling:1 -> 0]]
+[2026.08.09-17.47.19:858][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[r.SkylightCapture.LODDistanceScale:1 -> 2]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@1] File [Scalability]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.SkeletalMeshLODBias:1]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@1] File [Scalability]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.TSR.History.UpdateQuality:1]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.TSR.ShadingRejection.Flickering:0]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.TSR.ReprojectionField:0]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@1] File [Scalability]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.ShadowQuality:1]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.CSM.MaxCascades:1]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.MaxCSMResolution:1024]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.DistanceScale:0.7]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.CSM.TransitionScale:0.25]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.DistanceFieldShadowing:0]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.LightMaxDrawDistanceScale:0.5]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.Virtual.MaxPhysicalPages:512]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasDirectional:0.0]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasDirectionalMoving:0.0]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasLocal:1.0]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasLocalMoving:2.0]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.RayCountDirectional:4]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.SamplesPerRayDirectional:2]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.RayCountLocal:4]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.SamplesPerRayLocal:2]]
+[2026.08.09-17.47.19:858][  0]LogConfig: Applying CVar settings from Section [GlobalIlluminationQuality@1] File [Scalability]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.Lumen.DiffuseIndirect.Allow:0]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.SkyLight.RealTimeReflectionCapture:0]]
+[2026.08.09-17.47.19:859][  0]LogConfig: CVar [[r.RayTracing.Scene.BuildMode:0]] deferred - dummy variable created
+[2026.08.09-17.47.19:859][  0]LogConfig: Applying CVar settings from Section [ReflectionQuality@1] File [Scalability]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.Lumen.Reflections.Allow:0]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@1] File [Scalability]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.MotionBlur.HalfResGather:1]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.AmbientOcclusionMipLevelFactor:1.0]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.AmbientOcclusionMaxQuality:60]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.RenderTargetPoolMin:350]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.LensFlareQuality:1]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.SceneColorFringeQuality:0]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.Bloom.ScreenPercentage:35.355]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.FastBlurThreshold:2]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.Filter.SizeScale:0.7]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.Tonemapper.Quality:2]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.DOF.Gather.RingCount:3                 ; low number of samples when gathering]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.DOF.Scatter.ForegroundCompositing:0    ; no foreground scattering]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.DOF.Scatter.BackgroundCompositing:0    ; no foreground scattering]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.DOF.Kernel.MaxForegroundRadius:0.006   ; required because low gathering and no scattering and not looking great at 1080p]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.006   ; required because low gathering and no scattering and not looking great at 1080p]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.Mobile.AmbientOcclusionQuality:0]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.Mobile.PixelProjectedReflectionQuality:0]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Applying CVar settings from Section [TextureQuality@1] File [Scalability]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.Streaming.MipBias:1]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.MaxAnisotropy:1]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.VT.MaxAnisotropy:4]]
+[2026.08.09-17.47.19:859][  0]LogConfig: Set CVar [[r.Streaming.PoolSize:600]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@1] File [Scalability]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.TranslucencyLightingVolumeDim:32]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.RefractionQuality:0]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.TranslucencyVolumeBlur:0]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.MaterialQualityLevel:2 ; Medium quality]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.SSS.Scale:0.75]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.SSS.SampleSet:0]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.SSS.Quality:0]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.SSGI.Quality:1]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.EmitterSpawnRateScale:0.25]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.ParticleLightQuality:0]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.SkyAtmosphere.SampleCountMax:32.0]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.HeterogeneousVolumes.DownsampleFactor:4]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.HeterogeneousVolumes.Shadows.Resolution:128]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@1] File [Scalability]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[foliage.DensityScale:0.8]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[grass.DensityScale:0.8]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[grass.CullDistanceScale:0.8]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@1] File [Scalability]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:1]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Set CVar [[r.AnisotropicMaterials:0]]
+[2026.08.09-17.47.19:860][  0]LogConfig: Applying CVar settings from Section [LandscapeQuality@1] File [Scalability]
+[2026.08.09-17.47.19:860][  0]LogConfig: Applying CVar settings from Section [Startup] File [../../../Engine/Config/ConsoleVariables.ini]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.DumpShaderDebugInfo:2]]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[p.chaos.AllowCreatePhysxBodies:1]]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[fx.SkipVectorVMBackendOptimizations:1]]
+[2026.08.09-17.47.19:861][  0]LogConfig: CVar [[ds.CADTranslator.Meshing.ActivateThinZoneMeshing:0]] deferred - dummy variable created
+[2026.08.09-17.47.19:861][  0]LogConfig: CVar [[ds.CADTranslator.Stitching.RemoveThinFaces:0]] deferred - dummy variable created
+[2026.08.09-17.47.19:861][  0]LogConfig: Applying CVar settings from Section [Startup_Android] File [../../../Engine/Config/ConsoleVariables.ini]
+[2026.08.09-17.47.19:861][  0]LogConfig: Applying CVar settings from Section [ConsoleVariables] File [Engine]
+[2026.08.09-17.47.19:861][  0]LogConfig: CVar [[Slate.CacheRenderData:0]] deferred - dummy variable created
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.VSync:1]]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.ParallelShadows:0]]
+[2026.08.09-17.47.19:861][  0]LogConfig: CVar [[TaskGraph.EnablePowerSavingThreadPriorityReduction:1]] deferred - dummy variable created
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.Vulkan.Depth24Bit:1]]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.Shadow.ForceSerialSingleRenderPass:1]]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.Forward.LightGridSizeZ:8]]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.Forward.MaxCulledLightsPerCell:8]]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.HairStrands.Simulation:0]]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.HairStrands.Strands:0]]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.HairStrands.Binding:0]]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.TemporalAA.R11G11B10History:0]]
+[2026.08.09-17.47.19:861][  0]LogConfig: Set CVar [[r.Vulkan.MemoryBacktrace:0]]
+[2026.08.09-17.47.19:865][  0]LogAndroid: InitializeJavaEventReceivers
+[2026.08.09-17.47.19:868][  0]LogAndroid: Display: No CPU thermal sensor was detected. To manually override the sensor path set android.CPUThermalSensorFilePath CVar.
+[2026.08.09-17.47.19:868][  0]LogInit: Memory total: Physical=3761.54MB (4GB approx) Available=1335.64MB PageSize=4.0KB
+[2026.08.09-17.47.19:868][  0]LogInit:  - VirtualMemoryAllocator pools will grow at scale 1
+[2026.08.09-17.47.19:868][  0]LogCsvProfiler: Display: Metadata set : extradevelopmentmemorymb="0"
+[2026.08.09-17.47.19:877][  0]LogChaosDD: Chaos Debug Draw Startup
+[2026.08.09-17.47.19:877][  0]LogInit: Physics initialised using underlying interface: Chaos
+[2026.08.09-17.47.19:879][  0]LogInit: Using OS detected language (ru-RU).
+[2026.08.09-17.47.19:879][  0]LogInit: Using OS detected locale (ru-RU).
+[2026.08.09-17.47.19:880][  0]LogTextLocalizationManager: No specific localization for 'ru-RU' exists, so 'ru' will be used for the language.
+[2026.08.09-17.47.20:078][  0]LogSlate: New Slate User Created. Platform User Id 0, User Index 0, Is Virtual User: 0
+[2026.08.09-17.47.20:079][  0]LogSlate: Slate User Registered.  User Index 0, Is Virtual User: 0
+[2026.08.09-17.47.20:250][  0]LogAndroid: VulkanRHI will be used!
+[2026.08.09-17.47.20:273][  0]LogAndroid: Vulkan SM5 is available but disabled for this device.
+[2026.08.09-17.47.20:273][  0]LogVulkanRHI: Display: Vulkan RHI ShaderPlatform for ES3_1: VULKAN_ES3_1_ANDROID.
+[2026.08.09-17.47.20:273][  0]LogVulkanRHI: Vulkan PSO Precaching = 1, PipelineFileCache = 0
+[2026.08.09-17.47.20:273][  0]LogVulkanRHI: Display: Built with Vulkan header version 1.3.290
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Starting Vulkan Profile check for VP_UE_Vulkan_ES3_1_Android_RT:
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Vulkan Profile check complete.
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display: Vulkan RayTracing disabled because SM6 shader platform is required.
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Using API Version 1.1.
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display: Found 13 available instance extensions :
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   - VK_EXT_debug_report
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   - VK_EXT_surface_maintenance1
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   + VK_EXT_swapchain_colorspace
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   - VK_GOOGLE_surfaceless_query
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   + VK_KHR_android_surface
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   - VK_KHR_device_group_creation
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   - VK_KHR_external_fence_capabilities
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   - VK_KHR_external_memory_capabilities
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   - VK_KHR_external_semaphore_capabilities
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   - VK_KHR_get_physical_device_properties2
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   - VK_KHR_get_surface_capabilities2
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   + VK_KHR_surface
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   - VK_KHR_surface_protected_capabilities
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display: Found 1 available instance layers :
+[2026.08.09-17.47.20:274][  0]LogVulkanRHI: Display:   * VK_LAYER_KHRONOS_validation
+[2026.08.09-17.47.20:321][  0]LogVulkanRHI: Creating Vulkan Device using VkPhysicalDevice 0xad46d400.
+[2026.08.09-17.47.20:321][  0]LogVulkanRHI: Display: - DeviceName: Mali-G57
+[2026.08.09-17.47.20:321][  0]LogVulkanRHI: Display: - API=1.3.225 (0x4030e1) Driver=0xa400000 VendorId=0x13b5
+[2026.08.09-17.47.20:321][  0]LogVulkanRHI: Display: - DeviceID=0x90910010 Type=1
+[2026.08.09-17.47.20:321][  0]LogVulkanRHI: Display: - Max Descriptor Sets Bound 7, Timestamps 1
+[2026.08.09-17.47.20:321][  0]LogVulkanRHI: API Version: 1.3.225|OpenGL ES 3.2 v1.r41p0-01eac0.018fc629603b7a70cc68d32f78ac8686
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display: Found 99 available device extensions :
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_ANDROID_external_memory_android_hardware_buffer
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_ARM_rasterization_order_attachment_access
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_4444_formats
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_astc_decode_mode
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_border_color_swizzle
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_calibrated_timestamps
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_custom_border_color
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_descriptor_indexing
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_device_memory_report
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_extended_dynamic_state
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_extended_dynamic_state2
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_external_memory_dma_buf
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_fragment_density_map
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_fragment_density_map2
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_global_priority
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_global_priority_query
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_host_query_reset
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_image_compression_control
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_image_drm_format_modifier
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_image_robustness
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_index_type_uint8
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_inline_uniform_block
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_line_rasterization
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_load_store_op_none
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_multisampled_render_to_single_sampled
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_pipeline_creation_cache_control
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_pipeline_creation_feedback
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_primitive_topology_list_restart
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_primitives_generated_query
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_private_data
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_provoking_vertex
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_queue_family_foreign
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_rasterization_order_attachment_access
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_rgba10x6_formats
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_scalar_block_layout
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_separate_stencil_usage
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_shader_demote_to_helper_invocation
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_shader_image_atomic_int64
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_shader_subgroup_ballot
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_shader_subgroup_vote
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_subgroup_size_control
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_subpass_merge_feedback
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_swapchain_maintenance1
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_texel_buffer_alignment
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_EXT_texture_compression_astc_hdr
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_tooling_info
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_EXT_transform_feedback
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_GOOGLE_display_timing
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_16bit_storage
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_8bit_storage
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_bind_memory2
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_buffer_device_address
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_copy_commands2
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_create_renderpass2
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_dedicated_allocation
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_depth_stencil_resolve
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_descriptor_update_template
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_device_group
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_driver_properties
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_dynamic_rendering
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_external_fence
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_external_fence_fd
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_external_memory
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_external_memory_fd
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_external_semaphore
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_external_semaphore_fd
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_format_feature_flags2
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   * VK_KHR_get_memory_requirements2
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_global_priority
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_image_format_list
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_imageless_framebuffer
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_incremental_present
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_maintenance1
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_maintenance2
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_maintenance3
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_maintenance4
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   * VK_KHR_multiview
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_relaxed_block_layout
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_sampler_mirror_clamp_to_edge
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   * VK_KHR_sampler_ycbcr_conversion
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_separate_depth_stencil_layouts
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_shader_atomic_int64
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_shader_draw_parameters
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_shader_float16_int8
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_shader_float_controls
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_shader_integer_dot_product
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_shader_non_semantic_info
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_shader_subgroup_extended_types
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_shader_terminate_invocation
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_shared_presentable_image
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_spirv_1_4
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_storage_buffer_storage_class
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_swapchain
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_synchronization2
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   + VK_KHR_timeline_semaphore
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_uniform_buffer_standard_layout
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_variable_pointers
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_vulkan_memory_model
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   - VK_KHR_zero_initialize_workgroup_memory
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display: Found 1 available device layers :
+[2026.08.09-17.47.20:322][  0]LogVulkanRHI: Display:   * VK_LAYER_KHRONOS_validation
+[2026.08.09-17.47.20:323][  0]LogVulkanRHI: Display: Image-based Variable Rate Shading supported via EXTFragmentDensityMap extension. Selected VRS tile size 32 by 32 pixels per VRS image texel.
+[2026.08.09-17.47.20:323][  0]LogVulkanRHI: Display: Vulkan Variable Rate Shading choice: 0.
+[2026.08.09-17.47.20:323][  0]LogVulkanRHI: Display: Device properties: Geometry 1 BufferAtomic64 1 ImageAtomic64 1
+[2026.08.09-17.47.20:323][  0]LogVulkanRHI: Display: Found 1 Queue Families
+[2026.08.09-17.47.20:323][  0]LogVulkanRHI: Display: Initializing Queue Family 0: 2 queues Gfx Compute Xfer
+[2026.08.09-17.47.20:338][  0]LogVulkanRHI: Swappy requires 1 extensions:
+[2026.08.09-17.47.20:338][  0]LogVulkanRHI: bHasGoogleDisplayTiming = 1
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: Using 0 device layers.
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: Using 31 device extensions:
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_swapchain
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_create_renderpass2
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_spirv_1_4
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_shader_float_controls
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_image_format_list
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_load_store_op_none
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_maintenance4
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_shader_atomic_int64
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_shader_image_atomic_int64
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_scalar_block_layout
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_separate_depth_stencil_layouts
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_synchronization2
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_fragment_density_map
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_fragment_density_map2
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_multiview
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_get_memory_requirements2
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_descriptor_indexing
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_host_query_reset
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_subgroup_size_control
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_calibrated_timestamps
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_shader_demote_to_helper_invocation
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_depth_stencil_resolve
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_pipeline_creation_cache_control
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_sampler_ycbcr_conversion
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_timeline_semaphore
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_KHR_buffer_device_address
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_GOOGLE_display_timing
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_astc_decode_mode
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_texture_compression_astc_hdr
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_EXT_queue_family_foreign
+[2026.08.09-17.47.20:339][  0]LogVulkanRHI: Display: * VK_ANDROID_external_memory_android_hardware_buffer
+[2026.08.09-17.47.20:340][  0]LogVulkanRHI: Display: Max memory allocations 16384.
+[2026.08.09-17.47.20:340][  0]LogVulkanRHI: Display: 1 Device Memory Heaps:
+[2026.08.09-17.47.20:340][  0]LogVulkanRHI: Display:   0: Flags 0x1 - Size 3933888512 (3751.65 MB) - Used 0 (0.00%) - DeviceLocal
+[2026.08.09-17.47.20:340][  0]LogVulkanRHI: Display: 3 Device Memory Types (unified):
+[2026.08.09-17.47.20:340][  0]LogVulkanRHI: Display:   0: Flags 0x00007 - Heap  0 - 7
+[2026.08.09-17.47.20:340][  0]LogVulkanRHI: Display:   1: Flags 0x0000b - Heap  0 - 11
+[2026.08.09-17.47.20:340][  0]LogVulkanRHI: Display:   2: Flags 0x00011 - Heap  0 - 17
+[2026.08.09-17.47.20:340][  0]LogVulkanRHI: Display: Memory Budget unavailable
+[2026.08.09-17.47.20:353][  0]LogVulkanRHI: FVulkanChunkedPipelineCacheManager: loading /storage/emulated/0/Android/data/com.renchezlove.contrarysurvivor/files/RHICache/Vulkan/SF_VULKAN_ES31_ANDROID.cd00e69.13b5.90910010RMX3938export_14_A.19/VulkanPSOChunks
+[2026.08.09-17.47.20:369][  0]LogRHI: Opened binary cache for write (/storage/emulated/0/Android/data/com.renchezlove.contrarysurvivor/files/RHICache/Vulkan/SF_VULKAN_ES31_ANDROID.cd00e69.13b5.90910010RMX3938export_14_A.19/VulkanPSOChunks)
+[2026.08.09-17.47.20:369][  0]LogVulkanRHI: FVulkanPipelineStateCacheManager will check for loading, etc when ShaderPipelineCache opens its file
+[2026.08.09-17.47.20:384][  0]LogRHI: Display: Enabling workaround to reduce memory requirement for BGRA textures (STORAGE flag). 128x128 - 8 Mips BGRA texture: 544 KiB -> 89 KiB
+[2026.08.09-17.47.20:384][  0]LogRHI: External PSO compilers = disabled
+[2026.08.09-17.47.20:385][  0]LogVulkanRHI: Display: Wave Operations have been ENABLED (wave size: min=16 max=16).
+[2026.08.09-17.47.20:551][  0]LogVRS: Current RHI supports screenspace Variable Rate Shading
+[2026.08.09-17.47.20:558][  0]LogRHI: Texture pool is 600 MB (of 3751 MB total graphics mem)
+[2026.08.09-17.47.20:558][  0]LogInit: Initializing FReadOnlyCVARCache
+[2026.08.09-17.47.20:576][  0]LogRendererCore: Ray tracing is disabled. Reason: disabled through project setting (r.RayTracing=0).
+[2026.08.09-17.47.20:581][  0]LogShaderLibrary: Display: Using IoDispatcher for shader code library Global. Total 1414 unique shaders.
+[2026.08.09-17.47.20:582][  0]LogShaderLibrary: Display: Cooked Context: Using Shared Shader Library Global
+[2026.08.09-17.47.20:582][  0]LogShaderLibrary: Display: Logical shader library 'Global' has been created as a monolithic library
+[2026.08.09-17.47.20:584][  0]LogTemp: Display: Clearing the OS Cache
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: --- StereoAspects begin ---
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: Platform=VULKAN_ES3_1_ANDROID (21)
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bInstancedStereo = 0
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bMobilePlatform = 1
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bMobilePostprocessing = 1
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bMobileMultiView = 0
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bMultiViewportCapable = 0
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bInstancedStereoNative = 0
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: ---
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bMobileMultiViewCoreSupport = 0
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bMobileMultiViewNative = 0
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bMobileMultiViewFallback = 0
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: ---
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bInstancedMultiViewportEnabled = 0
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bInstancedStereoEnabled = 0
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: bMobileMultiViewEnabled = 0
+[2026.08.09-17.47.20:597][  0]LogInit: FStereoShaderAspects: --- StereoAspects end ---
+[2026.08.09-17.47.20:605][  0]LogAndroid: Unlocking android HW window during preinit. bAppIsActive_EventThread=1
+[2026.08.09-17.47.20:605][  0]LogInit: XR: Instanced Stereo Rendering is Disabled
+[2026.08.09-17.47.20:605][  0]LogInit: XR: MultiViewport is Disabled
+[2026.08.09-17.47.20:605][  0]LogInit: XR: Mobile Multiview is Disabled
+[2026.08.09-17.47.20:619][  0]LogSlate: Using FreeType 2.10.4
+[2026.08.09-17.47.20:625][  0]LogSlate: SlateFontServices - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2026.08.09-17.47.20:745][  0]LogVulkanRHI: Display: Requested PixelFormat 2 not supported by this swapchain! Falling back to supported swapchain format...
+[2026.08.09-17.47.20:746][  0]LogVulkanRHI: Display: Queue Family 0: Supports Present
+[2026.08.09-17.47.20:746][  0]LogVulkanRHI: Display: Queue Family 0: Supports Present
+[2026.08.09-17.47.20:746][  0]LogVulkanRHI: Creating new VK swapchain with 2, 37, 0, num images 3
+[2026.08.09-17.47.20:799][  0]LogVulkanRHI: SwappyVk_initAndGetRefreshCycleDuration: 16666667ll
+[2026.08.09-17.47.20:815][  0]LogAndroid: Window orientation changed: Landscape, GDeviceScreenOrientation=3
+[2026.08.09-17.47.20:840][  0]LogShaderLibrary: Display: Using IoDispatcher for shader code library ContrarySurvivor. Total 1415 unique shaders.
+[2026.08.09-17.47.20:840][  0]LogShaderLibrary: Display: Cooked Context: Using Shared Shader Library ContrarySurvivor
+[2026.08.09-17.47.20:840][  0]LogShaderLibrary: Display: Logical shader library 'ContrarySurvivor' has been created as a monolithic library
+[2026.08.09-17.47.20:840][  0]LogShaderLibrary: Display: Tried to open again shader library 'ContrarySurvivor', but could not find new components for it (existing components: 1).
+[2026.08.09-17.47.20:840][  0]LogInit: Using OS detected language (ru-RU).
+[2026.08.09-17.47.20:840][  0]LogInit: Using OS detected locale (ru-RU).
+[2026.08.09-17.47.20:840][  0]LogTextLocalizationManager: No specific localization for 'ru-RU' exists, so 'ru' will be used for the language.
+[2026.08.09-17.47.20:844][  0]LogAssetRegistry: FAssetRegistry took 0.0004 seconds to start up
+[2026.08.09-17.47.20:891][  0]LogRHI: FAndroidVulkanFramePacer -> Supported Refresh Rates: 60 90
+[2026.08.09-17.47.20:891][  0]LogRHI: Supports 60 using refresh rate 60 and sync interval 1
+[2026.08.09-17.47.21:338][  0]LogStreaming: Display: FlushAsyncLoading(1): 1 QueuedPackages, 0 AsyncPackages
+[2026.08.09-17.47.21:338][  0]LogFilePackageStore: Updated: NewPackages=629, OldPackages=0, TotalPackages=630
+[2026.08.09-17.47.21:354][  0]LogDeviceProfileManager: Display: Deviceprofile LinuxArm64Editor not found.
+[2026.08.09-17.47.21:354][  0]LogDeviceProfileManager: Display: Deviceprofile LinuxArm64 not found.
+[2026.08.09-17.47.21:359][  0]LogDeviceProfileManager: Active device profile: [0x6de5bf1a98][0x6d7fa72070 66] Android_Unknown_Vulkan
+[2026.08.09-17.47.21:359][  0]LogCsvProfiler: Display: Metadata set : deviceprofile="Android_Unknown_Vulkan"
+[2026.08.09-17.47.21:420][  0]LogConfig: Branch 'EditorPerProjectUserSettings' had been unloaded. Reloading on-demand took 1.72ms
+[2026.08.09-17.47.21:629][  0]LogPackageLocalizationCache: Processed 55 localized package path(s) for 1 prioritized culture(s) in 0.001937 seconds
+[2026.08.09-17.47.21:656][  0]LogConfig: Branch 'GameplayTagsList' had been unloaded. Reloading on-demand took 1.74ms
+[2026.08.09-17.47.21:661][  0]LogConfig: Branch 'TranslationPickerSettings' had been unloaded. Reloading on-demand took 1.87ms
+[2026.08.09-17.47.21:676][  0]LogConfig: Branch 'Mass' had been unloaded. Reloading on-demand took 1.83ms
+[2026.08.09-17.47.21:806][  0]LogSerialization: Warning: Memory map bulk data from chunk '2207952d507a443100000004', offset '0', size '581' FAILED
+[2026.08.09-17.47.21:814][  0]LogSerialization: Warning: Memory map bulk data from chunk '7039ac6e3e9d480100000004', offset '0', size '1315' FAILED
+[2026.08.09-17.47.21:817][  0]LogSerialization: Warning: Memory map bulk data from chunk '2777c704b4b3a8a300000004', offset '0', size '523' FAILED
+[2026.08.09-17.47.21:819][  0]LogSerialization: Warning: Memory map bulk data from chunk '1ffb60eb08e9152300000004', offset '0', size '1980' FAILED
+[2026.08.09-17.47.21:877][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2026.08.09-17.47.21:877][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2026.08.09-17.47.21:890][  0]LogMetaSound: Display: MetaSound Page Target Initialized to 'Default'
+[2026.08.09-17.47.21:935][  0]LogMoviePlayer: Initializing movie player
+[2026.08.09-17.47.21:941][  0]LogGameAnalytics: Display: FGameAnalyticsModule Constructor
+[2026.08.09-17.47.21:946][  0]LogNiagaraDebuggerClient: Niagara Debugger Client Initialized | Session: 54818A0AD28C4ECF8000000000000E00 | Instance: 856DA3361D094D4E9FE79D1E15E6E294 (RMX3938-3803).
+[2026.08.09-17.47.22:088][  0]LogAudio: Display: Registering Engine Module Parameter Interfaces...
+[2026.08.09-17.47.22:091][  0]LogMetaSound: MetaSound Engine Initialized
+[2026.08.09-17.47.22:097][  0]LogAndroidPermission: UAndroidPermissionCallbackProxy::GetInstance
+[2026.08.09-17.47.22:102][  0]LogGooglePAD: Display: GooglePAD disabled.
+[2026.08.09-17.47.22:132][  0]LogUObjectArray: 26821 objects as part of root set at end of initial load.
+[2026.08.09-17.47.22:132][  0]LogUObjectArray: 42 objects are not in the root set, but can never be destroyed because they are in the DisregardForGC set.
+[2026.08.09-17.47.22:132][  0]LogUObjectArray: CloseDisregardForGC: 26821/26821 objects in disregard for GC pool
+[2026.08.09-17.47.22:160][  0]LogStreaming: Display: AsyncLoading2 - NotifyRegistrationComplete: Registered 26011 public script object entries (680.00 KB)
+[2026.08.09-17.47.22:160][  0]LogStreaming: Display: AsyncLoading2 - Thread Started: true, IsInitialLoad: false
+[2026.08.09-17.47.22:161][  0]LogAndroid: Display: Passed PreInit()
+[2026.08.09-17.47.22:161][  0]LogEngine: Initializing Engine...
+[2026.08.09-17.47.22:176][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.000 s
+[2026.08.09-17.47.22:231][  0]LogNetVersion: Set ProjectVersion to 1.0.0.0. Version Checksum will be recalculated on next use.
+[2026.08.09-17.47.22:231][  0]LogInit: Texture streaming: Enabled
+[2026.08.09-17.47.22:232][  0]LogAudio: Display: Initializing Audio Device Manager...
+[2026.08.09-17.47.22:232][  0]LogAudio: Display: Loading Default Audio Settings Objects...
+[2026.08.09-17.47.22:233][  0]LogAudio: Display: No default SoundConcurrencyObject specified (or failed to load).
+[2026.08.09-17.47.22:234][  0]LogAudio: Display: Audio Device Manager Initialized
+[2026.08.09-17.47.22:234][  0]LogAudio: Display: Creating Audio Device:                 Id: 1, Scope: Shared, Realtime: True
+[2026.08.09-17.47.22:241][  0]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2026.08.09-17.47.22:241][  0]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2026.08.09-17.47.22:241][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1440
+[2026.08.09-17.47.22:241][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1440
+[2026.08.09-17.47.22:241][  0]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2026.08.09-17.47.22:241][  0]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2026.08.09-17.47.22:241][  0]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2026.08.09-17.47.22:241][  0]LogAudio: Display: AudioDevice MaxSources: 32
+[2026.08.09-17.47.22:243][  0]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2026.08.09-17.47.22:243][  0]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2026.08.09-17.47.22:243][  0]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2026.08.09-17.47.22:250][  0]LogAudioMixer: Display: Initializing audio mixer using platform API: 'OpenSLES'
+[2026.08.09-17.47.22:323][  0]LogAudioMixer: Display: Using Audio Hardware Device Android Audio Device
+[2026.08.09-17.47.22:326][  0]LogAudioMixer: Display: Initializing Sound Submixes...
+[2026.08.09-17.47.22:328][  0]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2026.08.09-17.47.22:328][  0]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2026.08.09-17.47.22:333][  0]LogAudioMixer: Display: Output buffers initialized: Frames=1440, Channels=2, Samples=2880, InstanceID=1
+[2026.08.09-17.47.22:346][  0]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=1
+[2026.08.09-17.47.22:346][  0]LogInit: FAudioDevice initialized with ID 1.
+[2026.08.09-17.47.22:347][  0]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 1
+[2026.08.09-17.47.22:348][  0]LogCsvProfiler: Display: Metadata set : largeworldcoordinates="1"
+[2026.08.09-17.47.22:355][  0]LogChaosDD: Creating Chaos Debug Draw Scene for world Untitled
+[2026.08.09-17.47.22:375][  0]LogRenderer: SceneCulling instance hierarchy is disabled as UseNanite(VULKAN_ES3_1_ANDROID) returned false, for scene: 'World /Temp/Untitled_0.Untitled'.
+[2026.08.09-17.47.22:379][  0]LogTemp: Display: Analytics: ключи найдены (вшиты в сборку на этапе компиляции), длины 32/40 символов.
+[2026.08.09-17.47.22:380][  0]LogTemp: Display: Analytics: initializing GameAnalytics
+[2026.08.09-17.47.22:434][  0]LogQA: Display: QA: YANDEX-AD waiting for user consent before SDK init (sdk log=off)
+[2026.08.09-17.47.22:434][  0]LogTemp: Display: Consent: сохранённый ответ игрока - согласие
+[2026.08.09-17.47.22:434][  0]LogQA: Display: QA: YANDEX-AD init requested (consent=yes, sdk log=off)
+[2026.08.09-17.47.22:435][  0]LogAudio: Display: Audio Device (ID: 1) registered with world 'Untitled'.
+[2026.08.09-17.47.22:438][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.08.09-17.47.22:439][  0]LogInit: Display: Game Engine Initialized.
+[2026.08.09-17.47.22:446][  0]LogInit: Display: Starting Game.
+[2026.08.09-17.47.22:446][  0]LogGlobalStatus: Browse Started Browse: "/Game/Maps/L_World_C?Name=Player"
+[2026.08.09-17.47.22:446][  0]LogNet: Browse: /Game/Maps/L_World_C?Name=Player
+[2026.08.09-17.47.22:446][  0]LogLoad: LoadMap: /Game/Maps/L_World_C?Name=Player
+[2026.08.09-17.47.22:446][  0]LogWorld: BeginTearingDown for /Temp/Untitled_0
+[2026.08.09-17.47.22:447][  0]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
+[2026.08.09-17.47.22:453][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.08.09-17.47.22:478][  0]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2026.08.09-17.47.22:487][  0]LogUObjectHash: Compacting FUObjectHashTables data took   3.63ms
+[2026.08.09-17.47.22:706][  0]LogSerialization: Warning: Memory map bulk data from chunk 'cac94098daf39b4b00000004', offset '0', size '683' FAILED
+[2026.08.09-17.47.22:707][  0]LogSerialization: Warning: Memory map bulk data from chunk '0a8a430c6f731cfa00000004', offset '0', size '531' FAILED
+[2026.08.09-17.47.22:707][  0]LogSerialization: Warning: Memory map bulk data from chunk '7544df05ed654ef900000004', offset '0', size '343' FAILED
+[2026.08.09-17.47.22:707][  0]LogSerialization: Warning: Memory map bulk data from chunk 'c0024b29cbbda48900000004', offset '0', size '303' FAILED
+[2026.08.09-17.47.22:707][  0]LogStaticMesh: [SM_VillageHouse] Mesh is marked for CPU read.
+[2026.08.09-17.47.22:707][  0]LogStaticMesh: [SM_BanditShed] Mesh is marked for CPU read.
+[2026.08.09-17.47.22:714][  0]LogAudio: Display: Audio Device (ID: 1) registered with world 'L_World_C'.
+[2026.08.09-17.47.22:714][  0]LogChaosDD: Creating Chaos Debug Draw Scene for world L_World_C
+[2026.08.09-17.47.22:718][  0]LogRenderer: SceneCulling instance hierarchy is disabled as UseNanite(VULKAN_ES3_1_ANDROID) returned false, for scene: 'World /Game/Maps/L_World_C.L_World_C'.
+[2026.08.09-17.47.22:720][  0]LogLoad: Game class is 'BP_ContrarySurviorGameMode_C'
+[2026.08.09-17.47.22:830][  0]LogWorld: Bringing World /Game/Maps/L_World_C.L_World_C up for play (max tick rate 30) at 2026.08.09-20.47.22
+[2026.08.09-17.47.22:842][  0]LogWorld: Bringing up level for play took: 0.120788
+[2026.08.09-17.47.22:846][  0]LogOnline: Warning: OSS: FOnlineSubsystemGooglePlayModule was disabled
+[2026.08.09-17.47.22:879][  0]LogTemp: Pickup 'Pickup_1': placed loot ready (money=0, items=2, ammo=10)
+[2026.08.09-17.47.22:879][  0]LogQA: Display: QA: CORPSE loot init on 'Pickup_1' - money=0 items=2
+[2026.08.09-17.47.22:880][  0]LogTemp: EnemyBase 'BP_BanditBase_C_0' armed at V(X=6940.00, Y=9070.00, Z=1.00), R=2500 (waits for player approach)
+[2026.08.09-17.47.22:881][  0]LogTemp: EnemyBase 'BP_WolfDen_C_0' armed at V(X=13943.04, Y=-5998.13, Z=1.00), R=2300 (waits for player approach)
+[2026.08.09-17.47.22:881][  0]LogTemp: EnemyBase 'BP_WolfDen_C_2' armed at V(X=-6080.00, Y=-13940.00), R=2300 (waits for player approach)
+[2026.08.09-17.47.22:882][  0]LogTemp: Pickup 'BP_Pickup_C_10': placed loot ready (money=10, items=3, ammo=3)
+[2026.08.09-17.47.22:882][  0]LogQA: Display: QA: CORPSE loot init on 'BP_Pickup_C_10' - money=10 items=3
+[2026.08.09-17.47.22:883][  0]LogTemp: Pickup 'BP_Pickup_C_14': placed loot ready (money=0, items=1, ammo=0)
+[2026.08.09-17.47.22:883][  0]LogQA: Display: QA: CORPSE loot init on 'BP_Pickup_C_14' - money=0 items=1
+[2026.08.09-17.47.22:883][  0]LogTemp: VillageZone 'BP_VillageZone_C_0' active at V(X=-3950.00, Y=-4650.00), extent V(X=1900.00, Y=1400.00, Z=300.00)
+[2026.08.09-17.47.22:883][  0]LogTemp: WanderingWolfSpawner 'BP_WanderingWolfSpawner_C_1': armed (interval=30s, dist=300..1000, max alive=3, enabled=1)
+[2026.08.09-17.47.22:885][  0]LogTemp: WorldBorder 'BP_WorldBorder_C_2': zone 46875x46875 cm, wall h=2000 offset=1400, fog curtain h=2500 (mat set), fog band depth=2500 z=120 layers=2 spacing=150 (mat set)
+[2026.08.09-17.47.22:949][  0]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 100%, fps limit 30, fps counter off)
+[2026.08.09-17.47.22:950][  0]LogEngine: Onscreen warnings/messages are now DISABLED
+[2026.08.09-17.47.22:954][  0]LogQA: Display: QA: touch layer created (WBP WBP_TouchControls_C)
+[2026.08.09-17.47.22:954][  0]LogTemp: BP_Elder_C_0: movement init MaxWalkSpeed=600 (BaseWalkSpeed=600)
+[2026.08.09-17.47.22:954][  0]LogTemp: BP_Trader_C_0: movement init MaxWalkSpeed=600 (BaseWalkSpeed=600)
+[2026.08.09-17.47.22:954][  0]LogTemp: BP_Trader_C_0 (Trader): health set to 1000000/1000000 (immortal, min 1)
+[2026.08.09-17.47.22:958][  0]LogTemp: EquipWeapon[BP_PlayerCharacter_C_2147482447]: attached BP_Pistol_C_2147482418 to SOCKET 'WeaponGripSocket' on LEADER mesh 'SK_Cloth_T0_Head' (component 'CharacterMesh0')
+[2026.08.09-17.47.22:958][  0]LogTemp: Warning: EquipWeapon[BP_PlayerCharacter_C_2147482447]: Equipped BP_Pistol_C_2147482418
+[2026.08.09-17.47.22:958][  0]LogTemp: BP_PlayerCharacter_C_2147482447: movement init MaxWalkSpeed=600 (BaseWalkSpeed=600)
+[2026.08.09-17.47.22:959][  0]LogQA: Display: QA: floortrace[Player-start] start=V(X=-7088.00, Y=-6672.00, Z=2000.00) end=V(X=-7088.00, Y=-6672.00, Z=-18000.00) hits=1
+[2026.08.09-17.47.22:968][  0]LogQA: Display: QA:  hit[0] startPen=0 block=1 impZ=-0.0 locZ=-0.0 actor='StaticMeshActor_15'(StaticMeshActor) comp='StaticMeshComponent0'
+[2026.08.09-17.47.22:980][  0]LogQA: Display: QA: floortrace[Player-start] FLOOR 'StaticMeshActor_15'(StaticMeshActor) impZ=-0.0 -> spawnZ=98.0
+[2026.08.09-17.47.22:993][  0]LogQA: Display: QA: starting money initialised -> 50
+[2026.08.09-17.47.22:994][  0]LogQA: Warning: QA: огнестрел 'BP_Pistol_C_2147482418' экипирован МИМО слота (слот: 'пусто') — снят и уничтожен, это артефакт обхода RangedWeaponInstance
+[2026.08.09-17.47.22:994][  0]LogTemp: Warning: UnequipWeapon[BP_PlayerCharacter_C_2147482447]: BP_Pistol_C_2147482418 removed
+[2026.08.09-17.47.22:995][  0]LogTemp: EquipWeapon[BP_PlayerCharacter_C_2147482447]: attached MeleeWeapon_2147482415 to SOCKET 'WeaponGripSocket' on LEADER mesh 'SK_Cloth_T0_Head' (component 'CharacterMesh0')
+[2026.08.09-17.47.22:995][  0]LogTemp: Warning: EquipWeapon[BP_PlayerCharacter_C_2147482447]: Equipped MeleeWeapon_2147482415
+[2026.08.09-17.47.22:995][  0]LogQA: Display: QA: PLAYER WEAPON STATE at BeginPlay end — ranged slot empty, in hands MeleeWeapon_2147482415
+[2026.08.09-17.47.23:001][  0]LogLoad: Took 0.554334 seconds to LoadMap(/Game/Maps/L_World_C)
+[2026.08.09-17.47.23:001][  0]LogGlobalStatus: LoadMap Load map complete /Game/Maps/L_World_C
+[2026.08.09-17.47.23:013][  0]LogSlate: Took 0.002946 seconds to synchronously load lazily loaded font '../../../Engine/Content/EngineFonts/Faces/RobotoRegular.ufont' (155K)
+[2026.08.09-17.47.23:018][  0]LogSlate: Took 0.002767 seconds to synchronously load lazily loaded font '../../../Engine/Content/EngineFonts/Faces/RobotoBold.ufont' (160K)
+[2026.08.09-17.47.23:180][  0]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=0x0] content[vis=4 geom=0x0] parent[НЕТ]
+[2026.08.09-17.47.23:188][  0]LogSlate: Took 0.003344 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K)
+[2026.08.09-17.47.23:198][  0]LogRHI: Display: ShaderPipelineCache: Paused Batching. 1
+[2026.08.09-17.47.23:198][  0]LogPakFile: AllPaks IndexSizes: DirectoryHashSize=188716, PathHashSize=16, EntriesSize=32752, TotalSize=221484
+[2026.08.09-17.47.23:198][  0]LogRHI: Display: ShaderPipelineCache: Resumed Batching. 0
+[2026.08.09-17.47.23:199][  0]LogRHI: Display: ShaderPipelineCache: Batching Resumed.
+[2026.08.09-17.47.23:240][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
+[2026.08.09-17.47.23:240][  0]LogAndroid: Passed GEngineLoop.Init()
+[2026.08.09-17.47.23:240][  0]LogLoad: (Engine Initialization) Total time: 7.23 seconds
+[2026.08.09-17.47.23:252][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 9, [width=-1, height=-1], APP_EVENT_STATE_ON_START
+[2026.08.09-17.47.23:252][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 7, [width=-1, height=-1], APP_EVENT_STATE_ON_RESUME
+[2026.08.09-17.47.23:252][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 11, [width=-1, height=-1], APP_EVENT_STATE_WINDOW_GAINED_FOCUS
+[2026.08.09-17.47.23:252][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 15, [width=-1, height=-1], APP_EVENT_STATE_SAFE_ZONE_UPDATED
+[2026.08.09-17.47.23:252][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 15, [width=-1, height=-1], APP_EVENT_STATE_SAFE_ZONE_UPDATED
+[2026.08.09-17.47.23:252][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 0, [width=1600, height=720], APP_EVENT_STATE_WINDOW_CREATED
+[2026.08.09-17.47.23:252][  0]LogAndroidEvents: Display: ExecWindowCreated
+[2026.08.09-17.47.23:252][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 14, [width=-1, height=-1], APP_EVENT_STATE_APP_ACTIVATED
+[2026.08.09-17.47.23:252][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 16, [width=-1, height=-1], APP_EVENT_RUN_CALLBACK
+[2026.08.09-17.47.23:252][  0]LogAndroidEvents: Display: Event thread callback running.
+[2026.08.09-17.47.23:252][  0]LogAndroid: performing app foregrounding callback.
+[2026.08.09-17.47.23:261][  0]LogEOSSDK: OnApplicationStatusChanged [Foreground] -> [Foreground]
+[2026.08.09-17.47.23:261][  0]LogCore: Display: AppLifetime: Application has entered foreground
+[2026.08.09-17.47.23:261][  0]LogCore: Display: AppLifetime: Application has reactivated
+[2026.08.09-17.47.23:261][  0]LogAndroidEvents: Android resume audio
+[2026.08.09-17.47.23:261][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 1, [width=1600, height=720], APP_EVENT_STATE_WINDOW_RESIZED
+[2026.08.09-17.47.24:027][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 4, [width=-1, height=-1], APP_EVENT_STATE_WINDOW_REDRAW_NEEDED
+[2026.08.09-17.47.24:027][  0]LogAndroidEvents: Display: Application Event : 4  not handled. 
+[2026.08.09-17.47.24:027][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 2, [width=-1, height=-1], APP_EVENT_STATE_WINDOW_CHANGED
+[2026.08.09-17.47.24:029][  0]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 15, [width=-1, height=-1], APP_EVENT_STATE_SAFE_ZONE_UPDATED
+[2026.08.09-17.47.24:030][  0]LogAndroid: Mobile HDR: YES
+[2026.08.09-17.47.24:030][  0]LogAndroidWindowUtils: Setting Width=1600 and Height=720 (requested scale = 1.000000)
+[2026.08.09-17.47.24:031][  0]LogAndroid: ***** Cached WindowRect 1600, 720 (0)
+[2026.08.09-17.47.24:104][  0]LogQA: Display: QA: YANDEX-AD sdk initialized (version 8.2.0)
+[2026.08.09-17.47.24:107][  0]LogAndroid: Display: Low Power Mode Changed: 0
+[2026.08.09-17.47.24:169][  0]LogQA: Display: QA: HUNGER-ROW bar[vis=0 op=1.00 geom=0x0] text[vis=0 op=1.00 geom=0x0] parent[vis=3 op=1.00 geom=0x0] percent=1.0
+[2026.08.09-17.47.24:185][  0]LogQA: Display: QA: стик поставлен на фиксированный отступ (240, 240) от левого-нижнего угла (холст 2402x1081, эталон 240/1080)
+[2026.08.09-17.47.24:186][  0]LogStreaming: Display: FlushAsyncLoading(102): 1 QueuedPackages, 0 AsyncPackages
+[2026.08.09-17.47.24:257][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.08.09-17.47.24:257][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.08.09-17.47.24:273][  0]LogTrace: Display: Display Control listening on port 1985
+[2026.08.09-17.47.24:334][  1]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.24:335][  1]LogViewport: Display: Viewport MouseLockMode Changed, LockOnCapture -> DoNotLock
+[2026.08.09-17.47.24:336][  1]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CaptureDuringMouseDown
+[2026.08.09-17.47.24:338][  1]LogQA: Display: QA: start screen OPEN (has save: yes, world paused)
+[2026.08.09-17.47.24:467][  1]LogVulkanRHI: Warning: FVulkanDescriptorSetCache::FCachedPool::CalcAllocRatio() Pool Allocation Ratio is too low: 0.304688. Using: 0.500000.
+[2026.08.09-17.47.25:269][  4]LogQA: Display: QA: YANDEX-AD loaded (unit 'demo-rewarded-yandex')
+[2026.08.09-17.47.25:327][  6]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.26:338][ 29]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.27:385][ 53]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.28:419][ 77]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.29:467][101]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.30:496][125]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.31:542][149]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.32:573][173]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.33:605][197]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.34:650][221]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.35:681][245]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.36:728][269]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.37:761][293]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.38:809][317]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.39:840][341]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.40:885][365]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.41:918][389]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.42:948][413]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.43:994][437]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.45:043][461]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.46:073][485]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.47:103][509]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.48:150][533]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.49:182][557]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.50:228][581]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.51:260][605]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.52:307][629]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.53:352][653]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.54:384][677]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.55:415][701]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.56:464][725]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.57:492][749]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.58:539][773]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.47.59:571][797]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.00:604][821]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.01:650][845]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.02:681][869]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.03:727][893]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.04:758][917]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.05:789][941]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.06:820][965]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.07:851][989]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.08:899][ 13]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.09:928][ 37]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.10:961][ 61]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.12:005][ 85]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.13:034][109]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.14:068][133]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.15:100][157]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.16:131][181]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.17:178][205]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.18:207][229]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.19:252][253]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.20:253][276]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.21:284][300]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.22:315][324]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.23:362][348]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.24:376][372]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.25:406][396]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.26:439][420]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.27:486][444]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.28:517][468]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.29:548][492]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.30:595][516]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.31:625][540]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.32:640][564]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.33:687][588]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.34:718][612]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.35:764][636]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.36:796][660]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.37:826][684]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.38:858][708]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.39:905][732]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.40:935][756]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.41:966][780]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.43:012][804]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.44:043][828]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.45:075][852]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.46:105][876]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.47:137][900]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.48:167][924]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.49:199][948]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.50:230][972]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.51:261][996]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.52:291][ 20]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.53:322][ 44]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.54:352][ 68]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.55:383][ 92]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.56:071][108]LogAndroid: Mobile HDR: YES
+[2026.08.09-17.48.56:072][108]LogAndroidWindowUtils: Setting Width=1600 and Height=720 (requested scale = 1.000000)
+[2026.08.09-17.48.56:072][108]LogAndroid: ***** Cached WindowRect 1600, 720 (1)
+[2026.08.09-17.48.56:164][110]LogQA: Display: QA: звуки мира возвращены после меню (0 шт.)
+[2026.08.09-17.48.56:164][110]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.56:164][110]LogViewport: Display: Viewport MouseLockMode Changed, DoNotLock -> LockOnCapture
+[2026.08.09-17.48.56:164][110]LogViewport: Display: Viewport MouseCaptureMode Changed, CaptureDuringMouseDown -> CapturePermanently
+[2026.08.09-17.48.56:165][110]LogQA: Display: QA: start screen CLOSED (world resumed)
+[2026.08.09-17.48.56:184][110]LogTemp: APlayerCharacter::SaveGame -> slot 'ContrarySave' : OK
+[2026.08.09-17.48.56:192][110]LogQA: Display: QA: campfire save OK — показана надпись «Прогресс сохранён»
+[2026.08.09-17.48.56:192][110]LogTemp: Campfire 'BP_Campfire_C_0' autosave for player: OK
+[2026.08.09-17.48.56:193][110]LogQA: Display: QA: ADDITEM Патроны 9мм -> inv 0->1
+[2026.08.09-17.48.56:197][110]LogQA: Display: QA: CONTINUE - restored 1/1 backpack item(s)
+[2026.08.09-17.48.56:197][110]LogQA: Display: QA: quest journal restored from save (1 quest(s))
+[2026.08.09-17.48.56:197][110]LogQA: Display: QA: CONTINUE - loaded save (money 42, backpack 1 item(s), quests 1)
+[2026.08.09-17.48.56:197][110]LogQA: Display: QA: start screen -> CONTINUE (save loaded)
+[2026.08.09-17.48.56:214][110]LogQA: Display: QA: HUNGER-ROW bar[vis=0 op=1.00 geom=224x24] text[vis=0 op=1.00 geom=95x24] parent[vis=3 op=1.00 geom=224x24] percent=0.5
+[2026.08.09-17.48.56:243][111]LogQA: Display: QA: HUNGER-ROW bar[vis=0 op=1.00 geom=224x24] text[vis=0 op=1.00 geom=37x24] parent[vis=3 op=1.00 geom=224x24] percent=0.5
+[2026.08.09-17.48.56:276][112]LogQA: Display: QA: HUNGER-ROW bar[vis=0 op=1.00 geom=224x24] text[vis=0 op=1.00 geom=26x24] parent[vis=3 op=1.00 geom=224x24] percent=0.5
+[2026.08.09-17.48.56:741][123]LogTemp: DailyReward: same calendar day (streak 1), no reward
+[2026.08.09-17.48.57:121][131]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.58:167][154]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.48.59:179][176]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.00:229][199]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.00:879][213]LogStreaming: Display: FlushAsyncLoading(105): 1 QueuedPackages, 0 AsyncPackages
+[2026.08.09-17.49.00:884][213]LogStreaming: Warning: LoadPackage: SkipPackage: /Game/Audio/Music/S_Music_TheZone (0xFA6684C369810765) - The package to load does not exist on disk or in the loader
+[2026.08.09-17.49.00:884][213]LogUObjectGlobals: Warning: Не удалось найти объект 'Object /Game/Audio/Music/S_Music_TheZone.S_Music_TheZone'
+[2026.08.09-17.49.00:885][213]LogQA: Warning: QA: трек паузы не загрузился ('/Game/Audio/Music/S_Music_TheZone.S_Music_TheZone') — пауза будет без музыки
+[2026.08.09-17.49.00:885][213]LogViewport: Display: Viewport MouseLockMode Changed, LockOnCapture -> DoNotLock
+[2026.08.09-17.49.00:885][213]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently -> CaptureDuringMouseDown
+[2026.08.09-17.49.00:885][213]LogQA: Display: QA: pause menu OPEN (world paused)
+[2026.08.09-17.49.01:241][221]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.02:255][241]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.03:284][262]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.03:920][275]LogQA: Display: QA: pause menu SETTINGS pressed
+[2026.08.09-17.49.03:922][275]LogQA: Display: QA: SETTINGS-TREE окно настроек взято ИЗ АССЕТА WBP_Settings (кодовая запаска не строилась), недостающих кубиков 0. [settings: tree=asset missing=0]
+[2026.08.09-17.49.03:970][275]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.03:970][275]LogQA: Display: QA: settings screen OPEN
+[2026.08.09-17.49.04:911][293]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.05:960][312]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.07:027][331]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.08:076][350]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.09:090][368]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.10:149][387]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.11:203][406]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.12:260][425]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.13:330][444]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.14:350][463]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.15:418][482]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.16:462][501]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.16:698][503]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 90%, fps limit 30, fps counter off)
+[2026.08.09-17.49.17:516][520]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.18:518][540]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.19:353][554]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 80%, fps limit 30, fps counter off)
+[2026.08.09-17.49.19:526][560]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.20:529][583]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.20:672][584]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 70%, fps limit 30, fps counter off)
+[2026.08.09-17.49.21:491][605]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 60%, fps limit 30, fps counter off)
+[2026.08.09-17.49.21:530][607]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.22:213][626]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 50%, fps limit 30, fps counter off)
+[2026.08.09-17.49.22:553][637]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.23:439][663]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 50%, fps limit 30, fps counter off)
+[2026.08.09-17.49.23:553][667]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.24:156][684]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 60%, fps limit 30, fps counter off)
+[2026.08.09-17.49.24:368][690]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 70%, fps limit 30, fps counter off)
+[2026.08.09-17.49.24:597][695]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 80%, fps limit 30, fps counter off)
+[2026.08.09-17.49.24:607][696]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.24:738][698]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 90%, fps limit 30, fps counter off)
+[2026.08.09-17.49.24:986][703]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 100%, fps limit 30, fps counter off)
+[2026.08.09-17.49.25:083][705]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 100%, fps limit 30, fps counter off)
+[2026.08.09-17.49.25:293][709]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 100%, fps limit 30, fps counter off)
+[2026.08.09-17.49.25:431][712]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 100%, fps limit 30, fps counter off)
+[2026.08.09-17.49.25:697][717]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 100%, fps limit 30, fps counter off)
+[2026.08.09-17.49.25:707][718]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.25:778][719]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 100%, fps limit 30, fps counter off)
+[2026.08.09-17.49.26:531][733]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 90%, fps limit 30, fps counter off)
+[2026.08.09-17.49.26:713][739]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.27:747][759]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.28:105][764]LogQA: Display: QA: settings applied (preset Авто (среднее), scale 100%, fps limit 30, fps counter off)
+[2026.08.09-17.49.28:793][779]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.29:622][792]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@2] File [Scalability]
+[2026.08.09-17.49.29:622][792]LogConfig: Set CVar [[r.SkeletalMeshLODBias:0]]
+[2026.08.09-17.49.29:624][792]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@2] File [Scalability]
+[2026.08.09-17.49.29:624][792]LogConfig: Set CVar [[r.TSR.History.UpdateQuality:2]]
+[2026.08.09-17.49.29:624][792]LogConfig: Set CVar [[r.TSR.ShadingRejection.Flickering:1]]
+[2026.08.09-17.49.29:624][792]LogConfig: Set CVar [[r.TSR.ReprojectionField:1]]
+[2026.08.09-17.49.29:624][792]LogConfig: Applying CVar settings from Section [ShadowQuality@2] File [Scalability]
+[2026.08.09-17.49.29:624][792]LogConfig: Set CVar [[r.ShadowQuality:2]]
+[2026.08.09-17.49.29:624][792]LogConfig: Set CVar [[r.Shadow.CSM.MaxCascades:2]]
+[2026.08.09-17.49.29:624][792]LogConfig: Set CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2026.08.09-17.49.29:624][792]LogConfig: Set CVar [[r.Shadow.DistanceScale:1.0]]
+[2026.08.09-17.49.29:624][792]LogConfig: Set CVar [[r.Shadow.CSM.TransitionScale:0.8]]
+[2026.08.09-17.49.29:624][792]LogConfig: Set CVar [[r.DistanceFieldShadowing:1]]
+[2026.08.09-17.49.29:625][792]LogConfig: Set CVar [[r.LightMaxDrawDistanceScale:1]]
+[2026.08.09-17.49.29:625][792]LogConfig: Set CVar [[r.Shadow.Virtual.MaxPhysicalPages:2048]]
+[2026.08.09-17.49.29:625][792]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasDirectional:-0.5]]
+[2026.08.09-17.49.29:625][792]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasDirectionalMoving:-0.5]]
+[2026.08.09-17.49.29:625][792]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasLocal:0.0]]
+[2026.08.09-17.49.29:625][792]LogConfig: Set CVar [[r.Shadow.Virtual.ResolutionLodBiasLocalMoving:1.0]]
+[2026.08.09-17.49.29:625][792]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.RayCountDirectional:8]]
+[2026.08.09-17.49.29:625][792]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.SamplesPerRayDirectional:4]]
+[2026.08.09-17.49.29:625][792]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.RayCountLocal:8]]
+[2026.08.09-17.49.29:625][792]LogConfig: Set CVar [[r.Shadow.Virtual.SMRT.SamplesPerRayLocal:4]]
+[2026.08.09-17.49.29:626][792]LogConfig: Applying CVar settings from Section [GlobalIlluminationQuality@2] File [Scalability]
+[2026.08.09-17.49.29:627][792]LogConfig: Set CVar [[r.Lumen.DiffuseIndirect.Allow:1]]
+[2026.08.09-17.49.29:627][792]LogConfig: Set CVar [[r.SkyLight.RealTimeReflectionCapture:1]]
+[2026.08.09-17.49.29:628][792]LogConfig: CVar [[r.RayTracing.Scene.BuildMode:0]] deferred - dummy variable created
+[2026.08.09-17.49.29:628][792]LogConfig: Applying CVar settings from Section [ReflectionQuality@2] File [Scalability]
+[2026.08.09-17.49.29:628][792]LogConfig: Set CVar [[r.Lumen.Reflections.Allow:1]]
+[2026.08.09-17.49.29:629][792]LogConfig: Applying CVar settings from Section [PostProcessQuality@2] File [Scalability]
+[2026.08.09-17.49.29:629][792]LogConfig: Set CVar [[r.MotionBlur.HalfResGather:0]]
+[2026.08.09-17.49.29:629][792]LogConfig: Set CVar [[r.AmbientOcclusionMipLevelFactor:0.6]]
+[2026.08.09-17.49.29:629][792]LogConfig: Set CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2026.08.09-17.49.29:629][792]LogConfig: Set CVar [[r.RenderTargetPoolMin:400]]
+[2026.08.09-17.49.29:629][792]LogConfig: Set CVar [[r.LensFlareQuality:2]]
+[2026.08.09-17.49.29:629][792]LogConfig: Set CVar [[r.SceneColorFringeQuality:1]]
+[2026.08.09-17.49.29:630][792]LogConfig: Set CVar [[r.Bloom.ScreenPercentage:50.000]]
+[2026.08.09-17.49.29:630][792]LogConfig: Set CVar [[r.FastBlurThreshold:3]]
+[2026.08.09-17.49.29:630][792]LogConfig: Set CVar [[r.Filter.SizeScale:0.8]]
+[2026.08.09-17.49.29:630][792]LogConfig: Set CVar [[r.Tonemapper.Quality:3]]
+[2026.08.09-17.49.29:630][792]LogConfig: Set CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2026.08.09-17.49.29:630][792]LogConfig: Set CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2026.08.09-17.49.29:630][792]LogConfig: Set CVar [[r.DOF.Scatter.BackgroundCompositing:1    ; no background occlusion]]
+[2026.08.09-17.49.29:631][792]LogConfig: Set CVar [[r.DOF.Kernel.MaxForegroundRadius:0.012   ; required because of AccumulatorQuality=0]]
+[2026.08.09-17.49.29:631][792]LogConfig: Set CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.012   ; required because of AccumulatorQuality=0]]
+[2026.08.09-17.49.29:631][792]LogConfig: Set CVar [[r.Mobile.AmbientOcclusionQuality:1]]
+[2026.08.09-17.49.29:631][792]LogConfig: Set CVar [[r.Mobile.PixelProjectedReflectionQuality:1]]
+[2026.08.09-17.49.29:632][792]LogConfig: Applying CVar settings from Section [TextureQuality@2] File [Scalability]
+[2026.08.09-17.49.29:632][792]LogConfig: Set CVar [[r.Streaming.MipBias:0]]
+[2026.08.09-17.49.29:632][792]LogConfig: Set CVar [[r.MaxAnisotropy:2]]
+[2026.08.09-17.49.29:632][792]LogConfig: Set CVar [[r.VT.MaxAnisotropy:8]]
+[2026.08.09-17.49.29:632][792]LogConfig: Set CVar [[r.Streaming.PoolSize:800]]
+[2026.08.09-17.49.29:632][792]LogConfig: Applying CVar settings from Section [EffectsQuality@2] File [Scalability]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.TranslucencyLightingVolumeDim:48]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.RefractionQuality:1]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.TranslucencyVolumeBlur:1]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.SSS.Scale:1]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.SSS.SampleSet:1]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.SSS.Quality:-1]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.SSGI.Quality:2]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.EmitterSpawnRateScale:0.5]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.ParticleLightQuality:1]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.SkyAtmosphere.SampleCountMax:64.0]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.HeterogeneousVolumes.DownsampleFactor:2]]
+[2026.08.09-17.49.29:633][792]LogConfig: Set CVar [[r.HeterogeneousVolumes.Shadows.Resolution:256]]
+[2026.08.09-17.49.29:634][792]LogConfig: Applying CVar settings from Section [FoliageQuality@2] File [Scalability]
+[2026.08.09-17.49.29:634][792]LogConfig: Set CVar [[foliage.DensityScale:1.0]]
+[2026.08.09-17.49.29:634][792]LogConfig: Set CVar [[grass.DensityScale:1.0]]
+[2026.08.09-17.49.29:634][792]LogConfig: Set CVar [[grass.CullDistanceScale:1.0]]
+[2026.08.09-17.49.29:635][792]LogConfig: Applying CVar settings from Section [ShadingQuality@2] File [Scalability]
+[2026.08.09-17.49.29:636][792]LogConfig: Set CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+[2026.08.09-17.49.29:636][792]LogConfig: Set CVar [[r.AnisotropicMaterials:1]]
+[2026.08.09-17.49.29:636][792]LogConfig: Applying CVar settings from Section [LandscapeQuality@2] File [Scalability]
+[2026.08.09-17.49.29:693][792]LogQA: Display: QA: settings applied (preset Высокое, scale 100%, fps limit 30, fps counter off)
+[2026.08.09-17.49.29:700][793]LogContentStreaming: Texture pool size now 800 MB
+[2026.08.09-17.49.29:700][793]LogCsvProfiler: Display: Metadata set : streamingpoolsizemb="800"
+[2026.08.09-17.49.29:799][796]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.30:840][815]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.31:886][834]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.32:390][843]LogQA: Display: QA: звуки мира возвращены после меню (0 шт.)
+[2026.08.09-17.49.32:391][843]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.32:391][843]LogQA: Display: QA: settings screen CLOSED
+[2026.08.09-17.49.33:345][862]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.33:487][865]LogViewport: Display: Viewport MouseLockMode Changed, DoNotLock -> LockOnCapture
+[2026.08.09-17.49.33:487][865]LogViewport: Display: Viewport MouseCaptureMode Changed, CaptureDuringMouseDown -> CapturePermanently
+[2026.08.09-17.49.33:487][865]LogQA: Display: QA: pause menu CLOSED (world resumed)
+[2026.08.09-17.49.34:376][884]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.35:406][907]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.36:450][931]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.37:468][955]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.38:232][971]LogStreaming: Display: FlushAsyncLoading(108): 1 QueuedPackages, 0 AsyncPackages
+[2026.08.09-17.49.38:234][971]LogQA: Warning: QA: трек паузы не загрузился ('/Game/Audio/Music/S_Music_TheZone.S_Music_TheZone') — пауза будет без музыки
+[2026.08.09-17.49.38:234][971]LogViewport: Display: Viewport MouseLockMode Changed, LockOnCapture -> DoNotLock
+[2026.08.09-17.49.38:234][971]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently -> CaptureDuringMouseDown
+[2026.08.09-17.49.38:235][971]LogQA: Display: QA: pause menu OPEN (world paused)
+[2026.08.09-17.49.38:513][978]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.39:543][999]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.40:106][  8]LogQA: Display: QA: pause menu COMMUNITY pressed, url 'https:'
+[2026.08.09-17.49.40:149][ 10]LogAndroid: Case APP_CMD_PAUSE
+[2026.08.09-17.49.40:149][ 10]LogAndroid: SuspendApp_EventThread -> event thread, suspending app, acquiring HW window lock.
+[2026.08.09-17.49.40:149][ 10]LogAndroid: SuspendApp_EventThread -> , waiting for event manager to process. tid: 3945
+[2026.08.09-17.49.40:156][ 11]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 10, [width=-1, height=-1], APP_EVENT_STATE_WINDOW_LOST_FOCUS
+[2026.08.09-17.49.40:156][ 11]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 6, [width=-1, height=-1], APP_EVENT_STATE_ON_PAUSE
+[2026.08.09-17.49.40:167][ 11]LogVulkanRHI: Display: FVulkanPipelineStateCacheManager: Saved device pipeline cache file '../../../ContrarySurvivor/Saved/VulkanPSO.cache.13b5.90910010', 101751 bytes
+[2026.08.09-17.49.40:169][ 11]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 16, [width=-1, height=-1], APP_EVENT_RUN_CALLBACK
+[2026.08.09-17.49.40:171][ 11]LogAndroidEvents: Display: Event thread callback running.
+[2026.08.09-17.49.40:171][ 11]LogAndroid: SuspendApp_EventThread -> performing app backgrounding callback. 0x6f62a122a0
+[2026.08.09-17.49.40:176][ 11]LogCore: Display: AppLifetime: Application will deactivate
+[2026.08.09-17.49.40:198][ 11]LogEOSSDK: OnApplicationStatusChanged [Foreground] -> [BackgroundSuspended]
+[2026.08.09-17.49.40:199][ 11]LogCore: Display: AppLifetime: Application will enter background
+[2026.08.09-17.49.40:205][ 11]LogAndroidEvents: Android pause audio
+[2026.08.09-17.49.40:205][ 11]LogAudioMixerAndroid: Display: Suspending android audio renderer
+[2026.08.09-17.49.40:226][ 11]LogAndroidEvents: Android release microphone
+[2026.08.09-17.49.40:238][ 11]LogAndroid: SuspendApp_EventThread -> EMDoneTrigger->Wait, waited '104.013000' ms
+[2026.08.09-17.49.40:238][ 11]LogAndroid: Blocking renderer on suspended window.
+[2026.08.09-17.49.40:274][ 12]LogAndroid: Waiting for game thread to release EGL context/surface.
+[2026.08.09-17.49.40:305][ 13]LogAndroid: Waiting for renderer to encounter blocking command.
+[2026.08.09-17.49.40:305][ 13]LogAndroid: Blocking renderer
+[2026.08.09-17.49.40:305][ 13]LogAndroid: RendererBlock FlushRHIThread
+[2026.08.09-17.49.40:356][ 14]LogAndroid: RendererBlock DONE FlushRHIThread
+[2026.08.09-17.49.40:356][ 14]LogAndroid: RendererBlock release window callback
+[2026.08.09-17.49.40:356][ 14]LogVulkanRHI: Destroy swapchain ... 
+[2026.08.09-17.49.40:407][ 14]LogVulkanRHI: SwappyVk_destroySwapchain
+[2026.08.09-17.49.40:458][ 14]LogAndroid: SuspendApp_EventThread(EOF)
+[2026.08.09-17.49.40:461][ 14]LogAndroid: Case APP_CMD_LOST_FOCUS
+[2026.08.09-17.49.41:095][ 14]LogAndroid: Case APP_CMD_TERM_WINDOW
+[2026.08.09-17.49.41:095][ 14]LogAndroid: Warning: SuspendApp_EventThread -> event thread, suspending app, bAppIsActive_EventThread is false so early return!
+[2026.08.09-17.49.41:599][ 14]LogAndroid: Case APP_CMD_STOP
+[2026.08.09-17.49.41:605][ 14]LogAndroid: Case APP_CMD_SAVE_STATE
+[2026.08.09-17.49.44:788][ 14]LogAndroid: Case APP_CMD_START
+[2026.08.09-17.49.44:929][ 14]LogAndroid: Case APP_CMD_RESUME
+[2026.08.09-17.49.44:951][ 14]LogAndroid: nativeSetSafezoneInfo bIsPortrait=0, left=0.040000, top=0.000000, right=0.000000, bottom=0.000000
+[2026.08.09-17.49.44:987][ 14]LogAndroid: Case APP_CMD_INIT_WINDOW
+[2026.08.09-17.49.44:989][ 14]LogAndroid: Case APP_CMD_INIT_WINDOW: bHasWindow=1, bHasFocus=1, bIsResumed=1
+[2026.08.09-17.49.44:989][ 14]LogAndroid: event thread, activate app, unlocking HW window
+[2026.08.09-17.49.44:989][ 14]LogAndroid: Case APP_CMD_WINDOW_RESIZED
+[2026.08.09-17.49.44:989][ 14]LogAndroid: Case APP_CMD_WINDOW_REDRAW_NEEDED
+[2026.08.09-17.49.44:991][ 14]LogAndroid: RendererBlock acquired window lock
+[2026.08.09-17.49.44:991][ 14]LogVulkanRHI: Recreate swapchain ... 
+[2026.08.09-17.49.45:035][ 14]LogVulkanRHI: Creating new VK swapchain with 2, 37, 0, num images 3
+[2026.08.09-17.49.45:065][ 14]LogAndroid: nativeSetSafezoneInfo bIsPortrait=0, left=0.040000, top=0.000000, right=0.000000, bottom=0.000000
+[2026.08.09-17.49.45:146][ 14]LogVulkanRHI: SwappyVk_initAndGetRefreshCycleDuration: 11111111ll
+[2026.08.09-17.49.45:158][ 14]LogAndroid: RendererBlock updating window
+[2026.08.09-17.49.45:158][ 14]LogAndroid: RendererBlock released window lock
+[2026.08.09-17.49.45:187][ 15]LogAndroid: Case APP_CMD_GAINED_FOCUS
+[2026.08.09-17.49.45:188][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 13, [width=-1, height=-1], APP_EVENT_STATE_APP_SUSPENDED
+[2026.08.09-17.49.45:188][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 3, [width=-1, height=-1], APP_EVENT_STATE_WINDOW_DESTROYED
+[2026.08.09-17.49.45:188][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 8, [width=-1, height=-1], APP_EVENT_STATE_ON_STOP
+[2026.08.09-17.49.45:188][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 12, [width=-1, height=-1], APP_EVENT_STATE_SAVE_STATE
+[2026.08.09-17.49.45:190][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 9, [width=-1, height=-1], APP_EVENT_STATE_ON_START
+[2026.08.09-17.49.45:190][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 7, [width=-1, height=-1], APP_EVENT_STATE_ON_RESUME
+[2026.08.09-17.49.45:190][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 11, [width=-1, height=-1], APP_EVENT_STATE_WINDOW_GAINED_FOCUS
+[2026.08.09-17.49.45:190][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 15, [width=-1, height=-1], APP_EVENT_STATE_SAFE_ZONE_UPDATED
+[2026.08.09-17.49.45:211][ 15]LogAudioMixer: Warning: AudioMixerPlatformInterface Timeout [ 5 Seconds] waiting for h/w. InstanceID=1
+[2026.08.09-17.49.45:211][ 15]LogAndroid: Mobile HDR: YES
+[2026.08.09-17.49.45:211][ 15]LogAndroidWindowUtils: Setting Width=1600 and Height=720 (requested scale = 1.000000)
+[2026.08.09-17.49.45:219][ 15]LogAndroid: ***** Cached WindowRect 1600, 720 (0)
+[2026.08.09-17.49.45:225][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 0, [width=1600, height=720], APP_EVENT_STATE_WINDOW_CREATED
+[2026.08.09-17.49.45:225][ 15]LogAndroidEvents: Display: ExecWindowCreated
+[2026.08.09-17.49.45:235][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 14, [width=-1, height=-1], APP_EVENT_STATE_APP_ACTIVATED
+[2026.08.09-17.49.45:235][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 16, [width=-1, height=-1], APP_EVENT_RUN_CALLBACK
+[2026.08.09-17.49.45:235][ 15]LogAndroidEvents: Display: Event thread callback running.
+[2026.08.09-17.49.45:235][ 15]LogAndroid: performing app foregrounding callback.
+[2026.08.09-17.49.45:270][ 15]LogEOSSDK: OnApplicationStatusChanged [BackgroundSuspended] -> [Foreground]
+[2026.08.09-17.49.45:272][ 15]LogCore: Display: AppLifetime: Application has entered foreground
+[2026.08.09-17.49.45:272][ 15]LogCore: Display: AppLifetime: Application has reactivated
+[2026.08.09-17.49.45:272][ 15]LogAndroidEvents: Android resume audio
+[2026.08.09-17.49.45:272][ 15]LogAudioMixerAndroid: Display: Resuming android audio renderer
+[2026.08.09-17.49.45:279][ 15]LogRHI: FAndroidVulkanFramePacer -> Supported Refresh Rates: 60 90
+[2026.08.09-17.49.45:279][ 15]LogRHI: Supports 60 using refresh rate 60 and sync interval 1
+[2026.08.09-17.49.45:279][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 1, [width=1600, height=720], APP_EVENT_STATE_WINDOW_RESIZED
+[2026.08.09-17.49.45:338][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 4, [width=-1, height=-1], APP_EVENT_STATE_WINDOW_REDRAW_NEEDED
+[2026.08.09-17.49.45:338][ 15]LogAndroidEvents: Display: Application Event : 4  not handled. 
+[2026.08.09-17.49.45:338][ 15]LogAndroidEvents: Display: LogAndroidEvents::DequeueAppEvent : 15, [width=-1, height=-1], APP_EVENT_STATE_SAFE_ZONE_UPDATED
+[2026.08.09-17.49.45:338][ 15]LogAndroid: Mobile HDR: YES
+[2026.08.09-17.49.45:338][ 15]LogAndroidWindowUtils: Setting Width=1600 and Height=720 (requested scale = 1.000000)
+[2026.08.09-17.49.45:338][ 15]LogAndroid: ***** Cached WindowRect 1600, 720 (0)
+[2026.08.09-17.49.45:370][ 15]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.46:369][ 37]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.47:409][ 58]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.48:439][ 79]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.49:469][100]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.49:635][103]LogAndroid: Mobile HDR: YES
+[2026.08.09-17.49.49:635][103]LogAndroidWindowUtils: Setting Width=1600 and Height=720 (requested scale = 1.000000)
+[2026.08.09-17.49.49:635][103]LogAndroid: ***** Cached WindowRect 1600, 720 (1)
+[2026.08.09-17.49.49:762][106]LogQA: Display: QA: pause menu -> MAIN MENU
+[2026.08.09-17.49.49:762][106]LogViewport: Display: Viewport MouseLockMode Changed, DoNotLock -> LockOnCapture
+[2026.08.09-17.49.49:763][106]LogViewport: Display: Viewport MouseCaptureMode Changed, CaptureDuringMouseDown -> CapturePermanently
+[2026.08.09-17.49.49:763][106]LogQA: Display: QA: pause menu CLOSED (world resumed)
+[2026.08.09-17.49.49:808][106]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.49:808][106]LogViewport: Display: Viewport MouseLockMode Changed, LockOnCapture -> DoNotLock
+[2026.08.09-17.49.49:808][106]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently -> CaptureDuringMouseDown
+[2026.08.09-17.49.49:811][106]LogQA: Display: QA: start screen OPEN (has save: yes, world paused)
+[2026.08.09-17.49.50:763][126]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.51:809][147]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.52:826][167]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.53:482][180]LogQA: Display: QA: звуки мира возвращены после меню (0 шт.)
+[2026.08.09-17.49.53:482][180]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.53:482][180]LogViewport: Display: Viewport MouseLockMode Changed, DoNotLock -> LockOnCapture
+[2026.08.09-17.49.53:482][180]LogViewport: Display: Viewport MouseCaptureMode Changed, CaptureDuringMouseDown -> CapturePermanently
+[2026.08.09-17.49.53:483][180]LogQA: Display: QA: start screen CLOSED (world resumed)
+[2026.08.09-17.49.53:506][180]LogTemp: APlayerCharacter::SaveGame -> slot 'ContrarySave' : OK
+[2026.08.09-17.49.53:508][180]LogQA: Display: QA: campfire save OK — показана надпись «Прогресс сохранён»
+[2026.08.09-17.49.53:508][180]LogTemp: Campfire 'BP_Campfire_C_0' autosave for player: OK
+[2026.08.09-17.49.53:508][180]LogQA: Display: QA: CONTINUE - restored 0/0 backpack item(s)
+[2026.08.09-17.49.53:508][180]LogQA: Display: QA: quest journal restored from save (0 quest(s))
+[2026.08.09-17.49.53:508][180]LogQA: Display: QA: CONTINUE - loaded save (money 42, backpack 0 item(s), quests 0)
+[2026.08.09-17.49.53:508][180]LogQA: Display: QA: start screen -> CONTINUE (save loaded)
+[2026.08.09-17.49.53:509][180]LogQA: Display: QA: CONTINUE mid-intro - objective banner and village arrow restored (village target BP_VillageZone_C_0)
+[2026.08.09-17.49.53:511][180]LogQA: Display: QA: intro ended (entered village), objective -> find elder
+[2026.08.09-17.49.54:460][201]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.55:510][225]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.56:340][245]LogTemp: Elder 'BP_Elder_C_0': player in range (press Interact to talk)
+[2026.08.09-17.49.56:522][249]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.57:554][272]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.58:570][295]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.49.58:744][299]LogTemp: Warning: SwitchWeapon: no alternate weapon to switch to
+[2026.08.09-17.49.59:606][318]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.00:564][335]LogStreaming: Display: FlushAsyncLoading(109): 1 QueuedPackages, 0 AsyncPackages
+[2026.08.09-17.50.00:837][335]LogViewport: Display: Viewport MouseLockMode Changed, LockOnCapture -> DoNotLock
+[2026.08.09-17.50.00:837][335]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently -> CaptureDuringMouseDown
+[2026.08.09-17.50.00:837][335]LogTemp: Inventory OPEN
+[2026.08.09-17.50.00:905][336]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.01:908][357]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.02:751][373]LogViewport: Display: Viewport MouseLockMode Changed, DoNotLock -> LockOnCapture
+[2026.08.09-17.50.02:751][373]LogViewport: Display: Viewport MouseCaptureMode Changed, CaptureDuringMouseDown -> CapturePermanently
+[2026.08.09-17.50.02:751][373]LogTemp: Inventory CLOSED
+[2026.08.09-17.50.02:954][377]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.03:987][400]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.04:999][423]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.06:012][447]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.07:043][471]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.08:046][494]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.09:074][518]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.09:444][526]LogTemp: APlayerCharacter::SaveGame -> slot 'ContrarySave' : OK
+[2026.08.09-17.50.09:444][526]LogQA: Display: QA: campfire save OK — показана надпись «Прогресс сохранён»
+[2026.08.09-17.50.09:444][526]LogTemp: Campfire 'BP_Campfire_C_0' autosave for player: OK
+[2026.08.09-17.50.10:090][541]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.11:106][564]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.12:118][587]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.13:163][611]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.14:201][634]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.14:650][644]LogStreaming: Display: FlushAsyncLoading(110): 1 QueuedPackages, 0 AsyncPackages
+[2026.08.09-17.50.14:651][644]LogQA: Warning: QA: трек паузы не загрузился ('/Game/Audio/Music/S_Music_TheZone.S_Music_TheZone') — пауза будет без музыки
+[2026.08.09-17.50.14:652][644]LogViewport: Display: Viewport MouseLockMode Changed, LockOnCapture -> DoNotLock
+[2026.08.09-17.50.14:652][644]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently -> CaptureDuringMouseDown
+[2026.08.09-17.50.14:652][644]LogQA: Display: QA: pause menu OPEN (world paused)
+[2026.08.09-17.50.15:209][656]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.16:239][677]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.17:270][698]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.18:300][719]LogQA: Display: QA: STATS-PANEL menu=0 панель=есть содержимое=видно путь=UMG panel[vis=4 geom=2402x1081] content[vis=4 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.18:739][728]LogQA: Display: QA: pause menu -> MAIN MENU
+[2026.08.09-17.50.18:740][728]LogViewport: Display: Viewport MouseLockMode Changed, DoNotLock -> LockOnCapture
+[2026.08.09-17.50.18:740][728]LogViewport: Display: Viewport MouseCaptureMode Changed, CaptureDuringMouseDown -> CapturePermanently
+[2026.08.09-17.50.18:740][728]LogQA: Display: QA: pause menu CLOSED (world resumed)
+[2026.08.09-17.50.18:748][728]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.18:749][728]LogViewport: Display: Viewport MouseLockMode Changed, LockOnCapture -> DoNotLock
+[2026.08.09-17.50.18:749][728]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently -> CaptureDuringMouseDown
+[2026.08.09-17.50.18:750][728]LogQA: Display: QA: start screen OPEN (has save: yes, world paused)
+[2026.08.09-17.50.19:740][748]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.20:755][768]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.21:769][788]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.22:773][808]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.23:820][829]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.24:868][850]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.25:946][871]LogQA: Display: QA: STATS-PANEL menu=1 панель=есть содержимое=спрятано путь=UMG panel[vis=4 geom=2402x1081] content[vis=1 geom=2402x1081] parent[НЕТ]
+[2026.08.09-17.50.26:462][882]LogQA: Display: QA: main menu EXIT clicked
+[2026.08.09-17.50.26:462][882]LogQA: Display: QA: start screen EXIT pressed — quitting game
+[2026.08.09-17.50.26:487][882]Closing by request
+[2026.08.09-17.50.26:488][882]LogAndroid: FAndroidMisc::RequestExit(0, UGameEngine::HandleExitCommand)
+[2026.08.09-17.50.26:497][882]LogCore: Engine exit requested (reason: Android RequestExit)
+[2026.08.09-17.50.26:512][883]LogAndroid: AndroidEventThreadWorker->Exiting
+[2026.08.09-17.50.26:512][883]LogAndroid: Exiting
+[2026.08.09-17.50.26:633][883]LogInit: Display: PreExit Game.
+[2026.08.09-17.50.26:651][883]LogWorld: BeginTearingDown for /Game/Maps/L_World_C
+[2026.08.09-17.50.26:764][883]LogWorld: UWorld::CleanupWorld for L_World_C, bSessionEnded=true, bCleanupResources=true
+[2026.08.09-17.50.26:842][883]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2026.08.09-17.50.26:896][883]LogAudio: Display: Beginning Audio Device Manager Shutdown (Module: AudioMixerAndroid)...
+[2026.08.09-17.50.26:896][883]LogAudio: Display: Destroying 1 Remaining Audio Device(s)...
+[2026.08.09-17.50.26:896][883]LogAudio: Display: Audio Device unregistered from world 'L_World_C'.
+[2026.08.09-17.50.26:904][883]LogAudio: Display: Shutting down audio device while 1 references to it are still alive. For more information, compile with INSTRUMENT_AUDIODEVICE_HANDLES.
+[2026.08.09-17.50.26:999][883]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID -1
+[2026.08.09-17.50.27:002][883]LogAudio: Display: Audio Device Manager Shutdown
+[2026.08.09-17.50.27:004][883]LogSlate: Request Window 'ContrarySurvivor (64-бит Development SF_VULKAN_ES31_ANDROID) ' being destroyed
+[2026.08.09-17.50.27:010][883]LogSlate: Window 'ContrarySurvivor (64-бит Development SF_VULKAN_ES31_ANDROID) ' being destroyed
+[2026.08.09-17.50.27:020][883]LogVulkanRHI: SwappyVk_destroySwapchain
+[2026.08.09-17.50.27:033][883]LogSlate: Slate User Destroyed.  User Index 0, Is Virtual User: 0
+[2026.08.09-17.50.27:038][883]LogExit: Preparing to exit.
+[2026.08.09-17.50.27:040][883]LogMoviePlayer: Shutting down movie player
+[2026.08.09-17.50.27:285][883]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2026.08.09-17.50.27:311][883]LogDemo: Cleaned up 0 splitscreen connections, owner deletion: enabled
+[2026.08.09-17.50.27:349][883]LogExit: Game engine shut down
+[2026.08.09-17.50.28:077][883]LogExit: Object subsystem successfully closed.
+[2026.08.09-17.50.28:179][883]LogGameAnalytics: Display: FGameAnalyticsModule ~FGameAnalyticsProvider
+[2026.08.09-17.50.28:196][883]LogChaosDD: Chaos Debug Draw Shutdown
+[2026.08.09-17.50.28:210][883]LogOnline: Display: OSS: FOnlineSubsystemGooglePlayModule::ShutdownModule()
+[2026.08.09-17.50.28:335][883]LogEOSSDK: FEOSSDKManager::Shutdown EOS_Shutdown Result=[EOS_Success]
+[2026.08.09-17.50.28:358][883]LogIris: FNetObjectFactoryRegistry::UnregisterFactory is unregistering factory: None name: NetActorFactory id: 0
+[2026.08.09-17.50.28:359][883]LogIris: FNetObjectFactoryRegistry::UnregisterFactory is unregistering factory: None name: NetSubObjectFactory id: 1
+[2026.08.09-17.50.28:360][883]LogPakFile: Destroying PakPlatformFile
+[2026.08.09-17.50.28:959][883]LogAndroid: Exiting is over
+[2026.08.09-17.50.28:959][883]LogAndroid: FAndroidMisc::RequestExit(1, AndroidMain)
