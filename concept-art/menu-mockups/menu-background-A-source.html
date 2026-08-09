@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<title>МАРЕВО — фон главного меню, вариант А</title>
+<style>
+/* ФОН БЕЗ ИНТЕРФЕЙСА. Композиция — как в утверждённом menu-variant-A.png.
+   Убрано по заданию: логотип, кнопки, строка версии, нижнее затемнение
+   (нижнюю часть затемняет код игры). Оставлено: тёмная проработка правого края. */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:864px;overflow:hidden;background:#271D14}
+#scale{width:1600px;height:720px;transform:scale(1.2);transform-origin:0 0}
+#stage{position:relative;width:1600px;height:720px;overflow:hidden;background:#271D14}
+.layer{position:absolute;inset:0}
+.crop{position:relative;overflow:hidden}
+.crop img{position:absolute;display:block}
+
+/* окно исходника x 175..1180, y 235..1010 — целиком внутри скругления иконки */
+#a-blur{position:absolute;left:0;top:0;width:1600px;height:720px;overflow:hidden}
+#a-blur img{width:1996.4px;left:-278.6px;top:-631.1px;filter:blur(30px) brightness(.40) saturate(.78)}
+#a-sharp{position:absolute;left:233px;top:0;width:934px;height:720px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 110px,#000 calc(100% - 120px),transparent 100%)}
+#a-sharp img{width:1165.0px;left:-162.6px;top:-218.3px}
+
+.warm-bottom{background:radial-gradient(122% 80% at 46% 118%,
+   rgba(232,112,35,.30) 0%, rgba(120,62,22,.34) 26%, rgba(65,38,17,.42) 48%, rgba(39,29,20,0) 76%);
+   opacity:.45}
+/* тёмная проработка правого края — оставлена по заданию, часть картинки */
+.scrim-right{background:linear-gradient(to right,
+   rgba(15,10,6,0) 60%, rgba(15,10,6,.52) 77%, rgba(15,10,6,.86) 92%, rgba(15,10,6,.93) 100%)}
+.vignette{background:radial-gradient(124% 108% at 50% 46%,
+   rgba(0,0,0,0) 40%, rgba(0,0,0,.20) 62%, rgba(0,0,0,.44) 84%, rgba(0,0,0,.66) 100%)}
+/* мягкое приглушение слева, чтобы надпись «МАРЕВО» не села на светлые места */
+.logo-calm{background:radial-gradient(470px 240px at 366px 336px,
+   rgba(8,5,3,.86) 0%, rgba(8,5,3,.70) 38%, rgba(8,5,3,.36) 68%, rgba(8,5,3,0) 100%)}
+.noise{opacity:.055;mix-blend-mode:overlay;background-repeat:repeat;background-size:180px 180px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>")}
+</style></head>
+<body>
+<div id="scale"><div id="stage">
+  <div id="a-blur" class="crop"><img src="file:///E:/game-dev-team/concept-art/GameLogo/GameLogo.png"></div>
+  <div id="a-sharp" class="crop"><img src="file:///E:/game-dev-team/concept-art/GameLogo/GameLogo.png"></div>
+  <div class="layer warm-bottom"></div>
+  <div class="layer scrim-right"></div>
+  <div class="layer vignette"></div>
+  <div class="layer logo-calm"></div>
+  <div class="layer noise"></div>
+</div></div>
+</body></html>

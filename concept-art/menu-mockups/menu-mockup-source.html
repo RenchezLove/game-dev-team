@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<title>МАРЕВО — главное меню</title>
+<style>
+:root{
+  --brand:#271D14;      /* фирменная тёмная подложка */
+  --ink:#EDECE7;        /* цвет надписи МАРЕВО */
+  --accent-hi:#D77E31;  /* фирменный оранжевый */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:864px;overflow:hidden;background:#000}
+#scale{width:1600px;height:720px;transform:scale(1.2);transform-origin:0 0}
+#stage{position:relative;width:1600px;height:720px;overflow:hidden;background:var(--brand);
+  font-family:Bahnschrift,"Segoe UI",sans-serif;color:var(--ink)}
+.layer{position:absolute;inset:0}
+.crop{position:relative;overflow:hidden}
+.crop img{position:absolute;display:block}
+
+/* ---- кадрирование иконки: отступ 175 px из 1254 → квадрат 904 (внутри скругления) ---- */
+
+/* А: окно исходника x 175..1180, y 235..1010 — целиком внутри скругления
+   размытая копия того же кадра на весь экран */
+#a-blur{position:absolute;left:0;top:0;width:1600px;height:720px;overflow:hidden}
+#a-blur img{width:1996.4px;left:-278.6px;top:-631.1px;filter:blur(30px) brightness(.40) saturate(.78)}
+/* А: резкий кадр поверх, боковые края растворены */
+#a-sharp{position:absolute;left:233px;top:0;width:934px;height:720px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 110px,#000 calc(100% - 120px),transparent 100%)}
+#a-sharp img{width:1165.0px;left:-162.6px;top:-218.3px}
+
+/* В: волк справа, развёрнут мордой в экран, левый край уходит в марево */
+#v-art{position:absolute;left:640px;top:-120px;width:960px;height:960px;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.28) 96px,rgba(0,0,0,.85) 230px,#000 350px)}
+#v-art .flip{width:960px;height:960px;transform:scaleX(-1)}
+#v-art .crop{width:960px;height:960px}
+#v-art .crop img{width:1331.7px;left:-185.8px;top:-185.8px;filter:brightness(.94) saturate(.96)}
+
+/* ---- свет и затемнения ---- */
+.warm-bottom{background:radial-gradient(122% 80% at 46% 118%,
+   rgba(232,112,35,.30) 0%, rgba(120,62,22,.34) 26%, rgba(65,38,17,.42) 48%, rgba(39,29,20,0) 76%)}
+.warm-right{background:radial-gradient(72% 92% at 88% 110%,
+   rgba(232,112,35,.20) 0%, rgba(65,38,17,.34) 44%, rgba(39,29,20,0) 78%)}
+.scrim-right{background:linear-gradient(to right,
+   rgba(15,10,6,0) 60%, rgba(15,10,6,.52) 77%, rgba(15,10,6,.86) 92%, rgba(15,10,6,.93) 100%)}
+.scrim-bottom{background:linear-gradient(to top,
+   rgba(11,7,4,.82) 0%, rgba(11,7,4,.34) 13%, rgba(11,7,4,0) 27%)}
+.vignette{background:radial-gradient(124% 108% at 50% 46%,
+   rgba(0,0,0,0) 40%, rgba(0,0,0,.20) 62%, rgba(0,0,0,.44) 84%, rgba(0,0,0,.66) 100%)}
+.logo-scrim{background:radial-gradient(470px 240px at 366px 336px,
+   rgba(8,5,3,.86) 0%, rgba(8,5,3,.70) 38%, rgba(8,5,3,.36) 68%, rgba(8,5,3,0) 100%)}
+.noise{opacity:.055;mix-blend-mode:overlay;background-repeat:repeat;background-size:180px 180px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>")}
+
+/* ---- логотип: рисуется на канве с настоящей прозрачностью, без плашки ---- */
+#logo{position:absolute;left:56px;top:196px;width:620px;height:280px}
+#logo canvas{display:block;width:620px;height:280px}
+
+/* ---- столбик кнопок ---- */
+#menu{position:absolute;right:64px;width:320px;display:flex;flex-direction:column;gap:14px}
+.item{height:60px;display:flex;align-items:center;padding:0 22px;border-radius:7px;
+  font-size:23px;font-weight:600;font-stretch:90%;letter-spacing:.4px;
+  background:linear-gradient(to right,rgba(26,17,11,.78),rgba(26,17,11,.60));
+  border:1px solid rgba(237,236,231,.17);
+  box-shadow:0 2px 10px rgba(0,0,0,.45), inset 0 1px 0 rgba(237,236,231,.06)}
+.item.primary{color:#20130A;border:1px solid rgba(255,206,152,.50);
+  background:linear-gradient(to bottom,#CE8340,#AC642A);
+  box-shadow:0 3px 16px rgba(232,112,35,.22), inset 0 1px 0 rgba(255,229,199,.45)}
+.item.quiet{opacity:.84}
+.item .tick{width:3px;height:24px;border-radius:2px;background:var(--accent-hi);
+  margin-left:-11px;margin-right:14px}
+
+/* ---- мелкая строка внизу ---- */
+#foot{position:absolute;left:78px;bottom:30px;font-size:14px;font-weight:400;font-stretch:95%;
+  letter-spacing:.3px;color:rgba(237,236,231,.55);display:flex;align-items:center;gap:12px}
+#foot .sep{opacity:.4}
+#foot a{color:rgba(237,236,231,.66);text-decoration:none;
+  border-bottom:1px solid rgba(237,236,231,.30);padding-bottom:1px}
+
+/* ---- разметка (только для кадра с размерами) ---- */
+#guides{position:absolute;inset:0;display:none;font-family:"Segoe UI",sans-serif}
+body.showguides #guides{display:block}
+.gbox{position:absolute;border:1px dashed rgba(120,220,255,.9)}
+.glab{position:absolute;font-size:13px;line-height:1;color:#0B1418;background:rgba(120,220,255,.94);
+  padding:5px 8px;border-radius:4px;white-space:nowrap;font-weight:600}
+
+.only{display:none}
+body.va .va,body.vb .vb,body.vv .vv{display:block}
+</style></head>
+<body>
+<div id="scale"><div id="stage">
+
+  <div id="a-blur" class="crop only va"><img src="file:///E:/game-dev-team/concept-art/GameLogo/GameLogo.png"></div>
+  <div id="a-sharp" class="crop only va"><img src="file:///E:/game-dev-team/concept-art/GameLogo/GameLogo.png"></div>
+  <div class="layer warm-bottom only va" style="opacity:.45"></div>
+
+  <div class="layer warm-bottom only vb"></div>
+  <div class="layer warm-right only vb"></div>
+
+  <div class="layer warm-bottom only vv" style="opacity:.70"></div>
+  <div id="v-art" class="only vv"><div class="flip"><div class="crop">
+      <img src="file:///E:/game-dev-team/concept-art/GameLogo/GameLogo.png"></div></div></div>
+
+  <div class="layer scrim-right"></div>
+  <div class="layer scrim-bottom"></div>
+  <div class="layer vignette"></div>
+  <div class="layer logo-scrim" id="lscrim"></div>
+  <div class="layer noise"></div>
+
+  <div id="logo"></div>
+
+  <div id="menu"></div>
+
+  <div id="foot">
+    <span>версия 0.1.0 (сборка 1)</span><span class="sep">·</span>
+    <a href="#">Политика конфиденциальности</a>
+  </div>
+
+  <div id="guides"></div>
+
+</div></div>
+
+<script>
+var h=(location.hash||'#A').slice(1).toUpperCase();
+var variant=h.charAt(0);
+var shortList = h.indexOf('3')>=0;
+var showGuides= h.indexOf('M')>=0;
+document.body.className={'A':'va','B':'vb','V':'vv'}[variant]||'va';
+if(showGuides)document.body.className+=' showguides';
+document.getElementById('lscrim').style.opacity={'A':'1','B':'0.30','V':'0.80'}[variant]||'1';
+
+/* --- пункты меню --- */
+var full=[{t:'Продолжить',cls:'primary'},{t:'Новая игра'},{t:'Настройки'},
+          {t:'Сообщество'},{t:'Выход',cls:'quiet'}];
+var lean=[{t:'Новая игра',cls:'primary'},{t:'Настройки'},{t:'Выход',cls:'quiet'}];
+var list=shortList?lean:full;
+var box=document.getElementById('menu');
+list.forEach(function(o){
+  var d=document.createElement('div');
+  d.className='item'+(o.cls?' '+o.cls:'');
+  var s=document.createElement('span');s.className='tick';s.style.visibility='hidden';d.appendChild(s);
+  var t=document.createElement('span');t.textContent=o.t;d.appendChild(t);
+  box.appendChild(d);
+});
+var colH=list.length*60+(list.length-1)*14;
+var colTop=Math.round((720-colH)/2);
+box.style.top=colTop+'px';
+
+/* --- логотип: вырезаем надпись и делаем тёмный фон исходника прозрачным --- */
+function buildLogo(cb){
+  var img=new Image();
+  img.onload=function(){
+    var CX=60, CY=300, CW=885, CH=400;              /* окно вокруг надписи в исходнике 1000x1000 */
+    var c=document.createElement('canvas');c.width=CW;c.height=CH;
+    var ctx=c.getContext('2d',{willReadFrequently:true});
+    ctx.drawImage(img,CX,CY,CW,CH,0,0,CW,CH);
+    var im=ctx.getImageData(0,0,CW,CH), d=im.data;
+    var cx=CW/2, cy=CH/2, rx=640, ry=330;
+    for(var y=0;y<CH;y++)for(var x=0;x<CW;x++){
+      var i=(y*CW+x)*4;
+      var lum=0.2126*d[i]+0.7152*d[i+1]+0.0722*d[i+2];
+      var a=(lum-20)/44; a=a<0?0:(a>1?1:a);
+      var dx=(x-cx)/rx, dy=(y-cy)/ry, r=Math.sqrt(dx*dx+dy*dy);
+      var f=(1-r)/0.25; f=f<0?0:(f>1?1:f);
+      d[i+3]=Math.round(255*a*f);
+    }
+    ctx.putImageData(im,0,0);
+    document.getElementById('logo').appendChild(c);
+    cb();
+  };
+  img.src='file:///E:/game-dev-team/concept-art/GameLogo/ava-marevo-1.jpg';
+}
+
+/* --- разметка --- */
+function drawGuides(){
+  var g=document.getElementById('guides');
+  function gbox(l,t,w,hh){var d=document.createElement('div');d.className='gbox';
+    d.style.cssText='left:'+l+'px;top:'+t+'px;width:'+w+'px;height:'+hh+'px';g.appendChild(d);}
+  function glab(l,t,txt){var d=document.createElement('div');d.className='glab';
+    d.style.cssText='left:'+l+'px;top:'+t+'px';d.textContent=txt;g.appendChild(d);}
+  gbox(64,36,1472,648);            glab(70,8,'безопасное поле: 64 dp по бокам, 36 dp сверху и снизу');
+  gbox(1216,colTop,320,colH);      glab(1216,colTop-38,'столбик кнопок 320 dp по ширине');
+  gbox(1216,colTop,320,60);        glab(878,colTop+16,'высота кнопки 60 dp (наш порог — 48 dp)');
+  gbox(1216,colTop+60,320,14);     glab(1090,colTop+56,'зазор 14 dp');
+  gbox(1536,colTop,64,colH);       glab(1250,colTop-72,'до края экрана 64 dp');
+  gbox(117,267,498,143);           glab(117,236,'надпись МАРЕВО — 498 dp по ширине');
+  gbox(78,666,480,24);             glab(78,628,'версия и «Политика конфиденциальности» — мелкий текст, не кнопки');
+}
+
+buildLogo(function(){
+  if(showGuides)drawGuides();
+  document.title='READY';
+});
+</script>
+</body></html>
