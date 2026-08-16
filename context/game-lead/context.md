@@ -6,16 +6,16 @@
 
 ## 🧭 СЕЙЧАС (2026-08-16 10:15 — сверено с диском и git)
 
-**ФАЗА:** этап G — релиз 0.1.0 (1) для RuStore сдан (ADR-073). Сегодня: **две подсказки о сохранении у костра сделаны (ADR-074)** — при первом выходе из деревни (тост обучения `LeaveVillage`, в «обучение пройдено» НЕ входит) и постоянная строка в меню паузы над версией. Игра `feature/main-menu-0808` HEAD **`b70b463`** (17b5772 подсказки, 23caf20 ассет поддержки к ADR-072, b70b463 press-key.ps1), запушена. Сборка `Saved/build-savehints-0816.log` EXIT=0. Кадры проверки: `Saved/Showcase/out/pause_menu_savehint.png`, `leave_village_hint.png`. Боевой сейв восстановлен (`.bak-savehints-0816`). **Ринат проверяет живьём сам («не проверяй — долго и плохо»)** — живые проверки больше не делать без его слова.
+**ФАЗА:** этап G — **релизная сборка 0.1.0 (2) для RuStore собрана и проверена** (подсказки о сохранении ADR-074 + StoreVersion=2 `af41a7b`); пакет `pack-android/ArchivedBuilds/Android_ASTC/ContrarySurvivor-Android-Shipping-arm64.apk`, копия `…/Утвержденные/Marevo-0.1.0-build2-release.apk`, журнал `pack-android/logs/pack-shipping-dist-0816.log`. Игра `feature/main-menu-0808` HEAD **`af41a7b`** (запушена), `pack-android` на `af41a7b` + незакоммиченный пароль. Ринат проверяет живьём сам. Кадры проверки лида: `Saved/Showcase/out/pause_menu_savehint.png`, `leave_village_hint.png`.
 
 **➡️ СЛЕДУЮЩИЙ ШАГ:**
-1. Ответ Рината по подсказкам (текст/место — EditAnywhere: `HintTextLeaveVillage` в `OnboardingComponent`, `SaveHintText/FontSize/Color` в `FPauseMenuStyle`); при правках — пересобрать пак 0.1.0 (2) тем же путём (ADR-073; `pack-android` на 01ea459 + строка пароля, `git stash apply stash@{1}` если пропала).
+1. Итог проверки Ринатом сборки 0.1.0 (2) и загрузка в RuStore; при правках текстов (EditAnywhere: `HintTextLeaveVillage`, `SaveHintText`) — пересобрать пак тем же путём с StoreVersion=3.
 2. Итог загрузки в RuStore; qa-гейт → слить `feature/main-menu-0808` в `master` (master `d7291fb`); QA_OK не висит.
 3. Незаконченное cpp-dev в `git stash@{0}` (QAQuestBanner/QAAdvanceQuest) — низкий приоритет.
 4. Открытое с 13.08: первое окно настроек (`SettingsScreenWidget.cpp:701`, версия `77c5325`).
 5. Дефекты UI (не чинили): подсказка обучения наезжает на баннер задания (новая подсказка — тоже, видно на `leave_village_hint.png`); в инвентаре 20:9 «Пистолет — в руках» обрезана.
 
-**РЕПО:** игра `feature/main-menu-0808` = `b70b463` = origin; master `d7291fb`; stash@{0} WIP cpp, stash@{1} пароль; `pack-android` на `01ea459` + незакоммиченный пароль. Team `docs/phase0-gdd`. Редактор ЗАКРЫТ, игра закрыта. Постановки cpp-dev — `context/game-lead/tasks/*.md`. Съёмка экранов вне QA-команд: `scripts/showcase/press-key.ps1 "{ESC}"` + `QAShot`.
+**РЕПО:** игра `feature/main-menu-0808` = `af41a7b` = origin; master `d7291fb`; stash@{0} WIP cpp, stash@{1} пароль; `pack-android` на `af41a7b` + незакоммиченный пароль. Team `docs/phase0-gdd`. Редактор ЗАКРЫТ, игра закрыта. Постановки cpp-dev — `context/game-lead/tasks/*.md`. Съёмка экранов вне QA-команд: `scripts/showcase/press-key.ps1 "{ESC}"` + `QAShot`.
 
 **Ждут Рината:** проверка подсказок; загрузка в RuStore; ⚠ пароль ключа лежит рядом с ключом (его выбор).
 
