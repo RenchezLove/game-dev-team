@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- Смена оружия: пистолет + встречные стрелки -->
+  <g fill="#FFFFFF">
+    <path d="M52 112H204V142H108L92 204H52L68 142H52Z"/>
+    <path d="M196 44 164 26V62Z"/>
+    <path d="M60 80 92 62V98Z"/>
+  </g>
+  <g stroke="#FFFFFF" stroke-linecap="round" fill="none">
+    <path d="M62 44h100M194 80H94" stroke-width="14"/>
+    <path d="M112 148q4 24 30 20" stroke-width="10"/>
+  </g>
+</svg>

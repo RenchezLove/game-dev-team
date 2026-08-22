@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- Огонь (выстрел): прицельная сетка -->
+  <g stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" fill="none">
+    <circle cx="128" cy="128" r="58"/>
+    <path d="M128 26v28M128 202v28M26 128h28M202 128h28"/>
+  </g>
+  <circle cx="128" cy="128" r="13" fill="#FFFFFF"/>
+</svg>

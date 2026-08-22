@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- Инвентарь: рюкзак (купольный верх, клапан, накладной карман) -->
+  <g stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 204V128C60 92 90 72 128 72C166 72 196 92 196 128V204Z" stroke-width="16"/>
+    <path d="M108 70V62A20 20 0 0 1 148 62V70" stroke-width="14"/>
+    <path d="M62 134H194" stroke-width="14"/>
+    <rect x="96" y="156" width="64" height="40" rx="12" stroke-width="14"/>
+  </g>
+</svg>

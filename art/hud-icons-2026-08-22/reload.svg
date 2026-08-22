@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- Перезарядка: круговая стрелка + патрон -->
+  <path d="M174 62.5A80 80 0 1 1 82 62.5" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <path d="M109.8 43 95.8 82.2 68.2 42.8Z" fill="#FFFFFF"/>
+  <path d="M108 126V114C108 92 118 82 128 80C138 82 148 92 148 114V126Z" fill="#FFFFFF"/>
+  <rect x="108" y="134" width="40" height="42" rx="4" fill="#FFFFFF"/>
+</svg>
