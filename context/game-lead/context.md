@@ -4,20 +4,22 @@
 > СТОП-правило гигиены: >150 строк ИЛИ Read обрезается → СНАЧАЛА чистка (вынос закрытого в archive.md, удаление перетёртого), потом работа. Дистилляция ВЫРЕЗАЕТ прошлый «СЕЙЧАС», не только дописывает.
 
 
-## 🧭 СЕЙЧАС (2026-08-16 10:15 — сверено с диском и git)
+## 🧭 СЕЙЧАС (2026-08-22 — сверено с диском и git)
 
-**ФАЗА:** этап G — **релизная сборка 0.1.0 (2) для RuStore собрана и проверена** (подсказки о сохранении ADR-074 + StoreVersion=2 `af41a7b`); пакет `pack-android/ArchivedBuilds/Android_ASTC/ContrarySurvivor-Android-Shipping-arm64.apk`, копия `…/Утвержденные/Marevo-0.1.0-build2-release.apk`, журнал `pack-android/logs/pack-shipping-dist-0816.log`. Игра `feature/main-menu-0808` HEAD **`af41a7b`** (запушена), `pack-android` на `af41a7b` + незакоммиченный пароль. Ринат проверяет живьём сам. Кадры проверки лида: `Saved/Showcase/out/pause_menu_savehint.png`, `leave_village_hint.png`.
+**ФАЗА:** релиз 0.1.0 в RuStore 19.08 (подтвердил Ринат); идёт **волна инструментов производства контента (ADR-075, ТЗ издателя №21)**: BP-наследники с настройками и визуалом, таблица предметов, таблица квестов, конструктор брошенных авто (детали машины уже в `Content/Environment/Props/AbandonedCar`, проверено лидом).
+
+**СДЕЛАНО 22.08:** доклад издателю по GameAnalytics (`docs/contrary-survivor/publisher-doklad-ga-2026-08-22.md`, team `8ee0581`; события идут, игроки — единицы; раздел Dashboards→Overview падает на стороне GA); скрипты съёмки окна Chrome `scripts/ga/` (клики/клавиши НЕ работают — масштаб 150%, работают только колесо и снимок PrintWindow). Инвентаризация cpp-dev: `ContrarySurvivor/Saved/bp-audit-phase1.md` (48 классов, ~15-17 BP заводить, 6 дыр: броня VisibleAnywhere, каталог торговца в коде, AI-контроллеры без BP, квест-теги зашиты, enum расходников, спавн по голым классам). qa дал ДОБРО (логи `Saved/qa-merge-build-0822*.log`, обе цели EXIT=0, лид проверил хвосты) → **слито в master `2ff15c5` и запушено**, QA_OK снят. Ветка волны **`feature/tools-0822`** создана от master.
 
 **➡️ СЛЕДУЮЩИЙ ШАГ:**
-1. Итог проверки Ринатом сборки 0.1.0 (2) и загрузка в RuStore; при правках текстов (EditAnywhere: `HintTextLeaveVillage`, `SaveHintText`) — пересобрать пак тем же путём с StoreVersion=3.
-2. Итог загрузки в RuStore; qa-гейт → слить `feature/main-menu-0808` в `master` (master `d7291fb`); QA_OK не висит.
-3. Незаконченное cpp-dev в `git stash@{0}` (QAQuestBanner/QAAdvanceQuest) — низкий приоритет.
-4. Открытое с 13.08: первое окно настроек (`SettingsScreenWidget.cpp:701`, версия `77c5325`).
-5. Дефекты UI (не чинили): подсказка обучения наезжает на баннер задания (новая подсказка — тоже, видно на `leave_village_hint.png`); в инвентаре 20:9 «Пистолет — в руках» обрезана.
+1. cpp-dev пишет спеку таблиц + план правок (`context/game-lead/tasks/spec-datatables-phase2.md`) → лид утверждает → отмашка на код в `feature/tools-0822`.
+2. Решения лида уже отданы cpp: торговец на таблицу предметов В ЭТУ волну; enum расходников не трогать.
+3. Потом: unreal-operator — BP-ассеты/таблицы + живой пример «новый контент без кода» кадром; qa — сборка; Ринат — живьём + производительность realme (порог из РИ-21).
+4. Предложена Ринату уборка Content (дубли ножа/скелета, свалка Props, `L_World_C`, импортные имена) — ждёт его «делай».
+5. Хвосты прежние: stash@{0} WIP cpp (QAQuestBanner); окно настроек `SettingsScreenWidget.cpp:701`; дефекты UI (подсказка наезжает на баннер; «Пистолет — в руках» обрезана в 20:9).
 
-**РЕПО:** игра `feature/main-menu-0808` = `af41a7b` = origin; master `d7291fb`; stash@{0} WIP cpp, stash@{1} пароль; `pack-android` на `af41a7b` + незакоммиченный пароль. Team `docs/phase0-gdd`. Редактор ЗАКРЫТ, игра закрыта. Постановки cpp-dev — `context/game-lead/tasks/*.md`. Съёмка экранов вне QA-команд: `scripts/showcase/press-key.ps1 "{ESC}"` + `QAShot`.
+**РЕПО:** игра: master=`2ff15c5`=origin; `feature/main-menu-0808`=`2ff15c5` (запушена); рабочая ветка волны `feature/tools-0822` (создана, дерево пока на main-menu-ветке); stash@{0} WIP cpp, stash@{1} пароль; `pack-android` на `af41a7b`+пароль. Team `docs/phase0-gdd` (`416a8e3` ADR-075). Редактор ЗАКРЫТ. Постановки — `context/game-lead/tasks/*.md`.
 
-**Ждут Рината:** проверка подсказок; загрузка в RuStore; ⚠ пароль ключа лежит рядом с ключом (его выбор).
+**Ждут Рината:** ответ по уборке Content; ⚠ пароль ключа лежит рядом с ключом (его выбор).
 
 **📌 ПОТОМ (ADR-069):** английский язык — сперва развязать имена предметов от ключей квестов (`QuestComponent.cpp:204,252`); план `docs/contrary-survivor/loc-stage2-plan.md`.
 **🐞 Дефекты (не чинили):** автотесты пишут в боевой слот `ContrarySave`; волк на крыше дома у лавки; тени — «пока не трогаем».
