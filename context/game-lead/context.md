@@ -1,4 +1,4 @@
-# context: game-lead
+﻿# context: game-lead
 
 > Персональная (живая) память агента `game-lead`. Грунтовка сессии — ТОЛЬКО блок «🧭 СЕЙЧАС» ниже (правило bootstrap CLAUDE.md). Прошлое — `archive.md` (read-on-demand). Решения — `docs/decisions.md` (ADR). История — git. Дизайн-правда — `docs/contrary-survivor/`.
 > СТОП-правило гигиены: >150 строк ИЛИ Read обрезается → СНАЧАЛА чистка (вынос закрытого в archive.md, удаление перетёртого), потом работа. Дистилляция ВЫРЕЗАЕТ прошлый «СЕЙЧАС», не только дописывает.
@@ -6,7 +6,7 @@
 
 ## 🧭 СЕЙЧАС (2026-08-22 — сверено с диском и git)
 
-**ФАЗА:** релиз 0.1.0 в RuStore 19.08; **волна инструментов ADR-075 В РАЗГАРЕ** (BP-наследники, DT_Items, DT_Quests, конструктор авто). C++ часть СДАНА и ПРОВЕРЕНА лидом: 7 коммитов cpp `75b70b6..e053cc2` + мои `be9a22c` (скрипты дампов) в **`feature/tools-0822`**; сборки `Saved/build-tools0822-1/2.log` EXIT=0; тесты ContrarySurvivor.ContentTools **6/6 Success** (`Saved/tests-contenttools-0822-b.log`, гонял лид; тесты сейв НЕ трогают — проверено грепом).
+**ФАЗА (обновлено при обрыве 22.08 ночь):** ВСЁ СДАНО И СОБРАНО в feature/tools-0822 HEAD=176c8b9=origin (волна ADR-075 целиком: код+таблицы+BP+машина; пакет ADR-076: сейвы/музыка/компас/мешок/диалоги/обыск/иконка/фон меню; ТЗ баз dce2cef+176c8b9). Сборка build-final-0822.log EXIT=0. НЕ прогнаны финальные тесты всего вместе (последний зелёный прогон 9/9 до обыска/баз/ассетов); кадры машины не сняты; Ринат тестирует в PIE. СЛЕДУЮЩЕЕ: прогнать все тесты (SaveIntegrity+ContentTools+EnemyBase), qa-гейт, итоги теста Рината. Волна ADR-075 В РАЗГАРЕ (BP-наследники, DT_Items, DT_Quests, конструктор авто). C++ часть СДАНА и ПРОВЕРЕНА лидом: 7 коммитов cpp `75b70b6..e053cc2` + мои `be9a22c` (скрипты дампов) в **`feature/tools-0822`**; сборки `Saved/build-tools0822-1/2.log` EXIT=0; тесты ContrarySurvivor.ContentTools **6/6 Success** (`Saved/tests-contenttools-0822-b.log`, гонял лид; тесты сейв НЕ трогают — проверено грепом).
 
 **СДЕЛАНО 22.08 (всё с артефактами):** доклад издателю по GA (`docs/contrary-survivor/publisher-doklad-ga-2026-08-22.md`; события идут, игроков единицы; GA-раздел Dashboards→Overview падает у НИХ); мерж релиза: qa-добро (логи `Saved/qa-merge-build-0822*.log`) → **master=`2ff15c5`=origin**, QA_OK снят; инвентаризация `Saved/bp-audit-phase1.md`; спека `context/game-lead/tasks/spec-datatables-phase2.md` (утверждена); тройной дамп квестов старосты — правок Рината НЕТ, награды **200/250** (`Saved/elder_quests_dump.txt`, `elder_instance_dump.txt`).
 
@@ -80,3 +80,4 @@
 
 ## 🎮 DEBUG/ТЕСТ-КЛАВИШИ (LogQA; в Shipping НЕ существуют; раскладка 2026-08-15)
 F1 debug-камера · F2 GiveTestItems · F3/F4 броня · F6 use · F7 drop · F9/F10 buy/sell · F12 clear-save · **G скриншот на ЛОКАЛЬНЫЙ стол (папка «Скриншоты ContrarySurvivor»; стол больше не OneDrive) · Y hp/голод/жажда max · U заморозка/разморозка врагов · T god · K +100 денег · Period (точка) — тумблер надписей «Preview» в тенях (НЕ закоммичена, живьём не проверена)** · J offer+accept квест · M телепорт-торговец · V телепорт-староста · Z force-drop · Comma +1 волк в квест · H сдать квест · B тест-волк · O QA-оверлей · N force-kill · C 5 шкур · X ноутбук · P убить игрока · F реклама-порог. **(F5/F8/F11 движковые — НЕ занимать.)** Памятка для Рината: `C:/Users/pgr40/Desktop/Скриншоты ContrarySurvivor/Отладочные клавиши.txt`.
+
