@@ -1,0 +1,61 @@
+<!doctype html>
+<meta charset="utf-8">
+<!-- Разметка варианта 3. Подложка — готовый рендер 1920x864 (x1.2), все подписи — в dp -->
+<style>
+  html,body{margin:0;padding:0;width:1920px;height:864px;overflow:hidden;position:relative;background:#000}
+  #base{position:absolute;left:0;top:0;width:1920px;height:864px;opacity:.62}
+  .vl{position:absolute;top:0;width:2px;height:864px;background:#19D7FF}
+  .hl{position:absolute;left:0;height:2px;background:#19D7FF}
+  .chip{position:absolute;background:rgba(2,32,40,.92);border:1px solid #19D7FF;color:#9FEBFF;
+        font:700 21px/1.25 "Segoe UI",sans-serif;padding:4px 10px;border-radius:5px;white-space:nowrap}
+  .seg{position:absolute;background:#FFB020}
+  .chipO{position:absolute;background:rgba(46,26,2,.92);border:1px solid #FFB020;color:#FFD489;
+        font:700 21px/1.25 "Segoe UI",sans-serif;padding:4px 10px;border-radius:5px;white-space:nowrap}
+</style>
+<img id="base" src="variant-3.png">
+
+<!-- вертикали: правый край контента (64 dp от края) и левый край колонки -->
+<div class="vl" style="left:1842px"></div>
+<div class="vl" style="left:1410px;top:230px;height:600px"></div>
+
+<!-- горизонтали: верх заголовка (52), верх колонки (220), низ колонки -->
+<div class="hl" style="left:1290px;top:61px;width:630px"></div>
+<div class="hl" style="left:1290px;top:263px;width:630px"></div>
+<div class="hl" style="left:1290px;top:750px;width:630px"></div>
+
+<!-- отступ от правого края: 64 dp -->
+<div class="seg" style="left:1843px;top:409px;width:77px;height:4px"></div>
+<div class="chip" style="left:1680px;top:390px">до края 64</div>
+
+<!-- заголовок: 52 сверху -->
+<div class="seg" style="left:1320px;top:0;width:4px;height:62px"></div>
+<div class="chip" style="left:1345px;top:14px">заголовок: 52 от верха</div>
+
+<!-- колонка: 220 сверху -->
+<div class="seg" style="left:1360px;top:0;width:4px;height:264px"></div>
+<div class="chip" style="left:1385px;top:190px">кнопки: 220 от верха</div>
+
+<!-- ширина колонки 360 -->
+<div class="seg" style="left:1411px;top:792px;width:432px;height:4px"></div>
+<div class="chip" style="left:1560px;top:806px">ширина 360</div>
+
+<!-- высота кнопки 56, зазор 14 -->
+<div class="seg" style="left:1394px;top:264px;width:4px;height:67px"></div>
+<div class="chip" style="left:1245px;top:283px">высота 56</div>
+<div class="seg" style="left:1394px;top:332px;width:4px;height:17px"></div>
+<div class="chip" style="left:1258px;top:336px">зазор 14</div>
+
+<!-- низ колонки до края 94 -->
+<div class="seg" style="left:1627px;top:751px;width:4px;height:113px"></div>
+<div class="chip" style="left:1650px;top:768px">до низа 94</div>
+
+<!-- подложка 550 -->
+<div class="seg" style="left:1260px;top:16px;width:660px;height:4px"></div>
+<div class="chipO" style="left:1290px;top:30px">подложка 550: градиент 78% &#8594; 50% (на 42%) &#8594; 0</div>
+
+<!-- строки внизу -->
+<div class="chipO" style="left:640px;top:790px">политика 16, версия 15, низ 12, по центру экрана</div>
+
+<!-- легенда -->
+<div class="chipO" style="left:24px;top:20px">ВАРИАНТ 3 — РАЗМЕТКА &#183; все числа в dp &#183; холст 1600&#215;720 dp (телефон 20:9) &#183; рендер &#215;1.2</div>
+<div class="chip" style="left:24px;top:66px">фон: заполнение с обрезкой (cover), прижат к ЛЕВОМУ краю, по вертикали 58% сверху</div>

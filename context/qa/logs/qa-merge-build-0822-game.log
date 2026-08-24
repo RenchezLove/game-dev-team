@@ -1,0 +1,67 @@
+Using bundled DotNet SDK version: 8.0.300
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" ContrarySurvivor Win64 Development E:/ContrarySurvior/ContrarySurvivor/ContrarySurvivor.uproject -NoUBA -MaxParallelActions=6 -WaitMutex
+Log file: C:\Users\pgr40\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (E:\ContrarySurvior\ContrarySurvivor).
+Creating makefile for ContrarySurvivor (no existing makefile)
+Available x64 toolchains (1):
+ * C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207
+    (Family=14.44.35207, FamilyRank=1, Version=14.44.35222, Is64Bit=True, ReleaseChannel=Latest, Architecture=x64)
+Visual Studio 2022 compiler version 14.44.35222 is not a preferred version. Please use the latest preferred version 14.38.33130
+ContrarySurvivor: ключи аналитики вшиты в сборку из 'E:/game-dev-team/keys' (длины 32/40 символов).
+Parsing headers for ContrarySurvivor
+  Running Internal UnrealHeaderTool E:\ContrarySurvior\ContrarySurvivor\ContrarySurvivor.uproject E:\ContrarySurvior\ContrarySurvivor\Intermediate\Build\Win64\ContrarySurvivor\Development\ContrarySurvivor.uhtmanifest -WarningsAsErrors -installed
+Total of 176 written
+Reflection code generated for ContrarySurvivor in 5.5704647 seconds
+Building ContrarySurvivor...
+Using Visual Studio 2022 14.44.35222 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.44.35207) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+Warning: Visual Studio 2022 compiler is not a preferred version
+Executing up to 6 actions based on MaxProcessorCount override
+Using Unreal Build Accelerator local executor to run 40 action(s)
+  Storage capacity 40Gb
+---- Starting trace: 260822_151919 ----
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+------ Building 40 action(s) started ------
+[1/40] Copy D3D12Core.dll
+[2/40] Copy d3d12SDKLayers.dll
+[3/40] Copy boost_atomic-mt-x64.dll
+[4/40] Copy boost_chrono-mt-x64.dll
+[5/40] Copy DirectML.dll
+[6/40] Copy boost_filesystem-mt-x64.dll
+[7/40] Copy boost_iostreams-mt-x64.dll
+[8/40] Copy boost_program_options-mt-x64.dll
+[9/40] Copy boost_python311-mt-x64.dll
+[10/40] Copy boost_system-mt-x64.dll
+[11/40] Copy boost_regex-mt-x64.dll
+[12/40] Copy boost_thread-mt-x64.dll
+[13/40] Copy tbb.dll
+[14/40] Copy tbbmalloc.dll
+[15/40] Copy tbb.pdb
+[16/40] Copy tbbmalloc.pdb
+[17/40] Resource Default.rc2
+[18/40] Compile [x64] SharedPCH.Core.Project.ValApi.Cpp20.cpp
+[19/40] Compile [x64] Module.YandexAds.cpp
+[20/40] Compile [x64] SharedPCH.Engine.Project.ValApi.Cpp20.cpp
+[21/40] Compile [x64] Module.ContrarySurvivor.1.cpp
+[22/40] Compile [x64] Module.ContrarySurvivor.10.cpp
+[23/40] Compile [x64] Module.ContrarySurvivor.11.cpp
+[24/40] Compile [x64] Module.ContrarySurvivor.17.cpp
+[25/40] Compile [x64] Module.ContrarySurvivor.2.cpp
+[26/40] Compile [x64] Module.ContrarySurvivor.3.cpp
+[27/40] Compile [x64] Module.ContrarySurvivor.15.cpp
+[28/40] Compile [x64] Module.ContrarySurvivor.4.cpp
+[29/40] Compile [x64] Module.ContrarySurvivor.12.cpp
+[30/40] Compile [x64] Module.ContrarySurvivor.5.cpp
+[31/40] Compile [x64] Module.ContrarySurvivor.16.cpp
+[32/40] Compile [x64] Module.ContrarySurvivor.6.cpp
+[33/40] Compile [x64] Module.ContrarySurvivor.7.cpp
+[34/40] Compile [x64] Module.ContrarySurvivor.13.cpp
+[35/40] Compile [x64] Module.ContrarySurvivor.8.cpp
+[36/40] Compile [x64] Module.ContrarySurvivor.14.cpp
+[37/40] Compile [x64] Module.ContrarySurvivor.9.cpp
+[38/40] Compile [x64] Module.GameAnalytics.cpp
+[39/40] Link [x64] ContrarySurvivor.exe
+   Создается библиотека E:\ContrarySurvior\ContrarySurvivor\Binaries\Win64\ContrarySurvivor.lib и объект E:\ContrarySurvior\ContrarySurvivor\Binaries\Win64\ContrarySurvivor.exp
+[40/40] WriteMetadata ContrarySurvivor.target (UBA disabled)
+Trace file written to C:/Users/pgr40/AppData/Local/UnrealBuildTool/Log.uba with size 13.0kb
+Total time in Unreal Build Accelerator local executor: 72.46 seconds
+Total execution time: 88.80 seconds
