@@ -17,3 +17,9 @@
 - Тесты (`Saved/qa-gate3-tests.log`): 82 Success / 0 Fail (макросов ветка 82, master 81 = +1 новый ShopBackpackWeapon), TEST COMPLETE EXIT CODE 0, GIsCriticalError=0. Регрессии оружия зелёные: StartWithoutFirearm, WeaponSlotDesync.*(3), WeaponUiGating.RangedGate; новый PurchasedFirearmGoesToBackpackThenTapEquips=Success.
 - Логика проверена глазами: TryAdoptRangedWeapon при не-огнестреле/занятом слоте возвращает false, предмет остаётся в рюкзаке (ветка HandleTileUse для любой категории Weapon безопасна, потерь/дублей нет). Пауза: убрано только согласие, строка политики и номер версии сохранены (RefreshConsentAndVersion цел). L_World_C.umap — LFS-указатель. Дифф/секреты чистые (позитивный контроль сработал).
 - Следующий шаг: за game-lead — маркер QA_OK и merge в master. Дерево чистое, HEAD d7291fb, замок сборки снят.
+
+## Мерж-гейт `feature/main-menu-0808` (2026-08-22, закрыт) — ДОБРО
+- HEAD af41a7b, 87 коммитов d7291fb..af41a7b, 142 файла. Ветка = релиз 0.1.0 (сборки 1 и 2, ADR-073/074), три дня в RuStore, Ринат прошёл релизный прогон лично.
+- Доказательство двумя целями, обе exit 0, ошибок 0: редакторная (`Saved/qa-merge-build-0822.log`, обе библиотеки перелинкованы 15:15:06) и игровая Win64 Development с нуля — все 17 юнити-блоков `Module.ContrarySurvivor.1..17` заново (`Saved/qa-merge-build-0822-game.log`).
+- Состав чист: секретов нет, `R-M-19754980-1..4` — клиентские идентификаторы рекламных блоков Яндекса; бинарники в `Build/` — указатели LFS; съёмочные читы под `CONTRARY_WITH_QA_CHEATS`.
+- Тесты тогда НЕ гонялись (запрет Рината). Untracked `scripts/audit_bp_parents.py` оставлен на усмотрение game-lead.

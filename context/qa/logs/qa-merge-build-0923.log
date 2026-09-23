@@ -1,0 +1,7 @@
+Using bundled DotNet SDK version: 8.0.300
+Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" ContrarySurvivorEditor Win64 Development -Project="E:\ContrarySurvior\ContrarySurvivor\ContrarySurvivor.uproject" -WaitMutex -NoHotReload -NoUBA -MaxParallelActions=6
+Log file: C:\Users\pgr40\AppData\Local\UnrealBuildTool\Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (E:\ContrarySurvior\ContrarySurvivor).
+Target is up to date
+Total execution time: 10.76 seconds
+UBT_EXITCODE=0
