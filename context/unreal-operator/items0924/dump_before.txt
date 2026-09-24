@@ -1,0 +1,67 @@
+DT_ROWS=water_bottle,canned_food,bandage,ammo_9mm,knife,pistol,wolf_pelt,laptop,armor_t1_head,armor_t1_torso,armor_t1_pants,armor_t2_head,armor_t2_torso,armor_t2_pants,armor_t3_head,armor_t3_torso,armor_t3_pants
+DT_ICON water_bottle = /Game/UI/Icons/Items/T_Item_Water.T_Item_Water
+DT_ICON canned_food = /Game/UI/Icons/Items/T_Item_CannedFood.T_Item_CannedFood
+DT_ICON bandage = /Game/UI/Icons/Items/T_Item_Medkit.T_Item_Medkit
+DT_ICON ammo_9mm = /Game/UI/Icons/Items/T_Item_Ammo9mm.T_Item_Ammo9mm
+DT_ICON knife = /Game/UI/Icons/Items/T_Item_Knife.T_Item_Knife
+DT_ICON pistol = /Game/UI/Icons/Items/T_Item_Pistol.T_Item_Pistol
+DT_ICON wolf_pelt = /Game/UI/Icons/Items/T_Item_WolfHide.T_Item_WolfHide
+DT_ICON laptop = /Game/UI/Icons/Items/T_Item_Laptop.T_Item_Laptop
+DT_ICON armor_t1_head = /Game/UI/Icons/Items/T_Item_Armor_T1_Head.T_Item_Armor_T1_Head
+DT_ICON armor_t1_torso = /Game/UI/Icons/Items/T_Item_Armor_T1_Torso.T_Item_Armor_T1_Torso
+DT_ICON armor_t1_pants = /Game/UI/Icons/Items/T_Item_Armor_T1_Legs.T_Item_Armor_T1_Legs
+DT_ICON armor_t2_head = /Game/UI/Icons/Items/T_Item_Armor_T2_Head.T_Item_Armor_T2_Head
+DT_ICON armor_t2_torso = /Game/UI/Icons/Items/T_Item_Armor_T2_Torso.T_Item_Armor_T2_Torso
+DT_ICON armor_t2_pants = /Game/UI/Icons/Items/T_Item_Armor_T2_Legs.T_Item_Armor_T2_Legs
+DT_ICON armor_t3_head = /Game/UI/Icons/Items/T_Item_Armor_T3_Head.T_Item_Armor_T3_Head
+DT_ICON armor_t3_torso = /Game/UI/Icons/Items/T_Item_Armor_T3_Torso.T_Item_Armor_T3_Torso
+DT_ICON armor_t3_pants = /Game/UI/Icons/Items/T_Item_Armor_T3_Legs.T_Item_Armor_T3_Legs
+BANDIT_CLASS=<Object '/Game/Characters/Bandit/BP_EnemyBandit.BP_EnemyBandit_C' (0x00000AD21FB50700) Class 'BlueprintGeneratedClass'>
+BANDIT_LOOT[0] ItemRow=None DisplayName=Консервы DisplayText=Консервы ItemClass=<Object '/Script/ContrarySurvivor.ConsumableItem' (0x00000AD208992580) Class 'Class'> Type=<ConsumableType.FOOD: 0>
+BANDIT_LOOT[1] ItemRow=None DisplayName=Вода DisplayText=Вода ItemClass=<Object '/Script/ContrarySurvivor.ConsumableItem' (0x00000AD208992580) Class 'Class'> Type=<ConsumableType.WATER: 1>
+BANDIT_LOOT[2] ItemRow=None DisplayName=Аптечка DisplayText=Аптечка ItemClass=<Object '/Script/ContrarySurvivor.ConsumableItem' (0x00000AD208992580) Class 'Class'> Type=<ConsumableType.MEDKIT: 2>
+ITEMBP /Game/Items/BP_WaterBottle parent=<Object '/Game/Items/BP_WaterBottle.BP_WaterBottle_C' (0x00000AD209481C00) Class 'BlueprintGeneratedClass'> ItemIcon=None SourceItemRow=None ItemName=
+ITEMBP /Game/Items/BP_CannedFood parent=<Object '/Game/Items/BP_CannedFood.BP_CannedFood_C' (0x00000AD209484600) Class 'BlueprintGeneratedClass'> ItemIcon=None SourceItemRow=None ItemName=
+ITEMBP /Game/Items/BP_Bandage parent=<Object '/Game/Items/BP_Bandage.BP_Bandage_C' (0x00000AD209487000) Class 'BlueprintGeneratedClass'> ItemIcon=None SourceItemRow=None ItemName=
+ITEMBP /Game/Items/BP_Ammo9mm parent=<Object '/Game/Items/BP_Ammo9mm.BP_Ammo9mm_C' (0x00000AD209489A00) Class 'BlueprintGeneratedClass'> ItemIcon=<Object '/Game/UI/Icons/Items/T_Item_Ammo9mm.T_Item_Ammo9mm' (0x00000AD238C9BA00) Class 'Texture2D'> SourceItemRow=None ItemName=Патроны 9мм
+ITEMBP /Game/Items/BP_Knife parent=<Object '/Game/Items/BP_Knife.BP_Knife_C' (0x00000AD20948C400) Class 'BlueprintGeneratedClass'> ItemIcon=<Object '/Game/UI/Icons/Items/T_Item_Knife.T_Item_Knife' (0x00000AD238C9C600) Class 'Texture2D'> SourceItemRow=None ItemName=Knife
+ITEMBP /Game/Weapons/Pistol/BP_Pistol parent=<Object '/Game/Weapons/Pistol/BP_Pistol.BP_Pistol_C' (0x00000AD20948EE00) Class 'BlueprintGeneratedClass'> ItemIcon=<Object '/Game/UI/Icons/Items/T_Item_Pistol.T_Item_Pistol' (0x00000AD238C9D200) Class 'Texture2D'> SourceItemRow=None ItemName=Pistol
+ITEMBP /Game/Items/BP_ArmorBase parent=<Object '/Game/Items/BP_ArmorBase.BP_ArmorBase_C' (0x00000AD2094E3F00) Class 'BlueprintGeneratedClass'> ItemIcon=None SourceItemRow=None ItemName=
+ITEMBP /Game/Items/BP_Laptop parent=<Object '/Game/Items/BP_Laptop.BP_Laptop_C' (0x00000AD238C7CB00) Class 'BlueprintGeneratedClass'> ItemIcon=None SourceItemRow=None ItemName=Ноутбук
+ITEMBP /Game/Items/BP_WolfPelt parent=<Object '/Game/Items/BP_WolfPelt.BP_WolfPelt_C' (0x00000AD234CD1500) Class 'BlueprintGeneratedClass'> ItemIcon=None SourceItemRow=None ItemName=Шкура волка
+ACTOR name=Pickup_1 label=ЛутЛагеря class=Pickup
+   PlacedItemClass=<Object '/Script/ContrarySurvivor.ConsumableItem' (0x00000AD208992580) Class 'Class'>
+   PlacedItemCount=1
+   PlacedAmmoAmount=10
+   PlacedItemDisplayName=Тушёнка
+   PlacedItemDisplayText=
+   MoneyAmount=0.0
+ACTOR name=BP_Pickup_C_10 label=BP_Pickup class=BP_Pickup_C
+   PlacedItemClass=<Object '/Script/ContrarySurvivor.ConsumableItem' (0x00000AD208992580) Class 'Class'>
+   PlacedItemCount=2
+   PlacedAmmoAmount=3
+   PlacedItemDisplayName=
+   PlacedItemDisplayText=
+   MoneyAmount=10.0
+ACTOR name=BP_Pickup_C_14 label=BP_Pickup2 class=BP_Pickup_C
+   PlacedItemClass=<Object '/Script/ContrarySurvivor.ConsumableItem' (0x00000AD208992580) Class 'Class'>
+   PlacedItemCount=1
+   PlacedAmmoAmount=0
+   PlacedItemDisplayName=
+   PlacedItemDisplayText=
+   MoneyAmount=0.0
+ACTOR name=BP_Pickup_C_1 label=BP_Pickup3 class=BP_Pickup_C
+   PlacedItemClass=<Object '/Script/ContrarySurvivor.PantsArmorT2' (0x00000AD208991900) Class 'Class'>
+   PlacedItemCount=1
+   PlacedAmmoAmount=5
+   PlacedItemDisplayName=
+   PlacedItemDisplayText=
+   MoneyAmount=0.0
+ACTOR name=BP_AbandonedCar_C_1 label=BP_AbandonedCar class=BP_AbandonedCar_C
+ACTOR name=BP_AbandonedCar_C_3 label=BP_AbandonedCar2 class=BP_AbandonedCar_C
+   LIST[0] ItemRow=None ItemClass=<Object '/Game/Items/BP_WaterBottle.BP_WaterBottle_C' (0x00000AD209481C00) Class 'BlueprintGeneratedClass'> Count=2
+ACTOR name=BP_AbandonedCar_C_5 label=BP_AbandonedCar3 class=BP_AbandonedCar_C
+   LIST[0] ItemRow=None ItemClass=<Object '/Script/ContrarySurvivor.HeadArmorT3' (0x00000AD208991B80) Class 'Class'> Count=1
+ACTOR name=BP_AbandonedCar_C_6 label=BP_AbandonedCar4 class=BP_AbandonedCar_C
+ACTOR name=BP_AbandonedCar_C_7 label=BP_AbandonedCar5 class=BP_AbandonedCar_C
+DUMP|RESULT=OK
