@@ -1,0 +1,206 @@
+
+    Task Query â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+Task Query
+Copy
+Download PDF
+# Task Query
+**Base URL:** `https://openapi.tripo3d.ai/v3`
+**Endpoint:** `GET /tasks/{task_id}`
+Query the status and output of a single async task by its task ID. All generation and processing endpoints return a task_id that can be used here.
+## Request Parameters
+### task_id
+- **Type:** string
+- **Required:** Required
+The unique task identifier, passed as a path parameter. Starts with task_.
+## Response Fields
+### task_id
+- **Type:** string
+- **Required:** Required
+Unique task identifier.
+### type
+- **Type:** string
+- **Required:** Required
+Task type (e.g., text_to_model, rig, convert).
+### status
+- **Type:** string
+- **Required:** Required
+Task status.
+- `queued` â waiting in queue.
+- `running` â processing in progress.
+- `success` â completed successfully.
+- `failed` â failed with error.
+- `cancelled` â cancelled by user.
+### progress
+- **Type:** integer
+- **Required:** Required
+0â100.
+### error_code
+- **Type:** integer
+- **Required:** Optional
+Present when status=failed. Standardized error code indicating the failure reason.
+### error_message
+- **Type:** string
+- **Required:** Optional
+Present when status=failed and error_code is available. Human-readable description of the error.
+### output
+- **Type:** object
+- **Required:** Optional
+Only populated when `status=success`. Contains `model_url`, `rendered_image_url`, etc.
+### credits_consumed
+- **Type:** number
+- **Required:** Optional
+Credits consumed. Decimal number with up to two decimal places (e.g. 48.00).
+### created_at
+- **Type:** string
+- **Required:** Required
+ISO 8601 creation time.
+### completed_at
+- **Type:** string
+- **Required:** Optional
+ISO 8601 completion time.
+## Request Example
+### Query task
+```
+curl -s \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  https://openapi.tripo3d.ai/v3/tasks/task_abc123
+```
+## Response Example
+### Task detail
+```json
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123",
+    "type": "text_to_model",
+    "status": "success",
+    "progress": 100,
+    "output": {
+      "model_url": "https://cdn.tripo3d.ai/output/model_pbr.glb",
+      "rendered_image_url": "https://cdn.tripo3d.ai/output/preview.png"
+    },
+    "credits_consumed": 100.00,
+    "created_at": "2026-04-28T12:00:00Z",
+    "completed_at": "2026-04-28T12:01:30Z"
+  }
+}
+```
+http
+Copy
+Base URL: https://openapi.tripo3d.ai/v3
+Endpoint: GET /tasks/{task_id}
+Query the status and output of a single async task by its task ID. All generation and processing endpoints return a task_id that can be used here.
+Note
+This endpoint requires an API Key. Include it in the Authorization header as Bearer {api_key}.
+Request Parameters
+Request Body
+task_idstringRequired
+The unique task identifier, passed as a path parameter. Starts with task_.
+Response
+task_idstringRequired
+Unique task identifier.
+typestringRequired
+Task type (e.g., text_to_model, rig, convert).
+statusstringRequired
+Task status.queued â waiting in queue.
+running â processing in progress.
+success â completed successfully.
+failed â failed with error.
+cancelled â cancelled by user.
+progressintegerRequired
+0â100.
+error_codeinteger
+Present when status=failed. Standardized error code indicating the failure reason.
+error_messagestring
+Present when status=failed and error_code is available. Human-readable description of the error.
+outputobject
+Only populated when status=success. Contains model_url, rendered_image_url, etc.
+credits_consumednumber
+Credits consumed. Decimal number with up to two decimal places (e.g. 48.00).
+created_atstringRequired
+ISO 8601 creation time.
+completed_atstring
+ISO 8601 completion time.
+Examples
+Query task
+Copy
+curl -s \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  https://openapi.tripo3d.ai/v3/tasks/task_abc123
+Task detail
+Copy
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123",
+    "type": "text_to_model",
+    "status": "success",
+    "progress": 100,
+    "output": {
+      "model_url": "https://cdn.tripo3d.ai/output/model_pbr.glb",
+      "rendered_image_url": "https://cdn.tripo3d.ai/output/preview.png"},
+    "credits_consumed": 100.00,
+    "created_at": "2026-04-28T12:00:00Z",
+    "completed_at": "2026-04-28T12:01:30Z"}
+}
+Task Query
+Copy
+curl -s \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  https://openapi.tripo3d.ai/v3/tasks/task_abc123
+200Response
+Copy
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123",
+    "type": "text_to_model",
+    "status": "success",
+    "progress": 100,
+    "output": {
+      "model_url": "https://cdn.tripo3d.ai/output/model_pbr.glb",
+      "rendered_image_url": "https://cdn.tripo3d.ai/output/preview.png"},
+    "credits_consumed": 100.00,
+    "created_at": "2026-04-28T12:00:00Z",
+    "completed_at": "2026-04-28T12:01:30Z"}
+}
+Previous
+Animation RetargetNextBatch Task Query
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

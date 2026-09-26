@@ -1,0 +1,264 @@
+
+    Rate Limits â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+Rate Limits & Concurrency
+Copy
+Download PDF
+# Rate Limits & Concurrency
+The Tripo API applies rate limits and concurrency limits to ensure service stability and fair usage.
+## Rate Limits
+Rate limits restrict the number of API requests you can make within a time window.
+### Limit Rules
+- Rate limits are calculated at the **API Key** level
+- Limits vary by endpoint. Generation endpoints, such as `/v3/generation/*`, have lower limits, while query endpoints, such as `/v3/tasks/*`, have higher limits
+- When a limit is exceeded, the API returns HTTP `429 Too Many Requests` with error code `1007`
+### Response Headers
+Every API response includes rate-limit-related response headers:
+| Response Header | Description |
+| :-: | :-: |
+| `X-RateLimit-Limit` | Maximum number of requests allowed in the current time window |
+| `X-RateLimit-Remaining` | Number of remaining requests available in the current time window |
+| `X-RateLimit-Reset` | Unix timestamp, in seconds, when the rate limit window resets |
+### Response When Rate Limited
+```json
+{
+  "code": 1007,
+  "message": "Rate limit exceeded, you've generated too many requests in a short amount of time",
+  "suggestion": "Please wait for a while and try again"
+}
+```
+---
+## Concurrency Limits
+Concurrency limits restrict the number of tasks that can run **simultaneously** under your account. This is different from rate limits â rate limits cap request frequency, while concurrency limits cap parallel running tasks.
+### How It Works
+- Concurrency is calculated at the **account** level (not per API Key)
+- Limits are applied **per task category** â each category has its own independent concurrency pool
+- When a category's concurrency is full, new task creation for that category returns HTTP `429` with error code `2000`
+- Tasks in other categories are **not affected** â you can still create tasks in categories that have available slots
+### Default Limits
+All users start with a default concurrency of **10** per category; some categories have different limits (see the table below).
+| Category | Included Task Types | Default Concurrency |
+| :-: | :-: | :-: |
+| 3D Generation â H Series | text-to-model (H), image-to-model (H), multiview-to-model (H) | 10 |
+| 3D Generation â P Series | text-to-model (P), image-to-model (P), multiview-to-model (P) | 5 |
+| Image Generation | text-to-image, image-to-image, image-to-multiview, edit-multiview | 1 |
+| Animation | auto-rig, rig-check, animation-retarget | 10 |
+| Model Processing | texture, format-convert, refine | 5 |
+| Mesh Operations | segmentation, completion, retopology | 10 |
+> **Note:** Tasks within the same category share the concurrency pool. For example, if you have 10 H-series text-to-model tasks running, you cannot start an H-series image-to-model task until one completes. However, you can still start P-series or image generation tasks.
+### Response When Concurrency Exceeded
+```json
+{
+  "code": 2000,
+  "message": "You have exceeded the limit of generation",
+  "suggestion": "Try again later. You can also check `Retry-After` header."
+}
+```
+The response includes a `Retry-After` header indicating how many seconds to wait before retrying.
+### Increasing Concurrency
+To request higher concurrency limits, please contact our team via the support channel. Custom concurrency can be configured per category based on your usage needs.
+---
+## Handling 429 Responses
+### Python
+```python
+import time
+import requests
+def request_with_backoff(method, url, headers, json=None, max_retries=5):
+    for attempt in range(max_retries):
+        response = requests.request(method, url, headers=headers, json=json)
+        if response.status_code != 429:
+            return response
+        retry_after = response.headers.get("Retry-After")
+        reset_at = response.headers.get("X-RateLimit-Reset")
+        if retry_after:
+            wait = int(retry_after)
+        elif reset_at:
+            wait = max(int(reset_at) - int(time.time()), 1)
+        else:
+            wait = 2 ** attempt
+        print(f"429 triggered. Waiting {wait} seconds (attempt {attempt + 1})...")
+        time.sleep(wait)
+    raise Exception("Maximum retry attempts exhausted")
+```
+### JavaScript
+```javascript
+async function requestWithBackoff(url, options, maxRetries = 5) {
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    const response = await fetch(url, options);
+    if (response.status !== 429) {
+      return response;
+    }
+    const retryAfter = response.headers.get("Retry-After");
+    const resetAt = response.headers.get("X-RateLimit-Reset");
+    const wait = retryAfter
+      ? Number(retryAfter)
+      : resetAt
+        ? Math.max(Number(resetAt) - Math.floor(Date.now() / 1000), 1)
+        : 2 ** attempt;
+    console.log(`429 triggered. Waiting ${wait} seconds (attempt ${attempt + 1})...`);
+    await new Promise(resolve => setTimeout(resolve, wait * 1000));
+  }
+  throw new Error("Maximum retry attempts exhausted");
+}
+```
+## Best Practices
+- **Implement exponential backoff retries**: Wait 1 second initially, double the wait each time, and cap the maximum wait at 32 seconds
+- **Prefer `Retry-After` and `X-RateLimit-Reset` headers**: Wait precisely until the limit window resets
+- **Design for category-level concurrency**: Distribute workloads across categories when possible â image generation and 3D generation have separate pools
+- **Use batch APIs**: Use `POST /v3/tasks/list` instead of multiple `GET /v3/tasks/{task_id}` requests
+- **Poll wisely**: When waiting for task completion, poll at reasonable intervals (every 1â2 seconds) rather than flooding the query endpoint
+Rate Limits & Concurrency
+The Tripo API applies rate limits and concurrency limits to ensure service stability and fair usage.
+Rate Limits
+Rate limits restrict the number of API requests you can make within a time window.
+Limit Rules
+Rate limits are calculated at the API Key level
+Limits vary by endpoint. Generation endpoints, such as /v3/generation/*, have lower limits, while query endpoints, such as /v3/tasks/*, have higher limits
+When a limit is exceeded, the API returns HTTP 429 Too Many Requests with error code 1007
+Response Headers
+Every API response includes rate-limit-related response headers:
+Response Header | 
+Description | 
+X-RateLimit-Limit | 
+Maximum number of requests allowed in the current time window | 
+X-RateLimit-Remaining | 
+Number of remaining requests available in the current time window | 
+X-RateLimit-Reset | 
+Unix timestamp, in seconds, when the rate limit window resets | 
+Response When Rate Limited
+JSON
+Copy
+{
+  "code": 1007,
+  "message": "Rate limit exceeded, you've generated too many requests in a short amount of time",
+  "suggestion": "Please wait for a while and try again"
+}
+Concurrency Limits
+Concurrency limits restrict the number of tasks that can run simultaneously under your account. This is different from rate limits â rate limits cap request frequency, while concurrency limits cap parallel running tasks.
+How It Works
+Concurrency is calculated at the account level (not per API Key)
+Limits are applied per task category â each category has its own independent concurrency pool
+When a categoryâs concurrency is full, new task creation for that category returns HTTP 429 with error code 2000
+Tasks in other categories are not affected â you can still create tasks in categories that have available slots
+Default Limits
+All users start with a default concurrency of 10 per category; some categories have different limits (see the table below).
+Category | 
+Included Task Types | 
+Default Concurrency | 
+3D Generation â H Series | 
+text-to-model (H), image-to-model (H), multiview-to-model (H) | 
+10 | 
+3D Generation â P Series | 
+text-to-model (P), image-to-model (P), multiview-to-model (P) | 
+5 | 
+Image Generation | 
+text-to-image, image-to-image, image-to-multiview, edit-multiview | 
+1 | 
+Animation | 
+auto-rig, rig-check, animation-retarget | 
+10 | 
+Model Processing | 
+texture, format-convert, refine | 
+5 | 
+Mesh Operations | 
+segmentation, completion, retopology | 
+10 | 
+Note: Tasks within the same category share the concurrency pool. For example, if you have 10 H-series text-to-model tasks running, you cannot start an H-series image-to-model task until one completes. However, you can still start P-series or image generation tasks.
+Response When Concurrency Exceeded
+JSON
+Copy
+{
+  "code": 2000,
+  "message": "You have exceeded the limit of generation",
+  "suggestion": "Try again later. You can also check `Retry-After` header."
+}
+The response includes a Retry-After header indicating how many seconds to wait before retrying.
+Increasing Concurrency
+To request higher concurrency limits, please contact our team via the support channel. Custom concurrency can be configured per category based on your usage needs.
+Handling 429 Responses
+PythonJavaScript
+Copy
+import time
+import requests
+def request_with_backoff(method, url, headers, json=None, max_retries=5):
+    for attempt in range(max_retries):
+        response = requests.request(method, url, headers=headers, json=json)
+        if response.status_code != 429:
+            return response
+        retry_after = response.headers.get("Retry-After")
+        reset_at = response.headers.get("X-RateLimit-Reset")
+        if retry_after:
+            wait = int(retry_after)
+        elif reset_at:
+            wait = max(int(reset_at) - int(time.time()), 1)
+        else:
+            wait = 2 ** attempt
+        print(f"429 triggered. Waiting {wait} seconds (attempt {attempt + 1})...")
+        time.sleep(wait)
+    raise Exception("Maximum retry attempts exhausted")
+async function requestWithBackoff(url, options, maxRetries = 5) {
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    const response = await fetch(url, options);
+    if (response.status !== 429) {
+      return response;
+    }
+    const retryAfter = response.headers.get("Retry-After");
+    const resetAt = response.headers.get("X-RateLimit-Reset");
+    const wait = retryAfter
+      ? Number(retryAfter)
+      : resetAt
+        ? Math.max(Number(resetAt) - Math.floor(Date.now() / 1000), 1)
+        : 2 ** attempt;
+    console.log(`429 triggered. Waiting ${wait} seconds (attempt ${attempt + 1})...`);
+    await new Promise(resolve => setTimeout(resolve, wait * 1000));
+  }
+  throw new Error("Maximum retry attempts exhausted");
+}
+Best Practices
+Implement exponential backoff retries: Wait 1 second initially, double the wait each time, and cap the maximum wait at 32 seconds
+Prefer Retry-After and X-RateLimit-Reset headers: Wait precisely until the limit window resets
+Design for category-level concurrency: Distribute workloads across categories when possible â image generation and 3D generation have separate pools
+Use batch APIs: Use POST /v3/tasks/list instead of multiple GET /v3/tasks/{task_id} requests
+Poll wisely: When waiting for task completion, poll at reasonable intervals (every 1â2 seconds) rather than flooding the query endpoint
+Previous
+Error HandlingNextWebhooks
+On this page
+Rate LimitsConcurrency LimitsHandling 429 ResponsesBest Practices
+On this page
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

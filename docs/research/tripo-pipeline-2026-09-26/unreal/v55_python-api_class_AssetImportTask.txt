@@ -1,0 +1,281 @@
+unreal.AssetImportTask â Unreal Python 5.5 (Experimental) documentation
+window.__tracking_base = 'https://tracking.epicgames.com';
+$(document).ready(function () {
+    $.ajax({
+        url: "https://www.unrealengine.com/epic-games-header?useServerUrl=true&lang=en-US",
+        context: document.body
+    }).done(function (data) {
+        $("#head").html(data);
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+	});
+});
+window._egNavAfterConfigSet = function() {
+	_epicGamesNav.hideSignIn = true;
+	_epicGamesNav.hideLocale = true;
+};
+Navigation
+index
+next
+ |
+previous
+ |
+Unreal Python 5.5 (Experimental) documentation
+ Â»
+unreal.AssetImportTask
+unreal.AssetImportTask
+Â¶
+class
+unreal.
+AssetImportTask
+(
+outer
+:
+Object
+|
+None
+=
+None
+, 
+name
+:
+Name
+|
+str
+=
+'None'
+)
+Â¶
+Bases: 
+Object
+Contains data for a group of assets to import
+C++ Source:
+Module
+: UnrealEd
+File
+: AssetImportTask.h
+Editor Properties:
+ (see get_editor_property/set_editor_property)
+async_
+ (bool):  [Read-Write] Perform the import asynchronously for file formats where async import is available
+automated
+ (bool):  [Read-Write] Avoid dialogs
+destination_name
+ (str):  [Read-Write] Optional custom name to import as (if you are using interchange the name must be set in a pipeline and this field will be ignored)
+destination_path
+ (str):  [Read-Write] Path where asset will be imported to
+factory
+ (Factory):  [Read-Write] Optional factory to use
+filename
+ (str):  [Read-Write] Filename to import
+imported_object_paths
+ (Array[str]):  [Read-Write] Paths to objects created or updated after import
+options
+ (Object):  [Read-Write] Import options specific to the type of asset
+replace_existing
+ (bool):  [Read-Write] Overwrite existing assets
+replace_existing_settings
+ (bool):  [Read-Write] Replace existing settings when overwriting existing assets
+result
+ (Array[Object]):  [Read-Write]
+deprecated: Please use the GetObjects function instead.
+save
+ (bool):  [Read-Write] Save after importing
+property
+async_
+:
+bool
+Â¶
+[Read-Write] Perform the import asynchronously for file formats where async import is available
+Type
+:
+(
+bool
+)
+property
+automated
+:
+bool
+Â¶
+[Read-Write] Avoid dialogs
+Type
+:
+(
+bool
+)
+property
+destination_name
+:
+str
+Â¶
+[Read-Write] Optional custom name to import as (if you are using interchange the name must be set in a pipeline and this field will be ignored)
+Type
+:
+(
+str
+)
+property
+destination_path
+:
+str
+Â¶
+[Read-Write] Path where asset will be imported to
+Type
+:
+(
+str
+)
+property
+factory
+:
+Factory
+Â¶
+[Read-Write] Optional factory to use
+Type
+:
+(
+Factory
+)
+property
+filename
+:
+str
+Â¶
+[Read-Write] Filename to import
+Type
+:
+(
+str
+)
+get_objects
+(
+)
+â
+Array
+[
+Object
+]
+Â¶
+Get the list of imported objects.
+Note that if the import was asynchronous, this will block until the results are ready.
+To test whether asynchronous results are ready or not, use IsAsyncImportComplete().
+Return type
+:
+Array
+[
+Object
+]
+property
+imported_object_paths
+:
+None
+Â¶
+[Read-Write] Paths to objects created or updated after import
+Type
+:
+(
+Array
+[
+str
+])
+is_async_import_complete
+(
+)
+â
+bool
+Â¶
+Query whether this asynchronous import task is complete, and the results are ready to read.
+This will always return true in the case of a blocking import.
+Return type
+:
+bool
+property
+options
+:
+Object
+Â¶
+[Read-Write] Import options specific to the type of asset
+Type
+:
+(
+Object
+)
+property
+replace_existing
+:
+bool
+Â¶
+[Read-Write] Overwrite existing assets
+Type
+:
+(
+bool
+)
+property
+replace_existing_settings
+:
+bool
+Â¶
+[Read-Write] Replace existing settings when overwriting existing assets
+Type
+:
+(
+bool
+)
+property
+result
+:
+None
+Â¶
+[Read-Write]
+deprecated: Please use the GetObjects function instead.
+Type
+:
+(
+Array
+[
+Object
+])
+property
+save
+:
+bool
+Â¶
+[Read-Write] Save after importing
+Type
+:
+(
+bool
+)
+Table of Contents
+unreal.AssetImportTask
+AssetImportTask
+AssetImportTask.async_
+AssetImportTask.automated
+AssetImportTask.destination_name
+AssetImportTask.destination_path
+AssetImportTask.factory
+AssetImportTask.filename
+AssetImportTask.get_objects()
+AssetImportTask.imported_object_paths
+AssetImportTask.is_async_import_complete()
+AssetImportTask.options
+AssetImportTask.replace_existing
+AssetImportTask.replace_existing_settings
+AssetImportTask.result
+AssetImportTask.save
+Previous topic
+unreal.AssetImportData
+Next topic
+unreal.AssetMappingTable
+Quick search
+document.getElementById('searchbox').style.display = "block"
+Navigation
+index
+next
+ |
+previous
+ |
+Unreal Python 5.5 (Experimental) documentation
+ Â»
+unreal.AssetImportTask
+    Â© Copyright Â©, Epic Games, Inc. All rights reserved. Unreal and its logo are Epicâs trademarks or registered trademarks in the US and elsewhere.

@@ -1,0 +1,265 @@
+Generating Lightmap UVs in Unreal Engine  | Unreal Engine 5.5 Documentation | Epic Developer Community
+[_nghost-serverApp-c2617948613]{box-sizing:border-box;width:var(--_scrollbar-content-width);z-index:1;min-width:100%;min-height:100%;padding-block-start:var(--_viewport-padding-block-start, 0);padding-block-end:var(--_viewport-padding-block-end, 0);padding-inline-start:var(--_viewport-padding-inline-start, 0);padding-inline-end:var(--_viewport-padding-inline-end, 0)}@layer default{[_nghost-serverApp-c2617948613]{position:relative}[_nghost-serverApp-c2617948613]:not(table){display:flow-root}}
+[_nghost-serverApp-c4020475482]{pointer-events:none;position:absolute;inset:0;display:grid;grid-template:var(--_scrollbar-grid-template)}
+            window.currentProfile = {};
+<unrealengine-navigation langurlparam="lang" locale="en" isloggedin="false" customaccountlinks="[
+  {
+    &quot;id&quot;: &quot;notifications&quot;,
+    &quot;key&quot;: &quot;notifications&quot;,
+    &quot;label&quot;: &quot;Notifications&quot;,
+    &quot;locale&quot;: &quot;en&quot;,
+    &quot;hrefTemplate&quot;: &quot;https://dev.epicgames.com/community/api/user_profiles/tab-redirect/notifications/undefined&quot;
+  },
+  {
+    &quot;id&quot;: &quot;favorites&quot;,
+    &quot;key&quot;: &quot;favorites&quot;,
+    &quot;label&quot;: &quot;Favorites&quot;,
+    &quot;locale&quot;: &quot;en&quot;,
+    &quot;hrefTemplate&quot;: &quot;/community/profile/undefined/undefined/favorites&quot;
+  },
+  {
+    &quot;id&quot;: &quot;edit-profile&quot;,
+    &quot;key&quot;: &quot;edit-profile&quot;,
+    &quot;label&quot;: &quot;Edit Profile&quot;,
+    &quot;locale&quot;: &quot;en&quot;,
+    &quot;hrefTemplate&quot;: &quot;/community/profile/edit&quot;
+  }
+]" localeoptions="[
+  {
+    &quot;id&quot;: &quot;en&quot;,
+    &quot;locale&quot;: &quot;en&quot;,
+    &quot;label&quot;: &quot;English&quot;,
+    &quot;langCode&quot;: &quot;en-US&quot;
+  },
+  {
+    &quot;id&quot;: &quot;fr&quot;,
+    &quot;locale&quot;: &quot;fr&quot;,
+    &quot;label&quot;: &quot;Français&quot;,
+    &quot;langCode&quot;: &quot;fr&quot;
+  },
+  {
+    &quot;id&quot;: &quot;es_ES&quot;,
+    &quot;locale&quot;: &quot;es_ES&quot;,
+    &quot;label&quot;: &quot;Español (España)&quot;,
+    &quot;langCode&quot;: &quot;es-ES&quot;
+  },
+  {
+    &quot;id&quot;: &quot;es_MX&quot;,
+    &quot;locale&quot;: &quot;es_MX&quot;,
+    &quot;label&quot;: &quot;Español (LatAm)&quot;,
+    &quot;langCode&quot;: &quot;es-MX&quot;
+  },
+  {
+    &quot;id&quot;: &quot;de&quot;,
+    &quot;locale&quot;: &quot;de&quot;,
+    &quot;label&quot;: &quot;Deutsch&quot;,
+    &quot;langCode&quot;: &quot;de&quot;
+  },
+  {
+    &quot;id&quot;: &quot;pt_BR&quot;,
+    &quot;locale&quot;: &quot;pt_BR&quot;,
+    &quot;label&quot;: &quot;Português (Brasil)&quot;,
+    &quot;langCode&quot;: &quot;pt-BR&quot;
+  },
+  {
+    &quot;id&quot;: &quot;it&quot;,
+    &quot;locale&quot;: &quot;it&quot;,
+    &quot;label&quot;: &quot;Italiano&quot;,
+    &quot;langCode&quot;: &quot;it&quot;
+  },
+  {
+    &quot;id&quot;: &quot;pl&quot;,
+    &quot;locale&quot;: &quot;pl&quot;,
+    &quot;label&quot;: &quot;Polski&quot;,
+    &quot;langCode&quot;: &quot;pl&quot;
+  },
+  {
+    &quot;id&quot;: &quot;tr&quot;,
+    &quot;locale&quot;: &quot;tr&quot;,
+    &quot;label&quot;: &quot;Türkçe&quot;,
+    &quot;langCode&quot;: &quot;tr&quot;
+  },
+  {
+    &quot;id&quot;: &quot;ru&quot;,
+    &quot;locale&quot;: &quot;ru&quot;,
+    &quot;label&quot;: &quot;Русский&quot;,
+    &quot;langCode&quot;: &quot;ru&quot;
+  },
+  {
+    &quot;id&quot;: &quot;ja&quot;,
+    &quot;locale&quot;: &quot;ja&quot;,
+    &quot;label&quot;: &quot;日本語&quot;,
+    &quot;langCode&quot;: &quot;ja&quot;
+  },
+  {
+    &quot;id&quot;: &quot;ko&quot;,
+    &quot;locale&quot;: &quot;ko&quot;,
+    &quot;label&quot;: &quot;한국어&quot;,
+    &quot;langCode&quot;: &quot;ko&quot;
+  },
+  {
+    &quot;id&quot;: &quot;zh_CN&quot;,
+    &quot;locale&quot;: &quot;zh_CN&quot;,
+    &quot;label&quot;: &quot;简体中文&quot;,
+    &quot;langCode&quot;: &quot;zh-CN&quot;
+  }
+]" signoutlink="{
+  &quot;id&quot;: &quot;logout&quot;,
+  &quot;key&quot;: &quot;logout&quot;,
+  &quot;label&quot;: &quot;Sign out&quot;,
+  &quot;locale&quot;: &quot;en&quot;,
+  &quot;hrefTemplate&quot;: &quot;/community&quot;
+}" signinlink="{
+  &quot;id&quot;: &quot;signin&quot;,
+  &quot;key&quot;: &quot;signin&quot;,
+  &quot;label&quot;: &quot;Sign in&quot;,
+  &quot;locale&quot;: &quot;en&quot;,
+  &quot;hrefTemplate&quot;: &quot;https://dev.epicgames.com/community/api/user_identity/login/start?destination=https%3A%2F%2Fdev.epicgames.com%2Fdocumentation%2Fen-us%2Funreal-engine%2Fgenerating-lightmap-uvs-in-unreal-engine%3Fapplication_version%3D5.5&quot;
+}">
+Table of Contents
+Developer
+Generating Lightmap UVs
+Generating Lightmap UVs
+ An overview of generating your own lightmap UVs in Unreal Engine. 
+ On this page
+Unwrapping UVs for lightmaps
+ is time-consuming&nbsp;and one way you can mitigate this is to use Unreal Engine 5's (UE5)&nbsp;auto-generation tool to generate a lightmap UV from your existing texture UVs on import or through the 
+Static Mesh Editor
+.&nbsp;&nbsp;
+Caveats and Considerations
+By default, an auto-generated lightmap UV repacks the existing UV charts from the static mesh's first UV (UV Channel 0 in UE5). This UV is commonly used as the texture UV, so it's possible that the UV charts aren't laid out or set up in a way that is best suited for a lightmap UV, even with the auto-generation tools in UE5.
+Consider the following when creating an auto-generated lightmap UV.
+Generated lightmap UVs require an existing source UV to repack and that process is only as good as the UV used meaning that if the UV charts aren't broken up and properly laid out, a good repack will not be possible.
+During repacking, UE5 will not split UV chart edges to create separate UV islands. It only&nbsp;repacks the existing UV charts from the source UV index.
+UV charts are normalized when generated over maximizing coverage of the UV space with independently scaled or stretched charts.
+Import Options Settings
+During import, a lightmap UV will be generated for any static mesh by default when&nbsp;
+Generate Lightmap UVs
+ is enabled. The lightmap UV will be generated from UV Index 1 of your Static Mesh (UV Channel 0 in UE5) and assigned to&nbsp;
+Lightmap Coordinate Index&nbsp;
+1.&nbsp;
+Click image for full size.
+You can inspect your generated lightmap UV using the Static Mesh Editor. See 
+Unwrapping UVs for Lightmaps
+ for more information.
+Lightmap Generation Settings
+The Static Mesh Editor&nbsp;
+Build Settings
+ contains settings to generate and repack lightmap UVs. These options enable you to generate a lightmap UV without having to do so during import or post import if you want to refine the generated lightmap UV.&nbsp;
+Click image for full size.
+Enable&nbsp;
+Generate Lightmap UVs
+ to use the UV generation options&nbsp;detailed below in the table to control how the Lightmap UV is generated and repacked:
+Click image for full size.
+Property
+Description
+Min Lightmap Resolution
+Dictates the minimum padding needed for UV charts when packing the UVs. This target value ensures that packing is texel accurate down to the minimum lightmap resolution used. It will limit the light and shadow bleed that can happen when the value of 
+Lightmap Resolution
+ is lower than this value.
+Source Lightmap Index
+Chooses the UV channel from which to generate the lightmap UV.
+Destination Lightmap Index
+Sets the UV channel that the generated lightmap UV will be stored in.
+Generating a Lightmap UV
+The following steps walk through the process of generating a new lightmap UV from the Static Mesh Editor.
+Open the 
+Static Mesh Editor
+. In the 
+Details
+ panel, navigate to the 
+Build Settings
+ of 
+LOD0
+.
+Click image for full size.
+Generate lightmap UVs with the following settings:
+Click image for full size.
+Enable 
+Generate Lightmap UVs
+.
+Set the 
+Min Lightmap Resolution
+ to an ideal power&nbsp;of 2, which should be the lowest lightmap resolution that this mesh would ever use.&nbsp;This ensures that less&nbsp;light and shadow artifacts might&nbsp;affect the UV charts.
+Typically, the 
+Source Lightmap Index
+&nbsp;should be left on&nbsp;
+0
+ or set to an existing UV channel to generate the lightmap UV from. Only available UV channels will be available to choose from.
+The 
+Destination Lightmap Index
+ sets the UV channel to create or store the lightmap UV in. It can be any value (where value represents the actual number of current UV channels for this Static Mesh) plus one.
+Click 
+Apply Changes
+.&nbsp;
+In the 
+Details
+ panel under 
+General Settings
+, set the following:
+Click image for full size.
+Enter a 
+Lightmap Resolution
+ that this static mesh should use by default for any instances placed in a level. The resolution entered should be higher than the 
+Min Lightmap Resolution
+ used for generating the lightmap UV in the 
+Build Settings
+.
+Set the 
+Lightmap Coordinate Index
+&nbsp; to the UV channel being used for your Lightmap UV.&nbsp;Typically, this should match the 
+Destination Lightmap Index
+ used to generate the lightmap UV in the 
+Build Settings
+. This UV channel dictates which UV channel is used when generating the lightmap textures during a lighting build.
+In this example, the texture UV has been used to create a new lightmap UV. The texture UV is used as the source to repack for the lightmap UV, and the Texture UV has been laid out in a way that works best not to waste any texture space. With that approach, parts of the mesh are scaled larger (or smaller) based on their importance to get adequate texture resolution without wasting space in the texture.&nbsp;
+When the lightmap UV is generated, it is scaled to have the same density (normalized) and then packed into the UV space with enough padding between each UV chart to avoid light and shadow artifacts from a light build. Here, you may notice a little bit of wasted space in the generated lightmap UV, however, this is negligible and would not justify reworking the UV in a custom tool just to make it use this space.
+Regenerating Existing Lightmap UVs
+Regenerating (or repacking)&nbsp;an existing lightmap UV can be performed&nbsp;using the Static Mesh Edtior's 
+Build Settings
+. There are benefits to regenerating a lightmap UV for a Static Mesh.
+It enables you to change the padding between UV charts to use a higher or lower 
+Min Lightmap Resolution
+ without reimporting the mesh. This is most ideal when you have a lot of individual UV charts and gets a tighter pack in the lightmap UV.
+It enables you to repack any existing lightmap UVs from any&nbsp;
+Source Lightmap Index
+, including a previously generated lightmap UV channel.
+The following steps demonstrate regenerating a custom UV from an imported static mesh:
+Open the 
+Static Mesh Editor
+. In the 
+Details
+ panel, navigate to the 
+Build Settings
+ of 
+LOD0
+ to set the following options:
+Click image for full size.
+Optional
+ Set the 
+Min Lightmap Resolution
+ to a new value that is higher or lower. This adjusts how much padding should be between the UV charts.
+Set the 
+Source Lightmap Index
+ to the UV channel you want to re-pack
+Set the 
+Destination Lightmap Index
+ to be the same one as the Source Lightmap Index.
+Click 
+Apply Changes
+.&nbsp;
+It is worth noting that the custom lightmap UV focuses&nbsp;more on having coverage for smaller pieces that the player will see more closely. By increasing coverage of some pieces, the lightmap resolution can be lower to get the same result as the repacked lightmap resolution. You can use your judgment if this is something that you should resolve outside of UE5 for your particular assets.
+ rendering
+ artist tool
+ lighting
+Ask questions and help your peers&nbsp;
+Developer Forums
+Write your own tutorials or read those from others&nbsp;
+Learning Library
+On this page
+Caveats and Considerations
+Import Options Settings
+Lightmap Generation Settings
+Generating a Lightmap UV
+Regenerating Existing Lightmap UVs
+      window._epicEnableCookieGuard = true

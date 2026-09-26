@@ -1,0 +1,279 @@
+
+    Introduction â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+Introduction to the Tripo API
+Copy
+Download PDF
+# Introduction to the Tripo API
+Tripo3D is an AI-powered 3D generation platform that provides text-to-3D, image-to-3D, rigging, mesh editing, and other capabilities. With the Tripo API, developers can integrate high-quality 3D content generation into their own products.
+> If you are accessing from China, please visit the China site: [developers.tripo3d.com](https://developers.tripo3d.com)
+## Base URL
+```baseurl
+https://openapi.tripo3d.ai/v3
+```
+## Authentication
+All API requests must include an API Key in the request header:
+```apikey
+Authorization: Bearer {api_key}
+```
+You can create and manage API Keys in the [Tripo Console](/en/keys).
+## Unified Response Format
+### Success Response
+```json
+{
+  "code": 0,
+  "data": {
+    ...
+  }
+}
+```
+### Error Response
+```json
+{
+  "code": 2010,
+  "message": "Insufficient credits",
+  "suggestion": "Please top up your account"
+}
+```
+### Common Fields
+| Parameter | Type | Description |
+| :-: | :-: | :-: |
+| code | integer | Status code. `0` indicates success, and any non-`0` value indicates an error |
+| data | object | Business data, returned only on success |
+| message | string | Error description, returned only on failure |
+| suggestion | string | Suggested fix, returned only on failure |
+## Asynchronous Task Pattern
+Most generation APIs use an asynchronous task pattern:
+1. **Create a task** - Send a POST request to create a task and receive a `task_id`
+2. **Poll for results** - Use `GET /v3/tasks/{task_id}` to query the task status and result
+```
+POST /v3/generation/text-to-model  ->  {"code": 0, "data": {"task_id": "task_abc123"}}
+                                                |
+                                                v
+GET  /v3/tasks/task_abc123          ->  {"code": 0, "data": {"status": "running", "progress": 50}}
+                                                |
+                                                v
+GET  /v3/tasks/task_abc123          ->  {"code": 0, "data": {"status": "success", "output": {...}}}
+```
+### Task Statuses
+| Status | Description |
+| :-: | :-: |
+| `queued` | Queued |
+| `running` | Running |
+| `success` | Succeeded |
+| `failed` | Failed |
+| `cancelled` | Cancelled |
+## API Version
+Current version: **v3**
+## Endpoint Overview
+### 3D Model Generation
+| Endpoint | Description |
+| :-: | :-: |
+| [`POST /v3/generation/text-to-model`](/en/docs/generation-text-to-model) | Generate a 3D model from text |
+| [`POST /v3/generation/image-to-model`](/en/docs/generation-image-to-model) | Generate a 3D model from an image |
+| [`POST /v3/generation/multiview-to-model`](/en/docs/generation-multiview-to-model) | Generate a 3D model from multiview images |
+### Image Generation
+| Endpoint | Description |
+| :-: | :-: |
+| [`POST /v3/generation/text-to-image`](/en/docs/generation-text-to-image) | Generate an image from text |
+| [`POST /v3/generation/image-to-image`](/en/docs/generation-image-to-image) | Transform an image style |
+| [`POST /v3/generation/image-to-multiview`](/en/docs/generation-image-to-multiview) | Generate multiview images |
+| [`POST /v3/generation/edit-multiview`](/en/docs/generation-edit-multiview) | Edit multiview images |
+### Model Processing
+| Endpoint | Description |
+| :-: | :-: |
+| [`POST /v3/models/texture`](/en/docs/models-texture) | Texture a model |
+| [`POST /v3/models/convert`](/en/docs/models-convert) | Convert model format |
+| [`POST /v3/mesh/segment`](/en/docs/mesh-segment) | Semantic segmentation |
+| [`POST /v3/mesh/complete`](/en/docs/mesh-complete) | Mesh completion |
+| [`POST /v3/mesh/decimate`](/en/docs/mesh-decimate) | Retopology |
+### Animation
+| Endpoint | Description |
+| :-: | :-: |
+| [`POST /v3/animations/rig-check`](/en/docs/animations-rig-check) | Check rigging compatibility |
+| [`POST /v3/animations/rig`](/en/docs/animations-rig) | Rig a model |
+| [`POST /v3/animations/retarget`](/en/docs/animations-retarget) | Retarget an animation |
+### Task Management
+| Endpoint | Description |
+| :-: | :-: |
+| [`GET /v3/tasks/{task_id}`](/en/docs/task-query) | Query a task |
+| [`POST /v3/tasks/list`](/en/docs/task-batch-query) | Query tasks in batch |
+### File Management
+| Endpoint | Description |
+| :-: | :-: |
+| [`POST /v3/files`](/en/docs/files) | Upload a file |
+### Account
+| Endpoint | Description |
+| :-: | :-: |
+| [`GET /v3/account/balance`](/en/docs/account) | Query account balance |
+Introduction to the Tripo API
+Tripo3D is an AI-powered 3D generation platform that provides text-to-3D, image-to-3D, rigging, mesh editing, and other capabilities. With the Tripo API, developers can integrate high-quality 3D content generation into their own products.
+If you are accessing from China, please visit the China site: developers.tripo3d.com
+Base URL
+https://openapi.tripo3d.ai/v3
+Authentication
+All API requests must include an API Key in the request header:
+Authorization: Bearer {api_key}
+You can create and manage API Keys in the Tripo Console.
+Unified Response Format
+Success Response
+JSON
+Copy
+{
+  "code": 0,
+  "data": {
+    ...
+  }
+}
+Error Response
+JSON
+Copy
+{
+  "code": 2010,
+  "message": "Insufficient credits",
+  "suggestion": "Please top up your account"
+}
+Common Fields
+Parameter | 
+Type | 
+Description | 
+code | 
+integer | 
+Status code. 0 indicates success, and any non-0 value indicates an error | 
+data | 
+object | 
+Business data, returned only on success | 
+message | 
+string | 
+Error description, returned only on failure | 
+suggestion | 
+string | 
+Suggested fix, returned only on failure | 
+Asynchronous Task Pattern
+Most generation APIs use an asynchronous task pattern:
+Create a task - Send a POST request to create a task and receive a task_id
+Poll for results - Use GET /v3/tasks/{task_id} to query the task status and result
+Copy
+POST /v3/generation/text-to-model  ->  {"code": 0, "data": {"task_id": "task_abc123"}}
+                                                |
+                                                v
+GET  /v3/tasks/task_abc123          ->  {"code": 0, "data": {"status": "running", "progress": 50}}
+                                                |
+                                                v
+GET  /v3/tasks/task_abc123          ->  {"code": 0, "data": {"status": "success", "output": {...}}}
+Task Statuses
+Status | 
+Description | 
+queued | 
+Queued | 
+running | 
+Running | 
+success | 
+Succeeded | 
+failed | 
+Failed | 
+cancelled | 
+Cancelled | 
+API Version
+Current version: v3
+Endpoint Overview
+3D Model Generation
+Endpoint | 
+Description | 
+POST /v3/generation/text-to-model | 
+Generate a 3D model from text | 
+POST /v3/generation/image-to-model | 
+Generate a 3D model from an image | 
+POST /v3/generation/multiview-to-model | 
+Generate a 3D model from multiview images | 
+Image Generation
+Endpoint | 
+Description | 
+POST /v3/generation/text-to-image | 
+Generate an image from text | 
+POST /v3/generation/image-to-image | 
+Transform an image style | 
+POST /v3/generation/image-to-multiview | 
+Generate multiview images | 
+POST /v3/generation/edit-multiview | 
+Edit multiview images | 
+Model Processing
+Endpoint | 
+Description | 
+POST /v3/models/texture | 
+Texture a model | 
+POST /v3/models/convert | 
+Convert model format | 
+POST /v3/mesh/segment | 
+Semantic segmentation | 
+POST /v3/mesh/complete | 
+Mesh completion | 
+POST /v3/mesh/decimate | 
+Retopology | 
+Animation
+Endpoint | 
+Description | 
+POST /v3/animations/rig-check | 
+Check rigging compatibility | 
+POST /v3/animations/rig | 
+Rig a model | 
+POST /v3/animations/retarget | 
+Retarget an animation | 
+Task Management
+Endpoint | 
+Description | 
+GET /v3/tasks/{task_id} | 
+Query a task | 
+POST /v3/tasks/list | 
+Query tasks in batch | 
+File Management
+Endpoint | 
+Description | 
+POST /v3/files | 
+Upload a file | 
+Account
+Endpoint | 
+Description | 
+GET /v3/account/balance | 
+Query account balance | 
+NextQuick Start
+On this page
+Base URLAuthenticationUnified Response FormatAsynchronous Task PatternAPI VersionEndpoint Overview
+On this page
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

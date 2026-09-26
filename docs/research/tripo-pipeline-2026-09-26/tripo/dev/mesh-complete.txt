@@ -1,0 +1,203 @@
+
+    Mesh Complete â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+Mesh Part Completion
+Copy
+Download PDF
+# Mesh Part Completion
+**Base URL:** `https://openapi.tripo3d.ai/v3`
+**Endpoint:** `POST /mesh/complete`
+Complete segmented mesh parts and repair missing regions.
+## Request Parameters
+### input
+- **Type:** string
+- **Required:** Required
+task_id of a `mesh/segment` task, starting with `task_`.
+### model
+- **Type:** string
+- **Required:** Optional
+- **Default:** `v1.0-20250506`
+Completion model version.
+- `v1.0-20250506` â default (current only version).
+### part_names
+- **Type:** string[]
+- **Required:** Optional
+List of part names to complete. If omitted, all parts are completed.
+### completion_mode
+- **Type:** string
+- **Required:** Optional
+- **Default:** `ai_completion`
+Completion mode.
+- `ai_completion` â AI diffusion-based completion (default). Generates realistic geometry to fill missing regions.
+- `quick_cap` â Quick hole-fill. Fast sealing of open boundaries without AI generation.
+## Request Example
+### Complete (AI)
+```bash
+curl --request POST \
+  --url https://openapi.tripo3d.ai/v3/mesh/complete \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "input": "task_abc123",
+  "part_names": [
+    "head",
+    "body"
+  ]
+}'
+```
+### Quick Cap
+```bash
+curl --request POST \
+  --url https://openapi.tripo3d.ai/v3/mesh/complete \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "input": "task_abc123",
+  "completion_mode": "quick_cap"
+}'
+```
+## Response Example
+### Create task
+```json
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123"
+  }
+}
+```
+### Task result
+```json
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123",
+    "type": "text_to_model",
+    "status": "success",
+    "progress": 100,
+    "output": {
+      "model_url": "https://cdn.tripo3d.ai/output/model_pbr.glb",
+      "rendered_image_url": "https://cdn.tripo3d.ai/output/preview.png"
+    },
+    "credits_consumed": 100.00,
+    "created_at": "2026-04-28T12:00:00Z",
+    "completed_at": "2026-04-28T12:01:30Z"
+  }
+}
+```
+http
+Copy
+Base URL: https://openapi.tripo3d.ai/v3
+Endpoint: POST /mesh/complete
+Complete segmented mesh parts and repair missing regions.
+Note
+This endpoint requires an API Key. Include it in the Authorization header as Bearer {api_key}.
+This is an asynchronous API. After submitting the request, use the Task Query API to poll for results, or configure a Webhook to receive automatic notifications when the task completes.
+Request Parameters
+Request Body
+inputstringRequired
+task_id of a mesh/segment task, starting with task_.
+modelstringdefault: v1.0-20250506
+Completion model version.v1.0-20250506 â default (current only version).
+part_namesstring[]
+List of part names to complete. If omitted, all parts are completed.
+completion_modestringdefault: ai_completion
+Completion mode.ai_completion â AI diffusion-based completion (default). Generates realistic geometry to fill missing regions.
+quick_cap â Quick hole-fill. Fast sealing of open boundaries without AI generation.
+Examples
+Complete (AI)
+Copy
+{
+  "input": "task_abc123",
+  "part_names": [
+    "head",
+    "body"]
+}
+Quick Cap
+Copy
+{
+  "input": "task_abc123",
+  "completion_mode": "quick_cap"}
+Create task
+Copy
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123"}
+}
+Task result
+Copy
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123",
+    "type": "text_to_model",
+    "status": "success",
+    "progress": 100,
+    "output": {
+      "model_url": "https://cdn.tripo3d.ai/output/model_pbr.glb",
+      "rendered_image_url": "https://cdn.tripo3d.ai/output/preview.png"},
+    "credits_consumed": 100.00,
+    "created_at": "2026-04-28T12:00:00Z",
+    "completed_at": "2026-04-28T12:01:30Z"}
+}
+Mesh Part CompletioncURL
+Copy
+Complete (AI)Quick Cap
+curl --request POST \
+  --url https://openapi.tripo3d.ai/v3/mesh/complete \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "input": "task_abc123",
+  "part_names": [
+    "head",
+    "body"]
+}'
+200Response
+Copy
+Create taskTask result
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123"}
+}
+Previous
+Smart SegmentationNextRetopology
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

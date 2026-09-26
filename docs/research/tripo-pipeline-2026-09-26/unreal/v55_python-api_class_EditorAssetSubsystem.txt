@@ -1,0 +1,1247 @@
+unreal.EditorAssetSubsystem â Unreal Python 5.5 (Experimental) documentation
+window.__tracking_base = 'https://tracking.epicgames.com';
+$(document).ready(function () {
+    $.ajax({
+        url: "https://www.unrealengine.com/epic-games-header?useServerUrl=true&lang=en-US",
+        context: document.body
+    }).done(function (data) {
+        $("#head").html(data);
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+	});
+});
+window._egNavAfterConfigSet = function() {
+	_epicGamesNav.hideSignIn = true;
+	_epicGamesNav.hideLocale = true;
+};
+Navigation
+index
+next
+ |
+previous
+ |
+Unreal Python 5.5 (Experimental) documentation
+ Â»
+unreal.EditorAssetSubsystem
+unreal.EditorAssetSubsystem
+Â¶
+class
+unreal.
+EditorAssetSubsystem
+(
+outer
+:
+Object
+|
+None
+=
+None
+, 
+name
+:
+Name
+|
+str
+=
+'None'
+)
+Â¶
+Bases: 
+EditorSubsystem
+UEditorAssetSubsystem
+Subsystem for exposing asset related utilities to scripts.
+Asset Paths can be represented in the following ways:
+(Reference/Text Path)   StaticMeshâ/Game/MyFolder/MyAsset.MyAssetâ
+(Full Name)                             StaticMesh /Game/MyFolder/MyAsset.MyAsset
+(Path Name)                             /Game/MyFolder/MyAsset.MyAsset
+(Package Name)                  /Game/MyFolder/MyAsset
+Directory Paths can be represented in the following ways:
+/Game/MyNewFolder/
+/Game/MyNewFolder
+C++ Source:
+Module
+: UnrealEd
+File
+: EditorAssetSubsystem.h
+add_on_extract_asset_from_file
+(
+delegate
+)
+â
+None
+Â¶
+Call this to add a callback to extract an asset from a file,
+for example from a drag and drop operation.
+Parameters
+:
+delegate
+ (
+OnExtractAssetFromFileDynamic
+)
+checkout_asset
+(
+asset_to_checkout
+)
+â
+bool
+Â¶
+Checkout an asset.
+Parameters
+:
+asset_to_checkout
+ (
+str
+) â Asset Path of the asset that we want to checkout.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+checkout_directory
+(
+directory_path
+, 
+recursive
+=
+True
+)
+â
+bool
+Â¶
+Checkout all assets in a directory. It will load the assets if needed.
+All objects that are in the directory will be checked out. Assets will be loaded before being checked out.
+Parameters
+:
+directory_path
+ (
+str
+) â Directory of the assets to be checked out.
+recursive
+ (
+bool
+) â If the AssetPath is a folder, the search will be recursive and will checkout the assets in the sub folders.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+checkout_loaded_asset
+(
+asset_to_checkout
+)
+â
+bool
+Â¶
+Checkout the asset corresponding to an object.
+Parameters
+:
+asset_to_checkout
+ (
+Object
+) â Asset to checkout.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+checkout_loaded_assets
+(
+assets_to_checkout
+)
+â
+bool
+Â¶
+Checkout the assets.
+Parameters
+:
+assets_to_checkout
+ (
+Array
+[
+Object
+]
+) â Assets to checkout.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+consolidate_assets
+(
+asset_to_consolidate_to
+, 
+assets_to_consolidate
+)
+â
+bool
+Â¶
+Consolidates assets by replacing all references/uses of the provided AssetsToConsolidate with references to AssetToConsolidateTo.
+This is useful when you want all references of assets to be replaced by a single asset.
+The function first attempts to directly replace all relevant references located within objects that are already loaded and in memory.
+Next, it deletes the AssetsToConsolidate, leaving behind object redirectors to AssetToConsolidateTo.
+note: The AssetsToConsolidate are DELETED by this function.
+note: Modified objects will be saved if the operation succeeds.
+Parameters
+:
+asset_to_consolidate_to
+ (
+Object
+) â Asset to which all references of the AssetsToConsolidate will instead refer to after this operation completes.
+assets_to_consolidate
+ (
+Array
+[
+Object
+]
+) â All references to these assets will be modified to reference AssetToConsolidateTo instead.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+delete_asset
+(
+asset_path_to_delete
+)
+â
+bool
+Â¶
+Delete the package an asset is in. All objects in the package will be deleted.
+This is a Force Delete. It does not check if the asset has references in other Levels or by Actors.
+It will close all the asset editors and may clear the Transaction buffer (Undo History).
+Will try to mark the file as deleted. The Asset will be loaded before being deleted.
+Parameters
+:
+asset_path_to_delete
+ (
+str
+) â Asset Path of the asset to delete.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+delete_directory
+(
+directory_path
+)
+â
+bool
+Â¶
+Delete the packages inside a directory. If the directory is then empty, delete the directory.
+This is a Force Delete. It does not check if the assets have references in other Levels or by Actors.
+It will close all the asset editors and may clear the Transaction buffer (Undo History).
+Will try to mark the file as deleted. Assets will be loaded before being deleted.
+The search is always recursive. It will try to delete the sub folders.
+Parameters
+:
+directory_path
+ (
+str
+) â Directory that will be marked for deletion and deleted.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+delete_loaded_asset
+(
+asset_to_delete
+)
+â
+bool
+Â¶
+Delete an asset that is already loaded.
+This is a Force Delete. It does not check if the asset has references in other Levels or by Actors.
+It will close all the asset editors and may clear the Transaction buffer (Undo History).
+Will try to mark the file as deleted.
+Parameters
+:
+asset_to_delete
+ (
+Object
+) â Asset to delete.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+delete_loaded_assets
+(
+assets_to_delete
+)
+â
+bool
+Â¶
+Delete assets that are already loaded.
+This is a Force Delete. It does not check if the assets have references in other Levels or by Actors.
+It will close all the asset editors and may clear the Transaction buffer (Undo History).
+Will try to mark the files as deleted.
+Parameters
+:
+assets_to_delete
+ (
+Array
+[
+Object
+]
+) â Loaded assets to delete.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+do_assets_exist
+(
+asset_paths
+)
+â
+bool
+Â¶
+Check if assets exist in the Asset Registry.
+Parameters
+:
+asset_paths
+ (
+Array
+[
+str
+]
+) â Asset Paths of the assets to check for existence.
+Returns
+:
+True if all assets exist and are valid.
+Return type
+:
+bool
+does_asset_exist
+(
+asset_path
+)
+â
+bool
+Â¶
+Check if an asset exists in the Asset Registry.
+Parameters
+:
+asset_path
+ (
+str
+) â Asset Path to check for existence.
+Returns
+:
+True if the asset exists and is valid.
+Return type
+:
+bool
+does_directory_contain_assets
+(
+directory_path
+, 
+recursive
+=
+True
+)
+â
+bool
+Â¶
+Check if a directory contains any assets.
+Parameters
+:
+directory_path
+ (
+str
+) â Long Path Name of the directory.
+recursive
+ (
+bool
+)
+Returns
+:
+True if there is any assets.
+Return type
+:
+bool
+does_directory_exist
+(
+directory_path
+)
+â
+bool
+Â¶
+Check if a directory exists.
+Parameters
+:
+directory_path
+ (
+str
+) â Long Path Name of the directory.
+Returns
+:
+True if it does exist and it is valid.
+Return type
+:
+bool
+duplicate_asset
+(
+source_asset_path
+, 
+destination_asset_path
+)
+â
+Object
+Â¶
+Duplicate an asset. Will try to checkout the file. The Asset will be loaded before being duplicated.
+Parameters
+:
+source_asset_path
+ (
+str
+) â Asset Path of the asset that we want to copy from.
+destination_asset_path
+ (
+str
+) â Asset Path of the duplicated asset.
+Returns
+:
+The duplicated object if the operation succeeds.
+Return type
+:
+Object
+duplicate_directory
+(
+source_directory_path
+, 
+destination_directory_path
+)
+â
+bool
+Â¶
+Duplicate a directory and the assets in it.
+Will try to checkout the files. The Assets will be loaded before being duplicated.
+Parameters
+:
+source_directory_path
+ (
+str
+) â Directory of the assets that we want to duplicate from.
+destination_directory_path
+ (
+str
+) â Directory of the duplicated asset.
+Returns
+:
+The duplicated object if the operation succeeds.
+Return type
+:
+bool
+duplicate_loaded_asset
+(
+source_asset
+, 
+destination_asset_path
+)
+â
+Object
+Â¶
+Duplicate an asset that is already loaded. Will try to checkout the file.
+Parameters
+:
+source_asset
+ (
+Object
+) â Asset that we want to copy from.
+destination_asset_path
+ (
+str
+) â Asset Path of the duplicated asset.
+Returns
+:
+The duplicated object if the operation succeeds
+Return type
+:
+Object
+find_asset_data
+(
+asset_path
+)
+â
+AssetData
+Â¶
+Return the AssetData for the Asset that can then be used with AssetRegistryHelpers.
+Parameters
+:
+asset_path
+ (
+str
+) â Asset Path to retrieve data from.
+Returns
+:
+The AssetData found.
+Return type
+:
+AssetData
+find_package_referencers_for_asset
+(
+asset_path
+, 
+load_assets_to_confirm
+=
+False
+)
+â
+Array
+[
+str
+]
+Â¶
+Find Package Referencers for an asset. Only Soft and Hard dependencies will be looked for.
+Soft are dependencies which donât need to be loaded for the object to be used.
+Hard are dependencies which are required for correct usage of the source asset and must be loaded at the same time.
+Other references may exist. The asset may be currently used in memory by another asset, by the editor or by code.
+Package dependencies are cached with the asset. False positives can happen until all the assets are loaded and re-saved.
+Parameters
+:
+asset_path
+ (
+str
+) â Asset Path of the asset that we are looking for.
+load_assets_to_confirm
+ (
+bool
+) â Whether the asset and any potential referencers will be loaded to confirm the dependencies.
+Returns
+:
+The package paths of the referencers.
+Return type
+:
+Array
+[
+str
+]
+get_all_assets_by_meta_data_tags
+(
+required_tags
+, 
+allowed_classes
+)
+â
+Array
+[
+AssetData
+]
+Â¶
+Gets all assets which have the given tags.
+params: RequiredTags The tags the assets should have
+params: AllowedClasses The class types the contained assets should have
+Parameters
+:
+required_tags
+ (
+Set
+[
+Name
+]
+)
+allowed_classes
+ (
+Set
+[
+type
+(
+Class
+)
+]
+)
+Return type
+:
+Array
+[
+AssetData
+]
+get_asset_filename_length_for_cooking
+(
+asset_path
+)
+â
+int32
+Â¶
+Returns the length of the computed cooked package name and path
+Parameters
+:
+asset_path
+ (
+str
+)
+Return type
+:
+int32
+get_loaded_asset_filename_length_for_cooking
+(
+asset
+)
+â
+int32
+Â¶
+Returns the length of the computed cooked package name and path
+Parameters
+:
+asset
+ (
+Object
+)
+Return type
+:
+int32
+get_metadata_tag
+(
+object
+, 
+tag
+)
+â
+str
+Â¶
+Get the value associated with the given tag of a loaded assetâs metadata.
+Parameters
+:
+object
+ (
+Object
+) â The object from which to retrieve the metadata.
+tag
+ (
+Name
+) â The tag to find in the metadata.
+Returns
+:
+The string value associated with the tag.
+Return type
+:
+str
+get_metadata_tag_values
+(
+object
+)
+â
+Map
+[
+Name
+,
+str
+]
+Â¶
+Get all tags/values of a loaded assetâs metadata.
+Parameters
+:
+object
+ (
+Object
+) â The object from which to retrieve the metadata.
+Returns
+:
+The list of all Tags and Values.
+Return type
+:
+Map
+[
+Name
+, 
+str
+]
+get_path_name_for_loaded_asset
+(
+loaded_asset
+)
+â
+str
+Â¶
+Return a valid AssetPath for a loaded asset.
+Similar to GetPathName(). The format will be: /Game/MyFolder/MyAsset.MyAsset
+Parameters
+:
+loaded_asset
+ (
+Object
+) â The loaded asset to get the path of.
+Returns
+:
+If valid, the asset Path of the loaded asset.
+Return type
+:
+str
+get_tag_values
+(
+asset_path
+)
+â
+Map
+[
+Name
+,
+str
+]
+Â¶
+Gets all TagValues (from Asset Registry) associated with an (unloaded) asset as strings value.
+Parameters
+:
+asset_path
+ (
+str
+) â Asset Path we are trying to find.
+Returns
+:
+The list of all TagNames &amp; TagValues.
+Return type
+:
+Map
+[
+Name
+, 
+str
+]
+list_assets
+(
+directory_path
+, 
+recursive
+=
+True
+, 
+include_folder
+=
+False
+)
+â
+Array
+[
+str
+]
+Â¶
+Return the list of all the assets found in the DirectoryPath.
+Parameters
+:
+directory_path
+ (
+str
+) â Directory path of the asset we want the list from.
+recursive
+ (
+bool
+) â The search will be recursive and will look in sub folders.
+include_folder
+ (
+bool
+) â The result will include folders name.
+Returns
+:
+The list of assets found.
+Return type
+:
+Array
+[
+str
+]
+list_assets_by_tag_value
+(
+tag_name
+, 
+tag_value
+)
+â
+Array
+[
+str
+]
+Â¶
+Return the list of all the assets that have the pair of Tag/Value.
+Parameters
+:
+tag_name
+ (
+Name
+) â The tag associated with the assets requested.
+tag_value
+ (
+str
+) â The value associated with the assets requested.
+Returns
+:
+The list of assets found.
+Return type
+:
+Array
+[
+str
+]
+load_asset
+(
+asset_path
+)
+â
+Object
+Â¶
+Load an asset. It will verify if the object is already loaded and only load it if itâs necessary.
+Parameters
+:
+asset_path
+ (
+str
+) â Asset Path of the asset to load
+Returns
+:
+Found or loaded asset.
+Return type
+:
+Object
+load_blueprint_class
+(
+asset_path
+)
+Â¶
+Load a Blueprint asset and return its generated class. It will verify if the object is already loaded and only load it if itâs necessary.
+Parameters
+:
+asset_path
+ (
+str
+) â Asset Path of the Blueprint asset.
+Returns
+:
+Found or loaded class.
+Return type
+:
+type
+(
+Class
+)
+make_directory
+(
+directory_path
+)
+â
+bool
+Â¶
+Create a directory on disk.
+Parameters
+:
+directory_path
+ (
+str
+) â Long Path Name of the directory.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+remove_metadata_tag
+(
+object
+, 
+tag
+)
+â
+None
+Â¶
+Remove the given tag from a loaded assetâs metadata.
+Parameters
+:
+object
+ (
+Object
+) â The object from which to retrieve the metadata.
+tag
+ (
+Name
+) â The tag to remove from the metadata.
+remove_on_extract_asset_from_file
+(
+delegate
+)
+â
+None
+Â¶
+Call this to remove a callback added with AddOnExtractAssetFromFile.
+Parameters
+:
+delegate
+ (
+OnExtractAssetFromFileDynamic
+)
+rename_asset
+(
+source_asset_path
+, 
+destination_asset_path
+)
+â
+bool
+Â¶
+Rename an asset. Equivalent to a Move operation.
+Will try to checkout the file. The Asset will be loaded before being renamed.
+Parameters
+:
+source_asset_path
+ (
+str
+) â Asset Path of the asset that we want to copy from.
+destination_asset_path
+ (
+str
+) â Asset Path of the renamed asset.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+rename_directory
+(
+source_directory_path
+, 
+destination_directory_path
+)
+â
+bool
+Â¶
+Rename a directory. Equivalent to a Move operation moving all contained assets.
+Will try to checkout the files. The Assets will be loaded before being renamed.
+Parameters
+:
+source_directory_path
+ (
+str
+) â Directory of the assets that we want to rename from.
+destination_directory_path
+ (
+str
+) â Directory of the renamed asset.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+rename_loaded_asset
+(
+source_asset
+, 
+destination_asset_path
+)
+â
+bool
+Â¶
+Rename an asset that is already loaded. Equivalent to a Move operation.
+Will try to checkout the file.
+Parameters
+:
+source_asset
+ (
+Object
+) â Asset that we want to copy from.
+destination_asset_path
+ (
+str
+) â Asset Path of the duplicated asset.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+save_asset
+(
+asset_to_save
+, 
+only_if_is_dirty
+=
+True
+)
+â
+bool
+Â¶
+Save the packages the assets live in. All objects that live in the package will be saved.
+Will try to checkout the file first. The Asset will be loaded before being saved.
+Parameters
+:
+asset_to_save
+ (
+str
+) â Asset Path of the asset that we want to save.
+only_if_is_dirty
+ (
+bool
+) â Only checkout/save the asset if itâs dirty.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+save_directory
+(
+directory_path
+, 
+only_if_is_dirty
+=
+True
+, 
+recursive
+=
+True
+)
+â
+bool
+Â¶
+Save the packages the assets live in inside the directory. All objects that are in the directory will be saved.
+Will try to checkout the file first. Assets will be loaded before being saved.
+Parameters
+:
+directory_path
+ (
+str
+) â Directory that will be checked out and saved.
+only_if_is_dirty
+ (
+bool
+) â Only checkout asset that are dirty.
+recursive
+ (
+bool
+) â The search will be recursive and it will save the asset in the sub folders.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+save_loaded_asset
+(
+asset_to_save
+, 
+only_if_is_dirty
+=
+True
+)
+â
+bool
+Â¶
+Save the package the asset lives in. All objects that live in the package will be saved. Will try to checkout the file.
+Parameters
+:
+asset_to_save
+ (
+Object
+) â Asset that we want to save.
+only_if_is_dirty
+ (
+bool
+) â Only checkout asset that are dirty.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+save_loaded_assets
+(
+assets_to_save
+, 
+only_if_is_dirty
+=
+True
+)
+â
+bool
+Â¶
+Save the packages the assets live in. All objects that live in the packages will be saved. Will try to checkout the files.
+Parameters
+:
+assets_to_save
+ (
+Array
+[
+Object
+]
+) â Assets that we want to save.
+only_if_is_dirty
+ (
+bool
+) â Only checkout asset that are dirty.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+set_dirty_flag
+(
+object
+, 
+dirty_state
+)
+â
+bool
+Â¶
+Set the package dirty flag for an asset
+Parameters
+:
+object
+ (
+Object
+) â Object we want to set the package dirty state.
+dirty_state
+ (
+bool
+) â The dirty state, true mean the asset package need to be save.
+Returns
+:
+True if the operation succeeds.
+Return type
+:
+bool
+set_metadata_tag
+(
+object
+, 
+tag
+, 
+value
+)
+â
+None
+Â¶
+Set the value associated with a given tag of a loaded assetâs metadata.
+Parameters
+:
+object
+ (
+Object
+) â The object from which to retrieve the metadata.
+tag
+ (
+Name
+) â The tag to set in the metadata.
+value
+ (
+str
+) â The string value to associate with the tag.
+sort_by_meta_data
+(
+assets
+, 
+meta_data_tag
+, 
+meta_data_type
+, 
+sort_order
+)
+â
+Array[AssetData]
+or
+None
+Â¶
+Sorts the assets based on their meta dataâs type.
+Supported types: FString, int, float, FDateTime.
+Parameters
+:
+assets
+ (
+Array
+[
+AssetData
+]
+) â The assets to sort
+meta_data_tag
+ (
+Name
+) â The on which the sort is based
+meta_data_type
+ (
+EditorAssetMetaDataSortType
+) â The meta data type of MetaDataTag
+sort_order
+ (
+EditorAssetSortOrder
+) â Whether to sort ascending or descending
+Returns
+:
+Whether the data was sorted, e.g. false if not all assets have the MetaDataTag.
+assets (Array[AssetData]): The assets to sort
+Return type
+:
+Array
+[
+AssetData
+] or None
+Table of Contents
+unreal.EditorAssetSubsystem
+EditorAssetSubsystem
+EditorAssetSubsystem.add_on_extract_asset_from_file()
+EditorAssetSubsystem.checkout_asset()
+EditorAssetSubsystem.checkout_directory()
+EditorAssetSubsystem.checkout_loaded_asset()
+EditorAssetSubsystem.checkout_loaded_assets()
+EditorAssetSubsystem.consolidate_assets()
+EditorAssetSubsystem.delete_asset()
+EditorAssetSubsystem.delete_directory()
+EditorAssetSubsystem.delete_loaded_asset()
+EditorAssetSubsystem.delete_loaded_assets()
+EditorAssetSubsystem.do_assets_exist()
+EditorAssetSubsystem.does_asset_exist()
+EditorAssetSubsystem.does_directory_contain_assets()
+EditorAssetSubsystem.does_directory_exist()
+EditorAssetSubsystem.duplicate_asset()
+EditorAssetSubsystem.duplicate_directory()
+EditorAssetSubsystem.duplicate_loaded_asset()
+EditorAssetSubsystem.find_asset_data()
+EditorAssetSubsystem.find_package_referencers_for_asset()
+EditorAssetSubsystem.get_all_assets_by_meta_data_tags()
+EditorAssetSubsystem.get_asset_filename_length_for_cooking()
+EditorAssetSubsystem.get_loaded_asset_filename_length_for_cooking()
+EditorAssetSubsystem.get_metadata_tag()
+EditorAssetSubsystem.get_metadata_tag_values()
+EditorAssetSubsystem.get_path_name_for_loaded_asset()
+EditorAssetSubsystem.get_tag_values()
+EditorAssetSubsystem.list_assets()
+EditorAssetSubsystem.list_assets_by_tag_value()
+EditorAssetSubsystem.load_asset()
+EditorAssetSubsystem.load_blueprint_class()
+EditorAssetSubsystem.make_directory()
+EditorAssetSubsystem.remove_metadata_tag()
+EditorAssetSubsystem.remove_on_extract_asset_from_file()
+EditorAssetSubsystem.rename_asset()
+EditorAssetSubsystem.rename_directory()
+EditorAssetSubsystem.rename_loaded_asset()
+EditorAssetSubsystem.save_asset()
+EditorAssetSubsystem.save_directory()
+EditorAssetSubsystem.save_loaded_asset()
+EditorAssetSubsystem.save_loaded_assets()
+EditorAssetSubsystem.set_dirty_flag()
+EditorAssetSubsystem.set_metadata_tag()
+EditorAssetSubsystem.sort_by_meta_data()
+Previous topic
+unreal.EditorAssetLibrary
+Next topic
+unreal.EditorAutomationActor
+Quick search
+document.getElementById('searchbox').style.display = "block"
+Navigation
+index
+next
+ |
+previous
+ |
+Unreal Python 5.5 (Experimental) documentation
+ Â»
+unreal.EditorAssetSubsystem
+    Â© Copyright Â©, Epic Games, Inc. All rights reserved. Unreal and its logo are Epicâs trademarks or registered trademarks in the US and elsewhere.

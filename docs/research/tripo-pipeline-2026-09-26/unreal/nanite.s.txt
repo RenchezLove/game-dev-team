@@ -1,0 +1,383 @@
+Nanite Virtualized Geometry in Unreal Engine  | Unreal Engine 5.8 Documentation | Epic Developer Community
+[_nghost-serverApp-c4020475482]{pointer-events:none;position:absolute;inset:0;display:grid;grid-template:var(--_scrollbar-grid-template)}
+            window.currentProfile = {};
+<unrealengine-navigation langurlparam="lang" locale="en" isloggedin="false" customaccountlinks="[
+  {
+    &quot;id&quot;: &quot;notifications&quot;,
+    &quot;key&quot;: &quot;notifications&quot;,
+    &quot;label&quot;: &quot;Notifications&quot;,
+    &quot;locale&quot;: &quot;en&quot;,
+    &quot;hrefTemplate&quot;: &quot;https://dev.epicgames.com/community/api/user_profiles/tab-redirect/notifications/undefined&quot;
+  },
+  {
+    &quot;id&quot;: &quot;favorites&quot;,
+    &quot;key&quot;: &quot;favorites&quot;,
+    &quot;label&quot;: &quot;Favorites&quot;,
+    &quot;locale&quot;: &quot;en&quot;,
+    &quot;hrefTemplate&quot;: &quot;/community/profile/undefined/undefined/favorites&quot;
+  },
+  {
+    &quot;id&quot;: &quot;edit-profile&quot;,
+    &quot;key&quot;: &quot;edit-profile&quot;,
+    &quot;label&quot;: &quot;Edit Profile&quot;,
+    &quot;locale&quot;: &quot;en&quot;,
+    &quot;hrefTemplate&quot;: &quot;/community/profile/edit&quot;
+  }
+]" localeoptions="[
+  {
+    &quot;id&quot;: &quot;en&quot;,
+    &quot;locale&quot;: &quot;en&quot;,
+    &quot;label&quot;: &quot;English&quot;,
+    &quot;langCode&quot;: &quot;en-US&quot;
+  },
+  {
+    &quot;id&quot;: &quot;fr&quot;,
+    &quot;locale&quot;: &quot;fr&quot;,
+    &quot;label&quot;: &quot;Français&quot;,
+    &quot;langCode&quot;: &quot;fr&quot;
+  },
+  {
+    &quot;id&quot;: &quot;es_ES&quot;,
+    &quot;locale&quot;: &quot;es_ES&quot;,
+    &quot;label&quot;: &quot;Español (España)&quot;,
+    &quot;langCode&quot;: &quot;es-ES&quot;
+  },
+  {
+    &quot;id&quot;: &quot;es_MX&quot;,
+    &quot;locale&quot;: &quot;es_MX&quot;,
+    &quot;label&quot;: &quot;Español (LatAm)&quot;,
+    &quot;langCode&quot;: &quot;es-MX&quot;
+  },
+  {
+    &quot;id&quot;: &quot;de&quot;,
+    &quot;locale&quot;: &quot;de&quot;,
+    &quot;label&quot;: &quot;Deutsch&quot;,
+    &quot;langCode&quot;: &quot;de&quot;
+  },
+  {
+    &quot;id&quot;: &quot;pt_BR&quot;,
+    &quot;locale&quot;: &quot;pt_BR&quot;,
+    &quot;label&quot;: &quot;Português (Brasil)&quot;,
+    &quot;langCode&quot;: &quot;pt-BR&quot;
+  },
+  {
+    &quot;id&quot;: &quot;it&quot;,
+    &quot;locale&quot;: &quot;it&quot;,
+    &quot;label&quot;: &quot;Italiano&quot;,
+    &quot;langCode&quot;: &quot;it&quot;
+  },
+  {
+    &quot;id&quot;: &quot;pl&quot;,
+    &quot;locale&quot;: &quot;pl&quot;,
+    &quot;label&quot;: &quot;Polski&quot;,
+    &quot;langCode&quot;: &quot;pl&quot;
+  },
+  {
+    &quot;id&quot;: &quot;tr&quot;,
+    &quot;locale&quot;: &quot;tr&quot;,
+    &quot;label&quot;: &quot;Türkçe&quot;,
+    &quot;langCode&quot;: &quot;tr&quot;
+  },
+  {
+    &quot;id&quot;: &quot;ru&quot;,
+    &quot;locale&quot;: &quot;ru&quot;,
+    &quot;label&quot;: &quot;Русский&quot;,
+    &quot;langCode&quot;: &quot;ru&quot;
+  },
+  {
+    &quot;id&quot;: &quot;ja&quot;,
+    &quot;locale&quot;: &quot;ja&quot;,
+    &quot;label&quot;: &quot;日本語&quot;,
+    &quot;langCode&quot;: &quot;ja&quot;
+  },
+  {
+    &quot;id&quot;: &quot;ko&quot;,
+    &quot;locale&quot;: &quot;ko&quot;,
+    &quot;label&quot;: &quot;한국어&quot;,
+    &quot;langCode&quot;: &quot;ko&quot;
+  },
+  {
+    &quot;id&quot;: &quot;zh_CN&quot;,
+    &quot;locale&quot;: &quot;zh_CN&quot;,
+    &quot;label&quot;: &quot;简体中文&quot;,
+    &quot;langCode&quot;: &quot;zh-CN&quot;
+  }
+]" signoutlink="{
+  &quot;id&quot;: &quot;logout&quot;,
+  &quot;key&quot;: &quot;logout&quot;,
+  &quot;label&quot;: &quot;Sign out&quot;,
+  &quot;locale&quot;: &quot;en&quot;,
+  &quot;hrefTemplate&quot;: &quot;/community&quot;
+}" signinlink="{
+  &quot;id&quot;: &quot;signin&quot;,
+  &quot;key&quot;: &quot;signin&quot;,
+  &quot;label&quot;: &quot;Sign in&quot;,
+  &quot;locale&quot;: &quot;en&quot;,
+  &quot;hrefTemplate&quot;: &quot;https://dev.epicgames.com/community/api/user_identity/login/start?destination=https%3A%2F%2Fdev.epicgames.com%2Fdocumentation%2Fen-us%2Funreal-engine%2Fnanite-virtualized-geometry-in-unreal-engine&quot;
+}">
+Table of Contents
+Developer
+Nanite Virtualized Geometry Overview
+Nanite Virtualized Geometry Overview
+ Learn about Nanite's virtualized geometry system and how it achieves pixel scale detail and high object counts. 
+ On this page
+Nanite is Unreal Engine's virtualized geometry system which uses an internal mesh format and rendering technology to render pixel scale detail and high object counts. It intelligently does work on only the detail that is visible on-screen and no more. Nanite's data format is also highly compressed and supports fine-grained streaming with automatic level of detail.
+ Benefits of Nanite 
+Multiple orders of magnitude increase in geometry complexity, higher triangle and objects counts than has been possible before in real-time
+Frame budgets are no longer constrained by polycounts, draw calls, and mesh memory usage
+Now possible to directly import film-quality source arts, such as ZBrush sculpts and photogrammetry scans
+Use high-poly detailing rather than baking detail into normal map textures
+Level of Detail (LOD) is automatically handled and no longer requires manual setup for individual mesh's LODs
+Loss of quality is rare or non-existent, especially with LOD transitions
+Although the advantages can be game-changing, practical limits still remain. For example, instance counts, triangles per mesh, material complexity, output resolution, and performance should be carefully measured for any combination of content and hardware. As Nanite continues to mature, we will expand its capabilities and improve performance.
+ Differences Between a Nanite Mesh and Static Mesh 
+Nanite meshes are just Static Meshes that have Nanite enabled on them, but there are some key differences you should be aware of:
+Nanite meshes are triangle meshes.
+A mesh that has Nanite enabled is essentially still a triangle mesh at its core, only with a lot of level of detail and compression applied to its data. Nanite uses a system for rendering that data format in an extremely efficient way when compared to traditional rendering of mesh data.
+Requires a flag to be set on the mesh itself.
+Authoring content for Nanite is no different than traditional meshes, except that Nanite can handle orders of magnitude more triangles and instances than is possible for traditionally rendered geometry — move the camera close enough and Nanite will draw the original source triangles that were imported.
+Supports multiple UVs and vertex colors.
+Materials are assigned to sections of the mesh such that those materials can use different shading models and dynamic effects, which can be done in the shaders. Material assignments can be swapped dynamically, just like any other mesh geometry, and Nanite doesn’t require any process to bake down materials.
+Virtual textures
+&nbsp;are not required for use with Nanite, but they are highly recommended. Virtual textures are an orthogonal Unreal Engine feature with similar goals for texture data that Nanite achieves with mesh data.
+Working with Nanite should be familiar to workflows for Static Meshes, but there are many things not yet supported. See the 
+Supported Features
+ section of this page for more details.
+ How does Nanite work? 
+Nanite integrates as seamlessly as possible into existing engine workflows while using a novel approach to storing and rendering mesh data.
+During import, meshes&nbsp;are analyzed and broken down into hierarchical clusters of triangle groups.
+Since Nanite relies on the ability to rapidly stream mesh data from disk on demand, we recommend solid state drives (SSDs) for runtime storage.
+ What Types of Meshes Should Nanite Be Used For? 
+Nanite should generally be enabled wherever possible on platforms that support it. Any mesh that has it enabled will typically render faster, and take up less memory and disk space.
+More specifically, a mesh is an especially good candidate for Nanite if it:
+Contains many triangles, or has triangles that will be very small on screen
+Has many instances in the scene
+Acts as a major occluder of other Nanite geometry
+Casts shadows using 
+Virtual Shadow Maps
+An example of an exception to these rules is something like a sky sphere; its triangles will be large on screen, it doesn't occlude anything, and there is only one in the scene. Typically, these exceptions are rare and performance loss for using Nanite with them is fairly minimal so don't be overly concerned about where Nanite shouldn't be enabled if Nanite supports the use case.
+Some use cases are not supported by Nanite currently. See the 
+Supported Features
+ section of this page for more details.
+ Enabling Nanite Support on Meshes 
+Nanite can be enabled on supported geometry in the following ways:
+On import
+Using individual mesh editors
+Batched selection in the Content Browser
+Converting geometry to Nanite requires some processing time for each mesh. On large projects, use of a shared Derived Data Cache (DDC) is especially helpful if there are many Nanite Assets. 
+For more information, see&nbsp;
+Shared DDC
+&nbsp;.
+ Importing a Mesh 
+When importing a mesh intended for us with Nanite, check the box for 
+Build Nanite
+.
+When not using precomputed (built) lighting with 
+Lightmass for global illumination
+, we recommend disabling Generate Lightmap UVs. When Build Nanite is enabled, highly detailed geometry adds significant time to importing and building static mesh data. This property also adds an additional UV channel, which includes a significant amount of data for very dense meshes. If your project doesn't require baked lighting, there's no need to incur either cost.
+ Enabling Nanite on Assets 
+In cases where you already have your project populated with assets that you want to enable to use Nanite, there are two options:
+Batch-enabled through the Content Browser.
+Enabled per-mesh.
+ Enable Nanite on Meshes in Batches 
+For batches of Static or Skeletal Mesh Assets that you want to enable Nanite for, use the 
+Content Browser
+ to select them all. 
+Right-click
+ and choose 
+Nanite &gt; Enable
+ from the context menu.
+ Enable Nanite on Individual Meshes 
+For any mesh that supports Nanite (such as a static mesh, skeletal mesh, or geometry collection), open its asset editor and enable Nanite through its Details panel.
+In the Static Mesh Editor, locate the 
+Nanite Settings
+ and check the box for 
+Enable Nanite Support
+.
+In the Skeletal Mesh Editor, locate the 
+Nanite Settings
+&nbsp;and check the box for 
+Enable Nanite Support
+.&nbsp;
+In the Geometry Collections Editor, locate the 
+Nanite
+ section and check the box for 
+Enable Nanite
+.
+ Features of Nanite 
+These are some features of Nanite that you can use
+ Nanite Static Mesh 
+&nbsp;Nanite for static meshes uses no LODs, scaling dynamically the number of polygons they use based on the resolution of the screen being used. Nanite static meshes fully support Lumen global illumination and reflections, and virtual shadow maps to have highly detailed scenes with lots of instances.
+For more information, see&nbsp;
+Working with Nanite-Enabled Content
+.&nbsp;&nbsp;
+ Nanite Skeletal Mesh 
+Nanite Skeletal Meshes include support for:
+A Skeletal Mesh API making it simpler to achieve rendering them.
+One draw call for an entire mesh.
+Shadowing from Virtual Shadow Maps.
+No geometry LODs. Nanite Skeletal Mesh uses animation LODs.
+Instancing with animation banks.
+For more information, see 
+Working with Nanite-Enabled Content
+.
+ Nanite with Landscapes 
+Nanite can be enabled for landscape terrain to improve performance with Nanite rendering, especially when used in conjunction with 
+Virtual Shadows
+.&nbsp;
+For more information, see 
+Using Nanite with Landscapes
+.&nbsp;
+ Nanite Foliage 
+Technical demonstration of a large forest rendered with Nanite in The Witcher 4 Unreal Engine technical demo.
+For more information, see 
+Nanite Foliage
+.
+ Nanite Splines 
+Spline meshes are used for deforming meshes along the shape of a spline, such as roads and paths over a landscape terrain. Nanite-enabled meshes support splines by default and can be created as 
+Landscape Splines
+ and 
+Blueprint Splines
+.
+ Example scene with Nanite mesh in foreground and Nanite Spline. This scene shows the Lit and Nanite Triangles visualization. 
+&nbsp; For more information, see&nbsp;
+Working with Nanite-Enabled Content
+.&nbsp;&nbsp;
+ Nanite Static Displacement Mapping 
+The Static Mesh Editor includes an option to add detail to Nanite-enabled meshes through an offline adaptive tessellator. The tessellator generates an optimized Nanite mesh using displacement maps baked into it. This texture-driven approach is non-destructive and allows you to control the amount of tessellation and displacement through scalar parameters.
+&nbsp; For more information, see&nbsp;
+Working with Nanite-Enabled Content
+.&nbsp;&nbsp;
+ Nanite Tessellation 
+ &nbsp; 
+ &nbsp; 
+With Nanite Tessellation
+Without Nanite Tessellation
+Nanite tessellation is dynamic programmable displacement that allows for Nanite meshes to be modified at runtime using a displacement map or procedural material.&nbsp;
+The benefits of Nanite tessellation include:
+Using source meshes that include less detail in the authoring pipeline.
+Material-driven and animated displacement.
+Creating detailed Nanite landscapes.
+&nbsp; For more information, see&nbsp;
+Working with Nanite-Enabled Content
+.&nbsp;&nbsp;
+ Supported Features of Nanite 
+This section describes how best to work with Nanite in an Unreal Engine project with details on what is and is not supported and possible limitations.
+ Geometry 
+Nanite can be enabled on Static Meshes and 
+Geometry Collections
+.
+A Nanite-enabled mesh can be used with the following Component types:
+Static mesh
+Skeletal mesh
+Instanced static mesh
+Spline mesh
+Hierarchical instanced static mesh
+Geometry collection
+Foliage painter
+Landscape grass
+Some additional notes about geometry with Nanite:&nbsp;
+Maximum number of Nanite instances in a scene
+The maximum number of instances that can be present in the scene is hard-locked to 16 million instances, which includes all instances that are streamed in, not just those enabled for use with Nanite. Only instances streamed in are counted towards this total.
+Per-Vertex Tangents
+ Mesh Deformation 
+Nanite has limited support for the deformation of rigid meshes. Nanite supports dynamic translation, rotation, and non-uniform scaling of these meshes, whether it is dynamic or static. This means moving any position of a Nanite-enabled mesh in a way that is more complex than can be expressed in a single 4x3 matrix multiply, uniformly applied to the entire mesh.
+While deformation with 
+World Position Offset
+ (WPO) in a material is supported, it is limited.&nbsp;
+Nanite meshes using WPO displacement are split into smaller clusters whereby each of those clusters have their own individual bounds and are culled individually on the GPU. You must clamp the amount of displacement in order to manage how many clusters of the Nanite mesh are culled.
+Foliage using WPO is less problematic because the foliage is filled with holes and cannot really occlude itself.
+Deformation with 
+Morph Targets
+ is not supported with Nanite. 
+ Materials 
+Nanite supports materials that have their 
+Blend Mode
+ set to 
+Opaque 
+and 
+Masked
+. When an unsupported material type is detected, a default material is assigned to the mesh along with a warning showing up in the Output Log with additional contextual information.
+Additional material features notes:
+Nanite-enabled meshes can receive decals projected onto their surfaces but do not support 
+Mesh Decals
+, which require materials to use a 
+Translucent
+ Blend Mode.
+Wireframe
+ checkbox is not supported.
+The 
+Vertex Interpolator
+ node and 
+Custom UVs
+ are supported but will be evaluated three times per pixel. However,&nbsp;Custom UV0 and 1 are hardware interpolated in hardware rasterization.
+Custom
+ expression nodes, or any nodes that use them (such as the 
+ParallaxOcclusionMapping
+ material function) might result in artifacts with Nanite. This is expected since Nanite doesn't yet have analytic derivative support yet.
+ Rendering 
+The following rendering features are not currently supported:
+View-specific filtering of objects using:
+Minimum Screen Radius
+Distance culling
+Forward Rendering
+Stereo rendering for Virtual Reality
+Multisampling Anti-Aliasing (MSAA)
+Lighting Channels
+Ray-tracing against Nanite meshes
+The Fallback Mesh is used for Nanite-enabled meshes by default. Lower the 
+Fallback Relative Error
+ parameter in the Static Mesh Editor to use more of the source mesh's triangles.
+(Experimental) Initial support for native ray-tracing of Nanite meshes is enabled with the console variable 
+r.RayTracing.Nanite.Mode 1
+. This preserves all detail while using significantly less GPU memory than zero-error Fallback Meshes.
+Some visualization view modes do not yet support displaying Nanite meshes
+Use caution with some visualization modes in the Static Mesh editor when viewing highly detailed geometry. Viewing normals and UVs can cause problems with editor performance as it tries to display all this data on screen at once.
+ Supported Platforms 
+Nanite supports current console and desktop platforms with graphics cards using the latest drivers with DirectX 12 with Shader Model 6 (SM6).&nbsp;
+For additional information about hardware and software specifications recommended by Epic Games, see 
+Hardware and Software Specifications
+.
+ Nanite Project Settings 
+Settings for Nanite can be found in the 
+Project Settings
+ under the 
+Engine &gt; Rendering
+ category under the Nanite section.&nbsp;
+Asset editors that support Nanite, such as the static and skeletal meshes will have their own Nanite settings to configure in their Details panels.&nbsp;
+For more information on these settings, see 
+Nanite Technical Details
+.
+ performance
+ rendering
+ optimization
+Ask questions and help your peers&nbsp;
+Developer Forums
+Write your own tutorials or read those from others&nbsp;
+Learning Library
+On this page
+ Benefits of Nanite 
+ Differences Between a Nanite Mesh and Static Mesh 
+ How does Nanite work? 
+ What Types of Meshes Should Nanite Be Used For? 
+ Enabling Nanite Support on Meshes 
+ Importing a Mesh 
+ Enabling Nanite on Assets 
+ Enable Nanite on Meshes in Batches 
+ Enable Nanite on Individual Meshes 
+ Features of Nanite 
+ Nanite Static Mesh 
+ Nanite Skeletal Mesh 
+ Nanite with Landscapes 
+ Nanite Foliage 
+ Nanite Splines 
+ Nanite Static Displacement Mapping 
+ Nanite Tessellation 
+ Supported Features of Nanite 
+ Geometry 
+ Mesh Deformation 
+ Materials 
+ Rendering 
+ Supported Platforms 
+ Nanite Project Settings 
+      window._epicEnableCookieGuard = true

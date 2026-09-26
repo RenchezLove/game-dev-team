@@ -1,0 +1,624 @@
+unreal.InterchangeGenericMeshPipeline â Unreal Python 5.5 (Experimental) documentation
+window.__tracking_base = 'https://tracking.epicgames.com';
+$(document).ready(function () {
+    $.ajax({
+        url: "https://www.unrealengine.com/epic-games-header?useServerUrl=true&lang=en-US",
+        context: document.body
+    }).done(function (data) {
+        $("#head").html(data);
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+	});
+});
+window._egNavAfterConfigSet = function() {
+	_epicGamesNav.hideSignIn = true;
+	_epicGamesNav.hideLocale = true;
+};
+Navigation
+index
+next
+ |
+previous
+ |
+Unreal Python 5.5 (Experimental) documentation
+ Â»
+unreal.InterchangeGenericMeshPipeline
+unreal.InterchangeGenericMeshPipeline
+Â¶
+class
+unreal.
+InterchangeGenericMeshPipeline
+(
+outer
+:
+Object
+|
+None
+=
+None
+, 
+name
+:
+Name
+|
+str
+=
+'None'
+)
+Â¶
+Bases: 
+InterchangePipelineBase
+Hide drop down will make sure the class is not showing in the class picker
+C++ Source:
+Plugin
+: Interchange
+Module
+: InterchangePipelines
+File
+: InterchangeGenericMeshPipeline.h
+Editor Properties:
+ (see get_editor_property/set_editor_property)
+auto_compute_lod_screen_sizes
+ (bool):  [Read-Write] If enabled, LOD Screen Sizes would be auto-computed.
+bone_influence_limit
+ (int32):  [Read-Write] The maximum number of bone influences to allow each vertex in this mesh to use.
+If set higher than the limit determined by the project settings, it has no effect.
+If set to 0, the value is taken from the DefaultBoneInfluenceLimit project setting.
+build_nanite
+ (bool):  [Read-Write] If enabled, imported meshes will be rendered by Nanite at runtime. Make sure your meshes and materials meet the requirements for Nanite.
+build_reversed_index_buffer
+ (bool):  [Read-Write] If enabled, builds a reversed index buffer for each static mesh.
+build_scale3d
+ (Vector):  [Read-Write] The local scale applied when building the mesh.
+collision
+ (bool):  [Read-Write] If enabled, custom collision will be imported. If enabled and there is no custom collision, a generic collision will be automatically generated.
+If disabled, no collision will be created or imported.
+combine_skeletal_meshes
+ (bool):  [Read-Write]
+combine_static_meshes
+ (bool):  [Read-Write] If enabled, all translated static mesh nodes will be imported as a single static mesh.
+create_physics_asset
+ (bool):  [Read-Write] If enabled, create new PhysicsAsset if one doesnât exist.
+distance_field_replacement_mesh
+ (StaticMesh):  [Read-Write] If set, replaces the distance field for all imported meshes with the distance field of the specified Static Mesh.
+distance_field_resolution_scale
+ (float):  [Read-Write] Scale to apply to the mesh when allocating the distance field volume texture.
+The default scale is 1, which assumes that the mesh will be placed unscaled in the world.
+dst_lightmap_index
+ (int32):  [Read-Write] Specifies the index of the UV channel that will store generated lightmap UVs.
+fallback_collision_type
+ (InterchangeMeshCollision):  [Read-Write] Type used to generate a collision when no custom collisions are present in the file.
+generate_distance_field_as_if_two_sided
+ (bool):  [Read-Write] Determines whether to generate the distance field treating every triangle hit as a front face.
+When enabled, prevents the distance field from being discarded due to the mesh being open, but also lowers distance field ambient occlusion quality.
+generate_lightmap_u_vs
+ (bool):  [Read-Write] If enabled, generates lightmap UVs for each static mesh.
+import_collision
+ (bool):  [Read-Write]
+deprecated: Use Collision instead.
+import_collision_according_to_mesh_name
+ (bool):  [Read-Write] If enabled, meshes with certain prefixes will be imported as collision primitives for the mesh with the corresponding unprefixed name.
+Supported prefixes are:
+UBX_
+ Box collision
+UCP_
+ Capsule collision
+USP_
+ Sphere collision
+UCX_
+ Convex collision
+import_morph_targets
+ (bool):  [Read-Write] If enabled, imports all morph target shapes found in the source.
+import_skeletal_meshes
+ (bool):  [Read-Write] If enabled, imports all skeletal mesh assets found in the sources.
+import_static_meshes
+ (bool):  [Read-Write] If enabled, imports all static mesh assets found in the sources.
+import_vertex_attributes
+ (bool):  [Read-Write] If enabled, creates named vertex attributes for secondary vertex color data.
+lod_group
+ (Name):  [Read-Write] The LOD group that will be assigned to this mesh.
+lod_screen_sizes
+ (Array[float]):  [Read-Write] This setting is only used if the Auto Compute LOD Screen Sizes setting is disabled.
+max_lumen_mesh_cards
+ (int32):  [Read-Write] The maximum number of Lumen mesh cards to generate for this mesh.
+More cards means that the surface will have better coverage, but will result in increased runtime overhead.
+Set this to 0 to disable mesh card generation for this mesh.
+The default is 12.
+merge_morph_targets_with_same_name
+ (bool):  [Read-Write] If enabled, all morph target shapes with the same name will be merge together. Turn it to false if you want to control those morph with different values.
+min_lightmap_resolution
+ (int32):  [Read-Write] When generating lightmaps, determines the amount of padding used to pack UVs. Set this value to the lowest-resolution lightmap you expect to use with the imported meshes.
+morph_threshold_position
+ (float):  [Read-Write] Threshold to compare vertex position equality when computing morph target deltas.
+one_convex_hull_per_ucx
+ (bool):  [Read-Write] If enabled, each UCX collision mesh will be imported as a single convex hull. If disabled, a UCX mesh will be decomposed into its separate pieces and a convex hull generated for each.
+physics_asset
+ (PhysicsAsset):  [Read-Write] If set, use the specified PhysicsAsset. If not set and the Create Physics Asset setting is not enabled, the importer will not generate or set any physics asset.
+skeletal_mesh_import_content_type
+ (InterchangeSkeletalMeshContentType):  [Read-Write] Determines what types of information are imported for skeletal meshes.
+src_lightmap_index
+ (int32):  [Read-Write] Specifies the index of the UV channel that will be used as the source when generating lightmaps.
+support_face_remap
+ (bool):  [Read-Write] If enabled, imported static meshes are set up for use with physical material masks.
+threshold_position
+ (float):  [Read-Write] Threshold value that is used to decide whether two vertex positions are equal.
+threshold_tangent_normal
+ (float):  [Read-Write] Threshold value that is used to decide whether two normals, tangents, or bi-normals are equal.
+threshold_uv
+ (float):  [Read-Write] Threshold value that is used to decide whether two UVs are equal.
+update_skeleton_reference_pose
+ (bool):  [Read-Write] Enable this option to update the reference pose of the Skeleton (of the mesh). The reference pose of the mesh is always updated.
+use_high_precision_skin_weights
+ (bool):  [Read-Write] If enabled, imported skin weights use 16 bits instead of 8 bits.
+property
+auto_compute_lod_screen_sizes
+:
+bool
+Â¶
+[Read-Write] If enabled, LOD Screen Sizes would be auto-computed.
+Type
+:
+(
+bool
+)
+property
+bone_influence_limit
+:
+int
+Â¶
+[Read-Write] The maximum number of bone influences to allow each vertex in this mesh to use.
+If set higher than the limit determined by the project settings, it has no effect.
+If set to 0, the value is taken from the DefaultBoneInfluenceLimit project setting.
+Type
+:
+(int32)
+property
+build_nanite
+:
+bool
+Â¶
+[Read-Write] If enabled, imported meshes will be rendered by Nanite at runtime. Make sure your meshes and materials meet the requirements for Nanite.
+Type
+:
+(
+bool
+)
+property
+build_reversed_index_buffer
+:
+bool
+Â¶
+[Read-Write] If enabled, builds a reversed index buffer for each static mesh.
+Type
+:
+(
+bool
+)
+property
+build_scale3d
+:
+Vector
+Â¶
+[Read-Write] The local scale applied when building the mesh.
+Type
+:
+(
+Vector
+)
+property
+collision
+:
+bool
+Â¶
+[Read-Write] If enabled, custom collision will be imported. If enabled and there is no custom collision, a generic collision will be automatically generated.
+If disabled, no collision will be created or imported.
+Type
+:
+(
+bool
+)
+property
+combine_skeletal_meshes
+:
+bool
+Â¶
+[Read-Write]
+Type
+:
+(
+bool
+)
+property
+combine_static_meshes
+:
+bool
+Â¶
+[Read-Write] If enabled, all translated static mesh nodes will be imported as a single static mesh.
+Type
+:
+(
+bool
+)
+property
+create_physics_asset
+:
+bool
+Â¶
+[Read-Write] If enabled, create new PhysicsAsset if one doesnât exist.
+Type
+:
+(
+bool
+)
+property
+distance_field_replacement_mesh
+:
+StaticMesh
+Â¶
+[Read-Write] If set, replaces the distance field for all imported meshes with the distance field of the specified Static Mesh.
+Type
+:
+(
+StaticMesh
+)
+property
+distance_field_resolution_scale
+:
+float
+Â¶
+[Read-Write] Scale to apply to the mesh when allocating the distance field volume texture.
+The default scale is 1, which assumes that the mesh will be placed unscaled in the world.
+Type
+:
+(
+float
+)
+property
+dst_lightmap_index
+:
+int
+Â¶
+[Read-Write] Specifies the index of the UV channel that will store generated lightmap UVs.
+Type
+:
+(int32)
+property
+fallback_collision_type
+:
+InterchangeMeshCollision
+Â¶
+[Read-Write] Type used to generate a collision when no custom collisions are present in the file.
+Type
+:
+(
+InterchangeMeshCollision
+)
+property
+generate_distance_field_as_if_two_sided
+:
+bool
+Â¶
+[Read-Write] Determines whether to generate the distance field treating every triangle hit as a front face.
+When enabled, prevents the distance field from being discarded due to the mesh being open, but also lowers distance field ambient occlusion quality.
+Type
+:
+(
+bool
+)
+property
+generate_lightmap_u_vs
+:
+bool
+Â¶
+[Read-Write] If enabled, generates lightmap UVs for each static mesh.
+Type
+:
+(
+bool
+)
+property
+import_collision
+:
+bool
+Â¶
+[Read-Write]
+deprecated: Use Collision instead.
+Type
+:
+(
+bool
+)
+property
+import_collision_according_to_mesh_name
+:
+bool
+Â¶
+[Read-Write] If enabled, meshes with certain prefixes will be imported as collision primitives for the mesh with the corresponding unprefixed name.
+Supported prefixes are:
+UBX_
+ Box collision
+UCP_
+ Capsule collision
+USP_
+ Sphere collision
+UCX_
+ Convex collision
+Type
+:
+(
+bool
+)
+property
+import_morph_targets
+:
+bool
+Â¶
+[Read-Write] If enabled, imports all morph target shapes found in the source.
+Type
+:
+(
+bool
+)
+property
+import_skeletal_meshes
+:
+bool
+Â¶
+[Read-Write] If enabled, imports all skeletal mesh assets found in the sources.
+Type
+:
+(
+bool
+)
+property
+import_static_meshes
+:
+bool
+Â¶
+[Read-Write] If enabled, imports all static mesh assets found in the sources.
+Type
+:
+(
+bool
+)
+property
+import_vertex_attributes
+:
+bool
+Â¶
+[Read-Write] If enabled, creates named vertex attributes for secondary vertex color data.
+Type
+:
+(
+bool
+)
+property
+lod_group
+:
+Name
+Â¶
+[Read-Write] The LOD group that will be assigned to this mesh.
+Type
+:
+(
+Name
+)
+property
+lod_screen_sizes
+:
+None
+Â¶
+[Read-Write] This setting is only used if the Auto Compute LOD Screen Sizes setting is disabled.
+Type
+:
+(
+Array
+[
+float
+])
+property
+max_lumen_mesh_cards
+:
+int
+Â¶
+[Read-Write] The maximum number of Lumen mesh cards to generate for this mesh.
+More cards means that the surface will have better coverage, but will result in increased runtime overhead.
+Set this to 0 to disable mesh card generation for this mesh.
+The default is 12.
+Type
+:
+(int32)
+property
+merge_morph_targets_with_same_name
+:
+bool
+Â¶
+[Read-Write] If enabled, all morph target shapes with the same name will be merge together. Turn it to false if you want to control those morph with different values.
+Type
+:
+(
+bool
+)
+property
+min_lightmap_resolution
+:
+int
+Â¶
+[Read-Write] When generating lightmaps, determines the amount of padding used to pack UVs. Set this value to the lowest-resolution lightmap you expect to use with the imported meshes.
+Type
+:
+(int32)
+property
+morph_threshold_position
+:
+float
+Â¶
+[Read-Write] Threshold to compare vertex position equality when computing morph target deltas.
+Type
+:
+(
+float
+)
+property
+one_convex_hull_per_ucx
+:
+bool
+Â¶
+[Read-Write] If enabled, each UCX collision mesh will be imported as a single convex hull. If disabled, a UCX mesh will be decomposed into its separate pieces and a convex hull generated for each.
+Type
+:
+(
+bool
+)
+property
+physics_asset
+:
+PhysicsAsset
+Â¶
+[Read-Write] If set, use the specified PhysicsAsset. If not set and the Create Physics Asset setting is not enabled, the importer will not generate or set any physics asset.
+Type
+:
+(
+PhysicsAsset
+)
+property
+skeletal_mesh_import_content_type
+:
+InterchangeSkeletalMeshContentType
+Â¶
+[Read-Write] Determines what types of information are imported for skeletal meshes.
+Type
+:
+(
+InterchangeSkeletalMeshContentType
+)
+property
+src_lightmap_index
+:
+int
+Â¶
+[Read-Write] Specifies the index of the UV channel that will be used as the source when generating lightmaps.
+Type
+:
+(int32)
+property
+support_face_remap
+:
+bool
+Â¶
+[Read-Write] If enabled, imported static meshes are set up for use with physical material masks.
+Type
+:
+(
+bool
+)
+property
+threshold_position
+:
+float
+Â¶
+[Read-Write] Threshold value that is used to decide whether two vertex positions are equal.
+Type
+:
+(
+float
+)
+property
+threshold_tangent_normal
+:
+float
+Â¶
+[Read-Write] Threshold value that is used to decide whether two normals, tangents, or bi-normals are equal.
+Type
+:
+(
+float
+)
+property
+threshold_uv
+:
+float
+Â¶
+[Read-Write] Threshold value that is used to decide whether two UVs are equal.
+Type
+:
+(
+float
+)
+property
+update_skeleton_reference_pose
+:
+bool
+Â¶
+[Read-Write] Enable this option to update the reference pose of the Skeleton (of the mesh). The reference pose of the mesh is always updated.
+Type
+:
+(
+bool
+)
+property
+use_high_precision_skin_weights
+:
+bool
+Â¶
+[Read-Write] If enabled, imported skin weights use 16 bits instead of 8 bits.
+Type
+:
+(
+bool
+)
+Table of Contents
+unreal.InterchangeGenericMeshPipeline
+InterchangeGenericMeshPipeline
+InterchangeGenericMeshPipeline.auto_compute_lod_screen_sizes
+InterchangeGenericMeshPipeline.bone_influence_limit
+InterchangeGenericMeshPipeline.build_nanite
+InterchangeGenericMeshPipeline.build_reversed_index_buffer
+InterchangeGenericMeshPipeline.build_scale3d
+InterchangeGenericMeshPipeline.collision
+InterchangeGenericMeshPipeline.combine_skeletal_meshes
+InterchangeGenericMeshPipeline.combine_static_meshes
+InterchangeGenericMeshPipeline.create_physics_asset
+InterchangeGenericMeshPipeline.distance_field_replacement_mesh
+InterchangeGenericMeshPipeline.distance_field_resolution_scale
+InterchangeGenericMeshPipeline.dst_lightmap_index
+InterchangeGenericMeshPipeline.fallback_collision_type
+InterchangeGenericMeshPipeline.generate_distance_field_as_if_two_sided
+InterchangeGenericMeshPipeline.generate_lightmap_u_vs
+InterchangeGenericMeshPipeline.import_collision
+InterchangeGenericMeshPipeline.import_collision_according_to_mesh_name
+InterchangeGenericMeshPipeline.import_morph_targets
+InterchangeGenericMeshPipeline.import_skeletal_meshes
+InterchangeGenericMeshPipeline.import_static_meshes
+InterchangeGenericMeshPipeline.import_vertex_attributes
+InterchangeGenericMeshPipeline.lod_group
+InterchangeGenericMeshPipeline.lod_screen_sizes
+InterchangeGenericMeshPipeline.max_lumen_mesh_cards
+InterchangeGenericMeshPipeline.merge_morph_targets_with_same_name
+InterchangeGenericMeshPipeline.min_lightmap_resolution
+InterchangeGenericMeshPipeline.morph_threshold_position
+InterchangeGenericMeshPipeline.one_convex_hull_per_ucx
+InterchangeGenericMeshPipeline.physics_asset
+InterchangeGenericMeshPipeline.skeletal_mesh_import_content_type
+InterchangeGenericMeshPipeline.src_lightmap_index
+InterchangeGenericMeshPipeline.support_face_remap
+InterchangeGenericMeshPipeline.threshold_position
+InterchangeGenericMeshPipeline.threshold_tangent_normal
+InterchangeGenericMeshPipeline.threshold_uv
+InterchangeGenericMeshPipeline.update_skeleton_reference_pose
+InterchangeGenericMeshPipeline.use_high_precision_skin_weights
+Previous topic
+unreal.InterchangeGenericMaterialPipeline
+Next topic
+unreal.InterchangeGenericTexturePipeline
+Quick search
+document.getElementById('searchbox').style.display = "block"
+Navigation
+index
+next
+ |
+previous
+ |
+Unreal Python 5.5 (Experimental) documentation
+ Â»
+unreal.InterchangeGenericMeshPipeline
+    Â© Copyright Â©, Epic Games, Inc. All rights reserved. Unreal and its logo are Epicâs trademarks or registered trademarks in the US and elsewhere.

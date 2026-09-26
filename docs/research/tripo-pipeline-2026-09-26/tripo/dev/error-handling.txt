@@ -1,0 +1,277 @@
+
+    Error Handling â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+Error Handling
+Copy
+Download PDF
+# Error Handling
+## Unified Error Response Format
+All API errors return a unified JSON format:
+```json
+{
+  "code": 2010,
+  "message": "Insufficient credits",
+  "suggestion": "Please top up your account at https://platform.tripo3d.ai",
+  "request_id": "req_abc123"
+}
+```
+| Field | Type | Description |
+| :-: | :-: | :-: |
+| code | integer | Error code |
+| message | string | Error description |
+| suggestion | string | Suggested fix |
+| request_id | string | Unique request identifier for troubleshooting |
+## HTTP Status Codes
+| Status Code | Meaning | Description |
+| :-: | :-: | :-: |
+| 200 | Success | The request was processed successfully |
+| 400 | Invalid parameters | Required parameters are missing or malformed |
+| 401 | Unauthenticated | The API Key is missing or invalid |
+| 403 | Insufficient permissions | You do not have permission to access the resource, or your credits are insufficient |
+| 404 | Resource not found | The requested task or resource does not exist |
+| 429 | Too many requests | Rate limit exceeded. Reduce your request frequency |
+| 500 | Service error | Internal server error. Try again later |
+## Error Code Reference
+| Error Code | Meaning | Recommended Handling |
+| :-: | :-: | :-: |
+| 1000 | Invalid API Key | Check whether the API Key is correct or has been deleted |
+| 1001 | Unauthorized | Check whether the request header includes `Authorization` |
+| 2000 | Rate limit exceeded | Reduce request frequency and implement retries with exponential backoff |
+| 2002 | Unsupported request parameter | Check whether request body field names and values match the documentation |
+| 2003 | Empty input file | Confirm that the uploaded file is not empty and uses a valid format |
+| 2004 | Unsupported file type | Check whether the file format is in the supported list |
+| 2008 | Content policy violation | Modify the input content to avoid prohibited words or images |
+| 2010 | Insufficient credits | Top up credits in the console |
+| 2015 | Version deprecated | Upgrade to the latest API version |
+| 2018 | Model too complex | Reduce the complexity or polycount of the input model |
+## Error Handling Examples
+### Python
+```python
+import time
+import requests
+def call_api_with_retry(url, headers, payload=None, max_retries=3):
+    for attempt in range(max_retries):
+        if payload:
+            response = requests.post(url, headers=headers, json=payload)
+        else:
+            response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            return response.json()
+        if response.status_code == 429:
+            wait = 2 ** attempt
+            print(f"Rate limit triggered. Retrying in {wait} seconds...")
+            time.sleep(wait)
+            continue
+        error = response.json()
+        raise Exception(
+            f"API error [{error['code']}]: {error['message']} "
+            f"(suggestion: {error.get('suggestion', 'none')})"
+        )
+    raise Exception("Maximum retry attempts exhausted")
+```
+### JavaScript
+```javascript
+async function callApiWithRetry(url, options, maxRetries = 3) {
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    const response = await fetch(url, options);
+    if (response.ok) {
+      return await response.json();
+    }
+    if (response.status === 429) {
+      const wait = 2 ** attempt * 1000;
+      console.log(`Rate limit triggered. Retrying in ${wait / 1000} seconds...`);
+      await new Promise(resolve => setTimeout(resolve, wait));
+      continue;
+    }
+    const error = await response.json();
+    throw new Error(
+      `API error [${error.code}]: ${error.message} (suggestion: ${error.suggestion || "none"})`
+    );
+  }
+  throw new Error("Maximum retry attempts exhausted");
+}
+```
+## Retry Strategy Recommendations
+For retryable errors, such as 429 rate limits and 500 service errors, use an exponential backoff strategy:
+1. First retry: wait 1 second
+2. Second retry: wait 2 seconds
+3. Third retry: wait 4 seconds
+4. Keep the maximum retry count at 5 or fewer
+For non-retryable errors, such as 400, 401, and 403, throw an exception directly and fix the underlying issue.
+Error Handling
+Unified Error Response Format
+All API errors return a unified JSON format:
+JSON
+Copy
+{
+  "code": 2010,
+  "message": "Insufficient credits",
+  "suggestion": "Please top up your account at https://platform.tripo3d.ai",
+  "request_id": "req_abc123"
+}
+Field | 
+Type | 
+Description | 
+code | 
+integer | 
+Error code | 
+message | 
+string | 
+Error description | 
+suggestion | 
+string | 
+Suggested fix | 
+request_id | 
+string | 
+Unique request identifier for troubleshooting | 
+HTTP Status Codes
+Status Code | 
+Meaning | 
+Description | 
+200 | 
+Success | 
+The request was processed successfully | 
+400 | 
+Invalid parameters | 
+Required parameters are missing or malformed | 
+401 | 
+Unauthenticated | 
+The API Key is missing or invalid | 
+403 | 
+Insufficient permissions | 
+You do not have permission to access the resource, or your credits are insufficient | 
+404 | 
+Resource not found | 
+The requested task or resource does not exist | 
+429 | 
+Too many requests | 
+Rate limit exceeded. Reduce your request frequency | 
+500 | 
+Service error | 
+Internal server error. Try again later | 
+Error Code Reference
+Error Code | 
+Meaning | 
+Recommended Handling | 
+1000 | 
+Invalid API Key | 
+Check whether the API Key is correct or has been deleted | 
+1001 | 
+Unauthorized | 
+Check whether the request header includes Authorization | 
+2000 | 
+Rate limit exceeded | 
+Reduce request frequency and implement retries with exponential backoff | 
+2002 | 
+Unsupported request parameter | 
+Check whether request body field names and values match the documentation | 
+2003 | 
+Empty input file | 
+Confirm that the uploaded file is not empty and uses a valid format | 
+2004 | 
+Unsupported file type | 
+Check whether the file format is in the supported list | 
+2008 | 
+Content policy violation | 
+Modify the input content to avoid prohibited words or images | 
+2010 | 
+Insufficient credits | 
+Top up credits in the console | 
+2015 | 
+Version deprecated | 
+Upgrade to the latest API version | 
+2018 | 
+Model too complex | 
+Reduce the complexity or polycount of the input model | 
+Error Handling Examples
+PythonJavaScript
+Copy
+import time
+import requests
+def call_api_with_retry(url, headers, payload=None, max_retries=3):
+    for attempt in range(max_retries):
+        if payload:
+            response = requests.post(url, headers=headers, json=payload)
+        else:
+            response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            return response.json()
+        if response.status_code == 429:
+            wait = 2 ** attempt
+            print(f"Rate limit triggered. Retrying in {wait} seconds...")
+            time.sleep(wait)
+            continue
+        error = response.json()
+        raise Exception(
+            f"API error [{error['code']}]: {error['message']} "
+            f"(suggestion: {error.get('suggestion', 'none')})"
+        )
+    raise Exception("Maximum retry attempts exhausted")
+async function callApiWithRetry(url, options, maxRetries = 3) {
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    const response = await fetch(url, options);
+    if (response.ok) {
+      return await response.json();
+    }
+    if (response.status === 429) {
+      const wait = 2 ** attempt * 1000;
+      console.log(`Rate limit triggered. Retrying in ${wait / 1000} seconds...`);
+      await new Promise(resolve => setTimeout(resolve, wait));
+      continue;
+    }
+    const error = await response.json();
+    throw new Error(
+      `API error [${error.code}]: ${error.message} (suggestion: ${error.suggestion || "none"})`
+    );
+  }
+  throw new Error("Maximum retry attempts exhausted");
+}
+Retry Strategy Recommendations
+For retryable errors, such as 429 rate limits and 500 service errors, use an exponential backoff strategy:
+First retry: wait 1 second
+Second retry: wait 2 seconds
+Third retry: wait 4 seconds
+Keep the maximum retry count at 5 or fewer
+For non-retryable errors, such as 400, 401, and 403, throw an exception directly and fix the underlying issue.
+Previous
+AccountNextRate Limits
+On this page
+Unified Error Response FormatHTTP Status CodesError Code ReferenceError Handling ExamplesRetry Strategy Recommendations
+On this page
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

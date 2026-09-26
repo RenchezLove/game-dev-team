@@ -1,0 +1,232 @@
+
+    Animation Retarget â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+Animation Retargeting
+Copy
+Download PDF
+# Animation Retargeting
+**Base URL:** `https://openapi.tripo3d.ai/v3`
+**Endpoint:** `POST /animations/retarget`
+Apply a preset animation to a rigged 3D model.
+## Request Parameters
+### input
+- **Type:** string
+- **Required:** Required
+task_id of the rigged model, starting with `task_`.
+### animation
+- **Type:** string
+- **Required:** Conditional
+Single preset animation identifier.**Mutually exclusive with `animations` â provide only one.**
+Rig v2.5-20260210 â All rig types
+- Biped: `preset:idle`, `preset:walk`, `preset:run`, `preset:dive`, `preset:climb`, `preset:jump`, `preset:slash`, `preset:shoot`, `preset:hurt`, `preset:fall`, `preset:turn`
+- Quadruped: `preset:quadruped:walk`
+- Others: `preset:hexapod:walk`, `preset:octopod:walk`, `preset:serpentine:march`, `preset:aquatic:march`
+Rig v1.0-20240301 â Biped only (90+ presets, click to expand)`preset:biped:afraid``preset:biped:agree``preset:biped:angry_01``preset:biped:angry_02``preset:biped:angry_03``preset:biped:basketball_shot``preset:biped:bow``preset:biped:box_01``preset:biped:box_02``preset:biped:box_03``preset:biped:cast_a_spell``preset:biped:cheer``preset:biped:chop``preset:biped:clap``preset:biped:climb``preset:biped:complain_01``preset:biped:complain_02``preset:biped:cross_body_crunch``preset:biped:crossover_dribble``preset:biped:cry``preset:biped:dance_01``preset:biped:dance_02``preset:biped:dance_03``preset:biped:dance_04``preset:biped:dance_05``preset:biped:dance_06``preset:biped:defeat_02``preset:biped:defeat_03``preset:biped:depressed``preset:biped:dig``preset:biped:dive``preset:biped:dribble``preset:biped:fall``preset:biped:fire``preset:biped:flee_01``preset:biped:flee_02``preset:biped:flip``preset:biped:fold_arms``preset:biped:football_catch``preset:biped:football_save``preset:biped:football_pass``preset:biped:freaky``preset:biped:frightened``preset:biped:front_kick_01``preset:biped:front_kick_02``preset:biped:frustrated_01``preset:biped:frustrated_02``preset:biped:golf``preset:biped:greet_01``preset:biped:greet_02``preset:biped:greet_03``preset:biped:greet_04``preset:biped:heart_pose``preset:biped:hit_to_body_01``preset:biped:hit_to_body_02``preset:biped:hit_to_head``preset:biped:hit_to_side``preset:biped:hit_to_stomach``preset:biped:hug``preset:biped:hurt``preset:biped:idle``preset:biped:jump_down``preset:biped:jump``preset:biped:jump_rope_01``preset:biped:jump_rope_02``preset:biped:laugh_01``preset:biped:laugh_02``preset:biped:lift_heavy``preset:biped:look_around``preset:biped:make_a_call_01``preset:biped:make_a_call_02``preset:biped:pitch_baseball``preset:biped:play_mobile_game``preset:biped:play_video_game``preset:biped:press-up``preset:biped:run_upstairs``preset:biped:run``preset:biped:scared_01``preset:biped:scared_02``preset:biped:scratch``preset:biped:shoot``preset:biped:shovel``preset:biped:sing_01``preset:biped:sing_02``preset:biped:sing_03``preset:biped:sing_04``preset:biped:sit``preset:biped:slash``preset:biped:sob``preset:biped:standing_relax``preset:biped:surf``preset:biped:swagger``preset:biped:swim``preset:biped:turn``preset:biped:victory_celebration``preset:biped:volleyball``preset:biped:wait``preset:biped:walk``preset:biped:warm_up``preset:biped:wave_goodbye_01``preset:biped:wave_goodbye_02`
+### animations
+- **Type:** string[]
+- **Required:** Conditional
+List of multiple preset animation identifiers.**Mutually exclusive with `animation` â provide only one.**
+### out_format
+- **Type:** string
+- **Required:** Optional
+- **Default:** `glb`
+Output format.
+- `glb` â binary glTF, web-ready.
+- `fbx` â FBX for DCC tools and game engines.
+### bake_animation
+- **Type:** boolean
+- **Required:** Optional
+- **Default:** `true`
+Bake animation into the model. Only effective for `glb` output.
+### export_with_geometry
+- **Type:** boolean
+- **Required:** Optional
+- **Default:** `true`
+Export with geometry included.
+### animate_in_place
+- **Type:** boolean
+- **Required:** Optional
+- **Default:** `false`
+Play animation in place without displacement.
+## Request Example
+### Single
+```bash
+curl --request POST \
+  --url https://openapi.tripo3d.ai/v3/animations/retarget \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "input": "task_abc123",
+  "animation": "preset:walk",
+  "out_format": "glb",
+  "bake_animation": true
+}'
+```
+### Batch
+```bash
+curl --request POST \
+  --url https://openapi.tripo3d.ai/v3/animations/retarget \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "input": "task_abc123",
+  "animations": [
+    "preset:idle",
+    "preset:walk",
+    "preset:run"
+  ],
+  "out_format": "fbx"
+}'
+```
+## Response Example
+### Create task
+```json
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123"
+  }
+}
+```
+### Task result
+```json
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_def456",
+    "status": "success",
+    "output": {
+      "model_url": "https://cdn.tripo3d.ai/output/animated.glb"
+    },
+    "credits_consumed": 20.00
+  }
+}
+```
+http
+Copy
+Base URL: https://openapi.tripo3d.ai/v3
+Endpoint: POST /animations/retarget
+Apply a preset animation to a rigged 3D model.
+Note
+This endpoint requires an API Key. Include it in the Authorization header as Bearer {api_key}.
+This is an asynchronous API. After submitting the request, use the Task Query API to poll for results, or configure a Webhook to receive automatic notifications when the task completes.
+Request Parameters
+Request Body
+inputstringRequired
+task_id of the rigged model, starting with task_.
+animationstringConditional
+Single preset animation identifier.Mutually exclusive with animations â provide only one.
+Notes
+Rig v2.5-20260210 â All rig types
+Biped: preset:idle, preset:walk, preset:run, preset:dive, preset:climb, preset:jump, preset:slash, preset:shoot, preset:hurt, preset:fall, preset:turn
+Quadruped: preset:quadruped:walk
+Others: preset:hexapod:walk, preset:octopod:walk, preset:serpentine:march, preset:aquatic:march
+Rig v1.0-20240301 â Biped only (90+ presets, click to expand)preset:biped:afraidpreset:biped:agreepreset:biped:angry_01preset:biped:angry_02preset:biped:angry_03preset:biped:basketball_shotpreset:biped:bowpreset:biped:box_01preset:biped:box_02preset:biped:box_03preset:biped:cast_a_spellpreset:biped:cheerpreset:biped:choppreset:biped:clappreset:biped:climbpreset:biped:complain_01preset:biped:complain_02preset:biped:cross_body_crunchpreset:biped:crossover_dribblepreset:biped:crypreset:biped:dance_01preset:biped:dance_02preset:biped:dance_03preset:biped:dance_04preset:biped:dance_05preset:biped:dance_06preset:biped:defeat_02preset:biped:defeat_03preset:biped:depressedpreset:biped:digpreset:biped:divepreset:biped:dribblepreset:biped:fallpreset:biped:firepreset:biped:flee_01preset:biped:flee_02preset:biped:flippreset:biped:fold_armspreset:biped:football_catchpreset:biped:football_savepreset:biped:football_passpreset:biped:freakypreset:biped:frightenedpreset:biped:front_kick_01preset:biped:front_kick_02preset:biped:frustrated_01preset:biped:frustrated_02preset:biped:golfpreset:biped:greet_01preset:biped:greet_02preset:biped:greet_03preset:biped:greet_04preset:biped:heart_posepreset:biped:hit_to_body_01preset:biped:hit_to_body_02preset:biped:hit_to_headpreset:biped:hit_to_sidepreset:biped:hit_to_stomachpreset:biped:hugpreset:biped:hurtpreset:biped:idlepreset:biped:jump_downpreset:biped:jumppreset:biped:jump_rope_01preset:biped:jump_rope_02preset:biped:laugh_01preset:biped:laugh_02preset:biped:lift_heavypreset:biped:look_aroundpreset:biped:make_a_call_01preset:biped:make_a_call_02preset:biped:pitch_baseballpreset:biped:play_mobile_gamepreset:biped:play_video_gamepreset:biped:press-uppreset:biped:run_upstairspreset:biped:runpreset:biped:scared_01preset:biped:scared_02preset:biped:scratchpreset:biped:shootpreset:biped:shovelpreset:biped:sing_01preset:biped:sing_02preset:biped:sing_03preset:biped:sing_04preset:biped:sitpreset:biped:slashpreset:biped:sobpreset:biped:standing_relaxpreset:biped:surfpreset:biped:swaggerpreset:biped:swimpreset:biped:turnpreset:biped:victory_celebrationpreset:biped:volleyballpreset:biped:waitpreset:biped:walkpreset:biped:warm_uppreset:biped:wave_goodbye_01preset:biped:wave_goodbye_02
+animationsstring[]Conditional
+List of multiple preset animation identifiers.Mutually exclusive with animation â provide only one.
+out_formatstringdefault: glb
+Output format.glb â binary glTF, web-ready.
+fbx â FBX for DCC tools and game engines.
+bake_animationbooleandefault: true
+Bake animation into the model. Only effective for glb output.
+export_with_geometrybooleandefault: true
+Export with geometry included.
+animate_in_placebooleandefault: false
+Play animation in place without displacement.
+Examples
+Single
+Copy
+{
+  "input": "task_abc123",
+  "animation": "preset:walk",
+  "out_format": "glb",
+  "bake_animation": true
+}
+Batch
+Copy
+{
+  "input": "task_abc123",
+  "animations": [
+    "preset:idle",
+    "preset:walk",
+    "preset:run"],
+  "out_format": "fbx"}
+Create task
+Copy
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123"}
+}
+Task result
+Copy
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_def456",
+    "status": "success",
+    "output": {
+      "model_url": "https://cdn.tripo3d.ai/output/animated.glb"},
+    "credits_consumed": 20.00
+  }
+}
+Animation RetargetingcURL
+Copy
+SingleBatch
+curl --request POST \
+  --url https://openapi.tripo3d.ai/v3/animations/retarget \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "input": "task_abc123",
+  "animation": "preset:walk",
+  "out_format": "glb",
+  "bake_animation": true
+}'
+200Response
+Copy
+Create taskTask result
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123"}
+}
+Previous
+Auto RigNextTask Query
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

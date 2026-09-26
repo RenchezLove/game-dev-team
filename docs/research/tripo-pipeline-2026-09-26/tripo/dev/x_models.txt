@@ -1,0 +1,48 @@
+
+    Models â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Models
+Overview of Tripo3D generation models and their capabilities.
+4 models Â· updated 2026-05
+Tripo H3.1
+# FLAGSHIP Â· TEXT & IMAGE TO 3DTop-tier geometry with PBR textures. Best choice when fidelity matters more than seconds.
+Speed
+~40 s
+Output
+High-fidelity mesh Â· PBR
+View details
+Tripo P1
+# LOW-POLY SPECIALISTRapid low-poly generation for game assets and mobile-ready 3D. Clean topology.
+Speed
+~10 s
+Output
+Low-poly mesh
+View details
+Tripo Rigging
+# AUTO SKELETON RIGOne-click humanoid or creature skeleton with weight painting, ready for animation.
+Speed
+~30 s
+Output
+Skeleton + weights
+View details
+Tripo Animation
+# PRESET MOTION LIBRARYApply preset animations to rigged models. Supports walk, run, idle, combat actions.
+Speed
+~5 s
+Output
+Animated GLB/FBX
+View details
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

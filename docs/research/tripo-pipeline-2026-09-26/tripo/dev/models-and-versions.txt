@@ -1,0 +1,166 @@
+
+    Models & Versions â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+Models and Versions
+Copy
+Download PDF
+# Models and Versions
+## 3D Generation Models
+The `model` parameter used by 3D generation endpoints such as `POST /v3/generation/text-to-model` and `POST /v3/generation/image-to-model`.
+| Model ID | Description | Recommended Use Case |
+| :-: | :-: | :-: |
+| `tripo-p1` | Best low-poly performance | Game pipelines / UGC generative gameplay / Mobile 3D assets |
+| `tripo-v3.1` | Latest high-precision model (default) | AAA production pipelines / 3D printing & flexible manufacturing |
+| `tripo-v3.0` | Previous-generation stable version | Backward compatibility |
+| `tripo-v2.5` | Legacy version | Historical project compatibility |
+## Image Generation Models
+The `model` parameter used by `POST /v3/generation/text-to-image` and `POST /v3/generation/image-to-image` endpoints.
+| Model ID | Provider | Characteristics |
+| :-: | :-: | :-: |
+| `seedream_v4` | ByteDance | Default model with balanced results |
+| `seedream_v5` | ByteDance | Latest version with improved quality |
+| `gemini-2.5-flash` | Google | Fast generation |
+| `gemini-3-pro` | Google | High-quality generation |
+| `gemini-3.1-flash` | Google | Latest fast version |
+| `chat_image_1` | OpenAI | GPT image generation (retiring 2026-10-23) |
+| `chat_image_1.5` | OpenAI | GPT higher quality (retiring 2026-12-01) |
+| `chat_image_2` | OpenAI | GPT latest |
+| `chat_image_2.5_flare` | OpenAI | GPT 2.5, speed tier |
+| `chat_image_2.5_sunburst` | OpenAI | GPT 2.5, fidelity tier |
+## Version Selection Recommendations
+- **New projects**: Use the default versions, `tripo-v3.1` for 3D and `seedream_v4` for images, for the best balance of quality and stability
+- **Production environments**: Pin a specific model version to avoid output inconsistencies caused by model updates
+- **Highest quality**: Use `tripo-p1` for 3D, and choose `gemini-3-pro` or `seedream_v5` for images depending on the scenario
+- **Low-poly / game assets**: Use `tripo-p1` for 3D â cleaner topology and more precise face-count control
+## Request Examples
+```bash
+# Use the default model
+curl -X POST https://openapi.tripo3d.ai/v3/generation/text-to-model \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {api_key}" \
+  -d '{"prompt": "a robot"}'
+# Specify the flagship model
+curl -X POST https://openapi.tripo3d.ai/v3/generation/text-to-model \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {api_key}" \
+  -d '{"prompt": "a robot", "model": "tripo-p1"}'
+# Use an image generation model
+curl -X POST https://openapi.tripo3d.ai/v3/generation/text-to-image \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {api_key}" \
+  -d '{"prompt": "a futuristic city", "model": "seedream-v5"}'
+```
+Models and Versions
+3D Generation Models
+The model parameter used by 3D generation endpoints such as POST /v3/generation/text-to-model and POST /v3/generation/image-to-model.
+Model ID | 
+Description | 
+Recommended Use Case | 
+tripo-p1 | 
+Best low-poly performance | 
+Game pipelines / UGC generative gameplay / Mobile 3D assets | 
+tripo-v3.1 | 
+Latest high-precision model (default) | 
+AAA production pipelines / 3D printing & flexible manufacturing | 
+tripo-v3.0 | 
+Previous-generation stable version | 
+Backward compatibility | 
+tripo-v2.5 | 
+Legacy version | 
+Historical project compatibility | 
+Image Generation Models
+The model parameter used by POST /v3/generation/text-to-image and POST /v3/generation/image-to-image endpoints.
+Model ID | 
+Provider | 
+Characteristics | 
+seedream_v4 | 
+ByteDance | 
+Default model with balanced results | 
+seedream_v5 | 
+ByteDance | 
+Latest version with improved quality | 
+gemini-2.5-flash | 
+Google | 
+Fast generation | 
+gemini-3-pro | 
+Google | 
+High-quality generation | 
+gemini-3.1-flash | 
+Google | 
+Latest fast version | 
+chat_image_1 | 
+OpenAI | 
+GPT image generation (retiring 2026-10-23) | 
+chat_image_1.5 | 
+OpenAI | 
+GPT higher quality (retiring 2026-12-01) | 
+chat_image_2 | 
+OpenAI | 
+GPT latest | 
+| chat_image_2.5_flare | OpenAI | GPT 2.5, speed tier |
+| chat_image_2.5_sunburst | OpenAI | GPT 2.5, fidelity tier |
+Version Selection Recommendations
+New projects: Use the default versions, tripo-v3.1 for 3D and seedream_v4 for images, for the best balance of quality and stability
+Production environments: Pin a specific model version to avoid output inconsistencies caused by model updates
+Highest quality: Use tripo-p1 for 3D, and choose gemini-3-pro or seedream_v5 for images depending on the scenario
+Low-poly / game assets: Use tripo-p1 for 3D â cleaner topology and more precise face-count control
+Request Examples
+Bash
+Copy
+# Use the default model
+curl -X POST https://openapi.tripo3d.ai/v3/generation/text-to-model \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {api_key}" \
+  -d '{"prompt": "a robot"}'
+# Specify the flagship model
+curl -X POST https://openapi.tripo3d.ai/v3/generation/text-to-model \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {api_key}" \
+  -d '{"prompt": "a robot", "model": "tripo-p1"}'
+# Use an image generation model
+curl -X POST https://openapi.tripo3d.ai/v3/generation/text-to-image \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {api_key}" \
+  -d '{"prompt": "a futuristic city", "model": "seedream-v5"}'
+Previous
+Task LifecycleNextBilling
+On this page
+3D Generation ModelsImage Generation ModelsVersion Selection RecommendationsRequest Examples
+On this page
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

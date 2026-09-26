@@ -1,0 +1,114 @@
+
+    Pricing â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+API Pricing
+Simple, transparent pay-as-you-go pricing. Purchase credits and use them across all API operations.
+1 credit = $0.01 USD
+3D Model Generation
+H SeriesP SeriesSplat Series
+Task Type | No Texture | Standard Texture | Docs | 
+Text to 3D | 10 | 20 | API Docs
+ | 
+Image to 3D | 20 | 30 | API Docs
+ | 
+Multiview to 3D | 20 | 30 | API Docs
+ | 
+Add-ons (stacked on base credits)
+HD Texture+108K Ultra Texture+20HD Geometry Quality+20Quad Mesh+5Smart Low-poly+10Generate Parts+20
+Model Processing
+Operation | Credits | Docs | 
+Texture (Fast) | 10 | API Docs
+ | 
+Texture (Standard) | 10 | API Docs
+ | 
+Texture (HD) | 20 | API Docs
+ | 
+Texture (8K Ultra) | 30 | API Docs
+ | 
+Format Convert (Basic) | 5 | API Docs
+ | 
+Format Convert (Advanced) | 10 | API Docs
+ | 
+Retopology (v2.0 Smart) | 30 | API Docs
+ | 
+Retopology (v1.0 Basic) | 10 | API Docs
+ | 
+Segmentation | 40 | API Docs
+ | 
+Part Completion (Default) | 50 | API Docs
+ | 
+Part Completion (Quick Cap) | 30 | API Docs
+ | 
+Smart Segmentation (Image) | 85 | API Docs
+ | 
+Smart Segmentation (Model) | 55 | API Docs
+ | 
+Triggers Advanced Convert pricing (any non-default value for the following = 10 credits)
+quadface_limitflatten_bottomflatten_bottom_thresholdtexture_sizetexture_formatpivot_to_center_bottomscale_factor
+Animation
+Operation | Credits | Docs | 
+Rig Check | Free | API Docs
+ | 
+Auto Rig | 25 | API Docs
+ | 
+Animation Retarget | 10 / animation | API Docs
+ | 
+Image Generation
+Model | â¤1K | 2K | 4K | Docs | 
+seedream_v5 / seedream_v4 | 5 | 5 | 5 | API Docs
+ | 
+banana | 5 | â | â | API Docs
+ | 
+banana2 | 10 | 10 | 15 | API Docs
+ | 
+banana_pro | 15 | 15 | 20 | API Docs
+ | 
+chat_image_1Retiring 2026-10-23
+ | 5 | â | â | API Docs
+ | 
+chat_image_1.5Retiring 2026-12-01
+ | 10 | â | â | API Docs
+ | 
+chat_image_2 | 10 | 10 | 15 | API Docs
+ | 
+chat_image_2.5_flare | 10 | 10 | 15 | API Docs
+ | 
+chat_image_2.5_sunburst | 10 | 10 | 15 | API Docs
+ | 
+GPT quality tiers
+Model | â¤1K | 2K | 4K | Docs | 
+chat_image_2 Â· high | 20 | 25 | 40 | API Docs
+ | 
+chat_image_2.5_* Â· high | 20 | 25 | 40 | API Docs
+ | 
+chat_image_2.5_* Â· xhigh | 25 | 30 | 45 | API Docs
+ | 
+chat_image_2.5_* Â· max | 30 | 50 | 50 | API Docs
+ | 
+Omitting quality, or passing low / medium, is billed at the base price above. auto is not supported. When size is auto, the 2K tier applies.
+Operation | Credits | Docs | 
+Image to Multiview | 10 | API Docs
+ | 
+Edit Multiview | 5 / edited image | API Docs
+ | 
+Get Started
+Create an API key and start generating 3D models with pay-as-you-go credits. 100 credits = $1.00 USD.
+Get Started
+Enterprise
+Need custom volumes, dedicated support, or SLA guarantees? Contact our sales team for a tailored plan.
+business@tripo3d.ai
+Contact Us
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

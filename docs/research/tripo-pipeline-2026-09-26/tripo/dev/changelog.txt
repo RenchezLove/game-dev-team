@@ -1,0 +1,196 @@
+
+    Changelog â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+Changelog
+Copy
+Download PDF
+# Changelog
+## Texture model v3.5-20260815 (2026-09)
+A new texture model, reachable from two entry points:
+- **`POST /v3/models/texture`**: `model` now accepts `v3.5-20260815`. The default is still `v3.0-20250812`, so requests that omit the field are unchanged.
+- **Generation endpoints** (`text-to-model`, `image-to-model`, `multiview-to-model`, including P1 / P2): new `texture_version` pins the texture model independently of the geometry `model`. Supported values are `v3.5-20260815`, `v3.0-20250812`, and `v2.5-20250123`; if omitted it is derived from the geometry version (v2.5 geometry â `v2.5-20250123`, otherwise `v3.0-20250812`).
+Two new parameters ship with it, **both effective only on v3.5 textures**:
+- **`texture_quality=fast`**: a new quality tier â the fastest generation, trading texture detail for speed. **Output texture size and credit cost are both identical to `standard`**; only the level of detail is lower. Requesting it on any other texture version returns `1004` instead of silently downgrading to `standard`.
+- **`delight`** (boolean, default `true`): removes baked-in lighting from the reference image before texturing; set `false` to keep the original shading. Older texture versions ignore it.
+## GPT Image 2.5, quality tiers and transparent backgrounds (2026-09)
+`POST /v3/generation/text-to-image` and `POST /v3/generation/image-to-image` now accept two new models, the GPT Image 2/2.5 family gains a `quality` parameter, and the two 2.5 models gain a `background` parameter.
+- **New models**: `chat_image_2.5_flare` and `chat_image_2.5_sunburst`. They cost the same and differ in trade-off â flare is noticeably faster, sunburst preserves the untouched parts of an edited image more closely.
+- **`quality`**: accepted only by `chat_image_2` (`low`, `medium`, `high`) and the two 2.5 models (additionally `xhigh`, `max`). Omitting it is equivalent to `low` â note this differs from OpenAI's own default of `auto`, which is not supported here. `high`/`xhigh`/`max` cost extra credits; see the Pricing page.
+- **`background`**: `auto`, `opaque` or `transparent`, supported by the two 2.5 models only. Omit it to let the model decide. Passing it with any other model is ignored rather than rejected, so existing requests keep working unchanged.
+- **`transparent` requires `output_format=png`**: JPEG carries no alpha channel, so that combination returns an error instead of silently flattening the transparency.
+- **Custom sizes**: `chat_image_2` and the 2.5 models accept any `WIDTHxHEIGHT` where each edge is at most 3840 and a multiple of 16, the long edge is at most 3x the short edge, and total pixels fall between 655,360 and 8,294,400. The previous presets continue to work.
+- **Retirement**: `chat_image_1` will be retired on **2026-10-23** and `chat_image_1.5` on **2026-12-01**. Migrate to `chat_image_2` or the 2.5 models before those dates.
+## P2 series model (2026-08)
+`POST /v3/generation/text-to-model`, `image-to-model`, and `multiview-to-model` now accept `model=P2-20260801` (an upgrade of P1).
+- **P2-only parameters**: `quad` (quad mesh). Sending `quad=true` with P1 returns `400`; switch to P2 or remove the field.
+- **`face_limit`**: triangle 48â50,000; with `quad=true`, 48â25,000. Omitted = adaptive.
+- **Credits**: 100 without texture; `standard` / `detailed` / `extreme` = 110 / 120 / 130 (same texture add-ons as P1).
+- **P1** (`P1-20260311`) remains available; P1 does not support `quad`, `smart_low_poly`, `generate_parts`, or `geometry_quality`.
+## Documentation correction (2026-08)
+`credits_consumed`, `balance`, and `frozen` are JSON **numbers** with up to two decimal places (e.g. `48.00`, `41465.00`). Parse them as floating-point or decimal values â **do not** use integer parsing (`int`, `parseInt`, etc.), which will fail or truncate fractional credits (e.g. VIP discounts).
+## v3.0 (2026-04)
+### New API Architecture
+- **Dedicated endpoints replace the universal POST endpoint**: Capability-specific endpoints, such as `POST /v3/generation/text-to-model`, replace the previous universal `POST /v2/openapi/task` endpoint with a `type` field
+- **Unified `{input}-to-{output}` naming convention**: All generation endpoints use intuitive names such as `text-to-model`, `image-to-multiview`, and `multiview-to-model`
+- **Unified `input` field**: Supports automatic input source inference from `task_id`, `file_token`, or URL, without requiring you to manually specify the input type
+- **Removed the redundant `/openapi` path**: The Base URL is simplified from `/v2/openapi/` to `/v3/`
+- **Text-to-image and image-to-image are separated into dedicated endpoints**: `text-to-image` and `image-to-image` are no longer combined in a single API
+### Endpoint Changes
+| v2 Endpoint | v3 Endpoint |
+| :-: | :-: |
+| `POST /v2/openapi/task` type=text_to_model | `POST /v3/generation/text-to-model` |
+| `POST /v2/openapi/task` type=image_to_model | `POST /v3/generation/image-to-model` |
+| `POST /v2/openapi/task` type=multiview_to_model | `POST /v3/generation/multiview-to-model` |
+| `POST /v2/openapi/task` type=text_to_image | `POST /v3/generation/text-to-image` |
+| `POST /v2/openapi/task` type=generate_image | `POST /v3/generation/image-to-image` |
+| `POST /v2/openapi/task` type=generate_multiview_image | `POST /v3/generation/image-to-multiview` |
+| `POST /v2/openapi/task` type=edit_multiview_image | `POST /v3/generation/edit-multiview` |
+| `POST /v2/openapi/task` type=refine_model | `POST /v3/models/refine` |
+| `POST /v2/openapi/task` type=convert_model | `POST /v3/models/convert` |
+| `POST /v2/openapi/task` type=import_model | `POST /v3/models/import` |
+| `POST /v2/openapi/task` type=stylize_model | `POST /v3/models/stylize` |
+| `POST /v2/openapi/task` type=texture_model | `POST /v3/models/texture` |
+| `POST /v2/openapi/task` type=animate_prerigcheck | `POST /v3/animations/rig-check` |
+| `POST /v2/openapi/task` type=animate_rig | `POST /v3/animations/rig` |
+| `POST /v2/openapi/task` type=animate_retarget | `POST /v3/animations/retarget` |
+| `POST /v2/openapi/task` type=mesh_segmentation | `POST /v3/mesh/segment` |
+| `POST /v2/openapi/task` type=mesh_completion | `POST /v3/mesh/complete` |
+| `POST /v2/openapi/task` type=highpoly_to_lowpoly | `POST /v3/mesh/decimate` |
+| `GET /v2/openapi/task/{task_id}` | `GET /v3/tasks/{task_id}` |
+### Field Changes
+| v2 Field | v3 Field |
+| :-: | :-: |
+| `create_time` | `created_at` |
+| `consumed_credit` | `credits_consumed` |
+| `file` / `file_token` / `url` / `object` | Unified as `input` |
+### New Capabilities
+- `POST /v3/tasks/list` - Query tasks in batch
+- `POST /v3/files/upload-credentials` - Get direct file upload credentials
+- `GET /v3/account/usage` - Query usage details
+Changelog
+Texture model v3.5-20260815 (2026-09)
+A new texture model, reachable from two entry points:
+POST /v3/models/texture: model now accepts v3.5-20260815. The default is still v3.0-20250812, so requests that omit the field are unchanged.
+Generation endpoints (text-to-model, image-to-model, multiview-to-model, including P1 / P2): new texture_version pins the texture model independently of the geometry model. Supported values are v3.5-20260815, v3.0-20250812, and v2.5-20250123; if omitted it is derived from the geometry version (v2.5 geometry â v2.5-20250123, otherwise v3.0-20250812).
+Two new parameters ship with it, both effective only on v3.5 textures:
+texture_quality=fast: a new quality tier â the fastest generation, trading texture detail for speed. Output texture size and credit cost are both identical to standard; only the level of detail is lower. Requesting it on any other texture version returns 1004 instead of silently downgrading to standard.
+delight (boolean, default true): removes baked-in lighting from the reference image before texturing; set false to keep the original shading. Older texture versions ignore it.
+GPT Image 2.5, quality tiers and transparent backgrounds (2026-09)
+POST /v3/generation/text-to-image and POST /v3/generation/image-to-image now accept two new models, the GPT Image 2/2.5 family gains a quality parameter, and the two 2.5 models gain a background parameter.
+New models: chat_image_2.5_flare and chat_image_2.5_sunburst. They cost the same and differ in trade-off â flare is noticeably faster, sunburst preserves the untouched parts of an edited image more closely.
+quality: accepted only by chat_image_2 (low, medium, high) and the two 2.5 models (additionally xhigh, max). Omitting it is equivalent to low â note this differs from OpenAIâs own default of auto, which is not supported here. high/xhigh/max cost extra credits; see the Pricing page.
+background: auto, opaque or transparent, supported by the two 2.5 models only. Omit it to let the model decide. Passing it with any other model is ignored rather than rejected, so existing requests keep working unchanged.
+transparent requires output_format=png: JPEG carries no alpha channel, so that combination returns an error instead of silently flattening the transparency.
+Custom sizes: chat_image_2 and the 2.5 models accept any WIDTHxHEIGHT where each edge is at most 3840 and a multiple of 16, the long edge is at most 3x the short edge, and total pixels fall between 655,360 and 8,294,400. The previous presets continue to work.
+Retirement: chat_image_1 will be retired on 2026-10-23 and chat_image_1.5 on 2026-12-01. Migrate to chat_image_2 or the 2.5 models before those dates.
+P2 series model (2026-08)
+POST /v3/generation/text-to-model, image-to-model, and multiview-to-model now accept model=P2-20260801 (an upgrade of P1).
+P2-only parameters: quad (quad mesh). Sending quad=true with P1 returns 400; switch to P2 or remove the field.
+face_limit: triangle 48â50,000; with quad=true, 48â25,000. Omitted = adaptive.
+Credits: 100 without texture; standard / detailed / extreme = 110 / 120 / 130 (same texture add-ons as P1).
+P1 (P1-20260311) remains available; P1 does not support quad, smart_low_poly, generate_parts, or geometry_quality.
+Documentation correction (2026-08)
+credits_consumed, balance, and frozen are JSON numbers with up to two decimal places (e.g. 48.00, 41465.00). Parse them as floating-point or decimal values â do not use integer parsing (int, parseInt, etc.), which will fail or truncate fractional credits (e.g. VIP discounts).
+v3.0 (2026-04)
+New API Architecture
+Dedicated endpoints replace the universal POST endpoint: Capability-specific endpoints, such as POST /v3/generation/text-to-model, replace the previous universal POST /v2/openapi/task endpoint with a type field
+Unified {input}-to-{output} naming convention: All generation endpoints use intuitive names such as text-to-model, image-to-multiview, and multiview-to-model
+Unified input field: Supports automatic input source inference from task_id, file_token, or URL, without requiring you to manually specify the input type
+Removed the redundant /openapi path: The Base URL is simplified from /v2/openapi/ to /v3/
+Text-to-image and image-to-image are separated into dedicated endpoints: text-to-image and image-to-image are no longer combined in a single API
+Endpoint Changes
+v2 Endpoint | 
+v3 Endpoint | 
+POST /v2/openapi/task type=text_to_model | 
+POST /v3/generation/text-to-model | 
+POST /v2/openapi/task type=image_to_model | 
+POST /v3/generation/image-to-model | 
+POST /v2/openapi/task type=multiview_to_model | 
+POST /v3/generation/multiview-to-model | 
+POST /v2/openapi/task type=text_to_image | 
+POST /v3/generation/text-to-image | 
+POST /v2/openapi/task type=generate_image | 
+POST /v3/generation/image-to-image | 
+POST /v2/openapi/task type=generate_multiview_image | 
+POST /v3/generation/image-to-multiview | 
+POST /v2/openapi/task type=edit_multiview_image | 
+POST /v3/generation/edit-multiview | 
+POST /v2/openapi/task type=refine_model | 
+POST /v3/models/refine | 
+POST /v2/openapi/task type=convert_model | 
+POST /v3/models/convert | 
+POST /v2/openapi/task type=import_model | 
+POST /v3/models/import | 
+POST /v2/openapi/task type=stylize_model | 
+POST /v3/models/stylize | 
+POST /v2/openapi/task type=texture_model | 
+POST /v3/models/texture | 
+POST /v2/openapi/task type=animate_prerigcheck | 
+POST /v3/animations/rig-check | 
+POST /v2/openapi/task type=animate_rig | 
+POST /v3/animations/rig | 
+POST /v2/openapi/task type=animate_retarget | 
+POST /v3/animations/retarget | 
+POST /v2/openapi/task type=mesh_segmentation | 
+POST /v3/mesh/segment | 
+POST /v2/openapi/task type=mesh_completion | 
+POST /v3/mesh/complete | 
+POST /v2/openapi/task type=highpoly_to_lowpoly | 
+POST /v3/mesh/decimate | 
+GET /v2/openapi/task/{task_id} | 
+GET /v3/tasks/{task_id} | 
+Field Changes
+v2 Field | 
+v3 Field | 
+create_time | 
+created_at | 
+consumed_credit | 
+credits_consumed | 
+file / file_token / url / object | 
+Unified as input | 
+New Capabilities
+POST /v3/tasks/list - Query tasks in batch
+POST /v3/files/upload-credentials - Get direct file upload credentials
+GET /v3/account/usage - Query usage details
+Previous
+AuthenticationNextSDK Integration
+On this page
+Texture model v3.5-20260815 (2026-09)GPT Image 2.5, quality tiers and transparent backgrounds (2026-09)P2 series model (2026-08)Documentation correction (2026-08)v3.0 (2026-04)
+On this page
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

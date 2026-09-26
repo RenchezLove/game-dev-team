@@ -1,0 +1,1670 @@
+unreal.StaticMeshEditorSubsystem â Unreal Python 5.5 (Experimental) documentation
+window.__tracking_base = 'https://tracking.epicgames.com';
+$(document).ready(function () {
+    $.ajax({
+        url: "https://www.unrealengine.com/epic-games-header?useServerUrl=true&lang=en-US",
+        context: document.body
+    }).done(function (data) {
+        $("#head").html(data);
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+	});
+});
+window._egNavAfterConfigSet = function() {
+	_epicGamesNav.hideSignIn = true;
+	_epicGamesNav.hideLocale = true;
+};
+Navigation
+index
+next
+ |
+previous
+ |
+Unreal Python 5.5 (Experimental) documentation
+ Â»
+unreal.StaticMeshEditorSubsystem
+unreal.StaticMeshEditorSubsystem
+Â¶
+class
+unreal.
+StaticMeshEditorSubsystem
+(
+outer
+:
+Object
+|
+None
+=
+None
+, 
+name
+:
+Name
+|
+str
+=
+'None'
+)
+Â¶
+Bases: 
+EditorSubsystem
+UStaticMeshEditorSubsystem
+Subsystem for exposing static mesh functionality to scripts
+C++ Source:
+Module
+: StaticMeshEditor
+File
+: StaticMeshEditorSubsystem.h
+add_simple_collisions
+(
+static_mesh
+, 
+shape_type
+)
+â
+int32
+Â¶
+Same as AddSimpleCollisionsWithNotification but changes are automatically applied.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+)
+shape_type
+ (
+ScriptCollisionShapeType
+)
+Return type
+:
+int32
+add_simple_collisions_with_notification
+(
+static_mesh
+, 
+shape_type
+, 
+apply_changes
+)
+â
+int32
+Â¶
+Add simple collisions to a static mesh.
+This method replicates what is done when invoking menu entries âCollision &gt; Add [â¦] Simplified Collisionâ in the Mesh Editor.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to generate simple collision for.
+shape_type
+ (
+ScriptCollisionShapeType
+) â Options on which simple collision to add to the mesh.
+apply_changes
+ (
+bool
+) â Indicates if changes must be apply or not.
+Returns
+:
+An integer indicating the index of the collision newly created. A negative value indicates the addition failed.
+Return type
+:
+int32
+add_uv_channel
+(
+static_mesh
+, 
+lod_index
+)
+â
+bool
+Â¶
+Adds an empty UV channel at the end of the existing channels on the given LOD of a StaticMesh.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh on which to add a UV channel.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+Returns
+:
+true if a UV channel was added.
+Return type
+:
+bool
+bulk_set_convex_decomposition_collisions
+(
+static_meshes
+, 
+hull_count
+, 
+max_hull_verts
+, 
+hull_precision
+)
+â
+bool
+Â¶
+Same as SetConvexDecompositionCollisionsWithNotification but changes are automatically applied.
+Parameters
+:
+static_meshes
+ (
+Array
+[
+StaticMesh
+]
+)
+hull_count
+ (
+int32
+)
+max_hull_verts
+ (
+int32
+)
+hull_precision
+ (
+int32
+)
+Return type
+:
+bool
+bulk_set_convex_decomposition_collisions_with_notification
+(
+static_meshes
+, 
+hull_count
+, 
+max_hull_verts
+, 
+hull_precision
+, 
+apply_changes
+)
+â
+bool
+Â¶
+Compute convex collisions for a set of static meshes.
+Any existing collisions will be removed from the static meshes.
+This method replicates what is done when invoking menu entry âCollision &gt; Auto Convex Collisionâ in the Mesh Editor.
+Parameters
+:
+static_meshes
+ (
+Array
+[
+StaticMesh
+]
+) â Set of Static mesh to add convex collision on.
+hull_count
+ (
+int32
+) â Maximum number of convex pieces that will be created. Must be positive.
+max_hull_verts
+ (
+int32
+) â Maximum number of vertices allowed for any generated convex hull.
+hull_precision
+ (
+int32
+) â Number of voxels to use when generating collision. Must be positive.
+apply_changes
+ (
+bool
+) â Indicates if changes must be apply or not.
+Returns
+:
+A boolean indicating if the addition was successful or not.
+Return type
+:
+bool
+create_proxy_mesh_actor
+(
+actors_to_merge
+, 
+merge_options
+)
+â
+StaticMeshActor
+or
+None
+Â¶
+Build a proxy mesh actor that can replace a set of mesh actors.
+Parameters
+:
+actors_to_merge
+ (
+Array
+[
+StaticMeshActor
+]
+) â List of actors to build a proxy for.
+merge_options
+ (
+CreateProxyMeshActorOptions
+)
+Returns
+:
+Success of the proxy creation
+out_merged_actor (StaticMeshActor): generated actor if requested
+Return type
+:
+StaticMeshActor
+ or None
+enable_section_cast_shadow
+(
+static_mesh
+, 
+cast_shadow
+, 
+lod_index
+, 
+section_index
+)
+â
+None
+Â¶
+Enables/disables mesh section shadow casting for a specific LOD.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh to Enables/disables shadow casting from.
+cast_shadow
+ (
+bool
+) â If the section should cast shadow.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+section_index
+ (
+int32
+) â Index of the StaticMesh Section.
+enable_section_collision
+(
+static_mesh
+, 
+collision_enabled
+, 
+lod_index
+, 
+section_index
+)
+â
+None
+Â¶
+Enables/disables mesh section collision for a specific LOD.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh to Enables/disables collisions from.
+collision_enabled
+ (
+bool
+) â If the collision is enabled or not.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+section_index
+ (
+int32
+) â Index of the StaticMesh Section.
+generate_box_uv_channel
+(
+static_mesh
+, 
+lod_index
+, 
+uv_channel_index
+, 
+position
+, 
+orientation
+, 
+size
+)
+â
+bool
+Â¶
+Generates box UV mapping in the specified UV channel on the given LOD of a StaticMesh.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh on which to generate the UV mapping.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+uv_channel_index
+ (
+int32
+) â Channel where to save the UV mapping.
+position
+ (
+Vector
+) â Position of the center of the projection gizmo.
+orientation
+ (
+Rotator
+) â Rotation to apply to the projection gizmo.
+size
+ (
+Vector
+) â The size of the box projection gizmo.
+Returns
+:
+true if the UV mapping was generated.
+Return type
+:
+bool
+generate_cylindrical_uv_channel
+(
+static_mesh
+, 
+lod_index
+, 
+uv_channel_index
+, 
+position
+, 
+orientation
+, 
+tiling
+)
+â
+bool
+Â¶
+Generates cylindrical UV mapping in the specified UV channel on the given LOD of a StaticMesh.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh on which to generate the UV mapping.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+uv_channel_index
+ (
+int32
+) â Channel where to save the UV mapping.
+position
+ (
+Vector
+) â Position of the center of the projection gizmo.
+orientation
+ (
+Rotator
+) â Rotation to apply to the projection gizmo.
+tiling
+ (
+Vector2D
+) â The UV tiling to use to generate the UV mapping.
+Returns
+:
+true if the UV mapping was generated.
+Return type
+:
+bool
+generate_planar_uv_channel
+(
+static_mesh
+, 
+lod_index
+, 
+uv_channel_index
+, 
+position
+, 
+orientation
+, 
+tiling
+)
+â
+bool
+Â¶
+Generates planar UV mapping in the specified UV channel on the given LOD of a StaticMesh.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh on which to generate the UV mapping.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+uv_channel_index
+ (
+int32
+) â Channel where to save the UV mapping.
+position
+ (
+Vector
+) â Position of the center of the projection gizmo.
+orientation
+ (
+Rotator
+) â Rotation to apply to the projection gizmo.
+tiling
+ (
+Vector2D
+) â The UV tiling to use to generate the UV mapping.
+Returns
+:
+true if the UV mapping was generated.
+Return type
+:
+bool
+get_collision_complexity
+(
+static_mesh
+)
+â
+CollisionTraceFlag
+Â¶
+Get the Collision Trace behavior of a static mesh
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to query on.
+Returns
+:
+the Collision Trace behavior.
+Return type
+:
+CollisionTraceFlag
+get_convex_collision_count
+(
+static_mesh
+)
+â
+int32
+Â¶
+Get number of convex collisions present on a static mesh.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to query on.
+Returns
+:
+An integer representing the number of convex collisions on the input static mesh. An negative value indicates that the command could not be executed. See log for explanation.
+Return type
+:
+int32
+get_lod_build_settings
+(
+static_mesh
+, 
+lod_index
+)
+â
+MeshBuildSettings
+Â¶
+Copy the build options with the specified LOD build settings.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to process.
+lod_index
+ (
+int32
+) â The LOD we get the reduction settings.
+Returns
+:
+out_build_options (MeshBuildSettings): The build settings where we copy the build options.
+Return type
+:
+MeshBuildSettings
+get_lod_count
+(
+static_mesh
+)
+â
+int32
+Â¶
+Get number of LODs present on a static mesh.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to process.
+Returns
+:
+the number of LODs present on the input mesh. An negative value indicates that the command could not be executed. See log for explanation.
+Return type
+:
+int32
+get_lod_group
+(
+static_mesh
+)
+â
+Name
+Â¶
+Get the LODGroup for the specified static mesh
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+)
+Returns
+:
+LODGroup
+Return type
+:
+Name
+get_lod_material_slot
+(
+static_mesh
+, 
+lod_index
+, 
+section_index
+)
+â
+int32
+Â¶
+Gets the material slot used for a specific LOD section.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh to get the material index from.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+section_index
+ (
+int32
+) â Index of the StaticMesh Section.
+Returns
+:
+MaterialSlotIndex   Index of the material slot used by the section or INDEX_NONE in case of error.
+Return type
+:
+int32
+get_lod_reduction_settings
+(
+static_mesh
+, 
+lod_index
+)
+â
+MeshReductionSettings
+Â¶
+Copy the reduction options with the specified LOD reduction settings.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to process.
+lod_index
+ (
+int32
+) â The LOD we get the reduction settings.
+Returns
+:
+out_reduction_options (MeshReductionSettings): The reduction settings where we copy the reduction options.
+Return type
+:
+MeshReductionSettings
+get_lod_screen_sizes
+(
+static_mesh
+)
+â
+Array
+[
+float
+]
+Â¶
+Get an array of LOD screen sizes for evaluation.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to process.
+Returns
+:
+array of LOD screen sizes.
+Return type
+:
+Array
+[
+float
+]
+get_nanite_settings
+(
+static_mesh
+)
+â
+MeshNaniteSettings
+Â¶
+Get the Nanite Settings for the mesh
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to access
+Returns
+:
+FMeshNaniteSettings struct for the given static mesh
+Return type
+:
+MeshNaniteSettings
+get_num_uv_channels
+(
+static_mesh
+, 
+lod_index
+)
+â
+int32
+Â¶
+Returns the number of UV channels for the given LOD of a StaticMesh.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh to query.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+Returns
+:
+the number of UV channels.
+Return type
+:
+int32
+get_number_materials
+(
+static_mesh
+)
+â
+int32
+Â¶
+Get number of Materials for a StaticMesh
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+)
+Return type
+:
+int32
+get_number_verts
+(
+static_mesh
+, 
+lod_index
+)
+â
+int32
+Â¶
+Get number of StaticMesh verts for an LOD
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+)
+lod_index
+ (
+int32
+)
+Return type
+:
+int32
+get_simple_collision_count
+(
+static_mesh
+)
+â
+int32
+Â¶
+Get number of simple collisions present on a static mesh.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to query on.
+Returns
+:
+An integer representing the number of simple collisions on the input static mesh. An negative value indicates that the command could not be executed. See log for explanation.
+Return type
+:
+int32
+has_instance_vertex_colors
+(
+static_mesh_component
+)
+â
+bool
+Â¶
+Check whether a static mesh component has vertex colors
+Parameters
+:
+static_mesh_component
+ (
+StaticMeshComponent
+)
+Return type
+:
+bool
+has_vertex_colors
+(
+static_mesh
+)
+â
+bool
+Â¶
+Check whether a static mesh has vertex colors
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+)
+Return type
+:
+bool
+import_lod
+(
+base_static_mesh
+, 
+lod_index
+, 
+source_filename
+)
+â
+int32
+Â¶
+Import or re-import a LOD into the specified base mesh. If the LOD do not exist it will import it and add it to the base static mesh. If the LOD already exist it will re-import the specified LOD.
+Parameters
+:
+base_static_mesh
+ (
+StaticMesh
+)
+lod_index
+ (
+int32
+)
+source_filename
+ (
+str
+)
+Returns
+:
+the index of the LOD that was imported or re-imported. Will return INDEX_NONE if anything goes bad.
+Return type
+:
+int32
+insert_uv_channel
+(
+static_mesh
+, 
+lod_index
+, 
+uv_channel_index
+)
+â
+bool
+Â¶
+Inserts an empty UV channel at the specified channel index on the given LOD of a StaticMesh.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh on which to insert a UV channel.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+uv_channel_index
+ (
+int32
+) â Index where to insert the UV channel.
+Returns
+:
+true if a UV channel was added.
+Return type
+:
+bool
+is_section_collision_enabled
+(
+static_mesh
+, 
+lod_index
+, 
+section_index
+)
+â
+bool
+Â¶
+Checks if a specific LOD mesh section has collision.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh to remove collisions from.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+section_index
+ (
+int32
+) â Index of the StaticMesh Section.
+Returns
+:
+True if the collision is enabled for the specified LOD of the StaticMesh section.
+Return type
+:
+bool
+join_static_mesh_actors
+(
+actors_to_join
+, 
+join_options
+)
+â
+Actor
+Â¶
+Create a new Actor in the level that contains a duplicate of all the Actors Static Meshes Component.
+The ActorsToJoin need to be in the same Level.
+This will have a low impact on performance but may help the edition by grouping the meshes under a single Actor.
+Parameters
+:
+actors_to_join
+ (
+Array
+[
+StaticMeshActor
+]
+) â List of Actors to join.
+join_options
+ (
+JoinStaticMeshActorsOptions
+) â Options on how to join the actors.
+Returns
+:
+The new created actor.
+Return type
+:
+Actor
+merge_static_mesh_actors
+(
+actors_to_merge
+, 
+merge_options
+)
+â
+StaticMeshActor
+or
+None
+Â¶
+Merge the meshes into a unique mesh with the provided StaticMeshActors. There are multiple options on how to merge the meshes and their materials.
+The ActorsToMerge need to be in the same Level.
+This may have a high impact on performance depending of the MeshMergingSettings options.
+Parameters
+:
+actors_to_merge
+ (
+Array
+[
+StaticMeshActor
+]
+) â List of Actors to merge.
+merge_options
+ (
+MergeStaticMeshActorsOptions
+) â Options on how to merge the actors.
+Returns
+:
+if the operation is successful.
+out_merged_actor (StaticMeshActor): The new created actor, if requested.
+Return type
+:
+StaticMeshActor
+ or None
+reimport_all_custom_lo_ds
+(
+static_mesh
+)
+â
+bool
+Â¶
+Re-import all the custom LODs present in the specified static mesh.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+)
+Returns
+:
+true if re-import all LODs works, false otherwise see log for explanation.
+Return type
+:
+bool
+remove_collisions
+(
+static_mesh
+)
+â
+bool
+Â¶
+Same as RemoveCollisionsWithNotification but changes are applied.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+)
+Return type
+:
+bool
+remove_collisions_with_notification
+(
+static_mesh
+, 
+apply_changes
+)
+â
+bool
+Â¶
+Remove collisions from a static mesh.
+This method replicates what is done when invoking menu entries âCollision &gt; Remove Collisionâ in the Mesh Editor.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh to remove collisions from.
+apply_changes
+ (
+bool
+) â Indicates if changes must be apply or not.
+Returns
+:
+A boolean indicating if the removal was successful or not.
+Return type
+:
+bool
+remove_lods
+(
+static_mesh
+)
+â
+bool
+Â¶
+Remove LODs on a static mesh except LOD 0.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to remove LOD from.
+Returns
+:
+A boolean indicating if the removal was successful, true, or not.
+Return type
+:
+bool
+remove_uv_channel
+(
+static_mesh
+, 
+lod_index
+, 
+uv_channel_index
+)
+â
+bool
+Â¶
+Removes the UV channel at the specified channel index on the given LOD of a StaticMesh.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh on which to remove the UV channel.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+uv_channel_index
+ (
+int32
+) â Index where to remove the UV channel.
+Returns
+:
+true if the UV channel was removed.
+Return type
+:
+bool
+replace_mesh_components_materials
+(
+mesh_components
+, 
+material_to_be_replaced
+, 
+new_material
+)
+â
+None
+Â¶
+Find the references of the material MaterialToReplaced on all the MeshComponents provided and replace it by NewMaterial.
+Parameters
+:
+mesh_components
+ (
+Array
+[
+MeshComponent
+]
+) â List of MeshComponent to search from.
+material_to_be_replaced
+ (
+MaterialInterface
+) â Material we want to replace.
+new_material
+ (
+MaterialInterface
+) â Material to replace MaterialToBeReplaced by.
+replace_mesh_components_materials_on_actors
+(
+actors
+, 
+material_to_be_replaced
+, 
+new_material
+)
+â
+None
+Â¶
+Find the references of the material MaterialToReplaced on all the MeshComponents of all the Actors provided and replace it by NewMaterial.
+Parameters
+:
+actors
+ (
+Array
+[
+Actor
+]
+) â List of Actors to search from.
+material_to_be_replaced
+ (
+MaterialInterface
+) â Material we want to replace.
+new_material
+ (
+MaterialInterface
+) â Material to replace MaterialToBeReplaced by.
+replace_mesh_components_meshes
+(
+mesh_components
+, 
+mesh_to_be_replaced
+, 
+new_mesh
+)
+â
+None
+Â¶
+Find the references of the mesh MeshToBeReplaced on all the MeshComponents provided and replace it by NewMesh.
+The editor should not be in play in editor mode.
+Parameters
+:
+mesh_components
+ (
+Array
+[
+StaticMeshComponent
+]
+) â List of MeshComponent to search from.
+mesh_to_be_replaced
+ (
+StaticMesh
+) â Mesh we want to replace.
+new_mesh
+ (
+StaticMesh
+) â Mesh to replace MeshToBeReplaced by.
+replace_mesh_components_meshes_on_actors
+(
+actors
+, 
+mesh_to_be_replaced
+, 
+new_mesh
+)
+â
+None
+Â¶
+Find the references of the mesh MeshToBeReplaced on all the MeshComponents of all the Actors provided and replace it by NewMesh.
+Parameters
+:
+actors
+ (
+Array
+[
+Actor
+]
+) â List of Actors to search from.
+mesh_to_be_replaced
+ (
+StaticMesh
+) â Mesh we want to replace.
+new_mesh
+ (
+StaticMesh
+) â Mesh to replace MeshToBeReplaced by.
+set_allow_cpu_access
+(
+static_mesh
+, 
+allow_cpu_access
+)
+â
+None
+Â¶
+Sets StaticMeshFlag bAllowCPUAccess
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+)
+allow_cpu_access
+ (
+bool
+)
+set_convex_decomposition_collisions
+(
+static_mesh
+, 
+hull_count
+, 
+max_hull_verts
+, 
+hull_precision
+)
+â
+bool
+Â¶
+Same as SetConvexDecompositionCollisionsWithNotification but changes are automatically applied.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+)
+hull_count
+ (
+int32
+)
+max_hull_verts
+ (
+int32
+)
+hull_precision
+ (
+int32
+)
+Return type
+:
+bool
+set_convex_decomposition_collisions_with_notification
+(
+static_mesh
+, 
+hull_count
+, 
+max_hull_verts
+, 
+hull_precision
+, 
+apply_changes
+)
+â
+bool
+Â¶
+Add a convex collision to a static mesh.
+Any existing collisions will be removed from the static mesh.
+This method replicates what is done when invoking menu entry âCollision &gt; Auto Convex Collisionâ in the Mesh Editor.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh to add convex collision on.
+hull_count
+ (
+int32
+) â Maximum number of convex pieces that will be created. Must be positive.
+max_hull_verts
+ (
+int32
+) â Maximum number of vertices allowed for any generated convex hull.
+hull_precision
+ (
+int32
+) â Number of voxels to use when generating collision. Must be positive.
+apply_changes
+ (
+bool
+) â Indicates if changes must be apply or not.
+Returns
+:
+A boolean indicating if the addition was successful or not.
+Return type
+:
+bool
+set_generate_lightmap_uv
+(
+static_mesh
+, 
+generate_lightmap_u_vs
+)
+â
+bool
+Â¶
+Set Generate Lightmap UVs for StaticMesh
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+)
+generate_lightmap_u_vs
+ (
+bool
+)
+Return type
+:
+bool
+set_lod_build_settings
+(
+static_mesh
+, 
+lod_index
+, 
+build_options
+)
+â
+None
+Â¶
+Set the LOD build options for the specified LOD index.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to process.
+lod_index
+ (
+int32
+) â The LOD we will apply the build settings.
+build_options
+ (
+MeshBuildSettings
+) â The build settings we want to apply to the LOD.
+set_lod_from_static_mesh
+(
+destination_static_mesh
+, 
+destination_lod_index
+, 
+source_static_mesh
+, 
+source_lod_index
+, 
+reuse_existing_material_slots
+)
+â
+int32
+Â¶
+Adds or create a LOD at DestinationLodIndex using the geometry from SourceStaticMesh SourceLodIndex
+Parameters
+:
+destination_static_mesh
+ (
+StaticMesh
+) â The static mesh to set the LOD in.
+destination_lod_index
+ (
+int32
+) â The index of the LOD to set.
+source_static_mesh
+ (
+StaticMesh
+) â The static mesh to get the LOD from.
+source_lod_index
+ (
+int32
+) â The index of the LOD to get.
+reuse_existing_material_slots
+ (
+bool
+) â If true, sections from SourceStaticMesh will be remapped to match the material slots of DestinationStaticMesh when they have the same material assigned. If false, all material slots of SourceStaticMesh will be appended in DestinationStaticMesh.
+Returns
+:
+The index of the LOD that was set. It can be different than DestinationLodIndex if it wasnât a valid index. A negative value indicates that the LOD was not set. See log for explanation.
+Return type
+:
+int32
+set_lod_group
+(
+static_mesh
+, 
+lod_group
+, 
+rebuild_immediately
+=
+True
+)
+â
+bool
+Â¶
+Set the LODGroup for the specified static mesh
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to process.
+lod_group
+ (
+Name
+) â Name of the LODGroup to apply
+rebuild_immediately
+ (
+bool
+) â If true, rebuild the static mesh immediately
+Returns
+:
+Success
+Return type
+:
+bool
+set_lod_material_slot
+(
+static_mesh
+, 
+material_slot_index
+, 
+lod_index
+, 
+section_index
+)
+â
+None
+Â¶
+Sets the material slot for a specific LOD.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Static mesh to Enables/disables shadow casting from.
+material_slot_index
+ (
+int32
+) â Index of the material slot to use.
+lod_index
+ (
+int32
+) â Index of the StaticMesh LOD.
+section_index
+ (
+int32
+) â Index of the StaticMesh Section.
+set_lod_reduction_settings
+(
+static_mesh
+, 
+lod_index
+, 
+reduction_options
+)
+â
+None
+Â¶
+Set the LOD reduction for the specified LOD index.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to process.
+lod_index
+ (
+int32
+) â The LOD we will apply the reduction settings.
+reduction_options
+ (
+MeshReductionSettings
+) â The reduction settings we want to apply to the LOD.
+set_lod_screen_sizes
+(
+static_mesh
+, 
+screen_sizes
+)
+â
+bool
+Â¶
+Set LOD screen sizes.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to process.
+screen_sizes
+ (
+Array
+[
+float
+]
+) â Array of LOD screen sizes to set.
+Returns
+:
+A boolean indicating if setting the screen sizes was successful.
+Return type
+:
+bool
+set_lods
+(
+static_mesh
+, 
+reduction_options
+)
+â
+int32
+Â¶
+Same as SetLodsWithNotification but changes are applied.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+)
+reduction_options
+ (
+StaticMeshReductionOptions
+)
+Return type
+:
+int32
+set_lods_with_notification
+(
+static_mesh
+, 
+reduction_options
+, 
+apply_changes
+)
+â
+int32
+Â¶
+Remove then add LODs on a static mesh.
+The static mesh must have at least LOD 0.
+The LOD 0 of the static mesh is kept after removal.
+The build settings of LOD 0 will be applied to all subsequent LODs.
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to process.
+reduction_options
+ (
+StaticMeshReductionOptions
+) â Options on how to generate LODs on the mesh.
+apply_changes
+ (
+bool
+) â Indicates if change must be notified.
+Returns
+:
+the number of LODs generated on the input mesh. An negative value indicates that the reduction could not be performed. See log for explanation. No action will be performed if ReductionOptions.ReductionSettings is empty
+Return type
+:
+int32
+set_nanite_settings
+(
+static_mesh
+, 
+nanite_settings
+, 
+apply_changes
+=
+True
+)
+â
+None
+Â¶
+Get the Nanite Settings for the mesh
+Parameters
+:
+static_mesh
+ (
+StaticMesh
+) â Mesh to update nanite settings for
+nanite_settings
+ (
+MeshNaniteSettings
+) â Settings with which to update the mesh
+apply_changes
+ (
+bool
+) â Indicates if changes must be applied or not.
+Table of Contents
+unreal.StaticMeshEditorSubsystem
+StaticMeshEditorSubsystem
+StaticMeshEditorSubsystem.add_simple_collisions()
+StaticMeshEditorSubsystem.add_simple_collisions_with_notification()
+StaticMeshEditorSubsystem.add_uv_channel()
+StaticMeshEditorSubsystem.bulk_set_convex_decomposition_collisions()
+StaticMeshEditorSubsystem.bulk_set_convex_decomposition_collisions_with_notification()
+StaticMeshEditorSubsystem.create_proxy_mesh_actor()
+StaticMeshEditorSubsystem.enable_section_cast_shadow()
+StaticMeshEditorSubsystem.enable_section_collision()
+StaticMeshEditorSubsystem.generate_box_uv_channel()
+StaticMeshEditorSubsystem.generate_cylindrical_uv_channel()
+StaticMeshEditorSubsystem.generate_planar_uv_channel()
+StaticMeshEditorSubsystem.get_collision_complexity()
+StaticMeshEditorSubsystem.get_convex_collision_count()
+StaticMeshEditorSubsystem.get_lod_build_settings()
+StaticMeshEditorSubsystem.get_lod_count()
+StaticMeshEditorSubsystem.get_lod_group()
+StaticMeshEditorSubsystem.get_lod_material_slot()
+StaticMeshEditorSubsystem.get_lod_reduction_settings()
+StaticMeshEditorSubsystem.get_lod_screen_sizes()
+StaticMeshEditorSubsystem.get_nanite_settings()
+StaticMeshEditorSubsystem.get_num_uv_channels()
+StaticMeshEditorSubsystem.get_number_materials()
+StaticMeshEditorSubsystem.get_number_verts()
+StaticMeshEditorSubsystem.get_simple_collision_count()
+StaticMeshEditorSubsystem.has_instance_vertex_colors()
+StaticMeshEditorSubsystem.has_vertex_colors()
+StaticMeshEditorSubsystem.import_lod()
+StaticMeshEditorSubsystem.insert_uv_channel()
+StaticMeshEditorSubsystem.is_section_collision_enabled()
+StaticMeshEditorSubsystem.join_static_mesh_actors()
+StaticMeshEditorSubsystem.merge_static_mesh_actors()
+StaticMeshEditorSubsystem.reimport_all_custom_lo_ds()
+StaticMeshEditorSubsystem.remove_collisions()
+StaticMeshEditorSubsystem.remove_collisions_with_notification()
+StaticMeshEditorSubsystem.remove_lods()
+StaticMeshEditorSubsystem.remove_uv_channel()
+StaticMeshEditorSubsystem.replace_mesh_components_materials()
+StaticMeshEditorSubsystem.replace_mesh_components_materials_on_actors()
+StaticMeshEditorSubsystem.replace_mesh_components_meshes()
+StaticMeshEditorSubsystem.replace_mesh_components_meshes_on_actors()
+StaticMeshEditorSubsystem.set_allow_cpu_access()
+StaticMeshEditorSubsystem.set_convex_decomposition_collisions()
+StaticMeshEditorSubsystem.set_convex_decomposition_collisions_with_notification()
+StaticMeshEditorSubsystem.set_generate_lightmap_uv()
+StaticMeshEditorSubsystem.set_lod_build_settings()
+StaticMeshEditorSubsystem.set_lod_from_static_mesh()
+StaticMeshEditorSubsystem.set_lod_group()
+StaticMeshEditorSubsystem.set_lod_material_slot()
+StaticMeshEditorSubsystem.set_lod_reduction_settings()
+StaticMeshEditorSubsystem.set_lod_screen_sizes()
+StaticMeshEditorSubsystem.set_lods()
+StaticMeshEditorSubsystem.set_lods_with_notification()
+StaticMeshEditorSubsystem.set_nanite_settings()
+Previous topic
+unreal.StaticMeshDescription
+Next topic
+unreal.StaticMeshExporterFBX
+Quick search
+document.getElementById('searchbox').style.display = "block"
+Navigation
+index
+next
+ |
+previous
+ |
+Unreal Python 5.5 (Experimental) documentation
+ Â»
+unreal.StaticMeshEditorSubsystem
+    Â© Copyright Â©, Epic Games, Inc. All rights reserved. Unreal and its logo are Epicâs trademarks or registered trademarks in the US and elsewhere.

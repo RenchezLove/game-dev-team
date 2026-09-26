@@ -1,0 +1,187 @@
+
+    Rig Check â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+Riggability Check
+Copy
+Download PDF
+# Riggability Check
+**Base URL:** `https://openapi.tripo3d.ai/v3`
+**Endpoint:** `POST /animations/rig-check`
+Check whether a model can be rigged and return the recommended rig type.
+## Request Parameters
+### input
+- **Type:** string
+- **Required:** Required
+Model source. Accepts task_id, file_token, or URL. Accepts the following input types:**Choose exactly one** of the following â do not pass multiple types simultaneously.
+- task_id â The task ID returned by a previous 3D generation task (`text_to_model`, `image_to_model`, or `multiview_to_model`). The system automatically uses the 3D model output from that task.
+Example: `task_abc123`
+- file_token â Upload a 3D model file via the File Upload API first, then pass the returned token.
+Example: `file_abc123`
+- URL â A publicly accessible direct link to a 3D model file.
+Example: `https://example.com/model.glb`
+- Supported formats: `GLB`
+- Max file size: **150 MB**
+## Response Fields
+### riggable
+- **Type:** boolean
+- **Required:** Required
+Whether the model is riggable.
+### rig_type
+- **Type:** string
+- **Required:** Required
+Recommended rig type.
+- `biped` â humanoid, two legs.
+- `quadruped` â four-legged animal.
+- `hexapod` â six-legged creature.
+- `octopod` â eight-legged creature.
+- `avian` â bird / winged.
+- `serpentine` â snake-like.
+- `aquatic` â fish / aquatic.
+## Request Example
+### Check
+```bash
+curl --request POST \
+  --url https://openapi.tripo3d.ai/v3/animations/rig-check \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "input": "task_abc123"
+}'
+```
+## Response Example
+### Create task
+```json
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123"
+  }
+}
+```
+### Task result
+```json
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_def456",
+    "status": "success",
+    "output": {
+      "riggable": true,
+      "rig_type": "biped"
+    },
+    "credits_consumed": 0.00
+  }
+}
+```
+http
+Copy
+Base URL: https://openapi.tripo3d.ai/v3
+Endpoint: POST /animations/rig-check
+Check whether a model can be rigged and return the recommended rig type.
+Note
+This endpoint requires an API Key. Include it in the Authorization header as Bearer {api_key}.
+This is an asynchronous API. After submitting the request, use the Task Query API to poll for results, or configure a Webhook to receive automatic notifications when the task completes.
+Request Parameters
+Request Body
+inputstringRequired
+Model source. Accepts task_id, file_token, or URL. Accepts the following input types:Choose exactly one of the following â do not pass multiple types simultaneously.
+task_id â The task ID returned by a previous 3D generation task (text_to_model, image_to_model, or multiview_to_model). The system automatically uses the 3D model output from that task.
+Example: task_abc123
+file_token â Upload a 3D model file via the File Upload API first, then pass the returned token.
+Example: file_abc123
+URL â A publicly accessible direct link to a 3D model file.
+Example: https://example.com/model.glb
+Notes
+Supported formats: GLB
+Max file size: 150 MB
+Response
+riggablebooleanRequired
+Whether the model is riggable.
+rig_typestringRequired
+Recommended rig type.biped â humanoid, two legs.
+quadruped â four-legged animal.
+hexapod â six-legged creature.
+octopod â eight-legged creature.
+avian â bird / winged.
+serpentine â snake-like.
+aquatic â fish / aquatic.
+Examples
+Check
+Copy
+{
+  "input": "task_abc123"}
+Create task
+Copy
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123"}
+}
+Task result
+Copy
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_def456",
+    "status": "success",
+    "output": {
+      "riggable": true,
+      "rig_type": "biped"},
+    "credits_consumed": 0.00
+  }
+}
+Riggability CheckcURL
+Copy
+curl --request POST \
+  --url https://openapi.tripo3d.ai/v3/animations/rig-check \
+  --header 'Authorization: Bearer <token>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "input": "task_abc123"}'
+200Response
+Copy
+Create taskTask result
+{
+  "code": 0,
+  "data": {
+    "task_id": "task_abc123"}
+}
+Previous
+Convert FormatNextAuto Rig
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

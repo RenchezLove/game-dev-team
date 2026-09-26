@@ -1,0 +1,62 @@
+# Tripo3D API Documentation
+
+> Tripo3D is an AI-powered 3D generation platform providing text-to-3D, image-to-3D, rigging, mesh editing, and format conversion APIs.
+> Documentation is available in English (/en/) and Chinese (/zh/).
+
+## Documentation Pages
+
+- [Introduction](/en/docs/introduction): Overview of the Tripo API, base URLs, authentication, and response format.
+- [Quick Start](/en/docs/quick-start): Get started with your first API call in minutes.
+- [Authentication](/en/docs/authentication): API key management and Bearer token authentication.
+- [Changelog](/en/docs/changelog): API version history and breaking changes.
+- [SDK Integration](/en/docs/sdk): Locked JavaScript V3, Python V2, Go V3, Rust V3, and Java V3 sources, installation, complete first calls, downloads, and route support.
+- [ComfyUI Nodes](/en/docs/comfyui-nodes): Independent reference for the 11 nodes in ComfyUI-Tripo 1.3.0, including installation, inputs, outputs, workflows, and troubleshooting.
+- [Codex Plugin](/en/docs/codex-plugin): Beginner walkthrough for generating 3D models in Codex with the Tripo 3D plugin.
+
+### 3D Generation â Standard (V Series)
+- [Text to 3D Model â Standard](/en/docs/generation-text-to-model/standard): Generate a 3D model from text using V series models (tripo-v3.1, v3.0, v2.5, v2.0, turbo).
+- [Image to 3D Model â Standard](/en/docs/generation-image-to-model/standard): Generate a 3D model from an image using V series models.
+- [Multiview to 3D Model â Standard](/en/docs/generation-multiview-to-model/standard): Generate a 3D model from 4 multiview images using V series models.
+
+### 3D Generation â P Series
+- [Text to 3D Model â P Series](/en/docs/generation-text-to-model/p): Generate a low-poly 3D model from text using P series models (tripo-p1). Optimized for clean topology, 48â20,000 faces.
+- [Image to 3D Model â P Series](/en/docs/generation-image-to-model/p): Generate a low-poly 3D model from an image using P series models.
+- [Multiview to 3D Model â P Series](/en/docs/generation-multiview-to-model/p): Generate a low-poly 3D model from multiview images using P series models.
+
+### Image Generation
+- [Text to Image](/en/docs/generation-text-to-image): Generate images from text prompts. Supports seedream, flux, and gemini models.
+- [Image to Image](/en/docs/generation-image-to-image): Edit or transform images with reference images.
+- [Image to Multiview](/en/docs/generation-image-to-multiview): Generate multiview images from a single image.
+- [Edit Multiview](/en/docs/generation-edit-multiview): Edit existing multiview images.
+
+### Model Processing
+- [Texture](/en/docs/models-texture): Regenerate texture maps for an existing model.
+- [Convert Format](/en/docs/models-convert): Convert to GLTF, FBX, USDZ, OBJ, STL, 3MF.
+- [Import Model (Advanced)](/en/docs/models-import): Import external 3D model files.
+
+### Animation
+- [Rig Check](/en/docs/animations-rig-check): Check if a model can be rigged.
+- [Auto Rig](/en/docs/animations-rig): Automatically add a skeleton rig.
+- [Animation Retarget](/en/docs/animations-retarget): Apply preset animations to rigged models.
+
+### Mesh Operations
+- [Segmentation](/en/docs/mesh-segment): Semantic segmentation of 3D models.
+- [Mesh Complete](/en/docs/mesh-complete): Complete segmented mesh parts.
+- [Retopology](/en/docs/mesh-decimate): Reduce polycount while preserving quality.
+
+### Common
+- [Task Management](/en/docs/tasks): Query task status and results (GET /v3/tasks/{task_id}).
+- [File Upload](/en/docs/files): Upload files and get file_tokens (POST /v3/files).
+- [Account](/en/docs/account): Query balance and usage (GET /v3/account/balance).
+
+### Guides
+- [Error Handling](/en/docs/error-handling): Error codes and troubleshooting.
+- [Rate Limits](/en/docs/rate-limits): Request rate limits and concurrency.
+- [Webhooks](/en/docs/webhooks): Real-time HTTP notifications for task completion/failure. Signing secret verification with HMAC-SHA256.
+
+- [v2 to v3 Migration](/en/docs/migration-v2-to-v3): Migration guide from v2 to v3 API.
+
+### Concepts
+- [Task Lifecycle](/en/docs/task-lifecycle): Async task states and polling.
+- [Models & Versions](/en/docs/models-and-versions): Available models and version history.
+- [Billing](/en/docs/billing): Credit consumption and pricing.

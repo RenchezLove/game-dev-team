@@ -1,0 +1,817 @@
+
+    SDK Integration â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+SDK Integration
+Copy
+Download PDF
+# SDK Integration
+Use the official Tripo SDKs to submit a text-to-model task, wait for completion, verify the terminal status, and download the generated model. The installation sources below are locked to the versions used to verify this page.
+## Supported SDKs
+| Language | API | Locked version | Installation source |
+| --- | --- | --- | --- |
+| JavaScript / TypeScript | V3 | [`e351348`](https://github.com/VAST-AI-Research/tripo-js-sdk/tree/e35134801b339caac0b84f36fe02d08e73e217b2) | Official Git commit |
+| Python | V2 + limited V3 | [`v0.4.2`](https://github.com/VAST-AI-Research/tripo-python-sdk/tree/v0.4.2) | PyPI `tripo3d==0.4.2` |
+| Go | V3 | [`2c8c8d4`](https://github.com/VAST-AI-Research/tripo-go-sdk/tree/2c8c8d4e6a9e1fc9e49699fc055140eca689ee79) | Go pseudo-version `v0.0.0-20260713072120-2c8c8d4e6a9e` |
+| Rust | V3 | [`f992f6a`](https://github.com/VAST-AI-Research/tripo-rust-sdk/tree/f992f6a7cf7a28c10781f9fa28e4630c7802291c) | Cargo Git dependency |
+| Java | V3 | [`7b6a68d`](https://github.com/VAST-AI-Research/tripo-java-sdk/tree/7b6a68d855e01a0b098775b1ee14ce7f3c8ac7d9) | Source build; local Maven `0.1.0-SNAPSHOT` |
+## 1. Configure an API key and region
+Create a key in the [Tripo Console](https://platform.tripo3d.ai/) and expose it only to your server-side process. Do not put an API key in browser code or commit it to source control.
+```bash
+export TRIPO_API_KEY="tsk_..."
+```
+JavaScript, Go, and Rust use `https://openapi.tripo3d.ai/v3`. Java selects `TripoRegion.GLOBAL`; the SDK starts from `https://openapi.tripo3d.ai` and appends `/v3`. Python 0.4.2 uses `https://api.tripo3d.ai/v2/openapi` for its main V2 client, plus `https://openapi.tripo3d.ai` for its limited V3 segmentation flow.
+## 2. Install the SDK
+Install each SDK from its locked production source.
+### JavaScript
+```bash
+npm install github:VAST-AI-Research/tripo-js-sdk#e35134801b339caac0b84f36fe02d08e73e217b2
+```
+### Python
+```bash
+python -m pip install tripo3d==0.4.2
+```
+### Go
+```bash
+go get github.com/VAST-AI-Research/tripo-go-sdk@v0.0.0-20260713072120-2c8c8d4e6a9e
+```
+### Rust
+```toml
+[dependencies]
+tripo3d-sdk = { git = "https://github.com/VAST-AI-Research/tripo-rust-sdk.git", rev = "f992f6a7cf7a28c10781f9fa28e4630c7802291c" }
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+```
+### Java
+```bash
+git clone https://github.com/VAST-AI-Research/tripo-java-sdk.git
+cd tripo-java-sdk
+git checkout 7b6a68d855e01a0b098775b1ee14ce7f3c8ac7d9
+./mvnw install
+```
+The Java build installs `ai.tripo3d:tripo-sdk:0.1.0-SNAPSHOT` in the local Maven repository. Add that coordinate to your application after the source build completes.
+## 3. Submit, wait, and download
+Each server-side example reads `TRIPO_API_KEY`, submits a text-to-model task, waits for a terminal result, checks for success, and saves the primary model immediately. Generated model URLs are temporary.
+### JavaScript
+```javascript
+import { writeFile } from 'node:fs/promises';
+import { TripoClient, ModelVersion, TaskStatus } from 'tripo3d-sdk-js';
+const apiKey = process.env.TRIPO_API_KEY;
+if (!apiKey) throw new Error('TRIPO_API_KEY is required');
+const client = new TripoClient({
+  apiKey,
+  baseUrl: 'https://openapi.tripo3d.ai/v3',
+});
+const taskId = await client.textToModel({
+  prompt: 'a cute red panda holding bamboo',
+  model: ModelVersion.H3_1,
+  texture: true,
+  pbr: true,
+  texture_quality: 'detailed',
+});
+const task = await client.waitForTask(taskId, {
+  pollingIntervalMs: 2000,
+  onProgress: (value) => console.log(`${value.status} â ${value.progress ?? 0}%`),
+});
+if (task.status !== TaskStatus.SUCCESS) {
+  throw new Error(`Task did not succeed: ${task.status}`);
+}
+const modelUrl = task.output.model_url ?? task.output.model;
+if (!modelUrl) throw new Error('Task returned no model URL');
+const response = await fetch(modelUrl);
+if (!response.ok) throw new Error(`Download failed: HTTP ${response.status}`);
+await writeFile(`tripo-${taskId}.glb`, Buffer.from(await response.arrayBuffer()));
+```
+### Python
+```python
+import asyncio
+import os
+import shutil
+from urllib.request import urlopen
+from tripo3d import TripoClient
+from tripo3d.models import TaskStatus
+def download_file(url, path):
+    with urlopen(url) as response, open(path, "wb") as output:
+        shutil.copyfileobj(response, output)
+async def main():
+    api_key = os.environ["TRIPO_API_KEY"]
+    os.makedirs("./output", exist_ok=True)
+    async with TripoClient(api_key=api_key) as client:
+        task_id = await client.text_to_model(
+            prompt="a cute red panda holding bamboo",
+            model_version="v2.5-20250123",
+        )
+        task = await client.wait_for_task(task_id, verbose=True)
+        if task.status != TaskStatus.SUCCESS:
+            raise RuntimeError(f"Task did not succeed: {task.status}")
+        model_url = task.output.model
+        if not model_url:
+            raise RuntimeError("Task returned no model URL")
+        output_path = "./output/model.glb"
+        await asyncio.to_thread(download_file, model_url, output_path)
+        print(f"Downloaded model: {output_path}")
+asyncio.run(main())
+```
+### Go
+```go
+package main
+import (
+	"context"
+	"fmt"
+	"log"
+	"os"
+	"time"
+	tripo3d "github.com/VAST-AI-Research/tripo-go-sdk"
+)
+func main() {
+	apiKey := os.Getenv("TRIPO_API_KEY")
+	if apiKey == "" {
+		log.Fatal("TRIPO_API_KEY is required")
+	}
+	client, err := tripo3d.NewClient(tripo3d.ClientOptions{
+		APIKey:  apiKey,
+		BaseURL: "https://openapi.tripo3d.ai/v3",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	ctx := context.Background()
+	taskID, err := client.TextToModel(ctx, tripo3d.TextToModelParams{
+		Prompt:         "a cute red panda holding bamboo",
+		Model:          tripo3d.String(tripo3d.ModelVersionH31),
+		Texture:        tripo3d.Bool(true),
+		PBR:            tripo3d.Bool(true),
+		TextureQuality: tripo3d.String("detailed"),
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	task, err := client.WaitForTask(ctx, taskID, tripo3d.WaitOptions{
+		PollInterval: 2 * time.Second,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	if task.Status != tripo3d.TaskStatusSuccess {
+		log.Fatalf("Task did not succeed: %s", task.Status)
+	}
+	downloaded, err := client.DownloadModel(ctx, task)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if downloaded == nil {
+		log.Fatal("Task returned no model URL")
+	}
+	filename := fmt.Sprintf("tripo-%s.glb", taskID)
+	if err := os.WriteFile(filename, downloaded.Data, 0o644); err != nil {
+		log.Fatal(err)
+	}
+}
+```
+### Rust
+```rust
+use tokio::fs;
+use tripo3d_sdk::{
+    constants::model_version,
+    params::TextToModelParams,
+    ClientOptions,
+    TaskStatus,
+    TripoClient,
+    WaitOptions,
+};
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+    let api_key = std::env::var("TRIPO_API_KEY")?;
+    let client = TripoClient::new(ClientOptions {
+        api_key: Some(api_key),
+        base_url: Some("https://openapi.tripo3d.ai/v3".into()),
+        ..Default::default()
+    })?;
+    let task_id = client
+        .text_to_model(TextToModelParams {
+            prompt: "a cute red panda holding bamboo".into(),
+            model: Some(model_version::H3_1.to_string()),
+            texture: Some(true),
+            pbr: Some(true),
+            texture_quality: Some("detailed".into()),
+            ..Default::default()
+        })
+        .await?;
+    let task = client
+        .wait_for_task(&task_id, WaitOptions::default())
+        .await?;
+    if task.status != TaskStatus::Success {
+        anyhow::bail!("Task did not succeed: {}", task.status);
+    }
+    let downloaded = client
+        .download_model(&task)
+        .await?
+        .ok_or_else(|| anyhow::anyhow!("Task returned no model URL"))?;
+    fs::write(format!("tripo-{task_id}.glb"), downloaded.data).await?;
+    Ok(())
+}
+```
+### Java
+```java
+import ai.tripo3d.sdk.api.TripoClient;
+import ai.tripo3d.sdk.api.TripoClientConfig;
+import ai.tripo3d.sdk.api.TripoRegion;
+import ai.tripo3d.sdk.model.request.TaskRequestPayload;
+import ai.tripo3d.sdk.model.response.TaskDetail;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.Map;
+public final class TripoQuickStart {
+    public static void main(String[] args) throws Exception {
+        String apiKey = System.getenv("TRIPO_API_KEY");
+        if (apiKey == null || apiKey.trim().isEmpty()) {
+            throw new IllegalStateException("TRIPO_API_KEY is required");
+        }
+        try (TripoClient client = TripoClient.create(
+                TripoClientConfig.builder(apiKey)
+                        .region(TripoRegion.GLOBAL)
+                        .build())) {
+            TaskDetail created = client.textToModel(TaskRequestPayload.builder()
+                    .prompt("a wooden chair")
+                    .model("v3.1-20260211")
+                    .build());
+            TaskDetail done = client.pollUntilTerminal(created.taskId());
+            if (!"success".equalsIgnoreCase(done.status())) {
+                throw new IllegalStateException(
+                        "Task failed: status=" + done.status()
+                                + ", message=" + done.errorMsg());
+            }
+            Map<String, Object> output = done.output();
+            Object modelUrl = output == null ? null : output.get("model_url");
+            if (!(modelUrl instanceof String)) {
+                throw new IllegalStateException(
+                        "Task output does not contain model_url");
+            }
+            try (InputStream input =
+                         new URL((String) modelUrl).openStream()) {
+                Files.copy(
+                        input,
+                        Paths.get("model.glb"),
+                        StandardCopyOption.REPLACE_EXISTING);
+            }
+        }
+    }
+}
+```
+JavaScript, Python, and Java deliberately use native HTTP clients for the signed model URL and do not attach an `Authorization` header. The Go and Rust SDK download methods also fetch the signed URL without the API key.
+## 4. V3 route support
+The matrix is the union of all five SDK implementations at the locked versions above. A check mark means that a public SDK flow reaches the final V3 HTTP route, directly or through an internal step; unused route constants do not count.
+| HTTP route | Purpose | JavaScript | Python | Go | Rust | Java |
+| --- | --- | :---: | :---: | :---: | :---: | :---: |
+| `POST /v3/generation/text-to-model` | Generate a model from text | â | â | â | â | â |
+| `POST /v3/generation/image-to-model` | Generate a model from one image | â | â | â | â | â |
+| `POST /v3/generation/multiview-to-model` | Generate a model from multiple views | â | â | â | â | â |
+| `POST /v3/generation/text-to-image` | Generate an image from text | â | â | â | â | â |
+| `POST /v3/generation/image-to-image` | Transform an image | â | â | â | â | â |
+| `POST /v3/generation/image-to-multiview` | Generate multiview images | â | â | â | â | â |
+| `POST /v3/generation/edit-multiview` | Edit multiview output | â | â | â | â | â |
+| `POST /v3/generation/image-to-splat` | Generate a Gaussian splat | â | â | â | â | â |
+| `POST /v3/models/refine` | Refine a draft model | â | â | â | â | â |
+| `POST /v3/models/texture` | Apply or regenerate textures | â | â | â | â | â |
+| `POST /v3/models/stylize` | Stylize a model | â | â | â | â | â |
+| `POST /v3/models/convert` | Convert model format | â | â | â | â | â |
+| `POST /v3/models/import` | Import an external model | â | â | â | â | â |
+| `POST /v3/mesh/segment` | Segment a mesh | â | â | â | â | â |
+| `POST /v3/mesh/complete` | Complete or repair a mesh | â | â | â | â | â |
+| `POST /v3/mesh/decimate` | Reduce face count | â | â | â | â | â |
+| `POST /v3/animations/rig-check` | Check whether a model can be rigged | â | â | â | â | â |
+| `POST /v3/animations/rig` | Attach a skeleton | â | â | â | â | â |
+| `POST /v3/animations/retarget` | Apply a preset animation | â | â | â | â | â |
+| `GET /v3/tasks/{task_id}` | Get one task | â | â | â | â | â |
+| `POST /v3/tasks/list` | Get multiple tasks | â | â | â | â | â |
+| `POST /v3/files` | Upload a file | â | â | â | â | â |
+| `POST /v3/files/presign` | Create a presigned upload | â | â | â | â | â |
+| `GET /v3/account/balance` | Get account balance | â | â | â | â | â |
+| `GET /v3/account/usage` | Get usage history | â | â | â | â | â |
+At this locked version, Java uniquely exposes image-to-splat, refine, stylize, import, presign, and usage. Java does not expose text-to-image, image-to-image, or edit-multiview. Its internal descriptor for `/v3/files/upload-credentials` has no service or public client method, so it is not counted as supported.
+Python remains primarily a V2 SDK. Its `mesh_segmentation(..., model_version="v2.0-20260430")` branch additionally uses `POST /v3/mesh/segment`, `GET /v3/tasks/{task_id}`, and `POST /v3/files` when a local `ref_image` must be uploaded.
+### Python V2 route support
+Python 0.4.2 exposes five final V2 HTTP routes. `POST /v2/openapi/task` is shared by its generation, model processing, mesh, and animation task methods; it is not limited to text-to-model.
+| HTTP route | Purpose |
+| --- | --- |
+| `POST /v2/openapi/task` | Submit any supported V2 task |
+| `GET /v2/openapi/task/{task_id}` | Query task status and output |
+| `GET /v2/openapi/user/balance` | Get account balance |
+| `POST /v2/openapi/upload/sts/token` | Get STS upload credentials when `boto3` is available |
+| `POST /v2/openapi/upload` | Upload a file when the SDK uses its legacy multipart fallback |
+Java and the other V3 SDKs send the model selection through their official V3 parameter models. On the Java wire, the field name is `model`.
+## 5. Troubleshooting
+- **Missing key:** set `TRIPO_API_KEY` in the server process. See [Authentication](./authentication).
+- **Wrong region:** select the matching global or China endpoint for the SDK and API version in use.
+- **Failed or timed-out task:** keep the `task_id`, inspect the terminal status, and see [Task Lifecycle](./task-lifecycle) and [Error Handling](./error-handling).
+- **Expired model URL:** query the task again when the SDK supports it, then download the model immediately. Do not store a temporary signed URL as a permanent asset.
+## Official repositories
+- [JavaScript SDK](https://github.com/VAST-AI-Research/tripo-js-sdk)
+- [Python SDK](https://github.com/VAST-AI-Research/tripo-python-sdk)
+- [Go SDK](https://github.com/VAST-AI-Research/tripo-go-sdk)
+- [Rust SDK](https://github.com/VAST-AI-Research/tripo-rust-sdk)
+- [Java SDK](https://github.com/VAST-AI-Research/tripo-java-sdk)
+SDK Integration
+Use the official Tripo SDKs to submit a text-to-model task, wait for completion, verify the terminal status, and download the generated model. The installation sources below are locked to the versions used to verify this page.
+Supported SDKs
+Language | 
+API | 
+Locked version | 
+Installation source | 
+JavaScript / TypeScript | 
+V3 | 
+e351348 | 
+Official Git commit | 
+Python | 
+V2 + limited V3 | 
+v0.4.2 | 
+PyPI tripo3d==0.4.2 | 
+Go | 
+V3 | 
+2c8c8d4 | 
+Go pseudo-version v0.0.0-20260713072120-2c8c8d4e6a9e | 
+Rust | 
+V3 | 
+f992f6a | 
+Cargo Git dependency | 
+Java | 
+V3 | 
+7b6a68d | 
+Source build; local Maven 0.1.0-SNAPSHOT | 
+1. Configure an API key and region
+Create a key in the Tripo Console and expose it only to your server-side process. Do not put an API key in browser code or commit it to source control.
+Bash
+Copy
+export TRIPO_API_KEY="tsk_..."
+JavaScript, Go, and Rust use https://openapi.tripo3d.ai/v3. Java selects TripoRegion.GLOBAL; the SDK starts from https://openapi.tripo3d.ai and appends /v3. Python 0.4.2 uses https://api.tripo3d.ai/v2/openapi for its main V2 client, plus https://openapi.tripo3d.ai for its limited V3 segmentation flow.
+2. Install the SDK
+Install each SDK from its locked production source.
+JavaScriptPythonGoRustJava
+Copy
+npm install github:VAST-AI-Research/tripo-js-sdk#e35134801b339caac0b84f36fe02d08e73e217b2
+python -m pip install tripo3d==0.4.2
+go get github.com/VAST-AI-Research/tripo-go-sdk@v0.0.0-20260713072120-2c8c8d4e6a9e
+[dependencies]
+tripo3d-sdk = { git = "https://github.com/VAST-AI-Research/tripo-rust-sdk.git", rev = "f992f6a7cf7a28c10781f9fa28e4630c7802291c" }
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+git clone https://github.com/VAST-AI-Research/tripo-java-sdk.git
+cd tripo-java-sdk
+git checkout 7b6a68d855e01a0b098775b1ee14ce7f3c8ac7d9
+./mvnw install
+The Java build installs ai.tripo3d:tripo-sdk:0.1.0-SNAPSHOT in the local Maven repository. Add that coordinate to your application after the source build completes.
+3. Submit, wait, and download
+Each server-side example reads TRIPO_API_KEY, submits a text-to-model task, waits for a terminal result, checks for success, and saves the primary model immediately. Generated model URLs are temporary.
+JavaScriptPythonGoRustJava
+Copy
+import { writeFile } from 'node:fs/promises';
+import { TripoClient, ModelVersion, TaskStatus } from 'tripo3d-sdk-js';
+const apiKey = process.env.TRIPO_API_KEY;
+if (!apiKey) throw new Error('TRIPO_API_KEY is required');
+const client = new TripoClient({
+  apiKey,
+  baseUrl: 'https://openapi.tripo3d.ai/v3',
+});
+const taskId = await client.textToModel({
+  prompt: 'a cute red panda holding bamboo',
+  model: ModelVersion.H3_1,
+  texture: true,
+  pbr: true,
+  texture_quality: 'detailed',
+});
+const task = await client.waitForTask(taskId, {
+  pollingIntervalMs: 2000,
+  onProgress: (value) => console.log(`${value.status} â ${value.progress ?? 0}%`),
+});
+if (task.status !== TaskStatus.SUCCESS) {
+  throw new Error(`Task did not succeed: ${task.status}`);
+}
+const modelUrl = task.output.model_url ?? task.output.model;
+if (!modelUrl) throw new Error('Task returned no model URL');
+const response = await fetch(modelUrl);
+if (!response.ok) throw new Error(`Download failed: HTTP ${response.status}`);
+await writeFile(`tripo-${taskId}.glb`, Buffer.from(await response.arrayBuffer()));
+import asyncio
+import os
+import shutil
+from urllib.request import urlopen
+from tripo3d import TripoClient
+from tripo3d.models import TaskStatus
+def download_file(url, path):
+    with urlopen(url) as response, open(path, "wb") as output:
+        shutil.copyfileobj(response, output)
+async def main():
+    api_key = os.environ["TRIPO_API_KEY"]
+    os.makedirs("./output", exist_ok=True)
+    async with TripoClient(api_key=api_key) as client:
+        task_id = await client.text_to_model(
+            prompt="a cute red panda holding bamboo",
+            model_version="v2.5-20250123",
+        )
+        task = await client.wait_for_task(task_id, verbose=True)
+        if task.status != TaskStatus.SUCCESS:
+            raise RuntimeError(f"Task did not succeed: {task.status}")
+        model_url = task.output.model
+        if not model_url:
+            raise RuntimeError("Task returned no model URL")
+        output_path = "./output/model.glb"
+        await asyncio.to_thread(download_file, model_url, output_path)
+        print(f"Downloaded model: {output_path}")
+asyncio.run(main())
+package main
+import (
+	"context"
+	"fmt"
+	"log"
+	"os"
+	"time"
+	tripo3d "github.com/VAST-AI-Research/tripo-go-sdk"
+)
+func main() {
+	apiKey := os.Getenv("TRIPO_API_KEY")
+	if apiKey == "" {
+		log.Fatal("TRIPO_API_KEY is required")
+	}
+	client, err := tripo3d.NewClient(tripo3d.ClientOptions{
+		APIKey:  apiKey,
+		BaseURL: "https://openapi.tripo3d.ai/v3",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	ctx := context.Background()
+	taskID, err := client.TextToModel(ctx, tripo3d.TextToModelParams{
+		Prompt:         "a cute red panda holding bamboo",
+		Model:          tripo3d.String(tripo3d.ModelVersionH31),
+		Texture:        tripo3d.Bool(true),
+		PBR:            tripo3d.Bool(true),
+		TextureQuality: tripo3d.String("detailed"),
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	task, err := client.WaitForTask(ctx, taskID, tripo3d.WaitOptions{
+		PollInterval: 2 * time.Second,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	if task.Status != tripo3d.TaskStatusSuccess {
+		log.Fatalf("Task did not succeed: %s", task.Status)
+	}
+	downloaded, err := client.DownloadModel(ctx, task)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if downloaded == nil {
+		log.Fatal("Task returned no model URL")
+	}
+	filename := fmt.Sprintf("tripo-%s.glb", taskID)
+	if err := os.WriteFile(filename, downloaded.Data, 0o644); err != nil {
+		log.Fatal(err)
+	}
+}
+use tokio::fs;
+use tripo3d_sdk::{
+    constants::model_version,
+    params::TextToModelParams,
+    ClientOptions,
+    TaskStatus,
+    TripoClient,
+    WaitOptions,
+};
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+    let api_key = std::env::var("TRIPO_API_KEY")?;
+    let client = TripoClient::new(ClientOptions {
+        api_key: Some(api_key),
+        base_url: Some("https://openapi.tripo3d.ai/v3".into()),
+        ..Default::default()
+    })?;
+    let task_id = client
+        .text_to_model(TextToModelParams {
+            prompt: "a cute red panda holding bamboo".into(),
+            model: Some(model_version::H3_1.to_string()),
+            texture: Some(true),
+            pbr: Some(true),
+            texture_quality: Some("detailed".into()),
+            ..Default::default()
+        })
+        .await?;
+    let task = client
+        .wait_for_task(&task_id, WaitOptions::default())
+        .await?;
+    if task.status != TaskStatus::Success {
+        anyhow::bail!("Task did not succeed: {}", task.status);
+    }
+    let downloaded = client
+        .download_model(&task)
+        .await?
+        .ok_or_else(|| anyhow::anyhow!("Task returned no model URL"))?;
+    fs::write(format!("tripo-{task_id}.glb"), downloaded.data).await?;
+    Ok(())
+}
+import ai.tripo3d.sdk.api.TripoClient;
+import ai.tripo3d.sdk.api.TripoClientConfig;
+import ai.tripo3d.sdk.api.TripoRegion;
+import ai.tripo3d.sdk.model.request.TaskRequestPayload;
+import ai.tripo3d.sdk.model.response.TaskDetail;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.Map;
+public final class TripoQuickStart {
+    public static void main(String[] args) throws Exception {
+        String apiKey = System.getenv("TRIPO_API_KEY");
+        if (apiKey == null || apiKey.trim().isEmpty()) {
+            throw new IllegalStateException("TRIPO_API_KEY is required");
+        }
+        try (TripoClient client = TripoClient.create(
+                TripoClientConfig.builder(apiKey)
+                        .region(TripoRegion.GLOBAL)
+                        .build())) {
+            TaskDetail created = client.textToModel(TaskRequestPayload.builder()
+                    .prompt("a wooden chair")
+                    .model("v3.1-20260211")
+                    .build());
+            TaskDetail done = client.pollUntilTerminal(created.taskId());
+            if (!"success".equalsIgnoreCase(done.status())) {
+                throw new IllegalStateException(
+                        "Task failed: status=" + done.status()
+                                + ", message=" + done.errorMsg());
+            }
+            Map<String, Object> output = done.output();
+            Object modelUrl = output == null ? null : output.get("model_url");
+            if (!(modelUrl instanceof String)) {
+                throw new IllegalStateException(
+                        "Task output does not contain model_url");
+            }
+            try (InputStream input =
+                         new URL((String) modelUrl).openStream()) {
+                Files.copy(
+                        input,
+                        Paths.get("model.glb"),
+                        StandardCopyOption.REPLACE_EXISTING);
+            }
+        }
+    }
+}
+JavaScript, Python, and Java deliberately use native HTTP clients for the signed model URL and do not attach an Authorization header. The Go and Rust SDK download methods also fetch the signed URL without the API key.
+4. V3 route support
+The matrix is the union of all five SDK implementations at the locked versions above. A check mark means that a public SDK flow reaches the final V3 HTTP route, directly or through an internal step; unused route constants do not count.
+HTTP route | 
+Purpose | 
+JavaScript | 
+Python | 
+Go | 
+Rust | 
+Java | 
+POST /v3/generation/text-to-model | 
+Generate a model from text | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/generation/image-to-model | 
+Generate a model from one image | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/generation/multiview-to-model | 
+Generate a model from multiple views | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/generation/text-to-image | 
+Generate an image from text | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/generation/image-to-image | 
+Transform an image | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/generation/image-to-multiview | 
+Generate multiview images | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/generation/edit-multiview | 
+Edit multiview output | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/generation/image-to-splat | 
+Generate a Gaussian splat | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/models/refine | 
+Refine a draft model | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/models/texture | 
+Apply or regenerate textures | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/models/stylize | 
+Stylize a model | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/models/convert | 
+Convert model format | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/models/import | 
+Import an external model | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/mesh/segment | 
+Segment a mesh | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/mesh/complete | 
+Complete or repair a mesh | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/mesh/decimate | 
+Reduce face count | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/animations/rig-check | 
+Check whether a model can be rigged | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/animations/rig | 
+Attach a skeleton | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/animations/retarget | 
+Apply a preset animation | 
+â | 
+â | 
+â | 
+â | 
+â | 
+GET /v3/tasks/{task_id} | 
+Get one task | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/tasks/list | 
+Get multiple tasks | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/files | 
+Upload a file | 
+â | 
+â | 
+â | 
+â | 
+â | 
+POST /v3/files/presign | 
+Create a presigned upload | 
+â | 
+â | 
+â | 
+â | 
+â | 
+GET /v3/account/balance | 
+Get account balance | 
+â | 
+â | 
+â | 
+â | 
+â | 
+GET /v3/account/usage | 
+Get usage history | 
+â | 
+â | 
+â | 
+â | 
+â | 
+At this locked version, Java uniquely exposes image-to-splat, refine, stylize, import, presign, and usage. Java does not expose text-to-image, image-to-image, or edit-multiview. Its internal descriptor for /v3/files/upload-credentials has no service or public client method, so it is not counted as supported.
+Python remains primarily a V2 SDK. Its mesh_segmentation(..., model_version="v2.0-20260430") branch additionally uses POST /v3/mesh/segment, GET /v3/tasks/{task_id}, and POST /v3/files when a local ref_image must be uploaded.
+Python V2 route support
+Python 0.4.2 exposes five final V2 HTTP routes. POST /v2/openapi/task is shared by its generation, model processing, mesh, and animation task methods; it is not limited to text-to-model.
+HTTP route | 
+Purpose | 
+POST /v2/openapi/task | 
+Submit any supported V2 task | 
+GET /v2/openapi/task/{task_id} | 
+Query task status and output | 
+GET /v2/openapi/user/balance | 
+Get account balance | 
+POST /v2/openapi/upload/sts/token | 
+Get STS upload credentials when boto3 is available | 
+POST /v2/openapi/upload | 
+Upload a file when the SDK uses its legacy multipart fallback | 
+Java and the other V3 SDKs send the model selection through their official V3 parameter models. On the Java wire, the field name is model.
+5. Troubleshooting
+Missing key: set TRIPO_API_KEY in the server process. See Authentication.
+Wrong region: select the matching global or China endpoint for the SDK and API version in use.
+Failed or timed-out task: keep the task_id, inspect the terminal status, and see Task Lifecycle and Error Handling.
+Expired model URL: query the task again when the SDK supports it, then download the model immediately. Do not store a temporary signed URL as a permanent asset.
+Official repositories
+JavaScript SDK
+Python SDK
+Go SDK
+Rust SDK
+Java SDK
+Previous
+ChangelogNextPlugins
+On this page
+Supported SDKs1. Configure an API key and region2. Install the SDK3. Submit, wait, and download4. V3 route support5. TroubleshootingOfficial repositories
+On this page
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

@@ -1,0 +1,250 @@
+
+    Billing â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+Billing
+Copy
+Download PDF
+# Billing
+## Credit System
+The Tripo API uses credits for billing. Different task types consume different numbers of credits.
+## Credit Freeze/Deduction Model
+| Stage | Description |
+| :-: | :-: |
+| Task creation | Freeze the required credits from the available balance |
+| Task succeeds | Frozen credits become consumed credits and are formally deducted |
+| Task fails | Frozen credits are returned to the available balance |
+| Task is cancelled | Frozen credits are returned to the available balance |
+Failed and cancelled tasks are not charged.
+## Query Balance
+> **GET** `/v3/account/balance`
+### curl
+```bash
+curl -X GET https://openapi.tripo3d.ai/v3/account/balance \
+  -H "Authorization: Bearer {api_key}"
+```
+### Python
+```python
+import requests
+url = "https://openapi.tripo3d.ai/v3/account/balance"
+headers = {
+    "Authorization": "Bearer {api_key}"
+}
+response = requests.get(url, headers=headers)
+print(response.json())
+```
+### JavaScript
+```javascript
+const response = await fetch("https://openapi.tripo3d.ai/v3/account/balance", {
+  headers: {
+    "Authorization": "Bearer {api_key}"
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+### Response Example
+```json
+{
+  "code": 0,
+  "data": {
+    "balance": 10000.00,
+    "frozen": 200.00
+  }
+}
+```
+| Field | Type | Description |
+| :-: | :-: | :-: |
+| balance | number | Available credit balance |
+| frozen | number | Frozen credits, pre-authorized for in-progress tasks |
+## View Usage
+> **GET** `/v3/account/usage`
+### curl
+```bash
+curl -X GET https://openapi.tripo3d.ai/v3/account/usage \
+  -H "Authorization: Bearer {api_key}"
+```
+### Python
+```python
+import requests
+url = "https://openapi.tripo3d.ai/v3/account/usage"
+headers = {
+    "Authorization": "Bearer {api_key}"
+}
+response = requests.get(url, headers=headers)
+print(response.json())
+```
+### JavaScript
+```javascript
+const response = await fetch("https://openapi.tripo3d.ai/v3/account/usage", {
+  headers: {
+    "Authorization": "Bearer {api_key}"
+  }
+});
+const data = await response.json();
+console.log(data);
+```
+### Response Example
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "task_id": "task_abc123",
+      "type": "text_to_model",
+      "credits_consumed": 100.00,
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  ]
+}
+```
+| Field | Type | Description |
+| :-: | :-: | :-: |
+| task_id | string | Unique task identifier |
+| type | string | Task type |
+| credits_consumed | number | Credits consumed |
+| created_at | string | Creation time, in ISO 8601 format |
+Billing
+Credit System
+The Tripo API uses credits for billing. Different task types consume different numbers of credits.
+Credit Freeze/Deduction Model
+Stage | 
+Description | 
+Task creation | 
+Freeze the required credits from the available balance | 
+Task succeeds | 
+Frozen credits become consumed credits and are formally deducted | 
+Task fails | 
+Frozen credits are returned to the available balance | 
+Task is cancelled | 
+Frozen credits are returned to the available balance | 
+Failed and cancelled tasks are not charged.
+Query Balance
+GET /v3/account/balance
+cURLPythonJavaScript
+Copy
+curl -X GET https://openapi.tripo3d.ai/v3/account/balance \
+  -H "Authorization: Bearer {api_key}"
+import requests
+url = "https://openapi.tripo3d.ai/v3/account/balance"
+headers = {
+    "Authorization": "Bearer {api_key}"
+}
+response = requests.get(url, headers=headers)
+print(response.json())
+const response = await fetch("https://openapi.tripo3d.ai/v3/account/balance", {
+  headers: {
+    "Authorization": "Bearer {api_key}"
+  }
+});
+const data = await response.json();
+console.log(data);
+Response Example
+JSON
+Copy
+{
+  "code": 0,
+  "data": {
+    "balance": 10000.00,
+    "frozen": 200.00
+  }
+}
+Field | 
+Type | 
+Description | 
+balance | 
+number | 
+Available credit balance | 
+frozen | 
+number | 
+Frozen credits, pre-authorized for in-progress tasks | 
+View Usage
+GET /v3/account/usage
+cURLPythonJavaScript
+Copy
+curl -X GET https://openapi.tripo3d.ai/v3/account/usage \
+  -H "Authorization: Bearer {api_key}"
+import requests
+url = "https://openapi.tripo3d.ai/v3/account/usage"
+headers = {
+    "Authorization": "Bearer {api_key}"
+}
+response = requests.get(url, headers=headers)
+print(response.json())
+const response = await fetch("https://openapi.tripo3d.ai/v3/account/usage", {
+  headers: {
+    "Authorization": "Bearer {api_key}"
+  }
+});
+const data = await response.json();
+console.log(data);
+Response Example
+JSON
+Copy
+{
+  "code": 0,
+  "data": [
+    {
+      "task_id": "task_abc123",
+      "type": "text_to_model",
+      "credits_consumed": 100.00,
+      "created_at": "2026-01-01T00:00:00Z"
+    }
+  ]
+}
+Field | 
+Type | 
+Description | 
+task_id | 
+string | 
+Unique task identifier | 
+type | 
+string | 
+Task type | 
+credits_consumed | 
+number | 
+Credits consumed | 
+created_at | 
+string | 
+Creation time, in ISO 8601 format | 
+Previous
+Models & VersionsNextText to 3D Model â H Series
+On this page
+Credit SystemCredit Freeze/Deduction ModelQuery BalanceView Usage
+On this page
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.

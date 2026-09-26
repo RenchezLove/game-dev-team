@@ -1,0 +1,122 @@
+
+    Pricing | Tripo OpenAPI docs
+    Skip to contentTripo OpenAPI docs
+SearchK
+ Main Navigation Tripo platformEnglish
+ä¸­æ
+English
+ä¸­æ
+Appearance
+MenuReturn to top
+ Sidebar Navigation 
+Get started
+Introduction
+Quick start
+Overview
+Pricing
+Errors&error handling
+Rate limits
+Changelog
+File upload
+Upload in STS (Recommended)
+Quick Upload directly
+Task query
+Get your task result
+Image generation
+Basic text to image
+Advanced image generation
+Multiview image
+Model generation
+Image to model
+P1
+H3
+H2
+Turbo-v1.0
+v1.4
+Text to model
+P1
+H3
+H2
+Turbo-v1.0
+v1.4
+Multiview to model
+P1
+H3
+H2
+Import model
+Texture
+Texture model
+v3.0-20250812
+v2.5-20250123
+Mesh editing
+Mesh segmentation
+Mesh completion
+Smart low poly
+Animation
+Pre rig check
+Rig
+v2.5-20260210
+v2.0-20250506
+v1.0-20240301
+Retarget
+Export
+Conversion
+Other
+Support&FAQ
+Terms
+Privacy
+On this page
+Copy Markdown
+Pricing â
+Triop API for generation is a pay-before-you-go product. You need to purchase API usage based on your application's need before using Tripo API. You can purchase API usage from the platform dashboard page. For volume API pricing and custom contracts, please contact sales.
+The Tripo API pricing is based on credits. Here's a detailed breakdown of the API pricing, some tasks will have additional credits consumed, you can check it in detailed task type:
+Image generation task | Base credit | 
+Basic text to image | 5 | 
+Advanced image generation â model_version: flux.1_kontext_pro, flux.1_dev, gpt_4o, gemini_2.5_flash_image_preview | 5 | 
+Advanced image generation â model_version: gpt_image_1.5, gpt_image_2, midjourney, gemini_3_pro_image_preview, gemini_3.1_flash_image_preview | 10 | 
+Generate multiview image | 10 | 
+Edit multiview image | 5 per view | 
+ Generate model phase 
+Task type | H2 / H3 | P1 | 
+No texture | + texture | No texture | + texture | 
+Image to model | 20 | 30 | 40 | 50 | 
+Text to model | 10 | 20 | 30 | 40 | 
+Multiview to model | 20 | 30 | 40 | 50 | 
+Import model | Free | â | â | â | 
+H2 / H3 additional parameters | credit | 
+texture_quality=detailed | 10 | 
+smart_low_poly=true | 10 | 
+quad=true | 5 | 
+generate_parts=true | 20 | 
+ P1 pricing is all-in per task; H2 / H3 additional parameter surcharges do not apply to P1. 
+ Texture model phase 
+Task type | Base credit | 
+Texture model | 10 | 
+Additional parameters | credit | 
+texture_quality=detailed | 10 | 
+Other post process task | Base credit | 
+Mesh segmentation | 40 | 
+Mesh completion | 50 | 
+Smart low poly | 30 | 
+pre rig check | Free | 
+Rig | 25 | 
+Retarget | 10 per animate | 
+ Export model phase 
+Task type | Base credit | 
+Conversion | 5 | 
+Additional parameters setting result in 5 more credits | 
+quad=true | 
+face_limit | 
+flatten_bottom=true | 
+flatten_bottom_threshold | 
+texture_size | 
+texture_format | 
+pivot_to_center_bottom=true | 
+scale_factor | 
+Base conversion rate â
+$1.00 = 100 credits
+Get started with 300 free credits in 2 weeks. Manage and purchase redits on your API account billing page
+Checking actual credit consumption â
+When you query a task via GET /v2/openapi/task/{task_id}, the response includes a consumed_credit field showing the exact number of credits deducted for that task. Use this to verify billing or reconcile usage in your application.
+PagerPrevious pageOverview
+Next pageErrors&error handling

@@ -1,0 +1,272 @@
+
+    Task Lifecycle â Tripo Developers
+Docs
+Models
+Pricing
+Support
+Developers
+Account
+EN
+Sign in
+Search docs...
+Get Started
+IntroductionQuick StartAuthenticationChangelogSDK IntegrationPluginsComfyUI NodesTripo CLICodex Plugin
+Concepts
+Task LifecycleModels & VersionsBilling
+3D Model Generation
+Text to 3D Model
+H SeriesP Series
+Image to 3D Model
+H SeriesP Series
+Multiview to 3D Model
+H SeriesP Series
+Image to Gaussian Splat
+Image Generation
+Text to ImageImage to ImageImage to MultiviewEdit Multiview
+Model Processing
+TextureSegmentationSmart SegmentationMesh CompleteRetopologyConvert Format
+Animation
+Rig CheckAuto RigAnimation Retarget
+Common
+Task QueryBatch Task QueryFile UploadFile Upload (Large Files)Account
+Guides
+Error HandlingRate LimitsWebhooksv2 to v3 MigrationImport Model
+Task Lifecycle
+Copy
+Download PDF
+# Task Lifecycle
+All generation APIs in the Tripo API use an asynchronous task pattern. After you submit a request, the API returns a `task_id`. You can then poll the task status and result.
+## State Machine
+```
+queued -> running -> success
+                 -> failed
+                 -> cancelled
+```
+## Status Descriptions
+| Status | Description | progress |
+| :-: | :-: | :-: |
+| `queued` | The task has been created and is waiting in the queue | 0 |
+| `running` | The task is being processed | 0-100 |
+| `success` | The task is complete, and the `output` field is available | 100 |
+| `failed` | The task failed, usually due to a server-side issue. Contact support | - |
+| `banned` | The input content violates the content policy | - |
+| `expired` | The task has expired, and output files are no longer available | - |
+| `cancelled` | The task has been cancelled | - |
+## Task Flow
+```
+1. Create a task (POST /v3/generation/*)
+   |
+   v
+2. Return task_id
+   |
+   v
+3. Poll status (GET /v3/tasks/{task_id})
+   |
+   v
+4a. status=success -> Get download links from output
+4b. status=failed  -> Check error details and contact support
+4c. status=banned  -> Modify the input content and submit again
+```
+## Credit Freeze Model
+Tripo uses a credit "freeze-then-deduct" model to ensure users are not charged for failed tasks:
+| Stage | Credit Change | Description |
+| :-: | :-: | :-: |
+| Task creation | Freeze the required credits | Credits are pre-authorized from the available balance and moved into a frozen state |
+| Task succeeds | Frozen credits become consumed credits | Credits are formally deducted |
+| Task fails | Frozen credits are released | Credits are returned to the available balance |
+| Task is cancelled | Frozen credits are released | Credits are returned to the available balance |
+Query the current balance and frozen credits:
+```bash
+curl -X GET https://openapi.tripo3d.ai/v3/account/balance \
+  -H "Authorization: Bearer {api_key}"
+```
+```json
+{
+  "code": 0,
+  "data": {
+    "balance": 10000.00,
+    "frozen": 200.00
+  }
+}
+```
+## Polling Recommendations
+- **Polling interval**: Query once every 1-2 seconds
+- **Use the `progress` field to display progress**: The value is an integer from 0 to 100
+- **Set a timeout**: We recommend setting a maximum polling duration, such as 5 minutes. If it times out, tell the user to check again later
+- **Use `POST /v3/tasks/list` for batch tasks**: Reduce the number of requests
+### Python Polling Example
+```python
+import time
+import requests
+def wait_for_task(task_id, api_key, interval=2, timeout=300):
+    url = f"https://openapi.tripo3d.ai/v3/tasks/{task_id}"
+    headers = {"Authorization": f"Bearer {api_key}"}
+    start = time.time()
+    while time.time() - start < timeout:
+        response = requests.get(url, headers=headers)
+        task = response.json()["data"]
+        status = task["status"]
+        progress = task.get("progress", 0)
+        print(f"[{task_id}] {status} ({progress}%)")
+        if status == "success":
+            return task["output"]
+        if status in ("failed", "cancelled", "banned"):
+            raise Exception(f"Task terminated: {status}")
+        time.sleep(interval)
+    raise TimeoutError(f"Task {task_id} timed out")
+```
+### JavaScript Polling Example
+```javascript
+async function waitForTask(taskId, apiKey, interval = 2000, timeout = 300000) {
+  const url = `https://openapi.tripo3d.ai/v3/tasks/${taskId}`;
+  const headers = { "Authorization": `Bearer ${apiKey}` };
+  const start = Date.now();
+  while (Date.now() - start < timeout) {
+    const response = await fetch(url, { headers });
+    const { data: task } = await response.json();
+    const { status, progress = 0 } = task;
+    console.log(`[${taskId}] ${status} (${progress}%)`);
+    if (status === "success") return task.output;
+    if (["failed", "cancelled", "banned"].includes(status)) {
+      throw new Error(`Task terminated: ${status}`);
+    }
+    await new Promise(resolve => setTimeout(resolve, interval));
+  }
+  throw new Error(`Task ${taskId} timed out`);
+}
+```
+Task Lifecycle
+All generation APIs in the Tripo API use an asynchronous task pattern. After you submit a request, the API returns a task_id. You can then poll the task status and result.
+State Machine
+Copy
+queued -> running -> success
+                 -> failed
+                 -> cancelled
+Status Descriptions
+Status | 
+Description | 
+progress | 
+queued | 
+The task has been created and is waiting in the queue | 
+0 | 
+running | 
+The task is being processed | 
+0-100 | 
+success | 
+The task is complete, and the output field is available | 
+100 | 
+failed | 
+The task failed, usually due to a server-side issue. Contact support | 
+- | 
+banned | 
+The input content violates the content policy | 
+- | 
+expired | 
+The task has expired, and output files are no longer available | 
+- | 
+cancelled | 
+The task has been cancelled | 
+- | 
+Task Flow
+Copy
+1. Create a task (POST /v3/generation/*)
+   |
+   v
+2. Return task_id
+   |
+   v
+3. Poll status (GET /v3/tasks/{task_id})
+   |
+   v
+4a. status=success -> Get download links from output
+4b. status=failed  -> Check error details and contact support
+4c. status=banned  -> Modify the input content and submit again
+Credit Freeze Model
+Tripo uses a credit âfreeze-then-deductâ model to ensure users are not charged for failed tasks:
+Stage | 
+Credit Change | 
+Description | 
+Task creation | 
+Freeze the required credits | 
+Credits are pre-authorized from the available balance and moved into a frozen state | 
+Task succeeds | 
+Frozen credits become consumed credits | 
+Credits are formally deducted | 
+Task fails | 
+Frozen credits are released | 
+Credits are returned to the available balance | 
+Task is cancelled | 
+Frozen credits are released | 
+Credits are returned to the available balance | 
+Query the current balance and frozen credits:
+Bash
+Copy
+curl -X GET https://openapi.tripo3d.ai/v3/account/balance \
+  -H "Authorization: Bearer {api_key}"
+JSON
+Copy
+{
+  "code": 0,
+  "data": {
+    "balance": 10000.00,
+    "frozen": 200.00
+  }
+}
+Polling Recommendations
+Polling interval: Query once every 1-2 seconds
+Use the progress field to display progress: The value is an integer from 0 to 100
+Set a timeout: We recommend setting a maximum polling duration, such as 5 minutes. If it times out, tell the user to check again later
+Use POST /v3/tasks/list for batch tasks: Reduce the number of requests
+Python Polling Example
+Python
+Copy
+import time
+import requests
+def wait_for_task(task_id, api_key, interval=2, timeout=300):
+    url = f"https://openapi.tripo3d.ai/v3/tasks/{task_id}"
+    headers = {"Authorization": f"Bearer {api_key}"}
+    start = time.time()
+    while time.time() - start < timeout:
+        response = requests.get(url, headers=headers)
+        task = response.json()["data"]
+        status = task["status"]
+        progress = task.get("progress", 0)
+        print(f"[{task_id}] {status} ({progress}%)")
+        if status == "success":
+            return task["output"]
+        if status in ("failed", "cancelled", "banned"):
+            raise Exception(f"Task terminated: {status}")
+        time.sleep(interval)
+    raise TimeoutError(f"Task {task_id} timed out")
+JavaScript Polling Example
+JavaScript
+Copy
+async function waitForTask(taskId, apiKey, interval = 2000, timeout = 300000) {
+  const url = `https://openapi.tripo3d.ai/v3/tasks/${taskId}`;
+  const headers = { "Authorization": `Bearer ${apiKey}` };
+  const start = Date.now();
+  while (Date.now() - start < timeout) {
+    const response = await fetch(url, { headers });
+    const { data: task } = await response.json();
+    const { status, progress = 0 } = task;
+    console.log(`[${taskId}] ${status} (${progress}%)`);
+    if (status === "success") return task.output;
+    if (["failed", "cancelled", "banned"].includes(status)) {
+      throw new Error(`Task terminated: ${status}`);
+    }
+    await new Promise(resolve => setTimeout(resolve, interval));
+  }
+  throw new Error(`Task ${taskId} timed out`);
+}
+Previous
+Codex PluginNextModels & Versions
+On this page
+State MachineStatus DescriptionsTask FlowCredit Freeze ModelPolling Recommendations
+On this page
+Products
+Tripo StudioTripo API
+Company
+PricingTerms of ServicePrivacy PolicyStatus
+Resources
+BlogTripoSR (Open source)
+Â© 2023 - 2026 Tripo. All rights reserved.
