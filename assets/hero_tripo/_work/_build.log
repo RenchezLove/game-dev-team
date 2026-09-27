@@ -1,14 +1,14 @@
 00:00.328  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_work.blend"
-12:54:45 | INFO: Data are loaded, start creating Blender stuff
-12:54:45 | INFO: Blender create Mesh node tripo_mesh_b8ed13ed-aa39-47e5-b68b-70bb298f40ee
-12:54:45 | INFO: glTF import finished in 0.01s
-E:\game-dev-team\assets\hero_tripo\_work\10_build.py:275: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+13:06:46 | INFO: Data are loaded, start creating Blender stuff
+13:06:46 | INFO: Blender create Mesh node tripo_mesh_b8ed13ed-aa39-47e5-b68b-70bb298f40ee
+13:06:46 | INFO: glTF import finished in 0.01s
+E:\game-dev-team\assets\hero_tripo\_work\10_build.py:312: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   mat.use_nodes = True
 TRIPO raw tris=2549 verts=3229 shift=(0.000,0.022,0.900)
 WELD 3229 -> 1277 verts
-DECIMATE 2549 -> 1949 tris
-TRIPO joints: crotch=0.823 hip=0.853 thigh=(0.113, 0.028, 0.768) knee=(0.153,0.064,0.467) ankle=(0.224, 0.098, 0.038) foot_y=[-0.088..0.184]
-TRIPO arm: shoulder=(0.21, 0.035, 1.422) elbow=(0.472, 0.02, 1.439) wrist=(0.675, -0.001, 1.449) tip=0.875
+TRIPO joints: crotch=0.823 hip=0.853 thigh=(0.113, 0.018, 0.771) knee=(0.153,0.064,0.467) ankle=(0.224, 0.098, 0.038) foot_y=[-0.089..0.186]
+TRIPO arm: shoulder=(0.21, 0.036, 1.422) elbow=(0.472, 0.02, 1.439) wrist=(0.675, -0.0, 1.449) tip=0.875
+DECIMATE 2549 -> 799 tris
 HEAT HeroTripo -> TripoRig groups=21 unweighted=0
   conform C_Root             len T=0.289 O=0.255 scale=0.88
   conform C_Spine01          len T=0.279 O=0.246 scale=0.88
@@ -23,25 +23,26 @@ HEAT HeroTripo -> TripoRig groups=21 unweighted=0
   conform C_Spine02          len T=0.078 O=0.121 scale=1.55
   conform C_Neck             len T=0.045 O=0.071 scale=1.57
   conform C_Head             len T=0.071 O=0.071 scale=1.00
-  conform L_Pelvis           len T=0.116 O=0.105 scale=0.90
-  conform L_Thigh            len T=0.390 O=0.380 scale=0.97
+  conform L_Pelvis           len T=0.114 O=0.105 scale=0.92
+  conform L_Thigh            len T=0.391 O=0.380 scale=0.97
   conform L_Claf             len T=0.436 O=0.422 scale=0.97
   conform L_Foot             len T=0.422 O=0.422 scale=1.00
-  conform R_Pelvis           len T=0.116 O=0.105 scale=0.90
-  conform R_Thigh            len T=0.390 O=0.380 scale=0.97
+  conform R_Pelvis           len T=0.114 O=0.105 scale=0.92
+  conform R_Thigh            len T=0.391 O=0.380 scale=0.97
   conform R_Claf             len T=0.436 O=0.422 scale=0.97
   conform R_Foot             len T=0.422 O=0.422 scale=1.00
 CONFORM max joint error = 0.00000 m
+THICKEN x1.18: moved 259/402 verts, z=[-0.005..1.823]
 HEAT HeroTripo -> RootAnim groups=21 unweighted=0
-Info: 27 vertex weights limited
-CUT whole mesh tris after bisect = 2283
-SLOT SK_Cloth_T0_Head   tris=571 verts=294 z=[1.532..1.787] groups=['C_Head', 'C_Neck', 'C_Spine02']
-SLOT SK_Cloth_T0_Torso  tris=1182 verts=638 z=[0.900..1.549] groups=['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'L_UpperArm', 'Pelvis_009_R_002', 'R_Arm', 'R_Hand', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
-SLOT SK_Cloth_T0_Legs   tris=763 verts=412 z=[-0.002..0.910] groups=['C_Root', 'C_Spine01', 'L_Claf', 'L_Foot', 'L_Pelvis', 'L_Thigh', 'L_UpperArm', 'R_Claf', 'R_Foot', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
-TOTAL tris = 2516
+Info: 5 vertex weights limited
+CUT whole mesh tris after bisect = 1033
+SLOT SK_Cloth_T0_Head   tris=279 verts=145 z=[1.532..1.823] groups=['C_Head', 'C_Neck', 'R_UpperArm']
+SLOT SK_Cloth_T0_Torso  tris=524 verts=294 z=[0.900..1.549] groups=['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'L_Arm', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'L_UpperArm', 'Pelvis_009_R_002', 'R_Arm', 'R_Hand', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
+SLOT SK_Cloth_T0_Legs   tris=365 verts=206 z=[-0.005..0.910] groups=['C_Root', 'C_Spine01', 'L_Claf', 'L_Foot', 'L_Pelvis', 'L_Thigh', 'L_UpperArm', 'R_Claf', 'R_Foot', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
+TOTAL tris = 1168
 Info: Saved as "hero_work.blend"
 SAVED E:/game-dev-team/assets/hero_tripo/_work/hero_work.blend
-HAND left: tip x=0.998 (T0 0.999), z=[1.301..1.373] y=[-0.063..0.041]
+HAND left: tip x=0.993 (T0 0.999), z=[1.307..1.361] y=[-0.061..0.040]
 Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
 ERROR: Image "" not available. Keeping packed image
 Color_b8ed13ed-aa39-47e5-b68b-70bb298f40ee

@@ -16,7 +16,8 @@ from mathutils import Vector, Matrix
 
 OUTDIR = 'E:/game-dev-team/assets/hero_tripo/'
 WORK = OUTDIR + '_work/'
-TARGET_TRIS = 1950          # before cuts; bisect planes + overlap add ~550
+TARGET_TRIS = 800           # before cuts; bisect planes + overlap add ~30%, final <= 1200 (Rinat 09-27)
+THICK = 1.18                # body thickness factor (Rinat: "чуть толще"), head+hands+feet untouched
 TEX = OUTDIR + 'T_HeroTripo_D.png'
 MAT = 'M_HeroTripo'
 HAND_L = 0.5                # hand length scale (0.20 m -> 0.10 m, like T0)
@@ -60,21 +61,6 @@ n0 = len(bm.verts)
 bmesh.ops.remove_doubles(bm, verts=bm.verts[:], dist=1e-4)
 bm.to_mesh(me); bm.free(); me.update()
 print('WELD %d -> %d verts' % (n0, len(me.vertices)))
-
-# decimate to budget
-me.calc_loop_triangles()
-t0 = len(me.loop_triangles)
-if t0 > TARGET_TRIS:
-    md = hero.modifiers.new('Dec', 'DECIMATE')
-    md.ratio = TARGET_TRIS / t0
-    md.use_collapse_triangulate = True
-    bpy.context.view_layer.objects.active = hero
-    bpy.ops.object.modifier_apply(modifier=md.name)
-bm = bmesh.new(); bm.from_mesh(me)
-bmesh.ops.triangulate(bm, faces=bm.faces[:])
-bm.to_mesh(me); bm.free(); me.update()
-me.calc_loop_triangles()
-print('DECIMATE %d -> %d tris' % (t0, len(me.loop_triangles)))
 
 # ---------- measure Tripo joints ----------
 cos = [v.co.copy() for v in me.vertices]
@@ -134,6 +120,21 @@ print('TRIPO joints: crotch=%.3f hip=%.3f thigh=%s knee=(%.3f,%.3f,%.3f) ankle=%
     crotch, HIP_Z, tuple(round(a, 3) for a in th), kn.x, kn.y, KN_Z, tuple(round(a, 3) for a in AN), fmn.y, fmx.y))
 print('TRIPO arm: shoulder=%s elbow=%s wrist=%s tip=%.3f' % (
     tuple(round(a, 3) for a in SH), tuple(round(a, 3) for a in EL), tuple(round(a, 3) for a in WR), tip))
+
+# decimate to budget
+me.calc_loop_triangles()
+t0 = len(me.loop_triangles)
+if t0 > TARGET_TRIS:
+    md = hero.modifiers.new('Dec', 'DECIMATE')
+    md.ratio = TARGET_TRIS / t0
+    md.use_collapse_triangulate = True
+    bpy.context.view_layer.objects.active = hero
+    bpy.ops.object.modifier_apply(modifier=md.name)
+bm = bmesh.new(); bm.from_mesh(me)
+bmesh.ops.triangulate(bm, faces=bm.faces[:])
+bm.to_mesh(me); bm.free(); me.update()
+me.calc_loop_triangles()
+print('DECIMATE %d -> %d tris' % (t0, len(me.loop_triangles)))
 
 # ---------- Tripo-proportioned copy of RootAnim ----------
 O = {b.name: (b.head_local.copy(), b.tail_local.copy()) for b in rig.data.bones}
@@ -236,6 +237,42 @@ md = [m for m in hero.modifiers if m.type == 'ARMATURE'][0]
 bpy.ops.object.modifier_apply(modifier=md.name)
 hero.parent = None
 hero.matrix_world = Matrix.Identity(4)
+
+# ---------- thicken body (radial from bone axes, blended by conform weights) ----------
+AXIAL = {'C_Root', 'C_Spine01', 'C_Spine02', 'L_Pelvis', 'R_Pelvis'}      # scale X/Y about spine
+RADIAL = {'L_UpperArm', 'R_UpperArm', 'L_Shoulder', 'L_Arm', 'R_Arm', 'Pelvis_009_R_002',
+          'L_Thigh', 'R_Thigh', 'L_Claf', 'R_Claf'}                        # scale about segment
+# identity: C_Neck, C_Head, L_Hand, R_Hand, L_Foot, R_Foot
+
+
+def thick_at(bn, co):
+    if bn in AXIAL:
+        return Vector((co.x * THICK, -0.001 + (co.y + 0.001) * THICK, co.z))
+    if bn in RADIAL:
+        a, b = O[bn]
+        ab = b - a
+        t = max(0.0, min(1.0, (co - a).dot(ab) / ab.length_squared))
+        p = a + ab * t
+        return p + (co - p) * THICK
+    return co.copy()
+
+
+gname = {g.index: g.name for g in hero.vertex_groups}
+moved = 0
+for v in me.vertices:
+    ws = [(gname[g.group], g.weight) for g in v.groups if g.weight > 1e-4]
+    tot = sum(w for _, w in ws)
+    if tot <= 0:
+        continue
+    new = Vector((0, 0, 0))
+    for bn, w in ws:
+        new += thick_at(bn, v.co) * (w / tot)
+    if (new - v.co).length > 1e-6:
+        moved += 1
+    v.co = new
+me.update()
+zs = [v.co.z for v in me.vertices]
+print('THICKEN x%.2f: moved %d/%d verts, z=[%.3f..%.3f]' % (THICK, moved, len(me.vertices), min(zs), max(zs)))
 bpy.data.objects.remove(trig, do_unlink=True)
 
 # ---------- final skin on RootAnim ----------
