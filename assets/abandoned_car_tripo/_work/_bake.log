@@ -1,0 +1,31 @@
+00:00.344  blend            | Read blend: "E:\game-dev-team\assets\abandoned_car_tripo\_work\car_parts.blend"
+E:\game-dev-team\assets\abandoned_car_tripo\_work\12_bake.py:88: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+E:\game-dev-team\assets\abandoned_car_tripo\_work\12_bake.py:136: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bmat = bpy.data.materials.new('_bake'); bmat.use_nodes = True
+E:\game-dev-team\assets\abandoned_car_tripo\_work\12_bake.py:287: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new('M_CarTripo'); mat.use_nodes = True
+E:\game-dev-team\assets\abandoned_car_tripo\_work\12_bake.py:288: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gmat = bpy.data.materials.new('M_CarTripoGlass'); gmat.use_nodes = True
+UV atlas: islands in v 0..0.93, swatches above (plug, lamp, wheel disc, tread)
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+DATA bakes: paintable texels 0.680
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED colour from ['Shell', 'Wheel_2', 'Misc_0', 'Misc_1', 'Misc_2', 'Misc_3', 'Misc_4', 'Misc_5', 'Misc_6', 'Misc_7', 'Wiper_0', 'Wiper_1']
+RUST ref: 25170 pixels, tone dark [0.31  0.227 0.157] light [0.427 0.314 0.251]
+TEXTURE E:/game-dev-team/assets/abandoned_car_tripo/T_AbandonedCarTripo_D.png: paint(a>0.99) 0.462 of texels, rust texels 0.026 of paintable, grey k=1.35
+PART SM_AbandonedCar_Body     tris=558 pivot(blender)=(0.000, 0.000, 0.000) local min=(-0.810 -2.066 0.264) max=(0.810 2.057 1.426)
+PART SM_AbandonedCar_Glass    tris= 19 pivot(blender)=(0.000, 0.000, 0.000) local min=(-0.600 -1.375 0.955) max=(0.600 0.966 1.335)
+PART SM_AbandonedCar_Door_FL  tris= 17 pivot(blender)=(-0.760, 0.920, 0.340) local min=(-0.018 -0.930 0.000) max=(0.217 0.000 0.995)
+PART SM_AbandonedCar_Door_FR  tris= 18 pivot(blender)=(0.760, 0.920, 0.340) local min=(-0.179 -0.930 0.000) max=(0.045 0.000 0.995)
+PART SM_AbandonedCar_Door_RL  tris= 26 pivot(blender)=(-0.760, -0.010, 0.340) local min=(-0.046 -0.870 0.000) max=(0.199 0.000 0.995)
+PART SM_AbandonedCar_Door_RR  tris= 22 pivot(blender)=(0.760, -0.010, 0.340) local min=(-0.179 -0.870 0.000) max=(0.042 0.000 0.995)
+PART SM_AbandonedCar_Hood     tris= 19 pivot(blender)=(0.000, 0.975, 0.946) local min=(-0.687 -0.056 -0.142) max=(0.700 1.012 0.000)
+PART SM_AbandonedCar_Trunk    tris= 19 pivot(blender)=(0.000, -1.420, 0.957) local min=(-0.640 -0.605 -0.212) max=(0.640 0.040 0.007)
+PART SM_AbandonedCar_Wheel    tris= 36 pivot(blender)=(-0.620, 1.450, 0.285) local min=(-0.090 -0.271 -0.285) max=(0.090 0.271 0.285)
+Info: Saved as "car_kit.blend"
+SAVED E:/game-dev-team/assets/abandoned_car_tripo/_work/car_kit.blend
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,69 @@
+00:00.344  blend            | Read blend: "E:\game-dev-team\assets\abandoned_car_tripo\_work\car_kit.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Body.fbx'
+export finished in 0.0050 sec.
+EXPORTED E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Body.fbx
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Glass.fbx'
+export finished in 0.0030 sec.
+EXPORTED E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Glass.fbx
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Door_FL.fbx'
+export finished in 0.0031 sec.
+EXPORTED E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Door_FL.fbx
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Door_FR.fbx'
+export finished in 0.0028 sec.
+EXPORTED E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Door_FR.fbx
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Door_RL.fbx'
+export finished in 0.0067 sec.
+EXPORTED E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Door_RL.fbx
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Door_RR.fbx'
+export finished in 0.0038 sec.
+EXPORTED E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Door_RR.fbx
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Hood.fbx'
+export finished in 0.0056 sec.
+EXPORTED E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Hood.fbx
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Trunk.fbx'
+export finished in 0.0038 sec.
+EXPORTED E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Trunk.fbx
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Wheel.fbx'
+export finished in 0.0031 sec.
+EXPORTED E:/game-dev-team/assets/abandoned_car_tripo/SM_AbandonedCar_Wheel.fbx
+FBX version: 7400
+VERIFY SM_AbandonedCar_Body     meshes=1 tris=558 verts=440 loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) uv=['UVMap'] mats=['M_CarTripo'] min=(-0.810 -2.066 0.264) max=(0.810 2.057 1.426) OK
+FBX version: 7400
+VERIFY SM_AbandonedCar_Glass    meshes=1 tris= 19 verts= 23 loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) uv=['UVMap'] mats=['M_CarTripoGlass'] min=(-0.600 -1.375 0.955) max=(0.600 0.966 1.335) OK
+FBX version: 7400
+VERIFY SM_AbandonedCar_Door_FL  meshes=1 tris= 17 verts= 22 loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) uv=['UVMap'] mats=['M_CarTripo'] min=(-0.018 -0.930 0.000) max=(0.217 0.000 0.995) OK
+FBX version: 7400
+VERIFY SM_AbandonedCar_Door_FR  meshes=1 tris= 18 verts= 23 loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) uv=['UVMap'] mats=['M_CarTripo'] min=(-0.179 -0.930 0.000) max=(0.045 0.000 0.995) OK
+FBX version: 7400
+VERIFY SM_AbandonedCar_Door_RL  meshes=1 tris= 26 verts= 28 loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) uv=['UVMap'] mats=['M_CarTripo'] min=(-0.046 -0.870 -0.000) max=(0.199 0.000 0.995) OK
+FBX version: 7400
+VERIFY SM_AbandonedCar_Door_RR  meshes=1 tris= 22 verts= 24 loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) uv=['UVMap'] mats=['M_CarTripo'] min=(-0.179 -0.870 -0.000) max=(0.042 0.000 0.995) OK
+FBX version: 7400
+VERIFY SM_AbandonedCar_Hood     meshes=1 tris= 19 verts= 17 loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) uv=['UVMap'] mats=['M_CarTripo'] min=(-0.687 -0.056 -0.142) max=(0.700 1.012 0.000) OK
+FBX version: 7400
+VERIFY SM_AbandonedCar_Trunk    meshes=1 tris= 19 verts= 28 loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) uv=['UVMap'] mats=['M_CarTripo'] min=(-0.640 -0.605 -0.212) max=(0.640 0.040 0.007) OK
+FBX version: 7400
+VERIFY SM_AbandonedCar_Wheel    meshes=1 tris= 36 verts= 20 loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) uv=['UVMap'] mats=['M_CarTripo'] min=(-0.090 -0.271 -0.285) max=(0.090 0.271 0.285) OK
+PIVOT Door_FL  OK front edge y=0.000 bottom z=0.000
+PIVOT Door_FR  OK front edge y=0.000 bottom z=0.000
+PIVOT Door_RL  OK front edge y=0.000 bottom z=-0.000
+PIVOT Door_RR  OK front edge y=0.000 bottom z=-0.000
+PIVOT Hood     OK rear edge y=-0.056 top z=0.000
+PIVOT Trunk    OK front edge y=0.040 top z=0.007
+PIVOT Wheel    OK centre=(0.000 0.000 0.000) r=0.271
+ASSEMBLED tris=842 (wheel x4) per part {'Body': 558, 'Glass': 19, 'Door_FL': 17, 'Door_FR': 18, 'Door_RL': 26, 'Door_RR': 22, 'Hood': 19, 'Trunk': 19, 'Wheel': 36}
+ASSEMBLED size X=1.620 (width) Y=4.123 (length) Z=1.426 (height), zmin=0.000
+TEXTURE 1024x1024 channels=4 alpha min=0.00 max=1.00 paint(a>0.99)=0.462
+ROUNDTRIP PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

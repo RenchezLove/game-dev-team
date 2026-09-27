@@ -1,0 +1,15 @@
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\abandoned_car_tripo\_work\car_src.blend"
+UNDERBODY dropped 229 down-facing faces (left open), tris now 633
+DECIMATED shell -> 405 tris
+MIRROR joined Misc_2 12 faces
+MIRROR joined Misc_5 12 faces
+CUTS: 329 new edges, shell now 1176 tris
+SPLIT {'Body': 933, 'Door_FR': 40, 'Door_RR': 32, 'Hood': 29, 'Door_FL': 30, 'Trunk': 38, 'Door_RL': 35, 'Glass': 39} lamp faces 23
+RE-DISSOLVE 6 deg -> 660 tris
+PLUGS 48 outline verts; ATLAS total tris 734
+TRIS per part {'Body': 558, 'Hood': 19, 'Glass': 19, 'Door_RR': 22, 'Door_FL': 17, 'Wheel': 36, 'Door_FR': 18, 'Door_RL': 26, 'Trunk': 19} assembled (4 wheels) = 842
+Info: Saved as "car_parts.blend"
+SAVED E:/game-dev-team/assets/abandoned_car_tripo/_work/car_parts.blend
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
