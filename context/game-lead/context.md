@@ -7,7 +7,7 @@
 
 **Выпуск:** 0.2.2 (5) в RuStore, ветка игры `release/0.2.2-build5` = `69d0656` (ADR-089). В master не влито.
 **Ветки:** игра `feature/tripo-0927` (HEAD `0930a4c`, от `feature/world-look-0926`); команда `docs/phase0-gdd`. Не закоммичены НАМЕРЕННО: `Config/DefaultEngine.ini` (пароли ключа подписи — НИКОГДА), `Content/Maps/Tmp_ToolsCarShowcase.umap`, `context/modeler-3d/context.new` (пустой), txt Рината про olama.
-**Tripo (ADR-092):** ключ `ContrarySurvivor/Saved/TripoAPIKey.txt`, остаток ~330 кредитов (было 500: бочка 40, герой 40, машина v1 40, машина v2 50). Запросы — PowerShell Invoke-WebRequest (curl запрещён в `.claude/settings.json`), загрузка картинок — multipart (`scratchpad/tupload.ps1` сессии; при надобности переписать). Бесплатных правок в API нет. Файлы заказов — `Saved/Tripo/` (+`car2/`).
+**Tripo (ADR-092):** ключ `ContrarySurvivor/Saved/TripoAPIKey.txt`, остаток ~330 кредитов (было 500: бочка 40, герой 40, машина v1 40, машина v2 50). Запросы — PowerShell Invoke-WebRequest (curl запрещён в `.claude/settings.json`), загрузка картинок — multipart (`scripts/ue-remote/tripo_upload.ps1`, пути картинок внутри). Бесплатных правок в API нет. Файлы заказов — `Saved/Tripo/` (+`car2/`).
 **Редактор без MCP:** `scripts/ue-remote/rx.py <файл.py>` движковым питоном (`E:/UnrealEngine/UE_5.5/Engine/Binaries/ThirdParty/Python3/Win64/python.exe`), порт 6779. Во время PIE импорт моделей НЕ проходит.
 
 **Сделано 27.09 (всё в игре, коммиты есть):**
