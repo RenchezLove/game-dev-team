@@ -372,6 +372,79 @@ if un:
             for g in kd_src[i].groups:
                 hero.vertex_groups[gn[g.group]].add([v.index], g.weight, 'REPLACE')
     print('FILLED unweighted from nearest:', un)
+
+# ---------- upper-body weight fix (Rinat 09-27: knife slash tears neck/shoulders) ----------
+# Heat skin leaves C_Spine02 EMPTY (its head coincides with both clavicle heads)
+# and hands the whole chest/upper back/back of the collar, even the waist (0.1-0.2),
+# to the clavicles L/R_UpperArm. The melee and pistol-aim takes roll the clavicles
+# ~90 deg about their own axis, so everything off that axis swings. Clavicle weight
+# -> arm bone near the shoulder joint (|x| 0.20..0.32), otherwise -> spine by height.
+# Head weight below the chin -> neck.
+CLAV = {'L_UpperArm': 'L_Shoulder', 'R_UpperArm': 'R_Arm'}
+SH_A, SH_B = 0.20, 0.32         # |x| ramp clavicle -> upper arm (shoulder joint at 0.286)
+SP_A, SP_B = 1.22, 1.34         # z ramp C_Spine01 -> C_Spine02 (C_Spine02 head at 1.34)
+
+
+def smooth(a, b, x):
+    t = max(0.0, min(1.0, (x - a) / (b - a)))
+    return t * t * (3 - 2 * t)
+
+
+for bn in ('C_Spine01', 'C_Spine02', 'C_Neck', 'L_Shoulder', 'R_Arm'):
+    if bn not in hero.vertex_groups:
+        hero.vertex_groups.new(name=bn)
+VG = {g.name: g for g in hero.vertex_groups}
+gname = {g.index: g.name for g in hero.vertex_groups}
+nclav = nhead = 0
+for v in me.vertices:
+    w = {gname[g.group]: g.weight for g in v.groups if g.weight > 0}
+    add = {}
+    for cl, armb in CLAV.items():
+        wc = w.pop(cl, 0.0)
+        if wc <= 0:
+            continue
+        nclav += 1
+        s = smooth(SH_A, SH_B, abs(v.co.x))
+        t = smooth(SP_A, SP_B, v.co.z)
+        add[armb] = add.get(armb, 0.0) + wc * s
+        add['C_Spine02'] = add.get('C_Spine02', 0.0) + wc * (1 - s) * t
+        add['C_Spine01'] = add.get('C_Spine01', 0.0) + wc * (1 - s) * (1 - t)
+    if v.co.z < 1.50 and w.get('C_Head', 0) > 0:
+        nhead += 1
+        add['C_Neck'] = add.get('C_Neck', 0.0) + w.pop('C_Head')
+    if not add:
+        continue
+    for k, a in add.items():
+        w[k] = w.get(k, 0.0) + a
+    for cl in CLAV:
+        VG[cl].remove([v.index])
+    if 'C_Head' not in w:
+        VG['C_Head'].remove([v.index])
+    for k, a in w.items():
+        VG[k].add([v.index], a, 'REPLACE')
+bpy.ops.object.vertex_group_clean(group_select_mode='ALL', limit=0.02)
+bpy.ops.object.vertex_group_limit_total(group_select_mode='ALL', limit=4)
+bpy.ops.object.vertex_group_normalize_all(group_select_mode='ALL', lock_active=False)
+left = sum(1 for v in me.vertices for g in v.groups if gname[g.group] in CLAV and g.weight > 0)
+print('WEIGHT FIX: clavicle weights moved on %d verts (left %d), head->neck below chin on %d verts' % (
+    nclav, left, nhead))
+# back of the neck: faces that baked a strip of collar wool across the skin
+# (read as "torn neck" in game, 09-27). Back + sides (y > -0.04) of the neck
+# column: above the sweater top (zmin > 1.44, rmax < 0.106; collar faces reach
+# r 0.114+ and stay), below the hairline (zmin < 1.50, top < 1.58; hair faces
+# start at 1.559) -> chin skin texel. Front V-neck is COLLAR's, untouched.
+# Chosen by geometry, not by texel: the smear is narrower than a face.
+nnape = 0
+uvl = me.uv_layers['UVMap'].data
+for p in me.polygons:
+    c = Vector(p.center)
+    vv = [me.vertices[vi].co for vi in p.vertices]
+    if (c.y > -0.04 and 1.44 < min(v.z for v in vv) < 1.50 and max(v.z for v in vv) < 1.58
+            and max(math.hypot(v.x, v.y) for v in vv) < 0.106):
+        for li in p.loop_indices:
+            uvl[li].uv = cuv
+        nnape += 1
+print('NAPE skin fill: %d faces' % nnape)
 W.rebind(hero, rig)
 
 # ---------- material (one, Tripo texture) ----------

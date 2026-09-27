@@ -1,10 +1,10 @@
 00:00.328  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_work.blend"
-13:13:19 | INFO: Data are loaded, start creating Blender stuff
-13:13:19 | INFO: Blender create Mesh node tripo_mesh_b8ed13ed-aa39-47e5-b68b-70bb298f40ee
-13:13:19 | INFO: glTF import finished in 0.01s
+20:46:42 | INFO: Data are loaded, start creating Blender stuff
+20:46:42 | INFO: Blender create Mesh node tripo_mesh_b8ed13ed-aa39-47e5-b68b-70bb298f40ee
+20:46:42 | INFO: glTF import finished in 0.01s
 E:\game-dev-team\assets\hero_tripo\_work\10_build.py:150: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   bmat.use_nodes = True
-E:\game-dev-team\assets\hero_tripo\_work\10_build.py:384: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+E:\game-dev-team\assets\hero_tripo\_work\10_build.py:457: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
   mat.use_nodes = True
 TRIPO raw tris=2549 verts=3229 shift=(0.000,0.022,0.900)
 WELD 3229 -> 1277 verts
@@ -41,10 +41,12 @@ CONFORM max joint error = 0.00000 m
 THICKEN x1.18: moved 259/402 verts, z=[-0.005..1.823]
 HEAT HeroTripo -> RootAnim groups=21 unweighted=0
 Info: 5 vertex weights limited
+WEIGHT FIX: clavicle weights moved on 133 verts (left 0), head->neck below chin on 6 verts
+NAPE skin fill: 13 faces
 CUT whole mesh tris after bisect = 1033
-SLOT SK_Cloth_T0_Head   tris=279 verts=145 z=[1.532..1.823] groups=['C_Head', 'C_Neck', 'R_UpperArm']
-SLOT SK_Cloth_T0_Torso  tris=524 verts=294 z=[0.900..1.549] groups=['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'L_Arm', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'L_UpperArm', 'Pelvis_009_R_002', 'R_Arm', 'R_Hand', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
-SLOT SK_Cloth_T0_Legs   tris=365 verts=206 z=[-0.005..0.910] groups=['C_Root', 'C_Spine01', 'L_Claf', 'L_Foot', 'L_Pelvis', 'L_Thigh', 'L_UpperArm', 'R_Claf', 'R_Foot', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
+SLOT SK_Cloth_T0_Head   tris=279 verts=145 z=[1.532..1.823] groups=['C_Head', 'C_Neck', 'C_Spine02']
+SLOT SK_Cloth_T0_Torso  tris=524 verts=294 z=[0.900..1.549] groups=['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'Pelvis_009_R_002', 'R_Arm', 'R_Hand', 'R_Pelvis', 'R_Thigh']
+SLOT SK_Cloth_T0_Legs   tris=365 verts=206 z=[-0.005..0.910] groups=['C_Root', 'C_Spine01', 'L_Claf', 'L_Foot', 'L_Pelvis', 'L_Thigh', 'R_Claf', 'R_Foot', 'R_Pelvis', 'R_Thigh']
 TOTAL tris = 1168
 Info: Saved as "hero_work.blend"
 SAVED E:/game-dev-team/assets/hero_tripo/_work/hero_work.blend

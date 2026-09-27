@@ -1,0 +1,88 @@
+00:00.297  blend            | Read blend: "E:\game-dev-team\assets\hero_tripo\_work\hero_work.blend"
+00:01.828  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_melee10_backL.png'
+00:02.078  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_melee10_backR.png'
+00:02.312  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_melee10_front.png'
+00:02.531  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_melee12_backL.png'
+00:02.750  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_melee12_backR.png'
+00:02.968  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_melee12_front.png'
+00:03.187  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_melee14_backL.png'
+00:03.422  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_melee14_backR.png'
+00:03.640  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_melee14_front.png'
+00:03.859  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_rest_backL.png'
+00:04.078  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_rest_front.png'
+00:04.297  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_run10_backL.png'
+00:04.515  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_run10_front.png'
+00:04.734  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_aim_backL.png'
+00:04.968  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\skin\before_aim_front.png'
+RIG world identity: True
+BONE C_Spine02   head=(-0.0, -0.001, 1.34) tail=(-0.0, -0.001, 1.461)
+BONE C_Neck      head=(-0.0, -0.001, 1.461) tail=(-0.0, -0.001, 1.532)
+BONE C_Head      head=(-0.0, -0.001, 1.532) tail=(-0.0, -0.001, 1.603)
+BONE L_UpperArm  head=(-0.0, -0.001, 1.34) tail=(0.286, -0.001, 1.342)
+BONE R_UpperArm  head=(-0.0, -0.001, 1.34) tail=(-0.286, -0.001, 1.342)
+BONE L_Shoulder  head=(0.286, -0.001, 1.342) tail=(0.631, -0.001, 1.336)
+BONE R_Arm       head=(-0.286, -0.001, 1.342) tail=(-0.631, -0.001, 1.336)
+ZONE neck (z 1.46..1.60, r<0.11): 69 verts
+    C_Head            share=0.70 verts=64 max=1.00
+    C_Neck            share=0.22 verts=56 max=0.83
+    R_UpperArm        share=0.04 verts=14 max=0.88
+    L_UpperArm        share=0.04 verts=5 max=0.88
+ZONE upper back (z 1.30..1.50, y>0.02, |x|<0.16): 8 verts
+    L_UpperArm        share=0.38 verts=6 max=0.71
+    R_UpperArm        share=0.34 verts=6 max=0.66
+    C_Neck            share=0.21 verts=2 max=0.83
+    C_Head            share=0.04 verts=2 max=0.19
+    C_Spine01         share=0.03 verts=2 max=0.15
+ZONE R shoulder top (x -0.10..-0.30, z>1.40): 10 verts
+    R_UpperArm        share=0.51 verts=6 max=1.00
+    C_Head            share=0.40 verts=4 max=1.00
+    R_Arm             share=0.08 verts=3 max=0.55
+    L_UpperArm        share=0.01 verts=1 max=0.12
+ZONE L shoulder top (x 0.10..0.30, z>1.40): 9 verts
+    L_UpperArm        share=0.67 verts=7 max=1.00
+    C_Head            share=0.22 verts=2 max=1.00
+    L_Shoulder        share=0.09 verts=3 max=0.55
+    R_UpperArm        share=0.01 verts=1 max=0.12
+MELEE source rest delta vs ours = 0.000000
+MELEE f= 1 R_Hand=(-0.530,-0.529,1.027) clavicle turn=90 deg
+MELEE f= 2 R_Hand=(-0.628,-0.480,1.050) clavicle turn=90 deg
+MELEE f= 3 R_Hand=(-0.799,-0.293,1.115) clavicle turn=90 deg
+MELEE f= 4 R_Hand=(-0.857,-0.037,1.188) clavicle turn=90 deg
+MELEE f= 5 R_Hand=(-0.836,0.111,1.231) clavicle turn=90 deg
+MELEE f= 6 R_Hand=(-0.830,0.147,1.247) clavicle turn=91 deg
+MELEE f= 7 R_Hand=(-0.829,0.153,1.252) clavicle turn=91 deg
+MELEE f= 8 R_Hand=(-0.858,0.082,1.247) clavicle turn=91 deg
+MELEE f= 9 R_Hand=(-0.875,-0.124,1.233) clavicle turn=90 deg
+MELEE f=10 R_Hand=(-0.776,-0.388,1.221) clavicle turn=90 deg
+MELEE f=11 R_Hand=(-0.546,-0.608,1.212) clavicle turn=90 deg
+MELEE f=12 R_Hand=(-0.238,-0.706,1.200) clavicle turn=91 deg
+MELEE f=13 R_Hand=(0.045,-0.668,1.198) clavicle turn=92 deg
+MELEE f=14 R_Hand=(0.215,-0.573,1.200) clavicle turn=95 deg
+MELEE f=15 R_Hand=(0.285,-0.489,1.201) clavicle turn=96 deg
+MELEE f=16 R_Hand=(0.299,-0.450,1.200) clavicle turn=97 deg
+MELEE f=17 R_Hand=(0.229,-0.532,1.153) clavicle turn=95 deg
+MELEE f=18 R_Hand=(0.034,-0.627,1.088) clavicle turn=93 deg
+MELEE f=19 R_Hand=(-0.213,-0.645,1.054) clavicle turn=91 deg
+MELEE f=20 R_Hand=(-0.440,-0.581,1.033) clavicle turn=90 deg
+MELEE f=21 R_Hand=(-0.530,-0.529,1.027) clavicle turn=90 deg
+MELEE peak reach frame 12 shots [10, 12, 14]
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_melee10_backL.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_melee10_backR.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_melee10_front.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_melee12_backL.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_melee12_backR.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_melee12_front.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_melee14_backL.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_melee14_backR.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_melee14_front.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_rest_backL.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_rest_front.png
+RUN source rest delta vs ours = 0.000019
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_run10_backL.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_run10_front.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_aim_backL.png
+RENDER E:/game-dev-team/assets/hero_tripo/renders/skin/before_aim_front.png
+DONE before
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
