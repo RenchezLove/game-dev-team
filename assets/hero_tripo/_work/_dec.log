@@ -1,0 +1,23 @@
+13:09:38 | INFO: Data are loaded, start creating Blender stuff
+13:09:38 | INFO: Blender create Mesh node tripo_mesh_b8ed13ed-aa39-47e5-b68b-70bb298f40ee
+13:09:38 | INFO: glTF import finished in 0.01s
+00:01.953  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\_work\_look\dec_plain.png'
+DEC plain 799
+RENDER E:/game-dev-team/assets/hero_tripo/_work/_look/dec_plain.png
+13:09:39 | INFO: Data are loaded, start creating Blender stuff
+13:09:39 | INFO: Blender create Mesh node tripo_mesh_b8ed13ed-aa39-47e5-b68b-70bb298f40ee
+13:09:39 | INFO: glTF import finished in 0.01s
+00:02.328  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\_work\_look\dec_vg.png'
+SEAMVERTS 1066 of 1277
+DEC vg 799
+RENDER E:/game-dev-team/assets/hero_tripo/_work/_look/dec_vg.png
+13:09:40 | INFO: Data are loaded, start creating Blender stuff
+13:09:40 | INFO: Blender create Mesh node tripo_mesh_b8ed13ed-aa39-47e5-b68b-70bb298f40ee
+13:09:40 | INFO: glTF import finished in 0.01s
+00:02.672  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\_work\_look\dec_vginv.png'
+SEAMVERTS 1066 of 1277
+DEC vginv 2273
+RENDER E:/game-dev-team/assets/hero_tripo/_work/_look/dec_vginv.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

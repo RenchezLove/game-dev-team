@@ -3,33 +3,33 @@ E:\game-dev-team\assets\hero_tripo\_work\13_export_verify.py:32: DeprecationWarn
   imgs = [n.image.filepath for m in me.materials if m and m.use_nodes
 
 FBX export starting... 'E:/game-dev-team/assets/hero_tripo/SK_Cloth_T0_Head.fbx'
-export finished in 0.0107 sec.
-EXPORTED E:/game-dev-team/assets/hero_tripo/SK_Cloth_T0_Head.fbx 100.4 KB
+export finished in 0.0088 sec.
+EXPORTED E:/game-dev-team/assets/hero_tripo/SK_Cloth_T0_Head.fbx 78.3 KB
 
 FBX export starting... 'E:/game-dev-team/assets/hero_tripo/SK_Cloth_T0_Torso.fbx'
-export finished in 0.0145 sec.
-EXPORTED E:/game-dev-team/assets/hero_tripo/SK_Cloth_T0_Torso.fbx 152.6 KB
+export finished in 0.0139 sec.
+EXPORTED E:/game-dev-team/assets/hero_tripo/SK_Cloth_T0_Torso.fbx 100.6 KB
 
 FBX export starting... 'E:/game-dev-team/assets/hero_tripo/SK_Cloth_T0_Legs.fbx'
-export finished in 0.0094 sec.
-EXPORTED E:/game-dev-team/assets/hero_tripo/SK_Cloth_T0_Legs.fbx 119.6 KB
+export finished in 0.0086 sec.
+EXPORTED E:/game-dev-team/assets/hero_tripo/SK_Cloth_T0_Legs.fbx 87.9 KB
 FBX version: 7300
   armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
 FBX version: 7400
   armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
 FBX version: 7400
   armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
-VERIFY SK_Cloth_T0_Head   bones=21 handoff:names=True rest_maxdelta=0.00002 old_T0:names=True rest_maxdelta=0.00000 tris=571 verts=294 unweighted=0 uv=['UVMap'] mats=['M_HeroTripo'] tex=['E:\\game-dev-team\\assets\\hero_tripo\\T_HeroTripo_D.png'] z=[1.532..1.787] -> PASS
+VERIFY SK_Cloth_T0_Head   bones=21 handoff:names=True rest_maxdelta=0.00002 old_T0:names=True rest_maxdelta=0.00000 tris=275 verts=145 unweighted=0 uv=['UVMap'] mats=['M_HeroTripo'] tex=['E:\\game-dev-team\\assets\\hero_tripo\\T_HeroTripo_D.png'] z=[1.532..1.823] -> PASS
 BONES SK_Cloth_T0_Head ['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Claf', 'L_Foot', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'L_UpperArm', 'Pelvis_009_R_002', 'R_Arm', 'R_Claf', 'R_Foot', 'R_Hand', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
 FBX version: 7400
   armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
-VERIFY SK_Cloth_T0_Torso  bones=21 handoff:names=True rest_maxdelta=0.00002 old_T0:names=True rest_maxdelta=0.00000 tris=1182 verts=638 unweighted=0 uv=['UVMap'] mats=['M_HeroTripo'] tex=['E:\\game-dev-team\\assets\\hero_tripo\\T_HeroTripo_D.png'] z=[0.900..1.549] -> PASS
+VERIFY SK_Cloth_T0_Torso  bones=21 handoff:names=True rest_maxdelta=0.00002 old_T0:names=True rest_maxdelta=0.00000 tris=524 verts=294 unweighted=0 uv=['UVMap'] mats=['M_HeroTripo'] tex=['E:\\game-dev-team\\assets\\hero_tripo\\T_HeroTripo_D.png'] z=[0.900..1.549] -> PASS
 BONES SK_Cloth_T0_Torso ['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Claf', 'L_Foot', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'L_UpperArm', 'Pelvis_009_R_002', 'R_Arm', 'R_Claf', 'R_Foot', 'R_Hand', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
 FBX version: 7400
   armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
-VERIFY SK_Cloth_T0_Legs   bones=21 handoff:names=True rest_maxdelta=0.00002 old_T0:names=True rest_maxdelta=0.00000 tris=763 verts=412 unweighted=0 uv=['UVMap'] mats=['M_HeroTripo'] tex=['E:\\game-dev-team\\assets\\hero_tripo\\T_HeroTripo_D.png'] z=[-0.002..0.910] -> PASS
+VERIFY SK_Cloth_T0_Legs   bones=21 handoff:names=True rest_maxdelta=0.00002 old_T0:names=True rest_maxdelta=0.00000 tris=365 verts=206 unweighted=0 uv=['UVMap'] mats=['M_HeroTripo'] tex=['E:\\game-dev-team\\assets\\hero_tripo\\T_HeroTripo_D.png'] z=[-0.005..0.910] -> PASS
 BONES SK_Cloth_T0_Legs ['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Claf', 'L_Foot', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'L_UpperArm', 'Pelvis_009_R_002', 'R_Arm', 'R_Claf', 'R_Foot', 'R_Hand', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
-TOTAL tris 2516
+TOTAL tris 1164
 ROUNDTRIP ALL PASS
 Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
 

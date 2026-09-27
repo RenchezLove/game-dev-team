@@ -1,8 +1,8 @@
-00:00.312  blend            | Read blend: "E:\game-dev-team\assets\hero_tripo\_work\hero_work.blend"
-00:01.828  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_head_front.png'
-00:02.140  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_neck_tq.png'
-00:02.437  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_waist_tq.png'
-00:02.703  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_arm_front.png'
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\hero_tripo\_work\hero_work.blend"
+00:01.922  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_head_front.png'
+00:02.234  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_neck_tq.png'
+00:02.547  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_waist_tq.png'
+00:02.812  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_arm_front.png'
 RENDER close_head_front.png
 RENDER close_neck_tq.png
 RENDER close_waist_tq.png

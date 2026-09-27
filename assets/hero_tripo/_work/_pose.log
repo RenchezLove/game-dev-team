@@ -1,13 +1,13 @@
-00:00.312  blend            | Read blend: "E:\game-dev-team\assets\hero_tripo\_work\hero_work.blend"
-00:01.812  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_rest_front.png'
-00:02.062  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_rest_side.png'
-00:02.328  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_run_front.png'
-00:02.578  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_run_side.png'
-00:02.843  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_armsdown_front.png'
-00:03.093  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_armsdown_side.png'
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\hero_tripo\_work\hero_work.blend"
+00:01.922  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_rest_front.png'
+00:02.172  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_rest_side.png'
+00:02.469  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_run_front.png'
+00:02.719  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_run_side.png'
+00:03.016  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_armsdown_front.png'
+00:03.406  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\hero_armsdown_side.png'
 WEIGHTS SK_Cloth_T0_Head: C_Head max=1.00 n>0.05=145, C_Neck max=0.43 n>0.05=39, R_UpperArm max=0.03 n>0.05=0
-WEIGHTS SK_Cloth_T0_Torso: C_Head max=0.94 n>0.05=42, C_Neck max=0.83 n>0.05=45, C_Root max=0.76 n>0.05=106, C_Spine01 max=0.71 n>0.05=98, L_Arm max=1.00 n>0.05=25, L_Hand max=1.00 n>0.05=20, L_Pelvis max=0.60 n>0.05=35, L_Shoulder max=1.00 n>0.05=17, L_Thigh max=0.65 n>0.05=27, L_UpperArm max=1.00 n>0.05=95, Pelvis_009_R_002 max=1.00 n>0.05=25, R_Arm max=1.00 n>0.05=18, R_Hand max=1.00 n>0.05=20, R_Pelvis max=0.61 n>0.05=36, R_Thigh max=0.65 n>0.05=25, R_UpperArm max=0.97 n>0.05=91
-WEIGHTS SK_Cloth_T0_Legs: C_Root max=0.72 n>0.05=73, C_Spine01 max=0.15 n>0.05=61, L_Claf max=1.00 n>0.05=33, L_Foot max=1.00 n>0.05=27, L_Pelvis max=0.72 n>0.05=40, L_Thigh max=0.97 n>0.05=42, L_UpperArm max=0.15 n>0.05=48, R_Claf max=1.00 n>0.05=33, R_Foot max=1.00 n>0.05=27, R_Pelvis max=0.76 n>0.05=43, R_Thigh max=0.97 n>0.05=44, R_UpperArm max=0.14 n>0.05=40
+WEIGHTS SK_Cloth_T0_Torso: C_Head max=0.94 n>0.05=42, C_Neck max=0.83 n>0.05=45, C_Root max=0.77 n>0.05=106, C_Spine01 max=0.71 n>0.05=98, L_Arm max=1.00 n>0.05=25, L_Hand max=1.00 n>0.05=20, L_Pelvis max=0.62 n>0.05=35, L_Shoulder max=1.00 n>0.05=16, L_Thigh max=0.65 n>0.05=27, L_UpperArm max=1.00 n>0.05=90, Pelvis_009_R_002 max=1.00 n>0.05=25, R_Arm max=1.00 n>0.05=17, R_Hand max=1.00 n>0.05=20, R_Pelvis max=0.61 n>0.05=35, R_Thigh max=0.65 n>0.05=24, R_UpperArm max=1.00 n>0.05=91
+WEIGHTS SK_Cloth_T0_Legs: C_Root max=0.75 n>0.05=73, C_Spine01 max=0.15 n>0.05=61, L_Claf max=1.00 n>0.05=33, L_Foot max=1.00 n>0.05=27, L_Pelvis max=0.72 n>0.05=40, L_Thigh max=1.00 n>0.05=42, L_UpperArm max=0.15 n>0.05=43, R_Claf max=1.00 n>0.05=33, R_Foot max=1.00 n>0.05=27, R_Pelvis max=0.76 n>0.05=42, R_Thigh max=1.00 n>0.05=43, R_UpperArm max=0.14 n>0.05=40
 RENDER E:/game-dev-team/assets/hero_tripo/renders/hero_rest_front.png
 RENDER E:/game-dev-team/assets/hero_tripo/renders/hero_rest_side.png
 RUN take frames 1..20, widest stride 0.676 m at frame 10

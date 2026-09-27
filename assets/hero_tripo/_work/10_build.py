@@ -121,6 +121,9 @@ print('TRIPO joints: crotch=%.3f hip=%.3f thigh=%s knee=(%.3f,%.3f,%.3f) ankle=%
 print('TRIPO arm: shoulder=%s elbow=%s wrist=%s tip=%.3f' % (
     tuple(round(a, 3) for a in SH), tuple(round(a, 3) for a in EL), tuple(round(a, 3) for a in WR), tip))
 
+src = hero.copy(); src.data = me.copy(); src.name = 'TripoSrc'
+bpy.context.collection.objects.link(src)   # full-res bake source
+
 # decimate to budget
 me.calc_loop_triangles()
 t0 = len(me.loop_triangles)
@@ -135,6 +138,78 @@ bmesh.ops.triangulate(bm, faces=bm.faces[:])
 bm.to_mesh(me); bm.free(); me.update()
 me.calc_loop_triangles()
 print('DECIMATE %d -> %d tris' % (t0, len(me.loop_triangles)))
+
+# rebake the texture onto the decimated mesh: Tripo UVs are shattered (1066 of
+# 1277 verts sit on UV seams, _dec_test.py), so the collapse smears them
+while me.uv_layers:
+    me.uv_layers.remove(me.uv_layers[0])
+me.uv_layers.new(name='UVMap')
+W.smart_uv(hero)
+bimg = bpy.data.images.new('T_HeroTripo_D', 2048, 2048, alpha=False)
+bmat = bpy.data.materials.new('_bake')
+bmat.use_nodes = True
+bn_ = bmat.node_tree.nodes.new('ShaderNodeTexImage')
+bn_.image = bimg
+bmat.node_tree.nodes.active = bn_
+me.materials.clear()
+me.materials.append(bmat)
+scn = bpy.context.scene
+scn.render.engine = 'CYCLES'
+scn.cycles.samples = 4
+scn.cycles.device = 'CPU'
+bk = scn.render.bake
+bk.use_selected_to_active = True
+bk.cage_extrusion = 0.012
+bk.max_ray_distance = 0.04
+bk.margin = 16
+bk.use_pass_direct = False
+bk.use_pass_indirect = False
+bk.use_pass_color = True
+bpy.ops.object.select_all(action='DESELECT')
+src.select_set(True); hero.select_set(True)
+bpy.context.view_layer.objects.active = hero
+bpy.ops.object.bake(type='DIFFUSE', pass_filter={'COLOR'})
+bpy.data.objects.remove(src, do_unlink=True)
+print('REBAKE diffuse colour 2048 onto %d tris, UV islands re-projected' % W.tri_count(hero))
+# neck faces lie inside the source sweater collar after the collapse, so bake
+# rays catch collar wool (dark smears). Paint them flat skin: point their UVs
+# at the texel under the chin.
+uvl = me.uv_layers['UVMap'].data
+def fdist(p, q):
+    return (Vector(p.center) - Vector(q)).length
+chin = min(me.polygons, key=lambda p: fdist(p, (0, -0.14, 1.585)))
+cuv = sum((uvl[li].uv for li in chin.loop_indices), Vector((0, 0))) / len(chin.loop_indices)
+nneck = 0
+for p in me.polygons:
+    c = Vector(p.center)
+    vv = [me.vertices[vi].co for vi in p.vertices]; c = Vector(p.center)
+    if (1.45 < c.z < 1.57 and math.hypot(c.x, c.y + 0.02) < 0.08 and min(v.z for v in vv) > 1.445
+            and max(math.hypot(v.x, v.y + 0.02) for v in vv) < 0.095):
+        for li in p.loop_indices:
+            uvl[li].uv = cuv
+        nneck += 1
+print('NECK skin fill: %d faces -> uv %s' % (nneck, tuple(round(a, 3) for a in cuv)))
+# collar front: a collapsed face sank under the sweater rim and baked skin
+# (V-neck wedge). Faces below the neck ring that baked skin -> chest wool texel.
+W_, H_ = bimg.size
+px = bimg.pixels[:]
+def texel(uv):
+    x = min(W_ - 1, max(0, int(uv.x * W_))); y = min(H_ - 1, max(0, int(uv.y * H_)))
+    i = (y * W_ + x) * 4
+    return px[i], px[i + 1], px[i + 2]
+chest = min(me.polygons, key=lambda p: fdist(p, (0, -0.12, 1.33)))
+wuv = sum((uvl[li].uv for li in chest.loop_indices), Vector((0, 0))) / len(chest.loop_indices)
+ncol = 0
+for p in me.polygons:
+    c = Vector(p.center)
+    if 1.38 < c.z < 1.50 and abs(c.x) < 0.14:
+        uv = sum((uvl[li].uv for li in p.loop_indices), Vector((0, 0))) / len(p.loop_indices)
+        r, g, b = texel(uv)
+        if r > 0.35 and r > g * 1.2 and g > b:
+            for li in p.loop_indices:
+                uvl[li].uv = wuv
+            ncol += 1
+print('COLLAR wool fill: %d faces, chest texel %s' % (ncol, tuple(round(a, 2) for a in texel(wuv))))
 
 # ---------- Tripo-proportioned copy of RootAnim ----------
 O = {b.name: (b.head_local.copy(), b.tail_local.copy()) for b in rig.data.bones}
@@ -280,7 +355,7 @@ un = heat_skin(hero, rig)
 bpy.ops.object.select_all(action='DESELECT')
 hero.select_set(True)
 bpy.context.view_layer.objects.active = hero
-bpy.ops.object.vertex_group_clean(group_select_mode='ALL', limit=0.02)
+bpy.ops.object.vertex_group_clean(group_select_mode='ALL', limit=0.05)
 bpy.ops.object.vertex_group_limit_total(group_select_mode='ALL', limit=4)
 bpy.ops.object.vertex_group_normalize_all(group_select_mode='ALL', lock_active=False)
 if un:
@@ -300,14 +375,11 @@ if un:
 W.rebind(hero, rig)
 
 # ---------- material (one, Tripo texture) ----------
-img = [i for i in bpy.data.images if i.size[0] > 0][0]
+img = bpy.data.images['T_HeroTripo_D']
 img.filepath_raw = TEX
 img.file_format = 'PNG'
 img.save()
 img.filepath = TEX
-if img.packed_file:
-    img.unpack(method='REMOVE')
-img.name = 'T_HeroTripo_D'
 mat = bpy.data.materials.new(MAT)
 mat.use_nodes = True
 nt = mat.node_tree
