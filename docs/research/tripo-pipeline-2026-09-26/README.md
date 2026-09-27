@@ -29,3 +29,4 @@
 - Импорт плагина: `bReplaceExisting = false` — кладёт новую модель рядом под своим именем, заменять наши ассеты не умеет; обработки в Blender нет.
 - Ключ хранится открытым текстом в .ini проекта (сказано в README). Модуль TripoRuntime — «Runtime», попадёт в сборку игры, если не ограничить.
 - Вывод: плагин — обёртка над тем же API; выигрыша перед своим скриптом нет, кроме окна генерации внутри редактора.
+- Ключ для плагина: вида `tsk_`, создаётся в Tripo Console (`platform.tripo3d.ai`, раздел keys), оплата «pay-as-you-go credits, 100 credits = $1.00» (developers.tripo3d.ai, pricing). Страница тарифов Studio (прочитана 27.09 через r.jina.ai, прямой доступ 403): в списке Pro ($20/мес, 3000 кредитов, «Private Models · Commercial Use», «Unlimited Batch Exports · DCC Bridge») API не упомянут; FAQ отсылает «Looking to scale with our API…» к отдельному продукту Tripo API. Вывод: ключ API в Pro не входит — выведено из страниц, у поддержки не подтверждено.
