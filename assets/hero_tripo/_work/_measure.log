@@ -1,0 +1,38 @@
+00:00.329  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_work.blend"
+LM T0     H=1.801 yc=-0.005 crotch=0.507 side=0.263 armpit=1.276 shtop=1.425 tip=0.999 wrist=0.923 shin_cx=0.12199974479153752 knee_cx=0.1219981168396771
+   slab T0 x=0.283 thick=0.141 zc=1.344 y=0.015
+   slab T0 x=0.333 thick=0.122 zc=1.343 y=-0.045
+   slab T0 x=0.383 thick=0.117 zc=1.342 y=-0.045
+   slab T0 x=0.433 thick=0.111 zc=1.341 y=-0.025
+   slab T0 x=0.483 thick=0.105 zc=1.340 y=0.015
+   slab T0 x=0.533 thick=0.099 zc=1.338 y=0.015
+   slab T0 x=0.583 thick=0.094 zc=1.337 y=-0.005
+   slab T0 x=0.633 thick=0.094 zc=1.337 y=0.035
+   slab T0 x=0.683 thick=0.092 zc=1.337 y=-0.005
+   slab T0 x=0.733 thick=0.082 zc=1.337 y=-0.025
+   slab T0 x=0.783 thick=0.073 zc=1.337 y=-0.045
+   slab T0 x=0.833 thick=0.064 zc=1.337 y=0.015
+   slab T0 x=0.883 thick=0.055 zc=1.337 y=-0.025
+   slab T0 x=0.933 thick=0.032 zc=1.334 y=-0.045
+   slab T0 x=0.983 thick=0.035 zc=1.314 y=0.035
+12:45:39 | INFO: Data are loaded, start creating Blender stuff
+12:45:39 | INFO: Blender create Mesh node tripo_mesh_b8ed13ed-aa39-47e5-b68b-70bb298f40ee
+12:45:39 | INFO: glTF import finished in 0.01s
+LM TRIPO  H=1.800 yc=-0.009 crotch=0.825 side=0.175 armpit=1.325 shtop=1.511 tip=0.875 wrist=0.825 shin_cx=None knee_cx=0.17453142255544662
+   slab TRIPO x=0.195 thick=0.245 zc=1.397 y=0.011
+   slab TRIPO x=0.245 thick=0.167 zc=1.427 y=0.011
+   slab TRIPO x=0.295 thick=0.147 zc=1.431 y=0.011
+   slab TRIPO x=0.345 thick=0.133 zc=1.432 y=0.011
+   slab TRIPO x=0.395 thick=0.119 zc=1.431 y=-0.009
+   slab TRIPO x=0.445 thick=0.129 zc=1.436 y=-0.009
+   slab TRIPO x=0.495 thick=0.120 zc=1.436 y=-0.009
+   slab TRIPO x=0.545 thick=0.103 zc=1.439 y=-0.009
+   slab TRIPO x=0.595 thick=0.086 zc=1.442 y=-0.029
+   slab TRIPO x=0.645 thick=0.084 zc=1.445 y=-0.029
+   slab TRIPO x=0.695 thick=0.045 zc=1.448 y=-0.049
+   slab TRIPO x=0.745 thick=0.039 zc=1.454 y=-0.029
+   slab TRIPO x=0.795 thick=0.027 zc=1.453 y=-0.029
+   slab TRIPO x=0.845 thick=0.023 zc=1.442 y=-0.029
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

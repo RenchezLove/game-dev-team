@@ -1,0 +1,12 @@
+00:00.312  blend            | Read blend: "E:\game-dev-team\assets\hero_tripo\_work\hero_work.blend"
+00:01.859  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_head_front.png'
+00:02.171  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_neck_tq.png'
+00:02.484  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_waist_tq.png'
+00:02.734  render           | Saved: 'E:\game-dev-team\assets\hero_tripo\renders\close_arm_front.png'
+RENDER close_head_front.png
+RENDER close_neck_tq.png
+RENDER close_waist_tq.png
+RENDER close_arm_front.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

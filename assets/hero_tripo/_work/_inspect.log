@@ -1,0 +1,78 @@
+00:00.812  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_work.blend"
+RIG mw [[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]]
+BONE C_Root             parent=-                  head=(-0.000,-0.001,0.839) tail=(-0.000,-0.001,1.094)
+BONE C_Spine01          parent=C_Root             head=(-0.000,-0.001,1.094) tail=(-0.000,-0.001,1.340)
+BONE L_UpperArm         parent=C_Spine01          head=(-0.000,-0.001,1.340) tail=(0.286,-0.001,1.342)
+BONE L_Shoulder         parent=L_UpperArm         head=(0.286,-0.001,1.342) tail=(0.631,-0.001,1.336)
+BONE L_Arm              parent=L_Shoulder         head=(0.631,-0.001,1.336) tail=(0.898,-0.001,1.336)
+BONE L_Hand             parent=L_Arm              head=(0.898,-0.001,1.336) tail=(1.160,-0.001,1.289)
+BONE R_UpperArm         parent=C_Spine01          head=(-0.000,-0.001,1.340) tail=(-0.286,-0.001,1.342)
+BONE R_Arm              parent=R_UpperArm         head=(-0.286,-0.001,1.342) tail=(-0.631,-0.001,1.336)
+BONE Pelvis_009_R_002   parent=R_Arm              head=(-0.631,-0.001,1.336) tail=(-0.898,-0.001,1.336)
+BONE R_Hand             parent=Pelvis_009_R_002   head=(-0.898,-0.001,1.336) tail=(-1.160,-0.001,1.289)
+BONE C_Spine02          parent=C_Spine01          head=(-0.000,-0.001,1.340) tail=(-0.000,-0.001,1.461)
+BONE C_Neck             parent=C_Spine02          head=(-0.000,-0.001,1.461) tail=(-0.000,-0.001,1.532)
+BONE C_Head             parent=C_Neck             head=(-0.000,-0.001,1.532) tail=(-0.000,-0.001,1.603)
+BONE L_Pelvis           parent=-                  head=(-0.000,-0.001,0.839) tail=(0.105,-0.001,0.837)
+BONE L_Thigh            parent=L_Pelvis           head=(0.105,-0.001,0.837) tail=(0.126,-0.001,0.458)
+BONE L_Claf             parent=L_Thigh            head=(0.126,-0.001,0.458) tail=(0.149,-0.001,0.037)
+BONE L_Foot             parent=L_Claf             head=(0.149,-0.001,0.037) tail=(0.149,-0.423,0.033)
+BONE R_Pelvis           parent=-                  head=(-0.000,-0.001,0.839) tail=(-0.105,-0.001,0.837)
+BONE R_Thigh            parent=R_Pelvis           head=(-0.105,-0.001,0.837) tail=(-0.126,-0.001,0.458)
+BONE R_Claf             parent=R_Thigh            head=(-0.126,-0.001,0.458) tail=(-0.149,-0.001,0.037)
+BONE R_Foot             parent=R_Claf             head=(-0.149,-0.001,0.037) tail=(-0.149,-0.423,0.033)
+MESH BaseHead               tris=130 v=114 parent=RootAnim mats=['Material'] z=[1.532..1.801] x=[-0.133..0.133] act=None
+MESH L1_Head                tris=227 v=669 parent=RootAnim mats=['M_Clothes_Flat.002'] z=[1.532..1.865] x=[-0.167..0.176] act=None
+MESH L1_Legs                tris=224 v=592 parent=RootAnim mats=['M_Clothes_Flat.001'] z=[0.001..0.907] x=[-0.257..0.257] act=None
+MESH L1_Torso               tris=386 v=974 parent=RootAnim mats=['M_Clothes_Flat'] z=[0.905..1.549] x=[-0.999..0.999] act=None
+MESH SK_Armor_T1_Head       tris=274 v=167 parent=RootAnim mats=['M_Clothes_Flat'] z=[1.532..1.845] x=[-0.150..0.150] act=None
+MESH SK_Armor_T1_Legs       tris=328 v=215 parent=RootAnim mats=['M_Clothes_Flat'] z=[0.000..0.907] x=[-0.275..0.275] act=None
+MESH SK_Armor_T1_Torso      tris=658 v=398 parent=RootAnim mats=['M_Clothes_Flat'] z=[0.850..1.552] x=[-0.999..0.999] act=None
+MESH SK_Cloth_T0_Head       tris=134 v=78 parent=RootAnim mats=['M_Clothes_Flat'] z=[1.532..1.801] x=[-0.133..0.133] act=None
+MESH SK_Cloth_T0_Legs       tris=224 v=135 parent=RootAnim mats=['M_Clothes_Flat'] z=[0.001..0.907] x=[-0.257..0.257] act=None
+MESH SK_Cloth_T0_Torso      tris=338 v=190 parent=RootAnim mats=['M_Clothes_Flat'] z=[0.905..1.549] x=[-0.999..0.999] act=None
+12:42:57 | INFO: Data are loaded, start creating Blender stuff
+12:42:57 | INFO: Blender create Mesh node tripo_mesh_b8ed13ed-aa39-47e5-b68b-70bb298f40ee
+12:42:57 | INFO: glTF import finished in 0.01s
+GLB OBJ tripo_node_b8ed13ed-aa39-47e5-b68b-70bb298f40ee MESH - (1.8035224676132202, 1.8035224676132202, 1.8035224676132202)
+  tris=2549 verts=3229 bbox=(-0.178, -0.875, -0.9)..(0.178, 0.875, 0.9) uv=['UVMap'] col=[] mats=['tripo_material_b8ed13ed-aa39-47e5-b68b-70bb298f40ee']
+   slice dz=0.00 n=341 x=[-0.164..0.111] y=[-0.308..0.308]
+   slice dz=0.05 n=97 x=[-0.167..0.100] y=[-0.291..0.291]
+   slice dz=0.10 n=103 x=[-0.178..-0.023] y=[-0.248..0.248]
+   slice dz=0.15 n=45 x=[-0.174..-0.009] y=[-0.248..0.248]
+   slice dz=0.20 n=19 x=[-0.157..-0.016] y=[-0.231..0.231]
+   slice dz=0.25 n=5 x=[-0.164..-0.164] y=[-0.157..0.157]
+   slice dz=0.30 n=18 x=[-0.143..-0.002] y=[-0.238..0.238]
+   slice dz=0.35 n=20 x=[-0.153..-0.016] y=[-0.217..0.217]
+   slice dz=0.40 n=6 x=[-0.041..0.019] y=[-0.234..0.234]
+   slice dz=0.45 n=33 x=[-0.125..0.041] y=[-0.224..0.224]
+   slice dz=0.50 n=28 x=[-0.111..0.062] y=[-0.227..0.227]
+   slice dz=0.55 n=18 x=[-0.104..0.076] y=[-0.220..0.220]
+   slice dz=0.60 n=12 x=[-0.051..0.086] y=[-0.153..0.153]
+   slice dz=0.65 n=9 x=[-0.104..0.012] y=[-0.210..0.210]
+   slice dz=0.70 n=16 x=[-0.104..0.104] y=[-0.136..0.136]
+   slice dz=0.75 n=23 x=[-0.104..0.090] y=[-0.203..0.203]
+   slice dz=0.80 n=37 x=[-0.114..0.125] y=[-0.122..0.122]
+   slice dz=0.85 n=27 x=[-0.111..0.122] y=[-0.185..0.185]
+   slice dz=0.90 n=150 x=[-0.146..0.171] y=[-0.192..0.192]
+   slice dz=0.95 n=86 x=[-0.136..0.171] y=[-0.181..0.181]
+   slice dz=1.00 n=68 x=[-0.132..0.178] y=[-0.192..0.192]
+   slice dz=1.05 n=29 x=[-0.118..0.164] y=[-0.174..0.174]
+   slice dz=1.10 n=10 x=[-0.107..-0.016] y=[-0.174..0.174]
+   slice dz=1.15 n=15 x=[-0.016..0.157] y=[-0.181..0.181]
+   slice dz=1.20 n=8 x=[-0.111..-0.079] y=[-0.146..0.146]
+   slice dz=1.25 n=30 x=[-0.090..0.167] y=[-0.195..0.195]
+   slice dz=1.30 n=32 x=[-0.136..0.146] y=[-0.231..0.231]
+   slice dz=1.35 n=120 x=[-0.076..0.136] y=[-0.770..0.770]
+   slice dz=1.40 n=423 x=[-0.132..0.143] y=[-0.875..0.875]
+   slice dz=1.45 n=405 x=[-0.083..0.114] y=[-0.861..0.861]
+   slice dz=1.50 n=187 x=[-0.090..0.153] y=[-0.463..0.463]
+   slice dz=1.55 n=92 x=[-0.044..0.153] y=[-0.076..0.076]
+   slice dz=1.60 n=141 x=[-0.076..0.171] y=[-0.097..0.097]
+   slice dz=1.65 n=333 x=[-0.086..0.153] y=[-0.107..0.107]
+   slice dz=1.70 n=127 x=[-0.076..0.146] y=[-0.104..0.104]
+   slice dz=1.75 n=116 x=[-0.051..0.171] y=[-0.083..0.100]
+IMG Color_b8ed13ed-aa39-47e5-b68b-70bb298f40ee (2048, 2048) True
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
