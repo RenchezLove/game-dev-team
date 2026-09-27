@@ -21,3 +21,11 @@
 - MCP-серверы можно объявить прямо у субагента (`mcpServers`), ключ — через `${TRIPO_API_KEY}` из переменной окружения.
 - Локальный blender-mcp (Blender Lab) инструментов генерации не имеет; обработка — через `execute_blender_code`. Blender на машине, вероятно, 5.x (НЕ ПРОВЕРЕНО).
 - Импорт glTF с `import_shading='FLAT'`; Decimate/Remesh; UV1 — `lightmap_pack`; запекание — только Cycles.
+
+## Дополнение 27.09: плагин Tripo для Unreal (исходники скачаны и прочитаны, в проект НЕ ставился)
+- Архив `Tripo_API_Unreal-latest.zip`, версия 1.0.1: исходники C++, собирается под установленную версию движка; README пишет «Unreal Engine 5.x», сайт — 5.6.0. Сборка под 5.5 НЕ ПРОВЕРЕНА.
+- Внутри — тот же API v3 (`BaseUrl = https://openapi.tripo3d.ai/v3`), ключ вида `tsk_` — то есть платит кредитами API, а не подпиской Studio.
+- Функции `UTripoBPLibrary` (CreateGenerationTask, CreateModelFromImage, GetTaskStatus, PollTaskUntilComplete, ConvertModel, DownloadModel) — статические BlueprintCallable, результат через обратные вызовы (делегаты). Вызов из питона редактора теоретически возможен, НЕ ПРОВЕРЕНО.
+- Импорт плагина: `bReplaceExisting = false` — кладёт новую модель рядом под своим именем, заменять наши ассеты не умеет; обработки в Blender нет.
+- Ключ хранится открытым текстом в .ini проекта (сказано в README). Модуль TripoRuntime — «Runtime», попадёт в сборку игры, если не ограничить.
+- Вывод: плагин — обёртка над тем же API; выигрыша перед своим скриптом нет, кроме окна генерации внутри редактора.
