@@ -1,0 +1,16 @@
+21:01:44 | INFO: Data are loaded, start creating Blender stuff
+21:01:44 | INFO: Blender create Mesh node tripo_mesh_8a22c275-03b8-47c2-a2e0-ef3a63a3edd1
+21:01:44 | INFO: glTF import finished in 0.00s
+E:\game-dev-team\assets\barrel_tripo\_work\10_build_barrel.py:142: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bmat.use_nodes = True
+SOURCE tris=545 size=(0.664, 0.660, 0.850)
+AO source: min=0.00 mean=0.87
+LOW tris=76 verts=40 signed_volume=0.2605 size=(0.656, 0.656, 0.850) zmin=0.000
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED E:/game-dev-team/assets/barrel_tripo/_work/_bake_raw.png
+MASK paint share=0.953 (texels a>0.5), rust share=0.047 (a<0.5), grey k=2.25 -> E:/game-dev-team/assets/barrel_tripo/T_TripoBarrel_D.png
+Info: Saved as "barrel_work.blend"
+SAVED E:/game-dev-team/assets/barrel_tripo/_work/barrel_work.blend
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

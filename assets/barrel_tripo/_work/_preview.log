@@ -1,0 +1,29 @@
+00:00.313  blend            | Read blend: "E:\game-dev-team\assets\barrel_tripo\_work\barrel_work.blend"
+00:01.766  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_top34_orig.png'
+00:01.891  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_top34_blue.png'
+00:02.125  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_top34_green.png'
+00:02.344  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_top34_red.png'
+00:02.563  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_top34_yellow.png'
+00:02.703  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_top34_mask.png'
+00:02.922  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_side_orig.png'
+00:03.141  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_side_blue.png'
+00:03.375  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_side_green.png'
+00:03.594  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_side_red.png'
+00:03.813  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_side_yellow.png'
+00:04.032  render           | Saved: 'E:\game-dev-team\assets\barrel_tripo\renders\_side_mask.png'
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_top34_orig.png
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_top34_blue.png
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_top34_green.png
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_top34_red.png
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_top34_yellow.png
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_top34_mask.png
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_side_orig.png
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_side_blue.png
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_side_green.png
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_side_red.png
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_side_yellow.png
+RENDER E:/game-dev-team/assets/barrel_tripo/renders/_side_mask.png
+SHEET E:/game-dev-team/assets/barrel_tripo/renders/barrel_paint_variants.png 2520 840
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

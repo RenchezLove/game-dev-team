@@ -1,0 +1,16 @@
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\barrel_tripo\_work\barrel_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/barrel_tripo/SM_TripoBarrel.fbx'
+export finished in 0.0040 sec.
+EXPORTED E:/game-dev-team/assets/barrel_tripo/SM_TripoBarrel.fbx
+FILE E:/game-dev-team/assets/barrel_tripo/SM_TripoBarrel.fbx 20.1 KB
+FBX version: 7400
+VERIFY meshes=1 tris=76 verts=40 size=(0.656, 0.656, 0.850) zmin=-0.000 centre_xy=(0.000, 0.000)
+VERIFY transform loc=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+VERIFY uv=['UVMap'] mats=['M_TripoBarrel'] tex=['E:\\game-dev-team\\assets\\barrel_tripo\\T_TripoBarrel_D.png', 'E:\\game-dev-team\\assets\\barrel_tripo\\T_TripoBarrel_D.png']
+VERIFY texture 512x512 channels=4 alpha min=0.00 max=1.00 paint(a>0.99)=0.751 rust(a<0.1)=0.018
+VERIFY median rgb paint=[0.82 0.82 0.82] (neutral grey expected) rust=[0.361 0.251 0.184] (orange expected, not zeroed)
+ROUNDTRIP PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
