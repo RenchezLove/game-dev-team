@@ -1,0 +1,30 @@
+00:00.313  blend            | Read blend: "E:\game-dev-team\assets\wolfden_tripo\_work\wolfden_work.blend"
+E:\game-dev-team\assets\wolfden_tripo\_work\13_export_verify.py:18: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new('M_WolfDenTripo'); mat.use_nodes = True
+
+FBX export starting... 'E:/game-dev-team/assets/wolfden_tripo/SM_WolfDenCave.fbx'
+export finished in 0.0075 sec.
+EXPORTED E:/game-dev-team/assets/wolfden_tripo/SM_WolfDenCave.fbx
+FILE E:/game-dev-team/assets/wolfden_tripo/SM_WolfDenCave.fbx 103.3 KB
+Info: Saved as "wolfden_work.blend"
+FBX version: 7400
+OLD tris=208 verts=128 min=[-2.161 -1.495  0.   ] max=[2.17  1.573 3.617] size=[4.331 3.068 3.617] origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+OLD materials=['M_WolfDenCave'] uv=['UVMap'] vertex_colours=['Col'] smooth_faces=0
+OLD mouth test at height 0.5 m, mouth span x -0.55..0.51: a ray from -Y stops at y -1.24 in the span and at y -0.77 / -0.68 beside it; a ray from +Y stops at y 1.15 in the span (box y -1.50..1.57)
+OLD open edges (welded) 0; lowest z 0.000; verts on the ground 7
+FBX version: 7400
+NEW objects in file: ['MESH']
+NEW tris=923 verts=539 min=[-2.161 -1.495 -0.   ] max=[2.17  1.573 2.556] size=[4.331 3.068 2.556] origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+NEW materials=['M_WolfDenTripo'] uv=['UVMap', 'LightmapUV'] vertex_colours=[] smooth_faces=0
+NEW mouth test at height 0.5 m, mouth span x -0.30..0.50: a ray from -Y stops at y 0.28 in the span and at y -0.48 / -0.70 beside it; a ray from +Y stops at y 1.50 in the span (box y -1.50..1.57)
+NEW open edges (welded) 125; lowest z -0.000; verts on the ground 176
+NEW uv UVMap range 0.0040..0.9956 overlapping texels at 2048: 0
+NEW uv LightmapUV range 0.0100..0.9887 overlapping texels at 2048: 0
+NEW texture in material: ['T_WolfDenTripo_D.png']
+NEW rays shot into the mouth area from the front (x -0.35..0.65, z 0.1..1.1): 0 of 231 pass through the model without hitting anything
+NEW rays from above that hit the model: 996 (footprint cells of 10 cm)
+TEXTURES colour 1024x1024, mask 1024x1024 channels=4
+ROUNDTRIP PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

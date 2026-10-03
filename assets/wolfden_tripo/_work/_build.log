@@ -1,0 +1,32 @@
+20:58:04 | INFO: Data are loaded, start creating Blender stuff
+20:58:04 | INFO: Blender create Mesh node tripo_mesh_0dfdc73e-78f4-40d4-920b-27c2312f88e9
+20:58:04 | INFO: glTF import finished in 0.01s
+E:\game-dev-team\assets\wolfden_tripo\_work\10_build.py:223: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bmat.use_nodes = True
+TRIPO tris 922 verts 518
+PARTS shell verts 335, small parts 7 ([93, 74, 52, 36, 30, 30, 22] tris)
+GROUND patch of Tripo: 28 tris, x -0.25..0.31 y -1.17..-0.89 z 0.009..0.009
+GROUND patch of Tripo:  4 tris, x 0.31..0.35 y -0.95..-0.93 z 0.009..0.009
+GROUND patch of Tripo:  1 tris, x 0.10..0.24 y 0.14..0.26 z 0.014..0.014
+GROUND patch of Tripo:  1 tris, x -0.42..-0.36 y -0.81..-0.66 z 0.000..0.009
+GROUND patch of Tripo:  1 tris, x 0.24..0.41 y 0.10..0.26 z 0.014..0.014
+GROUND patch of Tripo:  1 tris, x -0.31..-0.25 y -0.89..-0.75 z 0.009..0.009
+GROUND patch of Tripo:  1 tris, x 0.30..0.38 y -0.14..0.10 z 0.014..0.046
+GROUND patch of Tripo:  1 tris, x -0.26..-0.16 y -0.02..0.05 z 0.014..0.014
+GROUND patch of Tripo:  1 tris, x -0.17..-0.06 y 0.05..0.26 z 0.014..0.014
+GROUND removed 39 flat tris, 883 tris left
+MOUTH raw: width x -0.22..0.32, clear height 0.54, back wall y 0.26
+FIT raw size 2.331 x 2.230 x 1.200 -> scale x 1.858 y 1.376 z 2.130; 38 open-edge verts snapped to Z0
+PAD centre (0.25, -0.35), 40 tris at z 0.02, radius 0.40..2.29
+UNWRAP UVMap angle 66: overlapping texels 28
+UNWRAP UVMap angle 55: overlapping texels 42
+UNWRAP UVMap angle 45: overlapping texels 0
+UNWRAP LightmapUV angle 66: overlapping texels 11
+UNWRAP LightmapUV angle 55: overlapping texels 19
+UNWRAP LightmapUV angle 45: overlapping texels 0
+Info: Baking map saved to internal image, save it externally or pack it
+BUILD tris 923 (shell 546, small parts 337, pad 40) verts 539 min [-2.161 -1.495  0.   ] max [2.17  1.573 2.556] size [4.331 3.068 2.556]
+Info: Saved as "wolfden_work.blend"
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
