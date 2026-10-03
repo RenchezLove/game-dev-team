@@ -1,0 +1,33 @@
+00:00.344  blend            | Read blend: "E:\game-dev-team\assets\bandit_tripo\_work\bandit_work.blend"
+00:04.828  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_m_front.png'
+00:05.313  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_m_back.png'
+00:05.735  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_m_side.png'
+VEST certain stripe texels 5411 -> filled chest opening 7204 texels, z 0.92..1.44, widest span x -0.074..0.065
+ZONES overlap on painted texels before saving: 0
+MASK E:/game-dev-team/assets/bandit_tripo/T_BanditTripo_Mask.png 1024x1024 channels=4 depth=32 59.4 KB values per channel R[0. 1.] G[0. 1.] B[0. 1.] A[0. 1.]
+CHECK saved file equals computed zones on painted texels: True
+CHECK texels set in two or more channels (whole file): 0
+ZONE R leather (jacket + cap)   texels 141204 (43.7% of the painted area): head 14827 torso 126377 legs 0; mean rgb in the colour texture [0.19 0.16 0.13], z 0.90..1.80
+ZONE G striped vest             texels   7204 (2.2% of the painted area): head 0 torso 7204 legs 0; mean rgb in the colour texture [0.29 0.28 0.26], z 0.92..1.44
+ZONE B trousers                 texels 101191 (31.3% of the painted area): head 0 torso 662 legs 100529; mean rgb in the colour texture [0.38 0.34 0.29], z 0.10..0.91
+ZONE A side stripe              texels  11580 (3.6% of the painted area): head 0 torso 58 legs 11522; mean rgb in the colour texture [0.51 0.09 0.06], z 0.10..0.91
+ZONE none: texels 61948 (19.2%): head 14740 torso 18624 legs 28584
+CHECK by colour of T_BanditTripo_D.png:
+  skin-coloured (not red) texels: in R 0, G 0, B 336, A 0, in none 34716
+  red texels on the legs above the shoes: 11522, of them in A 11522 (100.0%)
+  blue-or-white texels of the chest opening: 5411, of them in G 5411
+  dark neutral texels of the torso slot outside the chest opening: 108426, of them in R 108426 (100.0%), in G 0
+  legs slot below z 0.095 (sneakers): 24847 texels, in any channel 0
+  head slot above z 1.70 (the cap): 13372 texels, in R 12974 (97.0%)
+  head slot below z 1.62 (face, neck): 5696 texels, in any channel 0
+  side stripe present in every 5 cm band of the legs from 0.15 to 0.90: True (bands without it: [])
+  side stripe on the left leg: 5918 texels, z 0.11..0.91
+  side stripe on the right leg: 5604 texels, z 0.10..0.91
+OVERLAY E:/game-dev-team/assets/bandit_tripo/renders/qc_mask_overlay_uv.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_m_front.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_m_back.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_m_side.png
+OVERLAY E:/game-dev-team/assets/bandit_tripo/renders/qc_mask_on_model.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
