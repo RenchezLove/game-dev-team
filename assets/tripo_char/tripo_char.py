@@ -44,7 +44,7 @@ def build(C):
     lo = bpy.data.objects['SK_Cloth_T0_Legs']
     gn0 = {g.index: g.name for g in lo.vertex_groups}
     G_CO = [v.co.copy() for v in lo.data.vertices]
-    G_W = [{gn0[g.group]: g.weight for g in v.groups if g.weight > 1e-4} for v in lo.data.vertices]
+    G_W = [{g.group: g.weight for g in v.groups if g.weight > 1e-4} for v in lo.data.vertices]
     G_F = [tuple(p.vertices) for p in lo.data.polygons]
 
     def t0_r(axy, co, z):
@@ -175,11 +175,26 @@ def build(C):
     bmesh.ops.triangulate(bm, faces=bm.faces[:])
     bm.to_mesh(me); bm.free(); me.update()
     print('DECIMATE %d -> %d tris' % (t0n, W.tri_count(hero)))
+    if C.get('ears'):                                    # a decimated ear collapses into a spike: pull it to the head
+        E = C['ears']; ne = 0
+        for v in me.vertices:
+            c = v.co
+            if E['z'][0] < c.z < E['z'][1] and E['y'][0] < c.y < E['y'][1] and abs(c.x) > E['x']:
+                c.x = math.copysign(E['x'] + (abs(c.x) - E['x']) * E['keep'], c.x); ne += 1
+        me.update()
+        print('EARS %d verts beyond |x| %.3f pulled in (%.0f%% of the protrusion kept)' % (ne, E['x'], E['keep'] * 100))
+    if coat:                                             # clean ring just under the coat hem: trousers below it go to the legs slot
+        CUT_RAW = coat['hem_raw'] - 0.012
+        bm = bmesh.new(); bm.from_mesh(me)
+        bmesh.ops.bisect_plane(bm, geom=bm.verts[:] + bm.edges[:] + bm.faces[:], dist=1e-5, plane_co=(0, 0, CUT_RAW), plane_no=(0, 0, 1))
+        bmesh.ops.triangulate(bm, faces=[f for f in bm.faces if len(f.verts) > 3])
+        bm.to_mesh(me); bm.free(); me.update()
     RAWZ = [v.co.z for v in me.vertices]                 # heights in the raw model, for hem / coat rules
-    if coat:                                             # trousers = faces whose centre is below the coat hem (long trouser faces reach up to it)
+    if coat:
         la = me.attributes.new('isleg', 'INT', 'FACE')
         for p in me.polygons:
-            la.data[p.index].value = int(sum(RAWZ[i] for i in p.vertices) / len(p.vertices) < coat['hem_raw'] - 0.02)
+            la.data[p.index].value = int(sum(RAWZ[i] for i in p.vertices) / len(p.vertices) < CUT_RAW)
+        print('COAT cut under the hem at raw z %.3f: %d trouser tris, mesh %d tris' % (CUT_RAW, sum(d.value for d in la.data), W.tri_count(hero)))
 
     while me.uv_layers:
         me.uv_layers.remove(me.uv_layers[0])
@@ -302,6 +317,25 @@ def build(C):
             print('  filled %d unweighted verts from the nearest skinned vertex (z %.3f..%.3f)' % (len(un), min(zs_), max(zs_)))
 
     heat_skin(hero, trig)
+    # neck and head follow only the neck / head / upper spine bones: a stray clavicle weight on an ear is
+    # stretched sideways by the arm-length fit and becomes a spike
+    keepb = {'C_Spine02', 'C_Neck', 'C_Head'}
+    gnm = {g.index: g.name for g in hero.vertex_groups}
+    nfix = 0
+    for v in me.vertices:
+        if v.co.z < NECK_Z + 0.02 or abs(v.co.x) > 0.2:
+            continue
+        w = {gnm[g.group]: g.weight for g in v.groups if g.weight > 0}
+        if all(k in keepb for k in w):
+            continue
+        good = {k: a for k, a in w.items() if k in keepb} or {'C_Head': 1.0}
+        tot = sum(good.values())
+        for g in list(v.groups):
+            hero.vertex_groups[g.group].remove([v.index])
+        for k, a in good.items():
+            hero.vertex_groups[k].add([v.index], a / tot, 'REPLACE')
+        nfix += 1
+    print('HEAD weights for the fit: arm/clavicle weights removed on %d verts above z %.3f' % (nfix, NECK_Z + 0.02))
     order = []
     def walk(b):
         order.append(b.name)
@@ -353,6 +387,8 @@ def build(C):
 
     gname = {g.index: g.name for g in hero.vertex_groups}
     for v in me.vertices:
+        if v.co.z > 1.50:                 # neck and head are never thickened (a stray clavicle weight turned an ear into a spike)
+            continue
         ws = [(gname[g.group], g.weight) for g in v.groups if g.weight > 1e-4]
         tot = sum(w for _, w in ws)
         if tot <= 0:
@@ -367,6 +403,31 @@ def build(C):
     bpy.data.objects.remove(trig, do_unlink=True)
 
     # ---------- FIT TO T0 at the slot cuts ----------
+    if coat:
+        # top of the trousers takes the T0 thigh shape, so the T0 pelvis grafted above it continues the leg
+        ring = sorted(v.co.z for v in me.vertices if abs(RAWZ[v.index] - CUT_RAW) < 1e-4)
+        cut_conf = ring[len(ring) // 2]
+        legv = set()
+        for p in me.polygons:
+            if me.attributes['isleg'].data[p.index].value:
+                legv.update(p.vertices)
+        nth = 0
+        for i in legv:
+            c = me.vertices[i].co
+            if abs(RAWZ[i] - CUT_RAW) < 1e-4:
+                c.z = cut_conf
+            if c.z < cut_conf - 0.08:
+                continue
+            sd = 1.0 if c.x > 0 else -1.0
+            ax = sd * (0.105 + (0.837 - c.z) / (0.837 - 0.458) * 0.021)
+            d = Vector((c.x - ax, c.y + 0.001, 0.0))
+            hit = T0.ray_cast(Vector((ax, -0.001, min(c.z, cut_conf - 0.001))), d.normalized(), 0.4)[0] if d.length > 1e-5 else None
+            if hit:
+                w = smooth(cut_conf - 0.08, cut_conf - 0.015, c.z)
+                q = 1 + w * (math.hypot(hit.x - ax, hit.y + 0.001) / d.length - 1)
+                c.x = ax + d.x * q; c.y = -0.001 + d.y * q; nth += 1
+        me.update()
+        print('COAT trouser ring under the hem is at z=%.3f on our skeleton; %d trouser verts fitted to the T0 thighs' % (cut_conf, nth))
     jset, cset = set(), set()
     nclamp = 0
     if C.get('hem_raw'):
@@ -430,6 +491,19 @@ def build(C):
     print("CUT planes %s: tris = %d (+%d verts on the planes)" % (C['planes'], W.tri_count(hero), len(me.vertices) - nold))
 
     nw = nn = npw = npn = 0
+    if coat:
+        # the coat stays outside the T0 trouser ring it covers (the pelvis graft carries that ring)
+        cv = set()
+        for p in me.polygons:
+            if not me.attributes['isleg'].data[p.index].value:
+                cv.update(p.vertices)
+        for i in cv:
+            c = me.vertices[i].co
+            if 0.83 < c.z < 0.96 and abs(c.x) < 0.33:
+                r0 = t0_r(WAIST_AX, c, min(max(c.z, 0.86), 0.908)); r = math.hypot(c.x, c.y - WAIST_AX)
+                if r0 and r < r0 + 0.02:
+                    q = (r0 + 0.02) / r
+                    c.x *= q; c.y = WAIST_AX + (c.y - WAIST_AX) * q; npw += 1
     for v in me.vertices:
         c = v.co
         if v.index in jset:
@@ -452,7 +526,7 @@ def build(C):
         elif C.get('neck_fit') and 1.49 < c.z < 1.60 and abs(c.x) < 0.2:
             w = smooth(1.49, 1.525, c.z) * (1 - smooth(1.556, 1.60, c.z))
             r0 = t0_r(NECK_AX, c, c.z); r = math.hypot(c.x, c.y - NECK_AX)
-            if r0 and r > 1e-4 and w > 0:
+            if r0 and r > 1e-4 and w > 0 and (c.z <= 1.556 or abs(r0 - r) < 0.015):   # above the cut band do not drag ears to the T0 ears
                 q = 1 + w * (r0 / r - 1)
                 c.x *= q; c.y = NECK_AX + (c.y - NECK_AX) * q; nn += 1
     me.update()
@@ -495,7 +569,7 @@ def build(C):
 
     # upper-body weight fix (same as the hero, 09-27: clavicles roll ~90 deg in melee/aim)
     CLAV = {'L_UpperArm': 'L_Shoulder', 'R_UpperArm': 'R_Arm'}
-    for bn in ('C_Spine01', 'C_Spine02', 'C_Neck', 'L_Shoulder', 'R_Arm', 'L_Thigh', 'R_Thigh'):
+    for bn in ('C_Root', 'C_Spine01', 'C_Spine02', 'C_Neck', 'L_Shoulder', 'R_Arm', 'L_Thigh', 'R_Thigh'):
         if bn not in hero.vertex_groups:
             hero.vertex_groups.new(name=bn)
     VG = {g.name: g for g in hero.vertex_groups}
@@ -539,20 +613,21 @@ def build(C):
                 coatv.update(p.vertices)
         nsk = 0
         for v in me.vertices:
-            if v.index not in coatv or v.co.z > coat['skirt_top'] or abs(v.co.x) > 0.45:
+            if v.index not in coatv or v.co.z > coat['heat_full'] or abs(v.co.x) > 0.45:
                 continue
-            t = 1 - smooth(coat['skirt_full'], coat['skirt_top'], v.co.z)
+            h = smooth(coat['heat_from'], coat['heat_full'], v.co.z)            # share of the automatic weights
+            t = 1 - smooth(coat['skirt_full'], coat['skirt_top'], v.co.z)       # share of the thighs in the rest
             wl = smooth(-0.05, 0.05, v.co.x)
-            w = {gname[g.group]: g.weight * (1 - t) for g in v.groups if g.weight > 0}
-            w['L_Thigh'] = w.get('L_Thigh', 0.0) * 0 + t * wl + (w.get('L_Thigh', 0.0) if t < 1 else 0)
-            w['R_Thigh'] = t * (1 - wl) + (w.get('R_Thigh', 0.0) if t < 1 else 0)
+            w = {gname[g.group]: g.weight * h for g in v.groups if g.weight > 0}
+            for bn, a in (('C_Root', (1 - h) * (1 - t)), ('L_Thigh', (1 - h) * t * wl), ('R_Thigh', (1 - h) * t * (1 - wl))):
+                w[bn] = w.get(bn, 0.0) + a
             for g in list(v.groups):
                 hero.vertex_groups[g.group].remove([v.index])
             for q, a in w.items():
                 if a > 1e-4:
                     VG[q].add([v.index], a, 'REPLACE')
             nsk += 1
-        print('COAT skirts: %d verts below z %.2f follow the thigh bones (full below %.2f)' % (nsk, coat['skirt_top'], coat['skirt_full']))
+        print('COAT skirts: %d verts: pelvis bone between z %.2f and %.2f, thigh bones below (full below %.2f)' % (nsk, coat['skirt_top'], coat['heat_from'], coat['skirt_full']))
     bpy.ops.object.vertex_group_clean(group_select_mode='ALL', limit=0.02)
     bpy.ops.object.vertex_group_limit_total(group_select_mode='ALL', limit=4)
     bpy.ops.object.vertex_group_normalize_all(group_select_mode='ALL', lock_active=False)
@@ -589,9 +664,7 @@ def build(C):
         keep = {'Head': lambda p: p.center.z > 1.532,
                 'Torso': lambda p: p.center.z < 1.549 and not isleg[p.index],
                 'Legs': lambda p: bool(isleg[p.index])}
-        hemz = sorted(me.vertices[i].co.z for i in range(nold) if abs(RAWZ[i] - coat['hem_raw']) < 0.012)
-        hem_conf = hemz[len(hemz) // 2]
-        print('COAT hem (raw z %.3f) is at z=%.3f on our skeleton' % (coat['hem_raw'], hem_conf))
+        hem_conf = cut_conf
     else:
         keep = {'Head': lambda p: p.center.z > 1.532,
                 'Torso': lambda p: 0.900 < p.center.z < 1.549,
@@ -612,26 +685,53 @@ def build(C):
             dl = bm.verts.layers.deform.verify()
             tf = min(bm.faces, key=lambda f: (f.calc_center_median() - Vector(coat['trouser_at'])).length)
             tuv = sum((l[uvl].uv for l in tf.loops), Vector((0, 0))) / 3
-            strip = {i for i, c in enumerate(G_CO) if c.z > 0.865 and math.hypot(c.x, c.y) > 0.193}
+            def on_strip(c):            # not on the innermost T0 surface seen from the axis = the sweater strip lying over the trousers
+                if c.z < 0.80:
+                    return False
+                r0 = t0_r(WAIST_AX, c, min(c.z, 0.9095))
+                return r0 is not None and math.hypot(c.x, c.y - WAIST_AX) > r0 + 0.004
+            gb = bmesh.new()
+            dl0 = gb.verts.layers.deform.verify()
+            gv = []
+            for i, c in enumerate(G_CO):
+                nv = gb.verts.new(c)
+                for k, w in G_W[i].items():
+                    nv[dl0][k] = w
+                gv.append(nv)
+            for fv in G_F:
+                gb.faces.new([gv[i] for i in fv])
+            bmesh.ops.bisect_plane(gb, geom=gb.verts[:] + gb.edges[:] + gb.faces[:], dist=1e-5, plane_co=(0, 0, hem_conf),
+                                   plane_no=(0, 0, 1), clear_inner=True)
+            bmesh.ops.triangulate(gb, faces=[f for f in gb.faces if len(f.verts) > 3])
             gi = {g.name: g.index for g in ob.vertex_groups}
-            for bn in {q for w in G_W for q in w}:
+            for bn in ('L_Thigh', 'R_Thigh', 'C_Root'):
                 if bn not in gi:
                     gi[bn] = ob.vertex_groups.new(name=bn).index
+            for k in {k for w in G_W for k in w}:
+                if gn0[k] not in gi:
+                    gi[gn0[k]] = ob.vertex_groups.new(name=gn0[k]).index
             new = {}
             ng = 0
-            for fv in G_F:
-                if any(i in strip for i in fv) or sum(G_CO[i].z for i in fv) / len(fv) < hem_conf:
+            for f0 in gb.faces:
+                if any(on_strip(v.co) for v in f0.verts):
                     continue
-                for i in fv:
-                    if i not in new:
-                        nv = bm.verts.new(G_CO[i])
-                        for bn, w in G_W[i].items():
-                            nv[dl][gi[bn]] = w
-                        new[i] = nv
-                f = bm.faces.new([new[i] for i in fv])
+                for v in f0.verts:
+                    if v not in new:
+                        sq = 1 - 0.18 * smooth(hem_conf, hem_conf + 0.05, v.co.z) * (1 - smooth(0.875, 0.905, v.co.z))   # keep clear of the coat between the two rings
+                        nv = bm.verts.new(Vector((v.co.x * sq, -0.001 + (v.co.y + 0.001) * sq, v.co.z)))
+                        # same thigh rule as the coat skirts, so the pelvis moves with the coat and stays inside it
+                        t = 1 - smooth(coat['skirt_full'], coat['skirt_top'], v.co.z)
+                        wl = smooth(-0.05, 0.05, v.co.x)
+                        # (the T0 weights put the buttocks on the thighs: they came out through the back of the coat)
+                        for bn, w in (('C_Root', 1 - t), ('L_Thigh', t * wl), ('R_Thigh', t * (1 - wl))):
+                            if w > 1e-4:
+                                nv[dl][gi[bn]] = nv[dl].get(gi[bn], 0.0) + w
+                        new[v] = nv
+                f = bm.faces.new([new[v] for v in f0.verts])
                 for l in f.loops:
                     l[uvl].uv = tuv
-                ng += len(fv) - 2
+                ng += 1
+            gb.free()
             print('GRAFT T0 pelvis: %d tris from z %.3f to 0.910, trouser texel %s' % (ng, hem_conf, tuple(round(a, 2) for a in texel(tuv))))
         bmesh.ops.triangulate(bm, faces=[f for f in bm.faces if len(f.verts) > 3])
         bm.to_mesh(ob.data); bm.free(); ob.data.update()

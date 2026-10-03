@@ -1,0 +1,93 @@
+00:00.312  blend            | Read blend: "E:\game-dev-team\assets\bandit_tripo\_work\bandit_work.blend"
+00:01.875  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_rest_front.png'
+00:02.172  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_rest_top.png'
+00:02.484  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_rest_back.png'
+00:02.844  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixA_rest_front.png'
+00:03.125  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixA_rest_top.png'
+00:03.437  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixA_rest_back.png'
+00:03.734  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixB_rest_front.png'
+00:04.031  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixB_rest_top.png'
+00:04.344  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixB_rest_back.png'
+00:04.625  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_legs_rest_front.png'
+00:04.906  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_legs_rest_back.png'
+00:05.312  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_rest_neck.png'
+00:05.703  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_rest_neckback.png'
+00:06.141  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_rest_waist.png'
+00:06.547  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_rest_waistback.png'
+00:06.953  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixA_rest_neck.png'
+00:07.359  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixA_rest_neckback.png'
+00:07.781  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixA_rest_waist.png'
+00:08.187  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixA_rest_waistback.png'
+00:08.578  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixB_rest_neck.png'
+00:08.984  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixB_rest_neckback.png'
+00:09.406  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixB_rest_waist.png'
+00:09.812  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixB_rest_waistback.png'
+00:10.141  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_step_front.png'
+00:10.437  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_step_top.png'
+00:10.750  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_step_back.png'
+00:11.078  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_step_side.png'
+00:11.375  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixA_step_front.png'
+00:11.672  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixA_step_top.png'
+00:11.984  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixA_step_back.png'
+00:12.281  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixA_step_side.png'
+00:12.594  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixB_step_front.png'
+00:12.875  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixB_step_top.png'
+00:13.187  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixB_step_back.png'
+00:13.484  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_mixB_step_side.png'
+00:13.875  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_step_waist.png'
+00:14.266  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_step_waistside.png'
+00:14.641  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_step_waistback.png'
+00:14.984  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_melee_front.png'
+00:15.312  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_melee_back.png'
+00:15.656  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\renders\_own_melee_upper.png'
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_rest_front.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_rest_top.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_rest_back.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixA_rest_front.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixA_rest_top.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixA_rest_back.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixB_rest_front.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixB_rest_top.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixB_rest_back.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_legs_rest_front.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_legs_rest_back.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_rest_neck.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_rest_neckback.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_rest_waist.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_rest_waistback.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixA_rest_neck.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixA_rest_neckback.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixA_rest_waist.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixA_rest_waistback.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixB_rest_neck.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixB_rest_neckback.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixB_rest_waist.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixB_rest_waistback.png
+RUN source rest delta vs ours = 0.000019
+RUN take frames 1..20, widest stride 0.676 m at frame 10
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_step_front.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_step_top.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_step_back.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_step_side.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixA_step_front.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixA_step_top.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixA_step_back.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixA_step_side.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixB_step_front.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixB_step_top.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixB_step_back.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_mixB_step_side.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_step_waist.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_step_waistside.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_step_waistback.png
+MELEE peak reach frame 12
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_melee_front.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_melee_back.png
+RENDER E:/game-dev-team/assets/bandit_tripo/renders/_own_melee_upper.png
+SHEET E:/game-dev-team/assets/bandit_tripo/renders/bandit_rest_and_step.png 1800 1800
+SHEET E:/game-dev-team/assets/bandit_tripo/renders/qc_mix.png 4500 1800
+SHEET E:/game-dev-team/assets/bandit_tripo/renders/qc_close_rest.png 3600 2700
+SHEET E:/game-dev-team/assets/bandit_tripo/renders/qc_step_melee.png 2700 1800
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,20 @@
+20:09:26 | INFO: Data are loaded, start creating Blender stuff
+20:09:26 | INFO: Blender create Mesh node tripo_mesh_f954dc4b-bd52-4113-aa56-49a1b15e22db
+20:09:26 | INFO: glTF import finished in 0.01s
+00:02.093  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\_work\_look\raw_px.png'
+00:02.437  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\_work\_look\raw_mx.png'
+00:02.718  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\_work\_look\raw_py.png'
+00:03.046  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\_work\_look\raw_my.png'
+00:03.421  render           | Saved: 'E:\game-dev-team\assets\bandit_tripo\_work\_look\raw_top.png'
+GLB OBJ tripo_node_f954dc4b-bd52-4113-aa56-49a1b15e22db MESH - (1.854, 1.854, 1.854)
+RAW tris=1994 verts=1436 bbox=(-0.194, -0.885, -0.925)..(0.194, 0.885, 0.925) uv=['UVMap'] mats=['tripo_material_f954dc4b-bd52-4113-aa56-49a1b15e22db']
+IMG Color_f954dc4b-bd52-4113-aa56-49a1b15e22db (2048, 2048)
+YAW arm-span axis at -90.0 deg from +X, span 1.770 (x extent 0.387, y extent 1.770)
+RENDER E:/game-dev-team/assets/bandit_tripo/_work/_look/raw_px.png
+RENDER E:/game-dev-team/assets/bandit_tripo/_work/_look/raw_mx.png
+RENDER E:/game-dev-team/assets/bandit_tripo/_work/_look/raw_py.png
+RENDER E:/game-dev-team/assets/bandit_tripo/_work/_look/raw_my.png
+RENDER E:/game-dev-team/assets/bandit_tripo/_work/_look/raw_top.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

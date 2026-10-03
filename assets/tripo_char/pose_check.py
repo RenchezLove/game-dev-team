@@ -68,22 +68,21 @@ def deformed(ob):
 
 
 def pierce(tag):
-    """Leg-slot vertices that are under the coat at rest and are not enclosed by it in this pose."""
+    """Leg-slot vertices that are under the coat at rest and lie outside the coat surface in this pose."""
     co, fs = deformed(N['Torso'])
     tree = BVHTree.FromPolygons(co, fs)
     lco, _ = deformed(N['Legs'])
-    bad = 0; worst = 0.0
+    bad = 0; worst = 0.0; zr = []
+    pb = rig.pose.bones['C_Root']
+    a = pb.head.copy(); s = (pb.tail - pb.head).normalized()
     for i in UNDER:
         p = lco[i]
-        for k in range(8):
-            a = math.pi * k / 4
-            d = Vector((math.cos(a), math.sin(a), 0))
-            if tree.ray_cast(p, d, 2.0)[0] is None:
-                bad += 1
-                near = tree.find_nearest(p)
-                worst = max(worst, (near[0] - p).length if near[0] else 0)
-                break
-    return bad, worst
+        r = (p - a) - s * (p - a).dot(s)            # outwards from the spine axis of this pose
+        if r.length < 1e-4 or REST_Z[i] < HEM + 0.02:
+            continue
+        if tree.ray_cast(p, r.normalized(), 1.0)[0] is None:   # no coat wall beyond the vertex -> it is outside
+            bad += 1; zr.append(REST_Z[i]); worst = max(worst, (tree.find_nearest(p)[0] - p).length)
+    return bad, worst, (min(zr), max(zr)) if zr else (0, 0)
 
 
 P.reset(rig)
@@ -91,8 +90,9 @@ if C.get('coat'):
     co, fs = deformed(N['Torso'])
     tree = BVHTree.FromPolygons(co, fs)
     lco, _ = deformed(N['Legs'])
+    REST_Z = [p.z for p in lco]; HEM = min(c.z for c in co); REST = [p.copy() for p in lco]
     UNDER = [i for i, p in enumerate(lco) if all(tree.ray_cast(p, Vector((math.cos(math.pi * k / 4), math.sin(math.pi * k / 4), 0)), 2.0)[0] is not None for k in range(8))]
-    print('COAT rest: %d of %d leg-slot vertices are enclosed by the coat' % (len(UNDER), len(lco)))
+    print('COAT rest: %d of %d leg-slot vertices are enclosed by the coat; %d of them are 2 cm or more above the hem (z %.3f) and are tested' % (len(UNDER), len(lco), sum(1 for i in UNDER if REST_Z[i] >= HEM + 0.02), HEM))
 
 shots('rest', ('own', 'mixA', 'mixB'), ('front', 'top', 'back'))
 shots('rest', ('legs',), ('front', 'back'))
@@ -113,8 +113,8 @@ for f in range(f0, f1 + 1):
     if best is None or d > best[0]:
         best = (d, f)
     if C.get('coat'):
-        b, wst = pierce(f)
-        print('COAT run frame %2d: stride %.3f, leg vertices outside the coat %d (deepest %.3f m)' % (f, d, b, wst))
+        b, wst, zr = pierce(f)
+        print('COAT run frame %2d: stride %.3f, leg vertices outside the coat %d (deepest %.3f m, their rest heights %.3f..%.3f)' % (f, d, b, wst, zr[0], zr[1]))
 print('RUN take frames %d..%d, widest stride %.3f m at frame %d' % (f0, f1, best[0], best[1]))
 P.transfer(src, nm, rig, best[1])
 shots('step', ('own', 'mixA', 'mixB'), ('front', 'top', 'back', 'side'))
