@@ -1,0 +1,57 @@
+00:00.344  blend            | Read blend: "E:\game-dev-team\assets\hero_tripo\_work\hero_work.blend"
+00:00.359  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_work.blend"
+19:58:01 | INFO: Data are loaded, start creating Blender stuff
+19:58:01 | INFO: Blender create Mesh node tripo_mesh_c1dfc0cc-d894-4e88-bb96-17439d097d46
+19:58:01 | INFO: glTF import finished in 0.01s
+TRIPO raw tris=1982 verts=1460 height=1.850
+WELD 1460 -> 993 verts
+CENTRE torso depth at z=1.13: y shift -0.001; head depth centre 0.031 -> shift -0.030 (T0 -0.013)
+TRIPO joints: crotch=0.851 hip=0.881 thigh=(0.116, 0.026, 0.801) knee=(0.148, 0.026, 0.482) ankle=(0.21, 0.026, 0.039) foot_y=[-0.186..0.125]
+TRIPO arm: shoulder=(0.22, 0.067, 1.445) elbow=(0.471, 0.081, 1.458) wrist=(0.665, 0.082, 1.465) tip=0.883
+DECIMATE 1982 -> 950 tris
+COAT cut under the hem at raw z 0.738: 300 trouser tris, mesh 1014 tris
+Info: Baking map saved to internal image, save it externally or pack it
+REBAKE diffuse colour 1024 onto 1014 tris
+HEAT TripoChar -> TripoRig groups=21 unweighted=0
+  conform C_Root             len T=0.287 O=0.255 scale=0.89
+  conform C_Spine01          len T=0.277 O=0.246 scale=0.89
+  conform L_UpperArm         len T=0.230 O=0.286 scale=1.24
+  conform L_Shoulder         len T=0.252 O=0.345 scale=1.37
+  conform L_Arm              len T=0.194 O=0.267 scale=1.37
+  conform L_Hand             len T=0.267 O=0.267 scale=1.00
+  conform R_UpperArm         len T=0.230 O=0.286 scale=1.24
+  conform R_Arm              len T=0.252 O=0.345 scale=1.37
+  conform Pelvis_009_R_002   len T=0.194 O=0.267 scale=1.37
+  conform R_Hand             len T=0.267 O=0.267 scale=1.00
+  conform C_Spine02          len T=0.070 O=0.121 scale=1.73
+  conform C_Neck             len T=0.045 O=0.071 scale=1.57
+  conform C_Head             len T=0.071 O=0.071 scale=1.00
+  conform L_Pelvis           len T=0.119 O=0.105 scale=0.88
+  conform L_Thigh            len T=0.400 O=0.380 scale=0.95
+  conform L_Claf             len T=0.447 O=0.422 scale=0.94
+  conform L_Foot             len T=0.422 O=0.422 scale=1.00
+  conform R_Pelvis           len T=0.119 O=0.105 scale=0.88
+  conform R_Thigh            len T=0.400 O=0.380 scale=0.95
+  conform R_Claf             len T=0.447 O=0.422 scale=0.94
+  conform R_Foot             len T=0.422 O=0.422 scale=1.00
+CONFORM max joint error = 0.00000 m
+THICKEN torso x1.10 limbs x1.18: z=[-0.008..1.822]
+COAT trouser ring under the hem is at z=0.701 on our skeleton; 33 trouser verts fitted to the T0 thighs
+CUT planes (0.84, 0.9, 1.532, 1.549): tris = 1366 (+176 verts on the planes)
+FIT waist: 0 verts to the T0 trouser ring, 0 hem verts clamped to z 0.914, 11 pushed outside
+FIT neck: 0 verts to the T0 neck/chin surface, 0 collar verts pushed outside
+HEAT TripoChar -> RootAnim groups=21 unweighted=0
+Info: 70 vertex weights limited
+WEIGHT FIX: clavicle weights moved on 165 verts, head->neck below chin on 7 verts
+COAT skirts: 148 verts: pelvis bone between z 0.84 and 0.90, thigh bones below (full below 0.76)
+WEIGHTS clavicle weights left: 0
+SLOT SK_Elder_Head      tris=354 verts=202 z=[1.532..1.822] groups=['C_Head', 'C_Neck', 'C_Spine02']
+SLOT SK_Elder_Torso     tris=829 verts=456 z=[0.701..1.549] groups=['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'Pelvis_009_R_002', 'R_Arm', 'R_Hand', 'R_Pelvis', 'R_Thigh']
+GRAFT T0 pelvis: 79 tris from z 0.701 to 0.910, trouser texel (0.23, 0.19, 0.16)
+SLOT SK_Elder_Legs      tris=379 verts=232 z=[-0.008..0.910] groups=['C_Root', 'L_Claf', 'L_Foot', 'L_Pelvis', 'L_Thigh', 'R_Claf', 'R_Foot', 'R_Thigh']
+TOTAL tris = 1562
+Info: Saved as "elder_work.blend"
+SAVED E:/game-dev-team/assets/elder_tripo/_work/elder_work.blend
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,114 @@
+00:00.344  blend            | Read blend: "E:\game-dev-team\assets\elder_tripo\_work\elder_work.blend"
+00:02.032  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_rest_front.png'
+00:02.328  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_rest_top.png'
+00:02.625  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_rest_back.png'
+00:02.953  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixA_rest_front.png'
+00:03.266  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixA_rest_top.png'
+00:03.610  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixA_rest_back.png'
+00:03.969  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixB_rest_front.png'
+00:04.328  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixB_rest_top.png'
+00:04.703  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixB_rest_back.png'
+00:05.063  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_legs_rest_front.png'
+00:05.407  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_legs_rest_back.png'
+00:05.891  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_rest_neck.png'
+00:06.344  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_rest_neckback.png'
+00:06.844  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_rest_waist.png'
+00:07.344  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_rest_waistback.png'
+00:07.813  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixA_rest_neck.png'
+00:08.297  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixA_rest_neckback.png'
+00:08.766  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixA_rest_waist.png'
+00:09.297  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixA_rest_waistback.png'
+00:09.828  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixB_rest_neck.png'
+00:10.328  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixB_rest_neckback.png'
+00:10.813  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixB_rest_waist.png'
+00:11.297  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixB_rest_waistback.png'
+00:11.782  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_step_front.png'
+00:12.157  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_step_top.png'
+00:12.532  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_step_back.png'
+00:12.938  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_step_side.png'
+00:13.344  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixA_step_front.png'
+00:13.719  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixA_step_top.png'
+00:14.078  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixA_step_back.png'
+00:14.500  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixA_step_side.png'
+00:14.907  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixB_step_front.png'
+00:15.297  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixB_step_top.png'
+00:15.657  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixB_step_back.png'
+00:16.063  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_mixB_step_side.png'
+00:16.516  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_step_waist.png'
+00:16.953  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_step_waistside.png'
+00:17.407  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_step_waistback.png'
+00:17.813  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_melee_front.png'
+00:18.203  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_melee_back.png'
+00:18.610  render           | Saved: 'E:\game-dev-team\assets\elder_tripo\renders\_own_melee_upper.png'
+COAT rest: 73 of 232 leg-slot vertices are enclosed by the coat; 40 of them are 2 cm or more above the hem (z 0.701) and are tested
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_rest_front.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_rest_top.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_rest_back.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixA_rest_front.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixA_rest_top.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixA_rest_back.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixB_rest_front.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixB_rest_top.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixB_rest_back.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_legs_rest_front.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_legs_rest_back.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_rest_neck.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_rest_neckback.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_rest_waist.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_rest_waistback.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixA_rest_neck.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixA_rest_neckback.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixA_rest_waist.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixA_rest_waistback.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixB_rest_neck.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixB_rest_neckback.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixB_rest_waist.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixB_rest_waistback.png
+RUN source rest delta vs ours = 0.000019
+COAT run frame  1: stride 0.487, leg vertices outside the coat 1 (deepest 0.006 m, their rest heights 0.805..0.805)
+COAT run frame  2: stride 0.456, leg vertices outside the coat 1 (deepest 0.006 m, their rest heights 0.805..0.805)
+COAT run frame  3: stride 0.366, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  4: stride 0.223, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  5: stride 0.037, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  6: stride 0.170, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  7: stride 0.368, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  8: stride 0.531, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  9: stride 0.637, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 10: stride 0.676, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 11: stride 0.645, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 12: stride 0.557, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 13: stride 0.422, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 14: stride 0.252, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 15: stride 0.065, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 16: stride 0.116, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 17: stride 0.272, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 18: stride 0.389, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 19: stride 0.462, leg vertices outside the coat 1 (deepest 0.006 m, their rest heights 0.805..0.805)
+COAT run frame 20: stride 0.487, leg vertices outside the coat 1 (deepest 0.006 m, their rest heights 0.805..0.805)
+RUN take frames 1..20, widest stride 0.676 m at frame 10
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_step_front.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_step_top.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_step_back.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_step_side.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixA_step_front.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixA_step_top.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixA_step_back.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixA_step_side.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixB_step_front.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixB_step_top.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixB_step_back.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_mixB_step_side.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_step_waist.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_step_waistside.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_step_waistback.png
+MELEE peak reach frame 12
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_melee_front.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_melee_back.png
+RENDER E:/game-dev-team/assets/elder_tripo/renders/_own_melee_upper.png
+SHEET E:/game-dev-team/assets/elder_tripo/renders/elder_rest_and_step.png 1800 1800
+SHEET E:/game-dev-team/assets/elder_tripo/renders/qc_mix.png 4500 1800
+SHEET E:/game-dev-team/assets/elder_tripo/renders/qc_close_rest.png 3600 2700
+SHEET E:/game-dev-team/assets/elder_tripo/renders/qc_step_melee.png 2700 1800
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
