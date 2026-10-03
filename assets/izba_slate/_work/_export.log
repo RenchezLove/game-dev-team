@@ -1,0 +1,34 @@
+00:00.281  blend            | Read blend: "E:\game-dev-team\assets\izba_slate\_work\izba_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/izba_slate/SM_IzbaSlate.fbx'
+export finished in 0.0090 sec.
+EXPORTED E:/game-dev-team/assets/izba_slate/SM_IzbaSlate.fbx
+FILE E:/game-dev-team/assets/izba_slate/SM_IzbaSlate.fbx 163.8 KB
+FBX version: 7400
+OLD tris=868 verts=580 min=[-2.781 -2.5   -0.   ] max=[2.781 2.22  4.2  ] size=[5.562 4.72  4.2  ]
+OLD origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+OLD ground part (z<0.4): x -2.600..2.600 y -2.500..2.100 | walls (z 0.6..2.2): x -2.620..2.620 y -2.120..2.100
+OLD porch/step in front of the -Y wall: x -0.650..0.650 (centre 0.000) y down to -2.500
+OLD anything on the ground behind the +Y wall: 0 verts
+OLD open_edges=0 smooth_faces=0 signed_volume=20.79
+OLD materials=['M_VillageHouse'] uv=['UVMap']
+FBX version: 7400
+NEW objects in file: ['MESH']
+NEW tris=3204 verts=1750 min=[-2.781 -2.5    0.   ] max=[2.781 2.22  4.561] size=[5.562 4.72  4.561]
+NEW origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+NEW ground part (z<0.4): x -2.620..2.620 y -2.500..2.110 | walls (z 0.6..2.2): x -2.620..2.620 y -2.110..2.110
+NEW porch/step in front of the -Y wall: x -0.137..2.015 (centre 0.939) y down to -2.500
+NEW anything on the ground behind the +Y wall: 0 verts
+NEW open_edges=0 smooth_faces=0 signed_volume=64.93
+NEW materials=['M_IzbaSlate'] uv=['UVMap', 'LightmapUV'] colour_attrs=[] textures=['E:\\game-dev-team\\assets\\izba_slate\\T_IzbaSlate_D.png']
+NEW door leaf (faces looking -Y at y=-1.30, wall plane y=-1.85): x centre 1.22, z centre 1.40, area 1.45 m2
+NEW ridge cap verts span x -2.781..2.781 y -0.126..0.125 -> ridge runs along X
+OLD upper roof verts (z 3.2..3.75) span x -0.718..0.718 y -2.220..2.220
+NEW uv UVMap range 0.0030..0.9970 overlapping texels at 2048: 0, covered 0.473
+NEW uv LightmapUV range 0.0080..0.9920 overlapping texels at 2048: 0, covered 0.278
+TEXTURE E:/game-dev-team/assets/izba_slate/T_IzbaSlate_D.png 1024x1024 channels=4 depth=24 441.6 KB mean_rgb=[0.344 0.343 0.327] mean_saturation=0.025
+FOOTPRINT new [5.562 4.72  4.561] vs old [5.562 4.72  4.2  ]
+ROUNDTRIP PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

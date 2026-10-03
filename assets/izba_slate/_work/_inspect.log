@@ -1,0 +1,45 @@
+00:03.078  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_old_front_mY.png'
+00:03.312  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_old_back_pY.png'
+00:03.547  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_old_top.png'
+E:\game-dev-team\assets\izba_slate\_work\01_inspect.py:93: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+00:04.000  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_src_mY.png'
+00:04.297  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_src_pY.png'
+00:04.562  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_src_pX.png'
+00:04.844  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_src_mX.png'
+00:05.094  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_src_top.png'
+00:05.344  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_src_game.png'
+00:05.344  reports          | WARNING Path 'C:/Users/pgr40/Desktop/GamdevAITeam/Izba/textures/Baked_Textures.png' cannot be made relative for Image 'Baked_Textures.png'
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+00:05.344  reports          | WARNING Path 'C:\Users\pgr40\Desktop\GamdevAITeam\Izba\source\textures\BakedColors.png' cannot be made relative for Image 'BakedColors'
+FBX version: 7400
+OLD OBJ SM_VillageHouse MESH parent= None loc (0.0, 0.0, 0.0) rot (-0.0, -0.0, 0.0) scl (1.0, 1.0, 1.0)
+OLD   tris 868 verts 580 polys 868 min [-2.7808 -2.5    -0.    ] max [2.7808 2.22   4.2   ] size [5.5616 4.72   4.2   ]
+OLD   uv ['UVMap'] mats ['M_VillageHouse'] cols [('Col', 'CORNER', 'BYTE_COLOR')]
+OLD   open_edges 0 nonmanifold>2 0 smooth 0 / 868
+OLD side +X {'060B06': 17.93, '342513': 7.1, '411A08': 6.69, '9A9172': 2.54, '1A2029': 1.37, '220F06': 0.18}
+OLD side +Y {'060B06': 19.66, '342513': 7.8, '411A08': 7.23, '9A9172': 2.54, '220F06': 1.83, '1A2029': 1.37}
+OLD side -X {'060B06': 17.93, '342513': 7.1, '411A08': 6.69, '9A9172': 2.54, '1A2029': 1.37, '220F06': 0.18}
+OLD side -Y {'060B06': 19.66, '342513': 7.8, '411A08': 7.23, '9A9172': 2.54, '220F06': 1.83, '1A2029': 1.37}
+OLD low(z<0.4) min [-2.6 -2.5 -0. ] max [2.6   2.1   0.262]
+OLD walls(z 0.6..2.2) min [-2.62 -2.12  0.65] max [2.62 2.1  2.06]
+RENDER E:/game-dev-team/assets/izba_slate/_work/_old_front_mY.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_old_back_pY.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_old_top.png
+FBX version: 7400
+SRC OBJ Camera CAMERA parent= None loc (11.7078, -6.454, 5.5789) rot (1.131, -0.0, 0.9634) scl (1.0, 1.0, 1.0)
+SRC OBJ Roof.002 MESH parent= None loc (3.876, -2.3034, 0.5951) rot (-0.0, -0.0, 0.0) scl (1.1347, 1.1347, 1.1347)
+SRC   tris 2490 verts 1331 polys 989 min [ 1.2729 -4.002  -0.3392] max [ 5.1204 -0.5553  2.2839] size [3.8475 3.4467 2.6231]
+SRC   uv ['UVMap', 'UVMap.001'] mats ['Baked_Material'] cols []
+SRC   open_edges 0 nonmanifold>2 0 smooth 989 / 989
+SRC   tex C:\Users\pgr40\Desktop\GamdevAITeam\Izba\source\textures\BakedColors.png
+SRC texture (1024, 1024) 4
+RENDER E:/game-dev-team/assets/izba_slate/_work/_src_mY.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_src_pY.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_src_pX.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_src_mX.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_src_top.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_src_game.png
+Info: Saved as "_src_import.blend"
+
+Blender quit

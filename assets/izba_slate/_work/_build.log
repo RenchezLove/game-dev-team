@@ -1,0 +1,21 @@
+E:\game-dev-team\assets\izba_slate\_work\10_build.py:347: DeprecationWarning: Arrays of 2-dimensional vectors are deprecated. Use arrays of 3-dimensional vectors instead. (deprecated in NumPy 2.0)
+  area = 0.5 * np.abs(np.cross(uv[:, 1] - uv[:, 0], uv[:, 2] - uv[:, 0])).sum()
+E:\game-dev-team\assets\izba_slate\_work\10_build.py:358: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+00:07.062  reports          | WARNING Path 'C:\Users\pgr40\Desktop\GamdevAITeam\Izba\source\textures\BakedColors.png' cannot be made relative for Image 'BakedColors'
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+FBX version: 7400
+SRC islands {'roof': 1, 'body': 1, 'casing': 4, 'logend': 40, 'doorframe': 1, 'porch': 1}
+SCALE sx 1.5407 sy 1.5060 sz 1.6000 centre (3.2718, -2.5358) z0 -0.3392
+BODY walls x -2.402..2.350 y -1.848..1.841 top 2.567 logtop 2.484
+RECESS door centre (1.22 -1.30 1.40) half (0.45, 0.80)
+ROOF ridge sheathing z 3.927, eave z 2.429
+SLATE fit y factor 0.9966 front min y -2.448
+WINDOW boarded: casing x -1.25..-0.30 z 0.57..2.20 front y -1.973 (casing min y -2.035)
+UV UVMap range [0.0030..0.9970] covered 0.529
+UV LightmapUV range [0.0080..0.9920] covered 0.316
+BUILD tris 3204 verts 1750 min [-2.781 -2.5    0.   ] max [2.781  2.22   4.5605] size [5.562  4.72   4.5605]
+BUILD open_edges 0 signed_volume 64.935 hidden_faces 851 groups 107 parts [(1, 53), (2, 9), (3, 115), (4, 2), (5, 27), (6, 10), (7, 809), (8, 53), (9, 32), (10, 336), (11, 160), (12, 851), (14, 2), (15, 320), (16, 323), (17, 16), (18, 32), (19, 18), (20, 10), (21, 26)]
+Info: Saved as "izba_work.blend"
+
+Blender quit

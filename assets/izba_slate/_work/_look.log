@@ -1,0 +1,73 @@
+00:00.297  blend            | Read blend: "E:\game-dev-team\assets\izba_slate\_work\_src_import.blend"
+00:02.297  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_uv2_pX.png'
+00:02.641  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_uv2_mY.png'
+00:03.016  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_uv2_pY.png'
+E:\game-dev-team\assets\izba_slate\_work\03_look.py:24: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  clay = bpy.data.materials.new('clay'); clay.use_nodes = True
+00:03.391  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_body_pYq.png'
+00:03.734  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_body_pXq.png'
+00:04.078  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_body_mYq.png'
+00:04.422  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_body_bot.png'
+00:04.734  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_body_top.png'
+00:05.031  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_roof_pXq.png'
+00:05.313  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_roof_mXq.png'
+00:05.641  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_roof_bot.png'
+00:05.938  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_casing.png'
+00:06.219  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_casing_back.png'
+00:06.500  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_door.png'
+00:06.781  render           | Saved: 'E:\game-dev-team\assets\izba_slate\_work\_clay_door_back.png'
+RENDER E:/game-dev-team/assets/izba_slate/_work/_uv2_pX.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_uv2_mY.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_uv2_pY.png
+PART Roof.003 268 [0.13, 0.62, 1.02]
+PART Roof.004 268 [0.13, 0.62, 1.02]
+PART Roof.005 268 [0.13, 0.62, 1.02]
+PART Roof.018 268 [0.62, 0.13, 1.02]
+PART Roof.002 234 [3.85, 2.93, 1.08]
+PART Roof.001 244 [3.31, 2.61, 1.6]
+PART Roof.016 96 [0.74, 0.11, 1.21]
+PART Roof.017 44 [1.4, 0.76, 0.28]
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_body_pYq.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_body_pXq.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_body_mYq.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_body_bot.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_body_top.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_roof_pXq.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_roof_mXq.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_roof_bot.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_casing.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_casing_back.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_door.png
+RENDER E:/game-dev-team/assets/izba_slate/_work/_clay_door_back.png
+BODY x [np.float32(1.62), np.float32(1.75), np.float32(2.19), np.float32(2.78), np.float32(3.1), np.float32(3.54), np.float32(3.57), np.float32(3.97), np.float32(4.0), np.float32(4.73), np.float32(4.81), np.float32(4.82), np.float32(4.83), np.float32(4.93)]
+BODY y [np.float32(-3.84), np.float32(-3.76), np.float32(-3.47), np.float32(-3.45), np.float32(-3.26), np.float32(-3.23), np.float32(-3.04), np.float32(-3.02), np.float32(-2.76), np.float32(-2.74), np.float32(-2.33), np.float32(-2.3), np.float32(-2.05), np.float32(-2.02), np.float32(-1.99), np.float32(-1.93), np.float32(-1.89), np.float32(-1.88), np.float32(-1.79), np.float32(-1.78), np.float32(-1.76), np.float32(-1.72), np.float32(-1.7), np.float32(-1.67), np.float32(-1.62), np.float32(-1.59), np.float32(-1.42), np.float32(-1.31), np.float32(-1.23)]
+BODY z [np.float32(-0.34), np.float32(-0.2), np.float32(0.04), np.float32(0.19), np.float32(0.2), np.float32(0.22), np.float32(0.23), np.float32(0.3), np.float32(0.32), np.float32(0.33), np.float32(0.38), np.float32(0.41), np.float32(0.5), np.float32(0.54), np.float32(0.57), np.float32(0.58), np.float32(0.6), np.float32(0.66), np.float32(0.69), np.float32(0.77), np.float32(0.78), np.float32(0.8), np.float32(0.94), np.float32(1.04), np.float32(1.26), np.float32(1.27)]
+BODY faces by normal
+  F n(0.00 -1.00 0.00) c(3.80 -3.76 0.52) area 4.49 nv 6
+  F n(-1.00 0.00 0.00) c(1.75 -2.53 0.53) area 3.58 nv 4
+  F n(-0.76 0.00 0.66) c(1.68 -2.53 -0.27) area 0.48 nv 4
+  F n(-0.00 -0.87 0.50) c(3.28 -3.80 -0.27) area 0.53 nv 4
+  F n(0.00 -0.00 -1.00) c(3.28 -2.53 -0.34) area 8.65 nv 4
+  F n(-0.00 0.87 0.50) c(3.24 -1.28 -0.25) area 0.53 nv 5
+  F n(0.76 0.00 0.66) c(4.87 -2.53 -0.27) area 0.48 nv 4
+  F n(1.00 -0.00 -0.03) c(4.81 -2.53 -0.08) area 0.58 nv 4
+  F n(0.00 1.00 -0.00) c(3.95 -1.31 -0.08) area 0.40 nv 4
+  F n(0.00 1.00 -0.00) c(2.99 -1.31 0.52) area 0.40 nv 6
+  F n(0.00 1.00 -0.00) c(2.45 -1.31 0.54) area 0.99 nv 8
+  F n(0.00 0.00 1.00) c(2.48 -1.49 0.04) area 0.21 nv 4
+  F n(-1.00 0.00 0.00) c(2.78 -1.49 0.54) area 0.37 nv 4
+  F n(0.00 1.00 -0.00) c(2.48 -1.67 0.54) area 0.59 nv 4
+  F n(0.00 -0.00 -1.00) c(2.48 -1.49 1.04) area 0.21 nv 4
+  F n(1.00 0.00 0.00) c(2.19 -1.49 0.54) area 0.37 nv 4
+  F n(-0.00 0.00 1.00) c(3.25 -2.29 1.26) area 7.55 nv 5
+  F n(0.00 1.00 -0.00) c(3.96 -1.31 1.10) area 0.57 nv 4
+  F n(0.00 1.00 -0.00) c(3.32 -1.31 0.49) area 0.34 nv 4
+  F n(0.00 1.00 -0.00) c(3.86 -1.31 0.49) area 0.93 nv 8
+  F n(1.00 -0.00 -0.01) c(4.82 -1.45 0.49) area 0.21 nv 4
+  F n(1.00 -0.00 -0.01) c(4.83 -2.53 0.84) area 0.28 nv 8
+  F n(1.00 -0.00 -0.01) c(4.83 -2.53 1.10) area 0.81 nv 4
+  F n(1.00 0.00 -0.01) c(4.82 -3.62 0.49) area 0.22 nv 4
+  F n(1.00 -0.00 -0.01) c(4.82 -2.53 0.16) area 0.34 nv 8
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

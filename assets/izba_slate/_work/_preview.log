@@ -1,0 +1,24 @@
+00:00.281  blend            | Read blend: "E:\game-dev-team\assets\izba_slate\_work\izba_work.blend"
+E:\game-dev-team\assets\izba_slate\_work\12_preview.py:15: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+E:\game-dev-team\assets\izba_slate\_work\12_preview.py:22: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm = bpy.data.materials.new('ground'); gm.use_nodes = True
+00:02.203  render           | Saved: 'E:\game-dev-team\assets\izba_slate\renders\izba_slate_game_camera.png'
+00:02.593  render           | Saved: 'E:\game-dev-team\assets\izba_slate\renders\izba_slate_facade.png'
+00:03.000  render           | Saved: 'E:\game-dev-team\assets\izba_slate\renders\_qc_back_game.png'
+00:03.390  render           | Saved: 'E:\game-dev-team\assets\izba_slate\renders\_qc_gable3.png'
+00:03.765  render           | Saved: 'E:\game-dev-team\assets\izba_slate\renders\_qc_gable_back.png'
+00:04.140  render           | Saved: 'E:\game-dev-team\assets\izba_slate\renders\_qc_game_true.png'
+00:04.547  render           | Saved: 'E:\game-dev-team\assets\izba_slate\renders\_qc_door_close.png'
+00:04.937  render           | Saved: 'E:\game-dev-team\assets\izba_slate\renders\_qc_roof_close.png'
+RENDER E:/game-dev-team/assets/izba_slate/renders/izba_slate_game_camera.png
+RENDER E:/game-dev-team/assets/izba_slate/renders/izba_slate_facade.png
+RENDER E:/game-dev-team/assets/izba_slate/renders/_qc_back_game.png
+RENDER E:/game-dev-team/assets/izba_slate/renders/_qc_gable3.png
+RENDER E:/game-dev-team/assets/izba_slate/renders/_qc_gable_back.png
+RENDER E:/game-dev-team/assets/izba_slate/renders/_qc_game_true.png
+RENDER E:/game-dev-team/assets/izba_slate/renders/_qc_door_close.png
+RENDER E:/game-dev-team/assets/izba_slate/renders/_qc_roof_close.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
