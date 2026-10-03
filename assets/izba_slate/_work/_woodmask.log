@@ -1,29 +1,32 @@
-00:00.390  blend            | Read blend: "E:\game-dev-team\assets\izba_slate\_work\izba_work.blend"
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\izba_slate\_work\izba_work.blend"
 CHECK colour recomputed here vs T_IzbaSlate_D.png on painted texels: max abs diff 0.0020 (1/255 = 0.0039)
-MASK E:/game-dev-team/assets/izba_slate/T_IzbaSlate_WoodMask.png 1024x1024 channels=4 depth=24 26.7 KB values=[0. 1.] white=0.360 of texture
-CHECK saved mask equals computed on painted texels: True
-PART wall logs      texels 116775 white 100.0%
-PART foundation     texels  14639 white   0.0%
-PART glass+frames   texels   9876 white   0.0%
-PART door           texels   5139 white  99.5%
-PART recess sides   texels  11753 white 100.0%
-PART recess sills   texels   3891 white 100.0%
-PART casings        texels  37064 white   0.0%
-PART door frame     texels   9737 white   0.0%
-PART porch          texels  11829 white  87.6%
-PART log ends side  texels  78586 white 100.0%
-PART log end caps   texels  24374 white 100.0%
-PART hidden         texels  31753 white   0.0%
-PART gable          texels  22881 white  52.8%
-PART slate          texels 195489 white   0.0%
-PART slate edges    texels  47782 white   0.0%
-PART ridge          texels  26830 white   0.0%
-PART barge boards   texels  13508 white   0.0%
-PART chimney        texels  12765 white   0.0%
-PART tin patch      texels   1944 white   0.0%
-PART window boards  texels   4249 white  99.2%
+MASK E:/game-dev-team/assets/izba_slate/T_IzbaSlate_WoodMask.png 1024x1024 channels=4 depth=24 30.1 KB red values=[0. 1.] green values=[0. 1.] blue max=0.000 red=0.360 green=0.120 of texture
+CHECK saved channels equal computed on painted texels: red True green True
+CHECK texels set in both red and green (whole file): 0
+CHECK red channel vs previous mask file (all 1024x1024 texels): differing texels 0
+PART wall logs      texels 116775 red 100.0% green   0.0%
+PART foundation     texels  14639 red   0.0% green   0.0%
+PART glass+frames   texels   9876 red   0.0% green  46.7%
+PART door           texels   5139 red  99.5% green   0.0%
+PART recess sides   texels  11753 red 100.0% green   0.0%
+PART recess sills   texels   3891 red 100.0% green   0.0%
+PART casings        texels  37064 red   0.0% green 100.0%
+PART door frame     texels   9737 red   0.0% green 100.0%
+PART porch          texels  11829 red  87.6% green   0.0%
+PART log ends side  texels  78586 red 100.0% green   0.0%
+PART log end caps   texels  24374 red 100.0% green   0.0%
+PART hidden         texels  31753 red   0.0% green   0.0%
+PART gable          texels  22881 red  52.8% green  41.0%
+PART slate          texels 195489 red   0.0% green   0.0%
+PART slate edges    texels  47782 red   0.0% green   0.0%
+PART ridge          texels  26830 red   0.0% green   0.0%
+PART barge boards   texels  13508 red   0.0% green 100.0%
+PART chimney        texels  12765 red   0.0% green   0.0%
+PART tin patch      texels   1944 red   0.0% green   0.0%
+PART window boards  texels   4249 red  99.2% green   0.0%
 CHECK by colour of T_IzbaSlate_D.png: moss-green texels white 0 / black 25088; rust-brick texels white 0 / black 8559; pale-paint texels white 0 / black 24540
 CHECK white area: mean rgb [0.341 0.333 0.311], max saturation 0.075 | black area: mean rgb [0.382 0.387 0.371]
+CHECK by colour of T_IzbaSlate_D.png: pale-paint texels in green 23230, in red 0, in neither 1310 (tin of ridge/patch expected)
 OVERLAY E:/game-dev-team/assets/izba_slate/renders/_qc_woodmask_overlay.png
 Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
 
