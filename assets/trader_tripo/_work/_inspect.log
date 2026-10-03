@@ -1,0 +1,20 @@
+19:35:13 | INFO: Data are loaded, start creating Blender stuff
+19:35:13 | INFO: Blender create Mesh node tripo_mesh_3733644d-3855-4cca-bd9e-8cbd53630c5a
+19:35:13 | INFO: glTF import finished in 0.01s
+00:02.031  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\_work\_look\raw_px.png'
+00:02.266  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\_work\_look\raw_mx.png'
+00:02.500  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\_work\_look\raw_py.png'
+00:02.719  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\_work\_look\raw_my.png'
+00:02.953  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\_work\_look\raw_top.png'
+GLB OBJ tripo_node_3733644d-3855-4cca-bd9e-8cbd53630c5a MESH - (1.804, 1.804, 1.804)
+RAW tris=1946 verts=2832 bbox=(-0.188, -0.861, -0.9)..(0.188, 0.861, 0.9) uv=['UVMap'] mats=['tripo_material_3733644d-3855-4cca-bd9e-8cbd53630c5a']
+IMG Color_3733644d-3855-4cca-bd9e-8cbd53630c5a (2048, 2048)
+YAW arm-span axis at -90.0 deg from +X, span 1.723 (x extent 0.377, y extent 1.723)
+RENDER E:/game-dev-team/assets/trader_tripo/_work/_look/raw_px.png
+RENDER E:/game-dev-team/assets/trader_tripo/_work/_look/raw_mx.png
+RENDER E:/game-dev-team/assets/trader_tripo/_work/_look/raw_py.png
+RENDER E:/game-dev-team/assets/trader_tripo/_work/_look/raw_my.png
+RENDER E:/game-dev-team/assets/trader_tripo/_work/_look/raw_top.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

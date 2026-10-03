@@ -1,0 +1,93 @@
+00:00.344  blend            | Read blend: "E:\game-dev-team\assets\trader_tripo\_work\trader_work.blend"
+00:01.922  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_rest_front.png'
+00:02.234  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_rest_top.png'
+00:02.563  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_rest_back.png'
+00:02.922  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixA_rest_front.png'
+00:03.313  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixA_rest_top.png'
+00:03.734  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixA_rest_back.png'
+00:04.156  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixB_rest_front.png'
+00:04.578  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixB_rest_top.png'
+00:05.031  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixB_rest_back.png'
+00:05.453  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_legs_rest_front.png'
+00:05.797  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_legs_rest_back.png'
+00:06.328  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_rest_neck.png'
+00:06.813  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_rest_neckback.png'
+00:07.359  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_rest_waist.png'
+00:07.922  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_rest_waistback.png'
+00:08.453  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixA_rest_neck.png'
+00:08.984  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixA_rest_neckback.png'
+00:09.594  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixA_rest_waist.png'
+00:10.219  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixA_rest_waistback.png'
+00:10.813  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixB_rest_neck.png'
+00:11.328  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixB_rest_neckback.png'
+00:11.922  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixB_rest_waist.png'
+00:12.531  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixB_rest_waistback.png'
+00:13.031  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_step_front.png'
+00:13.547  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_step_top.png'
+00:14.047  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_step_back.png'
+00:14.422  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_step_side.png'
+00:14.797  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixA_step_front.png'
+00:15.281  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixA_step_top.png'
+00:15.703  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixA_step_back.png'
+00:16.125  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixA_step_side.png'
+00:16.547  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixB_step_front.png'
+00:16.984  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixB_step_top.png'
+00:17.422  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixB_step_back.png'
+00:17.906  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_mixB_step_side.png'
+00:18.453  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_step_waist.png'
+00:19.016  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_step_waistside.png'
+00:19.547  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_step_waistback.png'
+00:20.031  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_melee_front.png'
+00:20.453  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_melee_back.png'
+00:20.922  render           | Saved: 'E:\game-dev-team\assets\trader_tripo\renders\_own_melee_upper.png'
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_rest_front.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_rest_top.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_rest_back.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixA_rest_front.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixA_rest_top.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixA_rest_back.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixB_rest_front.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixB_rest_top.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixB_rest_back.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_legs_rest_front.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_legs_rest_back.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_rest_neck.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_rest_neckback.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_rest_waist.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_rest_waistback.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixA_rest_neck.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixA_rest_neckback.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixA_rest_waist.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixA_rest_waistback.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixB_rest_neck.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixB_rest_neckback.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixB_rest_waist.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixB_rest_waistback.png
+RUN source rest delta vs ours = 0.000019
+RUN take frames 1..20, widest stride 0.676 m at frame 10
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_step_front.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_step_top.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_step_back.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_step_side.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixA_step_front.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixA_step_top.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixA_step_back.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixA_step_side.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixB_step_front.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixB_step_top.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixB_step_back.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_mixB_step_side.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_step_waist.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_step_waistside.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_step_waistback.png
+MELEE peak reach frame 12
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_melee_front.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_melee_back.png
+RENDER E:/game-dev-team/assets/trader_tripo/renders/_own_melee_upper.png
+SHEET E:/game-dev-team/assets/trader_tripo/renders/trader_rest_and_step.png 1800 1800
+SHEET E:/game-dev-team/assets/trader_tripo/renders/qc_mix.png 4500 1800
+SHEET E:/game-dev-team/assets/trader_tripo/renders/qc_close_rest.png 3600 2700
+SHEET E:/game-dev-team/assets/trader_tripo/renders/qc_step_melee.png 2700 1800
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
