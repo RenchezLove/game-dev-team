@@ -1,0 +1,98 @@
+00:00.297  blend            | Read blend: "E:\game-dev-team\assets\armor_t1_tripo\_work\t1_work.blend"
+00:01.922  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_rest_front.png'
+00:02.172  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_rest_top.png'
+00:02.453  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_rest_back.png'
+00:02.734  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_rest_front.png'
+00:03.015  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_rest_top.png'
+00:03.390  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_rest_back.png'
+00:03.765  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_rest_front.png'
+00:04.172  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_rest_top.png'
+00:04.656  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_rest_back.png'
+00:05.125  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t0_rest_front.png'
+00:05.593  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t0_rest_top.png'
+00:06.031  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t0_rest_back.png'
+00:06.500  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_rest_neck.png'
+00:07.000  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_rest_neckback.png'
+00:07.515  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_rest_waist.png'
+00:08.000  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_rest_waistback.png'
+00:08.484  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_rest_neck.png'
+00:09.000  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_rest_neckback.png'
+00:09.500  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_rest_waist.png'
+00:09.984  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_rest_waistback.png'
+00:10.468  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_rest_neck.png'
+00:10.953  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_rest_neckback.png'
+00:11.437  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_rest_waist.png'
+00:11.984  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_rest_waistback.png'
+00:12.422  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_melee_front.png'
+00:12.718  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_melee_top.png'
+00:13.031  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_melee_back.png'
+00:13.406  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_melee_front.png'
+00:13.797  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_melee_top.png'
+00:14.187  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_melee_back.png'
+00:14.578  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_melee_front.png'
+00:14.937  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_melee_top.png'
+00:15.343  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_melee_back.png'
+00:15.765  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_melee_upper.png'
+00:16.172  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_melee_waist.png'
+00:16.484  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_melee_upper.png'
+00:16.843  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_melee_waist.png'
+00:17.140  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_melee_upper.png'
+00:17.500  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_melee_waist.png'
+00:17.781  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_t1_run_front.png'
+00:18.062  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixA_run_front.png'
+00:18.390  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\renders\_mixB_run_front.png'
+IMG Color_b7c73705-313c-4ed5-b279-114a6ee3fbd6  (2048, 2048)
+IMG T_ArmorT1Tripo_D E:\game-dev-team\assets\armor_t1_tripo\T_ArmorT1Tripo_D.png (1024, 1024)
+IMG T_HeroTripo_D E:/game-dev-team/assets/hero_tripo/T_HeroTripo_D.png (2048, 2048)
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_rest_front.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_rest_top.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_rest_back.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_rest_front.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_rest_top.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_rest_back.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_rest_front.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_rest_top.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_rest_back.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t0_rest_front.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t0_rest_top.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t0_rest_back.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_rest_neck.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_rest_neckback.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_rest_waist.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_rest_waistback.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_rest_neck.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_rest_neckback.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_rest_waist.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_rest_waistback.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_rest_neck.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_rest_neckback.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_rest_waist.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_rest_waistback.png
+MELEE source rest delta vs ours = 0.000000
+MELEE peak reach frame 12
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_melee_front.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_melee_top.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_melee_back.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_melee_front.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_melee_top.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_melee_back.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_melee_front.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_melee_top.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_melee_back.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_melee_upper.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_melee_waist.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_melee_upper.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_melee_waist.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_melee_upper.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_melee_waist.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_t1_run_front.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixA_run_front.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/renders/_mixB_run_front.png
+SHEET E:/game-dev-team/assets/armor_t1_tripo/renders/armor_t1_rest_and_melee.png 1800 1800
+SHEET E:/game-dev-team/assets/armor_t1_tripo/renders/qc_mix_rest.png 3600 1800
+SHEET E:/game-dev-team/assets/armor_t1_tripo/renders/qc_mix_melee.png 3600 1800
+SHEET E:/game-dev-team/assets/armor_t1_tripo/renders/qc_close_rest.png 3600 2700
+SHEET E:/game-dev-team/assets/armor_t1_tripo/renders/qc_close_melee.png 2700 1800
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

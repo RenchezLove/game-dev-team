@@ -1,0 +1,61 @@
+00:00.297  blend            | Read blend: "E:\game-dev-team\assets\hero_tripo\_work\hero_work.blend"
+00:00.312  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_work.blend"
+19:31:04 | INFO: Data are loaded, start creating Blender stuff
+19:31:04 | INFO: Blender create Mesh node tripo_mesh_b7c73705-313c-4ed5-b279-114a6ee3fbd6
+19:31:04 | INFO: glTF import finished in 0.01s
+E:\game-dev-team\assets\armor_t1_tripo\_work\10_build.py:175: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bmat.use_nodes = True
+E:\game-dev-team\assets\armor_t1_tripo\_work\10_build.py:558: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+TRIPO raw tris=2388 verts=1743 shift=(0.002,-0.036,0.900)
+WELD 1743 -> 1206 verts
+TRIPO joints: crotch=0.799 hip=0.829 thigh=(0.112, -0.005, 0.749) knee=(0.156,0.015,0.453) ankle=(0.213, 0.034, 0.037) foot_y=[-0.177..0.132]
+TRIPO arm: shoulder=(0.21, 0.012, 1.386) elbow=(0.461, -0.008, 1.415) wrist=(0.655, -0.011, 1.423) tip=0.860
+DECIMATE 2388 -> 1130 tris
+Info: Baking map saved to internal image, save it externally or pack it
+REBAKE diffuse colour 1024 onto 1130 tris
+HEAT T1Tripo -> TripoRig groups=21 unweighted=32
+  filled 32 unweighted verts from the nearest skinned vertex (z 1.619..1.802)
+  conform C_Root             len T=0.283 O=0.255 scale=0.90
+  conform C_Spine01          len T=0.273 O=0.246 scale=0.90
+  conform L_UpperArm         len T=0.210 O=0.286 scale=1.36
+  conform L_Shoulder         len T=0.253 O=0.345 scale=1.36
+  conform L_Arm              len T=0.194 O=0.267 scale=1.37
+  conform L_Hand             len T=0.267 O=0.267 scale=1.00
+  conform R_UpperArm         len T=0.210 O=0.286 scale=1.36
+  conform R_Arm              len T=0.253 O=0.345 scale=1.36
+  conform Pelvis_009_R_002   len T=0.194 O=0.267 scale=1.37
+  conform R_Hand             len T=0.267 O=0.267 scale=1.00
+  conform C_Spine02          len T=0.079 O=0.121 scale=1.52
+  conform C_Neck             len T=0.045 O=0.071 scale=1.57
+  conform C_Head             len T=0.071 O=0.071 scale=1.00
+  conform L_Pelvis           len T=0.112 O=0.105 scale=0.93
+  conform L_Thigh            len T=0.378 O=0.380 scale=1.00
+  conform L_Claf             len T=0.421 O=0.422 scale=1.00
+  conform L_Foot             len T=0.422 O=0.422 scale=1.00
+  conform R_Pelvis           len T=0.112 O=0.105 scale=0.93
+  conform R_Thigh            len T=0.378 O=0.380 scale=1.00
+  conform R_Claf             len T=0.421 O=0.422 scale=1.00
+  conform R_Foot             len T=0.422 O=0.422 scale=1.00
+CONFORM max joint error = 0.00000 m
+THICKEN x1.18: moved 445/577 verts, z=[-0.006..1.824]
+WAIST jacket hem measured at z=0.953 -> 0.914 (45 hem verts, 1 brown verts below = belt)
+NECK collar: 28 verts, top 1.579 -> 1.528 (20 squeezed)
+CUT whole mesh tris after bisect = 1344 (+107 verts on the planes)
+FIT waist: 62 verts to the T0 trouser ring, 2 hem verts clamped to z 0.914, 14 pushed outside
+FIT neck: 78 verts to the T0 neck/chin surface, 1 collar verts pushed outside
+NAPE skin fill: 44 faces -> texel (0.83, 0.57, 0.43) at uv (0.889, 0.554)
+HEAT T1Tripo -> RootAnim groups=21 unweighted=32
+  filled 32 unweighted verts from the nearest skinned vertex (z 1.641..1.824)
+Info: 23 vertex weights limited
+WEIGHT FIX: clavicle weights moved on 104 verts (left 0), head->neck below chin on 12 verts
+SLOT SK_Armor_T1_Head   tris=309 verts=180 z=[1.532..1.824] groups=['C_Head', 'C_Neck', 'C_Spine02']
+SLOT SK_Armor_T1_Torso  tris=629 verts=341 z=[0.900..1.549] groups=['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'Pelvis_009_R_002', 'R_Arm', 'R_Hand', 'R_Pelvis', 'R_Thigh']
+SLOT SK_Armor_T1_Legs   tris=521 verts=274 z=[-0.006..0.910] groups=['C_Root', 'C_Spine01', 'L_Claf', 'L_Foot', 'L_Pelvis', 'L_Thigh', 'R_Claf', 'R_Foot', 'R_Pelvis', 'R_Thigh']
+TOTAL tris = 1459
+Info: Saved as "t1_work.blend"
+SAVED E:/game-dev-team/assets/armor_t1_tripo/_work/t1_work.blend
+HAND left: tip x=1.003 (T0 0.993), z=[1.301..1.388] y=[-0.090..0.046]
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,20 @@
+19:18:59 | INFO: Data are loaded, start creating Blender stuff
+19:18:59 | INFO: Blender create Mesh node tripo_mesh_b7c73705-313c-4ed5-b279-114a6ee3fbd6
+19:18:59 | INFO: glTF import finished in 0.01s
+00:02.328  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\_work\_look\raw_px.png'
+00:02.594  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\_work\_look\raw_mx.png'
+00:02.844  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\_work\_look\raw_py.png'
+00:03.172  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\_work\_look\raw_my.png'
+00:03.500  render           | Saved: 'E:\game-dev-team\assets\armor_t1_tripo\_work\_look\raw_top.png'
+GLB OBJ tripo_node_b7c73705-313c-4ed5-b279-114a6ee3fbd6 MESH - (1.804, 1.804, 1.804)
+RAW tris=2388 verts=1743 bbox=(-0.199, -0.858, -0.9)..(0.199, 0.858, 0.9) uv=['UVMap'] mats=['tripo_material_b7c73705-313c-4ed5-b279-114a6ee3fbd6']
+IMG Color_b7c73705-313c-4ed5-b279-114a6ee3fbd6 (2048, 2048)
+YAW arm-span axis at 89.5 deg from +X, span 1.716 (x extent 0.398, y extent 1.715)
+RENDER E:/game-dev-team/assets/armor_t1_tripo/_work/_look/raw_px.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/_work/_look/raw_mx.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/_work/_look/raw_py.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/_work/_look/raw_my.png
+RENDER E:/game-dev-team/assets/armor_t1_tripo/_work/_look/raw_top.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
