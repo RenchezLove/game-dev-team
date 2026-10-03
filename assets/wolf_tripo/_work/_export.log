@@ -1,0 +1,30 @@
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\wolf_tripo\_work\wolf_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/wolf_tripo/SK_Wolf.fbx'
+(bpy.data.armatures['WolfRig'], 'POSE')
+export finished in 0.0120 sec.
+EXPORTED E:/game-dev-team/assets/wolf_tripo/SK_Wolf.fbx 138.9 KB
+SETTINGS new {'version': 7400, 'UpAxis': 1, 'FrontAxis': 2, 'CoordAxis': 0, 'UnitScaleFactor': 1.0}
+SETTINGS old {'version': 7400, 'UpAxis': 1, 'FrontAxis': 2, 'CoordAxis': 0, 'UnitScaleFactor': 1.0}
+FBX version: 7400
+FBX version: 7400
+NEW armature=WolfRig meshes=1 ['SK_Wolf'] tris=976 verts=490 unweighted=0 max_influences=4 uv=['UVMap'] mats=['M_WolfTripo'] vertex_colours=[] tex=['T_WolfTripo_D.png'] smooth_faces=0 mesh_scale=(1.0, 1.0, 1.0)
+OLD armature=WolfRig meshes=1 ['SK_Wolf'] tris=616 verts=324 uv=['UVMap'] mats=['M_Wolf'] vertex_colours=['Col']
+SIZE new x -0.249..0.253 y -1.048..0.814 z -0.000..1.059
+SIZE old x -0.245..0.245 y -0.920..0.860 z 0.000..1.008
+SKIN new mesh uses bones: ['chest', 'frontlower_L', 'frontlower_R', 'frontpaw_L', 'frontpaw_R', 'frontupper_L', 'frontupper_R', 'head', 'hips', 'neck', 'rearpaw_L', 'rearpaw_R', 'shin_L', 'shin_R', 'shoulder_L', 'shoulder_R', 'spine', 'tail_01', 'tail_02', 'thigh_L', 'thigh_R'] (21 of 22)
+SKELETON new vs old SK     bones 22/22 names_equal=True order_equal=True parents_equal=True rest_matrix_max_delta=0.000000 joint_position_max_delta=0.000000 m -> PASS
+FBX version: 7400
+SKELETON new vs Anim Idle  bones 22/22 names_equal=True order_equal=True parents_equal=True rest_matrix_max_delta=0.000000 joint_position_max_delta=0.000000 m -> PASS
+FBX version: 7400
+SKELETON new vs Anim Run   bones 22/22 names_equal=True order_equal=True parents_equal=True rest_matrix_max_delta=0.000000 joint_position_max_delta=0.000000 m -> PASS
+FBX version: 7400
+SKELETON new vs Anim Bite  bones 22/22 names_equal=True order_equal=True parents_equal=True rest_matrix_max_delta=0.000000 joint_position_max_delta=0.000000 m -> PASS
+FBX version: 7400
+SKELETON new vs Anim Death bones 22/22 names_equal=True order_equal=True parents_equal=True rest_matrix_max_delta=0.000000 joint_position_max_delta=0.000000 m -> PASS
+BONES ['root', 'hips', 'spine', 'chest', 'neck', 'head', 'shoulder_L', 'frontupper_L', 'frontlower_L', 'frontpaw_L', 'shoulder_R', 'frontupper_R', 'frontlower_R', 'frontpaw_R', 'tail_01', 'tail_02', 'thigh_L', 'shin_L', 'rearpaw_L', 'thigh_R', 'shin_R', 'rearpaw_R']
+TEXTURE 1024x1024 channels=4 1009.8 KB
+ROUNDTRIP ALL PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

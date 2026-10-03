@@ -1,0 +1,126 @@
+00:00.329  blend            | Read blend: "E:\game-dev-team\assets\anim_wolf\_work\_qc_wolf_death.blend"
+OLD bbox x -0.245..0.245 y -0.920..0.860 z -0.000..1.008
+OLD SPINE: y | top z (ray down at x=0) | belly z (ray up from z=0.45 at x=0) | half-width at mid height
+OLD  y=-0.95 top   --  bottom   --  halfwidth   -- 
+OLD  y=-0.90 top 0.428 bottom 0.378 halfwidth 0.025
+OLD  y=-0.85 top 0.472 bottom 0.409 halfwidth 0.031
+OLD  y=-0.80 top 0.516 bottom 0.440 halfwidth 0.038
+OLD  y=-0.75 top 0.558 bottom 0.470 halfwidth 0.044
+OLD  y=-0.70 top 0.600 bottom 0.499 halfwidth 0.050
+OLD  y=-0.65 top 0.640 bottom 0.527 halfwidth 0.056
+OLD  y=-0.60 top 0.676 bottom 0.549 halfwidth 0.064
+OLD  y=-0.55 top 0.712 bottom 0.570 halfwidth 0.071
+OLD  y=-0.50 top 0.755 bottom 0.575 halfwidth 0.098
+OLD  y=-0.45 top 0.796 bottom 0.556 halfwidth 0.127
+OLD  y=-0.40 top 0.837 bottom 0.537 halfwidth 0.156
+OLD  y=-0.35 top 0.858 bottom 0.528 halfwidth 0.169
+OLD  y=-0.30 top 0.865 bottom 0.526 halfwidth 0.171
+OLD  y=-0.25 top 0.873 bottom 0.525 halfwidth 0.173
+OLD  y=-0.20 top 0.880 bottom 0.523 halfwidth 0.176
+OLD  y=-0.15 top 0.886 bottom 0.522 halfwidth 0.178
+OLD  y=-0.10 top 0.890 bottom 0.523 halfwidth 0.180
+OLD  y=-0.05 top 0.894 bottom 0.523 halfwidth 0.183
+OLD  y=+0.00 top 0.898 bottom 0.524 halfwidth 0.185
+OLD  y=+0.05 top 0.903 bottom 0.524 halfwidth 0.187
+OLD  y=+0.10 top 0.896 bottom 0.525 halfwidth 0.183
+OLD  y=+0.15 top 0.890 bottom 0.527 halfwidth 0.178
+OLD  y=+0.20 top 0.883 bottom 0.528 halfwidth 0.174
+OLD  y=+0.25 top 0.877 bottom 0.530 halfwidth 0.170
+OLD  y=+0.30 top 0.868 bottom 0.543 halfwidth 0.157
+OLD  y=+0.35 top 0.854 bottom 0.575 halfwidth 0.133
+OLD  y=+0.40 top 0.840 bottom 0.606 halfwidth 0.108
+OLD  y=+0.45 top 0.844 bottom 0.644 halfwidth 0.091
+OLD  y=+0.50 top 0.860 bottom 0.686 halfwidth 0.079
+OLD  y=+0.55 top 0.877 bottom 0.708 halfwidth 0.077
+OLD  y=+0.60 top 0.895 bottom 0.715 halfwidth 0.084
+OLD  y=+0.65 top 0.873 bottom 0.706 halfwidth 0.083
+OLD  y=+0.70 top 0.851 bottom 0.698 halfwidth 0.084
+OLD  y=+0.75 top 0.811 bottom 0.685 halfwidth 0.069
+OLD  y=+0.80 top 0.772 bottom 0.672 halfwidth 0.054
+OLD  y=+0.85 top 0.730 bottom 0.661 halfwidth 0.038
+OLD  y=+0.90 top   --  bottom   --  halfwidth   -- 
+OLD LEGS (left side x>0.03): z | front leg: y range, x range | rear leg: y range, x range
+OLD  z 0.00..0.05 | front y +0.020..+0.020 x 0.100..0.170 n=3 | rear y -0.220..-0.220 x 0.108..0.182 n=3
+OLD  z 0.05..0.10 | front y +0.020..+0.020 x 0.085..0.185 n=2 | rear y -0.220..-0.220 x 0.093..0.197 n=4
+OLD  z 0.10..0.15 | front y +0.020..+0.020 x 0.100..0.170 n=3 | rear y -0.320..-0.220 x 0.096..0.194 n=4
+OLD  z 0.15..0.20 | front none | rear y -0.320..-0.320 x 0.075..0.215 n=2
+OLD  z 0.20..0.25 | front none | rear y -0.320..-0.320 x 0.096..0.194 n=2
+OLD  z 0.25..0.30 | front y +0.330..+0.330 x 0.094..0.176 n=3 | rear y -0.320..-0.320 x 0.145..0.145 n=1
+OLD  z 0.30..0.35 | front y +0.330..+0.330 x 0.077..0.193 n=2 | rear y -0.400..-0.400 x 0.083..0.207 n=3
+OLD  z 0.35..0.40 | front y +0.330..+0.330 x 0.094..0.176 n=3 | rear y -0.400..-0.400 x 0.057..0.233 n=2
+OLD  z 0.40..0.45 | front y +0.300..+0.300 x 0.135..0.135 n=1 | rear none
+OLD  z 0.45..0.50 | front y +0.300..+0.300 x 0.084..0.186 n=2 | rear y -0.800..-0.360 x 0.038..0.207 n=5
+OLD  z 0.50..0.55 | front y +0.050..+0.300 x 0.038..0.207 n=4 | rear y -0.660..-0.180 x 0.038..0.216 n=5
+OLD  z 0.55..0.60 | front y +0.050..+0.300 x 0.075..0.195 n=7 | rear y -0.660..-0.180 x 0.055..0.112 n=4
+OLD  z 0.60..0.65 | front y +0.050..+0.420 x 0.062..0.171 n=4 | rear y -0.660..-0.180 x 0.039..0.245 n=7
+OLD  z 0.65..0.70 | front y +0.050..+0.860 x 0.032..0.220 n=9 | rear y -0.520..-0.180 x 0.074..0.216 n=6
+OLD  z 0.70..0.75 | front y +0.280..+0.860 x 0.032..0.195 n=11 | rear y -0.520..-0.360 x 0.053..0.145 n=4
+20:18:25 | INFO: Data are loaded, start creating Blender stuff
+20:18:25 | INFO: Blender create Mesh node tripo_mesh_b5d90fd0-4c29-4d66-80f4-a08659440a5f
+20:18:25 | INFO: glTF import finished in 0.00s
+NEW bbox x -0.270..0.270 y -1.068..1.068 z 0.000..1.200
+NEW SPINE: y | top z (ray down at x=0) | belly z (ray up from z=0.45 at x=0) | half-width at mid height
+NEW  y=-1.10 top   --  bottom   --  halfwidth   -- 
+NEW  y=-1.05 top   --  bottom   --  halfwidth   -- 
+NEW  y=-1.00 top 0.460 bottom 0.243 halfwidth 0.038
+NEW  y=-0.95 top 0.509 bottom 0.256 halfwidth 0.060
+NEW  y=-0.90 top 0.569 bottom 0.302 halfwidth 0.063
+NEW  y=-0.85 top 0.601 bottom 0.326 halfwidth 0.080
+NEW  y=-0.80 top 0.662 bottom 0.360 halfwidth 0.071
+NEW  y=-0.75 top 0.707 bottom 0.411 halfwidth 0.064
+NEW  y=-0.70 top 0.813 bottom 0.444 halfwidth 0.072
+NEW  y=-0.65 top 0.840 bottom 0.519 halfwidth 0.082
+NEW  y=-0.60 top 0.867 bottom 0.564 halfwidth 0.084
+NEW  y=-0.55 top 0.893 bottom 0.656 halfwidth 0.103
+NEW  y=-0.50 top 0.927 bottom 0.620 halfwidth 0.141
+NEW  y=-0.45 top 0.931 bottom 0.591 halfwidth 0.169
+NEW  y=-0.40 top 0.953 bottom 0.602 halfwidth 0.164
+NEW  y=-0.35 top 0.951 bottom 0.615 halfwidth 0.162
+NEW  y=-0.30 top 0.949 bottom 0.628 halfwidth 0.158
+NEW  y=-0.25 top 0.946 bottom 0.640 halfwidth 0.140
+NEW  y=-0.20 top 0.943 bottom 0.609 halfwidth 0.118
+NEW  y=-0.15 top 0.941 bottom 0.598 halfwidth 0.132
+NEW  y=-0.10 top 0.940 bottom 0.556 halfwidth 0.142
+NEW  y=-0.05 top 0.945 bottom 0.552 halfwidth 0.157
+NEW  y=+0.00 top 0.950 bottom 0.523 halfwidth 0.170
+NEW  y=+0.05 top 0.953 bottom 0.522 halfwidth 0.184
+NEW  y=+0.10 top 0.982 bottom 0.508 halfwidth 0.180
+NEW  y=+0.15 top 0.982 bottom 0.511 halfwidth 0.178
+NEW  y=+0.20 top 1.007 bottom 0.510 halfwidth 0.173
+NEW  y=+0.25 top 1.025 bottom 0.511 halfwidth 0.168
+NEW  y=+0.30 top 1.032 bottom 0.515 halfwidth 0.168
+NEW  y=+0.35 top 1.037 bottom 0.525 halfwidth 0.176
+NEW  y=+0.40 top 1.067 bottom 0.534 halfwidth 0.191
+NEW  y=+0.45 top 1.073 bottom 0.544 halfwidth 0.205
+NEW  y=+0.50 top 1.079 bottom 0.554 halfwidth 0.202
+NEW  y=+0.55 top 1.113 bottom 0.554 halfwidth 0.194
+NEW  y=+0.60 top 1.116 bottom 0.568 halfwidth 0.184
+NEW  y=+0.65 top 1.120 bottom 0.592 halfwidth 0.185
+NEW  y=+0.70 top 1.123 bottom 0.657 halfwidth 0.184
+NEW  y=+0.75 top 1.137 bottom 0.682 halfwidth 0.197
+NEW  y=+0.80 top 1.136 bottom 0.751 halfwidth 0.179
+NEW  y=+0.85 top 1.134 bottom 0.791 halfwidth 0.198
+NEW  y=+0.90 top 1.103 bottom 0.798 halfwidth 0.199
+NEW  y=+0.95 top 1.042 bottom 0.784 halfwidth 0.065
+NEW  y=+1.00 top 0.924 bottom 0.779 halfwidth 0.055
+NEW  y=+1.05 top 0.866 bottom 0.810 halfwidth 0.032
+NEW  y=+1.10 top   --  bottom   --  halfwidth   -- 
+NEW LEGS (left side x>0.03): z | front leg: y range, x range | rear leg: y range, x range
+NEW  z 0.00..0.05 | front y +0.449..+0.625 x 0.086..0.232 n=20 | rear y -0.592..-0.429 x 0.132..0.270 n=18
+NEW  z 0.05..0.10 | front y +0.470..+0.575 x 0.102..0.224 n=8 | rear y -0.596..-0.479 x 0.148..0.253 n=8
+NEW  z 0.10..0.15 | front y +0.366..+0.433 x 0.094..0.182 n=5 | rear y -0.633..-0.633 x 0.165..0.165 n=1
+NEW  z 0.15..0.20 | front y +0.408..+0.470 x 0.115..0.182 n=4 | rear y -0.558..-0.558 x 0.144..0.144 n=1
+NEW  z 0.20..0.25 | front y +0.374..+0.374 x 0.148..0.148 n=1 | rear y -0.587..-0.587 x 0.186..0.186 n=1
+NEW  z 0.25..0.30 | front y +0.399..+0.441 x 0.111..0.169 n=2 | rear y -1.010..-0.537 x 0.031..0.136 n=5
+NEW  z 0.30..0.35 | front y +0.462..+0.462 x 0.136..0.136 n=1 | rear y -0.546..-0.546 x 0.169..0.169 n=1
+NEW  z 0.35..0.40 | front none | rear y -0.934..-0.583 x 0.044..0.132 n=3
+NEW  z 0.40..0.45 | front y +0.324..+0.324 x 0.144..0.144 n=1 | rear y -0.972..-0.387 x 0.052..0.178 n=6
+NEW  z 0.45..0.50 | front y +0.282..+0.475 x 0.119..0.165 n=5 | rear y -0.709..-0.353 x 0.044..0.161 n=4
+NEW  z 0.50..0.55 | front y +0.282..+0.487 x 0.086..0.182 n=6 | rear y -0.872..-0.500 x 0.056..0.161 n=5
+NEW  z 0.55..0.60 | front y +0.307..+0.550 x 0.056..0.136 n=4 | rear y -0.771..-0.040 x 0.065..0.115 n=6
+NEW  z 0.60..0.65 | front y +0.592..+0.675 x 0.082..0.086 n=2 | rear y -0.671..-0.199 x 0.036..0.153 n=5
+NEW  z 0.65..0.70 | front y +0.529..+0.671 x 0.065..0.211 n=4 | rear y -0.717..-0.224 x 0.040..0.090 n=3
+NEW  z 0.70..0.75 | front y +0.056..+0.751 x 0.065..0.186 n=6 | rear y -0.567..-0.374 x 0.069..0.186 n=2
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,45 @@
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\anim_wolf\_work\_qc_wolf_death.blend"
+20:22:15 | INFO: Data are loaded, start creating Blender stuff
+20:22:15 | INFO: Blender create Mesh node tripo_mesh_b5d90fd0-4c29-4d66-80f4-a08659440a5f
+20:22:15 | INFO: glTF import finished in 0.01s
+E:\game-dev-team\assets\wolf_tripo\_work\10_build.py:238: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+TRIPO tris=976 verts 1015 -> 490  x -0.270..0.270 y -1.068..1.068 z 0.000..1.200
+TRIPO leg L: elbow (0.137, 0.391, 0.46) wrist (0.142, 0.419, 0.21) front paw (0.158, 0.509, 0.058) | knee (0.109, -0.428, 0.56) hock (0.143, -0.596, 0.3) rear paw (0.199, -0.532, 0.058)
+TRIPO leg R: elbow (-0.13, 0.389, 0.46) wrist (-0.132, 0.417, 0.21) front paw (-0.155, 0.513, 0.058) | knee (-0.108, -0.431, 0.56) hock (-0.133, -0.592, 0.3) rear paw (-0.197, -0.539, 0.058)
+HEAT SK_Wolf -> TripoRig groups=22 unweighted=0
+  fit root          length Tripo 0.200 rig 0.200 scale 1.00 turn   0.0 deg
+  fit hips          length Tripo 0.408 rig 0.329 scale 0.81 turn   2.4 deg
+  fit spine         length Tripo 0.313 rig 0.250 scale 0.80 turn   0.5 deg
+  fit chest         length Tripo 0.338 rig 0.230 scale 0.68 turn   4.2 deg
+  fit neck          length Tripo 0.256 rig 0.188 scale 0.74 turn   5.4 deg
+  fit head          length Tripo 0.275 rig 0.259 scale 0.94 turn   8.1 deg
+  fit shoulder_L    length Tripo 0.108 rig 0.091 scale 0.85 turn   6.9 deg
+  fit frontupper_L  length Tripo 0.163 rig 0.202 scale 1.24 turn  19.3 deg
+  fit frontlower_L  length Tripo 0.252 rig 0.206 scale 0.82 turn  57.4 deg
+  fit frontpaw_L    length Tripo 0.177 rig 0.241 scale 1.36 turn  69.3 deg
+  fit shoulder_R    length Tripo 0.108 rig 0.091 scale 0.85 turn   6.9 deg
+  fit frontupper_R  length Tripo 0.163 rig 0.202 scale 1.24 turn  19.2 deg
+  fit frontlower_R  length Tripo 0.252 rig 0.206 scale 0.82 turn  57.3 deg
+  fit frontpaw_R    length Tripo 0.181 rig 0.241 scale 1.33 turn  70.9 deg
+  fit tail_01       length Tripo 0.326 rig 0.216 scale 0.66 turn  25.2 deg
+  fit tail_02       length Tripo 0.266 rig 0.268 scale 1.01 turn   7.4 deg
+  fit thigh_L       length Tripo 0.185 rig 0.210 scale 1.14 turn  25.2 deg
+  fit shin_L        length Tripo 0.311 rig 0.233 scale 0.75 turn  58.5 deg
+  fit rearpaw_L     length Tripo 0.256 rig 0.204 scale 0.80 turn  15.1 deg
+  fit thigh_R       length Tripo 0.185 rig 0.210 scale 1.14 turn  25.3 deg
+  fit shin_R        length Tripo 0.307 rig 0.233 scale 0.76 turn  57.4 deg
+  fit rearpaw_R     length Tripo 0.256 rig 0.204 scale 0.80 turn  17.8 deg
+FIT max joint error = 0.00000 m
+PAWS 117 foot verts put back flat at the rig paw points, lowest z 0.000
+HEAT SK_Wolf -> WolfRig groups=22 unweighted=0
+Info: 42 vertex weights limited
+BUILD SK_Wolf tris=976 verts=490 x -0.249..0.253 y -1.048..0.814 z 0.000..1.059 | old wolf x -0.245..0.245 y -0.920..0.860 z 0.000..1.008
+WEIGHTS verts per bone (>0.05): [('chest', 74), ('frontlower_L', 14), ('frontlower_R', 6), ('frontpaw_L', 40), ('frontpaw_R', 47), ('frontupper_L', 23), ('frontupper_R', 26), ('head', 142), ('hips', 68), ('neck', 163), ('rearpaw_L', 34), ('rearpaw_R', 33), ('shin_L', 20), ('shin_R', 16), ('shoulder_L', 57), ('shoulder_R', 59), ('spine', 55), ('tail_01', 53), ('tail_02', 41), ('thigh_L', 25), ('thigh_R', 23)]
+Info: Saved as "wolf_work.blend"
+SAVED E:/game-dev-team/assets/wolf_tripo/_work/wolf_work.blend
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+T_WolfTripo_D
+T_WolfTripo_D.jpg
+
+Blender quit

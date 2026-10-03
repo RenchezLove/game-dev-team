@@ -1,0 +1,95 @@
+00:00.312  blend            | Read blend: "E:\game-dev-team\assets\wolf_tripo\_work\wolf_work.blend"
+00:01.968  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_rest_side_new.png'
+00:02.156  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_rest_side_old.png'
+00:02.422  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_rest_top_new.png'
+00:02.687  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_rest_top_old.png'
+00:02.937  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_rest_front_new.png'
+00:03.203  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_rest_front_old.png'
+00:03.484  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_idle_side_new.png'
+00:03.750  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_idle_side_old.png'
+00:04.015  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_idle_top_new.png'
+00:04.281  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_idle_top_old.png'
+00:04.547  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_idle_front_new.png'
+00:04.812  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_idle_front_old.png'
+00:05.109  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_a_side_new.png'
+00:05.375  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_a_side_old.png'
+00:05.656  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_a_top_new.png'
+00:05.922  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_a_top_old.png'
+00:06.187  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_a_front_new.png'
+00:06.453  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_a_front_old.png'
+00:06.718  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_b_side_new.png'
+00:06.984  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_b_side_old.png'
+00:07.250  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_b_top_new.png'
+00:07.531  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_b_top_old.png'
+00:07.812  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_b_front_new.png'
+00:08.078  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_run_b_front_old.png'
+00:08.359  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_bite_side_new.png'
+00:08.656  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_bite_side_old.png'
+00:08.937  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_bite_top_new.png'
+00:09.218  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_bite_top_old.png'
+00:09.484  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_bite_front_new.png'
+00:09.750  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_bite_front_old.png'
+00:10.015  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_mid_side_new.png'
+00:10.281  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_mid_side_old.png'
+00:10.562  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_mid_top_new.png'
+00:10.828  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_mid_top_old.png'
+00:11.093  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_mid_front_new.png'
+00:11.343  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_mid_front_old.png'
+00:11.625  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_end_side_new.png'
+00:11.906  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_end_side_old.png'
+00:12.187  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_end_top_new.png'
+00:12.453  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_end_top_old.png'
+00:12.718  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_end_front_new.png'
+00:12.984  render           | Saved: 'E:\game-dev-team\assets\wolf_tripo\renders\_death_end_front_old.png'
+BITE furthest head reach at frame 18
+GROUND Anim_Wolf_Idle frames 1..48: lowest point of the new wolf -0.005..-0.002, of the old wolf -0.000..-0.000
+GROUND Anim_Wolf_Run frames 1..16: lowest point of the new wolf 0.020..0.105, of the old wolf 0.023..0.147
+GROUND Anim_Wolf_Bite frames 1..20: lowest point of the new wolf -0.012..-0.000, of the old wolf -0.000..-0.000
+GROUND Anim_Wolf_Death frames 1..32: lowest point of the new wolf -0.091..0.007, of the old wolf -0.049..0.018
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_rest_side_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_rest_side_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_rest_top_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_rest_top_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_rest_front_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_rest_front_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_idle_side_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_idle_side_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_idle_top_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_idle_top_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_idle_front_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_idle_front_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_a_side_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_a_side_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_a_top_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_a_top_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_a_front_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_a_front_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_b_side_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_b_side_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_b_top_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_b_top_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_b_front_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_run_b_front_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_bite_side_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_bite_side_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_bite_top_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_bite_top_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_bite_front_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_bite_front_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_mid_side_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_mid_side_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_mid_top_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_mid_top_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_mid_front_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_mid_front_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_end_side_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_end_side_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_end_top_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_end_top_old.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_end_front_new.png
+RENDER E:/game-dev-team/assets/wolf_tripo/renders/_death_end_front_old.png
+SHEET E:/game-dev-team/assets/wolf_tripo/renders/wolf_new_vs_old.png 3200 3200
+SHEET E:/game-dev-team/assets/wolf_tripo/renders/qc_more_frames.png 3200 2400
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
