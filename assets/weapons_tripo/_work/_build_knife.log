@@ -1,0 +1,21 @@
+21:33:44 | INFO: Data are loaded, start creating Blender stuff
+21:33:44 | INFO: Blender create Mesh node tripo_mesh_0bdeaf57-1b18-41b8-ac27-f155f510bd44
+21:33:44 | INFO: glTF import finished in 0.00s
+E:\game-dev-team\assets\weapons_tripo\_work\10_build.py:153: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new(C['mat']); mat.use_nodes = True
+KNIFE handle tilt removed deg 5.52
+KNIFE blade x range mid-blade -0.0765..0.0112 (raw units)
+KNIFE handle centre x 0.53 cm, handle width 3.73 cm, thickness 1.86 cm
+DECIMATE welded 800 -> 168 tris (limit 169)
+Info: Circular dependency for image "T_KnifeTripo_D" from object "SM_Knife"
+Info: Baking map saved to internal image, save it externally or pack it
+BAKE saved T_KnifeTripo_D  black texels (rgb<0.02) 37.6%
+Info: Saved as "knife_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/weapons_tripo/SM_Knife.fbx'
+export finished in 0.0039 sec.
+EXPORTED E:/game-dev-team/assets/weapons_tripo/SM_Knife.fbx
+RESULT knife tris 168 min [-2.4  0.  -1. ] max [ 2.4 35.5  1. ] (cm)
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

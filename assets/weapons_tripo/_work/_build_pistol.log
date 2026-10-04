@@ -1,0 +1,19 @@
+21:32:55 | INFO: Data are loaded, start creating Blender stuff
+21:32:55 | INFO: Blender create Mesh node tripo_mesh_48fbb0ad-f71c-49ee-b2d8-db3068f28b67
+21:32:55 | INFO: glTF import finished in 0.00s
+E:\game-dev-team\assets\weapons_tripo\_work\10_build.py:149: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new(C['mat']); mat.use_nodes = True
+PISTOL scale per axis [0.836 0.692 0.85 ]
+DECIMATE welded 788 -> 228 tris (limit 228)
+Info: Circular dependency for image "T_PistolPM_D" from object "SM_Pistol"
+Info: Baking map saved to internal image, save it externally or pack it
+BAKE saved T_PistolPM_D  black texels (rgb<0.02) 35.0%
+Info: Saved as "pistol_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/weapons_tripo/SM_Pistol.fbx'
+export finished in 0.0046 sec.
+EXPORTED E:/game-dev-team/assets/weapons_tripo/SM_Pistol.fbx
+RESULT pistol tris 228 min [ -1.7 -15.8  -8.2] max [1.7 3.9 8.8] (cm)
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
