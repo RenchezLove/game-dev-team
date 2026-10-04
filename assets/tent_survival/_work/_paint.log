@@ -1,0 +1,12 @@
+00:00.453  blend            | Read blend: "E:\game-dev-team\assets\tent_survival\_work\tent_work.blend"
+UVCHECK UVMap range 0.0080..0.9920 overlapping texels at 512: 0, covered 0.562
+UVCHECK LightmapUV range 0.0200..0.9800 overlapping texels at 512: 0, covered 0.399
+TEXTURE 512x512 83.5 KB | MASK 512x512 channels=4 7.1 KB values R[0. 1.] G[0. 1.] B[0.] A[0.]
+CHECK mask file equals computed zones on painted texels: True; texels set in two or more channels (whole file): 0; painted texels in no channel: 0
+ZONE R tarp       texels 118874 (72.7% of painted), mean rgb [0.33 0.34 0.25]; by part: tarp 98076, tarp underside 20798
+ZONE G pole wood  texels  44636 (27.3% of painted), mean rgb [0.31 0.22 0.14]; by part: poles 43209, pole ends 1427
+ZONE B (empty)    texels      0 (0.0% of painted)
+ZONE A (empty)    texels      0 (0.0% of painted)
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

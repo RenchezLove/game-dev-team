@@ -1,0 +1,31 @@
+00:00.437  blend            | Read blend: "E:\game-dev-team\assets\tent_survival\_work\tent_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/tent_survival/SM_Tent.fbx'
+export finished in 0.0043 sec.
+EXPORTED E:/game-dev-team/assets/tent_survival/SM_Tent.fbx
+FILE E:/game-dev-team/assets/tent_survival/SM_Tent.fbx 22.5 KB
+Info: Saved as "tent_work.blend"
+FBX version: 7400
+OLD tris=116 verts=87 min=[-0.76  -1.434 -0.   ] max=[0.8   1.434 1.223] size=[1.56  2.868 1.223] origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+OLD materials=['M_Tent'] uv=['UVMap'] vertex_colours=['Col'] smooth_faces=0
+OLD ridge (highest 15 cm): x -0.02..0.02 y -1.10..1.10 -> the long side runs along Y
+FBX version: 7400
+NEW objects in file: ['MESH']
+NEW tris=60 verts=120 min=[-0.76 -0.83 -0.  ] max=[0.76  0.83  1.081] size=[1.52  1.66  1.081] origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+NEW materials=['M_TentSurvival'] uv=['UVMap', 'LightmapUV'] vertex_colours=[] smooth_faces=0
+NEW ridge (highest 15 cm): x -0.16..0.15 y -0.83..0.83 -> the long side runs along Y
+NEW facing: 60 faces matched to the work mesh, worst centre distance 0.000000 m
+NEW facing tarp            must look up:                               faces   4 wrong   0
+NEW facing tarp underside  must look down:                             faces   4 wrong   0
+NEW facing pole sides      must look away from the axis of the pole:   faces  40 wrong   0
+NEW facing pole ends       must look away from the middle of the pole: faces  12 wrong   0
+NEW facing TOTAL wrong 0 of 60
+NEW uv UVMap range 0.0080..0.9920 overlapping texels at 2048: 0
+NEW uv LightmapUV range 0.0200..0.9800 overlapping texels at 2048: 0
+NEW texture in material: ['T_TentSurvival_D.png']
+TEXTURES colour 512x512, mask 512x512 channels=4; mask texels set: R 130888 G 74542 B 0 A 0, in two channels at once 0
+NEW footprint inside the old one: True (new x -0.760..0.760 y -0.830..0.830, old x -0.760..0.800 y -1.434..1.434); triangles 60 of at most 116
+ROUNDTRIP PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

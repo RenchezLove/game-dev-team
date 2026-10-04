@@ -1,0 +1,19 @@
+FBX version: 7400
+SOURCE objects ['B.L', 'B.R', 'F.L', 'F.R', 'T', 'T.L', 'T.R'], triangles 172
+SOURCE pole F.L axis (-3.448 0.003 0.179) -> (0.648 -0.003 5.401) mean radius 0.178
+SOURCE pole F.R axis (3.485 -0.003 0.179) -> (-0.610 0.003 5.401) mean radius 0.178
+SOURCE pole B.L axis (-3.448 7.803 0.179) -> (0.648 7.797 5.401) mean radius 0.178
+SOURCE pole B.R axis (3.485 7.797 0.179) -> (-0.610 7.803 5.401) mean radius 0.178
+SOURCE pole T   axis (0.046 7.822 4.952) -> (0.039 -0.376 4.974) mean radius 0.221
+SOURCE tarp T.L outer corners: top (-0.155 -0.055 4.824) (-0.155 7.946 4.824) bottom (-3.792 -0.028 0.211) (-3.792 7.973 0.211)
+SOURCE tarp T.R outer corners: top (0.223 -0.055 4.824) (0.223 7.946 4.824) bottom (3.860 -0.082 0.211) (3.860 7.919 0.211)
+PLACE scale 0.19864 (source 7.652 x 8.357 x 5.441 units)
+UNWRAP UVMap angle 66: overlapping texels 0
+UNWRAP LightmapUV angle 66: overlapping texels 0
+E:\game-dev-team\assets\tent_survival\_work\10_build.py:160: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new('M_TentSurvival'); mat.use_nodes = True
+BUILD tris 60 verts 120 min [-0.76 -0.83 -0.  ] max [0.76  0.83  1.081] size [1.52  1.66  1.081] parts [(1, 4), (2, 4), (3, 40), (4, 12)]
+Info: Saved as "tent_work.blend"
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

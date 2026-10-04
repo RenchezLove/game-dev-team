@@ -1,0 +1,49 @@
+00:01.937  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\src_front.png'
+00:01.968  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\src_back.png'
+00:02.000  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\src_left.png'
+00:02.046  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\src_right.png'
+00:02.078  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\src_top.png'
+00:02.109  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\src_q1.png'
+00:02.156  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\src_q2.png'
+00:02.187  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\src_game.png'
+00:02.265  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\old_front.png'
+00:02.296  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\old_back.png'
+00:02.328  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\old_left.png'
+00:02.359  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\old_right.png'
+00:02.406  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\old_top.png'
+00:02.437  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\old_q1.png'
+00:02.468  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\old_q2.png'
+00:02.500  render           | Saved: 'E:\game-dev-team\assets\tent_survival\_work\_look\old_game.png'
+FBX version: 7400
+SRC objects: [('B.L', 'MESH', None), ('B.R', 'MESH', None), ('F.L', 'MESH', None), ('F.R', 'MESH', None), ('T', 'MESH', None), ('T.L', 'MESH', None), ('T.R', 'MESH', None)]
+SRC mesh B.L: faces=8 tris=20 verts=12 min=[-3.611  7.579 -0.087] max=[0.829 8.022 5.468] scale=(0.2019, 0.2019, 2.6424) rot=(0.0, 35.0, 0.0) mats=['Stick_wood'] uv=['UVMap'] vcol=[]
+SRC   material Stick_wood base colour (0.124, 0.067, 0.016, 1.0) linked=False
+SRC   tris by material slot: {0: 20}
+SRC mesh B.R: faces=8 tris=20 verts=12 min=[-0.791  7.578 -0.087] max=[3.649 8.021 5.468] scale=(0.2019, 0.2019, 2.6424) rot=(0.0, 35.0, -180.0) mats=['Stick_wood'] uv=['UVMap'] vcol=[]
+SRC   material Stick_wood base colour (0.124, 0.067, 0.016, 1.0) linked=False
+SRC   tris by material slot: {0: 20}
+SRC mesh F.L: faces=8 tris=20 verts=12 min=[-3.611 -0.221 -0.087] max=[0.829 0.222 5.468] scale=(0.2019, 0.2019, 2.6424) rot=(0.0, 35.0, 0.0) mats=['Stick_wood'] uv=['UVMap'] vcol=[]
+SRC   material Stick_wood base colour (0.124, 0.067, 0.016, 1.0) linked=False
+SRC   tris by material slot: {0: 20}
+SRC mesh F.R: faces=8 tris=20 verts=12 min=[-0.791 -0.222 -0.087] max=[3.649 0.221 5.468] scale=(0.2019, 0.2019, 2.6424) rot=(0.0, 35.0, -180.0) mats=['Stick_wood'] uv=['UVMap'] vcol=[]
+SRC   material Stick_wood base colour (0.124, 0.067, 0.016, 1.0) linked=False
+SRC   tris by material slot: {0: 20}
+SRC mesh T: faces=8 tris=20 verts=12 min=[-0.232 -0.465  4.7  ] max=[0.318 8.076 5.173] scale=(0.2511, 0.251, 3.264) rot=(0.0, 86.7, -90.0) mats=['Stick_wood'] uv=['UVMap'] vcol=[]
+SRC   material Stick_wood base colour (0.124, 0.067, 0.016, 1.0) linked=False
+SRC   tris by material slot: {0: 20}
+SRC mesh T.L: faces=18 tris=36 verts=20 min=[-3.792 -0.169  0.129] max=[-0.051  8.014  4.824] scale=(0.0664, 4.0006, 2.8688) rot=(0.0, 38.6, 0.0) mats=['TENT_MAT'] uv=['UVMap'] vcol=[]
+SRC   material TENT_MAT base colour (0.138, 0.173, 0.086, 1.0) linked=False
+SRC   tris by material slot: {0: 36}
+SRC mesh T.R: faces=18 tris=36 verts=20 min=[ 0.119 -0.123  0.129] max=[3.86  8.061 4.824] scale=(0.0664, 4.0007, 2.8688) rot=(0.0, 38.6, -180.0) mats=['TENT_MAT'] uv=['UVMap'] vcol=[]
+SRC   material TENT_MAT base colour (0.138, 0.173, 0.086, 1.0) linked=False
+SRC   tris by material slot: {0: 36}
+SRC TOTAL tris=172 min=[-3.792 -0.465 -0.087] max=[3.86  8.076 5.468] size=[7.652 8.541 5.554]
+FBX version: 7400
+OLD objects: [('SM_Tent', 'MESH', None)]
+OLD mesh SM_Tent: faces=116 tris=116 verts=87 min=[-0.76  -1.434 -0.   ] max=[0.8   1.434 1.223] scale=(1.0, 1.0, 1.0) rot=(-0.0, -0.0, 0.0) mats=['M_Tent'] uv=['UVMap'] vcol=['Col']
+OLD   material M_Tent base colour (0.8, 0.8, 0.8, 1.0) linked=False
+OLD   tris by material slot: {0: 116}
+OLD TOTAL tris=116 min=[-0.76  -1.434 -0.   ] max=[0.8   1.434 1.223] size=[1.56  2.868 1.223]
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

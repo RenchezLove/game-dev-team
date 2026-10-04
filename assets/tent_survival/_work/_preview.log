@@ -1,0 +1,40 @@
+00:00.406  blend            | Read blend: "E:\game-dev-team\assets\tent_survival\_work\tent_work.blend"
+E:\game-dev-team\assets\tent_survival\_work\12_preview.py:10: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new('prev'); mat.use_nodes = True
+E:\game-dev-team\assets\tent_survival\_work\12_preview.py:23: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+E:\game-dev-team\assets\tent_survival\_work\12_preview.py:27: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm = bpy.data.materials.new('ground'); gm.use_nodes = True
+00:02.187  render           | Saved: 'E:\game-dev-team\assets\tent_survival\renders\tent_game_camera.png'
+00:02.687  render           | Saved: 'E:\game-dev-team\assets\tent_survival\renders\tent_entrance_side.png'
+00:03.187  render           | Saved: 'E:\game-dev-team\assets\tent_survival\renders\qc_game_camera_true_scale.png'
+00:03.687  render           | Saved: 'E:\game-dev-team\assets\tent_survival\renders\qc_game_edge_low.png'
+00:04.172  render           | Saved: 'E:\game-dev-team\assets\tent_survival\renders\qc_back.png'
+00:04.672  render           | Saved: 'E:\game-dev-team\assets\tent_survival\renders\qc_side.png'
+00:05.172  render           | Saved: 'E:\game-dev-team\assets\tent_survival\renders\qc_top.png'
+00:05.640  render           | Saved: 'E:\game-dev-team\assets\tent_survival\renders\qc_inside.png'
+RENDER E:/game-dev-team/assets/tent_survival/renders/tent_game_camera.png
+RENDER E:/game-dev-team/assets/tent_survival/renders/tent_entrance_side.png
+RENDER E:/game-dev-team/assets/tent_survival/renders/qc_game_camera_true_scale.png
+RENDER E:/game-dev-team/assets/tent_survival/renders/qc_game_edge_low.png
+RENDER E:/game-dev-team/assets/tent_survival/renders/qc_back.png
+RENDER E:/game-dev-team/assets/tent_survival/renders/qc_side.png
+RENDER E:/game-dev-team/assets/tent_survival/renders/qc_top.png
+RENDER E:/game-dev-team/assets/tent_survival/renders/qc_inside.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
+00:00.313  blend            | Read blend: "E:\game-dev-team\assets\tent_survival\_work\tent_work.blend"
+E:\game-dev-team\assets\tent_survival\_work\12_preview.py:10: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new('prev'); mat.use_nodes = True
+E:\game-dev-team\assets\tent_survival\_work\12_preview.py:23: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+E:\game-dev-team\assets\tent_survival\_work\12_preview.py:27: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm = bpy.data.materials.new('ground'); gm.use_nodes = True
+00:02.094  render           | Saved: 'E:\game-dev-team\assets\tent_survival\renders\qc_mask_on_tent_game_camera.png'
+00:02.594  render           | Saved: 'E:\game-dev-team\assets\tent_survival\renders\qc_mask_on_tent_entrance_side.png'
+RENDER E:/game-dev-team/assets/tent_survival/renders/qc_mask_on_tent_game_camera.png
+RENDER E:/game-dev-team/assets/tent_survival/renders/qc_mask_on_tent_entrance_side.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
