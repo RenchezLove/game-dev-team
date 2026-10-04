@@ -1,0 +1,78 @@
+00:00.329  blend            | Read blend: "E:\game-dev-team\assets\bus_stop\_work\busstop_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/bus_stop/SM_BusStop.fbx'
+export finished in 0.0052 sec.
+FILE SM_BusStop.fbx 31.6 KB, objects written: ['SM_BusStop', 'UCX_SM_BusStop_01', 'UCX_SM_BusStop_02', 'UCX_SM_BusStop_03']
+
+FBX export starting... 'E:/game-dev-team/assets/bus_stop/SM_BusStopSign.fbx'
+export finished in 0.0035 sec.
+FILE SM_BusStopSign.fbx 21.2 KB, objects written: ['SM_BusStopSign']
+
+FBX export starting... 'E:/game-dev-team/assets/bus_stop/SM_BusStopUrn.fbx'
+export finished in 0.0070 sec.
+FILE SM_BusStopUrn.fbx 24.6 KB, objects written: ['SM_BusStopUrn', 'UCX_SM_BusStopUrn_01']
+FBX version: 7400
+SM_BusStop objects in file: [('SM_BusStop', 'MESH'), ('UCX_SM_BusStop_01', 'MESH'), ('UCX_SM_BusStop_02', 'MESH'), ('UCX_SM_BusStop_03', 'MESH')]
+SM_BusStop tris=146 verts=292 min=[-2.35 -0.7  -0.  ] max=[2.35 0.7  2.7 ] size=[4.7 1.4 2.7] origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+SM_BusStop materials=['M_BusStop'] uv=['UVMap', 'LightmapUV'] smooth_faces=0 place by the shelter (Blender axes, m)=(0.0, 0.0, 0.0)
+SM_BusStop facing: 146 faces matched to the work mesh, worst centre distance 0.000000 m
+SM_BusStop facing roof            faces   2 wrong   0 (of them look up 2, down 0, sideways 0)
+SM_BusStop facing roof underside  faces   2 wrong   0 (of them look up 0, down 2, sideways 0)
+SM_BusStop facing roof edge       faces   8 wrong   0 (of them look up 0, down 0, sideways 8)
+SM_BusStop facing back wall       faces   6 wrong   0 (of them look up 2, down 0, sideways 4)
+SM_BusStop facing side walls      faces  16 wrong   0 (of them look up 0, down 0, sideways 16)
+SM_BusStop facing posts           faces  32 wrong   0 (of them look up 0, down 0, sideways 32)
+SM_BusStop facing beams           faces  12 wrong   0 (of them look up 0, down 4, sideways 8)
+SM_BusStop facing rafters         faces  20 wrong   0 (of them look up 0, down 4, sideways 16)
+SM_BusStop facing rails           faces  20 wrong   0 (of them look up 4, down 0, sideways 16)
+SM_BusStop facing bench           faces   4 wrong   0 (of them look up 2, down 0, sideways 2)
+SM_BusStop facing bench leg       faces   8 wrong   0 (of them look up 0, down 0, sideways 8)
+SM_BusStop facing timetable       faces   2 wrong   0 (of them look up 0, down 0, sideways 2)
+SM_BusStop facing timetable back  faces  10 wrong   0 (of them look up 2, down 2, sideways 6)
+SM_BusStop facing notices         faces   4 wrong   0 (of them look up 0, down 0, sideways 4)
+SM_BusStop facing TOTAL wrong 0 of 146
+SM_BusStop uv UVMap range 0.0040..0.9870 overlapping texels at 2048: 0
+SM_BusStop uv LightmapUV range 0.0200..0.9766 overlapping texels at 2048: 0
+SM_BusStop block UCX_SM_BusStop_01      min [-2.16 -0.31 -0.  ] max [2.16 0.38 2.36] closed True convex True volume +7.035 -> ok
+SM_BusStop block UCX_SM_BusStop_02      min [-2.16 -0.63  0.  ] max [-1.89 -0.31  2.55] closed True convex True volume +0.220 -> ok
+SM_BusStop block UCX_SM_BusStop_03      min [ 1.89 -0.63  0.  ] max [ 2.16 -0.31  2.55] closed True convex True volume +0.220 -> ok
+SM_BusStop collision blocks: 3 (expected 3)
+SM_BusStop open side looks -Y: roof edge at y -0.700, the wide block stops the hero at y -0.310 -> free strip under the roof 0.39 m; a capsule of radius 0.40 keeps its centre at y <= -0.710 (outside the roof edge)
+SM_BusStop blocks reach x +-2.160, walls and posts reach x +-2.110; back of the blocks y 0.380, back of the walls and posts y 0.400
+SM_BusStop file check: ok
+FBX version: 7400
+SM_BusStopSign objects in file: [('SM_BusStopSign', 'MESH')]
+SM_BusStopSign tris=54 verts=104 min=[-0.319 -0.085 -0.   ] max=[0.319 0.06  2.47 ] size=[0.639 0.145 2.47 ] origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+SM_BusStopSign materials=['M_BusStop'] uv=['UVMap', 'LightmapUV'] smooth_faces=0 place by the shelter (Blender axes, m)=(-3.0, -1.53, 0.0)
+SM_BusStopSign facing: 54 faces matched to the work mesh, worst centre distance 0.000000 m
+SM_BusStopSign facing sign pole       faces  22 wrong   0 (of them look up 6, down 0, sideways 16)
+SM_BusStopSign facing sign face       faces   2 wrong   0 (of them look up 0, down 0, sideways 2)
+SM_BusStopSign facing sign back       faces  10 wrong   0 (of them look up 2, down 2, sideways 6)
+SM_BusStopSign facing sign clamps     faces  20 wrong   0 (of them look up 4, down 4, sideways 12)
+SM_BusStopSign facing TOTAL wrong 0 of 54
+SM_BusStopSign uv UVMap range 0.0040..0.9921 overlapping texels at 2048: 0
+SM_BusStopSign uv LightmapUV range 0.0200..0.9800 overlapping texels at 2048: 0
+SM_BusStopSign collision blocks: 0 (expected 0)
+SM_BusStopSign file check: ok
+FBX version: 7400
+SM_BusStopUrn objects in file: [('SM_BusStopUrn', 'MESH'), ('UCX_SM_BusStopUrn_01', 'MESH')]
+SM_BusStopUrn tris=82 verts=156 min=[-0.28 -0.28 -0.  ] max=[0.28 0.28 0.6 ] size=[0.56 0.56 0.6 ] origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+SM_BusStopUrn materials=['M_BusStop'] uv=['UVMap', 'LightmapUV'] smooth_faces=0 place by the shelter (Blender axes, m)=(1.62, -1.0, 0.0)
+SM_BusStopUrn facing: 82 faces matched to the work mesh, worst centre distance 0.000000 m
+SM_BusStopUrn facing urn outside     faces  24 wrong   0 (of them look up 0, down 0, sideways 24)
+SM_BusStopUrn facing urn inside      faces  24 wrong   0 (of them look up 0, down 0, sideways 24)
+SM_BusStopUrn facing urn rim         faces  24 wrong   0 (of them look up 24, down 0, sideways 0)
+SM_BusStopUrn facing urn bottom      faces  10 wrong   0 (of them look up 10, down 0, sideways 0)
+SM_BusStopUrn facing TOTAL wrong 0 of 82
+SM_BusStopUrn uv UVMap range 0.0040..0.9823 overlapping texels at 2048: 0
+SM_BusStopUrn uv LightmapUV range 0.0200..0.9800 overlapping texels at 2048: 0
+SM_BusStopUrn block UCX_SM_BusStopUrn_01   min [-0.303 -0.303 -0.   ] max [0.303 0.303 0.6  ] closed True convex True volume +0.156 -> ok
+SM_BusStopUrn collision blocks: 1 (expected 1)
+SM_BusStopUrn file check: ok
+ALL shared UVMap of the three files together: overlapping texels at 2048: 0
+TEXTURES colour 1024x1024, mask 1024x1024 channels=4; mask texels set: R 235545 G 70342 B 223569 A 246830, in two channels at once 0
+ALL triangles of the three files: 282 of at most 800
+ROUNDTRIP PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,15 @@
+00:00.578  blend            | Read blend: "E:\game-dev-team\assets\bus_stop\_work\busstop_work.blend"
+SOURCE texture DefaultMaterial_Base_Color.png 1024x1024
+SOURCE texture Материал.001_Base_Color.png 2048x2048
+UVCHECK shared UVMap of the three objects: range 0.0040..0.9921 overlapping texels at 1024: 0, covered 0.656
+TINT defaults (linear RGB): roof (0.5, 0.56, 0.6), urn (0.62, 0.58, 0.5), wall profile (0.22, 0.42, 0.62)
+TEXTURE 1024x1024 439.7 KB | MASK 1024x1024 channels=4 25.9 KB values R[0. 1.] G[0. 1.] B[0. 1.] A[0. 1.]
+CHECK mask file equals computed zones on painted texels: True; texels set in two or more channels (whole file): 0
+ZONE R roof         texels 211836 (27.9% of painted), mean rgb [0.63 0.63 0.63], brightness 0.22..0.87, largest r-g-b spread 0.000; by part: roof 179112, roof underside 19181, roof edge 13543
+ZONE G urn          texels  40967 (5.4% of painted), mean rgb [0.62 0.62 0.62], brightness 0.18..0.87, largest r-g-b spread 0.000; by part: urn outside 26868, urn inside 8851, urn rim 2327, urn bottom 2921
+ZONE B wall profile texels 202694 (26.7% of painted), mean rgb [0.67 0.67 0.67], brightness 0.24..0.92, largest r-g-b spread 0.000; by part: back wall 164211, side walls 38483
+ZONE A wood         texels 183389 (24.2% of painted), mean rgb [0.41 0.34 0.26], brightness 0.09..0.50, largest r-g-b spread 0.239; by part: posts 97193, beams 28524, rafters 12537, rails 14443, bench 29076, bench leg 1616
+ZONE none           texels 119974 (15.8%); by part: timetable 25224, timetable back 3746, notices 19684, sign pole 21873, sign face 36218, sign back 7703, sign clamps 5526
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,66 @@
+FBX version: 7400
+SRC objects: [('busstop', 'MESH', None), ('gvozd', 'MESH', None), ('obv.002', 'MESH', None), ('obv.003', 'MESH', None), ('skameika.001', 'MESH', None), ('urna', 'MESH', None), ('znak4', 'MESH', None)]
+SRC mesh busstop                      tris= 1560 verts= 1188 min=[-2.339 -4.496 -0.269] max=[2.364 0.517 2.83 ] size=[4.704 5.013 3.099] scale=(1.0, 1.0, 1.0) mats=['BUSS'] tris_by_slot={0: 1560} uv=['UVКарта']
+SRC    part faces= 524 min=( -2.34  -4.47   2.32) max=(  2.36   0.43   2.83) size=( 4.70  4.89  0.51) slots=[0]
+SRC    part faces= 132 min=(  2.06  -3.96  -0.21) max=(  2.16   0.03   0.76) size=( 0.10  3.98  0.96) slots=[0]
+SRC    part faces= 132 min=(  2.05  -3.96  -0.21) max=(  2.16   0.03   0.76) size=( 0.10  3.98  0.96) slots=[0]
+SRC    part faces= 132 min=( -2.16  -3.96  -0.21) max=( -2.06   0.03   0.76) size=( 0.10  3.98  0.96) slots=[0]
+SRC    part faces= 132 min=( -2.16  -3.96  -0.21) max=( -2.05   0.03   0.76) size=( 0.10  3.98  0.96) slots=[0]
+SRC    part faces= 110 min=( -1.92  -4.20  -0.07) max=(  2.06  -4.02   2.16) size=( 3.98  0.19  2.23) slots=[0]
+SRC    part faces= 110 min=( -1.92  -4.21  -0.07) max=(  2.06  -4.03   2.16) size=( 3.98  0.18  2.23) slots=[0]
+SRC    part faces=  36 min=( -2.05  -0.12   2.46) max=(  2.05   0.10   2.65) size=( 4.10  0.22  0.18) slots=[0]
+SRC    part faces=  36 min=( -2.07  -0.10  -0.27) max=( -1.89   0.13   2.65) size=( 0.18  0.23  2.92) slots=[0]
+SRC    part faces=  36 min=(  1.89  -0.10  -0.27) max=(  2.07   0.13   2.65) size=( 0.18  0.23  2.92) slots=[0]
+SRC    part faces=  36 min=(  1.90  -4.50   2.07) max=(  2.10   0.52   2.68) size=( 0.20  5.01  0.61) slots=[0]
+SRC    part faces=  36 min=( -2.10  -4.50   2.07) max=( -1.90   0.52   2.68) size=( 0.20  5.01  0.61) slots=[0]
+SRC    part faces=  36 min=(  2.04  -3.90   0.69) max=(  2.16  -0.03   0.83) size=( 0.12  3.87  0.14) slots=[0]
+SRC    part faces=  36 min=( -2.16  -3.90   0.69) max=( -2.04  -0.03   0.83) size=( 0.12  3.87  0.14) slots=[0]
+SRC    part faces=  12 min=( -2.10  -4.10  -0.22) max=( -1.90  -3.90   2.36) size=( 0.20  0.20  2.58) slots=[0]
+SRC    part faces=  12 min=(  1.90  -4.10  -0.22) max=(  2.10  -3.90   2.36) size=( 0.20  0.20  2.58) slots=[0]
+SRC    part faces=  12 min=( -2.05  -2.35   2.29) max=(  2.05  -2.13   2.47) size=( 4.10  0.22  0.19) slots=[0]
+SRC mesh gvozd                        tris=   96 verts=   57 min=[-2.348  0.082  1.71 ] max=[-1.675  0.191  2.142] size=[0.673 0.109 0.432] scale=(1.0, 1.0, 1.0) mats=['RASP'] tris_by_slot={0: 96} uv=['UVКарта']
+SRC    part faces=  84 min=( -2.04   0.08   2.07) max=( -1.98   0.19   2.12) size=( 0.05  0.11  0.05) slots=[0]
+SRC    part faces=  12 min=( -2.35   0.11   1.71) max=( -1.67   0.13   2.14) size=( 0.67  0.01  0.43) slots=[0]
+SRC mesh obv.002                      tris=    8 verts=   10 min=[ 1.084 -4.096  0.971] max=[ 1.467 -4.009  1.355] size=[0.383 0.087 0.383] scale=(1.0, 1.0, 1.0) mats=['RASP'] tris_by_slot={0: 8} uv=['UVКарта']
+SRC    part faces=   8 min=(  1.08  -4.10   0.97) max=(  1.47  -4.01   1.35) size=( 0.38  0.09  0.38) slots=[0]
+SRC mesh obv.003                      tris=    8 verts=   10 min=[-1.029 -4.095  1.57 ] max=[-0.615 -3.962  1.973] size=[0.414 0.133 0.403] scale=(1.0, 1.0, 1.0) mats=['RASP'] tris_by_slot={0: 8} uv=['UVmap']
+SRC    part faces=   8 min=( -1.03  -4.09   1.57) max=( -0.61  -3.96   1.97) size=( 0.41  0.13  0.40) slots=[0]
+SRC mesh skameika.001                 tris=   24 verts=   16 min=[-2.049 -4.079 -0.075] max=[ 2.049 -3.523  0.505] size=[4.097 0.556 0.58 ] scale=(1.0, 1.0, 1.0) mats=['BUSS'] tris_by_slot={0: 24} uv=['UVКарта']
+SRC    part faces=  12 min=( -2.05  -4.08   0.42) max=(  2.05  -3.52   0.51) size=( 4.10  0.56  0.09) slots=[0]
+SRC    part faces=  12 min=( -0.05  -3.69  -0.08) max=(  0.05  -3.59   0.46) size=( 0.10  0.10  0.53) slots=[0]
+SRC mesh urna                         tris=  264 verts=  132 min=[-1.887 -0.364 -0.264] max=[-1.327  0.199  0.528] size=[0.56  0.562 0.792] scale=(1.0, 1.0, 1.0) mats=['Материал.003'] tris_by_slot={0: 264} uv=['UVКарта']
+SRC    part faces= 264 min=( -1.89  -0.36  -0.26) max=( -1.33   0.20   0.53) size=( 0.56  0.56  0.79) slots=[0]
+SRC mesh znak4                        tris=  622 verts=  367 min=[ 2.681  0.938 -0.266] max=[3.32  1.082 2.474] size=[0.639 0.144 2.74 ] scale=(1.0, 1.0, 1.0) mats=['ZNAK'] tris_by_slot={0: 622} uv=['UVКарта']
+SRC    part faces= 200 min=(  2.68   1.05   1.61) max=(  3.32   1.08   2.42) size=( 0.64  0.03  0.80) slots=[0]
+SRC    part faces=  84 min=(  3.19   1.03   2.32) max=(  3.22   1.06   2.35) size=( 0.03  0.03  0.03) slots=[0]
+SRC    part faces=  84 min=(  2.78   1.03   2.32) max=(  2.81   1.06   2.35) size=( 0.03  0.03  0.03) slots=[0]
+SRC    part faces=  84 min=(  3.19   1.03   1.75) max=(  3.22   1.06   1.78) size=( 0.03  0.03  0.03) slots=[0]
+SRC    part faces=  84 min=(  2.78   1.03   1.75) max=(  2.81   1.06   1.78) size=( 0.03  0.03  0.03) slots=[0]
+SRC    part faces=  66 min=(  2.94   0.94  -0.27) max=(  3.06   1.06   2.47) size=( 0.12  0.12  2.74) slots=[0]
+SRC    part faces=  10 min=(  2.76   0.94   1.73) max=(  3.24   1.06   1.81) size=( 0.48  0.12  0.08) slots=[0]
+SRC    part faces=  10 min=(  2.76   0.94   2.29) max=(  3.24   1.06   2.37) size=( 0.48  0.12  0.08) slots=[0]
+SRC TOTAL tris=2582 min=[-2.348 -4.496 -0.269] max=[3.32  1.082 2.83 ] size=[5.668 5.578 3.099]
+SRC material BUSS: [('BSDF_PRINCIPLED', ''), ('OUTPUT_MATERIAL', ''), ('NORMAL_MAP', ''), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Base_Color.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Normal_DirectX.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Roughness.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Metallic.png')]
+SRC material RASP: [('BSDF_PRINCIPLED', ''), ('OUTPUT_MATERIAL', ''), ('NORMAL_MAP', ''), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Base_Color.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Normal_DirectX.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Roughness.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Metallic.png')]
+SRC material ZNAK: [('BSDF_PRINCIPLED', ''), ('OUTPUT_MATERIAL', ''), ('NORMAL_MAP', ''), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\Материал.001_Base_Color.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\Материал.001_Normal_DirectX.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\Материал.001_Roughness.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\Материал.001_Metallic.png')]
+SRC material Материал.003: [('BSDF_PRINCIPLED', ''), ('OUTPUT_MATERIAL', ''), ('NORMAL_MAP', ''), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Base_Color.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Normal_DirectX.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Roughness.png'), ('TEX_IMAGE', 'C:\\Users\\pgr40\\Desktop\\GamdevAITeam\\Автобусная остановка\\old-russian-bus-stop\\source\\FBX.fbm\\DefaultMaterial_Metallic.png')]E:\game-dev-team\assets\bus_stop\_work\00_inspect.py:57: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+E:\game-dev-team\assets\bus_stop\_work\00_inspect.py:69: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+00:02.203  render           | Saved: 'E:\game-dev-team\assets\bus_stop\_work\_look\src_front.png'
+00:02.469  render           | Saved: 'E:\game-dev-team\assets\bus_stop\_work\_look\src_back.png'
+00:02.734  render           | Saved: 'E:\game-dev-team\assets\bus_stop\_work\_look\src_left.png'
+00:03.031  render           | Saved: 'E:\game-dev-team\assets\bus_stop\_work\_look\src_right.png'
+00:03.313  render           | Saved: 'E:\game-dev-team\assets\bus_stop\_work\_look\src_top.png'
+00:03.609  render           | Saved: 'E:\game-dev-team\assets\bus_stop\_work\_look\src_q1.png'
+00:03.906  render           | Saved: 'E:\game-dev-team\assets\bus_stop\_work\_look\src_q2.png'
+00:04.203  render           | Saved: 'E:\game-dev-team\assets\bus_stop\_work\_look\src_q3.png'
+00:04.484  render           | Saved: 'E:\game-dev-team\assets\bus_stop\_work\_look\src_under.png'
+
+SRC material BUSS <- DefaultMaterial_Base_Color.png 1024x1024
+SRC material RASP <- DefaultMaterial_Base_Color.png 1024x1024
+SRC material ZNAK <- Материал.001_Base_Color.png 2048x2048
+SRC material Материал.003 <- DefaultMaterial_Base_Color.png 1024x1024
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

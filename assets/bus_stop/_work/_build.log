@@ -1,0 +1,34 @@
+FBX version: 7400
+SOURCE objects ['busstop', 'gvozd', 'obv.002', 'obv.003', 'skameika.001', 'urna', 'znak4']
+SOURCE triangles 2582: busstop 1560, gvozd 96, obv.002 8, obv.003 8, skameika.001 24, urna 264, znak4 622
+SOURCE decal znak4    faces  36 rect x 2.681..3.320 z 1.615..2.417 (0.639 x 0.803 m), worst fit error 0.0015 uv, uv corners [0.391 0.665] [0.976 0.666] [0.391 0.196]
+SOURCE decal gvozd    faces   2 rect x -2.348..-1.675 z 1.710..2.142 (0.673 x 0.432 m), worst fit error 0.0000 uv, uv corners [0.411 0.636] [0.411 0.004] [0.005 0.636]
+SOURCE notice obv.002  middle x 1.275 z 1.163, laid flat 0.32 x 0.40 m
+SOURCE notice obv.003  middle x -0.822 z 1.772, laid flat 0.32 x 0.30 m
+UNWRAP all UVMap angle 66: overlapping texels 0
+E:\game-dev-team\assets\bus_stop\_work\10_build.py:249: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new('M_BusStop'); mat.use_nodes = True
+UNWRAP SM_BusStop LightmapUV angle 66: overlapping texels 0
+UNWRAP SM_BusStopSign LightmapUV angle 66: overlapping texels 0
+UNWRAP SM_BusStopUrn LightmapUV angle 66: overlapping texels 0
+00:00.578  reports          | WARNING Path 'C:\Users\pgr40\Desktop\GamdevAITeam\Автобусная остановка\old-russian-bus-stop\source\FBX.fbm\DefaultMaterial_Base_Color.png' cannot be made relative for Image 'DefaultMaterial_Base_Color.png.001'
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+00:00.578  reports          | WARNING Path 'C:\Users\pgr40\Desktop\GamdevAITeam\Автобусная остановка\old-russian-bus-stop\source\FBX.fbm\DefaultMaterial_Metallic.png' cannot be made relative for Image 'DefaultMaterial_Metallic.png'
+00:00.578  reports          | WARNING Path 'C:\Users\pgr40\Desktop\GamdevAITeam\Автобусная остановка\old-russian-bus-stop\source\FBX.fbm\DefaultMaterial_Normal_DirectX.png' cannot be made relative for Image 'DefaultMaterial_Normal_DirectX.png'
+00:00.578  reports          | WARNING Path 'C:\Users\pgr40\Desktop\GamdevAITeam\Автобусная остановка\old-russian-bus-stop\source\FBX.fbm\DefaultMaterial_Roughness.png' cannot be made relative for Image 'DefaultMaterial_Roughness.png'
+00:00.578  reports          | WARNING Path 'C:\Users\pgr40\Desktop\GamdevAITeam\Автобусная остановка\old-russian-bus-stop\source\FBX.fbm\Материал.001_Base_Color.png' cannot be made relative for Image 'Материал.001_Base_Color.png'
+00:00.578  reports          | WARNING Path 'C:\Users\pgr40\Desktop\GamdevAITeam\Автобусная остановка\old-russian-bus-stop\source\FBX.fbm\Материал.001_Metallic.png' cannot be made relative for Image 'Материал.001_Metallic.png'
+00:00.578  reports          | WARNING Path 'C:\Users\pgr40\Desktop\GamdevAITeam\Автобусная остановка\old-russian-bus-stop\source\FBX.fbm\Материал.001_Normal_DirectX.png' cannot be made relative for Image 'Материал.001_Normal_DirectX.png'
+00:00.578  reports          | WARNING Path 'C:\Users\pgr40\Desktop\GamdevAITeam\Автобусная остановка\old-russian-bus-stop\source\FBX.fbm\Материал.001_Roughness.png' cannot be made relative for Image 'Материал.001_Roughness.png'
+UNWRAP shared UVMap of the three objects together: overlapping texels 0
+COLLISION UCX_SM_BusStop_01 min [-2.16 -0.31  0.  ] max [2.16 0.38 2.36] volume +7.035
+COLLISION UCX_SM_BusStop_02 min [-2.16 -0.63  0.  ] max [-1.89 -0.31  2.55] volume +0.220
+COLLISION UCX_SM_BusStop_03 min [ 1.89 -0.63  0.  ] max [ 2.16 -0.31  2.55] volume +0.220
+COLLISION UCX_SM_BusStopUrn_01 min [-0.303 -0.303  0.   ] max [0.303 0.303 0.6  ] volume +0.156
+BUILD SM_BusStop      tris 146 verts 292 place (0.0, 0.0, 0.0) min [-2.35 -0.7   0.  ] max [2.35 0.7  2.7 ] size [4.7 1.4 2.7] parts [(1, 2), (2, 2), (3, 8), (4, 6), (5, 16), (6, 32), (7, 12), (8, 20), (9, 20), (10, 4), (11, 8), (12, 2), (13, 10), (14, 4)]
+BUILD SM_BusStopSign  tris  54 verts 104 place (-3.0, -1.53, 0.0) min [-0.319 -0.085  0.   ] max [0.319 0.06  2.47 ] size [0.639 0.145 2.47 ] parts [(20, 22), (21, 2), (22, 10), (23, 20)]
+BUILD SM_BusStopUrn   tris  82 verts 156 place (1.62, -1.0, 0.0) min [-0.28 -0.28  0.  ] max [0.28 0.28 0.6 ] size [0.56 0.56 0.6 ] parts [(30, 24), (31, 24), (32, 24), (33, 10)]
+BUILD total triangles of the three objects 282 (limit 800); free depth under the roof in front of the bench 0.39 m
+Info: Saved as "busstop_work.blend"
+
+Blender quit
