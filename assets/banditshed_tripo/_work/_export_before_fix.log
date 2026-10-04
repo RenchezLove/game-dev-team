@@ -6,6 +6,24 @@ EXPORTED E:/game-dev-team/assets/banditshed_tripo/SM_BanditShed.fbx
 FILE E:/game-dev-team/assets/banditshed_tripo/SM_BanditShed.fbx 27.5 KB
 Info: Saved as "banditshed_work.blend"
 FBX version: 7400
+BEFORE facing: 130 faces matched to the work mesh, worst centre distance 0.000001 m
+BEFORE facing walls             must look away from the middle of the shed: faces  12 wrong   0
+BEFORE facing gables            must look away from the middle of the shed: faces   2 wrong   0
+BEFORE facing doorway           must look into the niche:                  faces  10 wrong   2
+BEFORE facing door              must look away from the middle of the box: faces  12 wrong   0
+BEFORE facing step              must look away from the middle of the box: faces  10 wrong   0
+BEFORE facing rag over the door must look towards -Y:                      faces  10 wrong   0
+BEFORE facing window boards     must look towards -Y:                      faces   6 wrong   0
+BEFORE facing tin patches       must look away from the middle of the shed: faces   4 wrong   0
+BEFORE facing sheathing         must look up:                              faces   4 wrong   0
+BEFORE facing soffit            must look down:                            faces   2 wrong   0
+BEFORE facing slate             must look up:                              faces  32 wrong  16 | door slope (y < 0): 16 of 16 wrong, back slope: 0 of 16 wrong
+BEFORE facing tin roof sheet    must look up:                              faces   2 wrong   2 | door slope (y < 0): 2 of 2 wrong, back slope: 0 of 0 wrong
+BEFORE facing ridge             must look up:                              faces   4 wrong   2 | door slope (y < 0): 2 of 2 wrong, back slope: 0 of 2 wrong
+BEFORE facing bottom            must look down:                            faces   2 wrong   0
+BEFORE facing roof rag          must look up:                              faces  18 wrong  18 | door slope (y < 0): 12 of 12 wrong, back slope: 6 of 6 wrong
+BEFORE facing TOTAL wrong 40 of 130
+FBX version: 7400
 OLD tris=352 verts=236 min=[-2.55  -1.983 -0.   ] max=[2.55  1.983 3.55 ] size=[5.1   3.966 3.55 ] origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
 OLD materials=['M_BanditShed'] uv=['UVMap'] vertex_colours=['Col'] smooth_faces=0
 OLD door test, rays along Y at height 1.3 m: in the door opening (x 0.43) a ray from -Y stops at y -1.67, beside the door (x -1.6 / 1.0) at y -1.78 / -1.78; from +Y at x 0.43 it stops at y 1.78
@@ -21,7 +39,7 @@ NEW bottom: 299 of 299 rays from below (x +-2.2, y +-1.2) meet a face at z 0
 NEW facing: 130 faces matched to the work mesh, worst centre distance 0.000001 m
 NEW facing walls             must look away from the middle of the shed: faces  12 wrong   0
 NEW facing gables            must look away from the middle of the shed: faces   2 wrong   0
-NEW facing doorway           must look into the niche:                  faces  10 wrong   0
+NEW facing doorway           must look into the niche:                  faces  10 wrong   2
 NEW facing door              must look away from the middle of the box: faces  12 wrong   0
 NEW facing step              must look away from the middle of the box: faces  10 wrong   0
 NEW facing rag over the door must look towards -Y:                      faces  10 wrong   0
@@ -29,17 +47,17 @@ NEW facing window boards     must look towards -Y:                      faces   
 NEW facing tin patches       must look away from the middle of the shed: faces   4 wrong   0
 NEW facing sheathing         must look up:                              faces   4 wrong   0
 NEW facing soffit            must look down:                            faces   2 wrong   0
-NEW facing slate             must look up:                              faces  32 wrong   0 | door slope (y < 0): 0 of 16 wrong, back slope: 0 of 16 wrong
-NEW facing tin roof sheet    must look up:                              faces   2 wrong   0 | door slope (y < 0): 0 of 2 wrong, back slope: 0 of 0 wrong
-NEW facing ridge             must look up:                              faces   4 wrong   0 | door slope (y < 0): 0 of 2 wrong, back slope: 0 of 2 wrong
+NEW facing slate             must look up:                              faces  32 wrong  16 | door slope (y < 0): 16 of 16 wrong, back slope: 0 of 16 wrong
+NEW facing tin roof sheet    must look up:                              faces   2 wrong   2 | door slope (y < 0): 2 of 2 wrong, back slope: 0 of 0 wrong
+NEW facing ridge             must look up:                              faces   4 wrong   2 | door slope (y < 0): 2 of 2 wrong, back slope: 0 of 2 wrong
 NEW facing bottom            must look down:                            faces   2 wrong   0
-NEW facing roof rag          must look up:                              faces  18 wrong   0 | door slope (y < 0): 0 of 12 wrong, back slope: 0 of 6 wrong
-NEW facing TOTAL wrong 0 of 130
-NEW uv UVMap range 0.0040..0.9960 overlapping texels at 2048: 0
+NEW facing roof rag          must look up:                              faces  18 wrong  18 | door slope (y < 0): 12 of 12 wrong, back slope: 6 of 6 wrong
+NEW facing TOTAL wrong 40 of 130
+NEW uv UVMap range 0.0040..0.9959 overlapping texels at 2048: 0
 NEW uv LightmapUV range 0.0100..0.9900 overlapping texels at 2048: 0
 NEW texture in material: ['T_BanditShedTripo_D.png']
 TEXTURES colour 1024x1024, mask 1024x1024 channels=4
-ROUNDTRIP PASS
+ROUNDTRIP FAIL
 Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
 
 Blender quit

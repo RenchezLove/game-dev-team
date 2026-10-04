@@ -19,6 +19,12 @@ mat = me.materials[0]
 tn = mat.node_tree.nodes.new('ShaderNodeTexImage'); tn.image = tex
 mat.node_tree.links.new(tn.outputs['Color'], mat.node_tree.nodes['Principled BSDF'].inputs['Base Color'])
 mat.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value = 0.9
+# reference for the facing test: centre and part of every triangle of the work mesh (the FBX keeps no part numbers)
+_T = len(me.polygons)
+REF_C = np.zeros(_T * 3); me.polygons.foreach_get('center', REF_C); REF_C = REF_C.reshape(-1, 3)
+REF_P = np.zeros(_T, np.int32); me.attributes['part'].data.foreach_get('value', REF_P)
+PN = {1: 'walls', 2: 'gables', 3: 'doorway', 4: 'door', 5: 'step', 6: 'rag over the door', 7: 'window boards', 8: 'tin patches', 9: 'sheathing', 10: 'soffit',
+      11: 'slate', 12: 'tin roof sheet', 13: 'ridge', 14: 'bottom', 15: 'roof rag'}
 addon_utils.enable('io_scene_fbx')
 PC.export_one(ob, FBX)
 print('FILE %s %.1f KB' % (FBX, os.path.getsize(FBX) / 1024))
@@ -85,12 +91,52 @@ def stats(tag, o):
     return cs
 
 
+def facing(tag, o):
+    """Unreal does not draw the back of a face: every face of the re-imported FBX must look where it is seen from.
+    Roof sheets, ridge, roof rag, sheathing: up.  Soffit, bottom: down.  Walls, gables, tin patches: away from the middle
+    of the shed along the wall normal.  Rag over the door, window boards: towards -Y (they hang on the front wall).
+    Door, step (closed boxes): away from their own middle.  Doorway (a niche): towards its own middle."""
+    me = o.data; mw = o.matrix_world; n3 = mw.to_3x3()
+    C = np.array([mw @ p.center for p in me.polygons]); N = np.array([(n3 @ p.normal).normalized() for p in me.polygons])
+    d = np.linalg.norm(C[:, None, :] - REF_C[None, :, :], axis=2)
+    part = REF_P[d.argmin(1)]
+    print('%s facing: %d faces matched to the work mesh, worst centre distance %.6f m' % (tag, len(C), d.min(1).max()))
+    bad_total = 0 if d.min(1).max() < 1e-3 else 10 ** 6
+    for p in sorted(set(part.tolist())):
+        q = part == p; c, n = C[q], N[q]
+        if p in (9, 11, 12, 13, 15):
+            good = n[:, 2] > 0.05; rule = 'up'
+        elif p in (10, 14):
+            good = n[:, 2] < -0.05; rule = 'down'
+        elif p in (1, 2, 8):
+            ax = np.abs(n[:, :2]).argmax(1); i = np.arange(len(n))
+            good = n[i, ax] * c[i, ax] > 0; rule = 'away from the middle of the shed'
+        elif p in (6, 7):
+            good = n[:, 1] < -0.05; rule = 'towards -Y'
+        elif p in (4, 5):
+            good = ((c - c.mean(0)) * n).sum(1) > 0; rule = 'away from the middle of the box'
+        else:
+            good = ((c.mean(0) - c) * n).sum(1) > 0; rule = 'into the niche'
+        bad = int((~good).sum()); bad_total += bad
+        extra = ''
+        if p in (11, 12, 13, 15):
+            fr = c[:, 1] < 0
+            extra = ' | door slope (y < 0): %d of %d wrong, back slope: %d of %d wrong' % ((~good & fr).sum(), fr.sum(), (~good & ~fr).sum(), (~fr).sum())
+        print('%s facing %-17s must look %-32s faces %3d wrong %3d%s' % (tag, PN[p], rule + ':', q.sum(), bad, extra))
+    print('%s facing TOTAL wrong %d of %d' % (tag, bad_total, len(C)))
+    return bad_total
+
+
+if os.path.exists(FBX + '.before'):                          # the file as it was before this export (kept by hand for a before / after record)
+    ms, types = load(FBX + '.before')
+    facing('BEFORE', ms[0])
 ms, types = load(OLD)
 old = stats('OLD', ms[0])
 ms, types = load(FBX)
 print('NEW objects in file: %s' % types)
 new = stats('NEW', ms[0])
 m2 = ms[0].data
+wrong = facing('NEW', ms[0])
 ovs = []
 for layer in [u.name for u in m2.uv_layers]:
     ov, lo, hi = overlaps(m2, layer); ovs.append(ov)
@@ -101,5 +147,5 @@ print('TEXTURES colour %dx%d, mask %dx%d channels=%d' % (t1.size[0], t1.size[1],
 tris = sum(len(p.vertices) - 2 for p in m2.polygons)
 ok = (len(ms) == 1 and tris <= 352 and len(m2.materials) == 1 and [u.name for u in m2.uv_layers] == ['UVMap', 'LightmapUV']
       and np.abs(new.min(0)[:2] - old.min(0)[:2]).max() < 2e-3 and np.abs(new.max(0)[:2] - old.max(0)[:2]).max() < 2e-3 and abs(new.min(0)[2]) < 1e-4
-      and sum(ovs) == 0 and t1.size[0] == 1024 and t2.size[0] == 1024 and t2.channels == 4)
+      and wrong == 0 and sum(ovs) == 0 and t1.size[0] == 1024 and t2.size[0] == 1024 and t2.channels == 4)
 print('ROUNDTRIP', 'PASS' if ok else 'FAIL')

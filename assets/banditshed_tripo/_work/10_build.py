@@ -38,6 +38,13 @@ def box(M, mn, mx, part, g=0, skip=()):
          '-y': [(x0, y0, z0), (x1, y0, z0), (x1, y0, z1), (x0, y0, z1)], '+y': [(x1, y1, z0), (x0, y1, z0), (x0, y1, z1), (x1, y1, z1)],
          '-x': [(x0, y1, z0), (x0, y0, z0), (x0, y0, z1), (x0, y1, z1)], '+x': [(x1, y0, z0), (x1, y1, z0), (x1, y1, z1), (x1, y0, z1)]}
     return [quad([M @ Vector(p) for p in pts], part, g) for k, pts in F.items() if k not in skip]
+def face_up(f):
+    """Roof coverings are one-sided and Unreal does not draw the back: turn the face to look up.
+    A new bmesh face has a zero normal until normal_update() - without it this test never fires."""
+    f.normal_update()
+    if f.normal.z < 0:
+        f.normal_flip()
+    return f
 I4 = Matrix.Identity(4)
 
 # ---- walls (outward normals), closed bottom, no top (it is inside the roof deck) ----
@@ -50,7 +57,7 @@ quad([(WX, -WY, 0), (WX, WY, 0), (WX, WY, WH), (WX, -WY, WH)], P_WALL)          
 quad([(-WX, WY, 0), (WX, WY, 0), (WX, -WY, 0), (-WX, -WY, 0)], P_BOTTOM)
 # door recess (dark inside), its floor is level with the step
 RD, FZ = 0.75, 0.12
-quad([(DX, -WY + RD, FZ), (-DX, -WY + RD, FZ), (-DX, -WY + RD, DH), (DX, -WY + RD, DH)], P_RECESS)       # back
+quad([(-DX, -WY + RD, FZ), (DX, -WY + RD, FZ), (DX, -WY + RD, DH), (-DX, -WY + RD, DH)], P_RECESS)       # back (looks -Y, at the viewer)
 quad([(-DX, -WY, FZ), (-DX, -WY + RD, FZ), (-DX, -WY + RD, DH), (-DX, -WY, DH)], P_RECESS)             # left cheek (looks +X)
 quad([(DX, -WY + RD, FZ), (DX, -WY, FZ), (DX, -WY, DH), (DX, -WY + RD, DH)], P_RECESS)                 # right cheek
 quad([(-DX, -WY, DH), (-DX, -WY + RD, DH), (DX, -WY + RD, DH), (DX, -WY, DH)], P_RECESS)               # ceiling (looks down)
@@ -96,9 +103,7 @@ def sheet(F, ac, b0, b1, h0, w, phi, part, kind, s, r, c):
     ln = b1 - b0
     M = (F @ Matrix.Translation((ac, b0, h0 + SA / 2)) @ Matrix.Translation((0, ln / 2, 0)) @ Matrix.Rotation(phi, 4, 'Z') @ Matrix.Translation((0, -ln / 2, 0)))
     g = new_grp(M, [kind, s, r, c, w, ln])
-    f = quad([M @ Vector(p) for p in ((-w / 2, 0, 0), (w / 2, 0, 0), (w / 2, ln, 0), (-w / 2, ln, 0))], part, g)
-    if f.normal.dot(F.col[2].to_3d()) < 0:
-        f.normal_flip()
+    face_up(quad([M @ Vector(p) for p in ((-w / 2, 0, 0), (w / 2, 0, 0), (w / 2, ln, 0), (-w / 2, ln, 0))], part, g))
 for s in (-1, 1):
     F = Matrix(((1, 0, 0, 0), (0, s * CS, s * SN, 0), (0, -SN, CS, ZR), (0, 0, 0, 1)))
     for r, (b0, b1, h0) in enumerate(ROWS):
@@ -122,9 +127,7 @@ for s in (-1, 1):
     def sl(b):
         return (s * (b * CS + h * SN), ZR - b * SN + h * CS)
     y1, z1 = sl(0.20); z0 = ZR + h / CS
-    f = quad([(-HX, 0, z0), (HX, 0, z0), (HX, y1, z1), (-HX, y1, z1)], P_RIDGE)
-    if f.normal.z < 0:
-        f.normal_flip()
+    face_up(quad([(-HX, 0, z0), (HX, 0, z0), (HX, y1, z1), (-HX, y1, z1)], P_RIDGE))
 # red rag thrown over the ridge: a short end on the back slope, a long one with a torn lower edge on the front slope
 def on_slope(s, a, b, h):
     return (a, s * (b * CS + h * SN), ZR - b * SN + h * CS)
@@ -135,9 +138,7 @@ rows = [[on_slope(1, a + 0.05, b, 0.125) for a, b in zip(RA, (0.44, 0.52, 0.38, 
         [on_slope(-1, a - 0.09 + da, b, 0.09) for a, b, da in zip(RA, (1.30, 1.08, 1.38, 1.17), (0.03, 0.0, -0.02, 0.04))]]
 for j in range(3):
     for i in range(3):
-        f = quad([rows[j][i], rows[j][i + 1], rows[j + 1][i + 1], rows[j + 1][i]], P_ROOFRAG)
-        if f.normal.z < 0:
-            f.normal_flip()
+        face_up(quad([rows[j][i], rows[j][i + 1], rows[j + 1][i + 1], rows[j + 1][i]], P_ROOFRAG))
 
 for v in bm.verts:                                           # everything stays inside the old footprint
     v.co.x = max(-HX, min(HX, v.co.x)); v.co.y = max(-HY, min(HY, v.co.y))

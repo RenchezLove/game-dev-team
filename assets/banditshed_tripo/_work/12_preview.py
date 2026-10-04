@@ -1,5 +1,5 @@
-"""Preview renders of the new wolf den (Eevee, flat shade): game-camera angle, from the mouth side, and QC views.
-Run: blender.exe -b wolfden_work.blend --factory-startup --python 12_preview.py -- <texture png> [qc]
+"""Preview renders of the bandit shed (Eevee, flat shade, back faces culled as in Unreal): game-camera angle, from the door side, and QC views.
+Run: blender.exe -b banditshed_work.blend --factory-startup --python 12_preview.py -- <texture png> [qc]
 """
 import bpy, math, sys
 from mathutils import Vector
@@ -11,6 +11,7 @@ mat = bpy.data.materials.new('prev'); mat.use_nodes = True
 t = mat.node_tree.nodes.new('ShaderNodeTexImage'); t.image = img; t.interpolation = 'Closest' if 'mask' in args else 'Linear'
 mat.node_tree.links.new(t.outputs['Color'], mat.node_tree.nodes['Principled BSDF'].inputs['Base Color'])
 mat.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value = 0.9
+mat.use_backface_culling = True                       # Unreal does not draw the back of a face - show the same here
 ob.data.materials.clear(); ob.data.materials.append(mat)
 ob.data.uv_layers['UVMap'].active_render = True
 sc = bpy.context.scene
