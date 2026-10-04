@@ -1,0 +1,36 @@
+00:00.390  blend            | Read blend: "E:\game-dev-team\assets\banditshed_tripo\_work\banditshed_work.blend"
+E:\game-dev-team\assets\banditshed_tripo\_work\12_preview.py:10: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new('prev'); mat.use_nodes = True
+E:\game-dev-team\assets\banditshed_tripo\_work\12_preview.py:22: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+E:\game-dev-team\assets\banditshed_tripo\_work\12_preview.py:26: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm = bpy.data.materials.new('ground'); gm.use_nodes = True
+00:03.062  render           | Saved: 'E:\game-dev-team\assets\banditshed_tripo\renders\banditshed_game_camera.png'
+00:03.609  render           | Saved: 'E:\game-dev-team\assets\banditshed_tripo\renders\banditshed_door_side.png'
+00:04.093  render           | Saved: 'E:\game-dev-team\assets\banditshed_tripo\renders\_qc_back.png'
+00:04.578  render           | Saved: 'E:\game-dev-team\assets\banditshed_tripo\renders\_qc_side.png'
+00:05.078  render           | Saved: 'E:\game-dev-team\assets\banditshed_tripo\renders\_qc_top.png'
+00:05.562  render           | Saved: 'E:\game-dev-team\assets\banditshed_tripo\renders\_qc_door_close.png'
+RENDER E:/game-dev-team/assets/banditshed_tripo/renders/banditshed_game_camera.png
+RENDER E:/game-dev-team/assets/banditshed_tripo/renders/banditshed_door_side.png
+RENDER E:/game-dev-team/assets/banditshed_tripo/renders/_qc_back.png
+RENDER E:/game-dev-team/assets/banditshed_tripo/renders/_qc_side.png
+RENDER E:/game-dev-team/assets/banditshed_tripo/renders/_qc_top.png
+RENDER E:/game-dev-team/assets/banditshed_tripo/renders/_qc_door_close.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
+00:00.313  blend            | Read blend: "E:\game-dev-team\assets\banditshed_tripo\_work\banditshed_work.blend"
+E:\game-dev-team\assets\banditshed_tripo\_work\12_preview.py:10: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new('prev'); mat.use_nodes = True
+E:\game-dev-team\assets\banditshed_tripo\_work\12_preview.py:22: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+E:\game-dev-team\assets\banditshed_tripo\_work\12_preview.py:26: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm = bpy.data.materials.new('ground'); gm.use_nodes = True
+00:02.032  render           | Saved: 'E:\game-dev-team\assets\banditshed_tripo\renders\qc_mask_on_banditshed_game_camera.png'
+00:02.485  render           | Saved: 'E:\game-dev-team\assets\banditshed_tripo\renders\qc_mask_on_banditshed_door_side.png'
+RENDER E:/game-dev-team/assets/banditshed_tripo/renders/qc_mask_on_banditshed_game_camera.png
+RENDER E:/game-dev-team/assets/banditshed_tripo/renders/qc_mask_on_banditshed_door_side.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

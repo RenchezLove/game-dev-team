@@ -1,0 +1,28 @@
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\banditshed_tripo\_work\banditshed_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/banditshed_tripo/SM_BanditShed.fbx'
+export finished in 0.0077 sec.
+EXPORTED E:/game-dev-team/assets/banditshed_tripo/SM_BanditShed.fbx
+FILE E:/game-dev-team/assets/banditshed_tripo/SM_BanditShed.fbx 27.4 KB
+Info: Saved as "banditshed_work.blend"
+FBX version: 7400
+OLD tris=352 verts=236 min=[-2.55  -1.983 -0.   ] max=[2.55  1.983 3.55 ] size=[5.1   3.966 3.55 ] origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+OLD materials=['M_BanditShed'] uv=['UVMap'] vertex_colours=['Col'] smooth_faces=0
+OLD door test, rays along Y at height 1.3 m: in the door opening (x 0.43) a ray from -Y stops at y -1.67, beside the door (x -1.6 / 1.0) at y -1.78 / -1.78; from +Y at x 0.43 it stops at y 1.78
+OLD roof top (highest 35 cm): x 1.02..1.38 y 0.37..0.73
+OLD bottom: 299 of 299 rays from below (x +-2.2, y +-1.2) meet a face at z 0
+FBX version: 7400
+NEW objects in file: ['MESH']
+NEW tris=130 verts=262 min=[-2.55  -1.983 -0.   ] max=[2.55  1.983 3.315] size=[5.1   3.966 3.315] origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0)
+NEW materials=['M_BanditShedTripo'] uv=['UVMap', 'LightmapUV'] vertex_colours=[] smooth_faces=0
+NEW door test, rays along Y at height 1.3 m: in the door opening (x 0.43) a ray from -Y stops at y -0.75, beside the door (x -1.6 / 1.0) at y -1.50 / -1.50; from +Y at x 0.43 it stops at y 1.50
+NEW roof top (highest 35 cm): x -2.55..2.55 y -0.59..0.53
+NEW bottom: 299 of 299 rays from below (x +-2.2, y +-1.2) meet a face at z 0
+NEW uv UVMap range 0.0040..0.9959 overlapping texels at 2048: 0
+NEW uv LightmapUV range 0.0100..0.9900 overlapping texels at 2048: 0
+NEW texture in material: ['T_BanditShedTripo_D.png']
+TEXTURES colour 1024x1024, mask 1024x1024 channels=4
+ROUNDTRIP PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
