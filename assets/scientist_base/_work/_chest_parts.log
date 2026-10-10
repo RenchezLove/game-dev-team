@@ -1,0 +1,32 @@
+00:01.938  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\chest_t0.png'
+00:02.157  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\chest_t1.png'
+00:02.375  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\chest_t2.png'
+00:02.594  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\chest_t3.png'
+00:02.813  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\chest_t4.png'
+00:03.032  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\chest_t5.png'
+TEXTURE (4096, 4096)
+OBJ src                  tris  806 min [-0.535 -1.    -0.509] max [0.535 1.    0.509] size [1.07  2.    1.018] uv ['UVMap']
+PART faces  144 min [-0.184  0.955 -0.145] max [0.143 0.984 0.04 ] size [0.327 0.029 0.185]
+PART faces  144 min [-0.182 -0.984 -0.145] max [ 0.143 -0.957  0.039] size [0.326 0.028 0.184]
+PART faces  100 min [-0.505 -0.968 -0.509] max [0.448 0.967 0.509] size [0.953 1.935 1.018]
+PART faces   96 min [ 0.464 -0.058  0.032] max [0.495 0.058 0.123] size [0.031 0.117 0.091]
+PART faces   60 min [ 0.424 -0.011  0.06 ] max [0.535 0.012 0.172] size [0.112 0.023 0.111]
+PART faces   60 min [ 0.452 -0.074 -0.083] max [0.508 0.077 0.05 ] size [0.056 0.151 0.133]
+PART faces   44 min [-0.085  0.954 -0.049] max [0.046 1.    0.105] size [0.131 0.046 0.154]
+PART faces   44 min [-0.086 -1.    -0.049] max [ 0.045 -0.955  0.105] size [0.131 0.045 0.154]
+PART faces   28 min [ 0.433 -0.095  0.206] max [0.46  0.094 0.233] size [0.027 0.189 0.027]
+PART faces   28 min [-0.535  0.459  0.206] max [-0.508  0.634  0.233] size [0.027 0.174 0.027]
+PART faces   28 min [-0.535 -0.634  0.206] max [-0.508 -0.46   0.233] size [0.027 0.174 0.027]
+PART faces   10 min [ 0.43  -0.092 -0.01 ] max [0.446 0.091 0.344] size [0.017 0.183 0.354]
+PART faces   10 min [-0.52   0.465  0.145] max [-0.486  0.628  0.289] size [0.034 0.163 0.144]
+PART faces   10 min [-0.52  -0.629  0.145] max [-0.486 -0.465  0.289] size [0.034 0.163 0.144]
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/chest_t0.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/chest_t1.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/chest_t2.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/chest_t3.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/chest_t4.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/chest_t5.png
+SHEET E:/game-dev-team/assets/scientist_base/_work/_look/chest_sheet.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

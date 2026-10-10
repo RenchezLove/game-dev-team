@@ -1,0 +1,20 @@
+00:00.407  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\chest_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_StashChest/SM_StashChest.fbx'
+export finished in 0.0048 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_StashChest/SM_StashChest.fbx 20.7 KB
+FBX version: 7400
+SM_StashChest objects in file: [('SM_StashChest', 'MESH')]
+SM_StashChest tris=48 verts=32 min=[-5.000e-01 -2.817e-01 -1.000e-04] max=[0.5    0.2383 0.5089] size=[1.    0.52  0.509] (m)
+SM_StashChest origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_StashChest'] uv=['UVMap', 'LightmapUV'] smooth_faces=0
+SM_StashChest facing: 48 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 8, down 8, sideways 32)
+SM_StashChest stored normals: faces whose saved vertex normal looks against the face 0 of 48 (lowest dot 1.000)
+SM_StashChest uv UVMap range 0.0032..0.9968 overlapping texels at 1024: 0
+SM_StashChest uv LightmapUV range 0.0078..0.9922 overlapping texels at 1024: 0
+SM_StashChest texture T_StashChest_D.png 512x512 333.1 KB
+SM_StashChest triangles 48 (allowed 1..70)
+SM_StashChest ROUNDTRIP PASS
+SM_StashChest SUMMARY tris 48 | size cm 100.0 x 52.0 x 50.9 | min cm (-50.0, -28.2, -0.0) max cm (50.0, 23.8, 50.9) | PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

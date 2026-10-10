@@ -1,0 +1,26 @@
+PARTS 21 triangles 1712 verts 940
+PART   0 tris 1199 area    261222 min [-223. -210.   -3.] max [199.  86. 178.] colour [0.27 0.25 0.21] open edges  69 uv [ 0.01 -0.99]..[ 0.99 -0.02] up 453 down 125
+PART   1 tris   20 area      1818 min [ 192. -100.    6.] max [199. -45. 105.] colour [0.36 0.3  0.21] open edges   7 uv [ 0.86 -0.22]..[ 0.91 -0.04] up 2 down 2
+PART   2 tris    8 area      1152 min [ 192. -100.    5.] max [197. -96. 101.] colour [0.36 0.3  0.21] open edges   8 uv [ 0.89 -0.22]..[ 0.91 -0.11] up 0 down 0
+PART   3 tris   39 area       770 min [-273.  -55.    8.] max [-214.  -47.  110.] colour [0.24 0.19 0.12] open edges   3 uv [ 0.94 -0.31]..[ 0.99 -0.01] up 17 down 14
+PART   4 tris   31 area       722 min [-93.  78.  12.] max [-86. 140. 113.] colour [0.25 0.2  0.13] open edges   3 uv [ 0.95 -0.31]..[ 0.99 -0.01] up 10 down 11
+PART   5 tris   31 area       722 min [-244.   83.    9.] max [-207.  132.  111.] colour [0.25 0.2  0.13] open edges   3 uv [ 0.95 -0.31]..[ 0.99 -0.01] up 10 down 11
+PART   6 tris   31 area       701 min [ 123. -254.   13.] max [ 163. -206.  114.] colour [0.23 0.17 0.11] open edges   3 uv [ 0.94 -0.31]..[ 0.99 -0.01] up 9 down 10
+PART   7 tris   31 area       701 min [135.  66.  17.] max [180. 113. 117.] colour [0.23 0.18 0.12] open edges   3 uv [ 0.94 -0.31]..[ 0.99 -0.01] up 8 down 11
+PART   8 tris   31 area       701 min [-260. -235.    6.] max [-220. -189.  108.] colour [0.23 0.17 0.11] open edges   3 uv [ 0.94 -0.31]..[ 0.99 -0.01] up 8 down 11
+PART   9 tris   31 area       701 min [21. 72. 14.] max [ 28. 134. 115.] colour [0.23 0.18 0.12] open edges   3 uv [ 0.94 -0.31]..[ 0.99 -0.01] up 8 down 11
+PART  10 tris   31 area       701 min [   6. -261.   10.] max [  10. -201.  112.] colour [0.23 0.17 0.11] open edges   3 uv [ 0.94 -0.31]..[ 0.99 -0.01] up 8 down 11
+PART  11 tris   31 area       701 min [-108. -256.    8.] max [-104. -196.  110.] colour [0.23 0.17 0.11] open edges   3 uv [ 0.94 -0.31]..[ 0.99 -0.01] up 8 down 11
+PART  12 tris   22 area       215 min [-263. -237.   -7.] max [-251. -225.   14.] colour [0.14 0.13 0.11] open edges   0 uv [ 0.44 -0.97]..[ 0.46 -0.87] up 7 down 5
+PART  13 tris   22 area       215 min [-246.  123.   -4.] max [-235.  135.   17.] colour [0.14 0.13 0.11] open edges   0 uv [ 0.44 -0.97]..[ 0.46 -0.87] up 7 down 5
+PART  14 tris   22 area       215 min [ 155. -256.    0.] max [ 165. -244.   21.] colour [0.14 0.13 0.11] open edges   0 uv [ 0.44 -0.97]..[ 0.46 -0.87] up 12 down 0
+PART  15 tris   22 area       215 min [-89. 128.  -1.] max [-85. 141.  20.] colour [0.14 0.13 0.11] open edges   0 uv [ 0.44 -0.97]..[ 0.46 -0.87] up 7 down 5
+PART  16 tris   22 area       215 min [   6. -263.   -3.] max [  11. -250.   18.] colour [0.14 0.13 0.11] open edges   0 uv [ 0.44 -0.97]..[ 0.46 -0.87] up 10 down 2
+PART  17 tris   22 area       215 min [172. 104.   3.] max [182. 115.  25.] colour [0.14 0.13 0.11] open edges   0 uv [ 0.44 -0.97]..[ 0.46 -0.87] up 7 down 5
+PART  18 tris   22 area       215 min [ 25. 123.   1.] max [ 29. 136.  22.] colour [0.14 0.13 0.11] open edges   0 uv [ 0.44 -0.97]..[ 0.46 -0.87] up 7 down 5
+PART  19 tris   22 area       215 min [-108. -258.   -4.] max [-103. -244.   16.] colour [0.14 0.13 0.11] open edges   0 uv [ 0.44 -0.97]..[ 0.46 -0.87] up 7 down 5
+PART  20 tris   22 area       215 min [-275.  -52.   -6.] max [-261.  -48.   15.] colour [0.14 0.13 0.11] open edges   0 uv [ 0.44 -0.97]..[ 0.46 -0.87] up 7 down 5
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+OBJ import of 'Tent.obj' took 21.95 ms
+
+Blender quit

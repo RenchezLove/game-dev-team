@@ -1,0 +1,21 @@
+E:\game-dev-team\assets\scientist_base\_work\00_inspect.py:64: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+00:01.828  gpu.texture      | ERROR Failed to create GPU texture from Blender image
+00:02.063  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\crate_px.png'
+00:02.359  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\crate_nx.png'
+00:02.672  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\crate_py.png'
+00:03.000  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\crate_ny.png'
+00:03.453  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\crate_top.png'
+00:03.922  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\crate_q.png'
+00:04.359  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\crate_q2.png'
+FBX version: 7400
+SCENE unit scale 1.0, objects 1
+OBJ SM_Crate_01                  tris   336 verts   280 min [-0.5 -0.5 -0.5] max [0.5 0.5 0.5] size [1. 1. 1.] parent None mods [] hidden False
+    loc (0.0, 0.0, 0.0) rot (-0.0, 0.0, 0.0) scale (1.0, 1.0, 1.0) uv ['UVMap'] cols [] mats ['Material'] faces per mat [168]
+ALL min [-0.5 -0.5 -0.5] max [0.5 0.5 0.5] size [1. 1. 1.]
+MAT Material image node Image Texture -> C:\Users\mrtho\Documents\Unreal Projects\LowPolyVillage\Content\LowPolyMarket\Textures\T_PropColorMap.psd | linked to [('Principled BSDF', 'Base Color')]
+MAT Material base colour (0.8, 0.8, 0.8, 1.0) alpha 1.0 blend DITHERED
+IMG T_PropColorMap.psd.001 (0, 0) C:\Users\mrtho\Documents\Unreal Projects\LowPolyVillage\Content\LowPolyMarket\Textures\T_PropColorMap.psd packed False
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

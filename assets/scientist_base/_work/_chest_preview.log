@@ -1,0 +1,13 @@
+00:00.344  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\chest_work.blend"
+00:02.000  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\SM_StashChest_game.png'
+00:02.391  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\SM_StashChest_front.png'
+00:02.782  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\SM_StashChest_back.png'
+00:03.250  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\SM_StashChest_top.png'
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/SM_StashChest_game.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/SM_StashChest_front.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/SM_StashChest_back.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/SM_StashChest_top.png
+SHEET E:/game-dev-team/assets/scientist_base/SM_StashChest/SM_StashChest_preview.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

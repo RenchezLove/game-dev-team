@@ -737,7 +737,7 @@ def build(C):
         bm.to_mesh(ob.data); bm.free(); ob.data.update()
         for p in ob.data.polygons:
             p.use_smooth = False
-        for a in [a for a in ob.data.attributes if a.name == 'isleg']:
+        for a in [a for a in ob.data.attributes if a.name in ('isleg', 'custom_normal')]:   # stored normals of the glb must not go into the FBX
             ob.data.attributes.remove(a)
         used = {ob.vertex_groups[g.group].name for v in ob.data.vertices for g in v.groups if g.weight > 1e-4}
         for vg in list(ob.vertex_groups):

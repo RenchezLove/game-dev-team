@@ -1,0 +1,59 @@
+E:\game-dev-team\assets\scientist_base\_work\uaz_10_build.py:89: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  flatmat = bpy.data.materials.new('src'); flatmat.use_nodes = True
+FBX version: 7400
+PART glass   tris    2 min [-0.55  2.04  2.11] max [-0.08  2.08  2.41] lum 0.28 opacity 0.81
+PART glass   tris    2 min [0.07 2.04 2.11] max [0.54 2.08 2.41] lum 0.24 opacity 0.81
+PART glass   tris    2 min [ 0.75 -1.69  2.02] max [ 0.77 -0.95  2.47] lum 0.22 opacity 0.81
+PART glass   tris    2 min [ 0.75 -0.78  2.02] max [ 0.78 -0.4   2.47] lum 0.23 opacity 0.81
+PART glass   tris    2 min [ 0.75 -0.28  2.02] max [0.78 0.57 2.47] lum 0.22 opacity 0.81
+PART glass   tris    2 min [-0.78 -0.28  2.02] max [-0.75  0.57  2.47] lum 0.22 opacity 0.81
+PART glass   tris    2 min [-0.77 -1.69  2.02] max [-0.75 -0.95  2.47] lum 0.22 opacity 0.81
+PART detail  tris   54 min [ 0.8  -0.09  1.42] max [ 0.9 -0.   1.5] lum 0.19 opacity 1.00
+PART detail  tris   54 min [-0.9  -0.59  1.42] max [-0.8  -0.51  1.5 ] lum 0.19 opacity 1.00
+PART detail  tris   42 min [0.14 2.15 1.71] max [0.29 2.23 1.76] lum 0.22 opacity 1.00
+PART detail  tris   22 min [0.32 2.15 1.69] max [0.44 2.19 1.78] lum 0.60 opacity 1.00
+PART drop    tris  208 min [-0.67 -1.7   2.72] max [0.67 2.05 2.77] lum 0.06 opacity 1.00
+PART drop    tris  208 min [-0.67 -1.7   2.89] max [0.67 2.05 2.94] lum 0.06 opacity 1.00
+PART bumper  tris   20 min [-0.8   2.11  1.19] max [0.8  2.21 1.33] lum 0.05 opacity 1.00
+PART detail  tris   10 min [-0.12  2.18  1.21] max [0.12 2.24 1.31] lum 0.38 opacity 1.00
+PART drop    tris  128 min [0.13 2.06 1.4 ] max [0.17 2.37 2.51] lum 0.03 opacity 1.00
+PART drop    tris  128 min [0.43 2.06 1.4 ] max [0.46 2.37 2.51] lum 0.02 opacity 1.00
+PART bumper  tris   20 min [-0.67 -2.21  1.12] max [ 0.67 -2.11  1.25] lum 0.05 opacity 1.00
+PART detail  tris   10 min [-0.12 -2.24  1.14] max [ 0.12 -2.18  1.23] lum 0.39 opacity 1.00
+PART drop    tris  264 min [-0.76 -2.26  1.25] max [ 0.76 -2.13  1.88] lum 0.05 opacity 1.00
+PART drop    tris   96 min [-0.72 -2.3   1.48] max [ 0.72 -2.15  1.55] lum 0.07 opacity 1.00
+PART detail  tris   22 min [0.74 2.09 1.49] max [0.83 2.12 1.72] lum 0.30 opacity 1.00
+PART detail  tris   34 min [ 0.55 -2.14  1.36] max [ 0.66 -2.1   1.48] lum 0.46 opacity 1.00
+PART detail  tris   46 min [ 0.39 -2.13  1.53] max [ 0.61 -2.06  1.76] lum 0.56 opacity 0.91
+PART detail  tris   32 min [ 0.41 -2.13  1.55] max [ 0.59 -2.05  1.74] lum 0.41 opacity 1.00
+PART glass   tris   10 min [-0.73 -1.98  2.  ] max [ 0.73 -1.58  2.51] lum 0.24 opacity 0.81
+PART drop    tris  224 min [ 0.21 -1.79  1.87] max [ 0.61 -1.45  2.11] lum 0.23 opacity 1.00
+PART drop    tris  110 min [ 0.38 -1.91  1.57] max [ 0.44 -1.6   2.01] lum 0.24 opacity 1.00
+PART mirror  tris   60 min [ 0.9  -1.63  2.04] max [ 1.04 -1.57  2.27] lum 0.40 opacity 1.00
+PART drop    tris  128 min [-0.47  2.06  1.4 ] max [-0.43  2.37  2.51] lum 0.03 opacity 1.00
+PART drop    tris  128 min [-0.18  2.06  1.4 ] max [-0.14  2.37  2.51] lum 0.02 opacity 1.00
+PART drop    tris  704 min [-0.62  1.22  2.76] max [0.15 1.99 3.04] lum 0.21 opacity 1.00
+PART mirror  tris   60 min [-1.04 -1.63  2.04] max [-0.91 -1.57  2.27] lum 0.40 opacity 1.00
+PART detail  tris   22 min [-0.83  2.09  1.49] max [-0.74  2.12  1.72] lum 0.30 opacity 1.00
+PART detail  tris   34 min [-0.66 -2.14  1.36] max [-0.55 -2.1   1.48] lum 0.46 opacity 1.00
+PART detail  tris   46 min [-0.61 -2.13  1.53] max [-0.39 -2.06  1.76] lum 0.56 opacity 0.91
+PART detail  tris   32 min [-0.59 -2.13  1.55] max [-0.41 -2.05  1.74] lum 0.41 opacity 1.00
+PART step    tris  120 min [-0.89 -0.8   0.99] max [-0.76  0.8   1.08] lum 0.06 opacity 1.00
+PART step    tris  120 min [ 0.77 -0.8   0.99] max [0.9  0.8  1.08] lum 0.06 opacity 1.00
+SORT (parts, triangles): {'body': (4, 1606), 'glass': (8, 24), 'wheel': (4, 2816), 'bumper': (2, 40), 'step': (2, 240), 'mirror': (2, 120), 'detail': (14, 460), 'drop': (98, 3480)}
+SCALE per axis x 1.0883 y 0.9875 z 0.9382 (source body 1.783 x 4.339, ground to roof 2.196)
+SHELL floor faces removed 5 (lowest shell point 0.277)
+BUDGET rebuilt parts 176 + glass and bumpers 64 + shell 1053 (was 1601) = 1293 of 1293
+UAZ FACING fixed: flipped 0 of 1293 faces; open on both sides 0; closed on both sides 377
+UV UVMap angle 45 overlapping texels at 1024: 0
+UV UVMap overlapping texels at 1024: 0
+Info: Circular dependency for image "T_UAZ452_D" from object "SM_UAZ452"
+Info: Baking map saved to internal image, save it externally or pack it
+BAKE black texels (rgb<0.02) 45.5%, mean colour [0.108 0.118 0.098]
+MIRRORS repainted texels 7794 (faces 40)
+UV LightmapUV angle 45 overlapping texels 0
+RESULT tris 1293 min [-1.131 -2.18   0.   ] max [1.131 2.18  2.06 ] size [2.261 4.36  2.06 ]
+Info: Saved as "uaz_work.blend"
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

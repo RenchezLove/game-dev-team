@@ -1,0 +1,20 @@
+00:00.359  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\tent_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_ArmyTent/SM_ArmyTent.fbx'
+export finished in 0.0067 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_ArmyTent/SM_ArmyTent.fbx 86.3 KB
+FBX version: 7400
+SM_ArmyTent objects in file: [('SM_ArmyTent', 'MESH')]
+SM_ArmyTent tris=1368 verts=825 min=[-3.8225 -4.     -0.    ] max=[3.8455 5.1078 3.3603] size=[7.6679 9.1078 3.3603] (m)
+SM_ArmyTent origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_ArmyTent'] uv=['UVMap', 'LightmapUV'] smooth_faces=0
+SM_ArmyTent facing: 1368 faces compared with the builder directions, worst centre distance 0.000001 m, wrong 0, builder faces without a pair 0 (look up 476, down 92, sideways 800)
+SM_ArmyTent stored normals: faces whose saved vertex normal looks against the face 0 of 1368 (lowest dot 1.000)
+SM_ArmyTent uv UVMap range 0.0035..0.9965 overlapping texels at 1024: 0
+SM_ArmyTent uv LightmapUV range 0.0117..0.9883 overlapping texels at 1024: 0
+SM_ArmyTent texture T_ArmyTent_D.png 1024x1024 1097.6 KB
+SM_ArmyTent triangles 1368 (allowed 1..1500)
+SM_ArmyTent ROUNDTRIP PASS
+SM_ArmyTent SUMMARY tris 1368 | size cm 766.8 x 910.8 x 336.0 | min cm (-382.2, -400.0, -0.0) max cm (384.5, 510.8, 336.0) | PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

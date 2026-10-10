@@ -1,0 +1,36 @@
+00:02.031  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_cull_0.png'
+00:02.313  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_cull_1.png'
+00:02.594  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_cull_2.png'
+00:02.875  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_cull_3.png'
+00:03.266  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_cull_4.png'
+00:03.703  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_cull_5.png'
+IMPORT tris 3424
+DOUBLES same direction 0, flipped 1712 of 3424 faces
+AFTER WELD faces 1712
+LOOP edges  69 min [-219.9 -207.2   -2.7] max [199.2  85.7 105. ]
+SLICE z~ 20: x -221..199 y -208..86 n 58
+SLICE z~ 60: x -192..115 y -206..83 n 48
+SLICE z~100: x -223..198 y -209..85 n 69
+SLICE z~115: x -223..195 y -210..86 n 196
+SLICE z~130: x -192..107 y -172..49 n 51
+SLICE z~150: x -134..19 y -103..-20 n 17
+SLICE z~170: x -104..-45 y -62..-59 n 2
+LOW canvas verts: z -2.7..9.5
+  bottom x<-200: z mean 0.3 (n 26) x -221..-201 y -191..86
+  bottom x>140: z mean 6.9 (n 21) x 140..199 y -103..68
+  bottom y<-190: z mean 2.5 (n 33) x -218..130 y -208..-191
+  bottom y>70: z mean 4.1 (n 34) x -208..123 y 70..86
+CANVAS area by direction: +x 26427 -x 31535 +y 46331 -y 45925 up 115059 down 3063
+DOWN faces: n 54, centres min [-219. -209.   -1.] max [197.  75. 115.]
+VESTIBULE faces (x>150): n 78 min [ 152. -103.    6.] max [199. -39. 108.]; by direction +x 49 -x 0 +y 10 -y 10 up 14 down 4
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/tent_cull_0.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/tent_cull_1.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/tent_cull_2.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/tent_cull_3.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/tent_cull_4.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/tent_cull_5.png
+SHEET E:/game-dev-team/assets/scientist_base/_work/_look/tent_cull_sheet.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+OBJ import of 'Tent.obj' took 20.75 ms
+
+Blender quit

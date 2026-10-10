@@ -1,0 +1,13 @@
+00:00.359  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\tent_work.blend"
+00:01.875  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\SM_ArmyTent_c_0_10.png'
+00:02.172  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\SM_ArmyTent_c_20_45.png'
+00:02.437  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\SM_ArmyTent_c_90_10.png'
+00:02.734  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\SM_ArmyTent_c_200_12.png'
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/SM_ArmyTent_c_0_10.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/SM_ArmyTent_c_20_45.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/SM_ArmyTent_c_90_10.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/SM_ArmyTent_c_200_12.png
+SHEET E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/SM_ArmyTent_c_sheet.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

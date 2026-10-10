@@ -1,0 +1,136 @@
+00:00.375  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\uazkit_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Body.fbx'
+export finished in 0.0055 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Body.fbx 53.7 KB
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Door_FL.fbx'
+export finished in 0.0033 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Door_FL.fbx 22.2 KB
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Door_FR.fbx'
+export finished in 0.0034 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Door_FR.fbx 22.2 KB
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Door_Side.fbx'
+export finished in 0.0036 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Door_Side.fbx 21.2 KB
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_RearDoor_L.fbx'
+export finished in 0.0041 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_RearDoor_L.fbx 20.7 KB
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_RearDoor_R.fbx'
+export finished in 0.0054 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_RearDoor_R.fbx 20.8 KB
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Glass.fbx'
+export finished in 0.0036 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Glass.fbx 19.2 KB
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Wheel.fbx'
+export finished in 0.0040 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_Wheel.fbx 19.3 KB
+FBX version: 7400
+SM_UAZ452_Body objects in file: [('SM_UAZ452_Body', 'MESH')]
+SM_UAZ452_Body tris=784 verts=475 min=[-0.9769 -2.18    0.2774] max=[0.9696 2.18   2.06  ] size=[1.9464 4.36   1.7826] (m)
+SM_UAZ452_Body origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_UAZ452Kit'] uv=['UVMap'] smooth_faces=0
+SM_UAZ452_Body facing: 784 faces compared with the builder directions, worst centre distance 0.000001 m, wrong 0, builder faces without a pair 0 (look up 164, down 119, sideways 501)
+SM_UAZ452_Body uv UVMap range 0.0068..0.9932 overlapping texels at 1024: 0
+SM_UAZ452_Body texture T_UAZ452Kit_D.png 1024x1024 721.4 KB
+SM_UAZ452_Body triangles 784 (allowed 0..1293)
+SM_UAZ452_Body ROUNDTRIP PASS
+FBX version: 7400
+SM_UAZ452_Door_FL objects in file: [('SM_UAZ452_Door_FL', 'MESH')]
+SM_UAZ452_Door_FL tris=88 verts=52 min=[-2.426e-01 -9.931e-01 -1.000e-04] max=[ 0.1481 -0.      1.3163] size=[0.3906 0.9931 1.3163] (m)
+SM_UAZ452_Door_FL origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_UAZ452Kit'] uv=['UVMap'] smooth_faces=0
+SM_UAZ452_Door_FL facing: 88 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 13, down 10, sideways 65)
+SM_UAZ452_Door_FL uv UVMap range 0.0254..0.9855 overlapping texels at 1024: 0
+SM_UAZ452_Door_FL texture T_UAZ452Kit_D.png 1024x1024 721.4 KB
+SM_UAZ452_Door_FL triangles 88 (allowed 0..1293)
+SM_UAZ452_Door_FL ROUNDTRIP PASS
+FBX version: 7400
+SM_UAZ452_Door_FR objects in file: [('SM_UAZ452_Door_FR', 'MESH')]
+SM_UAZ452_Door_FR tris=88 verts=52 min=[-1.481e-01 -9.931e-01 -1.000e-04] max=[ 0.2426 -0.      1.3163] size=[0.3906 0.9931 1.3163] (m)
+SM_UAZ452_Door_FR origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_UAZ452Kit'] uv=['UVMap'] smooth_faces=0
+SM_UAZ452_Door_FR facing: 88 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 14, down 9, sideways 65)
+SM_UAZ452_Door_FR uv UVMap range 0.0068..0.9856 overlapping texels at 1024: 0
+SM_UAZ452_Door_FR texture T_UAZ452Kit_D.png 1024x1024 721.4 KB
+SM_UAZ452_Door_FR triangles 88 (allowed 0..1293)
+SM_UAZ452_Door_FR ROUNDTRIP PASS
+FBX version: 7400
+SM_UAZ452_Door_Side objects in file: [('SM_UAZ452_Door_Side', 'MESH')]
+SM_UAZ452_Door_Side tris=60 verts=58 min=[-0.1435 -0.98    0.    ] max=[0.0039 0.     1.06  ] size=[0.1474 0.98   1.06  ] (m)
+SM_UAZ452_Door_Side origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_UAZ452Kit'] uv=['UVMap'] smooth_faces=0
+SM_UAZ452_Door_Side facing: 60 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 10, down 2, sideways 48)
+SM_UAZ452_Door_Side uv UVMap range 0.0770..0.9912 overlapping texels at 1024: 0
+SM_UAZ452_Door_Side texture T_UAZ452Kit_D.png 1024x1024 721.4 KB
+SM_UAZ452_Door_Side triangles 60 (allowed 0..1293)
+SM_UAZ452_Door_Side ROUNDTRIP PASS
+FBX version: 7400
+SM_UAZ452_RearDoor_L objects in file: [('SM_UAZ452_RearDoor_L', 'MESH')]
+SM_UAZ452_RearDoor_L tris=50 verts=48 min=[-0.     -0.0071  0.    ] max=[0.7    0.1034 1.08  ] size=[0.7    0.1105 1.08  ] (m)
+SM_UAZ452_RearDoor_L origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_UAZ452Kit'] uv=['UVMap'] smooth_faces=0
+SM_UAZ452_RearDoor_L facing: 50 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 6, down 2, sideways 42)
+SM_UAZ452_RearDoor_L uv UVMap range 0.2658..0.9909 overlapping texels at 1024: 0
+SM_UAZ452_RearDoor_L texture T_UAZ452Kit_D.png 1024x1024 721.4 KB
+SM_UAZ452_RearDoor_L triangles 50 (allowed 0..1293)
+SM_UAZ452_RearDoor_L ROUNDTRIP PASS
+FBX version: 7400
+SM_UAZ452_RearDoor_R objects in file: [('SM_UAZ452_RearDoor_R', 'MESH')]
+SM_UAZ452_RearDoor_R tris=52 verts=50 min=[-0.7    -0.0071  0.    ] max=[0.     0.1034 1.08  ] size=[0.7    0.1105 1.08  ] (m)
+SM_UAZ452_RearDoor_R origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_UAZ452Kit'] uv=['UVMap'] smooth_faces=0
+SM_UAZ452_RearDoor_R facing: 52 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 6, down 2, sideways 44)
+SM_UAZ452_RearDoor_R uv UVMap range 0.0068..0.9891 overlapping texels at 1024: 0
+SM_UAZ452_RearDoor_R texture T_UAZ452Kit_D.png 1024x1024 721.4 KB
+SM_UAZ452_RearDoor_R triangles 52 (allowed 0..1293)
+SM_UAZ452_RearDoor_R ROUNDTRIP PASS
+FBX version: 7400
+SM_UAZ452_Glass objects in file: [('SM_UAZ452_Glass', 'MESH')]
+SM_UAZ452_Glass tris=14 verts=20 min=[-0.8536 -0.5648  1.3867] max=[0.7913 1.9504 1.8671] size=[1.645  2.5152 0.4804] (m)
+SM_UAZ452_Glass origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_UAZ452Kit'] uv=['UVMap'] smooth_faces=0
+SM_UAZ452_Glass facing: 14 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 0, down 0, sideways 14)
+SM_UAZ452_Glass uv UVMap range 0.2098..0.9472 overlapping texels at 1024: 0
+SM_UAZ452_Glass texture T_UAZ452Kit_D.png 1024x1024 721.4 KB
+SM_UAZ452_Glass triangles 14 (allowed 0..1293)
+SM_UAZ452_Glass ROUNDTRIP PASS
+FBX version: 7400
+SM_UAZ452_Wheel objects in file: [('SM_UAZ452_Wheel', 'MESH')]
+SM_UAZ452_Wheel tris=36 verts=20 min=[-0.1489 -0.3407 -0.3582] max=[0.1489 0.3407 0.3582] size=[0.2978 0.6813 0.7164] (m)
+SM_UAZ452_Wheel origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_UAZ452Kit'] uv=['UVMap'] smooth_faces=0
+SM_UAZ452_Wheel facing: 36 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 4, down 12, sideways 20)
+SM_UAZ452_Wheel uv UVMap range 0.1004..0.9706 overlapping texels at 1024: 0
+SM_UAZ452_Wheel texture T_UAZ452Kit_D.png 1024x1024 721.4 KB
+SM_UAZ452_Wheel triangles 36 (allowed 0..1293)
+SM_UAZ452_Wheel ROUNDTRIP PASS
+TEXTURE 1024x1024 channels 4; paint mask (alpha) set on 49.8% of the picture, values other than 0 and 1: 0
+MOUNTING POINTS (Unreal, cm, from the body origin; X to the right side, nose -Y):
+FBX version: 7400
+  Body              (0.0, -0.0, 0.0)
+FBX version: 7400
+  Door_FL           (-88.8, -186.0, 58.0)
+FBX version: 7400
+  Door_FR           (88.8, -186.0, 58.0)
+FBX version: 7400
+  Door_Side         (95.9, -36.0, 82.0)
+FBX version: 7400
+  RearDoor_L        (-70.0, 211.9, 80.0)
+FBX version: 7400
+  RearDoor_R        (70.0, 211.9, 80.0)
+FBX version: 7400
+  Glass             (0.0, -0.0, 0.0)
+FBX version: 7400
+  Wheel front left  (-80.8, -118.7, 35.8)
+  Wheel front right (80.3, -118.8, 35.8)
+  Wheel rear left   (-80.8, 120.2, 35.8)
+  Wheel rear right  (80.3, 120.2, 35.8)
+WHEEL radius 35.8 cm, width 29.8 cm
+FBX version: 7400
+ASSEMBLED kit: triangles 1280 (limit 1293); min [-1.131 -2.18   0.   ] max [1.131 2.18  2.06 ]
+ONE-PIECE SM_UAZ452: triangles 1293; min [-1.131 -2.18  -0.   ] max [1.131 2.18  2.06 ]
+DISTANCE kit points -> one-piece surface: median 0.0000 m, 95% 0.0101 m, max 0.0668 m (points further than 5 cm: 4 - plugs, cabin floor and inner wheel sides the one-piece model does not have)
+DISTANCE one-piece points -> kit surface: median 0.0000 m, 95% 0.0119 m, max 0.0179 m
+KIT ROUNDTRIP PASS | outer size equal to the one-piece model within 1 cm: True
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

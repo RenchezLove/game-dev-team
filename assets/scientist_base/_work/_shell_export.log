@@ -1,0 +1,18 @@
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\shell_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_ShotgunShell/SM_ShotgunShell.fbx'
+export finished in 0.0040 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_ShotgunShell/SM_ShotgunShell.fbx 18.6 KB
+FBX version: 7400
+SM_ShotgunShell objects in file: [('SM_ShotgunShell', 'MESH')]
+SM_ShotgunShell tris=12 verts=8 min=[-0.0102 -0.035  -0.    ] max=[0.0102 0.035  0.0205] size=[0.0205 0.07   0.0205] (m)
+SM_ShotgunShell origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_ShotgunShell'] uv=['UVMap'] smooth_faces=0
+SM_ShotgunShell facing: 12 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 2, down 2, sideways 8)
+SM_ShotgunShell uv UVMap range 0.0082..0.9918 overlapping texels at 1024: 0
+SM_ShotgunShell texture T_ShotgunShell_D.png 128x128 1.6 KB
+SM_ShotgunShell triangles 12 (allowed 10..15)
+SM_ShotgunShell ROUNDTRIP PASS
+SM_ShotgunShell SUMMARY tris 12 | size cm 2.0 x 7.0 x 2.1 | min cm (-1.0, -3.5, -0.0) max cm (1.0, 3.5, 2.1) | PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

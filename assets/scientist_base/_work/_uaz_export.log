@@ -1,0 +1,19 @@
+00:00.312  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\uaz_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_UAZ452/SM_UAZ452.fbx'
+export finished in 0.0072 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_UAZ452/SM_UAZ452.fbx 92.4 KB
+FBX version: 7400
+SM_UAZ452 objects in file: [('SM_UAZ452', 'MESH')]
+SM_UAZ452 tris=1293 verts=728 min=[-1.1306 -2.18   -0.    ] max=[1.1306 2.18   2.06  ] size=[2.2613 4.36   2.06  ] (m)
+SM_UAZ452 origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_UAZ452'] uv=['UVMap', 'LightmapUV'] smooth_faces=0
+SM_UAZ452 facing: 1293 faces compared with the builder directions, worst centre distance 0.000001 m, wrong 0, builder faces without a pair 0 (look up 249, down 228, sideways 816)
+SM_UAZ452 uv UVMap range 0.0091..0.9909 overlapping texels at 1024: 0
+SM_UAZ452 uv LightmapUV range 0.0148..0.9852 overlapping texels at 1024: 0
+SM_UAZ452 texture T_UAZ452_D.png 1024x1024 771.1 KB
+SM_UAZ452 triangles 1293 (allowed 1..1293)
+SM_UAZ452 ROUNDTRIP PASS
+SM_UAZ452 SUMMARY tris 1293 | size cm 226.1 x 436.0 x 206.0 | min cm (-113.1, -218.0, -0.0) max cm (113.1, 218.0, 206.0) | PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

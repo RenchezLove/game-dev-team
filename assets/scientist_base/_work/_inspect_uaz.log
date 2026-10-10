@@ -1,0 +1,18 @@
+E:\game-dev-team\assets\scientist_base\_work\00_inspect.py:64: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+00:04.062  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\uaz_px.png'
+00:04.594  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\uaz_nx.png'
+00:05.016  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\uaz_py.png'
+00:05.562  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\uaz_ny.png'
+00:06.062  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\uaz_top.png'
+00:06.594  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\uaz_q.png'
+00:07.125  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\uaz_q2.png'
+FBX version: 7400
+SCENE unit scale 1.0, objects 1
+OBJ Plane.019                    tris  8786 verts  4841 min [-1.041 -2.341  0.522] max [1.037 2.37  3.046] size [2.078 4.711 2.524] parent None mods [] hidden False
+    loc (0.0, 0.0, 0.0) rot (1.571, -0.0, 0.0) scale (0.01, 0.01, 0.01) uv ['UVMap'] cols [] mats ['wireX177027'] faces per mat [4659]
+ALL min [-1.041 -2.341  0.522] max [1.037 2.37  3.046] size [2.078 4.711 2.524]
+MAT wireX177027 base colour (0.48, 0.48, 0.48, 1.0) alpha 0.5199999809265137 blend DITHERED
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

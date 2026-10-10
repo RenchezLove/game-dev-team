@@ -1,0 +1,114 @@
+00:00.360  blend            | Read blend: "E:\game-dev-team\assets\scientist_tripo\_work\scientist_work.blend"
+00:02.000  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_rest_front.png'
+00:02.360  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_rest_top.png'
+00:02.688  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_rest_back.png'
+00:03.204  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixA_rest_front.png'
+00:03.688  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixA_rest_top.png'
+00:04.125  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixA_rest_back.png'
+00:04.594  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixB_rest_front.png'
+00:05.125  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixB_rest_top.png'
+00:05.657  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixB_rest_back.png'
+00:06.188  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_legs_rest_front.png'
+00:06.625  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_legs_rest_back.png'
+00:07.282  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_rest_neck.png'
+00:07.907  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_rest_neckback.png'
+00:08.625  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_rest_waist.png'
+00:09.282  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_rest_waistback.png'
+00:10.000  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixA_rest_neck.png'
+00:10.641  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixA_rest_neckback.png'
+00:11.204  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixA_rest_waist.png'
+00:11.875  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixA_rest_waistback.png'
+00:12.563  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixB_rest_neck.png'
+00:13.172  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixB_rest_neckback.png'
+00:13.829  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixB_rest_waist.png'
+00:14.500  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixB_rest_waistback.png'
+00:15.188  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_step_front.png'
+00:15.657  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_step_top.png'
+00:16.125  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_step_back.png'
+00:16.641  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_step_side.png'
+00:17.141  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixA_step_front.png'
+00:17.625  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixA_step_top.png'
+00:18.235  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixA_step_back.png'
+00:18.719  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixA_step_side.png'
+00:19.250  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixB_step_front.png'
+00:19.766  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixB_step_top.png'
+00:20.250  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixB_step_back.png'
+00:20.750  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_mixB_step_side.png'
+00:21.375  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_step_waist.png'
+00:21.954  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_step_waistside.png'
+00:22.563  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_step_waistback.png'
+00:23.157  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_melee_front.png'
+00:23.688  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_melee_back.png'
+00:24.219  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\renders\_own_melee_upper.png'
+COAT rest: 70 of 227 leg-slot vertices are enclosed by the coat; 38 of them are 2 cm or more above the hem (z 0.584) and are tested
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_rest_front.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_rest_top.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_rest_back.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixA_rest_front.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixA_rest_top.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixA_rest_back.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixB_rest_front.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixB_rest_top.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixB_rest_back.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_legs_rest_front.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_legs_rest_back.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_rest_neck.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_rest_neckback.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_rest_waist.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_rest_waistback.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixA_rest_neck.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixA_rest_neckback.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixA_rest_waist.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixA_rest_waistback.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixB_rest_neck.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixB_rest_neckback.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixB_rest_waist.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixB_rest_waistback.png
+RUN source rest delta vs ours = 0.000019
+COAT run frame  1: stride 0.487, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  2: stride 0.456, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  3: stride 0.366, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  4: stride 0.223, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  5: stride 0.037, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  6: stride 0.170, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  7: stride 0.368, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  8: stride 0.531, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame  9: stride 0.637, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 10: stride 0.676, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 11: stride 0.645, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 12: stride 0.557, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 13: stride 0.422, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 14: stride 0.252, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 15: stride 0.065, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 16: stride 0.116, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 17: stride 0.272, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 18: stride 0.389, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 19: stride 0.462, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+COAT run frame 20: stride 0.487, leg vertices outside the coat 0 (deepest 0.000 m, their rest heights 0.000..0.000)
+RUN take frames 1..20, widest stride 0.676 m at frame 10
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_step_front.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_step_top.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_step_back.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_step_side.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixA_step_front.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixA_step_top.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixA_step_back.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixA_step_side.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixB_step_front.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixB_step_top.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixB_step_back.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_mixB_step_side.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_step_waist.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_step_waistside.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_step_waistback.png
+MELEE peak reach frame 12
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_melee_front.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_melee_back.png
+RENDER E:/game-dev-team/assets/scientist_tripo/renders/_own_melee_upper.png
+SHEET E:/game-dev-team/assets/scientist_tripo/renders/scientist_rest_and_step.png 1800 1800
+SHEET E:/game-dev-team/assets/scientist_tripo/renders/qc_mix.png 4500 1800
+SHEET E:/game-dev-team/assets/scientist_tripo/renders/qc_close_rest.png 3600 2700
+SHEET E:/game-dev-team/assets/scientist_tripo/renders/qc_step_melee.png 2700 1800
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

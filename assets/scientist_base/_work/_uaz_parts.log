@@ -1,0 +1,140 @@
+FBX version: 7400
+OPACITY size (1024, 1024) min 0.812 max 1.000 mean 0.998; share below 0.9: 0.0100
+PARTS 134, triangles 8786
+PART   0 tris  1212 area  37.619 min [-0.889 -2.187  0.818] max [0.889 2.152 2.546] size [1.778 4.339 1.728] colour [0.22 0.24 0.2 ] lum 0.220 opacity 1.00
+PART   1 tris   704 area   1.664 min [-0.618  1.223  2.762] max [0.146 1.986 3.036] size [0.764 0.764 0.274] colour [0.21 0.21 0.2 ] lum 0.206 opacity 1.00
+PART   2 tris   704 area   1.664 min [0.604 0.834 0.522] max [0.877 1.598 1.286] size [0.274 0.764 0.764] colour [0.21 0.21 0.2 ] lum 0.205 opacity 1.00
+PART   3 tris   704 area   1.664 min [-0.877  0.834  0.522] max [-0.604  1.598  1.286] size [0.274 0.764 0.764] colour [0.21 0.21 0.2 ] lum 0.206 opacity 1.00
+PART   4 tris   704 area   1.664 min [-0.877 -1.585  0.522] max [-0.604 -0.822  1.286] size [0.274 0.764 0.764] colour [0.21 0.21 0.2 ] lum 0.207 opacity 1.00
+PART   5 tris   704 area   1.664 min [ 0.604 -1.585  0.522] max [ 0.877 -0.822  1.286] size [0.274 0.764 0.764] colour [0.21 0.21 0.2 ] lum 0.206 opacity 1.00
+PART   6 tris   264 area   0.497 min [-0.756 -2.261  1.255] max [ 0.756 -2.128  1.881] size [1.513 0.132 0.626] colour [0.06 0.05 0.04] lum 0.051 opacity 1.00
+PART   7 tris   224 area   0.096 min [ 0.207 -1.794  1.873] max [ 0.612 -1.454  2.11 ] size [0.405 0.34  0.237] colour [0.24 0.23 0.23] lum 0.233 opacity 1.00
+PART   8 tris   208 area   1.390 min [-0.669 -1.697  2.72 ] max [0.669 2.048 2.768] size [1.338 3.745 0.048] colour [0.07 0.06 0.06] lum 0.063 opacity 1.00
+PART   9 tris   208 area   1.390 min [-0.669 -1.697  2.89 ] max [0.669 2.048 2.937] size [1.338 3.745 0.048] colour [0.07 0.06 0.06] lum 0.060 opacity 1.00
+PART  10 tris   136 area   1.992 min [ 0.704 -1.884  1.141] max [ 0.889 -0.879  2.544] size [0.185 1.006 1.403] colour [0.19 0.21 0.16] lum 0.187 opacity 1.00
+PART  11 tris   136 area   1.992 min [-0.894 -1.884  1.141] max [-0.709 -0.879  2.544] size [0.185 1.006 1.403] colour [0.19 0.21 0.16] lum 0.187 opacity 1.00
+PART  12 tris   128 area   0.142 min [0.133 2.063 1.401] max [0.169 2.37  2.511] size [0.036 0.306 1.11 ] colour [0.03 0.02 0.02] lum 0.026 opacity 1.00
+PART  13 tris   128 area   0.142 min [0.425 2.063 1.401] max [0.461 2.37  2.511] size [0.036 0.306 1.11 ] colour [0.03 0.02 0.02] lum 0.022 opacity 1.00
+PART  14 tris   128 area   0.142 min [-0.47   2.063  1.401] max [-0.434  2.37   2.511] size [0.036 0.306 1.11 ] colour [0.03 0.02 0.02] lum 0.026 opacity 1.00
+PART  15 tris   128 area   0.142 min [-0.178  2.063  1.401] max [-0.142  2.37   2.511] size [0.036 0.306 1.11 ] colour [0.03 0.02 0.02] lum 0.022 opacity 1.00
+PART  16 tris   122 area  12.624 min [-0.817 -1.773  2.531] max [0.817 2.059 2.718] size [1.634 3.831 0.187] colour [0.22 0.25 0.2 ] lum 0.223 opacity 1.00
+PART  17 tris   120 area   0.314 min [-0.893 -0.796  0.992] max [-0.764  0.797  1.082] size [0.129 1.593 0.09 ] colour [0.07 0.06 0.05] lum 0.062 opacity 1.00
+PART  18 tris   120 area   0.314 min [ 0.766 -0.796  0.992] max [0.895 0.797 1.082] size [0.129 1.593 0.09 ] colour [0.07 0.06 0.05] lum 0.062 opacity 1.00
+PART  19 tris   110 area   0.047 min [ 0.383 -1.915  1.565] max [ 0.437 -1.598  2.012] size [0.054 0.317 0.446] colour [0.24 0.23 0.23] lum 0.235 opacity 1.00
+PART  20 tris    96 area   0.291 min [-0.718 -2.297  1.483] max [ 0.718 -2.145  1.548] size [1.436 0.151 0.065] colour [0.08 0.07 0.07] lum 0.072 opacity 1.00
+PART  21 tris    60 area   0.061 min [ 0.903 -1.628  2.044] max [ 1.037 -1.567  2.271] size [0.134 0.062 0.228] colour [0.4 0.4 0.4] lum 0.399 opacity 1.00
+PART  22 tris    60 area   0.061 min [-1.041 -1.628  2.044] max [-0.907 -1.567  2.271] size [0.134 0.062 0.228] colour [0.4 0.4 0.4] lum 0.399 opacity 1.00
+PART  23 tris    54 area   0.019 min [ 0.799 -0.091  1.415] max [ 0.898 -0.004  1.502] size [0.098 0.086 0.087] colour [0.19 0.22 0.17] lum 0.191 opacity 1.00
+PART  24 tris    54 area   0.019 min [-0.897 -0.592  1.415] max [-0.798 -0.506  1.502] size [0.098 0.086 0.087] colour [0.19 0.22 0.17] lum 0.193 opacity 1.00
+PART  25 tris    54 area   0.239 min [-0.396  1.318  1.051] max [-0.261  1.972  1.186] size [0.136 0.654 0.136] colour [0.34 0.33 0.35] lum 0.342 opacity 1.00
+PART  26 tris    46 area   0.071 min [ 0.389 -2.133  1.534] max [ 0.611 -2.061  1.756] size [0.222 0.072 0.222] colour [0.56 0.56 0.56] lum 0.560 opacity 0.91
+PART  27 tris    46 area   0.071 min [-0.611 -2.133  1.534] max [-0.389 -2.061  1.756] size [0.222 0.072 0.222] colour [0.56 0.56 0.56] lum 0.560 opacity 0.91
+PART  28 tris    42 area   0.034 min [0.14  2.155 1.714] max [0.291 2.232 1.765] size [0.151 0.077 0.05 ] colour [0.22 0.24 0.2 ] lum 0.221 opacity 1.00
+PART  29 tris    34 area   0.017 min [ 0.551 -2.136  1.363] max [ 0.664 -2.096  1.477] size [0.113 0.04  0.113] colour [0.59 0.43 0.35] lum 0.457 opacity 1.00
+PART  30 tris    34 area   0.017 min [-0.664 -2.136  1.363] max [-0.551 -2.096  1.477] size [0.113 0.04  0.113] colour [0.59 0.43 0.35] lum 0.457 opacity 1.00
+PART  31 tris    32 area   0.038 min [ 0.406 -2.129  1.552] max [ 0.592 -2.051  1.738] size [0.185 0.078 0.185] colour [0.41 0.41 0.41] lum 0.408 opacity 1.00
+PART  32 tris    32 area   0.011 min [ 0.784 -1.66   1.961] max [ 0.977 -1.607  2.128] size [0.193 0.053 0.167] colour [0.03 0.02 0.02] lum 0.026 opacity 1.00
+PART  33 tris    32 area   0.011 min [-0.982 -1.66   1.961] max [-0.788 -1.607  2.128] size [0.193 0.053 0.167] colour [0.03 0.02 0.02] lum 0.026 opacity 1.00
+PART  34 tris    32 area   0.038 min [-0.592 -2.129  1.552] max [-0.406 -2.051  1.738] size [0.185 0.078 0.185] colour [0.41 0.41 0.41] lum 0.408 opacity 1.00
+PART  35 tris    28 area   0.369 min [ 0.652 -1.39   0.717] max [ 0.8   -1.016  1.091] size [0.149 0.374 0.374] colour [0.33 0.33 0.33] lum 0.327 opacity 1.00
+PART  36 tris    28 area   0.369 min [-0.806 -1.39   0.717] max [-0.657 -1.016  1.091] size [0.149 0.374 0.374] colour [0.33 0.33 0.33] lum 0.327 opacity 1.00
+PART  37 tris    28 area   0.369 min [-0.806  1.029  0.717] max [-0.657  1.403  1.091] size [0.149 0.374 0.374] colour [0.33 0.33 0.33] lum 0.331 opacity 1.00
+PART  38 tris    28 area   0.369 min [0.652 1.028 0.717] max [0.801 1.403 1.091] size [0.149 0.374 0.374] colour [0.34 0.33 0.33] lum 0.334 opacity 1.00
+PART  39 tris    28 area   0.369 min [-0.423  1.417  2.81 ] max [-0.049  1.791  2.959] size [0.374 0.374 0.149] colour [0.34 0.33 0.33] lum 0.335 opacity 1.00
+PART  40 tris    22 area   0.028 min [0.324 2.15  1.69 ] max [0.444 2.193 1.784] size [0.12  0.043 0.094] colour [0.56 0.59 0.65] lum 0.601 opacity 1.00
+PART  41 tris    22 area   0.042 min [0.741 2.087 1.495] max [0.829 2.124 1.723] size [0.088 0.037 0.228] colour [0.48 0.22 0.21] lum 0.304 opacity 1.00
+PART  42 tris    22 area   0.042 min [-0.829  2.087  1.495] max [-0.741  2.124  1.723] size [0.088 0.037 0.228] colour [0.48 0.22 0.21] lum 0.304 opacity 1.00
+PART  43 tris    20 area   0.466 min [-0.513 -1.711  2.761] max [ 0.518 -1.642  2.902] size [1.031 0.069 0.141] colour [0.41 0.41 0.39] lum 0.403 opacity 1.00
+PART  44 tris    20 area   0.082 min [ 0.656 -1.401  2.588] max [ 0.735 -1.315  2.923] size [0.079 0.086 0.335] colour [0.07 0.06 0.06] lum 0.066 opacity 1.00
+PART  45 tris    20 area   0.082 min [0.656 1.737 2.588] max [0.735 1.822 2.923] size [0.079 0.086 0.335] colour [0.11 0.1  0.1 ] lum 0.102 opacity 1.00
+PART  46 tris    20 area   0.083 min [0.656 0.043 2.588] max [0.735 0.129 2.923] size [0.079 0.086 0.335] colour [0.06 0.05 0.05] lum 0.051 opacity 1.00
+PART  47 tris    20 area   0.083 min [0.656 0.927 2.588] max [0.735 1.012 2.923] size [0.079 0.086 0.335] colour [0.08 0.07 0.07] lum 0.072 opacity 1.00
+PART  48 tris    20 area   0.083 min [ 0.656 -0.623  2.588] max [ 0.735 -0.538  2.923] size [0.079 0.086 0.335] colour [0.05 0.04 0.04] lum 0.041 opacity 1.00
+PART  49 tris    20 area   0.082 min [-0.735 -1.401  2.588] max [-0.656 -1.315  2.923] size [0.079 0.086 0.335] colour [0.07 0.06 0.06] lum 0.061 opacity 1.00
+PART  50 tris    20 area   0.082 min [-0.735  1.737  2.588] max [-0.656  1.822  2.923] size [0.079 0.086 0.335] colour [0.04 0.03 0.03] lum 0.034 opacity 1.00
+PART  51 tris    20 area   0.083 min [-0.735  0.043  2.588] max [-0.656  0.129  2.923] size [0.079 0.086 0.335] colour [0.05 0.05 0.04] lum 0.049 opacity 1.00
+PART  52 tris    20 area   0.083 min [-0.735  0.927  2.588] max [-0.656  1.012  2.923] size [0.079 0.086 0.335] colour [0.08 0.07 0.07] lum 0.074 opacity 1.00
+PART  53 tris    20 area   0.083 min [-0.735 -0.623  2.588] max [-0.656 -0.538  2.923] size [0.079 0.086 0.335] colour [0.08 0.07 0.07] lum 0.073 opacity 1.00
+PART  54 tris    20 area   0.744 min [-0.804  2.105  1.192] max [0.804 2.207 1.332] size [1.608 0.102 0.14 ] colour [0.06 0.05 0.05] lum 0.055 opacity 1.00
+PART  55 tris    20 area   0.584 min [-0.671 -2.209  1.115] max [ 0.671 -2.107  1.255] size [1.342 0.102 0.14 ] colour [0.06 0.05 0.05] lum 0.052 opacity 1.00
+PART  56 tris    20 area   0.010 min [-0.497 -1.98   2.105] max [-0.033 -1.914  2.117] size [0.464 0.067 0.012] colour [0.24 0.23 0.23] lum 0.231 opacity 1.00
+PART  57 tris    20 area   0.010 min [ 0.034 -1.98   2.105] max [ 0.499 -1.914  2.117] size [0.464 0.067 0.012] colour [0.24 0.23 0.23] lum 0.231 opacity 1.00
+PART  58 tris    18 area   0.152 min [ 0.206 -2.341  1.225] max [ 0.266 -2.142  1.863] size [0.06  0.2   0.638] colour [0.03 0.03 0.03] lum 0.029 opacity 1.00
+PART  59 tris    18 area   0.152 min [-0.266 -2.341  1.225] max [-0.206 -2.142  1.863] size [0.06  0.2   0.638] colour [0.04 0.03 0.03] lum 0.035 opacity 1.00
+PART  60 tris    18 area   1.370 min [ 0.197 -1.53   1.392] max [ 0.627 -0.748  2.163] size [0.43  0.782 0.771] colour [0.24 0.23 0.23] lum 0.231 opacity 1.00
+PART  61 tris    18 area   1.370 min [-0.626 -1.53   1.392] max [-0.196 -0.748  2.163] size [0.43  0.782 0.771] colour [0.24 0.23 0.23] lum 0.231 opacity 1.00
+PART  62 tris    18 area   1.370 min [-0.688 -0.092  1.392] max [-0.258  0.69   2.163] size [0.43  0.782 0.771] colour [0.24 0.23 0.23] lum 0.231 opacity 1.00
+PART  63 tris    18 area   1.370 min [ 0.275 -0.092  1.392] max [0.705 0.69  2.163] size [0.43  0.782 0.771] colour [0.24 0.23 0.23] lum 0.231 opacity 1.00
+PART  64 tris    18 area   1.370 min [-0.174 -0.092  1.392] max [0.256 0.69  2.163] size [0.43  0.782 0.771] colour [0.24 0.23 0.23] lum 0.231 opacity 1.00
+PART  65 tris    13 area   0.002 min [-0.589 -2.034  1.957] max [-0.567 -2.008  1.986] size [0.022 0.026 0.029] colour [0.24 0.23 0.23] lum 0.232 opacity 1.00
+PART  66 tris    13 area   0.002 min [ 0.568 -2.034  1.957] max [ 0.59  -2.008  1.986] size [0.022 0.026 0.029] colour [0.24 0.23 0.23] lum 0.232 opacity 1.00
+PART  67 tris    12 area   0.040 min [0.151 2.245 2.296] max [0.444 2.265 2.348] size [0.293 0.02  0.053] colour [0.04 0.03 0.03] lum 0.033 opacity 1.00
+PART  68 tris    12 area   0.040 min [0.151 2.334 1.64 ] max [0.444 2.354 1.692] size [0.293 0.02  0.053] colour [0.03 0.02 0.02] lum 0.024 opacity 1.00
+PART  69 tris    12 area   0.040 min [0.151 2.287 1.995] max [0.444 2.307 2.048] size [0.293 0.02  0.053] colour [0.03 0.03 0.03] lum 0.029 opacity 1.00
+PART  70 tris    12 area   0.150 min [ 0.297 -0.898  2.168] max [ 0.528 -0.748  2.317] size [0.231 0.15  0.149] colour [0.26 0.24 0.25] lum 0.249 opacity 1.00
+PART  71 tris    12 area   0.119 min [ 0.43  -1.374  0.9  ] max [ 0.695 -1.246  1.002] size [0.265 0.128 0.102] colour [0.32 0.32 0.32] lum 0.323 opacity 1.00
+PART  72 tris    12 area   0.119 min [ 0.43 -1.17  0.9 ] max [ 0.695 -1.042  1.002] size [0.265 0.128 0.102] colour [0.33 0.33 0.33] lum 0.327 opacity 1.00
+PART  73 tris    12 area   0.040 min [-0.452  2.245  2.296] max [-0.159  2.265  2.348] size [0.293 0.02  0.053] colour [0.04 0.03 0.03] lum 0.032 opacity 1.00
+PART  74 tris    12 area   0.040 min [-0.452  2.334  1.64 ] max [-0.159  2.354  1.692] size [0.293 0.02  0.053] colour [0.03 0.02 0.02] lum 0.024 opacity 1.00
+PART  75 tris    12 area   0.040 min [-0.452  2.287  1.995] max [-0.159  2.307  2.048] size [0.293 0.02  0.053] colour [0.03 0.03 0.02] lum 0.028 opacity 1.00
+PART  76 tris    12 area   0.119 min [-0.701 -1.374  0.9  ] max [-0.436 -1.246  1.002] size [0.265 0.128 0.102] colour [0.32 0.32 0.32] lum 0.323 opacity 1.00
+PART  77 tris    12 area   0.119 min [-0.701 -1.17   0.9  ] max [-0.436 -1.042  1.002] size [0.265 0.128 0.102] colour [0.33 0.33 0.33] lum 0.327 opacity 1.00
+PART  78 tris    12 area   0.150 min [-0.526 -0.898  2.168] max [-0.295 -0.748  2.317] size [0.231 0.15  0.149] colour [0.26 0.25 0.24] lum 0.249 opacity 1.00
+PART  79 tris    12 area   0.150 min [-0.589  0.54   2.168] max [-0.358  0.69   2.317] size [0.231 0.15  0.149] colour [0.26 0.25 0.24] lum 0.249 opacity 1.00
+PART  80 tris    12 area   0.150 min [0.374 0.54  2.168] max [0.605 0.69  2.317] size [0.231 0.15  0.149] colour [0.26 0.25 0.24] lum 0.249 opacity 1.00
+PART  81 tris    12 area   0.150 min [-0.075  0.54   2.168] max [0.156 0.69  2.317] size [0.231 0.15  0.149] colour [0.26 0.24 0.25] lum 0.249 opacity 1.00
+PART  82 tris    12 area   0.010 min [-0.594 -2.044  1.972] max [-0.356 -1.974  2.093] size [0.238 0.07  0.121] colour [0.24 0.22 0.23] lum 0.228 opacity 1.00
+PART  83 tris    12 area   0.010 min [ 0.358 -2.044  1.972] max [ 0.595 -1.974  2.093] size [0.238 0.07  0.121] colour [0.24 0.22 0.23] lum 0.228 opacity 1.00
+PART  84 tris    10 area   0.077 min [-0.638  1.58   2.765] max [0.159 1.646 3.046] size [0.797 0.066 0.282] colour [0.28 0.45 0.28] lum 0.336 opacity 1.00
+PART  85 tris    10 area   0.076 min [-0.262  1.201  2.757] max [-0.195  2.011  3.039] size [0.066 0.81  0.283] colour [0.3  0.47 0.3 ] lum 0.353 opacity 1.00
+PART  86 tris    10 area   0.068 min [-0.122  2.178  1.213] max [0.122 2.242 1.311] size [0.245 0.064 0.098] colour [0.39 0.38 0.38] lum 0.381 opacity 1.00
+PART  87 tris    10 area   0.068 min [0.09  2.137 1.393] max [0.511 2.186 1.443] size [0.421 0.05  0.05 ] colour [0.03 0.02 0.02] lum 0.021 opacity 1.00
+PART  88 tris    10 area   0.068 min [0.09  2.029 2.466] max [0.511 2.079 2.516] size [0.421 0.05  0.05 ] colour [0.08 0.07 0.07] lum 0.074 opacity 1.00
+PART  89 tris    10 area   0.068 min [-0.122 -2.244  1.137] max [ 0.122 -2.18   1.234] size [0.245 0.064 0.098] colour [0.4  0.39 0.39] lum 0.394 opacity 1.00
+PART  90 tris    10 area   0.783 min [-0.729 -1.976  2.   ] max [ 0.728 -1.576  2.512] size [1.457 0.401 0.512] colour [0.23 0.23 0.24] lum 0.237 opacity 0.81
+PART  91 tris    10 area   0.002 min [ 0.774 -1.66   2.   ] max [ 0.798 -1.645  2.024] size [0.023 0.014 0.024] colour [0.1  0.09 0.09] lum 0.094 opacity 1.00
+PART  92 tris    10 area   0.068 min [-0.513  2.137  1.393] max [-0.092  2.186  1.443] size [0.421 0.05  0.05 ] colour [0.03 0.02 0.02] lum 0.021 opacity 1.00
+PART  93 tris    10 area   0.068 min [-0.513  2.029  2.466] max [-0.092  2.079  2.516] size [0.421 0.05  0.05 ] colour [0.08 0.07 0.07] lum 0.074 opacity 1.00
+PART  94 tris    10 area   0.002 min [-0.802 -1.66   2.   ] max [-0.779 -1.645  2.024] size [0.023 0.014 0.024] colour [0.1  0.09 0.09] lum 0.094 opacity 1.00
+PART  95 tris    10 area   0.002 min [-0.359 -1.982  2.085] max [-0.246 -1.963  2.117] size [0.113 0.018 0.031] colour [0.24 0.22 0.23] lum 0.228 opacity 1.00
+PART  96 tris    10 area   0.002 min [ 0.248 -1.982  2.085] max [ 0.361 -1.963  2.117] size [0.113 0.018 0.031] colour [0.24 0.22 0.23] lum 0.228 opacity 1.00
+PART  97 tris     8 area   0.174 min [-0.645  1.797  2.727] max [0.645 1.831 2.761] size [1.29  0.034 0.034] colour [0.05 0.04 0.04] lum 0.046 opacity 1.00
+PART  98 tris     8 area   0.174 min [-0.645 -1.454  2.727] max [ 0.645 -1.421  2.761] size [1.29  0.034 0.034] colour [0.06 0.05 0.05] lum 0.050 opacity 1.00
+PART  99 tris     8 area   0.174 min [-0.645  0.071  2.727] max [0.645 0.105 2.761] size [1.29  0.034 0.034] colour [0.08 0.07 0.07] lum 0.076 opacity 1.00
+PART 100 tris     8 area   0.174 min [-0.645  0.958  2.727] max [0.645 0.991 2.761] size [1.29  0.034 0.034] colour [0.04 0.03 0.03] lum 0.036 opacity 1.00
+PART 101 tris     8 area   0.174 min [-0.645 -0.742  2.727] max [ 0.645 -0.708  2.761] size [1.29  0.034 0.034] colour [0.07 0.06 0.06] lum 0.063 opacity 1.00
+PART 102 tris     8 area   0.174 min [-0.645 -1.101  2.727] max [ 0.645 -1.068  2.761] size [1.29  0.034 0.034] colour [0.07 0.06 0.06] lum 0.063 opacity 1.00
+PART 103 tris     8 area   0.174 min [-0.645 -0.342  2.727] max [ 0.645 -0.308  2.761] size [1.29  0.034 0.034] colour [0.06 0.05 0.05] lum 0.053 opacity 1.00
+PART 104 tris     8 area   0.174 min [-0.645  0.538  2.727] max [0.645 0.571 2.761] size [1.29  0.034 0.034] colour [0.06 0.05 0.05] lum 0.057 opacity 1.00
+PART 105 tris     8 area   0.174 min [-0.645  1.391  2.727] max [0.645 1.424 2.761] size [1.29  0.034 0.034] colour [0.06 0.06 0.05] lum 0.057 opacity 1.00
+PART 106 tris     8 area   0.174 min [-0.645  1.186  2.727] max [0.645 1.22  2.761] size [1.29  0.034 0.034] colour [0.05 0.04 0.04] lum 0.043 opacity 1.00
+PART 107 tris     8 area   0.174 min [-0.645  0.751  2.727] max [0.645 0.784 2.761] size [1.29  0.034 0.034] colour [0.07 0.06 0.06] lum 0.061 opacity 1.00
+PART 108 tris     8 area   0.174 min [-0.645  0.303  2.727] max [0.645 0.337 2.761] size [1.29  0.034 0.034] colour [0.03 0.03 0.03] lum 0.029 opacity 1.00
+PART 109 tris     8 area   0.174 min [-0.645 -0.125  2.727] max [ 0.645 -0.091  2.761] size [1.29  0.034 0.034] colour [0.06 0.05 0.05] lum 0.051 opacity 1.00
+PART 110 tris     8 area   0.174 min [-0.645 -0.564  2.727] max [ 0.645 -0.531  2.761] size [1.29  0.034 0.034] colour [0.03 0.03 0.03] lum 0.028 opacity 1.00
+PART 111 tris     8 area   0.174 min [-0.645 -0.919  2.727] max [ 0.645 -0.885  2.761] size [1.29  0.034 0.034] colour [0.07 0.06 0.06] lum 0.064 opacity 1.00
+PART 112 tris     8 area   0.174 min [-0.645 -1.276  2.727] max [ 0.645 -1.242  2.761] size [1.29  0.034 0.034] colour [0.06 0.05 0.05] lum 0.055 opacity 1.00
+PART 113 tris     8 area   0.174 min [-0.645  1.603  2.727] max [0.645 1.637 2.761] size [1.29  0.034 0.034] colour [0.07 0.07 0.06] lum 0.069 opacity 1.00
+PART 114 tris     8 area   0.007 min [ 0.405 -1.781  2.   ] max [ 0.415 -1.64   2.1  ] size [0.01  0.141 0.1  ] colour [0.24 0.24 0.23] lum 0.236 opacity 1.00
+PART 115 tris     8 area   0.007 min [ 0.246 -1.621  1.934] max [ 0.392 -1.54   1.992] size [0.147 0.081 0.058] colour [0.24 0.22 0.23] lum 0.230 opacity 1.00
+PART 116 tris     8 area   0.007 min [ 0.426 -1.621  1.934] max [ 0.573 -1.54   1.992] size [0.147 0.081 0.058] colour [0.24 0.23 0.23] lum 0.231 opacity 1.00
+PART 117 tris     2 area   0.140 min [-0.546  2.04   2.111] max [-0.083  2.083  2.41 ] size [0.463 0.043 0.299] colour [0.28 0.27 0.28] lum 0.278 opacity 0.81
+PART 118 tris     2 area   0.140 min [0.073 2.04  2.111] max [0.535 2.083 2.41 ] size [0.463 0.043 0.299] colour [0.24 0.24 0.25] lum 0.244 opacity 0.81
+PART 119 tris     2 area   0.287 min [ 0.75  -1.686  2.02 ] max [ 0.77  -0.945  2.471] size [0.021 0.741 0.451] colour [0.22 0.22 0.23] lum 0.223 opacity 0.81
+PART 120 tris     2 area   0.170 min [ 0.754 -0.782  2.02 ] max [ 0.782 -0.405  2.471] size [0.029 0.377 0.451] colour [0.22 0.23 0.24] lum 0.227 opacity 0.81
+PART 121 tris     2 area   0.383 min [ 0.754 -0.277  2.02 ] max [0.782 0.571 2.471] size [0.029 0.848 0.451] colour [0.22 0.22 0.23] lum 0.222 opacity 0.81
+PART 122 tris     2 area   0.385 min [-0.78  -0.282  2.019] max [-0.752  0.566  2.472] size [0.029 0.848 0.453] colour [0.22 0.22 0.23] lum 0.222 opacity 0.81
+PART 123 tris     2 area   1.884 min [-0.827  0.71   1.327] max [0.804 0.71  2.542] size [1.631 0.    1.215] colour [0.18 0.21 0.16] lum 0.182 opacity 1.00
+PART 124 tris     2 area   1.884 min [-0.827  0.725  1.327] max [0.804 0.725 2.542] size [1.631 0.    1.215] colour [0.18 0.22 0.16] lum 0.183 opacity 1.00
+PART 125 tris     2 area   0.287 min [-0.775 -1.686  2.02 ] max [-0.754 -0.945  2.471] size [0.021 0.741 0.451] colour [0.22 0.22 0.23] lum 0.223 opacity 0.81
+PART 126 tris     2 area   0.008 min [0.76  0.24  2.043] max [0.786 0.259 2.46 ] size [0.025 0.019 0.417] colour [0.18 0.21 0.16] lum 0.184 opacity 1.00
+PART 127 tris     2 area   0.008 min [0.756 0.24  2.043] max [0.782 0.259 2.46 ] size [0.025 0.019 0.417] colour [0.74 0.74 0.74] lum 0.737 opacity 1.00
+PART 128 tris     2 area   0.008 min [-0.784  0.24   2.043] max [-0.759  0.259  2.46 ] size [0.025 0.019 0.417] colour [0.19 0.22 0.17] lum 0.195 opacity 1.00
+PART 129 tris     2 area   0.008 min [-0.779  0.24   2.043] max [-0.754  0.259  2.46 ] size [0.025 0.019 0.417] colour [0.74 0.74 0.74] lum 0.737 opacity 1.00
+PART 130 tris     2 area   0.007 min [ 0.751 -1.323  2.035] max [ 0.771 -1.303  2.467] size [0.021 0.02  0.432] colour [0.18 0.22 0.16] lum 0.187 opacity 1.00
+PART 131 tris     2 area   0.007 min [ 0.758 -1.323  2.035] max [ 0.779 -1.303  2.467] size [0.021 0.02  0.432] colour [0.19 0.22 0.17] lum 0.193 opacity 1.00
+PART 132 tris     2 area   0.007 min [-0.768 -1.323  2.035] max [-0.747 -1.303  2.467] size [0.021 0.02  0.432] colour [0.18 0.22 0.16] lum 0.187 opacity 1.00
+PART 133 tris     2 area   0.007 min [-0.775 -1.323  2.035] max [-0.755 -1.303  2.467] size [0.021 0.02  0.432] colour [0.19 0.22 0.17] lum 0.193 opacity 1.00
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

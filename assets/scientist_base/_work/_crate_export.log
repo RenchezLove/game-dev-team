@@ -1,0 +1,19 @@
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\crate_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_PersonalChest/SM_PersonalChest.fbx'
+export finished in 0.0085 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_PersonalChest/SM_PersonalChest.fbx 32.7 KB
+FBX version: 7400
+SM_PersonalChest objects in file: [('SM_PersonalChest', 'MESH')]
+SM_PersonalChest tris=336 verts=280 min=[-0.37 -0.37 -0.  ] max=[0.37 0.37 0.74] size=[0.74 0.74 0.74] (m)
+SM_PersonalChest origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_PersonalChest'] uv=['UVMap', 'LightmapUV'] smooth_faces=0
+SM_PersonalChest facing: 336 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 44, down 44, sideways 248)
+SM_PersonalChest uv UVMap range 0.0072..0.9928 overlapping texels at 1024: 0
+SM_PersonalChest uv LightmapUV range 0.0134..0.9866 overlapping texels at 1024: 0
+SM_PersonalChest texture T_PersonalChest_D.png 512x512 178.4 KB
+SM_PersonalChest triangles 336 (allowed 1..336)
+SM_PersonalChest ROUNDTRIP PASS
+SM_PersonalChest SUMMARY tris 336 | size cm 74.0 x 74.0 x 74.0 | min cm (-37.0, -37.0, -0.0) max cm (37.0, 37.0, 74.0) | PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

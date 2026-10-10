@@ -1,0 +1,31 @@
+00:02.032  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\crate_v0.png'
+00:02.297  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\crate_v1.png'
+00:02.532  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\crate_v2.png'
+00:02.782  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\crate_v3.png'
+FBX version: 7400
+PSD size (128, 128) channels 4
+FACES 168 (tris 336) verts 280
+COLOUR (np.float32(0.67), np.float32(0.47), np.float32(0.31)) faces  85 area 3.400 min [-0.45  -0.45  -0.405] max [0.45 0.45 0.45] uv [0.016 0.652]..[0.016 0.661]
+COLOUR (np.float32(0.71), np.float32(0.51), np.float32(0.35)) faces  47 area 10.701 min [-0.5 -0.5 -0.5] max [0.5 0.5 0.5] uv [0.016 0.682]..[0.016 0.693]
+COLOUR (np.float32(0.7), np.float32(0.5), np.float32(0.34)) faces  19 area 1.981 min [-0.5 -0.5 -0.5] max [0.5   0.5   0.475] uv [0.016 0.682]..[0.016 0.683]
+COLOUR (np.float32(0.66), np.float32(0.46), np.float32(0.31)) faces  17 area 0.676 min [-0.405 -0.405 -0.45 ] max [ 0.405  0.405 -0.447] uv [0.016 0.651]..[0.016 0.651]
+PARTS 10
+PART faces  48 min [-0.5 -0.5 -0.5] max [0.5 0.5 0.5] size [1. 1. 1.]
+PART faces  17 min [-0.45  -0.405 -0.405] max [-0.445  0.405  0.405] size [0.005 0.81  0.81 ]
+PART faces  17 min [-0.405 -0.405 -0.45 ] max [ 0.405  0.405 -0.447] size [0.81  0.81  0.003]
+PART faces  17 min [-0.405 -0.45  -0.405] max [ 0.405 -0.447  0.405] size [0.81  0.003 0.81 ]
+PART faces  17 min [-0.405 -0.405  0.447] max [0.405 0.405 0.45 ] size [0.81  0.81  0.003]
+PART faces  17 min [ 0.445 -0.405 -0.405] max [0.45  0.405 0.405] size [0.005 0.81  0.81 ]
+PART faces  17 min [-0.405  0.447 -0.405] max [0.405 0.45  0.405] size [0.81  0.003 0.81 ]
+PART faces   6 min [-0.433 -0.475 -0.433] max [0.433 0.475 0.433] size [0.866 0.95  0.866]
+PART faces   6 min [-0.475 -0.433 -0.433] max [0.475 0.433 0.433] size [0.95  0.866 0.866]
+PART faces   6 min [-0.433 -0.433 -0.475] max [0.433 0.433 0.475] size [0.866 0.866 0.95 ]
+UV range [0.015625   0.65105468] [0.015625   0.69343752] uv spans per face max 0.011875033378601074
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/crate_v0.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/crate_v1.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/crate_v2.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/crate_v3.png
+SHEET E:/game-dev-team/assets/scientist_base/_work/_look/crate_sheet.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

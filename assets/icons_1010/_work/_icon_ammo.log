@@ -1,0 +1,12 @@
+E:\game-dev-team\assets\icons_1010\_work\icon_render.py:38: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new(name); mat.use_nodes = True
+E:\game-dev-team\assets\icons_1010\_work\icon_render.py:147: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+00:10.625  render           | Saved: 'E:\game-dev-team\assets\icons_1010\_work\_raw_ammo.png'
+SHELL source 318 tris, size [0.76 0.28 0.28], long axis X, brass at the low end, materials ['2r', 'blt']
+SHELL standing: diameter 0.280 length 0.760 (source units)
+FRAME object 0.822 x 1.016 in the picture plane, ortho scale 1.138
+ICON T_Item_Ammo12g.png 256x256 | covered share 0.419 | box x 33..222 y 12..243 | brightness mean 0.386, tenth part darker than 0.247, tenth part lighter than 0.534 | 49.1 KB
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

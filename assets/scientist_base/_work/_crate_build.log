@@ -1,0 +1,15 @@
+00:01.219  reports          | WARNING Path 'C:\Users\mrtho\Documents\Unreal Projects\LowPolyVillage\Content\LowPolyMarket\Textures\T_PropColorMap.psd' cannot be made relative for Image 'T_PropColorMap.psd.001'
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+FBX version: 7400
+SOURCE polygons 168 (frame 48, panel 102, brace 18), scale 0.740
+CRATE FACING fixed: flipped 0 of 336 faces; open on both sides 0; closed on both sides 132
+UV UVMap angle 66 overlapping texels at 512: 0
+PAINT frame  bare wood share 30.6% of its texels
+PAINT panels bare wood share 25.1% of its texels
+PAINT braces bare wood share 14.7% of its texels
+PAINT whole crate: bare wood 21.9%, paint 78.1%; mean colour [0.331 0.323 0.19 ]
+UV LightmapUV angle 66 overlapping texels 0
+RESULT tris 336 min [-0.37 -0.37  0.  ] max [0.37 0.37 0.74] size [0.74 0.74 0.74]
+Info: Saved as "crate_work.blend"
+
+Blender quit

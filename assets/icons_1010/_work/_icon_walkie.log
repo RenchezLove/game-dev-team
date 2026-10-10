@@ -1,0 +1,9 @@
+E:\game-dev-team\assets\icons_1010\_work\icon_render.py:147: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+00:06.203  render           | Saved: 'E:\game-dev-team\assets\icons_1010\_work\_raw_walkie.png'
+WALKIE 100 tris, texture 1024x1024
+FRAME object 0.295 x 0.279 in the picture plane, ortho scale 0.330
+ICON T_Item_WalkieTalkie.png 256x256 | covered share 0.176 | box x 12..243 y 18..237 | brightness mean 0.389, tenth part darker than 0.180, tenth part lighter than 0.639 | 33.5 KB
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,92 @@
+<string>:89: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+FBX version: 7400
+PART glass   tris    2 min [-0.55  2.04  2.11] max [-0.08  2.08  2.41] lum 0.28 opacity 0.81
+PART glass   tris    2 min [0.07 2.04 2.11] max [0.54 2.08 2.41] lum 0.24 opacity 0.81
+PART glass   tris    2 min [ 0.75 -1.69  2.02] max [ 0.77 -0.95  2.47] lum 0.22 opacity 0.81
+PART glass   tris    2 min [ 0.75 -0.78  2.02] max [ 0.78 -0.4   2.47] lum 0.23 opacity 0.81
+PART glass   tris    2 min [ 0.75 -0.28  2.02] max [0.78 0.57 2.47] lum 0.22 opacity 0.81
+PART glass   tris    2 min [-0.78 -0.28  2.02] max [-0.75  0.57  2.47] lum 0.22 opacity 0.81
+PART glass   tris    2 min [-0.77 -1.69  2.02] max [-0.75 -0.95  2.47] lum 0.22 opacity 0.81
+PART detail  tris   54 min [ 0.8  -0.09  1.42] max [ 0.9 -0.   1.5] lum 0.19 opacity 1.00
+PART detail  tris   54 min [-0.9  -0.59  1.42] max [-0.8  -0.51  1.5 ] lum 0.19 opacity 1.00
+PART detail  tris   42 min [0.14 2.15 1.71] max [0.29 2.23 1.76] lum 0.22 opacity 1.00
+PART detail  tris   22 min [0.32 2.15 1.69] max [0.44 2.19 1.78] lum 0.60 opacity 1.00
+PART drop    tris  208 min [-0.67 -1.7   2.72] max [0.67 2.05 2.77] lum 0.06 opacity 1.00
+PART drop    tris  208 min [-0.67 -1.7   2.89] max [0.67 2.05 2.94] lum 0.06 opacity 1.00
+PART bumper  tris   20 min [-0.8   2.11  1.19] max [0.8  2.21 1.33] lum 0.05 opacity 1.00
+PART detail  tris   10 min [-0.12  2.18  1.21] max [0.12 2.24 1.31] lum 0.38 opacity 1.00
+PART drop    tris  128 min [0.13 2.06 1.4 ] max [0.17 2.37 2.51] lum 0.03 opacity 1.00
+PART drop    tris  128 min [0.43 2.06 1.4 ] max [0.46 2.37 2.51] lum 0.02 opacity 1.00
+PART bumper  tris   20 min [-0.67 -2.21  1.12] max [ 0.67 -2.11  1.25] lum 0.05 opacity 1.00
+PART detail  tris   10 min [-0.12 -2.24  1.14] max [ 0.12 -2.18  1.23] lum 0.39 opacity 1.00
+PART drop    tris  264 min [-0.76 -2.26  1.25] max [ 0.76 -2.13  1.88] lum 0.05 opacity 1.00
+PART drop    tris   96 min [-0.72 -2.3   1.48] max [ 0.72 -2.15  1.55] lum 0.07 opacity 1.00
+PART detail  tris   22 min [0.74 2.09 1.49] max [0.83 2.12 1.72] lum 0.30 opacity 1.00
+PART detail  tris   34 min [ 0.55 -2.14  1.36] max [ 0.66 -2.1   1.48] lum 0.46 opacity 1.00
+PART detail  tris   46 min [ 0.39 -2.13  1.53] max [ 0.61 -2.06  1.76] lum 0.56 opacity 0.91
+PART detail  tris   32 min [ 0.41 -2.13  1.55] max [ 0.59 -2.05  1.74] lum 0.41 opacity 1.00
+PART glass   tris   10 min [-0.73 -1.98  2.  ] max [ 0.73 -1.58  2.51] lum 0.24 opacity 0.81
+PART drop    tris  224 min [ 0.21 -1.79  1.87] max [ 0.61 -1.45  2.11] lum 0.23 opacity 1.00
+PART drop    tris  110 min [ 0.38 -1.91  1.57] max [ 0.44 -1.6   2.01] lum 0.24 opacity 1.00
+PART mirror  tris   60 min [ 0.9  -1.63  2.04] max [ 1.04 -1.57  2.27] lum 0.40 opacity 1.00
+PART drop    tris  128 min [-0.47  2.06  1.4 ] max [-0.43  2.37  2.51] lum 0.03 opacity 1.00
+PART drop    tris  128 min [-0.18  2.06  1.4 ] max [-0.14  2.37  2.51] lum 0.02 opacity 1.00
+PART drop    tris  704 min [-0.62  1.22  2.76] max [0.15 1.99 3.04] lum 0.21 opacity 1.00
+PART mirror  tris   60 min [-1.04 -1.63  2.04] max [-0.91 -1.57  2.27] lum 0.40 opacity 1.00
+PART detail  tris   22 min [-0.83  2.09  1.49] max [-0.74  2.12  1.72] lum 0.30 opacity 1.00
+PART detail  tris   34 min [-0.66 -2.14  1.36] max [-0.55 -2.1   1.48] lum 0.46 opacity 1.00
+PART detail  tris   46 min [-0.61 -2.13  1.53] max [-0.39 -2.06  1.76] lum 0.56 opacity 0.91
+PART detail  tris   32 min [-0.59 -2.13  1.55] max [-0.41 -2.05  1.74] lum 0.41 opacity 1.00
+PART step    tris  120 min [-0.89 -0.8   0.99] max [-0.76  0.8   1.08] lum 0.06 opacity 1.00
+PART step    tris  120 min [ 0.77 -0.8   0.99] max [0.9  0.8  1.08] lum 0.06 opacity 1.00
+SORT (parts, triangles): {'body': (4, 1606), 'glass': (8, 24), 'wheel': (4, 2816), 'bumper': (2, 40), 'step': (2, 240), 'mirror': (2, 120), 'detail': (14, 460), 'drop': (98, 3480)}
+SCALE per axis x 1.0883 y 0.9875 z 0.9382 (source body 1.783 x 4.339, ground to roof 2.196)
+GLASS pane centre [ 0.34 -2.04  1.63] -> RearDoor_R
+GLASS pane centre [-0.33 -2.04  1.63] -> RearDoor_L
+GLASS pane centre [-0.83  1.23  1.62] -> Door_FL
+GLASS pane centre [-0.84  0.58  1.62] -> Glass
+GLASS pane centre [-0.84 -0.15  1.62] -> Glass
+GLASS pane centre [ 0.83 -0.14  1.62] -> Door_Side
+GLASS pane centre [0.83 1.23 1.62] -> Door_FR
+GLASS pane centre [0.02 1.78 1.64] -> Glass
+CUT side door faces 41, rear door faces 76
+SKIN Body        tris 1424, seam points kept still 100
+SKIN Door_FL     tris  136, seam points kept still 0
+SKIN Door_FR     tris  136, seam points kept still 0
+SKIN Door_Side   tris   66, seam points kept still 50
+SKIN RearDoor_L  tris   56, seam points kept still 40
+SKIN RearDoor_R  tris   58, seam points kept still 42
+DOOR Door_FL y 0.867..1.860 (front edge: bottom 1.860, top 1.488) z 0.580..1.897, side x bottom 0.963 top 0.769
+DOOR Door_FR y 0.867..1.860 (front edge: bottom 1.860, top 1.488) z 0.580..1.897, side x bottom 0.963 top 0.769
+HINGE Door_FL     Blender (-0.888, 1.860, 0.580)
+HINGE Door_FR     Blender (0.888, 1.860, 0.580)
+HINGE Door_Side   Blender (0.959, 0.360, 0.820)
+HINGE RearDoor_L  Blender (-0.700, -2.119, 0.800)
+HINGE RearDoor_R  Blender (0.700, -2.119, 0.800)
+BUDGET glass, bumpers and rebuilt parts 174 (one wheel inside) + three more wheels 108 + skins 998 (were 1876, ratio 0.500) = 1280 of 1293
+SKIN Body        after:  710 tris
+SKIN Door_FL     after:   66 tris
+SKIN Door_FR     after:   66 tris
+SKIN Door_Side   after:   58 tris
+SKIN RearDoor_L  after:   48 tris
+SKIN RearDoor_R  after:   50 tris
+SEAM points moved or lost by the decimation: 0
+KIT FACING fixed: flipped 31 of 1172 faces; open on both sides 0; closed on both sides 318
+UV UVMap angle 45 overlapping texels at 1024: 0
+Info: Circular dependency for image "bake" from object "kit"
+Info: Baking map saved to internal image, save it externally or pack it
+PAINT texels 263877 = 72.5% of the sheet metal; median paint colour of the source [0.18  0.212 0.157] -> default BodyColor (sRGB values 0..1) [0.225 0.265 0.196]
+BAKE texels the bake missed 19171 of 479919
+PART Body        tris  784
+PART Door_FL     tris   88
+PART Door_FR     tris   88
+PART Door_Side   tris   60
+PART RearDoor_L  tris   50
+PART RearDoor_R  tris   52
+PART Glass       tris   14
+PART Wheel       tris   36
+RESULT kit tris in one piece of each part 1172; assembled with four wheels 1280 of 1293
+Info: Saved as "uazkit_work.blend"
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

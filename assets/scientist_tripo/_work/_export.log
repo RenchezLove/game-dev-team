@@ -1,0 +1,61 @@
+00:00.359  blend            | Read blend: "E:\game-dev-team\assets\scientist_tripo\_work\scientist_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_tripo/SK_Scientist_Head.fbx'
+export finished in 0.0153 sec.
+EXPORTED E:/game-dev-team/assets/scientist_tripo/SK_Scientist_Head.fbx 68.8 KB
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_tripo/SK_Scientist_Torso.fbx'
+export finished in 0.0102 sec.
+EXPORTED E:/game-dev-team/assets/scientist_tripo/SK_Scientist_Torso.fbx 100.4 KB
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_tripo/SK_Scientist_Legs.fbx'
+export finished in 0.0084 sec.
+EXPORTED E:/game-dev-team/assets/scientist_tripo/SK_Scientist_Legs.fbx 75.3 KB
+FBX version: 7300
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+FBX version: 7400
+  armature RootAnim applied: C_Neck local z=1.461 (expect ~1.461)
+VERIFY Head  objects(mesh,armature)=(1, 1) bones=21 names_equal_T0_and_handoff=True rest_delta_vs_T0=0.00000 vs_handoff=0.00002 tris=227 (T0 275) verts=131 unweighted=0 max_influences=3 uv=['UVMap'] mats=['M_ScientistTripo'] tex=['T_ScientistTripo_D.png'] -> PASS
+  skin bones used: ['C_Head', 'C_Neck', 'C_Spine02']
+  SIZE T1 x[-0.105..0.108] y[-0.153..0.113] z[1.532..1.800] | T0 x[-0.108..0.107] y[-0.151..0.108] z[1.532..1.823]
+  CUT T1 Head open edge at z=1.532: 25 verts, radius 0.061..0.124, distance to the T0 surface max 0.0000 mean 0.0000 m
+  CUT T0 Head open edge at z=1.532: 14 verts, radius 0.062..0.131, distance to the T0 surface max 0.0000 mean 0.0000 m
+VERIFY Torso objects(mesh,armature)=(1, 1) bones=21 names_equal_T0_and_handoff=True rest_delta_vs_T0=0.00000 vs_handoff=0.00002 tris=883 (T0 524) verts=487 unweighted=0 max_influences=3 uv=['UVMap'] mats=['M_ScientistTripo'] tex=['T_ScientistTripo_D.png'] -> PASS
+  skin bones used: ['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'Pelvis_009_R_002', 'R_Arm', 'R_Hand', 'R_Pelvis', 'R_Thigh']
+  SIZE T1 x[-1.012..1.012] y[-0.201..0.247] z[0.584..1.549] | T0 x[-0.993..0.993] y[-0.182..0.196] z[0.900..1.549]
+  CUT T1 Torso open edge at z=0.584: 32 verts, radius 0.036..0.211, distance to the T0 surface max 0.0002 mean 0.0001 m
+  CUT T1 Torso open edge at z=1.549: 25 verts, radius 0.054..0.130, distance to the T0 surface max 0.0000 mean 0.0000 m
+  CUT T0 Torso open edge at z=0.900: 42 verts, radius 0.099..0.222, distance to the T0 surface max 0.0000 mean 0.0000 m
+  CUT T0 Torso open edge at z=1.549: 18 verts, radius 0.059..0.132, distance to the T0 surface max 0.0000 mean 0.0000 m
+VERIFY Legs  objects(mesh,armature)=(1, 1) bones=21 names_equal_T0_and_handoff=True rest_delta_vs_T0=0.00000 vs_handoff=0.00002 tris=369 (T0 365) verts=227 unweighted=0 max_influences=3 uv=['UVMap'] mats=['M_ScientistTripo'] tex=['T_ScientistTripo_D.png'] -> PASS
+  skin bones used: ['C_Root', 'L_Claf', 'L_Foot', 'L_Thigh', 'R_Claf', 'R_Foot', 'R_Thigh']
+  SIZE T1 x[-0.255..0.255] y[-0.243..0.166] z[-0.002..0.910] | T0 x[-0.236..0.235] y[-0.192..0.196] z[-0.005..0.910]
+  CUT T1 Legs open edge at z=0.584: 56 verts, radius 0.030..0.215, distance to the T0 surface max 0.0002 mean 0.0001 m
+  CUT T1 Legs open edge at z=0.910: 14 verts, radius 0.139..0.192, distance to the T0 surface max 0.0000 mean 0.0000 m
+  CUT T0 Legs open edge at z=0.910: 43 verts, radius 0.139..0.226, distance to the T0 surface max 0.0000 mean 0.0000 m
+BONES ['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Claf', 'L_Foot', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'L_UpperArm', 'Pelvis_009_R_002', 'R_Arm', 'R_Claf', 'R_Foot', 'R_Hand', 'R_Pelvis', 'R_Thigh', 'R_UpperArm']
+TOTAL tris T1 1479 | T0 1164
+WHOLE T1 height 1.802 (z -0.002..1.800) span x -1.012..1.012 depth y -0.243..0.247
+WHOLE T0 height 1.828 (z -0.005..1.823) span x -0.993..0.993 depth y -0.192..0.196
+HAND T1 left: tip |x|=1.012, length past the wrist joint 0.114, thickness z 0.108, width y 0.147
+HAND T1 right: tip |x|=1.012, length past the wrist joint 0.114, thickness z 0.108, width y 0.145
+HAND T0 left: tip |x|=0.993, length past the wrist joint 0.095, thickness z 0.054, width y 0.101
+HAND T0 right: tip |x|=0.993, length past the wrist joint 0.095, thickness z 0.054, width y 0.101
+SLOTS T1 head lowest z 1.532, legs highest z 0.910, torso z 0.584..1.549
+LEGS T1 above z 0.87: max |x| 0.186, max radius 0.193
+LEGS T0 above z 0.87: max |x| 0.222, max radius 0.228
+TEXTURE E:/game-dev-team/assets/scientist_tripo/T_ScientistTripo_D.png 1024x1024 channels=4 707.4 KB
+ROUNDTRIP ALL PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

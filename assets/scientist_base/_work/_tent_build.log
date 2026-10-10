@@ -1,0 +1,28 @@
+ASKEW source turned by 2.65 deg about Z
+LEVEL ground plane of the source: slope x 0.0163 y 0.0097, offset 4.43 (source units, cm)
+SCALE 0.01928: source canvas 415.0 x 282.4 x 181.1 -> 8.000 x 5.445 m
+POSTS part tris 20 min [196. -91.   6.] max [201. -36. 105.]
+POSTS part tris 8 min [196. -91.   5.] max [201. -87. 101.]
+PARTS canvas 1199 tris, ropes 9, pegs 9
+CANVAS FACING fixed: flipped 2 of 1227 faces; open on both sides 0; closed on both sides 18
+SHELL canvas min [-2.722 -4.     0.   ] max [2.722 4.    3.36 ]
+ROOM entrance wall at y -2.860 (porch reaches y -4.000), side walls x +-2.722, back wall y 4.000, wall top 2.148, ridge 3.360
+TWO-SIDED sheets: 12 faces get a second side (back open > 0.10); canvas faces with a closed front and open back: 0
+BUDGET canvas with posts and second sides 1239 + ropes and pegs 117 + liner 12 = 1368 of 1500
+UV UVMap angle 66 overlapping texels at 1024: 0
+Info: Circular dependency for image "T_ArmyTent_D" from object "SM_ArmyTent"
+Info: Baking map saved to internal image, save it externally or pack it
+BAKE canvas texels mean colour before [0.251 0.234 0.195]
+LEAVES 330 placed, texels painted 18962 of 128861 roof texels (14.7%); roof texel size about 17.0 mm
+COLOUR canvas texels mean after [0.592 0.552 0.347]; unpainted (black) texels inside faces: 0
+UV LightmapUV angle 66 overlapping texels 0
+TENT BODY without ropes and pegs, cm: min (-272.2, -400.0, 0.0) max (272.2, 400.0, 336.0)
+TENT MAIN ROOM, cm: x -272.2..272.2, y -286.0..400.0 (entrance wall at y -286.0, porch out to y -400.0), wall top z 214.8, ridge z 336.0
+DOOR posts, cm: x -52.6..53.3 y -400.0..-390.9 z up to 188.3
+ROPES and pegs reach, cm: min (-382.2, -348.3, 1.7) max (384.5, 510.8, 210.8)
+RESULT tris 1368 min [-3.822 -4.     0.   ] max [3.845 5.108 3.36 ] size [7.668 9.108 3.36 ]; origin: middle of the canvas footprint on the ground
+Info: Saved as "tent_work.blend"
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+OBJ import of 'Tent.obj' took 48.40 ms
+
+Blender quit

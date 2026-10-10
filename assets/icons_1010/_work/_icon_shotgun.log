@@ -1,0 +1,26 @@
+E:\game-dev-team\assets\icons_1010\_work\icon_render.py:38: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new(name); mat.use_nodes = True
+E:\game-dev-team\assets\icons_1010\_work\icon_render.py:147: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+00:06.891  render           | Saved: 'E:\game-dev-team\assets\icons_1010\_work\_raw_shotgun.png'
+LEFT OUT toz34 right (down) extractor MESH
+LEFT OUT toz34 left (uo) extractor MESH
+LEFT OUT 1276 MESH
+LEFT OUT 12/76 MESH
+PARTS [('toz34 rear trigga', 52), ('toz34 lock lever', 114), ('toz34 front trigga', 76), ('toz34 barrels', 1130), ('toz-34', 652), ('Cube', 12)] sum 2036
+MATERIAL toz34 rear trigga      1b         -> steel
+MATERIAL toz34 lock lever       1b         -> steel
+MATERIAL toz34 front trigga     1b         -> steel
+MATERIAL toz34 barrels          1b         -> steel
+MATERIAL toz34 barrels          1wo        -> wood
+MATERIAL toz34 barrels          1wo mesh1  -> checker
+MATERIAL toz-34                 1b         -> steel
+MATERIAL toz-34                 1wo        -> wood
+MATERIAL toz-34                 2b         -> dark
+MATERIAL toz-34                 1wo mesh1  -> checker
+MATERIAL Cube                   1w         -> bright
+FRAME object 14.683 x 11.404 in the picture plane, ortho scale 16.450
+ICON T_Item_Shotgun.png 256x256 | covered share 0.082 | box x 12..243 y 37..218 | brightness mean 0.347, tenth part darker than 0.043, tenth part lighter than 0.563 | 19.5 KB
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

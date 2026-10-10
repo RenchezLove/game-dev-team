@@ -1,0 +1,13 @@
+SOURCE min [-0.535 -1.    -0.509] max [0.535 1.    0.509] -> scale 0.5000
+CHEST FACING fixed: flipped 0 of 48 faces; open on both sides 0; closed on both sides 12
+BUILD tris 48
+UV UVMap angle 66 overlapping texels at 1024: 0
+Info: Circular dependency for image "T_StashChest_D" from object "SM_StashChest"
+Info: Baking map saved to internal image, save it externally or pack it
+BAKE mean colour [0.431 0.366 0.312], texels the bake missed 332 of 172204
+UV LightmapUV angle 66 overlapping texels 0
+RESULT tris 48 min [-5.000e-01 -2.817e-01 -1.000e-04] max [0.5    0.2383 0.5089] size [1.    0.52  0.509] (m)
+Info: Saved as "chest_work.blend"
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

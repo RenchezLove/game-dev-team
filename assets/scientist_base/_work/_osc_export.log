@@ -1,0 +1,20 @@
+00:00.328  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\osc_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_Oscilloscope/SM_Oscilloscope.fbx'
+export finished in 0.0044 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_Oscilloscope/SM_Oscilloscope.fbx 25.7 KB
+FBX version: 7400
+SM_Oscilloscope objects in file: [('SM_Oscilloscope', 'MESH')]
+SM_Oscilloscope tris=174 verts=136 min=[-0.0904 -0.1851 -0.    ] max=[0.0904 0.1851 0.3   ] size=[0.1809 0.3702 0.3   ] (m)
+SM_Oscilloscope origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_Oscilloscope'] uv=['UVMap', 'LightmapUV'] smooth_faces=0
+SM_Oscilloscope facing: 174 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 32, down 32, sideways 110)
+SM_Oscilloscope stored normals: faces whose saved vertex normal looks against the face 0 of 174 (lowest dot 1.000)
+SM_Oscilloscope uv UVMap range 0.0057..0.9943 overlapping texels at 1024: 0
+SM_Oscilloscope uv LightmapUV range 0.0125..0.9875 overlapping texels at 1024: 0
+SM_Oscilloscope texture T_Oscilloscope_D.png 512x512 255.8 KB
+SM_Oscilloscope triangles 174 (allowed 150..200)
+SM_Oscilloscope ROUNDTRIP PASS
+SM_Oscilloscope SUMMARY tris 174 | size cm 18.1 x 37.0 x 30.0 | min cm (-9.0, -18.5, -0.0) max cm (9.0, 18.5, 30.0) | PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

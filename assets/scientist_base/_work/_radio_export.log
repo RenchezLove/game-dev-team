@@ -1,0 +1,20 @@
+00:00.422  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\radio_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_Radio/SM_Radio.fbx'
+export finished in 0.0045 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_Radio/SM_Radio.fbx 21.6 KB
+FBX version: 7400
+SM_Radio objects in file: [('SM_Radio', 'MESH')]
+SM_Radio tris=70 verts=52 min=[-0.1263 -0.0341 -0.    ] max=[0.125  0.0341 0.1523] size=[0.2513 0.0682 0.1523] (m)
+SM_Radio origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_Radio'] uv=['UVMap', 'LightmapUV'] smooth_faces=0
+SM_Radio facing: 70 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 14, down 16, sideways 40)
+SM_Radio stored normals: faces whose saved vertex normal looks against the face 0 of 70 (lowest dot 1.000)
+SM_Radio uv UVMap range 0.0032..0.9968 overlapping texels at 1024: 0
+SM_Radio uv LightmapUV range 0.0078..0.9922 overlapping texels at 1024: 0
+SM_Radio texture T_Radio_D.png 512x512 326.8 KB
+SM_Radio triangles 70 (allowed 50..100)
+SM_Radio ROUNDTRIP PASS
+SM_Radio SUMMARY tris 70 | size cm 25.1 x 6.8 x 15.2 | min cm (-12.6, -3.4, -0.0) max cm (12.5, 3.4, 15.2) | PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,19 @@
+FBX version: 7400
+SM_AbandonedCar_Door_FL source: tris 17 min [-0.018 -0.93   0.   ] max [0.217 0.    0.995]; panel looks along -X; uv sets ['UVMap']; material ['M_CarTripo']
+SM_AbandonedCar_Door_FL_Broken: tris 56, points 44 (moved 38, still at the hinge 6); pushed inwards up to 8.7 cm, outwards up to 6.3 cm
+FBX version: 7400
+SM_AbandonedCar_Door_FR source: tris 18 min [-0.179 -0.93   0.   ] max [0.045 0.    0.995]; panel looks along +X; uv sets ['UVMap']; material ['M_CarTripo.001']
+SM_AbandonedCar_Door_FR_Broken: tris 57, points 45 (moved 37, still at the hinge 8); pushed inwards up to 7.0 cm, outwards up to 3.5 cm
+FBX version: 7400
+SM_AbandonedCar_Door_RL source: tris 26 min [-0.046 -0.87   0.   ] max [0.199 0.    0.995]; panel looks along -X; uv sets ['UVMap']; material ['M_CarTripo.002']
+SM_AbandonedCar_Door_RL_Broken: tris 56, points 46 (moved 37, still at the hinge 9); pushed inwards up to 4.3 cm, outwards up to 2.7 cm
+FBX version: 7400
+SM_AbandonedCar_Door_RR source: tris 22 min [-0.179 -0.87   0.   ] max [0.042 0.    0.995]; panel looks along +X; uv sets ['UVMap']; material ['M_CarTripo.003']
+SM_AbandonedCar_Door_RR_Broken: tris 56, points 43 (moved 36, still at the hinge 7); pushed inwards up to 7.6 cm, outwards up to 5.0 cm
+FBX version: 7400
+SM_AbandonedCar_Hood source: tris 19 min [-0.687 -0.056 -0.142] max [0.7   1.012 0.   ]; panel looks along +Z; uv sets ['UVMap']; material ['M_CarTripo.004']
+SM_AbandonedCar_Hood_Broken: tris 56, points 38 (moved 29, still at the hinge 9); pushed inwards up to 4.4 cm, outwards up to 3.3 cm
+Info: Saved as "broken_work.blend"
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

@@ -1,0 +1,19 @@
+00:00.375  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\toz_work.blend"
+
+FBX export starting... 'E:/game-dev-team/assets/scientist_base/SM_Shotgun_TOZ34/SM_Shotgun_TOZ34.fbx'
+export finished in 0.0050 sec.
+FILE E:/game-dev-team/assets/scientist_base/SM_Shotgun_TOZ34/SM_Shotgun_TOZ34.fbx 45.4 KB
+FBX version: 7400
+SM_Shotgun_TOZ34 objects in file: [('SM_Shotgun_TOZ34', 'MESH')]
+SM_Shotgun_TOZ34 tris=692 verts=366 min=[-0.021  -0.8724 -0.1053] max=[0.021  0.2776 0.0898] size=[0.042  1.15   0.1951] (m)
+SM_Shotgun_TOZ34 origin=(0.0, 0.0, 0.0) rot=(-0.0, 0.0, 0.0) scale=(1.0, 1.0, 1.0) materials=['M_Shotgun_TOZ34'] uv=['UVMap'] smooth_faces=0
+SM_Shotgun_TOZ34 facing: 692 faces compared with the builder directions, worst centre distance 0.000000 m, wrong 0, builder faces without a pair 0 (look up 176, down 148, sideways 368)
+SM_Shotgun_TOZ34 stored normals: faces whose saved vertex normal looks against the face 0 of 692 (lowest dot 1.000)
+SM_Shotgun_TOZ34 uv UVMap range 0.0073..0.9927 overlapping texels at 1024: 0
+SM_Shotgun_TOZ34 texture T_Shotgun_TOZ34_D.png 512x512 61.1 KB
+SM_Shotgun_TOZ34 triangles 692 (allowed 1..700)
+SM_Shotgun_TOZ34 ROUNDTRIP PASS
+SM_Shotgun_TOZ34 SUMMARY tris 692 | size cm 4.2 x 115.0 x 19.5 | min cm (-2.1, -87.2, -10.5) max cm (2.1, 27.8, 9.0) | PASS
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

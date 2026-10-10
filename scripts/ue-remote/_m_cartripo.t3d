@@ -1,0 +1,77 @@
+Begin Object Class=/Script/Engine.Material Name="M_CarTripo" ExportPath="/Script/Engine.Material'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo'"
+   Begin Object Class=/Script/Engine.MaterialEditorOnlyData Name="M_CarTripoEditorOnlyData" ExportPath="/Script/Engine.MaterialEditorOnlyData'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:M_CarTripoEditorOnlyData'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionConstant Name="MaterialExpressionConstant_0" ExportPath="/Script/Engine.MaterialExpressionConstant'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionConstant_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionConstant3Vector Name="MaterialExpressionConstant3Vector_0" ExportPath="/Script/Engine.MaterialExpressionConstant3Vector'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionConstant3Vector_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionLinearInterpolate Name="MaterialExpressionLinearInterpolate_0" ExportPath="/Script/Engine.MaterialExpressionLinearInterpolate'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionLinearInterpolate_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_0" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionMultiply_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSampleParameter2D Name="MaterialExpressionTextureSampleParameter2D_0" ExportPath="/Script/Engine.MaterialExpressionTextureSampleParameter2D'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionTextureSampleParameter2D_0'"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionVectorParameter Name="MaterialExpressionVectorParameter_0" ExportPath="/Script/Engine.MaterialExpressionVectorParameter'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionVectorParameter_0'"
+   End Object
+   Begin Object Name="M_CarTripoEditorOnlyData" ExportPath="/Script/Engine.MaterialEditorOnlyData'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:M_CarTripoEditorOnlyData'"
+      BaseColor=(Expression="/Script/Engine.MaterialExpressionMultiply'M_CarTripo:MaterialExpressionMultiply_0'")
+      Roughness=(Expression="/Script/Engine.MaterialExpressionConstant'M_CarTripo:MaterialExpressionConstant_0'")
+      ExpressionCollection=(Expressions=("/Script/Engine.MaterialExpressionTextureSampleParameter2D'M_CarTripo:MaterialExpressionTextureSampleParameter2D_0'","/Script/Engine.MaterialExpressionVectorParameter'M_CarTripo:MaterialExpressionVectorParameter_0'","/Script/Engine.MaterialExpressionConstant3Vector'M_CarTripo:MaterialExpressionConstant3Vector_0'","/Script/Engine.MaterialExpressionLinearInterpolate'M_CarTripo:MaterialExpressionLinearInterpolate_0'","/Script/Engine.MaterialExpressionMultiply'M_CarTripo:MaterialExpressionMultiply_0'","/Script/Engine.MaterialExpressionConstant'M_CarTripo:MaterialExpressionConstant_0'"))
+   End Object
+   Begin Object Name="MaterialExpressionConstant_0" ExportPath="/Script/Engine.MaterialExpressionConstant'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionConstant_0'"
+      R=0.800000
+      MaterialExpressionEditorX=-150
+      MaterialExpressionEditorY=250
+      MaterialExpressionGuid=8E4CA55C4334A681458763ABAFEF9B74
+      Material="/Script/Engine.Material'M_CarTripo'"
+   End Object
+   Begin Object Name="MaterialExpressionConstant3Vector_0" ExportPath="/Script/Engine.MaterialExpressionConstant3Vector'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionConstant3Vector_0'"
+      Constant=(R=1.000000,G=1.000000,B=1.000000,A=1.000000)
+      MaterialExpressionEditorX=-450
+      MaterialExpressionEditorY=300
+      MaterialExpressionGuid=E74A0B8247C58FD5F713A7B538697B3B
+      Material="/Script/Engine.Material'M_CarTripo'"
+   End Object
+   Begin Object Name="MaterialExpressionLinearInterpolate_0" ExportPath="/Script/Engine.MaterialExpressionLinearInterpolate'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionLinearInterpolate_0'"
+      A=(Expression="/Script/Engine.MaterialExpressionConstant3Vector'M_CarTripo:MaterialExpressionConstant3Vector_0'",Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      B=(Expression="/Script/Engine.MaterialExpressionVectorParameter'M_CarTripo:MaterialExpressionVectorParameter_0'",Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      Alpha=(Expression="/Script/Engine.MaterialExpressionTextureSampleParameter2D'M_CarTripo:MaterialExpressionTextureSampleParameter2D_0'",OutputIndex=4,Mask=1,MaskA=1)
+      MaterialExpressionEditorX=-300
+      MaterialExpressionEditorY=200
+      MaterialExpressionGuid=BCAA4A324B39E0D8AA758C81D894BDE5
+      Material="/Script/Engine.Material'M_CarTripo'"
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_0" ExportPath="/Script/Engine.MaterialExpressionMultiply'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionMultiply_0'"
+      A=(Expression="/Script/Engine.MaterialExpressionTextureSampleParameter2D'M_CarTripo:MaterialExpressionTextureSampleParameter2D_0'",Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      B=(Expression="/Script/Engine.MaterialExpressionLinearInterpolate'M_CarTripo:MaterialExpressionLinearInterpolate_0'")
+      MaterialExpressionEditorX=-150
+      MaterialExpressionGuid=9641858742E97EF4AA84758E5490BFDF
+      Material="/Script/Engine.Material'M_CarTripo'"
+   End Object
+   Begin Object Name="MaterialExpressionTextureSampleParameter2D_0" ExportPath="/Script/Engine.MaterialExpressionTextureSampleParameter2D'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionTextureSampleParameter2D_0'"
+      ParameterName="Diffuse"
+      ExpressionGUID=E0B118964220DEFC828DAFBABA1DE702
+      Texture="/Script/Engine.Texture2D'/Game/Environment/Props/AbandonedCar/T_AbandonedCarTripo_D.T_AbandonedCarTripo_D'"
+      MaterialExpressionEditorX=-700
+      MaterialExpressionGuid=5010F590476DC84F43BA0FB0667EF6D0
+      Material="/Script/Engine.Material'M_CarTripo'"
+   End Object
+   Begin Object Name="MaterialExpressionVectorParameter_0" ExportPath="/Script/Engine.MaterialExpressionVectorParameter'/Game/Environment/Props/AbandonedCar/M_CarTripo.M_CarTripo:MaterialExpressionVectorParameter_0'"
+      DefaultValue=(R=0.212000,G=0.296000,B=0.456000,A=1.000000)
+      ParameterName="BodyColor"
+      ExpressionGUID=C0A9450B4BE2207A23C3AD882B2F30AC
+      MaterialExpressionEditorX=-700
+      MaterialExpressionEditorY=300
+      MaterialExpressionGuid=12EC68A344FB25FB046B0691A28BE926
+      Material="/Script/Engine.Material'M_CarTripo'"
+   End Object
+   TwoSided=True
+   bUsedWithStaticLighting=True
+   bCanMaskedBeAssumedOpaque=True
+   StateId=096AF83D457AAAA1A5E91AA3DD1FDB8C
+   ReferencedTextureGuids(0)=2527FDB54597BA07AD46949FBBBFF0C0
+   EditorOnlyData="/Script/Engine.MaterialEditorOnlyData'M_CarTripoEditorOnlyData'"
+   TextureStreamingDataVersion=1
+   TextureStreamingData(0)=(SamplingScale=1.000000,UVChannelIndex=0,TextureName="T_AbandonedCarTripo_D",TextureReference="/Game/Environment/Props/AbandonedCar/T_AbandonedCarTripo_D.T_AbandonedCarTripo_D")
+   LightingGuid=4BFACF3042010E19BA022382455AEAB2
+End Object

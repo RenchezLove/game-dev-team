@@ -1,0 +1,51 @@
+00:00.344  blend            | Read blend: "E:\game-dev-team\assets\abandoned_car_tripo\broken\_work\broken_work.blend"
+E:\game-dev-team\assets\abandoned_car_tripo\broken\_work\21_export_verify.py:49: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new('prev'); mat.use_nodes = True; nt = mat.node_tree
+00:02.547  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\broken_0.png'
+00:02.938  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\broken_1.png'
+00:03.344  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\broken_2.png'
+00:03.734  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\broken_3.png'
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/broken/SM_AbandonedCar_Door_FL_Broken.fbx'
+export finished in 0.0043 sec.
+FILE E:/game-dev-team/assets/abandoned_car_tripo/broken/SM_AbandonedCar_Door_FL_Broken.fbx 23.6 KB
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/broken/SM_AbandonedCar_Door_FR_Broken.fbx'
+export finished in 0.0042 sec.
+FILE E:/game-dev-team/assets/abandoned_car_tripo/broken/SM_AbandonedCar_Door_FR_Broken.fbx 23.7 KB
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/broken/SM_AbandonedCar_Door_RL_Broken.fbx'
+export finished in 0.0077 sec.
+FILE E:/game-dev-team/assets/abandoned_car_tripo/broken/SM_AbandonedCar_Door_RL_Broken.fbx 23.7 KB
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/broken/SM_AbandonedCar_Door_RR_Broken.fbx'
+export finished in 0.0068 sec.
+FILE E:/game-dev-team/assets/abandoned_car_tripo/broken/SM_AbandonedCar_Door_RR_Broken.fbx 23.6 KB
+
+FBX export starting... 'E:/game-dev-team/assets/abandoned_car_tripo/broken/SM_AbandonedCar_Hood_Broken.fbx'
+export finished in 0.0065 sec.
+FILE E:/game-dev-team/assets/abandoned_car_tripo/broken/SM_AbandonedCar_Hood_Broken.fbx 23.4 KB
+FBX version: 7400
+FBX version: 7400
+Door_FL  tris 56 (whole 17) | origin broken (0.0, 0.0, 0.0) whole (0.0, 0.0, 0.0) | outline in the panel plane differs by 0.000000 m | hinge edge points (6) found in the broken part within 0.000000 m | UV inside the UV of the whole part: True (uv set ['UVMap'], material ['M_CarTripo.001']) | faces looking outwards 56 of 56 (whole: 17 of 17) -> ok
+FBX version: 7400
+FBX version: 7400
+Door_FR  tris 57 (whole 18) | origin broken (0.0, 0.0, 0.0) whole (0.0, 0.0, 0.0) | outline in the panel plane differs by 0.000000 m | hinge edge points (8) found in the broken part within 0.000000 m | UV inside the UV of the whole part: True (uv set ['UVMap'], material ['M_CarTripo.003']) | faces looking outwards 57 of 57 (whole: 18 of 18) -> ok
+FBX version: 7400
+FBX version: 7400
+Door_RL  tris 56 (whole 26) | origin broken (0.0, 0.0, 0.0) whole (0.0, 0.0, 0.0) | outline in the panel plane differs by 0.000000 m | hinge edge points (9) found in the broken part within 0.000000 m | UV inside the UV of the whole part: True (uv set ['UVMap'], material ['M_CarTripo.005']) | faces looking outwards 56 of 56 (whole: 26 of 26) -> ok
+FBX version: 7400
+FBX version: 7400
+Door_RR  tris 56 (whole 22) | origin broken (0.0, 0.0, 0.0) whole (0.0, 0.0, 0.0) | outline in the panel plane differs by 0.000000 m | hinge edge points (7) found in the broken part within 0.000000 m | UV inside the UV of the whole part: True (uv set ['UVMap'], material ['M_CarTripo.007']) | faces looking outwards 56 of 56 (whole: 22 of 22) -> ok
+FBX version: 7400
+FBX version: 7400
+Hood     tris 56 (whole 19) | origin broken (0.0, 0.0, 0.0) whole (0.0, 0.0, 0.0) | outline in the panel plane differs by 0.000000 m | hinge edge points (9) found in the broken part within 0.000000 m | UV inside the UV of the whole part: True (uv set ['UVMap'], material ['M_CarTripo.009']) | faces looking outwards 56 of 56 (whole: 19 of 19) -> ok
+BROKEN PARTS ROUNDTRIP PASS
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/broken_0.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/broken_1.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/broken_2.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/broken_3.png
+SHEET E:/game-dev-team/assets/abandoned_car_tripo/broken/broken_preview.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

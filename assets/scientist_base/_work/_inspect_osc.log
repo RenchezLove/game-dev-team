@@ -1,0 +1,22 @@
+00:00.344  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_src\oscillograph\source\oscilloscope.blend"
+00:00.344  blend.doversion  | WARNING Region type 4 missing in space type "Info" (id: 7) - removing region
+E:\game-dev-team\assets\scientist_base\_work\00_inspect.py:64: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+00:02.016  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\osc_px.png'
+00:02.266  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\osc_nx.png'
+00:02.516  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\osc_py.png'
+00:02.781  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\osc_ny.png'
+00:03.063  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\osc_top.png'
+00:03.422  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\osc_q.png'
+00:03.766  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\osc_q2.png'
+SCENE unit scale 1.0, objects 3
+OBJ Camera                       type CAMERA parent None
+OBJ Lamp                         type LIGHT parent None
+OBJ oscilloscope                 tris  3774 verts  2337 min [ -8.913 -18.8     0.   ] max [ 8.913 16.    28.2  ] size [17.827 34.8   28.2  ] parent None mods ['EDGE_SPLIT'] hidden False
+    loc (0.0, 0.0, 0.0) rot (0.0, 0.0, 0.0) scale (1.0, 1.0, 1.0) uv ['UVMap'] cols [] mats ['oscilloscope'] faces per mat [1774]
+ALL min [ -8.913 -18.8     0.   ] max [ 8.913 16.    28.2  ] size [17.827 34.8   28.2  ]
+MAT oscilloscope base colour (0.8, 0.8, 0.8, 1.0) alpha 1.0 blend DITHERED
+IMG oscilloscope (512, 512) //..\..\materials\models\ares\oscilloscope.png packed True
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

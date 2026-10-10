@@ -1,0 +1,62 @@
+00:00.359  blend            | Read blend: "E:\game-dev-team\assets\hero_tripo\_work\hero_work.blend"
+00:00.375  blend            | Read blend: "E:\game-dev-team\assets\armor_wearables\_work\wearables_work.blend"
+22:45:20 | INFO: Data are loaded, start creating Blender stuff
+22:45:20 | INFO: Blender create Mesh node tripo_mesh_a90b5f92-bf44-4ad4-a085-18e26be251e8
+22:45:20 | INFO: glTF import finished in 0.01s
+TRIPO raw tris=1944 verts=2774 height=1.850
+WELD 2774 -> 994 verts
+CENTRE torso depth at z=1.11: y shift 0.004; head depth centre -0.003 -> shift -0.010 (T0 -0.013)
+TRIPO joints: crotch=0.813 hip=0.843 thigh=(0.118, 0.049, 0.763) knee=(0.151, 0.049, 0.461) ankle=(0.228, 0.049, 0.037) foot_y=[-0.193..0.162]
+TRIPO arm: shoulder=(0.22, 0.038, 1.384) elbow=(0.538, 0.073, 1.405) wrist=(0.785, 0.089, 1.383) tip=1.023
+DECIMATE 1944 -> 950 tris
+COAT cut under the hem at raw z 0.588: 288 trouser tris, mesh 1014 tris
+Info: Baking map saved to internal image, save it externally or pack it
+REBAKE diffuse colour 1024 onto 1014 tris
+HEAT TripoChar -> TripoRig groups=21 unweighted=3
+  filled 3 unweighted verts from the nearest skinned vertex (z 1.695..1.710)
+HEAD weights for the fit: arm/clavicle weights removed on 21 verts above z 1.555
+  conform C_Root             len T=0.275 O=0.255 scale=0.93
+  conform C_Spine01          len T=0.266 O=0.246 scale=0.93
+  conform L_UpperArm         len T=0.223 O=0.286 scale=1.28
+  conform L_Shoulder         len T=0.321 O=0.345 scale=1.07
+  conform L_Arm              len T=0.248 O=0.267 scale=1.08
+  conform L_Hand             len T=0.267 O=0.267 scale=1.00
+  conform R_UpperArm         len T=0.223 O=0.286 scale=1.28
+  conform R_Arm              len T=0.321 O=0.345 scale=1.07
+  conform Pelvis_009_R_002   len T=0.248 O=0.267 scale=1.08
+  conform R_Hand             len T=0.267 O=0.267 scale=1.00
+  conform C_Spine02          len T=0.151 O=0.121 scale=0.80
+  conform C_Neck             len T=0.045 O=0.071 scale=1.57
+  conform C_Head             len T=0.071 O=0.071 scale=1.00
+  conform L_Pelvis           len T=0.128 O=0.105 scale=0.82
+  conform L_Thigh            len T=0.383 O=0.380 scale=0.99
+  conform L_Claf             len T=0.431 O=0.422 scale=0.98
+  conform L_Foot             len T=0.422 O=0.422 scale=1.00
+  conform R_Pelvis           len T=0.128 O=0.105 scale=0.82
+  conform R_Thigh            len T=0.383 O=0.380 scale=0.99
+  conform R_Claf             len T=0.431 O=0.422 scale=0.98
+  conform R_Foot             len T=0.422 O=0.422 scale=1.00
+CONFORM max joint error = 0.00000 m
+THICKEN torso x1.10 limbs x1.18: z=[-0.002..1.800]
+COAT trouser ring under the hem is at z=0.584 on our skeleton; 38 trouser verts fitted to the T0 thighs
+NECK collar: 37 verts, top 1.575 -> 1.528 (31 squeezed)
+CUT planes (0.84, 0.9, 1.532, 1.549): tris = 1350 (+171 verts on the planes)
+FIT waist: 0 verts to the T0 trouser ring, 0 hem verts clamped to z 0.914, 32 pushed outside
+FIT neck: 65 verts to the T0 neck/chin surface, 1 collar verts pushed outside
+NAPE skin fill: 21 faces -> texel (0.6, 0.5, 0.41)
+HEAT TripoChar -> RootAnim groups=21 unweighted=3
+  filled 3 unweighted verts from the nearest skinned vertex (z 1.647..1.662)
+Info: 22 vertex weights limited
+WEIGHT FIX: clavicle weights moved on 201 verts, head->neck below chin on 15 verts
+COAT skirts: 208 verts: pelvis bone between z 0.84 and 0.90, thigh bones below (full below 0.76)
+WEIGHTS clavicle weights left: 0
+SLOT SK_Scientist_Head  tris=229 verts=131 z=[1.532..1.800] groups=['C_Head', 'C_Neck', 'C_Spine02']
+SLOT SK_Scientist_Torso tris=883 verts=487 z=[0.584..1.549] groups=['C_Head', 'C_Neck', 'C_Root', 'C_Spine01', 'C_Spine02', 'L_Arm', 'L_Hand', 'L_Pelvis', 'L_Shoulder', 'L_Thigh', 'Pelvis_009_R_002', 'R_Arm', 'R_Hand', 'R_Pelvis', 'R_Thigh']
+GRAFT T0 pelvis: 81 tris from z 0.584 to 0.910, trouser texel (0.29, 0.25, 0.22)
+SLOT SK_Scientist_Legs  tris=369 verts=227 z=[-0.002..0.910] groups=['C_Root', 'L_Claf', 'L_Foot', 'L_Thigh', 'R_Claf', 'R_Foot', 'R_Thigh']
+TOTAL tris = 1481
+Info: Saved as "scientist_work.blend"
+SAVED E:/game-dev-team/assets/scientist_tripo/_work/scientist_work.blend
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

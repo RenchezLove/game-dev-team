@@ -1,0 +1,13 @@
+SOURCE min [ -8.91 -18.8    0.  ] max [ 8.91 16.   28.2 ] (cm) -> scale 0.01064
+OSC FACING fixed: flipped 0 of 174 faces; open on both sides 0; closed on both sides 31
+BUILD tris 174
+UV UVMap angle 66 overlapping texels at 1024: 0
+Info: Circular dependency for image "T_Oscilloscope_D" from object "SM_Oscilloscope"
+Info: Baking map saved to internal image, save it externally or pack it
+BAKE mean colour [0.517 0.512 0.498], texels the bake missed 5476 of 215950
+UV LightmapUV angle 66 overlapping texels 0
+RESULT tris 174 min [-0.0904 -0.1851  0.    ] max [0.0904 0.1851 0.3   ] size [0.1809 0.3702 0.3   ] (m)
+Info: Saved as "osc_work.blend"
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

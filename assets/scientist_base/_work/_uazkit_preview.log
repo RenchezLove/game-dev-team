@@ -1,0 +1,21 @@
+00:00.500  blend            | Read blend: "E:\game-dev-team\assets\scientist_base\_work\uazkit_work.blend"
+E:\game-dev-team\assets\scientist_base\_work\uazkit_12_preview.py:9: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat = bpy.data.materials.new('prev'); mat.use_nodes = True
+E:\game-dev-team\assets\scientist_base\_work\uazkit_12_preview.py:14: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  gm = bpy.data.materials.new('glass'); gm.use_nodes = True
+00:02.187  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\uazkit_closed_25_60.png'
+00:02.547  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\uazkit_closed_200_30.png'
+00:02.922  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\uazkit_open_25_60.png'
+00:03.281  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\uazkit_open_200_30.png'
+00:03.625  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\uazkit_open_300_25.png'
+00:04.000  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_prev_tmp\uazkit_red_120_45.png'
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/uazkit_closed_25_60.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/uazkit_closed_200_30.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/uazkit_open_25_60.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/uazkit_open_200_30.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/uazkit_open_300_25.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_prev_tmp/uazkit_red_120_45.png
+SHEET E:/game-dev-team/assets/scientist_base/SM_UAZ452_kit/SM_UAZ452_kit_preview.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

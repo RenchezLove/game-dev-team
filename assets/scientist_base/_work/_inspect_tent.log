@@ -1,0 +1,22 @@
+E:\game-dev-team\assets\scientist_base\_work\00_inspect.py:64: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); sc.world = w; w.use_nodes = True
+00:02.000  image.gpu        | WARNING Unable to find a suitable DXT compression
+00:02.000  image.gpu        | WARNING Falling back to uncompressed (Tex_0129_0.dds, 1024x1024).
+00:02.234  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_px.png'
+00:02.562  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_nx.png'
+00:02.859  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_py.png'
+00:03.219  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_ny.png'
+00:03.687  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_top.png'
+00:04.141  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_q.png'
+00:04.609  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\tent_q2.png'
+SCENE unit scale 1.0, objects 1
+OBJ Mesh_0157.rip                tris  3424 verts  6724 min [-274.766 -263.022   -6.918] max [199.238 141.177 178.469] size [474.004 404.199 185.387] parent None mods [] hidden False
+    loc (0.0, 0.0, 0.0) rot (1.571, -0.0, 0.0) scale (1.0, 1.0, 1.0) uv ['UVMap'] cols [] mats ['Tex_0129_0.dds'] faces per mat [3424]
+ALL min [-274.766 -263.022   -6.918] max [199.238 141.177 178.469] size [474.004 404.199 185.387]
+MAT Tex_0129_0.dds image node Image Texture -> E:/game-dev-team/assets/scientist_base/_src/tent-model-free/source/unrar/Tent\tex\Tex_0129_0.dds | linked to [('Principled BSDF', 'Base Color')]
+MAT Tex_0129_0.dds base colour (0.64, 0.64, 0.64, 1.0) alpha 1.0 blend DITHERED
+IMG Tex_0129_0.dds (1024, 1024) E:/game-dev-team/assets/scientist_base/_src/tent-model-free/source/unrar/Tent\tex\Tex_0129_0.dds packed False
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+OBJ import of 'Tent.obj' took 23.38 ms
+
+Blender quit

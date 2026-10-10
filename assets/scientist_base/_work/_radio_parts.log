@@ -1,0 +1,32 @@
+00:01.953  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\radio_t0.png'
+00:02.219  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\radio_t1.png'
+00:02.484  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\radio_t2.png'
+00:02.734  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\radio_t3.png'
+00:02.984  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\radio_t4.png'
+00:03.250  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\radio_t5.png'
+00:03.515  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\radio_t6.png'
+00:03.797  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\radio_t7.png'
+00:04.047  render           | Saved: 'E:\game-dev-team\assets\scientist_base\_work\_look\radio_t8.png'
+FBX version: 7400
+TEXTURE (2048, 2048)
+OBJ Cube.009       tris  424 min [-2.62  -1.02  -2.033] max [2.963 0.331 1.368] size [5.583 1.351 3.4  ]
+OBJ Cube.011       tris   74 min [-0.776  0.252 -1.557] max [-0.259  0.357 -1.411] size [0.517 0.105 0.146]
+OBJ Cylinder.013   tris  310 min [-2.225  0.328 -1.164] max [-0.278  0.48   0.784] size [1.947 0.152 1.947]
+OBJ Cylinder.014   tris  310 min [-1.649  0.393 -0.588] max [-0.854  0.503  0.207] size [0.795 0.11  0.795]
+OBJ Cylinder.016   tris  166 min [-1.782  0.093  0.801] max [-0.701  0.236  1.056] size [1.081 0.143 0.254]
+OBJ Cylinder.017   tris  254 min [ 0.775 -0.157  0.922] max [1.496 0.235 1.063] size [0.721 0.392 0.141]
+OBJ Plane.002      tris   40 min [ 2.741 -0.354  0.986] max [ 2.947 -0.133  1.096] size [0.206 0.221 0.11 ]
+ALL min [-2.62  -1.02  -2.033] max [2.963 0.503 1.368] size [5.583 1.523 3.4  ]
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/radio_t0.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/radio_t1.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/radio_t2.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/radio_t3.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/radio_t4.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/radio_t5.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/radio_t6.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/radio_t7.png
+RENDER E:/game-dev-team/assets/scientist_base/_work/_look/radio_t8.png
+SHEET E:/game-dev-team/assets/scientist_base/_work/_look/radio_sheet.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit

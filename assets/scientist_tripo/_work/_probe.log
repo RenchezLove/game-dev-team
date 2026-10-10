@@ -1,0 +1,41 @@
+22:44:42 | INFO: Data are loaded, start creating Blender stuff
+22:44:42 | INFO: Blender create Mesh node tripo_mesh_a90b5f92-bf44-4ad4-a085-18e26be251e8
+22:44:42 | INFO: glTF import finished in 0.01s
+00:02.797  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\_work\_look\raw_0.png'
+00:03.125  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\_work\_look\raw_1.png'
+00:03.407  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\_work\_look\raw_2.png'
+00:03.719  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\_work\_look\raw_3.png'
+00:04.016  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\_work\_look\raw_4.png'
+00:04.297  render           | Saved: 'E:\game-dev-team\assets\scientist_tripo\_work\_look\raw_5.png'
+RAW tris 1944 verts 2774 min [-1.019 -0.196  0.   ] max [1.023 0.224 1.85 ]; images [('Color_a90b5f92-bf44-4ad4-a085-18e26be251e8', (2048, 2048))]
+FACING check: nose side: head verts y range -0.144..0.132; feet y range -0.196..0.160 (toes should be at -Y)
+FRONT x=0: ----- 0.02-0.59 (y 0.00) | white 0.60-0.81 (y 0.22) | dkgry 0.82-1.00 (y -0.14) | other 1.01-1.01 (y -0.19) | white 1.02-1.24 (y -0.18) | other 1.25-1.25 (y -0.18) | white 1.26-1.28 (y -0.18) | dkgry 1.29-1.53 (y -0.11) | brown 1.54-1.57 (y -0.07) | skin  1.58-1.76 (y -0.12) | brown 1.77-1.79 (y -0.12)
+FRONT x=0.06: ----- 0.02-0.55 (y 0.00) | dkgry 0.56-0.60 (y 0.01) | white 0.61-1.33 (y -0.17) | other 1.34-1.34 (y -0.16) | white 1.35-1.46 (y -0.14) | dkgry 1.47-1.56 (y -0.04) | brown 1.57-1.57 (y -0.02) | skin  1.58-1.75 (y -0.07) | brown 1.76-1.79 (y -0.07)
+BACK x=0: ----- 0.02-0.59 (y 0.00) | white 0.60-1.56 (y 0.20) | other 1.57-1.57 (y 0.13) | white 1.58-1.62 (y 0.12) | brown 1.63-1.79 (y 0.10)
+FRONT leg x=0.12: ----- 0.02-0.20 (y 0.00) | dkgry 0.21-0.60 (y -0.02) | white 0.61-1.34 (y -0.15) | other 1.35-1.35 (y -0.15) | white 1.36-1.40 (y -0.14) | other 1.41-1.41 (y -0.13) | dkgry 1.42-1.42 (y -0.13) | white 1.43-1.46 (y -0.11) | other 1.47-1.47 (y -0.09) | white 1.48-1.56 (y -0.05) | ----- 1.57-1.79 (y 0.00)
+FRONT chest x=0.15: dkgry 0.02-0.05 (y 0.04) | brown 0.06-0.20 (y 0.02) | dkgry 0.21-0.60 (y -0.03) | white 0.61-1.34 (y -0.14) | other 1.35-1.35 (y -0.14) | white 1.36-1.47 (y -0.11) | other 1.48-1.48 (y -0.06) | white 1.49-1.55 (y -0.01) | ----- 1.56-1.79 (y 0.00)
+RING z 1.40: x -0.236..0.236 y -0.156..-0.060
+RING z 1.45: x -0.244..0.244 y -0.112..-0.048
+RING z 1.50: x -0.248..0.248 y -0.064..0.136
+RING z 1.55: x -0.244..0.240 y -0.060..0.064
+RING z 1.60: x -0.092..0.088 y -0.116..0.100
+RING z 1.65: x -0.088..0.088 y -0.140..0.084
+RING z 1.70: x -0.104..0.104 y -0.120..0.028
+RING z 1.75: x -0.096..0.080 y -0.124..0.120
+RING z 0.30: x -0.244..0.244 y -0.012..0.164
+RING z 0.50: x -0.228..0.224 y -0.016..0.092
+RING z 0.60: x -0.240..0.240 y -0.184..0.224
+RING z 0.70: x -0.044..0.044 y -0.184..-0.180
+RING z 0.80: x -0.216..0.212 y -0.100..0.128
+RING z 0.85: x -0.208..0.196 y -0.152..0.212
+RING z 0.90: x -0.216..0.216 y -0.112..0.172
+RENDER E:/game-dev-team/assets/scientist_tripo/_work/_look/raw_0.png
+RENDER E:/game-dev-team/assets/scientist_tripo/_work/_look/raw_1.png
+RENDER E:/game-dev-team/assets/scientist_tripo/_work/_look/raw_2.png
+RENDER E:/game-dev-team/assets/scientist_tripo/_work/_look/raw_3.png
+RENDER E:/game-dev-team/assets/scientist_tripo/_work/_look/raw_4.png
+RENDER E:/game-dev-team/assets/scientist_tripo/_work/_look/raw_5.png
+SHEET E:/game-dev-team/assets/scientist_tripo/_work/_look/raw_sheet.png
+Blender 5.1.2 (hash ec6e62d40fa9 built 2026-05-19 01:37:34)
+
+Blender quit
