@@ -1,11 +1,13 @@
 # context: qa
 
 ## 🧭 СЕЙЧАС
-- 2026-09-26 мерж-гейт `feature/items-single-source-0924` (HEAD 9edc480, от master c233243, ADR-088): вердикт ДОБРО.
-- Сборка редактора С НУЛЯ (`-Rebuild -NoUBA -MaxParallelActions=6`): `Cleaning ContrarySurvivorEditor binaries...`, 49 действий, все 18 блоков `Module.ContrarySurvivor.N.cpp`, `[42/49] Link [x64] UnrealEditor-ContrarySurvivor.dll`, ошибок 0, EXIT=0 (`Saved/qa-build-items-0926.log` в гейм-репо).
-- Тесты (прогон лида, повторно НЕ гонял): 191 Success / 0 Fail = 191 макросу на 9edc480, `TEST COMPLETE. EXIT CODE: 0`, `GIsCriticalError=0`. Прогон писал в `ContrarySave` 3 раза (проблема 09-23 не починена), файл восстановлен: хеш `bc517844…` = исходный от 13.09.
-- Ревью: предмет без строки DT_Items остаётся БЕЗ картинки (прошитые пути удалены), имя не теряется. Голый расходник без ключа строку не ищет. В каталоге без таблицы откат на картинку класса всегда пуст. Отладочная запасная броня — без картинки.
-- Следующий шаг: за game-lead — маркер QA_OK и merge. Дерево не трогал.
+- 2026-10-10 проверка слитой ветки `feature/session3-1010` (вершина aa3e2d3, основная копия): все пять пунктов прошли. Дерево не трогал, ничего не коммитил.
+- Сборка редактора настоящая: 19 шагов Compile, Link dll, EXIT=0 (`logs/build_session3_1010.log`).
+- Проверки: 250 Success / 0 иных = 250 макросов на aa3e2d3; состав = 242 общих + 3 Barrier + 5 Pda (`logs/tests_session3_1010_full.log`). С отрисовкой (D3D12, `-RenderOffscreen`) 12 из 12 `ContrarySurvivor.Pda` (`tests_session3_1010_render.log`).
+- Полный прогон СНОВА испортил `ContrarySave.sav` (до `6cd26bb7…`, после `50303e17…`), восстановлен из копии, хеш совпал. Прогон `ContrarySurvivor.Pda` сохранение не трогает.
+- Генератор окон `-augment`: «сохранено 0, ошибок 0, всего ассетов 22». Таблица заданий совпала с образцом `logs/dt_quests_dialogs_1010.txt` (способ выгрузки — скрипт `dt_quests.py dump <файл>` через `-ExecutePythonScript`, лежит во временной папке сессии, не в репо).
+- Из Git Bash сборку звать так: `cd Engine/Build/BatchFiles && MSYS_NO_PATHCONV=1 cmd.exe /c ".\Build.bat ..."` (без `.\` cmd не находит файл).
+- Следующий шаг: за game-lead.
 
 ## ⛔ ЗАПРЕТ НА ТЕСТЫ ПОДТВЕРЖДЁН ФАКТОМ (2026-09-23) — причина найдена
 Прогон тестов ДО СИХ ПОР перезаписывает боевой слот `ContrarySave`. Проверено хешем: до прогона `bc517844…`, после `69dd6d51…`. Живой прогресс Рината (14 КБ, от 13.09) восстановлен из копии, хеш совпал байт в байт; копия испорченного файла — `scratchpad/ContrarySave.sav.AFTER-TESTS-0923`.
