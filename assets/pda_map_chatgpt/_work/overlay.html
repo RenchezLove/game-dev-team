@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;padding:0;background:#d9d2b4}svg{display:block}</style></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2048" height="2048" viewBox="0 0 2048 2048" font-family="Arial" font-weight="bold">
+<defs>
+<filter id="road" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+<feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 1  0 0 0 0 1  2.5 0 -2.5 0 -1.1"/>
+<feMorphology operator="erode" radius="5"/><feMorphology operator="dilate" radius="6"/>
+</filter>
+<radialGradient id="fog" cx="50%" cy="52%" r="62%"><stop offset="0.70" stop-color="#fff" stop-opacity="0"/><stop offset="0.86" stop-color="#fff" stop-opacity="0.75"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></radialGradient>
+</defs>
+<rect width="2048" height="2048" fill="#000"/><image href="gpt.png" x="174" y="290" width="1699.84" height="1699.84" preserveAspectRatio="none"/>
+<image xlink:href="raw.png" href="raw.png" x="0" y="0" width="2048" height="2048" filter="url(#road)"/>
+<g fill="none" opacity="0">
+<circle cx="300" cy="400" r="150"/><circle cx="520" cy="700" r="110"/><circle cx="350" cy="1500" r="170"/><circle cx="1300" cy="350" r="150"/><circle cx="1650" cy="700" r="160"/><circle cx="1250" cy="1700" r="150"/><circle cx="1700" cy="1700" r="140"/><circle cx="600" cy="300" r="120"/><circle cx="1150" cy="1300" r="90"/><circle cx="700" cy="1300" r="90"/>
+</g>
+<!-- деревня -->
+<g fill="#7b4a2a" stroke="#3a2212" stroke-width="3">
+<rect x="1469" y="998" width="34" height="24"/><rect x="1359" y="998" width="34" height="24"/><rect x="1468" y="1064" width="34" height="24"/><rect x="1407" y="1065" width="34" height="24"/><rect x="1350" y="1067" width="34" height="24"/>
+</g>
+<circle cx="1434" cy="1022" r="8" fill="#e8501a" stroke="#3a2212" stroke-width="2"/>
+<!-- остановка -->
+<rect x="1085" y="1000" width="28" height="14" fill="#5d7fa3" stroke="#22303d" stroke-width="3"/>
+<!-- брошенный лагерь -->
+<polygon points="1240,755 1222,790 1258,790" fill="#8a8f5a" stroke="#333" stroke-width="3"/><circle cx="1262" cy="768" r="6" fill="#555"/>
+<!-- бандиты -->
+<rect x="938" y="418" width="46" height="34" fill="#5a3a22" stroke="#b3261e" stroke-width="5"/>
+<!-- логова -->
+<g fill="#8c8c8c" stroke="#333" stroke-width="3"><ellipse cx="655" cy="1095" rx="34" ry="26"/><ellipse cx="1530" cy="1442" rx="34" ry="26"/></g>
+<g fill="#1c1c1c"><ellipse cx="655" cy="1099" rx="14" ry="10"/><ellipse cx="1530" cy="1446" rx="14" ry="10"/></g>
+<!-- база учёных -->
+<rect x="825" y="1463" width="117" height="139" fill="#cfd6c0" stroke="#2b5c7a" stroke-width="5" stroke-dasharray="10 5"/>
+<g fill="#6c7a45" stroke="#2e351c" stroke-width="2"><rect x="900" y="1565" width="32" height="26"/><rect x="831" y="1562" width="32" height="26"/></g>
+<rect x="836" y="1474" width="28" height="30" fill="#7b4a2a" stroke="#3a2212" stroke-width="2"/>
+<rect x="936" y="1524" width="12" height="22" fill="#d92b2b" stroke="#fff" stroke-width="2"/>
+<!-- брошенные машины -->
+<g fill="#a8552d" stroke="#3a2212" stroke-width="2">
+<rect x="1541" y="1031" width="20" height="12"/><rect x="937" y="1208" width="20" height="12"/><rect x="1016" y="582" width="20" height="12"/><rect x="976" y="425" width="20" height="12"/><rect x="954" y="1070" width="20" height="12"/><rect x="1291" y="1009" width="20" height="12"/>
+</g>
+<!-- туман по краям -->
+
+<!-- подписи -->
+<g display="none" font-size="34" fill="#111" stroke="#fff" stroke-width="7" paint-order="stroke" text-anchor="middle">
+<text x="1500" y="965">1 ДЕРЕВНЯ</text>
+<text x="961" y="395">2 ЛАГЕРЬ БАНДИТОВ</text>
+<text x="600" y="1165">3 ЛОГОВО ВОЛКОВ</text>
+<text x="1560" y="1512">4 ЛОГОВО ВОЛКОВ</text>
+<text x="690" y="1650">5 БАЗА УЧЁНЫХ</text>
+<text x="1330" y="735">6 БРОШЕННЫЙ ЛАГЕРЬ</text>
+<text x="1110" y="1075" font-size="26">7 ОСТАНОВКА</text>
+</g>
+<g display="none" font-size="26" fill="#333" stroke="#fff" stroke-width="6" paint-order="stroke" text-anchor="middle" font-style="italic">
+<text x="1024" y="1990">дорога уходит дальше на юг ↓</text>
+<text x="1024" y="60">ТУМАН — неизведанные земли</text>
+</g>
+<g transform="translate(1900,170)"><circle r="60" fill="#fff" stroke="#111" stroke-width="4"/><polygon points="0,-50 14,0 -14,0" fill="#c62828"/><polygon points="0,50 14,0 -14,0" fill="#111"/><text y="-68" font-size="36" text-anchor="middle" fill="#111" stroke="#fff" stroke-width="6" paint-order="stroke">С</text></g>
+</svg></body></html>
