@@ -77,7 +77,7 @@ if mode == 'shotgun':
             print('MATERIAL %-22s %-10s -> %s' % (o.name, s.material.name, swap[s.material.name].name)); s.material = swap[s.material.name]
         smooth(o)
     # muzzle is +X in the source: turn it a little to the camera, show the top, lay the gun along the diagonal of the frame
-    BASE, YAW, PITCH, ROLL = Matrix(), -24.0, 20.0, -40.0
+    BASE, YAW, PITCH, ROLL = Matrix(), -56.0, 24.0, -76.0; MARGIN = 3  # 10.10: Rinat - the icon looked small, so the gun is foreshortened (muzzle to the camera) and fills the frame
 elif mode == 'ammo':
     o = lib_objects(sb.SRCD + 'low-poly-toz-34/source/toz34.blend', ('12/76',))[0]
     me = o.data; mw = o.matrix_basis.copy()

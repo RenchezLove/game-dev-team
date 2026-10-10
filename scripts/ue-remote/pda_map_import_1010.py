@@ -1,0 +1,10 @@
+import unreal
+eal = unreal.EditorAssetLibrary; at = unreal.AssetToolsHelpers.get_asset_tools()
+t = unreal.AssetImportTask()
+for k, v in [('filename', 'E:/game-dev-team/assets/pda_map_1010/T_PdaMap.png'), ('destination_path', '/Game/UI/Textures'), ('destination_name', 'T_PdaMap'), ('replace_existing', True), ('automated', True), ('save', False)]: t.set_editor_property(k, v)
+at.import_asset_tasks([t]); tex = unreal.load_asset('/Game/UI/Textures/T_PdaMap')
+tex.set_editor_property('lod_group', unreal.TextureGroup.TEXTUREGROUP_UI)
+tex.set_editor_property('mip_gen_settings', unreal.TextureMipGenSettings.TMGS_NO_MIPMAPS)
+tex.set_editor_property('never_stream', True); tex.set_editor_property('srgb', True)
+tex.set_editor_property('max_texture_size', 1024)
+print('MAP', tex.blueprint_get_size_x(), tex.blueprint_get_size_y(), eal.save_loaded_asset(tex, False))
