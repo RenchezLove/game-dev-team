@@ -1,0 +1,101 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1600px;height:900px;background:#14171c;color:#dfe5ec;font:14px/1.35 "Segoe UI",Arial,sans-serif;overflow:hidden}
+.app{display:grid;grid-template-columns:210px 1fr 300px;grid-template-rows:56px 1fr;height:900px}
+.top{grid-column:1/4;background:#1b2027;border-bottom:1px solid #2c343f;display:flex;align-items:center;gap:14px;padding:0 16px}
+.logo{font-weight:700;font-size:16px;width:194px}.proj{background:#262d37;border-radius:8px;padding:7px 12px}
+.pill{background:#22303d;color:#8fc7ff;border-radius:20px;padding:4px 10px;font-size:12px}
+.search{flex:1;background:#11141a;border:1px solid #2c343f;border-radius:8px;padding:8px 12px;color:#768394}
+.side{background:#191d24;border-right:1px solid #2c343f;padding:12px 10px}
+.nav{padding:10px 12px;border-radius:8px;margin-bottom:4px;color:#aab4c0;display:flex;justify-content:space-between}
+.nav.on{background:#2a5f9e;color:#fff;font-weight:600}.badge{background:#c9532f;color:#fff;border-radius:10px;padding:0 7px;font-size:12px}
+.sep{color:#5d6a7a;font-size:11px;text-transform:uppercase;margin:14px 12px 6px}
+.main{padding:14px;overflow:hidden}.right{background:#191d24;border-left:1px solid #2c343f;padding:14px}
+h2{font-size:13px;color:#8d99a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.card{background:#1e242c;border:1px solid #2c343f;border-radius:10px;padding:12px;margin-bottom:12px}
+.row{display:flex;gap:12px}.col{flex:1;min-width:0}
+.ask{display:flex;gap:8px}.ask div:first-child{flex:1;background:#11141a;border:1px solid #3a4553;border-radius:8px;padding:12px;color:#768394}
+.btn{background:#2a5f9e;color:#fff;border-radius:8px;padding:12px 16px;font-weight:600}
+.btn.s{padding:5px 10px;font-size:12px;display:inline-block}.btn.g{background:#2c343f}
+.ag{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #2a313b}.ag:last-child{border:0}
+.dot{width:10px;height:10px;border-radius:50%;background:#4bbf73;flex:none}.dot.y{background:#e0b341}.dot.x{background:#56606d}
+.ag b{width:112px;flex:none}.ag span{color:#9aa6b4;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ag i{color:#6f7c8b;font-style:normal;font-size:12px}
+.ag span.dot,.ag span.tag{flex:none}
+.wait{border-left:4px solid #e0b341}.wait p{margin-bottom:8px}
+.bar{height:8px;background:#11141a;border-radius:4px;margin:6px 0 3px;overflow:hidden}.bar u{display:block;height:8px;background:#4bbf73}.bar u.w{background:#e0b341}.bar u.r{background:#c9532f}
+.res{margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #2a313b}.res small{color:#7d8998}.res b{display:flex;justify-content:space-between}
+.tag{font-size:11px;border-radius:4px;padding:1px 6px;margin-right:4px}.t1{background:#1f4a35;color:#7be0a4}.t2{background:#5a2620;color:#ff9c8a}.t3{background:#27425f;color:#8fc7ff}.t4{background:#4a3f1c;color:#f0cf6b}
+.kan{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;height:690px}.kcol{background:#191d24;border:1px solid #2c343f;border-radius:10px;padding:10px}
+.kc{background:#222932;border:1px solid #313a46;border-radius:8px;padding:9px;margin-bottom:8px;font-size:13px}.kc small{display:block;color:#7d8998;margin-top:5px}
+.tree div{padding:6px 8px;border-radius:6px;color:#aab4c0}.tree .on{background:#263242;color:#fff}.tree .l2{padding-left:26px}
+.doc p{margin-bottom:9px;color:#c3ccd6}.doc h3{font-size:19px;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.as{background:#222932;border:1px solid #313a46;border-radius:8px;overflow:hidden;font-size:12px}
+.as .pic{height:92px;background:linear-gradient(135deg,#2e3946,#1b2129);display:flex;align-items:center;justify-content:center;font-size:30px}.as div+div{padding:6px 8px}.as small{color:#7d8998;display:block}
+.as.sel{outline:2px solid #4b97e6}.flt span{display:inline-block;background:#222932;border:1px solid #313a46;border-radius:16px;padding:4px 11px;margin:0 6px 10px 0;font-size:12px}.flt .on{background:#2a5f9e;border-color:#2a5f9e}
+.page{display:none}.kv{display:flex;justify-content:space-between;padding:4px 0;color:#aab4c0}.kv b{color:#dfe5ec;font-weight:500}
+</style></head><body><div class="app">
+<div class="top"><div class="logo">🎮 Моя команда</div><div class="proj">Проект: <b>Марево</b> ▾</div><span class="pill">в магазине 0.4.0 (8)</span><span class="pill">📱 телефон подключён</span><div class="search">🔎 Поиск по задачам, документам и ассетам</div><span class="pill">⚙ Настройки</span></div>
+<div class="side"><div class="sep">Проект</div>
+<div class="nav" id="n-home">🏠 Обзор</div><div class="nav" id="n-tasks">📋 Задачи <span class="badge">14</span></div><div class="nav" id="n-docs">📚 Документы</div><div class="nav" id="n-assets">🧱 Банк ассетов</div><div class="nav">📦 Сборки и выпуски</div>
+<div class="sep">Команда</div><div class="nav">👥 Специалисты</div><div class="nav">💬 Журнал работы</div><div class="nav">💰 Расходы</div></div>
+
+<div class="main">
+<div class="page" id="home">
+ <div class="card"><h2>Поставить задачу руководителю команды</h2><div class="ask"><div>Напишите, что нужно сделать… можно голосом или приложить снимок экрана</div><div class="btn">Отправить</div></div></div>
+ <div class="row"><div class="col">
+  <div class="card wait"><h2>⚠ Ждёт вашего решения — 2</h2><p><b>Текст охранника</b> — утвердить или поправить реплику. <span class="btn s">Утвердить</span> <span class="btn s g">Открыть</span></p><p><b>Сборка на телефоне</b> — проверьте смартфон и щелчки. <span class="btn s g">Что проверить</span></p></div>
+  <div class="card"><h2>Сейчас в работе</h2>
+   <div class="ag"><span class="dot"></span><b>Руководитель</b><span>Сливает правки, готовит сборку</span><i>12 мин</i></div>
+   <div class="ag"><span class="dot"></span><b>Программист</b><span>Окно смартфона: меню вкладок слева</span><i>шаг 4 из 6</i></div>
+   <div class="ag"><span class="dot y"></span><b>Тестировщик</b><span>Автопроверки: 231 из 283</span><i>идёт</i></div>
+   <div class="ag"><span class="dot x"></span><b>Моделлер</b><span>Свободен</span><i></i></div>
+   <div class="ag"><span class="dot x"></span><b>Художник</b><span>Свободен</span><i></i></div></div>
+ </div><div class="col">
+  <div class="card"><h2>Сделано сегодня</h2>
+   <div class="ag"><span class="dot"></span><span>Выпуск 0.4.0 (8) опубликован в RuStore</span><i>21:45</i></div>
+   <div class="ag"><span class="dot"></span><span>11 правок после игры на телефоне</span><i>20:30</i></div>
+   <div class="ag"><span class="dot"></span><span>Патроны складываются в одну пачку</span><i>18:10</i></div>
+   <div class="ag"><span class="dot"></span><span>Починено сохранение задания на бандитов</span><i>13:45</i></div></div>
+  <div class="card"><h2>Ближайшие задачи</h2>
+   <div class="ag"><span class="tag t1">фича</span><span>Меню отладки на телефоне</span><i>в очереди</i></div>
+   <div class="ag"><span class="tag t3">правка</span><span>Интерфейс — из кода в файлы окон</span><i>в очереди</i></div>
+   <div class="ag"><span class="tag t2">ошибка</span><span>Светлые границы на УАЗе</span><i>проверить</i></div></div>
+ </div></div>
+</div>
+
+<div class="page" id="tasks">
+ <div class="flt"><span class="on">Все</span><span>🟢 Фичи</span><span>🔴 Ошибки</span><span>🔵 Правки</span><span>🟡 Идеи</span><span>К выпуску 0.5.0</span><span class="btn s" style="float:right">+ Новая задача</span></div>
+ <div class="kan">
+  <div class="kcol"><h2>Идеи — 6</h2><div class="kc"><span class="tag t4">идея</span>Стилизация кнопок и шрифтов<small>📚 1 документ</small></div><div class="kc"><span class="tag t4">идея</span>Переход на AppMetrica<small>после выпуска</small></div><div class="kc"><span class="tag t4">идея</span>Свои навыки команды</div></div>
+  <div class="kcol"><h2>В очереди — 5</h2><div class="kc"><span class="tag t1">фича</span>Меню отладки на телефоне<small>👤 Программист · 📚 постановка</small></div><div class="kc"><span class="tag t3">правка</span>Интерфейс — из кода в файлы окон<small>🧱 12 окон</small></div><div class="kc"><span class="tag t3">правка</span>Плитки как в сумке во всех окнах</div></div>
+  <div class="kcol"><h2>В работе — 2</h2><div class="kc" style="border-color:#4b97e6"><span class="tag t1">фича</span>Окно смартфона: меню вкладок<small>👤 Программист · шаг 4 из 6</small><div class="bar"><u style="width:66%"></u></div></div><div class="kc"><span class="tag t2">ошибка</span>Разрешение на звук в сборке<small>👤 Руководитель</small></div></div>
+  <div class="kcol"><h2>Проверить вам — 3</h2><div class="kc" style="border-color:#e0b341"><span class="tag t2">ошибка</span>Границы зон на УАЗе<small>👁 где смотреть: база учёных</small></div><div class="kc" style="border-color:#e0b341"><span class="tag t1">фича</span>Звук пустого магазина<small>📱 в сборке на телефоне</small></div><div class="kc" style="border-color:#e0b341"><span class="tag t3">правка</span>Тексты реплик<small>📚 РЕПЛИКИ.txt</small></div></div>
+  <div class="kcol"><h2>Готово — 48</h2><div class="kc"><span class="tag t2">ошибка</span>Две пачки патронов<small>✅ 283 автопроверки · в 0.4.0</small></div><div class="kc"><span class="tag t1">фича</span>Смартфон героя<small>✅ в 0.4.0</small></div><div class="kc"><span class="tag t1">фича</span>Задание охранника<small>✅ в 0.4.0</small></div></div>
+ </div>
+</div>
+
+<div class="page" id="docs"><div class="row" style="height:800px">
+ <div class="card tree" style="width:270px;flex:none"><h2>Документы проекта</h2><div>📕 Дизайн игры</div><div class="l2">Мир и сюжет</div><div class="l2 on">Задания</div><div class="l2">Оружие и экономика</div><div>📘 Техника</div><div class="l2">Как собрать под телефон</div><div class="l2">Устройство сохранений</div><div>📗 Тексты игры</div><div class="l2">Реплики персонажей</div><div class="l2">Тексты для магазина</div><div>📙 Решения</div><div class="l2">Журнал решений (100)</div><div>📓 Отчёты</div><div class="l2">Выпуски и проверки</div></div>
+ <div class="card col doc"><h2>Дизайн игры › Задания</h2><h3>Задание охранника: рация</h3><p>Охранник базы учёных просит найти рацию у южного логова волков. Награда — двустволка и патроны.</p><p>Задание побочное, на экране ведёт синяя метка рядом с оранжевой меткой основного задания.</p><p style="color:#768394">…текст документа, который можно править прямо здесь или попросить команду обновить…</p><p><span class="btn s">Править</span> <span class="btn s g">Попросить команду обновить</span> <span class="btn s g">История изменений</span></p></div>
+ <div class="card" style="width:290px;flex:none"><h2>Связано с документом</h2><div class="kv"><span>📋 Задачи</span><b>3</b></div><div class="kc"><span class="tag t1">фича</span>Задание охранника<small>✅ готово, в 0.4.0</small></div><div class="kc"><span class="tag t3">правка</span>Тексты реплик<small>проверить вам</small></div><div class="kv" style="margin-top:8px"><span>🧱 Ассеты</span><b>4</b></div><div class="kc">Рация, двустволка, охранник, синяя метка</div><div class="kv" style="margin-top:8px"><span>Обновлён</span><b>11.10, программист</b></div></div>
+</div></div>
+
+<div class="page" id="assets">
+ <div class="flt"><span class="on">Все 412</span><span>🧍 Персонажи</span><span>🔫 Оружие</span><span>🏠 Окружение</span><span>🖼 Окна и значки</span><span>🔊 Звуки</span><span>⚠ Не используются 23</span><span>🛠 В работе 2</span></div>
+ <div class="row"><div class="col"><div class="grid">
+  <div class="as sel"><div class="pic">🚐</div><div>УАЗ «буханка»<small>модель · в игре</small></div></div><div class="as"><div class="pic">🔫</div><div>Двустволка<small>модель · в игре</small></div></div><div class="as"><div class="pic">📱</div><div>Смартфон героя<small>окно · в игре</small></div></div><div class="as"><div class="pic">🐺</div><div>Волк<small>персонаж · в игре</small></div></div><div class="as"><div class="pic">🌲</div><div>Сосна 01<small>модель · в игре</small></div></div>
+  <div class="as"><div class="pic">🔊</div><div>Щелчок пустого магазина<small>звук · в игре</small></div></div><div class="as"><div class="pic">📻</div><div>Рация<small>модель · в игре</small></div></div><div class="as"><div class="pic">🧑‍🔬</div><div>Учёный<small>персонаж · в игре</small></div></div><div class="as"><div class="pic">🪑</div><div>Скамья<small>модель · не используется</small></div></div><div class="as"><div class="pic">🗺</div><div>Карта местности<small>картинка · в игре</small></div></div>
+  <div class="as"><div class="pic">🛖</div><div>Дом деревни 02<small>модель · в игре</small></div></div><div class="as"><div class="pic">🎒</div><div>Сумка<small>окно · в игре</small></div></div><div class="as"><div class="pic">🔥</div><div>Костёр<small>модель · в игре</small></div></div><div class="as"><div class="pic">🧰</div><div>Ящик<small>модель · в работе</small></div></div><div class="as"><div class="pic">💊</div><div>Аптечка<small>значок · в игре</small></div></div>
+ </div></div>
+ <div class="card" style="width:300px;flex:none"><h2>УАЗ «буханка»</h2><div class="as" style="margin-bottom:10px"><div class="pic" style="height:130px;font-size:56px">🚐</div></div><div class="kv"><span>Вид</span><b>3D-модель</b></div><div class="kv"><span>Состояние</span><b>в игре</b></div><div class="kv"><span>Где стоит</span><b>база учёных</b></div><div class="kv"><span>Вес</span><b>4 200 треугольников</b></div><div class="kv"><span>Источник</span><b>своя модель</b></div><div class="kv"><span>Сделал</span><b>моделлер, 09.10</b></div><h2 style="margin-top:12px">Связано</h2><div class="kc"><span class="tag t2">ошибка</span>Границы зон на УАЗе<small>проверить вам</small></div><p><span class="btn s">Попросить изменить</span> <span class="btn s g">Показать в проекте</span></p></div></div>
+</div>
+</div>
+
+<div class="right"><h2>Ресурсы нейросетей</h2>
+ <div class="res"><b><span>Claude · подписка</span><span>лимит</span></b><div class="bar"><u class="w" style="width:78%"></u></div><small>Сессия: израсходовано 78 %, сброс в 20:00</small><div class="bar"><u style="width:41%"></u></div><small>Неделя: 41 %, сброс в четверг</small></div>
+ <div class="res"><b><span>OpenAI · картинки</span><span>баланс</span></b><div style="font-size:20px;margin:4px 0">$ 8.40</div><small>Сегодня: 14 картинок, $ 0.62 · хватит примерно на 190</small></div>
+ <div class="res"><b><span>Локальная модель</span><span>бесплатно</span></b><small>На этом компьютере · свободна · без ограничений</small></div>
+ <div class="res"><b><span>Сервис 3D-моделей</span><span>кредиты</span></b><div class="bar"><u class="r" style="width:12%"></u></div><small>Осталось 60 из 500, пополнение 1-го числа</small></div>
+ <h2>Состояние</h2><div class="kv"><span>Редактор игры</span><b>закрыт</b></div><div class="kv"><span>Телефон</span><b>подключён</b></div><div class="kv"><span>Автопроверки</span><b>283 из 283</b></div><div class="kv"><span>На телефоне</span><b>0.4.0 (8)</b></div><div class="kv"><span>В магазине</span><b>0.4.0 (8)</b></div>
+</div></div>
+<script>var h=(location.hash||'#home').slice(1);document.getElementById(h).style.display='block';document.getElementById('n-'+h).className='nav on';</script></body></html>
