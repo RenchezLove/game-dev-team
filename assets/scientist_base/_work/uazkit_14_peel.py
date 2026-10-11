@@ -45,6 +45,39 @@ keep = panel & ~lamp & ~white & ~gap
 print('PEEL painted panels: %d of %d sheet-metal triangles (paint on at least %d %% of the face), %d of %d texels; left out as lamps %d, white marks %d, black gaps %d texels' % (
     int(panel_face.sum()), int((nop == 0).sum()), SHARE * 100, int(panel.sum()), int(sheet_m.sum()), int((panel & lamp & (alpha < 0.5)).sum()), int((panel & white & (alpha < 0.5)).sum()), int((panel & gap & (alpha < 0.5)).sum())))
 peel = np.where(keep, 1.0 - alpha, 0.0).astype(np.float32)
+# 11.10: the border of every peeled zone stayed visible at PaintPeel = 0 (light outline). The colour texture has a light rim of chipped paint
+# and a soft alpha edge around each zone, and the mask ended exactly on it. The mask is grown by GROW texels so that the rim is inside the zone.
+GROW = 3
+_bc = np.array(json.load(open(sb.WORK + '_uazkit_meta.json'))['body_color'])[:3]
+def _seam(pm, tag):
+    cur = rgb * (1.0 + (_bc[None, None] - 1.0) * alpha[..., None]); res0 = cur * (1 - pm[..., None]) + (_bc * 0.68)[None, None] * pm[..., None]
+    lum = res0.mean(2); ref = float(np.median(lum[panel & (alpha > 0.99)])); zone = panel & ~lamp & ~gap
+    near = np.zeros_like(panel)
+    for dy in range(-6, 7):
+        for dx in range(-6, 7):
+            near |= np.roll(peel > 0.5, (dy, dx), (0, 1))
+    band = zone & near
+    print('SEAM %s: at PaintPeel 0 median paint brightness %.3f; texels within 6 of a peeled zone %d, brighter than 1.4 x median %d, brighter than 1.8 x median %d; mean brightness there %.3f' % (
+        tag, ref, int(band.sum()), int((band & (lum > 1.4 * ref)).sum()), int((band & (lum > 1.8 * ref)).sum()), float(lum[band].mean())))
+    # the game samples smaller copies of the textures (mips) from the top-down camera: average blocks of texels and repeat the count
+    for lv in (1, 2, 3):
+        s = 2 ** lv; bx = lambda a: a.reshape(TEX // s, s, TEX // s, s, -1).mean((1, 3))
+        r_, a_, p_, z_ = bx(rgb), bx(alpha)[..., 0], bx(pm)[..., 0], bx(zone.astype(np.float32))[..., 0] > 0.999
+        for k in (1.0, 4.0):
+            q = np.clip(p_ * k, 0, 1); c_ = r_ * (1.0 + (_bc[None, None] - 1.0) * a_[..., None])
+            l_ = (c_ * (1 - q[..., None]) + (_bc * 0.68)[None, None] * q[..., None]).mean(2)
+            print('SEAM %s: copy 1/%d, mask gain %.0f: texels of painted panels %d, brighter than 1.4 x median %d, 1.8 x %d, brightest %.2f x' % (
+                tag, s, k, int(z_.sum()), int((z_ & (l_ > 1.4 * ref)).sum()), int((z_ & (l_ > 1.8 * ref)).sum()), float(l_[z_].max() / ref) if z_.any() else 0))
+_seam(peel, 'before')
+_g = peel.copy()
+for _ in range(GROW):
+    _n = _g.copy()
+    for dy in (-1, 0, 1):
+        for dx in (-1, 0, 1):
+            _n = np.maximum(_n, np.roll(_g, (dy, dx), (0, 1)))
+    _g = _n
+peel = np.where(panel & ~lamp & ~gap, _g, peel).astype(np.float32)
+_seam(peel, 'after grow %d' % GROW)
 other = other | (sheet_m & ~panel)
 sheet_all = sheet_m; sheet_m = panel
 # the same border padding as the colour texture has: no dark or light seams when the game samples between texels

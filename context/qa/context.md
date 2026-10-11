@@ -1,11 +1,11 @@
 # context: qa
 
 ## 🧭 СЕЙЧАС
-- 2026-10-10 проверка слитой ветки `feature/session3-1010` (вершина aa3e2d3, основная копия): все пять пунктов прошли. Дерево не трогал, ничего не коммитил.
-- Сборка редактора настоящая: 19 шагов Compile, Link dll, EXIT=0 (`logs/build_session3_1010.log`).
-- Проверки: 250 Success / 0 иных = 250 макросов на aa3e2d3; состав = 242 общих + 3 Barrier + 5 Pda (`logs/tests_session3_1010_full.log`). С отрисовкой (D3D12, `-RenderOffscreen`) 12 из 12 `ContrarySurvivor.Pda` (`tests_session3_1010_render.log`).
-- Полный прогон СНОВА испортил `ContrarySave.sav` (до `6cd26bb7…`, после `50303e17…`), восстановлен из копии, хеш совпал. Прогон `ContrarySurvivor.Pda` сохранение не трогает.
-- Генератор окон `-augment`: «сохранено 0, ошибок 0, всего ассетов 22». Таблица заданий совпала с образцом `logs/dt_quests_dialogs_1010.txt` (способ выгрузки — скрипт `dt_quests.py dump <файл>` через `-ExecutePythonScript`, лежит во временной папке сессии, не в репо).
+- 2026-10-11 ревью ветки `feature/pda-phone-1010` (вершина 3187101, копия `E:/ContrarySurvior/ws-weapons`, база сравнения 266d8ed): вердикт «добро». Дерево не трогал, ничего не коммитил.
+- Сборка редактора: EXIT=0, 3 шага Compile (блоки Module.ContrarySurvivor.18/21/22) + Link dll обоих модулей (`logs/qa_build_pdaphone_1011.log`). Полной перекомпиляции с нуля не было.
+- Проверки: 256 Success / 0 иных = 256 макросов на 3187101, `TEST COMPLETE. EXIT CODE: 0`, `GIsCriticalError=0` (`logs/qa_tests_pdaphone_1011.log`). Только `-nullrhi`, с отрисовкой не гонял.
+- Полный прогон СНОВА испортил `ContrarySave.sav` в этой копии (до `3e99e746…`, после `86c5c5ff…`), восстановлен из копии, хеш совпал.
+- Меню отладки целиком под `CONTRARY_WITH_QA_CHEATS` = `(1 && !UE_BUILD_SHIPPING)` (`Debug/QADebug.h:21`) — новый телепорт в магазинную сборку не попадает.
 - Из Git Bash сборку звать так: `cd Engine/Build/BatchFiles && MSYS_NO_PATHCONV=1 cmd.exe /c ".\Build.bat ..."` (без `.\` cmd не находит файл).
 - Следующий шаг: за game-lead.
 
