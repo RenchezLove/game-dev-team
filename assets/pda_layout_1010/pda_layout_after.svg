@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1212" height="828" viewBox="0 0 1212 828" font-family="Segoe UI, Arial, sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="30" y="40" font-size="24" font-weight="bold" fill="#111">ПОСЛЕ: окно-смартфон на 92% высоты экрана, карта на всю высоту его экрана</text>
+<text x="30" y="72" font-size="16" fill="#444">Экран 1920 на 1080, единицы раскладки. Серое — игра под затемнением.</text>
+<rect x="30.0" y="100.0" width="1152.0" height="648.0" fill="#3a3f45" stroke="#222" stroke-width="2" rx="3"/>
+<rect x="158.9" y="125.9" width="894.2" height="596.2" fill="#14171c" stroke="#c9a440" stroke-width="2" rx="18"/>
+<rect x="194.6" y="161.7" width="822.7" height="524.6" fill="none" stroke="#4fc3f7" stroke-width="1.5" stroke-dasharray="6 4" rx="3"/>
+<text x="197.0" y="165.3" font-size="15" fill="#fff" font-weight="bold" text-anchor="start" dominant-baseline="hanging">Смартфон</text>
+<rect x="194.6" y="195.3" width="132.0" height="38.4" fill="#2e333d" stroke="#888" stroke-width="1" rx="3"/>
+<text x="260.6" y="208.5" font-size="13" fill="#ddd" font-weight="normal" text-anchor="middle" dominant-baseline="hanging">Задания</text>
+<rect x="194.6" y="240.9" width="132.0" height="38.4" fill="#2e333d" stroke="#888" stroke-width="1" rx="3"/>
+<text x="260.6" y="254.1" font-size="13" fill="#ffd24d" font-weight="normal" text-anchor="middle" dominant-baseline="hanging">Карта</text>
+<text x="197.0" y="294.9" font-size="11" fill="#aaa" font-weight="normal" text-anchor="start" dominant-baseline="hanging">подсказка</text>
+<text x="197.0" y="309.3" font-size="11" fill="#aaa" font-weight="normal" text-anchor="start" dominant-baseline="hanging">вкладки карты</text>
+<rect x="194.6" y="647.9" width="132.0" height="38.4" fill="#4d4d57" stroke="#888" stroke-width="1" rx="3"/>
+<text x="260.6" y="661.1" font-size="13" fill="#ddd" font-weight="normal" text-anchor="middle" dominant-baseline="hanging">Закрыть</text>
+<rect x="336.2" y="161.7" width="681.1" height="524.6" fill="#0b0e10" stroke="#777" stroke-width="1" rx="3"/>
+<rect x="414.5" y="161.7" width="524.6" height="524.6" fill="#5d7f4f" stroke="#fff" stroke-width="2" rx="3"/>
+<text x="676.8" y="401.7" font-size="19" fill="#fff" font-weight="bold" text-anchor="middle" dominant-baseline="hanging">карта 874 на 874</text>
+<text x="676.8" y="425.7" font-size="12" fill="#fff" font-weight="normal" text-anchor="middle" dominant-baseline="hanging">(целиком; при приближении занимает всё поле 1135 на 874)</text>
+<rect x="955.0" y="503.9" width="54.0" height="54.0" fill="#1a1f26" stroke="#ccc" stroke-width="1.5" rx="3"/>
+<text x="982.0" y="521.9" font-size="22" fill="#fff" font-weight="bold" text-anchor="middle" dominant-baseline="hanging">+</text>
+<rect x="955.0" y="563.9" width="54.0" height="54.0" fill="#1a1f26" stroke="#ccc" stroke-width="1.5" rx="3"/>
+<text x="982.0" y="581.9" font-size="22" fill="#fff" font-weight="bold" text-anchor="middle" dominant-baseline="hanging">−</text>
+<rect x="955.0" y="623.9" width="54.0" height="54.0" fill="#1a1f26" stroke="#ccc" stroke-width="1.5" rx="3"/>
+<text x="982.0" y="641.9" font-size="12" fill="#fff" font-weight="bold" text-anchor="middle" dominant-baseline="hanging">Где я</text>
+<text x="30" y="782.0" font-size="15" fill="#444">Смартфон 1490 на 994, экран внутри него 1371 на 874 (голубой пунктир — отступы экрана из настроек). Слева столбец 220, справа поле карты 1135 на 874.</text>
+</svg>
