@@ -1,0 +1,43 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Моя команда</title><link rel="stylesheet" href="style.css"></head><body>
+<div class="app">
+ <div class="top"><div class="logo">🎮 Моя команда</div>
+  <select id="project" class="proj" title="Проект"></select><span class="pill" id="addProject" title="Добавить проект">＋ проект</span>
+  <span class="pill" id="pillStore"></span><span class="pill" id="pillPhone"></span>
+  <input id="search" class="search" placeholder="🔎 Поиск по задачам, документам и ассетам"></div>
+ <div class="side"><div class="sep">Проект</div>
+  <div class="nav on" data-tab="home">🏠 Обзор</div><div class="nav" data-tab="tasks">📋 Задачи <span class="badge" id="taskBadge"></span></div>
+  <div class="nav" data-tab="docs">📚 Документы</div><div class="nav" data-tab="assets">🧱 Банк ассетов</div>
+  <div class="sep">Команда</div><div class="nav" data-tab="costs">💰 Расходы</div>
+  <div class="sep">Позже</div><div class="nav off">📦 Сборки и выпуски</div><div class="nav off">👥 Специалисты</div></div>
+
+ <div class="main">
+  <div class="page" id="home">
+   <div class="card" id="chatCard"><h2>Поставить задачу руководителю команды <span class="lnk" id="newChat">начать новый разговор</span></h2>
+    <div id="chat" class="chat hidden"></div><div id="perm"></div>
+    <div id="thumbs" class="thumbs"></div>
+    <div class="ask"><textarea id="msg" rows="2" placeholder="Напишите, что нужно сделать… Картинку можно перетащить сюда или вставить через Ctrl+V. Отправка — Ctrl+Enter."></textarea>
+     <div class="btn" id="sendBtn">Отправить</div><div class="btn stop hidden" id="stopBtn">Остановить</div></div></div>
+   <div class="row"><div class="col">
+     <div class="card wait"><h2>⚠ Ждёт вашего решения <span id="waitN"></span></h2><div id="waitList"></div></div>
+     <div class="card"><h2>Сейчас в работе</h2><div id="workList"></div></div></div>
+    <div class="col"><div class="card"><h2>Сделано сегодня</h2><div id="doneList"></div></div>
+     <div class="card"><h2>Ближайшие задачи</h2><div id="nextList"></div></div></div></div></div>
+
+  <div class="page hidden" id="tasks"><div class="flt" id="taskFilter"></div><div class="kan" id="kanban"></div></div>
+
+  <div class="page hidden" id="docs"><div class="row full">
+    <div class="card tree" id="docTree"></div>
+    <div class="card col doc" id="docView"><h2>Документы проекта</h2><p class="dim">Выберите документ слева.</p></div>
+    <div class="card linkbox" id="docLinks"><h2>Связано с документом</h2><p class="dim">Задачи, которые ссылаются на открытый документ.</p></div></div></div>
+
+  <div class="page hidden" id="assets"><div class="flt" id="assetFilter"></div><div class="row full">
+    <div class="col scroll"><div class="grid" id="assetGrid"></div><div class="more" id="assetMore"></div></div>
+    <div class="card linkbox" id="assetInfo"><h2>Ассет</h2><p class="dim">Выберите плитку слева.</p></div></div></div>
+
+  <div class="page hidden" id="costs"><div class="card"><h2>Расходы</h2><div id="costBox"></div></div></div>
+ </div>
+
+ <div class="right"><h2>Ресурсы нейросетей</h2><div id="resources"></div><h2>Состояние</h2><div id="state"></div></div>
+</div>
+<div class="modal hidden" id="modal"><div class="card mcard" id="modalBody"></div></div>
+<script src="app.js"></script></body></html>
