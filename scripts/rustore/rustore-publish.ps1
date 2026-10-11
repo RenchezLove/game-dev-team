@@ -71,7 +71,7 @@ $app = "/public/v1/application/$Package"
 $app2 = "/public/v2/application/$Package"
 switch ($Step) {
     'status'   { Send 'GET' "$app/version?page=0&size=3" $null }
-    'detail'   { Send 'GET' "$app/version?ids=$VersionId" $null }
+    'detail'   { Send 'GET' "$app2/version/$VersionId" $null }
     'draft'    {
         $body = @{ publishType = $PublishType }
         if ($WhatsNewFile) { $body.whatsNew = [IO.File]::ReadAllText($WhatsNewFile, [Text.Encoding]::UTF8).Trim() }
