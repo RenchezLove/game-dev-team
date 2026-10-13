@@ -72,7 +72,10 @@ async function openaiState(p, force) {
   const hasKey = fs.existsSync(openaiApi.KEY_FILE), u = readJson(openaiApi.USAGE, { images: 0 });
   if (!hasKey) return { key: false, images: u.images || 0 };
   if (force || !oaCache || Date.now() - oaCache.t > 600000) { const c = await openaiApi.check(); oaCache = { t: Date.now(), ok: c.ok, error: c.error || '', models: (c.imageModels || []).length, spend: await openaiSpend(p) }; }
-  return { key: true, ok: oaCache.ok, error: oaCache.error, models: oaCache.models, checked: oaCache.t, images: u.images || 0, tokens: u.tokens || 0, last: u.last || 0, spend: oaCache.spend };
+  // What the team itself has spent through its script (counted from the tokens of every picture) and what the owner put on the account.
+  const budget = readJson(path.join(DATA, 'openai-budget.json'), null), since = (budget && budget.since) || 0;
+  const own = { total: u.cost || 0, sinceBudget: (u.log || []).filter(x => x.t >= since).reduce((a, x) => a + (x.cost || 0), 0) };
+  return { key: true, ok: oaCache.ok, error: oaCache.error, models: oaCache.models, checked: oaCache.t, images: u.images || 0, tokens: u.tokens || 0, last: u.last || 0, spend: oaCache.spend, budget, own };
 }
 // Tripo (3D models): how many credits are left.
 async function tripoState(p, force) {
@@ -295,7 +298,7 @@ http.createServer(async (req, res) => {
     if (u.pathname === '/api/docs/file' && req.method === 'GET') { if (!q.path || !docAllowed(p, q.path) || !fs.existsSync(q.path)) return send(res, 404, { error: 'нет такого документа' });
       const ext = path.extname(q.path).toLowerCase(); if (['.png', '.jpg', '.svg'].includes(ext)) return send(res, 200, fs.readFileSync(q.path), MIME[ext]);
       const st = fs.statSync(q.path); return send(res, 200, { path: q.path, text: fs.readFileSync(q.path, 'utf8').replace(/^\uFEFF/, '').slice(0, 400000), size: st.size, m: st.mtimeMs }); }
-    if (u.pathname === '/api/docs/file' && req.method === 'POST') { const b = await body(req); if (!b.path || !docAllowed(p, b.path) || !/\.(md|txt)$/i.test(b.path) || typeof b.text !== 'string') return send(res, 400, { error: 'Этот файл править нельзя.' });
+    if (u.pathname === '/api/docs/file' && req.method === 'POST') { const b = await body(req); if (!b.path || !docAllowed(p, b.path) || !/\.(md|txt|pipeline\.json)$/i.test(b.path) || typeof b.text !== 'string') return send(res, 400, { error: 'Этот файл править нельзя.' });
       if (fs.existsSync(b.path)) fs.copyFileSync(b.path, path.join(DATA, 'backup-' + path.basename(b.path))); fs.writeFileSync(b.path, b.text, 'utf8'); return send(res, 200, { ok: true }); }
     if (u.pathname === '/api/assets') { const f = path.join(DATA, 'assets-' + p.id + '.json');
       return send(res, 200, Object.assign({}, q.refresh || !fs.existsSync(f) ? scanAssets(p) : readJson(f, { assets: [] }), { tools: readJson(path.join(p.teamRoot, 'tasks', p.id + '-tools.json'), { tools: [] }).tools || [] })); }

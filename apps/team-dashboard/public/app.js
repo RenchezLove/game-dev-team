@@ -30,36 +30,34 @@ $('#modal').onclick = e => { if (e.target.id === 'modal') closeModal(); };
 // ---------- overview and right column ----------
 async function loadOverview() { const o = await api('/api/overview'); S.over = o; drawRight(); drawHome(); if (S.tab === 'costs') drawCosts(); }
 function limitBar(title, w) { if (!w) return ''; const pc = Math.round((w.utilization || 0) * 100); const cls = pc >= 90 ? 'r' : pc >= 70 ? 'w' : ''; const d = new Date(w.resetsAt * 1000);
-  const when = d.toDateString() === new Date().toDateString() ? 'сегодня в ' + time(d) : d.toLocaleDateString('ru', { weekday: 'long', day: 'numeric', month: 'long' }) + ' в ' + time(d);
-  return `<div class="bar"><u class="${cls}" style="width:${pc}%"></u></div><small>${title}: израсходовано ${pc} %, сброс ${when}</small>`; }
+  const when = d.toDateString() === new Date().toDateString() ? 'сегодня в ' + time(d) : d.toLocaleDateString('ru', { day: 'numeric', month: 'long' }) + ' в ' + time(d);
+  return `<div class="bar"><u class="${cls}" style="width:${pc}%"></u></div><small>${title}. Израсходовано ${pc} %. Сброс ${when}.</small>`; }
 const money = v => '$ ' + (+v).toFixed(2), day = t => new Date(t).toLocaleDateString('ru');
 // What is known about the money at OpenAI, in plain words.
-function oaText() { const oa = (S.over && S.over.openai) || {}, sp = oa.spend || {}, b = sp.budget;
+function oaMoney() { const oa = (S.over && S.over.openai) || {}, sp = oa.spend || {}, b = oa.budget, own = oa.own || {}, exact = !!sp.admin && !sp.error;
+  const spent = b ? (exact ? sp.spent : own.sinceBudget || 0) : (own.total || 0); return { b, exact, spent, left: b ? Math.max(0, b.amount - spent) : null }; }
+function oaText() { const oa = (S.over && S.over.openai) || {}, m = oaMoney();
   if (!oa.key) return 'Ключ не подключён.'; if (!oa.ok) return 'Ключ есть, но OpenAI его не принял: ' + esc(oa.error);
-  let t = `Ключ работает. Картинок сделано командой: ${oa.images}. `;
-  if (!sp.admin) return t + 'Сколько денег осталось, OpenAI обычному ключу не сообщает. Программа может считать остаток сама, если дать ей второй ключ. <span class="lnk2" data-oaset>Как это включить</span>';
-  if (sp.error) return t + 'Сведения о тратах получить не удалось: ' + esc(sp.error) + ' <span class="lnk2" data-oaset>Настройка</span>';
-  if (b) return t + `С ${day(b.since)} потрачено ${money(sp.spent)}. Осталось примерно ${money(Math.max(0, b.amount - sp.spent))} из ${money(b.amount)}. <span class="lnk2" data-oaset>Изменить</span>`;
-  return t + `За последние 30 дней потрачено ${money(sp.spent)}. Чтобы видеть остаток, <span class="lnk2" data-oaset>укажите, сколько вы положили на счёт</span>.`; }
+  const t = `Картинок сделано командой: ${oa.images}. `;
+  if (m.b) return t + `С ${day(m.b.since)} потрачено примерно ${money(m.spent)} (${m.exact ? 'по данным OpenAI' : 'по подсчёту программы'}). Осталось примерно ${money(m.left)} из ${money(m.b.amount)}. <span class="lnk2" data-oaset>Изменить сумму</span>`;
+  return t + `Потрачено примерно ${money(m.spent)}. Чтобы видеть остаток, <span class="lnk2" data-oaset>укажите, сколько вы положили на счёт</span>.`; }
 function trText() { const tr = (S.over && S.over.tripo) || {}; if (!tr.key) return 'Ключ не подключён.'; if (!tr.ok) return 'Ключ есть, но Tripo не ответил: ' + esc(tr.error || '');
   return `Осталось кредитов: ${tr.balance}.${tr.frozen ? ' Заморожено под текущие заказы: ' + tr.frozen + '.' : ''} Проверено в ${time(tr.checked)}.`; }
-function oaSetup() { const b = ((S.over && S.over.openai && S.over.openai.spend) || {}).budget || {};
-  modal(`<h2>Остаток денег на счёте OpenAI</h2><p>OpenAI не отдаёт программам сам остаток, но отдаёт сумму трат. Поэтому программа считает так: сколько вы положили на счёт минус сколько потрачено с того дня.</p>
-   <p style="margin-top:8px"><b>Шаг 1.</b> Создайте второй ключ — «ключ администратора» — на странице <a href="https://platform.openai.com/settings/organization/admin-keys" target="_blank" style="color:#8fc7ff">Admin keys</a>. Обычный ключ траты читать не может.</p>
-   <p style="margin-top:8px"><b>Шаг 2.</b> Сохраните его одной строкой в файл <code>E:\\ContrarySurvior\\ContrarySurvivor\\Saved\\OpenAIAdminKey.txt</code>. В чат ключ не вставляйте.</p>
-   <p style="margin-top:8px"><b>Шаг 3.</b> Укажите здесь, сколько денег вы положили и когда, и нажмите «Сохранить».</p>
-   <label>Сколько долларов положили на счёт</label><input id="oaAmount" type="number" step="0.01" value="${b.amount || ''}"><label>Когда положили</label><input id="oaSince" type="date" value="${b.since ? new Date(b.since).toISOString().slice(0, 10) : new Date().toISOString().slice(0, 10)}">
-   <div class="acts"><div class="btn s g" id="mNo">Закрыть</div><div class="btn s" id="mOk">Сохранить</div></div>`, async () => { const r = await api('/api/openai/budget', { amount: $('#oaAmount').value, since: $('#oaSince').value }); if (r.error) return alertBox(r.error); closeModal(); await api('/api/resources/refresh?what=openai', {}); loadOverview(); }); }
+function oaSetup() { const b = ((S.over && S.over.openai) || {}).budget || {};
+  modal(`<h2>Остаток денег на счёте OpenAI</h2><p>Сам остаток OpenAI программам не сообщает. Поэтому программа считает его так: сколько вы положили на счёт минус сколько команда потратила на картинки с того дня. Цена каждой картинки считается по её расходу и ценам OpenAI.</p>
+   <label>Сколько долларов сейчас на счёте (или сколько вы положили)</label><input id="oaAmount" type="number" step="0.01" value="${b.amount || ''}"><label>На какой день эта сумма</label><input id="oaSince" type="date" value="${b.since ? new Date(b.since).toISOString().slice(0, 10) : new Date().toISOString().slice(0, 10)}">
+   <p class="dim" style="margin-top:10px;font-size:12px">Подсчёт верен, пока ключом пользуется только команда. После пополнения счёта впишите новую сумму.</p>
+   <div class="acts"><div class="btn s g" id="mNo">Закрыть</div><div class="btn s" id="mOk">Сохранить</div></div>`, async () => { const r = await api('/api/openai/budget', { amount: $('#oaAmount').value, since: $('#oaSince').value }); if (r.error) return alertBox(r.error); closeModal(); loadOverview(); }); }
 function drawRight() { const o = S.over || {}, l = o.limits, ol = o.ollama || {}, oa = o.openai || {}, tr = o.tripo || {};
   const rf = k => `<i class="rf ${S.refreshing === k ? 'spin' : ''}" data-rf="${k}" title="Обновить сведения">⟳</i>`;
-  $('#resources').innerHTML = `<div class="res"><b><span>Claude · подписка</span><span>лимит ${rf('claude')}</span></b>${l ? limitBar('Сессия (5 часов)', l.five) + limitBar('Неделя', l.seven) + `<small class="dim">Замер от ${time(l.t)}.</small>` : '<small>Проценты появятся после первого ответа руководителя или по значку обновления.</small>'}</div>
-   <div class="res"><b><span>OpenAI · картинки</span><span>${oa.key && oa.ok ? 'подключён' : 'нет связи'} ${rf('openai')}</span></b><small>${oaText()}</small></div>
+  $('#resources').innerHTML = `<div class="res"><b><span>Claude · подписка</span><span>лимит ${rf('claude')}</span></b>${l ? limitBar('5-часовая сессия', l.five) + limitBar('Недельный лимит', l.seven) : '<small>Проценты появятся после первого ответа руководителя или по значку обновления.</small>'}</div>
+   <div class="res"><b><span>OpenAI · картинки</span><span>${oa.key && oa.ok ? 'подключён' : 'нет связи'}</span></b>${oaMoney().left != null ? `<small>Осталось примерно ${money(oaMoney().left)}.</small>` : ''}</div>
    <div class="res"><b><span>Tripo · 3D-модели</span><span>${tr.key && tr.ok ? 'подключён' : 'нет связи'} ${rf('tripo')}</span></b><small>${trText()}</small></div>
-   <div class="res"><b><span>Локальная модель</span><span>бесплатно ${rf('ollama')}</span></b><small>${ol.up ? 'Работает на этом компьютере. Модели: ' + esc(ol.models.join(', ') || 'не загружены') : 'Сейчас не запущена.'}</small></div>`;
+   <div class="res"><b><span>Локальная модель</span><span>${ol.up ? 'бесплатно' : 'не запущена'}</span></b></div>`;
   $$('[data-rf]').forEach(b => b.onclick = async () => { if (S.refreshing) return; S.refreshing = b.dataset.rf; drawRight(); const r = await api('/api/resources/refresh?what=' + b.dataset.rf, {}); S.refreshing = ''; await loadOverview(); if (r.error) alertBox(r.error); });
   $$('[data-oaset]').forEach(b => b.onclick = oaSetup);
   const st = o.status || {};
-  $('#state').innerHTML = [['Редактор игры', o.editor ? 'открыт' : 'закрыт'], ['Телефон', o.phone ? 'подключён' : 'не подключён'], ['Ветка игры', o.branch || '—'], ['Последняя запись', o.head || '—'], ['Автопроверки', st.tests || '—'], ['На телефоне', st.onPhone || '—'], ['В магазине', st.inStore || '—']]
+  $('#state').innerHTML = [['Редактор игры', o.editor ? 'открыт' : 'закрыт'], ['Телефон', o.phone ? 'подключён' : 'не подключён'], ['На телефоне', st.onPhone || '—'], ['В магазине', st.inStore || '—']]
     .map(r => `<div class="kv"><span>${r[0]}</span><b>${esc(r[1])}</b></div>`).join('');
   $('#pillStore').textContent = st.inStore ? 'в магазине ' + st.inStore : ''; $('#pillPhone').textContent = o.phone ? '📱 телефон подключён' : ''; }
 function drawHome() { const o = S.over || {}, c = S.current;
@@ -131,7 +129,8 @@ function editTask(t) { if (!t) return; const opt = (o, v) => Object.entries(o).m
     $('#mAsk').onclick = () => { closeModal(); $('#msg').value = `Возьми в работу задачу из списка задач: «${t.title}».${t.note ? ' Подробности: ' + t.note : ''}`; show('home'); $('#msg').focus(); }; } }
 
 // ---------- documents ----------
-async function loadDocs() { const tree = await api('/api/docs/tree'); const draw = (n, d) => n.dir ? `<div class="n ${n.root ? 'root' : ''}" data-fold>${n.root ? '' : '📁 '}${esc(n.name)}</div><div class="kids ${d > 0 ? 'hidden' : ''}">${n.children.map(c => draw(c, d + 1)).join('')}</div>` : `<div class="n file" data-path="${esc(n.path)}" title="${esc(n.name)}">${esc(n.name)}</div>`;
+const docName = n => /\.pipeline\.json$/i.test(n) ? '🗺 ' + n.replace(/\.pipeline\.json$/i, '') : n;
+async function loadDocs() { const tree = await api('/api/docs/tree'); const draw = (n, d) => n.dir ? `<div class="n ${n.root ? 'root' : ''}" data-fold>${n.root ? '' : '📁 '}${esc(n.name)}</div><div class="kids ${d > 0 ? 'hidden' : ''}">${n.children.map(c => draw(c, d + 1)).join('')}</div>` : `<div class="n file" data-path="${esc(n.path)}" title="${esc(n.name)}">${esc(docName(n.name))}</div>`;
   $('#docTree').innerHTML = '<h2>Документы проекта</h2>' + tree.map(n => draw(n, 0)).join(''); $('#docTree').dataset.ready = '1';
   $$('#docTree [data-fold]').forEach(f => f.onclick = () => f.nextElementSibling.classList.toggle('hidden')); $$('#docTree .file').forEach(f => f.onclick = () => openDoc(f.dataset.path)); filterDocs(); }
 function filterDocs() { if (!S.q) return $$('#docTree .file').forEach(f => f.classList.remove('hidden')); $$('#docTree .kids').forEach(k => k.classList.remove('hidden')); $$('#docTree .file').forEach(f => f.classList.toggle('hidden', !f.textContent.toLowerCase().includes(S.q))); }
@@ -141,9 +140,9 @@ function md(t) { const out = []; let inCode = false, table = [];
   for (const l of t.split(/\r?\n/)) { if (l.startsWith('```')) { flush(); inCode = !inCode; out.push(inCode ? '<pre class="text"><code>' : '</code></pre>'); continue; } if (inCode) { out.push(esc(l) + '\n'); continue; }
     if (/^\s*\|.*\|\s*$/.test(l)) { table.push(l.trim()); continue; } flush();
     const h = l.match(/^(#{1,4})\s+(.*)/); if (h) out.push(`<h${h[1].length < 3 ? 3 : 4}>${inline(h[2])}</h${h[1].length < 3 ? 3 : 4}>`); else if (/^\s*([-*]|\d+\.)\s+/.test(l)) out.push('<li>' + inline(l.replace(/^\s*([-*]|\d+\.)\s+/, '')) + '</li>'); else if (l.trim()) out.push('<p>' + inline(l) + '</p>'); } flush(); return out.join(''); }
-async function openDoc(p) { $$('#docTree .file').forEach(f => f.classList.toggle('on', f.dataset.path === p)); const name = p.split('/').pop(), v = $('#docView');
+async function openDoc(p) { $('#docLinks').classList.remove('hidden'); $('#docTree').classList.remove('hidden'); $$('#docTree .file').forEach(f => f.classList.toggle('on', f.dataset.path === p)); const name = p.split('/').pop(), v = $('#docView');
   if (/\.(png|jpg|svg)$/i.test(p)) { S.doc = { path: p }; v.innerHTML = `<h2>${esc(name)}</h2><img src="/api/docs/file?project=${encodeURIComponent(S.project)}&path=${encodeURIComponent(p)}">`; }
-  else { const d = await api('/api/docs/file?path=' + encodeURIComponent(p)); if (d.error) return; S.doc = d; const can = /\.(md|txt)$/i.test(p);
+  else { const d = await api('/api/docs/file?path=' + encodeURIComponent(p)); if (d.error) return; S.doc = d; if (/\.pipeline\.json$/i.test(p)) { $('#docLinks').classList.add('hidden'); $('#docTree').classList.add('hidden'); return openPipe(p, d.text); } const can = /\.(md|txt)$/i.test(p);
     v.innerHTML = `<h2>${esc(name)} <span class="lnk dim">изменён ${new Date(d.m).toLocaleDateString('ru')}</span></h2><p>${can ? '<span class="btn s" id="dEdit">Править</span>' : ''}<span class="btn s g" id="dAsk">Попросить команду обновить</span></p><div id="dBody">${/\.md$/i.test(p) ? md(d.text) : `<pre class="text">${esc(d.text)}</pre>`}</div>`;
     if (can) $('#dEdit').onclick = () => { $('#dBody').innerHTML = `<textarea id="dText"></textarea><p><span class="btn s" id="dSave">Сохранить</span><span class="btn s g" id="dCancel">Отмена</span></p>`; $('#dText').value = d.text; $('#dCancel').onclick = () => openDoc(p);
       $('#dSave').onclick = async () => { const r = await api('/api/docs/file', { path: p, text: $('#dText').value }); if (r.error) return alertBox(r.error); openDoc(p); }; };
@@ -151,6 +150,45 @@ async function openDoc(p) { $$('#docTree .file').forEach(f => f.classList.toggle
   const rel = S.tasks.filter(t => t.docs && p.toLowerCase().includes(t.docs.toLowerCase().replace(/\\/g, '/')));
   $('#docLinks').innerHTML = '<h2>Связано с документом</h2>' + (rel.map(t => `<div class="kc" data-task="${t.id}"><span class="tag ${t.type}">${TYPE[t.type]}</span>${esc(t.title)}<small>${Object.fromEntries(COLS)[t.status]}</small></div>`).join('') || '<p class="dim">Задач, связанных с этим документом, нет. Связь задаётся в карточке задачи.</p>') + `<div class="kv" style="margin-top:10px"><span>Файл</span><b>${esc(p)}</b></div>`;
   $$('#docLinks [data-task]').forEach(e => e.onclick = () => editTask(S.tasks.find(t => t.id === e.dataset.task))); }
+
+// ---------- pipeline: a coloured scheme of stages and cards, edited right here with mouse and keyboard ----------
+const PST = { todo: ['не начато', '#56606d'], part: ['частично', '#e0b341'], done: ['готово', '#4bbf73'], ask: ['уточнить или решить', '#6fb7ff'] };
+const PCOL = ['#2a5f9e', '#8a3a26', '#1f7a5a', '#7a3f8f', '#8a5a1c', '#3a6f7a', '#4b8f3a', '#5a5f6d'];
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+function openPipe(p, text) { let P = null; try { P = JSON.parse(text); } catch { } if (!P || !Array.isArray(P.stages)) { $('#docView').innerHTML = '<h2>Схема</h2><p>Файл схемы повреждён и не читается.</p>'; return; }
+  for (const s of P.stages) { s.cards = s.cards || []; for (const c of s.cards) if (!PST[c.status]) c.status = 'todo'; } S.pipe = P; S.pipePath = p; drawPipe(); }
+function savePipe() { clearTimeout(S.pipeTimer); S.pipeTimer = setTimeout(async () => { const r = await api('/api/docs/file', { path: S.pipePath, text: JSON.stringify(S.pipe, null, 1) }); const e = $('#pSaved'); if (e) e.textContent = r.error ? 'не сохранено: ' + r.error : 'сохранено в ' + time(Date.now()); }, 400); }
+function drawPipe() { const P = S.pipe, v = $('#docView'), keep = ($('.pipe') || {}).scrollLeft || 0, at = k => k.split(':').map(Number);
+  v.innerHTML = `<h2><span id="pTitle" contenteditable="true" spellcheck="false">${esc(P.title || 'Схема')}</span><span class="lnk" id="pBack">← к списку документов</span><span class="lnk dim" id="pSaved" style="cursor:default;margin-right:14px"></span></h2>
+   <p class="dim" style="font-size:12px">Карточку можно перетащить мышью в другой этап или на другое место. Нажатие на карточку открывает её для правки, нажатие на цветной кружок меняет состояние. Двойное нажатие на название этапа переименовывает его. Всё сохраняется само.</p>
+   <div class="pleg">${Object.values(PST).map(x => `<span><i style="background:${x[1]}"></i>${x[0]}</span>`).join('')}</div><div class="pipe">`
+   + P.stages.map((s, i) => `<div class="pst" data-s="${i}" style="--c:${esc(s.color)}"><div class="ph"><span class="pcol" data-color="${i}" title="Сменить цвет этапа"></span><span class="pt" data-rename="${i}" spellcheck="false">${esc(s.title)}</span><i data-left="${i}" title="Сдвинуть этап влево">◀</i><i data-right="${i}" title="Сдвинуть этап вправо">▶</i><i data-dels="${i}" title="Удалить этап">✕</i></div>`
+     + s.cards.map((c, j) => `<div class="pc" draggable="true" data-c="${i}:${j}"><span class="pdot" style="background:${PST[c.status][1]}" data-st="${i}:${j}" title="${PST[c.status][0]} — нажмите, чтобы сменить"></span>${esc(c.title)}${c.note ? `<small>${esc(c.note)}</small>` : ''}</div>`).join('')
+     + `<div class="padd" data-addc="${i}">+ карточка</div></div>${i < P.stages.length - 1 ? '<div class="parr">➜</div>' : ''}`).join('') + '<div class="pst new" id="pAddS">+ этап</div></div>';
+  $('#pBack').onclick = () => { $('#docTree').classList.remove('hidden'); $('#pBack').classList.add('hidden'); };
+  $('#pBack').classList.toggle('hidden', !$('#docTree').classList.contains('hidden'));
+  $('#pTitle').onblur = e => { const t = e.target.textContent.trim(); if (t && t !== P.title) { P.title = t; savePipe(); } else e.target.textContent = P.title; }; $('#pTitle').onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); e.target.blur(); } };
+  $$('.pc').forEach(el => { const [i, j] = at(el.dataset.c); el.onclick = () => editCard(i, j);
+    el.ondragstart = e => { e.dataTransfer.setData('text/plain', el.dataset.c); e.dataTransfer.effectAllowed = 'move'; };
+    el.ondragover = e => { e.preventDefault(); e.stopPropagation(); el.classList.add('over'); }; el.ondragleave = () => el.classList.remove('over');
+    el.ondrop = e => { e.preventDefault(); e.stopPropagation(); moveCard(e.dataTransfer.getData('text/plain'), i, j); }; });
+  $$('.pdot').forEach(d => d.onclick = e => { e.stopPropagation(); const [i, j] = at(d.dataset.st), c = P.stages[i].cards[j], ks = Object.keys(PST); c.status = ks[(ks.indexOf(c.status) + 1) % ks.length]; savePipe(); drawPipe(); });
+  $$('.pst[data-s]').forEach(el => { const i = +el.dataset.s; el.ondragover = e => { e.preventDefault(); el.classList.add('over'); }; el.ondragleave = () => el.classList.remove('over'); el.ondrop = e => { e.preventDefault(); moveCard(e.dataTransfer.getData('text/plain'), i, P.stages[i].cards.length); }; });
+  $$('[data-addc]').forEach(b => b.onclick = () => editCard(+b.dataset.addc, -1));
+  $$('[data-rename]').forEach(t => { t.ondblclick = () => { t.contentEditable = 'true'; t.focus(); document.execCommand('selectAll'); };
+    t.onblur = () => { t.contentEditable = 'false'; const s = P.stages[+t.dataset.rename], n = t.textContent.trim(); if (n && n !== s.title) { s.title = n; savePipe(); } else t.textContent = s.title; }; t.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); t.blur(); } }; });
+  $$('[data-color]').forEach(c => c.onclick = () => { const s = P.stages[+c.dataset.color]; s.color = PCOL[(PCOL.indexOf(s.color) + 1) % PCOL.length]; savePipe(); drawPipe(); });
+  $$('[data-left],[data-right]').forEach(b => b.onclick = () => { const left = b.dataset.left !== undefined, i = +(left ? b.dataset.left : b.dataset.right), k = left ? i - 1 : i + 1; if (k < 0 || k >= P.stages.length) return; [P.stages[i], P.stages[k]] = [P.stages[k], P.stages[i]]; savePipe(); drawPipe(); });
+  $$('[data-dels]').forEach(b => b.onclick = () => { const i = +b.dataset.dels, s = P.stages[i], go = () => { P.stages.splice(i, 1); closeModal(); savePipe(); drawPipe(); }; if (!s.cards.length) return go();
+    modal(`<p>Удалить этап «${esc(s.title)}» вместе с его карточками (${s.cards.length})?</p><div class="acts"><div class="btn s g" id="mNo">Отмена</div><div class="btn s bad" id="mOk">Удалить</div></div>`, go); });
+  $('#pAddS').onclick = () => { P.stages.push({ title: 'Новый этап', color: PCOL[P.stages.length % PCOL.length], cards: [] }); savePipe(); drawPipe(); };
+  const pp = $('.pipe'); if (pp) pp.scrollLeft = keep; }
+function moveCard(from, i, j) { const P = S.pipe, [a, b] = String(from).split(':').map(Number); if (!P.stages[a] || !P.stages[a].cards[b] || !P.stages[i]) return; const [c] = P.stages[a].cards.splice(b, 1); if (a === i && b < j) j--; P.stages[i].cards.splice(j, 0, c); savePipe(); drawPipe(); }
+function editCard(i, j) { const P = S.pipe, isNew = j < 0, c = isNew ? { title: '', note: '', status: 'todo' } : P.stages[i].cards[j];
+  modal(`<h2>${isNew ? 'Новая карточка' : 'Карточка'} · ${esc(P.stages[i].title)}</h2><label>Что нужно сделать</label><input id="pcT" value="${esc(c.title)}"><label>Пояснение</label><textarea id="pcN" rows="4">${esc(c.note || '')}</textarea><label>Состояние</label><select id="pcS">${Object.entries(PST).map(([k, x]) => `<option value="${k}"${k === c.status ? ' selected' : ''}>${x[0]}</option>`).join('')}</select>
+   <div class="acts">${isNew ? '' : '<div class="btn s bad" id="pcDel">Удалить</div>'}<div class="btn s g" id="mNo">Отмена</div><div class="btn s" id="mOk">Сохранить</div></div>`, () => { const t = $('#pcT').value.trim(); if (!t) return; Object.assign(c, { title: t, note: $('#pcN').value.trim(), status: $('#pcS').value }); if (isNew) P.stages[i].cards.push(c); closeModal(); savePipe(); drawPipe(); });
+  $('#pcT').focus(); $('#pcT').onkeydown = e => { if (e.key === 'Enter') $('#mOk').click(); }; $('#pcN').onkeydown = e => { if (e.key === 'Enter' && e.ctrlKey) $('#mOk').click(); };
+  if (!isNew) $('#pcDel').onclick = () => { P.stages[i].cards.splice(j, 1); closeModal(); savePipe(); drawPipe(); }; }
 
 // ---------- assets ----------
 async function loadAssets(refresh) { if (!S.assets.length || refresh) { $('#assetGrid').innerHTML = '<p class="dim">Просматриваю папку игры…</p>'; const r = await api('/api/assets' + (refresh ? '?refresh=1' : '')); S.assets = (r.assets || []).sort((a, b) => b.m - a.m); S.tools = r.tools || []; S.assetScan = r.scanned; S.assetNote = r.note; } drawAssets(); }
@@ -197,4 +235,4 @@ $('#teamSendBtn').onclick = teamSend; $('#teamMsg').onkeydown = e => { if (e.key
 
 async function boot() { await loadProjects(); await loadTasks(); await Promise.all([loadOverview(), loadChat()]); show(S.tab); }
 const SHOT = location.search.includes('shot=1'); // shot=1: a still frame for checks, without the live connection
-boot().then(() => { if (!SHOT) { listen(); setInterval(loadOverview, 60000); setInterval(() => { if (S.running) drawHome(); }, 30000); } });
+boot().then(() => { const dq = new URLSearchParams(location.search).get('doc'); if (dq) { show('docs'); openDoc(dq); } if (!SHOT) { listen(); setInterval(loadOverview, 60000); setInterval(() => { if (S.running) drawHome(); }, 30000); } });
