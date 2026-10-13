@@ -32,9 +32,10 @@ async function loadOverview() { const o = await api('/api/overview'); S.over = o
 function limitBar(title, w) { if (!w) return ''; const pc = Math.round((w.utilization || 0) * 100); const cls = pc >= 90 ? 'r' : pc >= 70 ? 'w' : ''; const d = new Date(w.resetsAt * 1000);
   const when = d.toDateString() === new Date().toDateString() ? 'сегодня в ' + time(d) : d.toLocaleDateString('ru', { weekday: 'long', day: 'numeric', month: 'long' }) + ' в ' + time(d);
   return `<div class="bar"><u class="${cls}" style="width:${pc}%"></u></div><small>${title}: израсходовано ${pc} %, сброс ${when}</small>`; }
-function drawRight() { const o = S.over || {}, l = o.limits, ol = o.ollama || {};
+function drawRight() { const o = S.over || {}, l = o.limits, ol = o.ollama || {}, oa = o.openai || {};
+  const oaText = !oa.key ? 'Ключ не подключён.' : oa.ok ? `Ключ подключён, OpenAI его принимает (проверено в ${time(oa.checked)}). Картинок сделано командой: ${oa.images}. Остаток денег OpenAI по ключу не сообщает — он виден на <a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank">странице оплаты</a>.` : 'Ключ есть, но OpenAI его не принял: ' + esc(oa.error);
   $('#resources').innerHTML = `<div class="res"><b><span>Claude · подписка</span><span>лимит</span></b>${l ? limitBar('Сессия (5 часов)', l.five) + limitBar('Неделя', l.seven) + `<small class="dim">Замер от ${time(l.t)}; обновляется при каждом ответе руководителя.</small>` : '<small>Проценты появятся после первого ответа руководителя в этой программе.</small>'}</div>
-   <div class="res"><b><span>OpenAI · картинки</span><span>баланс</span></b><small>Ключ не подключён.</small></div>
+   <div class="res"><b><span>OpenAI · картинки</span><span>${oa.key && oa.ok ? 'подключён' : 'нет связи'}</span></b><small>${oaText}</small></div>
    <div class="res"><b><span>Локальная модель</span><span>бесплатно</span></b><small>${ol.up ? 'Работает на этом компьютере. Модели: ' + esc(ol.models.join(', ') || 'не загружены') : 'Сейчас не запущена.'}</small></div>`;
   const st = o.status || {};
   $('#state').innerHTML = [['Редактор игры', o.editor ? 'открыт' : 'закрыт'], ['Телефон', o.phone ? 'подключён' : 'не подключён'], ['Ветка игры', o.branch || '—'], ['Последняя запись', o.head || '—'], ['Автопроверки', st.tests || '—'], ['На телефоне', st.onPhone || '—'], ['В магазине', st.inStore || '—']]
@@ -52,20 +53,23 @@ function drawHome() { const o = S.over || {}, c = S.current;
   $$('[data-task]').forEach(e => e.onclick = () => editTask(S.tasks.find(t => t.id === e.dataset.task))); }
 
 // ---------- chat ----------
-function bubble(m) { const who = { user: 'Вы', lead: 'Руководитель', error: 'Ошибка запуска' }[m.role]; return `<div class="m ${m.role}">${who ? `<small>${who}${m.t ? ' · ' + time(m.t) : ''}${m.images ? ' · картинок: ' + m.images : ''}</small>` : ''}${esc(m.text)}</div>`; }
-async function loadChat() { const h = await api('/api/chat/history'); S.msgs = h.messages; S.running = h.running; S.current = h.current; drawChat(); }
+function bubble(m) { const who = { user: 'Вы', lead: 'Руководитель', local: 'Локальная нейросеть (резерв)', error: 'Ошибка' }[m.role]; return `<div class="m ${m.role}">${who ? `<small>${who}${m.t ? ' · ' + time(m.t) : ''}${m.images ? ' · картинок: ' + m.images : ''}</small>` : ''}${esc(m.text)}</div>`; }
+async function loadChat() { const h = await api('/api/chat/history'); S.msgs = h.messages; S.running = h.running; S.current = h.current; S.fallback = h.fallback; drawChat(); }
 function drawChat() { const c = $('#chat'); c.classList.toggle('hidden', !S.msgs.length && !S.running);
-  c.innerHTML = S.msgs.map(bubble).join('') + (S.running ? `<div class="m lead live"><small>Руководитель работает…</small>${esc(S.live) || '<span class="dim">' + esc((S.current && S.current.lead) || '') + '</span>'}</div>` : '');
-  c.scrollTop = c.scrollHeight; $('#sendBtn').classList.toggle('hidden', S.running); $('#stopBtn').classList.toggle('hidden', !S.running); drawPerm(); }
+  c.innerHTML = S.msgs.map(bubble).join('') + (S.fallback && S.fallback.active ? `<div class="m fb">Лимит подписки исчерпан до ${time(S.fallback.until)}. Сейчас отвечает локальная нейросеть: она ничего не меняет в проекте. <span class="btn s" id="fbOff">Вернуться к руководителю сейчас</span></div>` : '')
+    + (S.running ? `<div class="m ${S.current && S.current.local ? 'local' : 'lead'} live"><small>${S.current && S.current.local ? esc(S.current.title || 'Локальная нейросеть отвечает…') : 'Руководитель работает…'}</small>${esc(S.live) || '<span class="dim">' + esc((S.current && S.current.lead) || '') + '</span>'}</div>` : '');
+  c.scrollTop = c.scrollHeight; $('#sendBtn').classList.toggle('hidden', S.running); $('#stopBtn').classList.toggle('hidden', !S.running); drawPerm();
+  const off = $('#fbOff'); if (off) off.onclick = async () => { await api('/api/chat/fallback-off', {}); loadChat(); }; }
 function drawPerm() { const p = (S.current && S.current.pending) || {};
   $('#perm').innerHTML = Object.values(p).map(r => `<div class="permit"><b>Руководитель просит разрешение: ${esc(r.tool)}</b><pre>${esc(JSON.stringify(r.input, null, 1).slice(0, 1200))}</pre><span class="btn s" data-ok="${esc(r.id)}">Разрешить</span><span class="btn s bad" data-no="${esc(r.id)}">Отклонить</span></div>`).join('');
   $$('[data-ok]').forEach(b => b.onclick = () => api('/api/chat/permit', { id: b.dataset.ok, allow: true })); $$('[data-no]').forEach(b => b.onclick = () => api('/api/chat/permit', { id: b.dataset.no, allow: false })); }
-async function sendMsg(preset) { const text = (preset || $('#msg').value).trim(); if (!text && !S.images.length) return; if (S.running) return alertBox('Руководитель ещё отвечает. Дождитесь ответа или нажмите «Остановить».');
+async function sendMsg(preset) { const text = (preset || $('#msg').value).trim(); if (!text && !S.images.length) return; if (S.running) return alertBox('Прошлое сообщение ещё в работе. Дождитесь ответа или нажмите «Остановить».');
   const r = await api('/api/chat/send', { text, images: S.images.map(i => ({ media_type: i.type, data: i.data })) }); if (r.error) return alertBox(r.error);
   S.msgs.push({ role: 'user', text, images: S.images.length, t: Date.now() }); S.images = []; drawThumbs(); $('#msg').value = ''; S.live = ''; S.running = true; show('home'); drawChat(); }
 $('#sendBtn').onclick = () => sendMsg(); $('#stopBtn').onclick = () => api('/api/chat/stop', {});
 $('#newChat').onclick = async () => { const r = await api('/api/chat/new', {}); if (r.error) return alertBox(r.error); loadChat(); };
-$('#msg').onkeydown = e => { if (e.key === 'Enter' && e.ctrlKey) { e.preventDefault(); sendMsg(); } };
+// Enter sends, Shift+Enter makes a new line.
+$('#msg').onkeydown = e => { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); sendMsg(); } };
 function addImage(file) { if (!file || !/^image\/(png|jpeg|webp|gif)$/.test(file.type)) return; if (file.size > 4.5e6) return alertBox('Картинка больше 4,5 МБ — уменьшите её.'); const fr = new FileReader(); fr.onload = () => { S.images.push({ type: file.type, data: fr.result.split(',')[1], url: fr.result }); drawThumbs(); }; fr.readAsDataURL(file); }
 function drawThumbs() { $('#thumbs').innerHTML = S.images.map((i, n) => `<div><img src="${i.url}"><b data-rm="${n}">×</b></div>`).join(''); $$('[data-rm]').forEach(b => b.onclick = () => { S.images.splice(+b.dataset.rm, 1); drawThumbs(); }); }
 document.addEventListener('paste', e => { for (const it of e.clipboardData.items) if (it.kind === 'file') addImage(it.getAsFile()); });
@@ -74,6 +78,8 @@ card.ondrop = e => { e.preventDefault(); $('#msg').classList.remove('drop'); for
 function listen() { const es = new EventSource('/api/chat/events'); es.onmessage = m => { const e = JSON.parse(m.data);
   if (e.kind === 'status') { const was = S.running; S.running = e.running; S.current = e.current || null; if (was && !e.running) { loadChat(); loadTasks(); loadOverview(); } else drawChat(); drawHome(); }
   if (e.kind === 'text') { S.live += (S.live ? '\n\n' : '') + e.text; drawChat(); }
+  if (e.kind === 'delta') { S.live += e.text; drawChat(); }
+  if (e.kind === 'fallback') { S.fallback = e.fallback; drawChat(); }
   if (e.kind === 'activity' || e.kind === 'permission') { S.current = e.current; drawHome(); drawChat(); }
   if (e.kind === 'limits') { if (S.over) S.over.limits = e.limits; drawRight(); }
   if (e.kind === 'result' && e.denials && e.denials.length) S.msgs.push({ role: 'note', text: 'Часть действий защита не разрешила: ' + e.denials.map(d => d.tool_name).join(', ') + '.' }); }; }
