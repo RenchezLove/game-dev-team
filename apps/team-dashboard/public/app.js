@@ -1,16 +1,16 @@
 'use strict';
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const S = { project: localStorage.project || '', tab: ['home', 'tasks', 'docs', 'assets', 'costs'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home', tasks: [], assets: [], doc: null, images: [], running: false, current: null, live: '', taskFilter: 'all', assetFilter: 'all', assetShown: 120, asset: null, q: '' };
+const S = { project: localStorage.project || '', tab: ['home', 'tasks', 'docs', 'assets', 'team', 'costs'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'home', tasks: [], assets: [], doc: null, images: [], running: false, current: null, live: '', taskFilter: 'all', assetFilter: 'all', assetShown: 120, asset: null, q: '' };
 const api = async (url, data) => { const sep = url.includes('?') ? '&' : '?'; const r = await fetch(url + sep + 'project=' + encodeURIComponent(S.project), data ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) } : undefined); return r.json(); };
 const time = t => new Date(t).toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' });
 const TYPE = { feature: 'фича', bug: 'ошибка', change: 'правка', idea: 'идея' };
 const COLS = [['idea', 'Идеи'], ['queue', 'В очереди'], ['work', 'В работе'], ['check', 'Проверить вам'], ['done', 'Готово']];
-const ATYPE = { all: ['Все', '🧱'], model: ['Модели', '🧊'], texture: ['Текстуры', '🖼'], material: ['Материалы', '🎨'], window: ['Окна и интерфейс', '🪟'], object: ['Объекты игры', '⚙'], anim: ['Анимации', '🏃'], sound: ['Звуки', '🔊'], data: ['Данные', '📊'], level: ['Уровни', '🗺'], other: ['Прочее', '📦'] };
+const ATYPE = { all: ['Все', '🧱'], tools: ['Инструменты разработки', '🛠'], model: ['Модели', '🧊'], texture: ['Текстуры', '🖼'], material: ['Материалы', '🎨'], window: ['Окна и интерфейс', '🪟'], object: ['Объекты игры', '⚙'], anim: ['Анимации', '🏃'], sound: ['Звуки', '🔊'], data: ['Данные', '📊'], level: ['Уровни', '🗺'], other: ['Прочее', '📦'] };
 
 // ---------- tabs ----------
 function show(tab) { S.tab = tab; $$('.page').forEach(p => p.classList.toggle('hidden', p.id !== tab)); $$('.nav[data-tab]').forEach(n => n.classList.toggle('on', n.dataset.tab === tab));
-  if (tab === 'tasks') drawTasks(); if (tab === 'docs' && !$('#docTree').dataset.ready) loadDocs(); if (tab === 'assets') loadAssets(); if (tab === 'costs') drawCosts(); }
+  if (tab === 'tasks') drawTasks(); if (tab === 'docs' && !$('#docTree').dataset.ready) loadDocs(); if (tab === 'assets') loadAssets(); if (tab === 'costs') drawCosts(); if (tab === 'team') loadTeam(); }
 $$('.nav[data-tab]').forEach(n => n.onclick = () => show(n.dataset.tab));
 $('#search').oninput = e => { S.q = e.target.value.trim().toLowerCase(); if (S.tab === 'home' && S.q) show('tasks'); else if (S.tab === 'tasks') drawTasks(); else if (S.tab === 'assets') { S.assetShown = 120; drawAssets(); } else if (S.tab === 'docs') filterDocs(); };
 
@@ -23,20 +23,41 @@ $('#addProject').onclick = () => modal(`<h2>Новый проект</h2><label>�
 
 // ---------- modal ----------
 function modal(html, onOk) { $('#modalBody').innerHTML = html; $('#modal').classList.remove('hidden'); const no = $('#mNo'), ok = $('#mOk'); if (no) no.onclick = closeModal; if (ok) ok.onclick = onOk; }
-function closeModal() { $('#modal').classList.add('hidden'); }
+function closeModal() { $('#modal').classList.add('hidden'); $('#modalBody').style.width = ''; }
 function alertBox(text) { modal(`<p>${esc(text)}</p><div class="acts"><div class="btn s" id="mNo">Понятно</div></div>`); }
 $('#modal').onclick = e => { if (e.target.id === 'modal') closeModal(); };
 
 // ---------- overview and right column ----------
-async function loadOverview() { const o = await api('/api/overview'); S.over = o; drawRight(); drawHome(); }
+async function loadOverview() { const o = await api('/api/overview'); S.over = o; drawRight(); drawHome(); if (S.tab === 'costs') drawCosts(); }
 function limitBar(title, w) { if (!w) return ''; const pc = Math.round((w.utilization || 0) * 100); const cls = pc >= 90 ? 'r' : pc >= 70 ? 'w' : ''; const d = new Date(w.resetsAt * 1000);
   const when = d.toDateString() === new Date().toDateString() ? 'сегодня в ' + time(d) : d.toLocaleDateString('ru', { weekday: 'long', day: 'numeric', month: 'long' }) + ' в ' + time(d);
   return `<div class="bar"><u class="${cls}" style="width:${pc}%"></u></div><small>${title}: израсходовано ${pc} %, сброс ${when}</small>`; }
-function drawRight() { const o = S.over || {}, l = o.limits, ol = o.ollama || {}, oa = o.openai || {};
-  const oaText = !oa.key ? 'Ключ не подключён.' : oa.ok ? `Ключ подключён, OpenAI его принимает (проверено в ${time(oa.checked)}). Картинок сделано командой: ${oa.images}. Остаток денег OpenAI по ключу не сообщает — он виден на <a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank">странице оплаты</a>.` : 'Ключ есть, но OpenAI его не принял: ' + esc(oa.error);
-  $('#resources').innerHTML = `<div class="res"><b><span>Claude · подписка</span><span>лимит</span></b>${l ? limitBar('Сессия (5 часов)', l.five) + limitBar('Неделя', l.seven) + `<small class="dim">Замер от ${time(l.t)}; обновляется при каждом ответе руководителя.</small>` : '<small>Проценты появятся после первого ответа руководителя в этой программе.</small>'}</div>
-   <div class="res"><b><span>OpenAI · картинки</span><span>${oa.key && oa.ok ? 'подключён' : 'нет связи'}</span></b><small>${oaText}</small></div>
-   <div class="res"><b><span>Локальная модель</span><span>бесплатно</span></b><small>${ol.up ? 'Работает на этом компьютере. Модели: ' + esc(ol.models.join(', ') || 'не загружены') : 'Сейчас не запущена.'}</small></div>`;
+const money = v => '$ ' + (+v).toFixed(2), day = t => new Date(t).toLocaleDateString('ru');
+// What is known about the money at OpenAI, in plain words.
+function oaText() { const oa = (S.over && S.over.openai) || {}, sp = oa.spend || {}, b = sp.budget;
+  if (!oa.key) return 'Ключ не подключён.'; if (!oa.ok) return 'Ключ есть, но OpenAI его не принял: ' + esc(oa.error);
+  let t = `Ключ работает. Картинок сделано командой: ${oa.images}. `;
+  if (!sp.admin) return t + 'Сколько денег осталось, OpenAI обычному ключу не сообщает. Программа может считать остаток сама, если дать ей второй ключ. <span class="lnk2" data-oaset>Как это включить</span>';
+  if (sp.error) return t + 'Сведения о тратах получить не удалось: ' + esc(sp.error) + ' <span class="lnk2" data-oaset>Настройка</span>';
+  if (b) return t + `С ${day(b.since)} потрачено ${money(sp.spent)}. Осталось примерно ${money(Math.max(0, b.amount - sp.spent))} из ${money(b.amount)}. <span class="lnk2" data-oaset>Изменить</span>`;
+  return t + `За последние 30 дней потрачено ${money(sp.spent)}. Чтобы видеть остаток, <span class="lnk2" data-oaset>укажите, сколько вы положили на счёт</span>.`; }
+function trText() { const tr = (S.over && S.over.tripo) || {}; if (!tr.key) return 'Ключ не подключён.'; if (!tr.ok) return 'Ключ есть, но Tripo не ответил: ' + esc(tr.error || '');
+  return `Осталось кредитов: ${tr.balance}.${tr.frozen ? ' Заморожено под текущие заказы: ' + tr.frozen + '.' : ''} Проверено в ${time(tr.checked)}.`; }
+function oaSetup() { const b = ((S.over && S.over.openai && S.over.openai.spend) || {}).budget || {};
+  modal(`<h2>Остаток денег на счёте OpenAI</h2><p>OpenAI не отдаёт программам сам остаток, но отдаёт сумму трат. Поэтому программа считает так: сколько вы положили на счёт минус сколько потрачено с того дня.</p>
+   <p style="margin-top:8px"><b>Шаг 1.</b> Создайте второй ключ — «ключ администратора» — на странице <a href="https://platform.openai.com/settings/organization/admin-keys" target="_blank" style="color:#8fc7ff">Admin keys</a>. Обычный ключ траты читать не может.</p>
+   <p style="margin-top:8px"><b>Шаг 2.</b> Сохраните его одной строкой в файл <code>E:\\ContrarySurvior\\ContrarySurvivor\\Saved\\OpenAIAdminKey.txt</code>. В чат ключ не вставляйте.</p>
+   <p style="margin-top:8px"><b>Шаг 3.</b> Укажите здесь, сколько денег вы положили и когда, и нажмите «Сохранить».</p>
+   <label>Сколько долларов положили на счёт</label><input id="oaAmount" type="number" step="0.01" value="${b.amount || ''}"><label>Когда положили</label><input id="oaSince" type="date" value="${b.since ? new Date(b.since).toISOString().slice(0, 10) : new Date().toISOString().slice(0, 10)}">
+   <div class="acts"><div class="btn s g" id="mNo">Закрыть</div><div class="btn s" id="mOk">Сохранить</div></div>`, async () => { const r = await api('/api/openai/budget', { amount: $('#oaAmount').value, since: $('#oaSince').value }); if (r.error) return alertBox(r.error); closeModal(); await api('/api/resources/refresh?what=openai', {}); loadOverview(); }); }
+function drawRight() { const o = S.over || {}, l = o.limits, ol = o.ollama || {}, oa = o.openai || {}, tr = o.tripo || {};
+  const rf = k => `<i class="rf ${S.refreshing === k ? 'spin' : ''}" data-rf="${k}" title="Обновить сведения">⟳</i>`;
+  $('#resources').innerHTML = `<div class="res"><b><span>Claude · подписка</span><span>лимит ${rf('claude')}</span></b>${l ? limitBar('Сессия (5 часов)', l.five) + limitBar('Неделя', l.seven) + `<small class="dim">Замер от ${time(l.t)}.</small>` : '<small>Проценты появятся после первого ответа руководителя или по значку обновления.</small>'}</div>
+   <div class="res"><b><span>OpenAI · картинки</span><span>${oa.key && oa.ok ? 'подключён' : 'нет связи'} ${rf('openai')}</span></b><small>${oaText()}</small></div>
+   <div class="res"><b><span>Tripo · 3D-модели</span><span>${tr.key && tr.ok ? 'подключён' : 'нет связи'} ${rf('tripo')}</span></b><small>${trText()}</small></div>
+   <div class="res"><b><span>Локальная модель</span><span>бесплатно ${rf('ollama')}</span></b><small>${ol.up ? 'Работает на этом компьютере. Модели: ' + esc(ol.models.join(', ') || 'не загружены') : 'Сейчас не запущена.'}</small></div>`;
+  $$('[data-rf]').forEach(b => b.onclick = async () => { if (S.refreshing) return; S.refreshing = b.dataset.rf; drawRight(); const r = await api('/api/resources/refresh?what=' + b.dataset.rf, {}); S.refreshing = ''; await loadOverview(); if (r.error) alertBox(r.error); });
+  $$('[data-oaset]').forEach(b => b.onclick = oaSetup);
   const st = o.status || {};
   $('#state').innerHTML = [['Редактор игры', o.editor ? 'открыт' : 'закрыт'], ['Телефон', o.phone ? 'подключён' : 'не подключён'], ['Ветка игры', o.branch || '—'], ['Последняя запись', o.head || '—'], ['Автопроверки', st.tests || '—'], ['На телефоне', st.onPhone || '—'], ['В магазине', st.inStore || '—']]
     .map(r => `<div class="kv"><span>${r[0]}</span><b>${esc(r[1])}</b></div>`).join('');
@@ -53,11 +74,16 @@ function drawHome() { const o = S.over || {}, c = S.current;
   $$('[data-task]').forEach(e => e.onclick = () => editTask(S.tasks.find(t => t.id === e.dataset.task))); }
 
 // ---------- chat ----------
-function bubble(m) { const who = { user: 'Вы', lead: 'Руководитель', local: 'Локальная нейросеть (резерв)', error: 'Ошибка' }[m.role]; return `<div class="m ${m.role}">${who ? `<small>${who}${m.t ? ' · ' + time(m.t) : ''}${m.images ? ' · картинок: ' + m.images : ''}</small>` : ''}${esc(m.text)}</div>`; }
+const IMG_RE = /(?:[A-Za-z]:[\\/])[^\s"'<>|*?`()\[\]]+\.(?:png|jpe?g|webp|gif)/gi;
+// Pictures whose full paths are mentioned in a message are shown under it.
+function pics(text) { const seen = new Set(); return [...String(text || '').matchAll(IMG_RE)].map(m => m[0]).filter(f => !seen.has(f.toLowerCase()) && seen.add(f.toLowerCase())).slice(0, 12)
+  .map(f => `<img class="cpic" loading="lazy" src="/api/file?project=${encodeURIComponent(S.project)}&path=${encodeURIComponent(f)}" title="${esc(f)}" onerror="this.remove()">`).join(''); }
+document.addEventListener('click', e => { if (e.target.classList && e.target.classList.contains('cpic')) { modal(`<img class="bigpic" src="${e.target.src}"><div class="acts"><div class="btn s g" id="mNo">Закрыть</div></div>`); $('#modalBody').style.width = 'auto'; } });
+function bubble(m) { const who = { user: m.to ? 'Вы → специалисту ' + (ROLE[m.to] || m.to) : 'Вы', lead: 'Руководитель', local: 'Локальная нейросеть (резерв)', error: 'Ошибка' }[m.role]; return `<div class="m ${m.role}">${who ? `<small>${esc(who)}${m.t ? ' · ' + time(m.t) : ''}${m.images ? ' · картинок: ' + m.images : ''}</small>` : ''}${esc(m.text)}${m.role === 'lead' ? pics(m.text) : ''}</div>`; }
 async function loadChat() { const h = await api('/api/chat/history'); S.msgs = h.messages; S.running = h.running; S.current = h.current; S.fallback = h.fallback; drawChat(); }
 function drawChat() { const c = $('#chat'); c.classList.toggle('hidden', !S.msgs.length && !S.running);
   c.innerHTML = S.msgs.map(bubble).join('') + (S.fallback && S.fallback.active ? `<div class="m fb">Лимит подписки исчерпан до ${time(S.fallback.until)}. Сейчас отвечает локальная нейросеть: она ничего не меняет в проекте. <span class="btn s" id="fbOff">Вернуться к руководителю сейчас</span></div>` : '')
-    + (S.running ? `<div class="m ${S.current && S.current.local ? 'local' : 'lead'} live"><small>${S.current && S.current.local ? esc(S.current.title || 'Локальная нейросеть отвечает…') : 'Руководитель работает…'}</small>${esc(S.live) || '<span class="dim">' + esc((S.current && S.current.lead) || '') + '</span>'}</div>` : '');
+    + (S.running ? `<div class="m ${S.current && S.current.local ? 'local' : 'lead'} live"><small>${S.current && S.current.local ? esc(S.current.title || 'Локальная нейросеть отвечает…') : 'Руководитель работает…'}</small>${esc(S.live) || '<span class="dim">' + esc((S.current && S.current.lead) || '') + '</span>'}${pics(S.live)}</div>` : '');
   c.scrollTop = c.scrollHeight; $('#sendBtn').classList.toggle('hidden', S.running); $('#stopBtn').classList.toggle('hidden', !S.running); drawPerm();
   const off = $('#fbOff'); if (off) off.onclick = async () => { await api('/api/chat/fallback-off', {}); loadChat(); }; }
 function drawPerm() { const p = (S.current && S.current.pending) || {};
@@ -80,6 +106,7 @@ function listen() { const es = new EventSource('/api/chat/events'); es.onmessage
   if (e.kind === 'text') { S.live += (S.live ? '\n\n' : '') + e.text; drawChat(); }
   if (e.kind === 'delta') { S.live += e.text; drawChat(); }
   if (e.kind === 'fallback') { S.fallback = e.fallback; drawChat(); }
+  if (e.kind === 'team' && S.tab === 'team') { clearTimeout(S.teamTimer); S.teamTimer = setTimeout(loadTeam, 500); }
   if (e.kind === 'activity' || e.kind === 'permission') { S.current = e.current; drawHome(); drawChat(); }
   if (e.kind === 'limits') { if (S.over) S.over.limits = e.limits; drawRight(); }
   if (e.kind === 'result' && e.denials && e.denials.length) S.msgs.push({ role: 'note', text: 'Часть действий защита не разрешила: ' + e.denials.map(d => d.tool_name).join(', ') + '.' }); }; }
@@ -126,22 +153,47 @@ async function openDoc(p) { $$('#docTree .file').forEach(f => f.classList.toggle
   $$('#docLinks [data-task]').forEach(e => e.onclick = () => editTask(S.tasks.find(t => t.id === e.dataset.task))); }
 
 // ---------- assets ----------
-async function loadAssets(refresh) { if (!S.assets.length || refresh) { $('#assetGrid').innerHTML = '<p class="dim">Просматриваю папку игры…</p>'; const r = await api('/api/assets' + (refresh ? '?refresh=1' : '')); S.assets = (r.assets || []).sort((a, b) => b.m - a.m); S.assetScan = r.scanned; S.assetNote = r.note; } drawAssets(); }
+async function loadAssets(refresh) { if (!S.assets.length || refresh) { $('#assetGrid').innerHTML = '<p class="dim">Просматриваю папку игры…</p>'; const r = await api('/api/assets' + (refresh ? '?refresh=1' : '')); S.assets = (r.assets || []).sort((a, b) => b.m - a.m); S.tools = r.tools || []; S.assetScan = r.scanned; S.assetNote = r.note; } drawAssets(); }
+const toolOf = a => (S.tools || []).find(t => t.asset === a.name);
 function drawAssets() { const cnt = {}; for (const a of S.assets) cnt[a.type] = (cnt[a.type] || 0) + 1;
+  const toolList = (S.tools || []).map(t => S.assets.find(a => a.name === t.asset)).filter(Boolean); cnt.tools = toolList.length;
   $('#assetFilter').innerHTML = Object.entries(ATYPE).filter(([k]) => k === 'all' || cnt[k]).map(([k, v]) => `<span class="${S.assetFilter === k ? 'on' : ''}" data-f="${k}">${v[1]} ${v[0]} ${k === 'all' ? S.assets.length : cnt[k]}</span>`).join('') + `<span class="add" id="assetScan">Обновить список</span>`;
   $$('#assetFilter [data-f]').forEach(e => e.onclick = () => { S.assetFilter = e.dataset.f; S.assetShown = 120; drawAssets(); }); $('#assetScan').onclick = () => loadAssets(true);
-  const list = S.assets.filter(a => (S.assetFilter === 'all' || a.type === S.assetFilter) && (!S.q || (a.name + ' ' + a.folder).toLowerCase().includes(S.q)));
-  $('#assetGrid').innerHTML = list.slice(0, S.assetShown).map(a => `<div class="as ${S.asset === a ? 'sel' : ''}" data-n="${esc(a.folder + '/' + a.name)}"><div class="pic">${ATYPE[a.type][1]}</div><div class="nm">${esc(a.name)}<small>${esc(ATYPE[a.type][0])} · ${a.kb > 1024 ? (a.kb / 1024).toFixed(1) + ' МБ' : a.kb + ' КБ'}</small></div></div>`).join('') || `<p class="dim">${esc(S.assetNote || 'Ничего не найдено.')}</p>`;
+  const list = (S.assetFilter === 'tools' ? toolList : S.assets).filter(a => (S.assetFilter === 'all' || S.assetFilter === 'tools' || a.type === S.assetFilter) && (!S.q || (a.name + ' ' + a.folder).toLowerCase().includes(S.q)));
+  $('#assetGrid').innerHTML = list.slice(0, S.assetShown).map(a => `<div class="as ${S.asset === a ? 'sel' : ''}" data-n="${esc(a.folder + '/' + a.name)}"><div class="pic">${ATYPE[a.type][1]}</div><div class="nm">${S.assetFilter === 'tools' ? `<b>${esc(toolOf(a).title)}</b>` : ''}${esc(a.name)}<small>${esc(ATYPE[a.type][0])} · ${a.kb > 1024 ? (a.kb / 1024).toFixed(1) + ' МБ' : a.kb + ' КБ'}</small></div></div>`).join('') || `<p class="dim">${esc(S.assetNote || 'Ничего не найдено.')}</p>`;
   $('#assetMore').textContent = list.length > S.assetShown ? `Показать ещё (осталось ${list.length - S.assetShown})` : ''; $('#assetMore').onclick = () => { S.assetShown += 240; drawAssets(); };
   $$('#assetGrid .as').forEach(e => e.onclick = () => { S.asset = S.assets.find(a => a.folder + '/' + a.name === e.dataset.n); drawAssets(); drawAsset(); }); }
 function drawAsset() { const a = S.asset; if (!a) return; const rel = S.tasks.filter(t => t.assets && t.assets.toLowerCase().split(',').some(n => n.trim() && a.name.toLowerCase().includes(n.trim())));
-  $('#assetInfo').innerHTML = `<h2>${esc(a.name)}</h2><div class="as"><div class="pic" style="height:110px;font-size:48px">${ATYPE[a.type][1]}</div></div><div class="kv" style="margin-top:8px"><span>Вид</span><b>${esc(ATYPE[a.type][0])}</b></div><div class="kv"><span>Папка</span><b>${esc(a.folder)}</b></div><div class="kv"><span>Размер файла</span><b>${a.kb} КБ</b></div><div class="kv"><span>Изменён</span><b>${new Date(a.m).toLocaleDateString('ru')}</b></div>
+  const tool = toolOf(a);
+  $('#assetInfo').innerHTML = `<h2>${esc(tool ? tool.title : a.name)}</h2>${tool ? `<p class="toolwhat">${esc(tool.what)}</p><div class="kv"><span>Файл в игре</span><b>${esc(a.name)}</b></div>` : ''}<div class="as"><div class="pic" style="height:110px;font-size:48px">${ATYPE[a.type][1]}</div></div><div class="kv" style="margin-top:8px"><span>Вид</span><b>${esc(ATYPE[a.type][0])}</b></div><div class="kv"><span>Папка</span><b>${esc(a.folder)}</b></div><div class="kv"><span>Размер файла</span><b>${a.kb} КБ</b></div><div class="kv"><span>Изменён</span><b>${new Date(a.m).toLocaleDateString('ru')}</b></div>
    <h2 style="margin-top:12px">Связанные задачи</h2>${rel.map(t => `<div class="kc" data-task="${t.id}"><span class="tag ${t.type}">${TYPE[t.type]}</span>${esc(t.title)}</div>`).join('') || '<p class="dim">Нет.</p>'}<p style="margin-top:8px"><span class="btn s" id="aAsk">Попросить изменить</span><span class="btn s g" id="aTask">Завести задачу</span></p>`;
   $('#aAsk').onclick = () => { $('#msg').value = `По ассету ${a.name} (папка ${a.folder}): `; show('home'); $('#msg').focus(); }; $('#aTask').onclick = () => editTask({ type: 'change', status: 'queue', title: '', note: '', docs: '', assets: a.name });
   $$('#assetInfo [data-task]').forEach(e => e.onclick = () => editTask(S.tasks.find(t => t.id === e.dataset.task))); }
 
 // ---------- costs ----------
-function drawCosts() { const c = (S.over && S.over.costs) || { total: 0, runs: 0 }; $('#costBox').innerHTML = `<div class="kv"><span>Обращений к руководителю из этой программы</span><b>${c.runs}</b></div><div class="kv"><span>Их цена по открытому прайсу</span><b>$ ${c.total.toFixed(2)}</b></div><p class="dim" style="margin-top:8px">Вы платите за подписку, а не по этому прайсу. Число показывает, сколько та же работа стоила бы при оплате по расходу, и помогает понять, какие задачи самые тяжёлые.</p>`; }
+function drawCosts() { const o = S.over || {}, c = o.costs || { total: 0, runs: 0 }, l = o.limits, pc = w => w ? Math.round((w.utilization || 0) * 100) + ' %' : 'нет данных';
+  $('#costBox').innerHTML = `<div class="cost"><b>Claude — руководитель и специалисты</b><p>Вы платите за подписку раз в месяц, отдельно за каждое сообщение деньги не списываются. Ограничение здесь не деньги, а лимит: сколько работы можно сделать за пять часов и за неделю. Сейчас израсходовано: за пять часов — ${pc(l && l.five)}, за неделю — ${pc(l && l.seven)}.</p>
+    <p style="margin-top:6px">Из этой программы руководителю отправлено сообщений: ${c.runs}. Если бы подписки не было и Anthropic брала деньги за каждое обращение, эта работа стоила бы около ${money(c.total)}. Это справочное число, чтобы видеть, какие задачи самые тяжёлые; с вас эти деньги не списываются.</p></div>
+   <div class="cost"><b>OpenAI — картинки</b><p>Здесь деньги списываются с вашего счёта OpenAI за каждую картинку. ${oaText()}</p></div>
+   <div class="cost"><b>Tripo — 3D-модели</b><p>Здесь тратятся кредиты Tripo: каждая заказанная модель стоит несколько кредитов. ${trText()}</p></div>
+   <div class="cost"><b>Локальная нейросеть</b><p>Работает на вашем компьютере и ничего не стоит. Она подменяет руководителя в чате, когда лимит Claude исчерпан.</p></div>`;
+  $$('#costBox [data-oaset]').forEach(b => b.onclick = oaSetup); }
+
+// ---------- specialists ----------
+const ROLE = { 'cpp-dev': 'Программист', 'unreal-operator': 'Оператор движка', 'modeler-3d': '3D-моделлер', 'concept-artist': 'Художник', qa: 'Проверяющий', 'game-designer': 'Геймдизайнер', 'tech-artist': 'Технический художник', sound: 'Звукорежиссёр', 'level-designer': 'Дизайнер уровней', 'ui-ux-designer': 'Дизайнер интерфейса' };
+const ROLE_WHAT = { 'cpp-dev': 'Пишет и правит программный код игры.', 'unreal-operator': 'Работает в редакторе игры: расставляет объекты на уровне, настраивает заготовки, собирает игру для компьютера и телефона.', 'modeler-3d': 'Делает трёхмерные модели в Blender и готовит их для игры.', 'concept-artist': 'Готовит палитры, макеты экранов и описания внешнего вида для моделей.', qa: 'Запускает сборку и автопроверки и решает, можно ли принимать работу.' };
+async function loadTeam() { const t = await api('/api/team'); S.team = t.agents || []; S.teamQueue = t.queue || 0; if (!S.spec || !S.team.find(a => a.id === S.spec)) S.spec = (S.team[0] || {}).id; drawTeam(); if (S.spec) loadThread(); }
+function drawTeam() { $('#teamList').innerHTML = '<h2>Специалисты</h2>' + (S.team.map(a => `<div class="n sp ${a.id === S.spec ? 'on' : ''}" data-sp="${esc(a.id)}"><span class="dot ${a.busy ? 'y' : 'x'}"></span><b>${esc(ROLE[a.id] || a.id)}</b><small>${a.busy ? 'работает сейчас' : a.last ? 'последняя запись ' + day(a.last) + ' в ' + time(a.last) : 'переписки пока нет'}</small></div>`).join('') || '<p class="dim">В папке команды специалисты не описаны.</p>')
+    + (S.teamQueue ? `<p class="dim" style="margin-top:10px">Ждут отправки сообщений: ${S.teamQueue}.</p>` : '');
+  $$('[data-sp]').forEach(e => e.onclick = () => { S.spec = e.dataset.sp; drawTeam(); loadThread(); }); }
+async function loadThread() { const id = S.spec, r = await api('/api/team/thread?id=' + encodeURIComponent(id)); if (id !== S.spec) return; const a = S.team.find(x => x.id === id) || {}, nm = ROLE[id] || id;
+  $('#teamTitle').textContent = nm + ' и руководитель'; $('#teamDesc').textContent = ROLE_WHAT[id] || a.desc || '';
+  const who = { lead: 'Руководитель → ' + nm, spec: nm + ' → руководителю', user: 'Вы → ' + nm }, c = $('#teamThread'), stick = c.scrollHeight - c.scrollTop - c.clientHeight < 80 || S.threadOf !== id; S.threadOf = id;
+  c.innerHTML = (r.thread || []).map(m => m.from === 'act' ? `<div class="m note act">${time(m.t)} · ${esc(nm)}: ${esc(m.text)}</div>` : `<div class="m ${m.from === 'user' ? 'user' : m.from === 'lead' ? 'lead' : 'local'}"><small>${esc(who[m.from] || '')} · ${day(m.t)} ${time(m.t)}</small>${esc(m.text)}${m.from === 'user' ? '' : pics(m.text)}</div>`).join('')
+    || '<p class="dim">Переписки пока нет. Она появится, когда руководитель поручит этому специалисту работу из этой программы. Можно написать специалисту первым — поле ниже.</p>';
+  if (stick) c.scrollTop = c.scrollHeight; $('#teamMsg').placeholder = `Напишите специалисту «${nm}»… Отправка — Enter, новая строка — Shift+Enter.`; }
+async function teamSend() { const text = $('#teamMsg').value.trim(); if (!text || !S.spec) return; const r = await api('/api/team/send', { id: S.spec, text }); if (r.error) return alertBox(r.error); $('#teamMsg').value = ''; await loadTeam(); if (r.queued) alertBox('Руководитель сейчас занят. Сообщение уйдёт специалисту, как только он освободится.'); else loadChat(); }
+$('#teamSendBtn').onclick = teamSend; $('#teamMsg').onkeydown = e => { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); teamSend(); } };
 
 async function boot() { await loadProjects(); await loadTasks(); await Promise.all([loadOverview(), loadChat()]); show(S.tab); }
 const SHOT = location.search.includes('shot=1'); // shot=1: a still frame for checks, without the live connection

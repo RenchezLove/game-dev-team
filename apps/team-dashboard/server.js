@@ -1,11 +1,15 @@
 // "Моя команда" — local dashboard over the installed Claude Code. No third-party packages.
 // Listens on 127.0.0.1 only. Start: node server.js (or start.cmd). Data lives in ./data and in <teamRoot>/tasks.
 'use strict';
-const http = require('http'), fs = require('fs'), path = require('path'), { spawn, execFile } = require('child_process');
+const http = require('http'), https = require('https'), fs = require('fs'), path = require('path'), { spawn, execFile, execFileSync } = require('child_process');
 const rescue = require('./rescue'), openaiApi = require('../../scripts/openai/gen-image.js');
 // TEAM_PORT and TEAM_DATA let a second copy run next to the main one for checks.
 const PORT = +process.env.TEAM_PORT || 47821, ROOT = __dirname, DATA = process.env.TEAM_DATA || path.join(ROOT, 'data'), PUB = path.join(ROOT, 'public');
 fs.mkdirSync(DATA, { recursive: true });
+// Full path to the installed Claude Code, so that it can be started without a shell (arguments stay intact).
+const CLAUDE = (() => { try { const l = execFileSync('where', ['claude'], { windowsHide: true }).toString().split(/\r?\n/).map(x => x.trim()).find(x => /\.exe$/i.test(x)); if (l) return l; } catch { } return 'claude'; })();
+// What the lead is told about this program on every start.
+const APP_PROMPT = 'Ты работаешь в окне программы «Моя команда»: Ринат читает твои ответы в её чате. Чтобы показать Ринату картинку, напиши в ответе полный путь к файлу картинки (png, jpg, webp или gif) из папки команды или игры — программа сама покажет картинку в чате под сообщением. Твою переписку со специалистами Ринат видит на вкладке «Специалисты»: постановку задачи, сообщения через SendMessage и отчёт специалиста. Если сообщение начинается с пометки, что Ринат пишет специалисту, передай его этому специалисту дословно.';
 
 const readJson = (f, d) => { try { return JSON.parse(fs.readFileSync(f, 'utf8').replace(/^\uFEFF/, '')); } catch { return d; } };
 const writeJson = (f, v) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, JSON.stringify(v, null, 1), 'utf8'); };
@@ -44,16 +48,50 @@ async function overview(p) {
   done.sort((a, b) => b.t - a.t);
   const status = readJson(path.join(p.teamRoot, 'tasks', p.id + '-status.json'), {});
   return { editor: tl.toLowerCase().includes((p.editorProcess || '###').toLowerCase()), phone: /\n\S+\s+device\b/.test(adb), branch, head: h[1] || '', headText: h.slice(2).join('|'), done: done.slice(0, 12),
-    status, limits: readJson(path.join(DATA, 'limits.json'), null), costs: readJson(path.join(DATA, 'costs.json'), { total: 0, runs: 0 }), ollama: await ollama(), openai: await openaiState() };
+    status, limits: readJson(path.join(DATA, 'limits.json'), null), costs: readJson(path.join(DATA, 'costs.json'), { total: 0, runs: 0 }), ollama: await ollama(), openai: await openaiState(p), tripo: await tripoState(p) };
 }
 // OpenAI key for pictures: is the key file there and does OpenAI accept it (asked at most once in 10 minutes).
-let oaCache = null;
-async function openaiState() {
+let oaCache = null, trCache = null;
+const keyOf = f => { try { return fs.readFileSync(f, 'utf8').trim().split(/\r?\n/)[0].trim(); } catch { return ''; } };
+const savedKey = (p, name) => p.gameRoot ? path.join(p.gameRoot, 'Saved', name) : '';
+const httpsJson = (url, key) => new Promise(res => { const r = https.get(url, { headers: { Authorization: 'Bearer ' + key }, timeout: 15000 }, q => { let b = ''; q.on('data', d => b += d); q.on('end', () => { let j = null; try { j = JSON.parse(b); } catch { } res({ status: q.statusCode, json: j }); }); });
+  r.on('error', e => res({ status: 0, error: e.message })); r.on('timeout', () => { r.destroy(); res({ status: 0, error: 'нет ответа' }); }); });
+// Money spent at OpenAI. An ordinary key may not read it, so a second, administrator key is needed (Saved/OpenAIAdminKey.txt).
+// The remaining balance itself is not available to any key: it is counted as "put on the account" minus "spent since then".
+async function openaiSpend(p) {
+  const key = keyOf(savedKey(p, 'OpenAIAdminKey.txt')), budget = readJson(path.join(DATA, 'openai-budget.json'), null);
+  if (!key) return { admin: false, budget };
+  const since = budget && budget.since ? Math.floor(budget.since / 1000) : Math.floor(Date.now() / 1000) - 30 * 86400; let total = 0, page = '', n = 0, error = '';
+  do { const r = await httpsJson('https://api.openai.com/v1/organization/costs?start_time=' + since + '&limit=180' + (page ? '&page=' + encodeURIComponent(page) : ''), key);
+    if (!r.json || !Array.isArray(r.json.data)) { error = (r.json && r.json.error && r.json.error.message) || r.error || 'HTTP ' + r.status; break; }
+    for (const b of r.json.data) for (const x of b.results || []) total += (x.amount && +x.amount.value) || 0;
+    page = r.json.has_more ? r.json.next_page : ''; } while (page && ++n < 10);
+  return { admin: true, spent: total, since: since * 1000, error, budget };
+}
+async function openaiState(p, force) {
   const hasKey = fs.existsSync(openaiApi.KEY_FILE), u = readJson(openaiApi.USAGE, { images: 0 });
   if (!hasKey) return { key: false, images: u.images || 0 };
-  if (!oaCache || Date.now() - oaCache.t > 600000) { const c = await openaiApi.check(); oaCache = { t: Date.now(), ok: c.ok, error: c.error || '', models: (c.imageModels || []).length }; }
-  return { key: true, ok: oaCache.ok, error: oaCache.error, models: oaCache.models, checked: oaCache.t, images: u.images || 0, last: u.last || 0 };
+  if (force || !oaCache || Date.now() - oaCache.t > 600000) { const c = await openaiApi.check(); oaCache = { t: Date.now(), ok: c.ok, error: c.error || '', models: (c.imageModels || []).length, spend: await openaiSpend(p) }; }
+  return { key: true, ok: oaCache.ok, error: oaCache.error, models: oaCache.models, checked: oaCache.t, images: u.images || 0, tokens: u.tokens || 0, last: u.last || 0, spend: oaCache.spend };
 }
+// Tripo (3D models): how many credits are left.
+async function tripoState(p, force) {
+  const key = keyOf(savedKey(p, 'TripoAPIKey.txt')); if (!key) return { key: false };
+  if (force || !trCache || Date.now() - trCache.t > 600000) { const r = await httpsJson('https://openapi.tripo3d.ai/v3/account/balance', key);
+    trCache = r.json && r.json.data && r.json.data.balance != null ? { t: Date.now(), ok: true, balance: r.json.data.balance, frozen: r.json.data.frozen || 0 } : { t: Date.now(), ok: false, error: (r.json && (r.json.message || r.json.status)) || r.error || 'HTTP ' + r.status }; }
+  return Object.assign({ key: true, checked: trCache.t }, trCache);
+}
+// Fresh Claude limits without bothering the lead: one tiny request to the cheapest model from an empty folder.
+function saveLimits(li) { const w = li.unifiedWindows || {}; const lim = { t: Date.now(), status: li.status, five: w.five_hour || null, seven: w.seven_day || null };
+  if (!lim.five && !lim.seven && li.rateLimitType) { const old = readJson(path.join(DATA, 'limits.json'), {}); lim.five = old.five || null; lim.seven = old.seven || null; lim[li.rateLimitType === 'five_hour' ? 'five' : 'seven'] = { utilization: li.utilization, resetsAt: li.resetsAt }; }
+  writeJson(path.join(DATA, 'limits.json'), lim); emit({ kind: 'limits', limits: lim }); return lim; }
+function claudePing() { return new Promise(res => {
+  if (child) return res({ error: 'Руководитель сейчас работает — проценты обновятся сами вместе с его ответом.' });
+  const dir = path.join(DATA, 'ping'); fs.mkdirSync(dir, { recursive: true }); let buf = '', got = false, done = false; const end = v => { if (!done) { done = true; res(v); } };
+  const c = spawn(CLAUDE, ['-p', '--output-format', 'stream-json', '--verbose', '--model', 'haiku', 'Ответь одним словом: да'], { cwd: dir, windowsHide: true });
+  const timer = setTimeout(() => { try { c.kill(); } catch { } }, 90000);
+  c.stdout.on('data', d => { buf += d; let i; while ((i = buf.indexOf('\n')) >= 0) { const line = buf.slice(0, i).trim(); buf = buf.slice(i + 1); try { const e = JSON.parse(line); if (e.type === 'rate_limit_event' && e.rate_limit_info) { saveLimits(e.rate_limit_info); got = true; } } catch { } } });
+  c.on('close', () => { clearTimeout(timer); end(got ? { ok: true } : { error: 'Claude ответил, но сведений о лимитах не прислал.' }); }); c.on('error', e => end({ error: 'Не удалось обратиться к Claude: ' + e.message })); try { c.stdin.end(); } catch { } }); }
 function ollama() {
   return new Promise(res => { const r = http.get({ host: '127.0.0.1', port: 11434, path: '/api/tags', timeout: 1500 }, q => { let b = ''; q.on('data', d => b += d); q.on('end', () => { try { res({ up: true, models: JSON.parse(b).models.map(m => m.name) }); } catch { res({ up: true, models: [] }); } }); });
     r.on('error', () => res({ up: false, models: [] })); r.on('timeout', () => { r.destroy(); res({ up: false, models: [] }); }); });
@@ -91,18 +129,18 @@ const clients = new Set(); let child = null, current = null, localJob = null; //
 const busy = () => !!child || !!localJob;
 const chatFile = p => path.join(DATA, 'chat-' + p.id + '.json');
 const emit = ev => { const s = 'data: ' + JSON.stringify(ev) + '\n\n'; for (const c of clients) c.write(s); };
-function chatSend(p, text, images) {
+function chatSend(p, text, images, to) {
   if (busy()) return { error: 'Прошлое сообщение ещё в работе. Дождитесь ответа или нажмите «Остановить».' };
   const fb = readJson(fbFile(p), {});
   if (fbActive(p)) return localSend(p, text, images);
   const chat = readJson(chatFile(p), { session: null, messages: [] });
-  chat.messages.push({ role: 'user', text, images: (images || []).length, t: Date.now() }); writeJson(chatFile(p), chat);
+  chat.messages.push(Object.assign({ role: 'user', text, images: (images || []).length, t: Date.now() }, to ? { to } : {})); writeJson(chatFile(p), chat);
   // First message to the lead after a limit break: point him to the hand-off note (the owner does not see this line).
   let hint = ''; if (fb.hint) { hint = `[Служебная пометка программы «Моя команда»: прошлая работа оборвалась из-за лимита подписки ${rescue.human(fb.since)}. Программа сохранила состояние и записала, на чём остановились, в файл ${fb.note}. Прочитай его перед продолжением.]\n\n`; writeJson(fbFile(p), { active: false }); emit({ kind: 'fallback', fallback: fbView(p) }); }
-  let cmd = 'claude -p --input-format stream-json --output-format stream-json --verbose --permission-prompts host --permission-prompt-tool stdio';
-  if (p.agent && /^[\w-]+$/.test(p.agent)) cmd += ' --agent ' + p.agent;
-  if (chat.session && /^[\w-]+$/.test(chat.session)) cmd += ' --resume ' + chat.session;
-  child = spawn(cmd, { cwd: p.teamRoot, shell: true, windowsHide: true }); const me = child;
+  const args = ['-p', '--input-format', 'stream-json', '--output-format', 'stream-json', '--verbose', '--permission-prompts', 'host', '--permission-prompt-tool', 'stdio', '--append-system-prompt', APP_PROMPT];
+  if (p.agent && /^[\w-]+$/.test(p.agent)) args.push('--agent', p.agent);
+  if (chat.session && /^[\w-]+$/.test(chat.session)) args.push('--resume', chat.session);
+  child = spawn(CLAUDE, args, { cwd: p.teamRoot, windowsHide: true }); const me = child;
   current = { project: p.id, started: Date.now(), agents: {}, lead: 'Читает задачу', pending: {}, answer: '' };
   emit({ kind: 'status', running: true, current });
   let buf = '', errText = '';
@@ -114,7 +152,8 @@ function chatSend(p, text, images) {
   child.stdout.on('data', d => { buf += d; let i; while ((i = buf.indexOf('\n')) >= 0) { const line = buf.slice(0, i).trim(); buf = buf.slice(i + 1); if (line) { try { onEvent(p, JSON.parse(line), me); } catch (e) { /* not json */ } } } });
   child.stderr.on('data', d => { errText += d; });
   child.on('close', finish); child.on('error', e => { errText += String(e); finish(); });
-  const content = [{ type: 'text', text: hint + (text || 'Посмотри приложенные картинки.') }];
+  const toNote = to ? `[Ринат пишет специалисту «${to}» в вашем с ним общем чате. Передай специалисту это сообщение дословно (через SendMessage, если он ещё на связи, иначе новым запуском с нужными сведениями), дождись его ответа и коротко сообщи Ринату результат.]\n\n` : '';
+  const content = [{ type: 'text', text: hint + toNote + (text || 'Посмотри приложенные картинки.') }];
   for (const im of images || []) content.push({ type: 'image', source: { type: 'base64', media_type: im.media_type, data: im.data } });
   child.stdin.write(JSON.stringify({ type: 'user', message: { role: 'user', content } }) + '\n');
   return { ok: true };
@@ -126,20 +165,21 @@ function onEvent(p, e, proc) {
   if (e.type === 'assistant' && e.message && Array.isArray(e.message.content)) {
     for (const b of e.message.content) {
       if (b.type === 'text' && b.text && !e.parent_tool_use_id) { if (LIMIT_TEXT.test(b.text)) limitHit(); current.answer += (current.answer ? '\n\n' : '') + b.text; emit({ kind: 'text', text: b.text }); }
+      if (b.type === 'text' && b.text && e.parent_tool_use_id && agentRole[e.parent_tool_use_id]) teamPush(p, agentRole[e.parent_tool_use_id], { from: 'spec', text: b.text });
       if (b.type === 'tool_use') {
         const what = (b.input && (b.input.description || b.input.summary)) || b.name;
-        if (b.name === 'Agent' && !e.parent_tool_use_id) current.agents[b.id] = { name: (b.input && (b.input.name || b.input.subagent_type)) || 'специалист', text: what, state: 'work', t: Date.now() };
+        teamTool(p, e, b, what);
+        if (b.name === 'Agent' && !e.parent_tool_use_id) current.agents[b.id] = { role: (b.input && b.input.subagent_type) || '', name: (b.input && (b.input.name || b.input.subagent_type)) || 'специалист', text: what, state: 'work', t: Date.now() };
         else if (e.parent_tool_use_id && current.agents[e.parent_tool_use_id]) current.agents[e.parent_tool_use_id].text = what;
         else current.lead = what;
         emit({ kind: 'activity', current });
       }
     }
   } else if (e.type === 'user' && e.message && Array.isArray(e.message.content)) {
+    for (const b of e.message.content) if (b.type === 'tool_result' && agentRole[b.tool_use_id] && !e.parent_tool_use_id) { const txt = resultText(b.content); if (txt) teamPush(p, agentRole[b.tool_use_id], { from: 'spec', text: txt }); }
     for (const b of e.message.content) if (b.type === 'tool_result' && current.agents[b.tool_use_id]) { current.agents[b.tool_use_id].state = 'done'; emit({ kind: 'activity', current }); }
   } else if (e.type === 'rate_limit_event' && e.rate_limit_info) {
-    const li = e.rate_limit_info, w = li.unifiedWindows || {}; const lim = { t: Date.now(), status: li.status, five: w.five_hour || null, seven: w.seven_day || null };
-    if (!lim.five && !lim.seven && li.rateLimitType) lim[li.rateLimitType === 'five_hour' ? 'five' : 'seven'] = { utilization: li.utilization, resetsAt: li.resetsAt };
-    writeJson(path.join(DATA, 'limits.json'), lim); emit({ kind: 'limits', limits: lim });
+    const li = e.rate_limit_info; saveLimits(li);
     if (li.status === 'rejected') limitHit(li.resetsAt);
   } else if (e.type === 'control_request' && e.request && e.request.subtype === 'can_use_tool') {
     current.pending[e.request_id] = { id: e.request_id, tool: e.request.tool_name, input: e.request.input, t: Date.now() }; current.lead = 'Ждёт вашего разрешения';
@@ -197,6 +237,32 @@ function localSend(p, text, images) {
     c.messages.push({ role: a.ok || a.text ? 'local' : 'error', text: txt, t: Date.now() }); writeJson(chatFile(p), c); localJob = null; current = null; emit({ kind: 'status', running: false }); });
   return { ok: true, local: true };
 }
+// ---------- specialists: who is in the team and what the lead and each specialist say to each other ----------
+const teamFile = p => path.join(DATA, 'team-' + p.id + '.json');
+const agentRole = {}, queue = []; // agentRole: tool call id -> specialist; queue: owner's messages to specialists waiting for a free lead
+function roster(p) { const out = [], dir = path.join(p.teamRoot, '.claude', 'agents'); let list = []; try { list = fs.readdirSync(dir); } catch { }
+  for (const f of list) { if (!f.endsWith('.md')) continue; const fm = ((readText(path.join(dir, f)).match(/^---\r?\n([\s\S]*?)\r?\n---/) || [])[1]) || '';
+    const get = k => ((fm.match(new RegExp('^' + k + ':\\s*(.*)$', 'm')) || [])[1] || '').trim().replace(/^["']|["']$/g, ''); const id = get('name') || f.slice(0, -3);
+    if (id !== p.agent) out.push({ id, desc: get('description') }); } return out; }
+const readText = f => { try { return fs.readFileSync(f, 'utf8').replace(/^\uFEFF/, ''); } catch { return ''; } };
+function roleOf(p, name) { if (!name) return ''; const t = readJson(teamFile(p), { names: {}, threads: {} }); if (t.names[name]) return t.names[name];
+  const ids = roster(p).map(a => a.id), base = String(name).replace(/-\d+$/, ''); return ids.find(i => i === name) || ids.find(i => i === base) || ids.find(i => i.startsWith(base)) || ''; }
+function teamPush(p, role, entry, name) { if (!role || !entry.text) return; const t = readJson(teamFile(p), { names: {}, threads: {} }); if (name) t.names[name] = role;
+  const th = t.threads[role] = t.threads[role] || [], last = th[th.length - 1]; if (last && last.from === entry.from && last.text === entry.text) return;
+  th.push(Object.assign({ t: Date.now() }, entry, { text: String(entry.text).slice(0, 20000) })); if (th.length > 400) th.splice(0, th.length - 400); writeJson(teamFile(p), t); emit({ kind: 'team', role }); }
+const resultText = c => typeof c === 'string' ? c : Array.isArray(c) ? c.filter(x => x && x.type === 'text').map(x => x.text).join('\n') : '';
+function teamTool(p, e, b, what) { const par = e.parent_tool_use_id, inp = b.input || {};
+  if (b.name === 'Agent' && !par) { const role = inp.subagent_type || 'general-purpose'; agentRole[b.id] = role; teamPush(p, role, { from: 'lead', text: String(inp.prompt || what) }, inp.name); }
+  else if (b.name === 'SendMessage') { const msg = typeof inp.message === 'string' ? inp.message : JSON.stringify(inp.message); if (!par) teamPush(p, roleOf(p, inp.to), { from: 'lead', text: msg }); else if (agentRole[par]) teamPush(p, agentRole[par], { from: 'spec', text: msg }); }
+  else if (par && agentRole[par]) teamPush(p, agentRole[par], { from: 'act', text: String(what) }); }
+function teamView(p) { const t = readJson(teamFile(p), { names: {}, threads: {} }), work = current ? Object.values(current.agents || {}).filter(a => a.state === 'work').map(a => a.role) : [];
+  return { agents: roster(p).map(a => { const th = t.threads[a.id] || []; return Object.assign({ n: th.length, last: th.length ? th[th.length - 1].t : 0, busy: work.includes(a.id) }, a); }), queue: queue.length }; }
+function teamSend(p, id, text) { if (!roster(p).some(a => a.id === id)) return { error: 'Такого специалиста в команде нет.' }; if (!text) return { error: 'Пустое сообщение.' };
+  teamPush(p, id, { from: 'user', text }); if (busy() || fbActive(p)) { queue.push({ pid: p.id, id, text }); return { ok: true, queued: true }; } return chatSend(p, text, [], id); }
+setInterval(() => { if (!queue.length || busy()) return; const q = queue[0], p = proj(q.pid); if (fbActive(p)) return; queue.shift(); chatSend(p, q.text, [], q.id); }, 4000);
+// Pictures the lead mentions in the chat are shown from these folders only.
+const IMG_EXT = ['.png', '.jpg', '.jpeg', '.webp', '.gif'];
+const picAllowed = (p, f) => IMG_EXT.includes(path.extname(f).toLowerCase()) && [p.teamRoot, p.gameRoot && path.dirname(p.gameRoot)].some(r => r && inside(r, f));
 function chatPermit(id, allow) {
   if (!child || !current || !current.pending[id]) return { error: 'Этот запрос уже неактуален.' };
   const rq = current.pending[id]; delete current.pending[id];
@@ -207,7 +273,7 @@ function chatPermit(id, allow) {
 function chatStop() { if (localJob) { if (localJob.abort) localJob.abort(); return { ok: true }; } if (!child) return { ok: true }; const pid = child.pid; execFile('taskkill', ['/PID', String(pid), '/T', '/F'], { windowsHide: true }, () => { }); return { ok: true }; }
 
 // ---------- http ----------
-const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon' };
+const MIME = { '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.gif': 'image/gif', '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon' };
 const send = (res, code, body, type = 'application/json; charset=utf-8') => { res.writeHead(code, { 'Content-Type': type, 'Cache-Control': 'no-store' }); res.end(typeof body === 'string' || Buffer.isBuffer(body) ? body : JSON.stringify(body)); };
 const body = req => new Promise(res => { const ch = []; req.on('data', d => ch.push(d)); req.on('end', () => { try { res(JSON.parse(Buffer.concat(ch).toString('utf8') || '{}')); } catch { res({}); } }); });
 
@@ -231,7 +297,18 @@ http.createServer(async (req, res) => {
       const st = fs.statSync(q.path); return send(res, 200, { path: q.path, text: fs.readFileSync(q.path, 'utf8').replace(/^\uFEFF/, '').slice(0, 400000), size: st.size, m: st.mtimeMs }); }
     if (u.pathname === '/api/docs/file' && req.method === 'POST') { const b = await body(req); if (!b.path || !docAllowed(p, b.path) || !/\.(md|txt)$/i.test(b.path) || typeof b.text !== 'string') return send(res, 400, { error: 'Этот файл править нельзя.' });
       if (fs.existsSync(b.path)) fs.copyFileSync(b.path, path.join(DATA, 'backup-' + path.basename(b.path))); fs.writeFileSync(b.path, b.text, 'utf8'); return send(res, 200, { ok: true }); }
-    if (u.pathname === '/api/assets') { const f = path.join(DATA, 'assets-' + p.id + '.json'); return send(res, 200, q.refresh || !fs.existsSync(f) ? scanAssets(p) : readJson(f, { assets: [] })); }
+    if (u.pathname === '/api/assets') { const f = path.join(DATA, 'assets-' + p.id + '.json');
+      return send(res, 200, Object.assign({}, q.refresh || !fs.existsSync(f) ? scanAssets(p) : readJson(f, { assets: [] }), { tools: readJson(path.join(p.teamRoot, 'tasks', p.id + '-tools.json'), { tools: [] }).tools || [] })); }
+    if (u.pathname === '/api/file') { if (!q.path || !picAllowed(p, q.path) || !fs.existsSync(q.path)) return send(res, 404, 'not found', 'text/plain'); return send(res, 200, fs.readFileSync(q.path), MIME[path.extname(q.path).toLowerCase()]); }
+    if (u.pathname === '/api/team' && req.method === 'GET') return send(res, 200, teamView(p));
+    if (u.pathname === '/api/team/thread') return send(res, 200, { thread: (readJson(teamFile(p), { threads: {} }).threads[q.id] || []).slice(-250) });
+    if (u.pathname === '/api/team/send' && req.method === 'POST') { const b = await body(req); return send(res, 200, teamSend(p, String(b.id || ''), String(b.text || '').trim())); }
+    if (u.pathname === '/api/resources/refresh' && req.method === 'POST') { let r = { ok: true };
+      if (q.what === 'claude') r = await claudePing(); else if (q.what === 'openai') { const s = await openaiState(p, true); if (s.key && !s.ok) r = { error: 'OpenAI не принял ключ: ' + s.error }; }
+      else if (q.what === 'tripo') { const s = await tripoState(p, true); if (s.key && !s.ok) r = { error: 'Tripo не ответил: ' + s.error }; }
+      return send(res, 200, r); }
+    if (u.pathname === '/api/openai/budget' && req.method === 'POST') { const b = await body(req), amount = +b.amount, since = Date.parse(b.since);
+      if (!(amount > 0) || !since) return send(res, 400, { error: 'Нужны сумма больше нуля и дата.' }); writeJson(path.join(DATA, 'openai-budget.json'), { amount, since }); oaCache = null; return send(res, 200, { ok: true }); }
     if (u.pathname === '/api/chat/history') { const c = readJson(chatFile(p), { session: null, messages: [] }); return send(res, 200, { messages: c.messages.slice(-60), running: busy(), current, fallback: fbView(p) }); }
     if (u.pathname === '/api/chat/fallback-off' && req.method === 'POST') { const f = readJson(fbFile(p), {}); f.active = false; writeJson(fbFile(p), f); emit({ kind: 'fallback', fallback: fbView(p) }); return send(res, 200, { ok: true }); }
     // Check of the rescue without a real limit break: POST { noModel, noFallback, minutes }.

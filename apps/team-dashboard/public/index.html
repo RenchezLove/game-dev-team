@@ -7,8 +7,8 @@
  <div class="side"><div class="sep">Проект</div>
   <div class="nav on" data-tab="home">🏠 Обзор</div><div class="nav" data-tab="tasks">📋 Задачи <span class="badge" id="taskBadge"></span></div>
   <div class="nav" data-tab="docs">📚 Документы</div><div class="nav" data-tab="assets">🧱 Банк ассетов</div>
-  <div class="sep">Команда</div><div class="nav" data-tab="costs">💰 Расходы</div>
-  <div class="sep">Позже</div><div class="nav off">📦 Сборки и выпуски</div><div class="nav off">👥 Специалисты</div></div>
+  <div class="sep">Команда</div><div class="nav" data-tab="team">👥 Специалисты</div><div class="nav" data-tab="costs">💰 Расходы</div>
+  <div class="sep">Позже</div><div class="nav off">📦 Сборки и выпуски</div></div>
 
  <div class="main">
   <div class="page" id="home">
@@ -34,7 +34,13 @@
     <div class="col scroll"><div class="grid" id="assetGrid"></div><div class="more" id="assetMore"></div></div>
     <div class="card linkbox" id="assetInfo"><h2>Ассет</h2><p class="dim">Выберите плитку слева.</p></div></div></div>
 
-  <div class="page hidden" id="costs"><div class="card"><h2>Расходы</h2><div id="costBox"></div></div></div>
+  <div class="page hidden" id="team"><div class="row full">
+    <div class="card tree" id="teamList"></div>
+    <div class="card col teamchat"><h2 id="teamTitle">Специалисты</h2><p class="dim" id="teamDesc"></p><div id="teamThread" class="chat"></div>
+     <div class="ask"><textarea id="teamMsg" rows="2"></textarea><div class="btn" id="teamSendBtn">Отправить</div></div>
+     <p class="dim" style="margin-top:6px;font-size:12px">Сообщение попадает в эту же переписку: руководитель передаёт его специалисту дословно, поэтому в курсе оба. Если руководитель занят, сообщение уйдёт, как только он освободится.</p></div></div></div>
+
+  <div class="page hidden" id="costs"><div class="card"><h2>Расходы: на что уходят деньги и лимиты</h2><div id="costBox"></div></div></div>
  </div>
 
  <div class="right"><h2>Ресурсы нейросетей</h2><div id="resources"></div><h2>Состояние</h2><div id="state"></div></div>

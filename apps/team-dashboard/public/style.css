@@ -55,3 +55,23 @@ h2{font-size:13px;color:#8d99a8;text-transform:uppercase;letter-spacing:.5px;mar
 .mcard label{display:block;color:#8d99a8;font-size:12px;margin:8px 0 3px}.mcard input,.mcard select,.mcard textarea{width:100%;background:#11141a;color:#dfe5ec;border:1px solid #3a4553;border-radius:8px;padding:8px 10px;font:inherit}
 .mcard .acts{margin-top:14px;display:flex;gap:8px;justify-content:flex-end}
 ::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#2c343f;border-radius:5px}::-webkit-scrollbar-track{background:transparent}
+
+/* overview: the chat grows only down to the bottom of the screen, then scrolls inside itself */
+#home{display:flex;flex-direction:column;height:100%}
+#chatCard{flex:0 1 auto;min-height:190px;display:flex;flex-direction:column;overflow:hidden}
+#chatCard .chat{flex:1 1 auto;min-height:60px;max-height:none}
+#chatCard>h2,#chatCard>.ask,#perm,#thumbs{flex:none}
+#home>.row{flex:0 0 auto;max-height:46%;min-height:0}#home>.row>.col{overflow:auto}
+/* pictures in messages */
+.cpic{display:block;max-width:min(100%,520px);max-height:340px;border-radius:8px;border:1px solid #3a4553;margin-top:8px;cursor:zoom-in}
+.bigpic{max-width:90vw;max-height:82vh;display:block;border-radius:8px}
+/* refresh icon in the resources column */
+.rf{cursor:pointer;font-style:normal;margin-left:6px;color:#8fc7ff;display:inline-block;font-size:14px;user-select:none}.rf:hover{color:#fff}.rf.spin{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.lnk2{color:#8fc7ff;cursor:pointer;text-decoration:underline}
+/* specialists */
+.teamchat{display:flex;flex-direction:column}.teamchat .chat{flex:1 1 auto;max-height:none;min-height:0;margin-top:8px}
+.tree div.n.sp{white-space:normal;padding:8px}.tree div.n.sp small{display:block;color:#7d8998;font-size:12px;margin-left:16px}.tree div.n.sp .dot{display:inline-block;margin-right:4px}
+.m.act{text-align:left;padding:1px 12px;margin-bottom:3px}
+.cost{border-bottom:1px solid #2a313b;padding:10px 0}.cost:last-child{border:0}.cost b{display:block;margin-bottom:3px}.cost p{color:#aab4c0}
+.as .nm b{display:block;font-size:13px;word-break:normal}.toolwhat{color:#c9d2dc;margin:8px 0}
+#home>.row .card>div{max-height:172px;overflow:auto}
