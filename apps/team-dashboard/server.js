@@ -2,7 +2,7 @@
 // Listens on 127.0.0.1 only. Start: node server.js (or start.cmd). Data lives in ./data and in <teamRoot>/tasks.
 'use strict';
 const http = require('http'), https = require('https'), fs = require('fs'), path = require('path'), { spawn, execFile, execFileSync } = require('child_process');
-const rescue = require('./rescue'), openaiApi = require('../../scripts/openai/gen-image.js');
+const rescue = require('./rescue'), openaiApi = require('../../scripts/openai/gen-image.js'), voice = require('./voice');
 // TEAM_PORT and TEAM_DATA let a second copy run next to the main one for checks.
 const PORT = +process.env.TEAM_PORT || 47821, ROOT = __dirname, DATA = process.env.TEAM_DATA || path.join(ROOT, 'data'), PUB = path.join(ROOT, 'public');
 fs.mkdirSync(DATA, { recursive: true });
@@ -285,6 +285,7 @@ http.createServer(async (req, res) => {
     const u = new URL(req.url, 'http://x'), q = Object.fromEntries(u.searchParams), p = proj(q.project);
     // Only this computer and only this page may call the server.
     if (req.headers.origin && req.headers.origin !== 'http://127.0.0.1:' + PORT) return send(res, 403, { error: 'forbidden' });
+    if (await voice.handle(u, req, res, p, { send, body, readJson, writeJson, readText, DATA, keyFile: openaiApi.KEY_FILE })) return;
     if (u.pathname === '/api/projects' && req.method === 'GET') return send(res, 200, projects());
     if (u.pathname === '/api/projects' && req.method === 'POST') { const b = await body(req); if (!b.name || !b.teamRoot || !fs.existsSync(b.teamRoot)) return send(res, 400, { error: 'Нужны название и существующая папка команды.' });
       const all = projects(); const id = ('p' + Date.now()); all.push({ id, name: String(b.name).slice(0, 60), teamRoot: b.teamRoot, gameRoot: b.gameRoot || '', contentRoot: b.contentRoot || '', agent: b.agent || '', docs: b.docsPath ? [{ title: 'Документы', path: b.docsPath }] : [] }); writeJson(PROJ_FILE, all); return send(res, 200, { ok: true, id }); }
