@@ -28,7 +28,7 @@ function alertBox(text) { modal(`<p>${esc(text)}</p><div class="acts"><div class
 $('#modal').onclick = e => { if (e.target.id === 'modal') closeModal(); };
 
 // ---------- overview and right column ----------
-async function loadOverview() { const o = await api('/api/overview'); S.over = o; drawRight(); drawHome(); if (S.tab === 'costs') drawCosts(); }
+async function loadOverview() { const o = await api('/api/overview'); S.over = o; S.overAt = Date.now(); drawRight(); drawHome(); if (S.tab === 'costs') drawCosts(); }
 function limitBar(title, w) { if (!w) return ''; const pc = Math.round((w.utilization || 0) * 100); const cls = pc >= 90 ? 'r' : pc >= 70 ? 'w' : ''; const d = new Date(w.resetsAt * 1000);
   const when = d.toDateString() === new Date().toDateString() ? 'сегодня в ' + time(d) : d.toLocaleDateString('ru', { day: 'numeric', month: 'long' }) + ' в ' + time(d);
   return `<div class="bar"><u class="${cls}" style="width:${pc}%"></u></div><small>${title}. Израсходовано ${pc} %. Сброс ${when}.</small>`; }
@@ -42,7 +42,9 @@ function oaText() { const oa = (S.over && S.over.openai) || {}, m = oaMoney();
   if (m.b) return t + `С ${day(m.b.since)} потрачено примерно ${money(m.spent)} (${m.exact ? 'по данным OpenAI' : 'по подсчёту программы'}). Осталось примерно ${money(m.left)} из ${money(m.b.amount)}. <span class="lnk2" data-oaset>Изменить сумму</span>`;
   return t + `Потрачено примерно ${money(m.spent)}. Чтобы видеть остаток, <span class="lnk2" data-oaset>укажите, сколько вы положили на счёт</span>.`; }
 function trText() { const tr = (S.over && S.over.tripo) || {}; if (!tr.key) return 'Ключ не подключён.'; if (!tr.ok) return 'Ключ есть, но Tripo не ответил: ' + esc(tr.error || '');
-  return `Осталось кредитов: ${tr.balance}.${tr.frozen ? ' Заморожено под текущие заказы: ' + tr.frozen + '.' : ''} Проверено в ${time(tr.checked)}.`; }
+  return `Осталось кредитов: ${tr.balance}.${tr.frozen ? ' Заморожено под текущие заказы: ' + tr.frozen + '.' : ''} `; }
+// When the panel figures were last updated: day and time.
+const upd = t => t ? `<small class="dim">Обновлено ${day(t)} в ${time(t)}.</small>` : '<small class="dim">Ещё не обновлялось.</small>';
 function oaSetup() { const b = ((S.over && S.over.openai) || {}).budget || {};
   modal(`<h2>Остаток денег на счёте OpenAI</h2><p>Сам остаток OpenAI программам не сообщает. Поэтому программа считает его так: сколько вы положили на счёт минус сколько команда потратила на картинки с того дня. Цена каждой картинки считается по её расходу и ценам OpenAI.</p>
    <label>Сколько долларов сейчас на счёте (или сколько вы положили)</label><input id="oaAmount" type="number" step="0.01" value="${b.amount || ''}"><label>На какой день эта сумма</label><input id="oaSince" type="date" value="${b.since ? new Date(b.since).toISOString().slice(0, 10) : new Date().toISOString().slice(0, 10)}">
@@ -50,10 +52,10 @@ function oaSetup() { const b = ((S.over && S.over.openai) || {}).budget || {};
    <div class="acts"><div class="btn s g" id="mNo">Закрыть</div><div class="btn s" id="mOk">Сохранить</div></div>`, async () => { const r = await api('/api/openai/budget', { amount: $('#oaAmount').value, since: $('#oaSince').value }); if (r.error) return alertBox(r.error); closeModal(); loadOverview(); }); }
 function drawRight() { const o = S.over || {}, l = o.limits, ol = o.ollama || {}, oa = o.openai || {}, tr = o.tripo || {};
   const rf = k => `<i class="rf ${S.refreshing === k ? 'spin' : ''}" data-rf="${k}" title="Обновить сведения">⟳</i>`;
-  $('#resources').innerHTML = `<div class="res"><b><span>Claude · подписка</span><span>лимит ${rf('claude')}</span></b>${l ? limitBar('5-часовая сессия', l.five) + limitBar('Недельный лимит', l.seven) : '<small>Проценты появятся после первого ответа руководителя или по значку обновления.</small>'}</div>
-   <div class="res"><b><span>OpenAI · картинки</span><span>${oa.key && oa.ok ? 'подключён' : 'нет связи'}</span></b>${oaMoney().left != null ? `<small>Осталось примерно ${money(oaMoney().left)}.</small>` : ''}</div>
-   <div class="res"><b><span>Tripo · 3D-модели</span><span>${tr.key && tr.ok ? 'подключён' : 'нет связи'} ${rf('tripo')}</span></b><small>${trText()}</small></div>
-   <div class="res"><b><span>Локальная модель</span><span>${ol.up ? 'бесплатно' : 'не запущена'}</span></b></div>`;
+  $('#resources').innerHTML = `<div class="res"><b><span>Claude · подписка</span><span>лимит ${rf('claude')}</span></b>${l ? limitBar('5-часовая сессия', l.five) + limitBar('Недельный лимит', l.seven) : '<small>Проценты появятся после первого ответа руководителя или по значку обновления.</small>'}${upd(l && l.t)}</div>
+   <div class="res"><b><span>OpenAI · картинки</span><span>${oa.key && oa.ok ? 'подключён' : 'нет связи'}</span></b>${oaMoney().left != null ? `<small>Осталось примерно ${money(oaMoney().left)}.</small>` : ''}${upd(oa.checked)}</div>
+   <div class="res"><b><span>Tripo · 3D-модели</span><span>${tr.key && tr.ok ? 'подключён' : 'нет связи'} ${rf('tripo')}</span></b><small>${trText()}</small>${upd(tr.checked)}</div>
+   <div class="res"><b><span>Локальная модель</span><span>${ol.up ? 'бесплатно' : 'не запущена'}</span></b>${upd(S.overAt)}</div>`;
   $$('[data-rf]').forEach(b => b.onclick = async () => { if (S.refreshing) return; S.refreshing = b.dataset.rf; drawRight(); const r = await api('/api/resources/refresh?what=' + b.dataset.rf, {}); S.refreshing = ''; await loadOverview(); if (r.error) alertBox(r.error); });
   $$('[data-oaset]').forEach(b => b.onclick = oaSetup);
   const st = o.status || {};
