@@ -240,3 +240,8 @@ $('#teamSendBtn').onclick = teamSend; $('#teamMsg').onkeydown = e => { if (e.key
 async function boot() { await loadProjects(); await loadTasks(); await Promise.all([loadOverview(), loadChat()]); show(S.tab); }
 const SHOT = location.search.includes('shot=1'); // shot=1: a still frame for checks, without the live connection
 boot().then(() => { const dq = new URLSearchParams(location.search).get('doc'); if (dq) { show('docs'); openDoc(dq); } if (!SHOT) { listen(); setInterval(loadOverview, 60000); setInterval(() => { if (S.running) drawHome(); }, 30000); } });
+
+// Permission mode switch: auto (the lead acts without asking) or manual (asks before actions). Applies from the next message.
+async function drawMode(m) { if (!m) m = (await api('/api/chat/mode')).mode; S.mode = m; $('#modeBtn').textContent = m === 'auto' ? 'режим: автоматически' : 'режим: с разрешениями'; }
+$('#modeBtn').onclick = async () => { const r = await api('/api/chat/mode', { mode: S.mode === 'auto' ? 'manual' : 'auto' }); if (r.error) return alertBox(r.error); drawMode(r.mode); };
+drawMode();

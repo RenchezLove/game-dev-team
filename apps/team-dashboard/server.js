@@ -128,6 +128,7 @@ function scanAssets(p) {
 }
 
 // ---------- chat with the team lead ----------
+const MODES = ['auto', 'manual'], runMode = () => { const m = readJson(path.join(DATA, 'run-settings.json'), {}).permissionMode; return MODES.includes(m) ? m : 'auto'; };
 const clients = new Set(); let child = null, current = null, localJob = null; // localJob: the program itself or the local model is busy
 const busy = () => !!child || !!localJob;
 const chatFile = p => path.join(DATA, 'chat-' + p.id + '.json');
@@ -146,6 +147,8 @@ function chatSend(p, text, images, to, opts = {}) {
   // First message to the lead after a limit break: point him to the hand-off note (the owner does not see this line).
   let hint = ''; if (fb.hint) { hint = `[Служебная пометка программы «Моя команда»: прошлая работа оборвалась из-за лимита подписки ${rescue.human(fb.since)}. Программа сохранила состояние и записала, на чём остановились, в файл ${fb.note}. Прочитай его перед продолжением.]\n\n`; writeJson(fbFile(p), { active: false }); emit({ kind: 'fallback', fallback: fbView(p) }); }
   const args = ['-p', '--input-format', 'stream-json', '--output-format', 'stream-json', '--verbose', '--permission-prompts', 'host', '--permission-prompt-tool', 'stdio', '--append-system-prompt', APP_PROMPT];
+  // Permission mode chosen with the switch above the chat (default: auto — the lead does not ask for each action).
+  args.push('--permission-mode', runMode());
   if (p.agent && /^[\w-]+$/.test(p.agent)) args.push('--agent', p.agent);
   if (chat.session && /^[\w-]+$/.test(chat.session)) args.push('--resume', chat.session);
   child = spawn(CLAUDE, args, { cwd: p.teamRoot, windowsHide: true }); const me = child;
@@ -328,6 +331,9 @@ http.createServer(async (req, res) => {
       return send(res, 200, r); }
     if (u.pathname === '/api/openai/budget' && req.method === 'POST') { const b = await body(req), amount = +b.amount, since = Date.parse(b.since);
       if (!(amount > 0) || !since) return send(res, 400, { error: 'Нужны сумма больше нуля и дата.' }); writeJson(path.join(DATA, 'openai-budget.json'), { amount, since }); oaCache = null; return send(res, 200, { ok: true }); }
+    if (u.pathname === '/api/chat/mode' && req.method === 'GET') return send(res, 200, { mode: runMode() });
+    if (u.pathname === '/api/chat/mode' && req.method === 'POST') { const b = await body(req); if (!MODES.includes(b.mode)) return send(res, 400, { error: 'Нет такого режима.' });
+      writeJson(path.join(DATA, 'run-settings.json'), Object.assign(readJson(path.join(DATA, 'run-settings.json'), {}), { permissionMode: b.mode })); return send(res, 200, { mode: runMode() }); }
     if (u.pathname === '/api/chat/history') { const c = readJson(chatFile(p), { session: null, messages: [] }); return send(res, 200, { messages: c.messages.slice(-60), running: busy(), current, fallback: fbView(p) }); }
     if (u.pathname === '/api/chat/fallback-off' && req.method === 'POST') { const f = readJson(fbFile(p), {}); f.active = false; writeJson(fbFile(p), f); emit({ kind: 'fallback', fallback: fbView(p) }); return send(res, 200, { ok: true }); }
     // Check of the rescue without a real limit break: POST { noModel, noFallback, minutes }.
