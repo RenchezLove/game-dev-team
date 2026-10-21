@@ -9,7 +9,7 @@ fs.mkdirSync(DATA, { recursive: true });
 // Full path to the installed Claude Code, so that it can be started without a shell (arguments stay intact).
 const CLAUDE = (() => { try { const l = execFileSync('where', ['claude'], { windowsHide: true }).toString().split(/\r?\n/).map(x => x.trim()).find(x => /\.exe$/i.test(x)); if (l) return l; } catch { } return 'claude'; })();
 // What the lead is told about this program on every start.
-const APP_PROMPT = 'Ты работаешь в окне программы «Моя команда»: Ринат читает твои ответы в её чате. Чтобы показать Ринату картинку, напиши в ответе полный путь к файлу картинки (png, jpg, webp или gif) из папки команды или игры — программа сама покажет картинку в чате под сообщением. Твою переписку со специалистами Ринат видит на вкладке «Специалисты»: постановку задачи, сообщения через SendMessage и отчёт специалиста. Если сообщение начинается с пометки, что Ринат пишет специалисту, передай его этому специалисту дословно.';
+const APP_PROMPT = 'Ты работаешь в окне программы «Моя команда»: Ринат читает твои ответы в её чате. Чтобы показать Ринату картинку, напиши в ответе полный путь к файлу картинки (png, jpg, webp или gif) из папки команды или игры — программа сама покажет картинку в чате под сообщением. Твою переписку со специалистами Ринат видит на вкладке «Специалисты»: постановку задачи, сообщения через SendMessage и отчёт специалиста. Если сообщение начинается с пометки, что Ринат пишет специалисту, передай его этому специалисту дословно. Важно: когда ты заканчиваешь ответ, программа закрывает твой сеанс, и специалисты, запущенные в фоне, обрываются. Поэтому специалистов запускай с run_in_background: false и дожидайся их результата в том же ответе; сообщения Рината, пришедшие за это время, программа сохранит и передаст тебе после.';
 
 const readJson = (f, d) => { try { return JSON.parse(fs.readFileSync(f, 'utf8').replace(/^\uFEFF/, '')); } catch { return d; } };
 const writeJson = (f, v) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, JSON.stringify(v, null, 1), 'utf8'); };
@@ -132,12 +132,17 @@ const clients = new Set(); let child = null, current = null, localJob = null; //
 const busy = () => !!child || !!localJob;
 const chatFile = p => path.join(DATA, 'chat-' + p.id + '.json');
 const emit = ev => { const s = 'data: ' + JSON.stringify(ev) + '\n\n'; for (const c of clients) c.write(s); };
-function chatSend(p, text, images, to) {
+// opts.qids: the owner's messages already shown in the chat as waiting (they are marked sent instead of added again);
+// opts.voice: said aloud in the voice mode, the answer will be read out to the owner.
+function chatSend(p, text, images, to, opts = {}) {
   if (busy()) return { error: 'Прошлое сообщение ещё в работе. Дождитесь ответа или нажмите «Остановить».' };
   const fb = readJson(fbFile(p), {});
-  if (fbActive(p)) return localSend(p, text, images);
+  // Waiting messages move to the end of the chat, after the answer they waited for.
+  if (opts.qids) { const c = readJson(chatFile(p), { session: null, messages: [] }), moved = c.messages.filter(m => opts.qids.includes(m.qid));
+    c.messages = c.messages.filter(m => !opts.qids.includes(m.qid)).concat(moved.map(m => { delete m.queued; return m; })); writeJson(chatFile(p), c); emit({ kind: 'chat' }); }
+  if (fbActive(p)) return localSend(p, text, images, !!opts.qids);
   const chat = readJson(chatFile(p), { session: null, messages: [] });
-  chat.messages.push(Object.assign({ role: 'user', text, images: (images || []).length, t: Date.now() }, to ? { to } : {})); writeJson(chatFile(p), chat);
+  if (!opts.qids) { chat.messages.push(Object.assign({ role: 'user', text, images: (images || []).length, t: Date.now() }, to ? { to } : {}, opts.voice ? { via: 'voice' } : {})); writeJson(chatFile(p), chat); }
   // First message to the lead after a limit break: point him to the hand-off note (the owner does not see this line).
   let hint = ''; if (fb.hint) { hint = `[Служебная пометка программы «Моя команда»: прошлая работа оборвалась из-за лимита подписки ${rescue.human(fb.since)}. Программа сохранила состояние и записала, на чём остановились, в файл ${fb.note}. Прочитай его перед продолжением.]\n\n`; writeJson(fbFile(p), { active: false }); emit({ kind: 'fallback', fallback: fbView(p) }); }
   const args = ['-p', '--input-format', 'stream-json', '--output-format', 'stream-json', '--verbose', '--permission-prompts', 'host', '--permission-prompt-tool', 'stdio', '--append-system-prompt', APP_PROMPT];
@@ -156,7 +161,8 @@ function chatSend(p, text, images, to) {
   child.stderr.on('data', d => { errText += d; });
   child.on('close', finish); child.on('error', e => { errText += String(e); finish(); });
   const toNote = to ? `[Ринат пишет специалисту «${to}» в вашем с ним общем чате. Передай специалисту это сообщение дословно (через SendMessage, если он ещё на связи, иначе новым запуском с нужными сведениями), дождись его ответа и коротко сообщи Ринату результат.]\n\n` : '';
-  const content = [{ type: 'text', text: hint + toNote + (text || 'Посмотри приложенные картинки.') }];
+  const voiceNote = opts.voice ? '[Ринат говорит с тобой голосом. Программа прочитает твой ответ ему вслух, поэтому отвечай коротко и разговорно, а пути к файлам и картинкам пиши отдельной последней строкой.]\n\n' : '';
+  const content = [{ type: 'text', text: hint + toNote + voiceNote + (text || 'Посмотри приложенные картинки.') }];
   for (const im of images || []) content.push({ type: 'image', source: { type: 'base64', media_type: im.media_type, data: im.data } });
   child.stdin.write(JSON.stringify({ type: 'user', message: { role: 'user', content } }) + '\n');
   return { ok: true };
@@ -227,9 +233,9 @@ async function rescueRun(p, cur, opts = {}) {
   localJob = null; current = null; emit({ kind: 'fallback', fallback: fbView(p) }); emit({ kind: 'status', running: false });
   return rep;
 }
-function localSend(p, text, images) {
+function localSend(p, text, images, shown) {
   const chat = readJson(chatFile(p), { session: null, messages: [] });
-  chat.messages.push({ role: 'user', text, images: (images || []).length, t: Date.now() }); writeJson(chatFile(p), chat);
+  if (!shown) { chat.messages.push({ role: 'user', text, images: (images || []).length, t: Date.now() }); writeJson(chatFile(p), chat); }
   const fb = readJson(fbFile(p), {}); let note = ''; try { note = fs.readFileSync(fb.note, 'utf8'); } catch { }
   const msgs = rescue.chatContext(p, chat.messages, note);
   if ((images || []).length) msgs[msgs.length - 1].content += '\n\n(К сообщению приложены картинки, но локальная нейросеть их не видит.)';
@@ -262,7 +268,16 @@ function teamView(p) { const t = readJson(teamFile(p), { names: {}, threads: {} 
   return { agents: roster(p).map(a => { const th = t.threads[a.id] || []; return Object.assign({ n: th.length, last: th.length ? th[th.length - 1].t : 0, busy: work.includes(a.id) }, a); }), queue: queue.length }; }
 function teamSend(p, id, text) { if (!roster(p).some(a => a.id === id)) return { error: 'Такого специалиста в команде нет.' }; if (!text) return { error: 'Пустое сообщение.' };
   teamPush(p, id, { from: 'user', text }); if (busy() || fbActive(p)) { queue.push({ pid: p.id, id, text }); return { ok: true, queued: true }; } return chatSend(p, text, [], id); }
-setInterval(() => { if (!queue.length || busy()) return; const q = queue[0], p = proj(q.pid); if (fbActive(p)) return; queue.shift(); chatSend(p, q.text, [], q.id); }, 4000);
+// The owner's messages to the lead written while he is busy: shown in the chat as waiting, sent together when he is free.
+function chatEnqueue(p, text, images, voiceFlag) {
+  const qid = 'q' + Date.now() + Math.random().toString(36).slice(2, 6), c = readJson(chatFile(p), { session: null, messages: [] });
+  c.messages.push(Object.assign({ role: 'user', text, images: (images || []).length, t: Date.now(), queued: true, qid }, voiceFlag ? { via: 'voice' } : {})); writeJson(chatFile(p), c);
+  queue.push({ pid: p.id, main: true, qid, text, images: images || [], voice: !!voiceFlag }); emit({ kind: 'chat' }); return { ok: true, queued: true };
+}
+setInterval(() => { if (!queue.length || busy()) return; const q = queue[0], p = proj(q.pid);
+  if (q.main) { const batch = []; while (queue.length && queue[0].main && queue[0].pid === q.pid) batch.push(queue.shift());
+    chatSend(p, batch.map(b => b.text).filter(Boolean).join('\n\n'), [].concat(...batch.map(b => b.images)), null, { qids: batch.map(b => b.qid), voice: batch.some(b => b.voice) }); return; }
+  if (fbActive(p)) return; queue.shift(); chatSend(p, q.text, [], q.id); }, 4000);
 // Pictures the lead mentions in the chat are shown from these folders only.
 const IMG_EXT = ['.png', '.jpg', '.jpeg', '.webp', '.gif'];
 const picAllowed = (p, f) => IMG_EXT.includes(path.extname(f).toLowerCase()) && [p.teamRoot, p.gameRoot && path.dirname(p.gameRoot)].some(r => r && inside(r, f));
@@ -318,7 +333,9 @@ http.createServer(async (req, res) => {
     // Check of the rescue without a real limit break: POST { noModel, noFallback, minutes }.
     if (u.pathname === '/api/rescue/test' && req.method === 'POST') { if (busy()) return send(res, 200, { error: 'занято' }); const b = await body(req);
       return send(res, 200, await rescueRun(p, { lead: 'Проверка сохранения (обрыва не было)', started: Date.now() - 60000, agents: {}, limitHit: { until: Date.now() + (b.minutes || 2) * 60000 } }, b)); }
-    if (u.pathname === '/api/chat/send' && req.method === 'POST') { const b = await body(req); return send(res, 200, chatSend(p, String(b.text || ''), b.images)); }
+    if (u.pathname === '/api/chat/send' && req.method === 'POST') { const b = await body(req), text = String(b.text || ''), voiceFlag = b.via === 'voice';
+      if (!text.trim() && !(b.images || []).length) return send(res, 200, { error: 'Пустое сообщение.' });
+      return send(res, 200, busy() || queue.some(x => x.main && x.pid === p.id) ? chatEnqueue(p, text, b.images, voiceFlag) : chatSend(p, text, b.images, null, { voice: voiceFlag })); }
     if (u.pathname === '/api/chat/permit' && req.method === 'POST') { const b = await body(req); return send(res, 200, chatPermit(b.id, !!b.allow)); }
     if (u.pathname === '/api/chat/stop' && req.method === 'POST') return send(res, 200, chatStop());
     if (u.pathname === '/api/chat/new' && req.method === 'POST') { if (busy()) return send(res, 200, { error: 'Сначала дождитесь ответа или остановите работу.' }); const c = readJson(chatFile(p), { messages: [] }); c.session = null; c.messages.push({ role: 'note', text: 'Начат новый разговор: руководитель начнёт с чистого листа и прочитает память команды.', t: Date.now() }); writeJson(chatFile(p), c); return send(res, 200, { ok: true }); }

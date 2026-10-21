@@ -1,0 +1,22 @@
+{
+ "ok": true,
+ "out": "E:\\game-dev-team\\assets\\pda_restyle_2010\\_work\\plate_map.png",
+ "bytes": 1394858,
+ "model": "gpt-image-2.5-flare",
+ "size": "1024x1024",
+ "quality": "high",
+ "costUsd": 0.05335,
+ "usage": {
+  "input_tokens": 134,
+  "input_tokens_details": {
+   "image_tokens": 0,
+   "text_tokens": 134
+  },
+  "output_tokens": 1756,
+  "output_tokens_details": {
+   "image_tokens": 1756,
+   "text_tokens": 0
+  },
+  "total_tokens": 1890
+ }
+}

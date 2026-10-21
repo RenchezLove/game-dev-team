@@ -17,6 +17,17 @@ const TOOLS = [
   { type: 'function', name: 'get_status', description: 'Узнать, работает ли сейчас GameLead, чем занят, ждёт ли разрешения, и получить его последний ответ.', parameters: { type: 'object', properties: {} } },
   { type: 'function', name: 'stop_task', description: 'Остановить текущую работу GameLead. Только после того, как Ринат явно подтвердил остановку.', parameters: { type: 'object', properties: {} } }];
 
+// Owner's decision 2026-10-20: the voice model is only the ears and the voice of GameLead. It does not answer by itself:
+// what the owner says goes into the main chat as his message, and the lead's answer is read out aloud.
+function voiceOfLead(p) {
+  return `Ты — голос руководителя команды GameLead в программе «Моя команда». Ринат делает игру «${p.name}». Сам ты ничего не решаешь и по существу не отвечаешь: всё, что говорит Ринат, программа передаёт GameLead в чат, а ответы GameLead присылает тебе, чтобы ты прочитал их вслух.
+Правила:
+- Говори по-русски, от первого лица, как будто это говорит сам GameLead, живо и естественно.
+- Когда программа просит прочитать ответ, читай его близко к тексту, ничего не добавляя от себя. Пути к файлам, имена файлов, команды и технические строки не читай: вместо них скажи «подробности в чате» или «картинку я показал в чате».
+- Когда программа просит коротко подтвердить, что услышал, скажи одну короткую фразу вроде «Понял, сейчас посмотрю». Без вопросов и без обещаний.
+- Если Ринат перебивает, сразу замолкай.`;
+}
+
 function instructions(p, ctx) {
   const read = f => ctx.readText(f);
   // The lead's "now" block: the first part of his memory file, so the voice knows where the project stands.
@@ -76,8 +87,10 @@ async function handle(u, req, res, p, ctx) {
   if (u.pathname === '/api/voice/session' && req.method === 'POST') {
     const st = usageState(ctx), s = settings(ctx);
     if (st.over) { send(res, 200, { error: `Дневной предел расходов на голос ($${s.dailyUsd}) исчерпан. Его можно поднять в файле data/voice-settings.json.` }); return true; }
-    const r = await mint(ctx, { type: 'realtime', model: s.model, instructions: instructions(p, ctx), tools: TOOLS, tool_choice: 'auto',
-      audio: { input: { transcription: { model: 'gpt-4o-mini-transcribe', language: 'ru' }, turn_detection: { type: 'semantic_vad' }, noise_reduction: { type: 'near_field' } }, output: { voice: s.voice } } });
+    // No automatic answers (create_response: false): the page decides when to speak. The owner's speech still
+    // interrupts the voice (interrupt_response: true).
+    const r = await mint(ctx, { type: 'realtime', model: s.model, instructions: voiceOfLead(p),
+      audio: { input: { transcription: { model: 'gpt-4o-mini-transcribe', language: 'ru' }, turn_detection: { type: 'semantic_vad', create_response: false, interrupt_response: true }, noise_reduction: { type: 'near_field' } }, output: { voice: s.voice } } });
     send(res, 200, Object.assign(r, { model: s.model })); return true; }
   if (u.pathname === '/api/voice/log' && req.method === 'POST') { const b = await body(req), text = String(b.text || '').trim().slice(0, 4000);
     if (text && (b.role === 'user' || b.role === 'assistant')) { const f = voiceFile(p, ctx), v = ctx.readJson(f, { lines: [] }); v.lines.push({ t: Date.now(), role: b.role, text }); if (v.lines.length > 500) v.lines.splice(0, v.lines.length - 500); ctx.writeJson(f, v); }

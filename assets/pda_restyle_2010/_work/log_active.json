@@ -1,0 +1,22 @@
+{
+ "ok": true,
+ "out": "E:\\game-dev-team\\assets\\pda_restyle_2010\\_work\\plate_active.png",
+ "bytes": 1394147,
+ "model": "gpt-image-2.5-flare",
+ "size": "1536x1024",
+ "quality": "high",
+ "costUsd": 0.042015,
+ "usage": {
+  "input_tokens": 171,
+  "input_tokens_details": {
+   "image_tokens": 0,
+   "text_tokens": 171
+  },
+  "output_tokens": 1372,
+  "output_tokens_details": {
+   "image_tokens": 1372,
+   "text_tokens": 0
+  },
+  "total_tokens": 1543
+ }
+}

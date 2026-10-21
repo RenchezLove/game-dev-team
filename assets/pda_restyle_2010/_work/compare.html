@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box}body{margin:0;background:#0b1114;color:#cfdade;font:15px "Segoe UI",Arial,sans-serif;width:1800px;padding:24px 32px}
+h2{font-size:20px;margin:6px 0 12px;color:#e8eef0;border-bottom:1px solid #24414a;padding-bottom:6px}
+.row{display:flex;gap:28px;align-items:flex-start;margin-bottom:22px}
+.col{display:flex;flex-direction:column;gap:12px}
+.cap{font-size:13px;color:#8fb3ba}
+.panel{background:#080d11;padding:18px;border:1px solid #1d2c33}
+.btn{position:relative;width:408px;height:117px;background:url(../T_PdaBtnPlate.png) center/100% 100% no-repeat;display:flex;align-items:center}
+.btn.act{background-image:url(../T_PdaBtnPlateActive.png)}
+.btn img{width:78px;height:78px;margin-left:36px}
+.btn span{font:700 38px "Segoe UI",Arial;color:#f2f5f6;margin-left:44px;text-shadow:0 2px 3px #000}
+.mb{width:106px;height:106px;background:url(../T_PdaMapBtnPlate.png) center/100% 100%;display:flex;align-items:center;justify-content:center;font:700 48px "Segoe UI";color:#5ff0f3}
+.mb.t{font-size:18px;color:#e8eef0;text-align:center;line-height:1.15}
+.ref img{display:block}
+.chk{background-color:#2a2f33;background-image:linear-gradient(45deg,#3a4045 25%,transparent 25%,transparent 75%,#3a4045 75%),linear-gradient(45deg,#3a4045 25%,transparent 25%,transparent 75%,#3a4045 75%);background-size:20px 20px;background-position:0 0,10px 10px;padding:8px;display:inline-block}
+.hdr{display:flex;align-items:flex-end;gap:10px;width:408px;border-bottom:3px solid #6c7a80;padding-bottom:8px}
+.hdr b{font:700 40px "Segoe UI";color:#eef2f3;flex:1}
+.ns{border-style:solid;border-image-source:url(../T_PdaBtnPlate.png);border-image-slice:64 fill;border-width:26px;border-image-width:26px}
+.ns.a{border-image-source:url(../T_PdaBtnPlateActive.png)}
+.ns2{border-style:solid;border-image-source:url(../T_PdaMapBtnPlate.png);border-image-slice:32 fill;border-width:14px}
+</style></head><body>
+<h2>Лист сравнения: слева вырезки из образца Рината, справа новые картинки, собранные так же (текст наложен вёрсткой, в картинках его нет). Черновик на отбор.</h2>
+<div class="row">
+ <div class="col panel ref"><div class="cap">ОБРАЗЕЦ</div>
+  <img src="ref_header.png" width="430"><img src="ref_btn_quests.png"><img src="ref_btn_map.png"><img src="ref_btn_close.png">
+ </div>
+ <div class="col panel"><div class="cap">НОВОЕ</div>
+  <div class="hdr"><b>Смартфон</b><img src="../T_PdaIcon_Signal.png" width="34"><img src="../T_PdaIcon_Battery.png" width="44"></div>
+  <div class="btn"><img src="../T_PdaIcon_Quests.png"><span>Задания</span></div>
+  <div class="btn act"><img src="../T_PdaIcon_Map.png"><span>Карта</span></div>
+  <div class="btn"><img src="../T_PdaIcon_Back.png" style="width:66px;height:66px;margin-left:42px"><span>Закрыть</span></div>
+ </div>
+ <div class="col panel ref"><div class="cap">ОБРАЗЕЦ</div><img src="ref_mb_plus.png"><img src="ref_mb_minus.png"><img src="ref_mb_pos.png"></div>
+ <div class="col panel"><div class="cap">НОВОЕ</div><div class="mb">+</div><div class="mb">&minus;</div><div class="mb t">Моя<br>позиция</div></div>
+ <div class="col panel"><div class="cap">Растяжка «девятью кусками» (поля 64 px у плашки кнопки, 32 px у плашки карты)</div>
+  <div class="ns" style="width:380px;height:80px"></div>
+  <div class="ns a" style="width:300px;height:96px"></div>
+  <div class="ns" style="width:200px;height:64px"></div>
+  <div style="display:flex;gap:12px"><div class="ns2" style="width:160px;height:70px"></div><div class="ns2" style="width:70px;height:110px"></div></div>
+ </div>
+</div>
+<h2>Сами файлы на клетчатом фоне (клетка видна там, где картинка прозрачная)</h2>
+<div class="row">
+ <div class="col"><div class="chk"><img src="../T_PdaBtnPlate.png" width="524"></div><div class="cap">T_PdaBtnPlate.png — 1048×288</div></div>
+ <div class="col"><div class="chk"><img src="../T_PdaBtnPlateActive.png" width="524"></div><div class="cap">T_PdaBtnPlateActive.png — 1048×288</div></div>
+ <div class="col"><div class="chk"><img src="../T_PdaMapBtnPlate.png" width="144"></div><div class="cap">T_PdaMapBtnPlate.png — 256×256</div></div>
+</div>
+<div class="row">
+ <div class="col"><div class="chk"><img src="../T_PdaIcon_Quests.png" width="128"></div><div class="cap">T_PdaIcon_Quests</div></div>
+ <div class="col"><div class="chk"><img src="../T_PdaIcon_Map.png" width="128"></div><div class="cap">T_PdaIcon_Map</div></div>
+ <div class="col"><div class="chk"><img src="../T_PdaIcon_Back.png" width="128"></div><div class="cap">T_PdaIcon_Back</div></div>
+ <div class="col"><div class="chk"><img src="../T_PdaIcon_Signal.png" width="128"></div><div class="cap">T_PdaIcon_Signal</div></div>
+ <div class="col"><div class="chk"><img src="../T_PdaIcon_Battery.png" width="128"></div><div class="cap">T_PdaIcon_Battery</div></div>
+ <div class="col"><div class="cap">Все значки 256×256. В образце: </div><div style="display:flex;gap:10px;background:#080d11;padding:10px"><img src="ref_ic_quests.png"><img src="ref_ic_map.png"><img src="ref_ic_back.png"><img src="ref_ic_signal.png"><img src="ref_ic_batt.png"></div></div>
+</div>
+</body></html>

@@ -1,0 +1,22 @@
+{
+ "ok": true,
+ "out": "E:\\game-dev-team\\assets\\pda_restyle_2010\\_work\\icons_final.png",
+ "bytes": 1632216,
+ "model": "gpt-image-2.5-flare",
+ "size": "1536x1024",
+ "quality": "high",
+ "costUsd": 0.04237,
+ "usage": {
+  "input_tokens": 242,
+  "input_tokens_details": {
+   "image_tokens": 0,
+   "text_tokens": 242
+  },
+  "output_tokens": 1372,
+  "output_tokens_details": {
+   "image_tokens": 1372,
+   "text_tokens": 0
+  },
+  "total_tokens": 1614
+ }
+}

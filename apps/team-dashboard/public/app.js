@@ -77,19 +77,22 @@ const IMG_RE = /(?:[A-Za-z]:[\\/])[^\s"'<>|*?`()\[\]]+\.(?:png|jpe?g|webp|gif)/g
 function pics(text) { const seen = new Set(); return [...String(text || '').matchAll(IMG_RE)].map(m => m[0]).filter(f => !seen.has(f.toLowerCase()) && seen.add(f.toLowerCase())).slice(0, 12)
   .map(f => `<img class="cpic" loading="lazy" src="/api/file?project=${encodeURIComponent(S.project)}&path=${encodeURIComponent(f)}" title="${esc(f)}" onerror="this.remove()">`).join(''); }
 document.addEventListener('click', e => { if (e.target.classList && e.target.classList.contains('cpic')) { modal(`<img class="bigpic" src="${e.target.src}"><div class="acts"><div class="btn s g" id="mNo">Закрыть</div></div>`); $('#modalBody').style.width = 'auto'; } });
-function bubble(m) { const who = { user: m.to ? 'Вы → специалисту ' + (ROLE[m.to] || m.to) : 'Вы', lead: 'Руководитель', local: 'Локальная нейросеть (резерв)', error: 'Ошибка' }[m.role]; return `<div class="m ${m.role}">${who ? `<small>${esc(who)}${m.t ? ' · ' + time(m.t) : ''}${m.images ? ' · картинок: ' + m.images : ''}</small>` : ''}${esc(m.text)}${m.role === 'lead' ? pics(m.text) : ''}</div>`; }
+function bubble(m) { const who = { user: m.to ? 'Вы → специалисту ' + (ROLE[m.to] || m.to) : 'Вы', lead: 'Руководитель', local: 'Локальная нейросеть (резерв)', error: 'Ошибка' }[m.role]; return `<div class="m ${m.role}">${who ? `<small>${esc(who)}${m.t ? ' · ' + time(m.t) : ''}${m.images ? ' · картинок: ' + m.images : ''}${m.via === 'voice' ? ' · голосом' : ''}${m.queued ? ' · ждёт, пока руководитель освободится' : ''}</small>` : ''}${esc(m.text)}${m.role === 'lead' ? pics(m.text) : ''}</div>`; }
 async function loadChat() { const h = await api('/api/chat/history'); S.msgs = h.messages; S.running = h.running; S.current = h.current; S.fallback = h.fallback; drawChat(); }
 function drawChat() { const c = $('#chat'); c.classList.toggle('hidden', !S.msgs.length && !S.running);
   c.innerHTML = S.msgs.map(bubble).join('') + (S.fallback && S.fallback.active ? `<div class="m fb">Лимит подписки исчерпан до ${time(S.fallback.until)}. Сейчас отвечает локальная нейросеть: она ничего не меняет в проекте. <span class="btn s" id="fbOff">Вернуться к руководителю сейчас</span></div>` : '')
     + (S.running ? `<div class="m ${S.current && S.current.local ? 'local' : 'lead'} live"><small>${S.current && S.current.local ? esc(S.current.title || 'Локальная нейросеть отвечает…') : 'Руководитель работает…'}</small>${esc(S.live) || '<span class="dim">' + esc((S.current && S.current.lead) || '') + '</span>'}${pics(S.live)}</div>` : '');
-  c.scrollTop = c.scrollHeight; $('#sendBtn').classList.toggle('hidden', S.running); $('#stopBtn').classList.toggle('hidden', !S.running); drawPerm();
+  c.scrollTop = c.scrollHeight; $('#stopBtn').classList.toggle('hidden', !S.running); drawPerm();
   const off = $('#fbOff'); if (off) off.onclick = async () => { await api('/api/chat/fallback-off', {}); loadChat(); }; }
 function drawPerm() { const p = (S.current && S.current.pending) || {};
   $('#perm').innerHTML = Object.values(p).map(r => `<div class="permit"><b>Руководитель просит разрешение: ${esc(r.tool)}</b><pre>${esc(JSON.stringify(r.input, null, 1).slice(0, 1200))}</pre><span class="btn s" data-ok="${esc(r.id)}">Разрешить</span><span class="btn s bad" data-no="${esc(r.id)}">Отклонить</span></div>`).join('');
   $$('[data-ok]').forEach(b => b.onclick = () => api('/api/chat/permit', { id: b.dataset.ok, allow: true })); $$('[data-no]').forEach(b => b.onclick = () => api('/api/chat/permit', { id: b.dataset.no, allow: false })); }
-async function sendMsg(preset) { const text = (preset || $('#msg').value).trim(); if (!text && !S.images.length) return; if (S.running) return alertBox('Прошлое сообщение ещё в работе. Дождитесь ответа или нажмите «Остановить».');
+// While the lead is busy the server keeps the message in a queue and hands it over when he is free.
+async function sendMsg(preset) { const text = (preset || $('#msg').value).trim(); if (!text && !S.images.length) return;
   const r = await api('/api/chat/send', { text, images: S.images.map(i => ({ media_type: i.type, data: i.data })) }); if (r.error) return alertBox(r.error);
-  S.msgs.push({ role: 'user', text, images: S.images.length, t: Date.now() }); S.images = []; drawThumbs(); $('#msg').value = ''; S.live = ''; S.running = true; show('home'); drawChat(); }
+  S.images = []; drawThumbs(); $('#msg').value = ''; show('home');
+  if (r.queued) return loadChat();
+  S.msgs.push({ role: 'user', text, images: r.images || 0, t: Date.now() }); S.live = ''; S.running = true; drawChat(); }
 $('#sendBtn').onclick = () => sendMsg(); $('#stopBtn').onclick = () => api('/api/chat/stop', {});
 $('#newChat').onclick = async () => { const r = await api('/api/chat/new', {}); if (r.error) return alertBox(r.error); loadChat(); };
 // Enter sends, Shift+Enter makes a new line.
@@ -100,7 +103,8 @@ document.addEventListener('paste', e => { for (const it of e.clipboardData.items
 const card = $('#chatCard'); card.ondragover = e => { e.preventDefault(); $('#msg').classList.add('drop'); }; card.ondragleave = () => $('#msg').classList.remove('drop');
 card.ondrop = e => { e.preventDefault(); $('#msg').classList.remove('drop'); for (const f of e.dataTransfer.files) addImage(f); };
 function listen() { const es = new EventSource('/api/chat/events'); es.onmessage = m => { const e = JSON.parse(m.data);
-  if (e.kind === 'status') { const was = S.running; S.running = e.running; S.current = e.current || null; if (was && !e.running) { loadChat(); loadTasks(); loadOverview(); } else drawChat(); drawHome(); }
+  if (e.kind === 'chat') { clearTimeout(S.chatTimer); S.chatTimer = setTimeout(loadChat, 200); }
+  if (e.kind === 'status') { const was = S.running; if (!was && e.running) S.live = ''; S.running = e.running; S.current = e.current || null; if (was && !e.running) { loadChat(); loadTasks(); loadOverview(); } else drawChat(); drawHome(); }
   if (e.kind === 'text') { S.live += (S.live ? '\n\n' : '') + e.text; drawChat(); }
   if (e.kind === 'delta') { S.live += e.text; drawChat(); }
   if (e.kind === 'fallback') { S.fallback = e.fallback; drawChat(); }
